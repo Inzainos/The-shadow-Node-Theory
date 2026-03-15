@@ -1,0 +1,5 @@
+caso,mecanismo,exponente_b,r2,tipo_trigger,fuente_datos
+Brujas → Amberes,"Colapso Canal Zwin, 1490",0.739009172646987,0.8683994339132652,Abrupto,Poblacion historica
+Toledo → Madrid,"Decreto político, 1561",0.6944275468001483,0.9238829355243858,Abrupto,Poblacion historica
+Portugal → NW Europa,"Unión Ibérica, 1580",0.06016646400873414,0.12294951387142261,Gradual,Maddison 2023 GDP pc
+Tlaxcala → Puebla,"Ventaja acumulada, 1535",0.1841850319305978,0.5672065956623936,Gradual,Maddison 2023 GDP pc calibrado INEGI
