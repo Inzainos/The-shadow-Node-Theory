@@ -1,0 +1,58 @@
+caso_id,descripcion,dominio,mecanismo,trigger_año,tipo_trigger,a,b,r2,r_pearson,p_value,tipo,n_puntos
+A01_Brujas_Amberes,Brujas → Amberes (1300-1560),A,Colapso infraestructura (Canal Zwin),1490,abrupto,25.5162,-0.8568,-0.317,-0.5507,0.2575,Leapfrog / Convergencia rapida,6
+A02_Toledo_Madrid,Toledo → Madrid (1528-1787),A,Decreto politico (traslado de corte 1561),1561,abrupto,0.0954,0.7041,0.3642,0.6926,0.127257,Satelizacion acelerada,6
+A03_Venecia_Amsterdam,Venecia → Amsterdam (1400-1650),A,Ruta del Cabo desplaza comercio Mediterraneo (1497),1497,abrupto,0.1355,0.3409,0.1036,0.4517,0.368583,Satelizacion gradual,6
+A04_Genova_Amsterdam,Génova → Amsterdam (1550-1700),A,Desplazamiento rutas comerciales atlanticas,1585,hibrido,0.0571,0.882,0.8441,0.7888,0.062194,Satelizacion acelerada,6
+A05_Lubeck_Hamburgo,Lübeck → Hamburgo (1500-1800),A,Decadencia Liga Hanseatica (1630),1630,hibrido,0.1721,0.5775,0.1529,0.444,0.318282,Satelizacion acelerada,7
+A06_York_Londres,York → Londres (1300-1700),A,Centralizacion Tudor (1485) + comercio atlantico,1485,hibrido,0.6047,0.6898,0.0758,0.5051,0.306795,Satelizacion acelerada,6
+A07_Lyon_Paris,Lyon → París (1500-1800),A,Centralizacion Bourbon + mercantilismo (1680),1680,gradual,22.7536,-0.3442,0.7462,-0.8373,0.037563,Leapfrog / Convergencia rapida,6
+A08_Cracovia_Varsovia,Cracovia → Varsovia (1550-1850),A,Traslado capitalidad polaca (1596),1596,abrupto,0.0998,0.5664,0.8188,0.8583,0.013439,Satelizacion acelerada,7
+A09_Cordoba_Madrid,Córdoba → Madrid (1200-1600),A,Reconquista (1236) + centralizacion castellana,1236,hibrido,0.0001,1.8614,0.919,0.9712,0.001231,Satelizacion acelerada,6
+A10_Filadelfia_NuevaYork,Filadelfia → Nueva York (1750-1900),A,Ventaja portuaria + Canal Erie (1825),1825,gradual,3.0137,-0.1454,-0.0239,-0.2475,0.636316,Convergencia gradual,6
+A11_Kioto_Tokio,Kioto → Tokio/Edo (1600-1950),A,Restauracion Meiji (1868) + industrializacion,1868,abrupto,2.8806,-0.0536,-0.0942,-0.1644,0.755656,Estado estacionario,6
+A12_Nankin_Pekin,Nankín → Pekín (1368-1600),A,Traslado capital Ming (1421),1421,abrupto,0.3767,0.3144,0.4411,0.6474,0.164605,Satelizacion gradual,6
+A13_Sevilla_Cadiz,Sevilla → Cádiz (1503-1778),A,Monopolio comercial colonial transferido (1717),1717,abrupto,7.4662,-0.7285,0.1025,-0.7829,0.065572,Leapfrog / Convergencia rapida,6
+A14_Lima_BuenosAires,Lima → Buenos Aires (1780-1900),A,Independencias + libre comercio atlantico (1810),1810,hibrido,0.4902,0.304,0.2665,0.6313,0.253383,Satelizacion gradual,5
+A15_Alejandria_ElCairo,Alejandría → El Cairo (600-1200),A,Conquista arabe y traslado de centro (642),642,abrupto,0.0005,1.6189,0.9629,0.9824,0.00046,Satelizacion acelerada,6
+B01_Portugal_NWEuropa,Portugal → NW Europa (1535-1980),B,Union Iberica (1580) + ventaja acumulada,1580,hibrido,0.4641,0.2905,0.5503,0.8105,0.004454,Satelizacion gradual,10
+B02_Espana_PaisesBajos,España → Países Bajos (1550-1820),B,Independencia holandesa + comercio global (1581),1581,abrupto,0.9967,0.138,0.1674,0.3914,0.385179,Satelizacion gradual,7
+B03_Argentina_EEUU,Argentina → Estados Unidos (1870-2020),B,Divergencia institucional post-1930,1930,hibrido,1.208,0.2161,0.3654,0.6283,0.095243,Satelizacion gradual,8
+B04_AlemaniaE_AlemaniaO,Alemania Oriental → Occidental (1950-2020),B,Division (1945) → Reunion (1990) → Convergencia,1945,hibrido,2.3666,-0.0842,0.089,-0.3636,0.375949,Estado estacionario,8
+B05_CoreaSur_Japon,Corea del Sur → Japón (1960-2020) — Convergencia,B,Industrializacion dirigida chaebol (1962),1962,gradual,9.0221,-0.4563,0.3968,-0.8398,0.018059,Leapfrog / Convergencia rapida,7
+B06_Irlanda_ReinoUnido,Irlanda → Reino Unido (1960-2020) — Leapfrog,B,Politica fiscal tech + UE (1987),1987,hibrido,2.2139,-0.2216,-0.0081,-0.3678,0.416993,Convergencia gradual,7
+B07_Estonia_Finlandia,Estonia → Finlandia (1991-2020) — Leapfrog,B,Independencia + digitalizacion e-Estonia (1991),1991,hibrido,3.6357,-0.1441,0.3067,-0.6576,0.108428,Convergencia gradual,7
+B08_Singapur_Malasia,Singapur vs Malasia (1965-2020) — Leapfrog,B,Separacion + industrializacion dirigida (1965),1965,abrupto,0.4516,-0.1195,0.4623,-0.7004,0.079671,Convergencia gradual,7
+B09_Rwanda_RDCongo,Rwanda → R.D. Congo (1994-2020) — Convergencia,B,Genocidio→reconstruccion + Vision 2020 (1994),1994,abrupto,1.1672,-0.2552,0.9881,-0.9866,0.00027,Convergencia gradual,6
+B10_Polonia_Alemania,Polonia → Alemania (1990-2020) — Convergencia,B,Adhesion UE + reformas (2004),2004,gradual,2.1608,-0.0001,-0.0237,-0.0002,0.999701,Estado estacionario,7
+B11_India_China,India vs China (1978-2020) — Divergencia,B,Reformas Deng (1978) vs reformas India (1991),1978,hibrido,1.2595,0.1572,0.8382,0.927,0.00266,Satelizacion gradual,7
+B12_Brasil_EEUU,Brasil → EEUU (1870-2020) — Divergencia persistente,B,Acumulacion de ventaja + instituciones extractivas,1900,gradual,4.8702,-0.01,0.0013,-0.0886,0.834748,Estado estacionario,8
+B13_Taiwan_Japon,Taiwán → Japón (1950-2020) — Convergencia,B,Reforma agraria + industrializacion (1950),1960,gradual,3.6454,-0.3054,0.2987,-0.7763,0.023501,Leapfrog / Convergencia rapida,8
+B14_Ghana_Nigeria,Ghana vs Nigeria (1960-2020),B,Independencias + politicas divergentes (1960),1960,gradual,0.8335,0.1491,0.6811,0.8626,0.012472,Satelizacion gradual,7
+B15_Etiopia_Kenia,Etiopía → Kenia (2000-2020) — Convergencia parcial,B,Industrializacion dirigida Etiopia (2000),2000,gradual,3.7538,-0.1517,0.7701,-0.8804,0.048771,Convergencia gradual,5
+C01_Tlaxcala_CDMX,Tlaxcala → CDMX (1940-2022),C,Cedula Real 1535 + ferrocarril 1873 + industrializacion,1940,gradual,0.9104,0.168,0.7058,0.8603,0.012977,Satelizacion gradual,7
+C02_Chiapas_CDMX,Chiapas → CDMX (1940-2022),C,Acumulacion colonial + falta infraestructura,1940,gradual,0.8584,0.2582,0.6871,0.8561,0.013948,Satelizacion gradual,7
+C03_Queretaro_CDMX,Querétaro → CDMX (1940-2022) — Leapfrog,C,Manufactura aeroespacial + automotriz (2000),1940,gradual,2.8174,-0.1402,0.8,-0.8884,0.007512,Convergencia gradual,7
+C04_NuevoLeon_CDMX,Nuevo León → CDMX (1940-2022) — Convergencia,C,Manufactura exportadora TLCAN (1994),1940,gradual,1.426,-0.055,0.7957,-0.8868,0.007781,Estado estacionario,7
+C05_Mezzogiorno_NorteItalia,Mezzogiorno → Norte Italia (1861-2020),C,Unificacion italiana asimetrica (1861),1861,abrupto,0.9223,0.128,0.7425,0.8691,0.005069,Satelizacion gradual,8
+C06_HautsFrance_IleFrance,Hauts-de-France → Île-de-France (1975-2020),C,Desindustrializacion acero/carbon (1975),1975,gradual,1.1672,0.0753,0.7529,0.868,0.024993,Estado estacionario,6
+C07_Appalachia_NoresteEUA,Appalachia → Noreste EUA (1950-2020),C,Desindustrializacion carbon/acero (1950),1950,gradual,1.8417,-0.0815,0.9315,-0.9677,8.2e-05,Estado estacionario,8
+C08_Mississippi_NuevaYork,Mississippi → Nueva York (1900-2020),C,Divergencia historica persistente,1900,gradual,3.338,-0.0906,0.1769,-0.5223,0.229106,Estado estacionario,7
+C09_Andalucia_Cataluna,Andalucía → Cataluña (1850-2020),C,Industrializacion diferencial + centralismo,1850,gradual,1.2191,0.0928,0.6434,0.8384,0.018432,Estado estacionario,7
+C10_Gales_Londres,Gales → Londres (1850-2020),C,Desindustrializacion minera (1984),1984,abrupto,1.7246,-0.0262,0.0199,-0.2245,0.593017,Estado estacionario,8
+C11_Gansu_Guangdong,Gansu → Guangdong (1978-2020),C,Reformas Deng + zonas economicas especiales (1978),1978,abrupto,1.338,0.2579,0.8578,0.9164,0.010203,Satelizacion gradual,6
+C12_OaxacaCDMX,Oaxaca → CDMX (1940-2022),C,Acumulacion colonial + falta inversion,1940,gradual,0.9053,0.2661,0.7118,0.8631,0.012358,Satelizacion gradual,7
+D01_HackerEarth_Elite_Basic,Usuarios Basic → Elite HackerEarth (2024-2026),D,Adopcion agente IA (2024),2024,abrupto,56.8107,2.5706,0.272,0.7776,0.121619,Satelizacion acelerada,5
+D02_Yahoo_Google,Yahoo → Google en busqueda (1998-2016),D,Algoritmo PageRank + AdWords (1998-2000),2000,abrupto,0.0038,2.9427,0.9471,0.9511,0.003535,Satelizacion acelerada,6
+D03_MySpace_Facebook,MySpace → Facebook (2004-2011),D,Red de colegios + News Feed algoritmo (2006),2006,abrupto,0.1911,2.6409,0.2285,0.8436,0.034793,Satelizacion acelerada,6
+D04_Nokia_Apple,Nokia → Apple/Android (2007-2015),D,iPhone (2007) + App Store (2008),2007,abrupto,0.0445,2.833,0.4669,0.9542,0.011703,Satelizacion acelerada,5
+D05_Blackberry_iPhone,Blackberry → iPhone (2007-2016),D,Touchscreen + App Store (2007-2008),2007,abrupto,0.1734,2.3588,0.2839,0.8988,0.038034,Satelizacion acelerada,5
+D06_Blockbuster_Netflix,Blockbuster → Netflix (1999-2010),D,Streaming (2007) + modelo suscripcion,2007,hibrido,4.0077,-2.6831,-0.4082,-0.6277,0.1821,Leapfrog / Convergencia rapida,6
+D07_Kodak_Digital,Kodak → Camaras digitales (1990-2012),D,Sensor digital masivo (2000) + smartphones (2007),2000,hibrido,0.1712,1.2662,-0.1804,0.3126,0.494809,Satelizacion acelerada,7
+D08_AOL_Google,AOL → Google/Redes Sociales (1997-2015),D,Busqueda + broadband + redes sociales (2000-2004),2001,gradual,0.1391,2.7764,0.3197,0.9375,0.018593,Satelizacion acelerada,5
+A16_Venecia_Genova,Génova → Venecia (1200-1400) — luego inversion,A,Cruzadas + comercio Oriente Medio,1204,abrupto,1.2243,-0.0271,0.2022,-0.4605,0.435132,Estado estacionario,5
+B16_Corea_Norte_Sur,Corea del Norte vs Sur (1945-1990),B,Division (1945) + sistema economico divergente,1945,abrupto,0.8732,0.3354,0.2643,0.6601,0.153682,Satelizacion gradual,6
+C13_Veracruz_CDMX,Veracruz → CDMX (1940-2022),C,Acumulacion diferencial + petroleo no transferido,1940,gradual,0.9943,0.1812,0.674,0.8377,0.018637,Satelizacion gradual,7
+C14_Guerrero_CDMX,Guerrero → CDMX (1940-2022),C,Aislamiento geografico + falta inversion,1940,gradual,0.9997,0.279,0.7024,0.8575,0.013616,Satelizacion gradual,7
+D09_Netscape_Chrome,Internet Explorer → Chrome (2008-2020),D,Chrome V8 engine + velocidad (2008),2008,abrupto,0.0131,2.6221,0.9563,0.9984,7.5e-05,Satelizacion acelerada,5
+B17_Vietnam_Tailandia,Vietnam → Tailandia (1986-2020) — Convergencia,B,Doi Moi reformas de mercado (1986),1986,abrupto,4.4789,-0.167,0.5715,-0.8047,0.029059,Convergencia gradual,7
+C15_Puebla_CDMX,Puebla → CDMX (1940-2022),C,Subordinacion historica + industria maquiladora,1940,gradual,1.1223,0.1523,0.7576,0.8763,0.009652,Satelizacion gradual,7
