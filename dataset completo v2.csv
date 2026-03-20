@@ -1,0 +1,8 @@
+nombre,descripcion,cluster,mecanismo,trigger,b,r2,p,sig,tipo,n,notas
+NY_Filadelfia,Nueva York vs Filadelfia (1790-1830),A — Abrupto,Consolidacion Federal 1790,1790,0.1818,0.8087,0.024996,*,Gradual,5,Filadelfia pre-1854 excluye vecindarios fuera del City Proper.
+SPb_Moscu,San Petersburgo vs Moscu (1725-1818),A — Abrupto,Fundacion ex nihilo / traslado capital Pedro el Grande 1703,1703,N/A,N/A,N/A,n.s.,Gradual,2,Moscu 1725-1750: ranking proxy. Moscu 1800-1818: estimaciones demograficas.
+Chicago_StLouis_v2,Chicago vs St. Louis (1848-1880) — Serie completa,B — Gradual,Canal Illinois-Michigan 1848 + hub ferroviario,1848,0.4396,0.899,0.028522,*,Gradual,4,Chicago supera a St. Louis definitivamente en 1880. Alcantarillado como modificador K.
+Edo_Kioto,Edo (Tokyo) vs Kioto (1650-1850),B — Gradual,Sistema Sankin Kotai 1635 — flujo forzado clase samurai,1650,0.2597,1.0,0.001947,**,Gradual,3,"Paridad inicial en 1650. Edo alcanza 1.2M en 1750, mayor ciudad del mundo."
+LA_SF,Los Angeles vs San Francisco (1900-1950),B — Gradual (con inflexion abrupta),Petroleo 1892 + cine + ferrocarril transcontinental,1900,0.5575,0.9345,0.000682,***,Abrupto,6,SF destruida por terremoto 1906 (outlier). LA supera a SF en 1920.
+Brujas_Amberes,Brujas vs Amberes (1490-1560),A — Abrupto,Sedimentacion Canal Zwin c.1490,1490,0.7869,0.9869,0.00304,**,Abrupto,6,Caso original SNT. b=0.739 con datos originales.
+Toledo_Madrid,Toledo vs Madrid (1528-1787),A — Abrupto,Decreto politico Felipe II 1561,1561,0.6865,0.8936,0.003477,**,Abrupto,5,Caso original SNT. b=0.694 con datos originales.
