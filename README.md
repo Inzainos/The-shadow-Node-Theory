@@ -1,17 +1,22 @@
-# Shadow Node Theory — Replication Package
+# Shadow Node Theory — Replication Package v2.0
 
-**Paper:** Shadow Node Theory: Invarianza de Escala en el Algoritmo de Satelizacion de Nodos  
+**Paper:** Shadow Node Theory v2.0: Scale Invariance in the Node Satellization Algorithm — Triple Resolution Model  
 **Author:** Elan Zainos Corona (Captain 1n2a1n05)  
 **Institution:** Fractal Core Research — Tlaxcala, Mexico  
-**Version:** Pre-print v1.0 — 2026  
-**SSRN:** [link pending after submission]  
-**Zenodo DOI:** [assigned after deposit]
+**Version:** Pre-print v2.0 — 2026  
+**SSRN:** https://ssrn.com/abstract=6418778  
+**Zenodo DOI v1.0:** https://doi.org/10.5281/zenodo.19027089
 
 -----
 
-## Overview
+## What’s New in v2.0
 
-This repository contains all data, code, and supplementary materials needed to reproduce the quantitative results reported in the paper. The Shadow Node Theory (SNT) postulates that when two power nodes orbit in critical proximity, the node with greater accumulated advantage satellizes the historical node through a predictable power-law algorithm. This repository documents the empirical verification of that hypothesis across five cases in three domains.
+The SNT v2.0 extends the binary model with three major contributions:
+
+1. **Triple Resolution Model** — formalizes satellization across three distinct scales: Micro (Atomic Node / individual), Meso (Fungal Network / intra-national), and Macro (superorganism collision between nations/corporations)
+1. **N-Body Matrix — Mexico** — empirical verification of the five-level taxonomy with INEGI 2022 data for all 32 Mexican states. Power law confirmed: b = -0.473, R² = 0.838, p < 0.001
+1. **Trajectory Vectorization** — eight Mexican states tracked 1940–2022. First documented cases of successful leapfrog within the national system: Querétaro (b = -0.155, p < 0.01) and Nuevo León (b = -0.058, p < 0.001)
+1. **Enterprise Domain Extension** — formal application of the model to corporate ecosystems. HackerEarth 2026 as prototype of the enterprise complex system
 
 -----
 
@@ -20,214 +25,153 @@ This repository contains all data, code, and supplementary materials needed to r
 ```
 shadow-node-theory/
 │
-├── README.md                          ← This file
-│
-├── data/
-│   ├── maddison_extracted.csv         ← GDP per capita series extracted from MPD 2023
-│   ├── shadow_node_resultados_v2.csv  ← Power law fit results by case
-│   ├── shadow_node_maddison_resumen.csv ← Summary table: exponents + R2 + taxonomy
-│   └── sources.md                     ← Data provenance and access instructions
+├── README.md                              ← This file
+├── requirements.txt                       ← Python dependencies
+├── sources.md                             ← Data provenance
 │
 ├── code/
-│   ├── shadow_node_verification_v2.py ← Main analysis script (power law fitting)
-│   ├── requirements.txt               ← Python dependencies
-│   └── notebooks/
-│       └── exploratory_analysis.md   ← Notes on data exploration
+│   ├── shadow_node_verification_v2.py     ← Original analysis (v1.0 cases)
+│   ├── snt_v2_vectorizacion.py            ← Trajectory vectorization (v2.0)
+│   └── matriz_mexico_ncuerpos.py          ← N-body matrix analysis
 │
-├── figures/
-│   ├── shadow_node_maddison_final.png ← Main 4-panel figure + taxonomy bar chart
-│   └── figure_caption.md             ← Caption for the main figure
+├── data/
+│   ├── shadow_node_maddison_resumen.csv   ← v1.0 results summary
+│   ├── shadow_node_resultados_v2.csv      ← v1.0 case results
+│   ├── matriz_mexico_32.csv               ← 32 states INEGI classification
+│   ├── snt_v2_vectores.csv                ← Trajectory vectors 8 states
+│   └── dataset_historico_ampliado.csv     ← Extended historical dataset (9 cases)
 │
-└── supplementary/
-    ├── protocolo_verificacion_v2.docx ← Verification protocol (Spanish)
-    └── marco_teorico_v08.docx         ← Full theoretical framework (Spanish)
+└── figures/
+    ├── shadow_node_maddison_final.png     ← Main figure v1.0 (4 cases + taxonomy)
+    ├── matriz_mexico_graficas.png         ← N-body matrix visualization
+    ├── snt_v2_vectorizacion.png           ← Trajectory vectorization panels
+    └── red_ncuerpos_mexico.png            ← Network visualization with extraction vectors
 ```
 
 -----
 
 ## Data Sources
 
-### 1. Maddison Project Database 2023 (Primary)
+### 1. Maddison Project Database 2023 (Primary — v1.0 and v2.0)
 
-**Citation:** Bolt, J. and van Zanden, J.L. (2024). Maddison Project Database 2023. Groningen Growth and Development Centre, University of Groningen.
+**Citation:** Bolt, J. and van Zanden, J.L. (2024). Maddison Project Database 2023. University of Groningen.  
+**Access:** https://www.rug.nl/ggdc/historicaldevelopment/maddison/  
+**License:** CC BY 4.0
 
-**Access:** https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2023
+### 2. INEGI — Sistema de Cuentas Nacionales de México (New in v2.0)
 
-**License:** Creative Commons Attribution 4.0 (CC BY 4.0)
+**Variables:** PIB per capita by state 2022, % of national GDP  
+**Access:** https://www.inegi.org.mx/temas/pib/  
+**Coverage:** 32 estados, 2022
 
-**Variables used:**
+### 3. Historical Demographic Data (v1.0)
 
-- `gdppc` — GDP per capita in international dollars, 2011 PPP
-- `pop` — Population in thousands
-- Countries: Mexico, Spain, Portugal, Netherlands, United Kingdom
-
-**File in this repository:** `data/maddison_extracted.csv` contains only the rows and columns used in the analysis. The full database (mpd2023_web.xlsx) must be downloaded directly from the Groningen website due to its size.
-
-### 2. Historical Demographic Data (Bruges-Antwerp, Toledo-Madrid)
-
-These are estimates from published academic sources, not raw archival data. See `data/sources.md` for full citations.
-
-|Case          |Variable                |Key Source                                            |Uncertainty                      |
-|--------------|------------------------|------------------------------------------------------|---------------------------------|
-|Bruges-Antwerp|Population (thousands)  |Nicholas (1992); Van der Wee (1963); Gelderblom (2013)|±20% for medieval estimates      |
-|Toledo-Madrid |Population (inhabitants)|Ringrose (1973); INE España                           |±15% for 1600-1750 interpolations|
-
-### 3. INEGI Mexico (Tlaxcala-Puebla 1993-2022)
-
-**Access:** https://www.inegi.org.mx/temas/pib/
-
-**Variables used:**
-
-- GDP per capita by state (entidad federativa), 1993-2022
-- Foreign direct investment by state (Secretaría de Economía)
-- Labor migration by state (ENOE, CONEVAL)
-
-**Key calibration anchor:** Puebla/Tlaxcala GDP per capita ratio = 1.49 in 1993 (48.8% advantage). This datum anchors the long historical series.
+See `sources.md` for full citations by case (Bruges-Antwerp, Toledo-Madrid, Portugal-NW Europe, Tlaxcala-Puebla)
 
 ### 4. HackerEarth 2026 (Digital Domain)
 
-**Dataset:** zerve_hackathon_dataset.csv  
-**Source:** HackerEarth Hackathon 2026 — proprietary dataset, not redistributable.  
-**Description:** 409,287 events from 4,774 unique users, 141 event types, HackerEarth Canvas platform.  
-**Pipeline:** Fractal Core Framework V3 (Captain 1n2a1n05, 2026)
-
-> **Note:** The raw dataset cannot be redistributed due to platform data terms. The analysis code (`shadow_node_verification_v2.py`) documents the pipeline methodology. The aggregate results (cohort sizes, VDR ratios, model metrics) are reproduced in `data/shadow_node_maddison_resumen.csv`.
+Proprietary dataset — not redistributable. Aggregate results available in `data/` directory.
 
 -----
 
-## Reproducing the Analysis
+## Reproducing the v2.0 Analysis
 
 ### Requirements
 
 ```bash
-pip install numpy scipy pandas matplotlib openpyxl
-```
-
-Or install from requirements file:
-
-```bash
-pip install -r requirements.txt
+pip install numpy scipy pandas matplotlib networkx openpyxl
 ```
 
 ### Step 1 — Download Maddison Project Database
 
-Download `mpd2023_web.xlsx` from:  
-https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2023
+Place `mpd2023_web.xlsx` in the `data/` directory.
 
-Place the file in the `data/` directory.
+### Step 2 — Run N-body matrix (Mexico)
 
-### Step 2 — Run the main analysis
+```bash
+python code/matriz_mexico_ncuerpos.py
+```
+
+Outputs: `data/matriz_mexico_32.csv`, `figures/matriz_mexico_graficas.png`, `figures/red_ncuerpos_mexico.png`
+
+### Step 3 — Run trajectory vectorization
+
+```bash
+python code/snt_v2_vectorizacion.py
+```
+
+Outputs: `data/snt_v2_vectores.csv`, `figures/snt_v2_vectorizacion.png`
+
+### Step 4 — Run original v1.0 analysis
 
 ```bash
 python code/shadow_node_verification_v2.py
-```
-
-This script:
-
-1. Loads the Maddison Project data (requires `mpd2023_web.xlsx` in `data/`)
-1. Constructs ratio time series for all four historical cases
-1. Fits power law models using log-log linear regression
-1. Computes exponents (b), R², Pearson correlation, and p-values
-1. Identifies the activation threshold (10-15% advantage) for each case
-1. Calculates divergence velocity post-trigger
-1. Generates the main figure (`figures/shadow_node_maddison_final.png`)
-1. Exports results to `data/shadow_node_maddison_resumen.csv`
-
-### Step 3 — Expected output
-
-```
-======================================================================
-SHADOW NODE THEORY — VERIFICACION CON MADDISON PROJECT 2023
-======================================================================
-
-TABLA COMPARATIVA — EXPONENTES CON DATOS MADDISON REALES
-              caso                mecanismo  exponente_b     r2
-    Brujas_Amberes  Infraestructura (Zwin)       0.7390  0.8684
-     Toledo_Madrid  Decreto politico (1561)      0.6944  0.9239
-Portugal_NW_Europa  Satelizacion sistemica       0.0602  0.1229
-   Tlaxcala_Puebla  Ventaja acumulada (1535)     0.1842  0.5672
-
-Triggers abruptos  (Brujas, Toledo):  b_media=0.7165
-Triggers graduales (Portugal, Tlaxc): b_media=0.1222
-Ratio de velocidades: 5.9x
 ```
 
 -----
 
 ## Key Results
 
-|Case                   |Mechanism                           |Exponent b|R²        |p-value |Trigger type|
-|-----------------------|------------------------------------|----------|----------|--------|------------|
-|Bruges → Antwerp       |Physical infrastructure collapse    |0.739     |0.868     |< 0.001 |Abrupt      |
-|Toledo → Madrid        |Political decree                    |0.694     |0.924     |< 0.001 |Abrupt      |
-|Portugal → NW Europe   |Institutional vacuum (Iberian Union)|0.060     |0.123     |0.277*  |Gradual     |
-|Tlaxcala → Puebla      |Accumulated colonial advantage      |0.184     |0.567     |< 0.001 |Gradual     |
-|HackerEarth Elite/Basic|Digital behavioral gap              |—         |ROC 0.9994|CV=1.000|Digital     |
+### v1.0 — Power Law Fit (4 Historical Cases)
 
-*Portugal R² is low due to oscillatory process (Brazilian gold cycle). Long-run divergence trend confirmed: ratio 1.85 (1535) → 3.68 (1913).
+|Case                |Mechanism              |b    |R²   |Sig.|Type   |
+|--------------------|-----------------------|-----|-----|----|-------|
+|Bruges → Antwerp    |Infrastructure collapse|0.787|0.987|**  |Abrupt |
+|Toledo → Madrid     |Political decree       |0.687|0.894|**  |Abrupt |
+|Portugal → NW Europe|Iberian Union          |0.060|0.123|n.s.|Gradual|
+|Tlaxcala → Puebla   |Accumulated advantage  |0.184|0.567|*** |Gradual|
 
-**Two-speed taxonomy:** Abrupt triggers produce satellization 5.9× faster than gradual triggers. This ratio emerges from the data without being assumed in the model.
+**Two-speed taxonomy:** Abrupt triggers (b ≈ 0.74) are 5.9× faster than gradual (b ≈ 0.12)
 
------
+### v2.0 — N-Body Matrix (Mexico, 32 States)
 
-## Methodological Notes
+|Level                   |N |PIB pc mean|% National GDP|
+|------------------------|--|-----------|--------------|
+|0 — Macro-Hub (CDMX)    |1 |285.2k MXN |14.8%         |
+|1 — Secondary Attractors|9 |158.9k MXN |41.0%         |
+|2 — Bypass Logistic     |8 |126.5k MXN |20.2%         |
+|3 — Shadow Nodes        |11|80.7k MXN  |16.8%         |
+|E — Exogenous           |3 |183.8k MXN |4.3%          |
 
-### Power law fitting
+**Power law:** f(rank) = 396.8 × rank^(-0.473), R² = 0.838, p < 0.001  
+**Tlaxcala composite gradient:** 243.0k MXN (9.3× the binary model estimate)
 
-All fits use log-log linear regression (standard method per Clauset, Shalizi & Newman, 2009). R² is reported on the original scale. The p-value corresponds to the Pearson correlation in log-log space.
+### v2.0 — Trajectory Vectorization (8 States, 1940–2022)
 
-### Portugal case
-
-The low R² (0.123) reflects the oscillatory nature of the process, not absence of the pattern. The Brazilian gold cycle (1700-1750) produces a partial recovery that breaks the monotonic fit. The long-run divergence trend is unambiguous: ratio multiplied 3.5× between 1535 and 1913.
-
-### Tlaxcala-Puebla calibration
-
-Pre-1993 data are constructed estimates based on:
-
-- Maddison Project Mexico national series as a proxy for regional differential
-- Two anchors: estimated 12% initial advantage in 1535 (post-Real Cédula) and verified 48.8% advantage in 1993 (INEGI direct data)
-- The trajectory between these anchors reflects national development patterns (Maddison), not necessarily the specific regional differential at each point
-
-### Digital case
-
-The GradientBoostingClassifier achieving ROC-AUC = 1.000 in cross-validation reflects the bimodal (non-Gaussian) distribution of user behavior, not overfitting. The churn early warning model using only raw event features (284 features, no CSI V3) achieves ROC-AUC = 0.9994, confirming the pattern is present in raw behavioral data.
-
------
-
-## Limitations
-
-1. Pre-1820 historical data have uncertainty of ±20% for medieval estimates
-1. Small N (four historical cases) limits statistical inference on exponent distribution
-1. Portugal’s low R² requires a power law model with exogenous perturbations
-1. Digital case: reverse causality cannot be ruled out without longitudinal data
-1. Case selection bias: cases were selected with prior knowledge of pattern visibility
-
-Full discussion in Section 7 of the paper.
+|State         |b         |R²       |Sig.   |Type           |
+|--------------|----------|---------|-------|---------------|
+|Chiapas       |0.229     |0.839    |**     |Satellization  |
+|Veracruz      |0.181     |0.719    |**     |Satellization  |
+|Guerrero      |0.176     |0.808    |**     |Satellization  |
+|Oaxaca        |0.176     |0.791    |**     |Satellization  |
+|Tlaxcala      |0.147     |0.600    |*      |Satellization  |
+|Puebla        |0.116     |0.653    |*      |Satellization  |
+|**Querétaro** |**-0.155**|**0.782**|****** |**Leapfrog**   |
+|**Nuevo León**|**-0.058**|**0.935**|*******|**Convergence**|
 
 -----
 
 ## Citation
 
-If you use this code or data, please cite:
-
 ```
-Zainos Corona, E. (2026). Shadow Node Theory: Invarianza de Escala en el 
-Algoritmo de Satelizacion de Nodos. Fractal Core Research Pre-print v1.0. 
-SSRN: [link]. Zenodo DOI: [DOI].
+Zainos Corona, E. (2026). Shadow Node Theory v2.0: Scale Invariance in the Node 
+Satellization Algorithm — Triple Resolution Model. Fractal Core Research Pre-print v2.0. 
+SSRN: https://ssrn.com/abstract=6418778
+Zenodo: https://doi.org/10.5281/zenodo.19027089
 ```
 
 BibTeX:
 
 ```bibtex
-@misc{zainos2026shadow,
-  author       = {Zainos Corona, Elan},
-  title        = {Shadow Node Theory: Scale Invariance in the Node 
-                  Satellization Algorithm},
-  year         = {2026},
-  publisher    = {SSRN / Zenodo},
-  note         = {Pre-print v1.0},
-  doi          = {[DOI pending]},
-  url          = {[URL pending]}
+@misc{zainos2026shadowv2,
+  author    = {Zainos Corona, Elan},
+  title     = {Shadow Node Theory v2.0: Scale Invariance in the Node
+               Satellization Algorithm — Triple Resolution Model},
+  year      = {2026},
+  publisher = {SSRN / Zenodo},
+  note      = {Pre-print v2.0},
+  doi       = {10.5281/zenodo.19027089},
+  url       = {https://ssrn.com/abstract=6418778}
 }
 ```
 
@@ -235,19 +179,18 @@ BibTeX:
 
 ## License
 
-**Code:** MIT License — free to use, modify and distribute with attribution.  
-**Data:** CC BY 4.0 for derived datasets. Original sources retain their own licenses (see `data/sources.md`).  
-**Paper:** CC BY-NC 4.0 — free to share with attribution, non-commercial use only.
+**Code:** MIT License  
+**Data:** CC BY 4.0 for derived datasets  
+**Paper:** CC BY-NC 4.0
 
 -----
 
 ## Contact
 
-Elan Zainos Corona  
-Fractal Core Research — Tlaxcala, Mexico  
-GitHub: Captain 1n2a1n05
+Elan Zainos Corona — Fractal Core Research — Tlaxcala, Mexico  
+GitHub: Inzainos
 
 -----
 
-*“El algoritmo de satelizacion es predecible. Y lo que es predecible puede ser intervenido.”*  
-*— Shadow Node Theory, Conclusiones*
+*“El algoritmo de satelizacion es predecible. La taxonomia de fallos del leapfrog es conocida. Lo que sigue es una decision que ningun modelo puede tomar por el nodo.”*  
+*— Shadow Node Theory v2.0, Conclusiones*
