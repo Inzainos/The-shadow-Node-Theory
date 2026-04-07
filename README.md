@@ -5,7 +5,7 @@
 **Author:** Elan Zainos Corona (Captain 1n2a1n05)  
 **Institution:** Fractal Core Research — Tlaxcala, Mexico  
 **Version:** Pre-print v2.3.1 — 2026  
-**Zenodo DOI v2.0:**https://doi.org/10.5281/zenodo.19446521
+**Zenodo DOI v2.3.1:** https://doi.org/10.5281/zenodo.19446521
 **Zenodo DOI v2.0:** https://doi.org/10.5281/zenodo.19131327  
 **Zenodo DOI v1.0:** https://doi.org/10.5281/zenodo.19027089
 
