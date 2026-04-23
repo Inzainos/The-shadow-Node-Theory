@@ -1,0 +1,99 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite it as below."
+type: software
+title: "Shadow Node Theory v2.3.1: Scale Invariance in the Node Satellization Algorithm"
+abstract: >
+  Replication package for Shadow Node Theory v2.3.1 (SNT v2.3.1),
+  a formal model of node satellization verified across 502 empirical cases
+  in 11 domains spanning 30 orders of magnitude of temporal scale —
+  from digital platform behavioral cycles (hours) to galactic merger
+  timescales (billions of years). The central finding is that
+  satellization dynamics follow a power law R(t) = a·t^b invariant
+  to temporal scale and substrate, with institutional friction as the
+  dominant predictor of the exponent b. Includes code for all analyses,
+  data for reproducible cases, and four specialized papers targeting
+  PLOS Complex Systems, Journal of Theoretical Biology, The Astrophysical
+  Journal, and Investigación Económica.
+authors:
+  - family-names: "Zainos Corona"
+    given-names: "Elán"
+    alias: "Captain 1n2a1n05"
+    orcid: ""
+    affiliation: "Fractal Core Research"
+    email: "elan.zainos.corona@gmail.com"
+    city: "Tlaxcala"
+    country: MX
+version: "2.3.1"
+date-released: "2026-04-07"
+url: "https://github.com/Inzainos/The-shadow-Node-Theory"
+repository-code: "https://github.com/Inzainos/The-shadow-Node-Theory"
+license: "MIT"
+doi: "10.5281/zenodo.19446521"
+keywords:
+  - complex systems
+  - power law
+  - scale invariance
+  - satellization
+  - preferential attachment
+  - leapfrog
+  - development economics
+  - regional inequality
+  - network theory
+  - cognitive sovereignty
+  - Atomic Sovereignty Index
+  - Mexico
+  - Tlaxcala
+  - institutional friction
+  - biological invasion
+  - galactic dynamics
+  - AI orchestration
+  - digital ecosystems
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.19446521"
+    description: "Zenodo DOI v2.3.1 (current)"
+  - type: doi
+    value: "10.5281/zenodo.19131327"
+    description: "Zenodo DOI v2.0"
+  - type: url
+    value: "https://ssrn.com/abstract=6418778"
+    description: "SSRN pre-print"
+references:
+  - type: article
+    authors:
+      - family-names: "Barabási"
+        given-names: "Albert-László"
+      - family-names: "Albert"
+        given-names: "Réka"
+    title: "Emergence of scaling in random networks"
+    journal: "Science"
+    volume: 286
+    issue: 5439
+    start: 509
+    end: 512
+    year: 1999
+    doi: "10.1126/science.286.5439.509"
+  - type: article
+    authors:
+      - family-names: "Brezis"
+        given-names: "Elise S."
+      - family-names: "Krugman"
+        given-names: "Paul R."
+    title: "Leapfrogging in international competition: A theory of cycles in national technological leadership"
+    journal: "American Economic Review"
+    volume: 83
+    issue: 5
+    start: 1211
+    end: 1219
+    year: 1993
+  - type: dataset
+    authors:
+      - family-names: "Bolt"
+        given-names: "Jutta"
+      - family-names: "van Zanden"
+        given-names: "Jan Luiten"
+    title: "Maddison Project Database 2023"
+    year: 2024
+    url: "https://www.rug.nl/ggdc/historicaldevelopment/maddison/"
+    institution:
+      name: "University of Groningen"
