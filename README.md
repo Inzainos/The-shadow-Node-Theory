@@ -4,7 +4,8 @@
 **Subtitle:** 502 Verified Cases · 11 Domains · 30 Orders of Magnitude of Temporal Scale  
 **Author:** Elan Zainos Corona (Captain 1n2a1n05)  
 **Institution:** Fractal Core Research — Tlaxcala, Mexico  
-**Version:** Pre-print v2.3.1 — 2026  
+**Version:** v2.3.1 — 2026  
+**Status:** 🟡 Under peer review — PLOS Complex Systems (submitted April 2026)  
 **Zenodo DOI v2.3.1:** https://doi.org/10.5281/zenodo.19446521
 **Zenodo DOI v2.0:** https://doi.org/10.5281/zenodo.19131327  
 **Zenodo DOI v1.0:** https://doi.org/10.5281/zenodo.19027089
@@ -242,6 +243,24 @@ python code/snt_corpus_502.py
 ```
 Outputs: `data/corpus_502_summary.csv`
 
+### Step 6 — Biological corpus (E1, E2, E3 — 44 cases)
+```bash
+python code/snt_corpus_biological.py
+```
+Outputs: `data/snt_corpus_biological_results.csv`, `figures/snt_corpus_biological_figures.png`
+
+### Step 7 — Astronomical corpus (F1, F2, F3, F4 — 47 cases)
+```bash
+python code/snt_corpus_astronomical.py
+```
+Outputs: `data/snt_corpus_astronomical_results.csv`, `figures/snt_corpus_astronomical_figures.png`
+
+### Step 8 — Publication-quality figures (PLOS-ready)
+```bash
+python code/generate_publication_figures.py
+```
+Outputs: `figures/fig1–4 (.svg + .png 300dpi)`
+
 ---
 
 ## Falsifiability Criteria (SNT v2.3.1)
@@ -268,7 +287,7 @@ Zainos Corona, E. (2026). Shadow Node Theory v2.3.1: Scale Invariance in the Nod
 Satellization Algorithm — 502 Verified Cases, 11 Domains, 30 Orders of Magnitude.
 Fractal Core Research Pre-print v2.3.1.
 SSRN: https://ssrn.com/abstract=6418778
-Zenodo: https://doi.org/10.5281/zenodo.19131327
+Zenodo: https://doi.org/10.5281/zenodo.19446521
 ```
 
 ### BibTeX
@@ -281,7 +300,7 @@ Zenodo: https://doi.org/10.5281/zenodo.19131327
   year      = {2026},
   publisher = {SSRN / Zenodo},
   note      = {Pre-print v2.3.1},
-  doi       = {10.5281/zenodo.19131327},
+  doi       = {10.5281/zenodo.19446521},
   url       = {https://ssrn.com/abstract=6418778}
 }
 ```
