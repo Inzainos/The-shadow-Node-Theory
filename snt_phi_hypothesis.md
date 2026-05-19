@@ -1,5 +1,5 @@
 # φ como Atractor Teórico del Algoritmo de Satelización
-## Hipótesis Deductiva — SNT v2.3.1
+## Hipótesis Deductiva — SNT v2.3.1 | Estado: VALIDACIÓN COMPLETADA
 
 ---
 
@@ -79,44 +79,84 @@ el presente y el pasado inmediato.
 
 ## 5. Limitaciones explícitas
 
-Esta hipótesis es deductiva, no empírica. El corpus SNT v2.3.1 no confirma
-ni refuta H-φ por las siguientes razones:
-
-1. Los exponentes b del corpus fueron calculados mediante regresión log-log
-   OLS sobre series R(t) construidas a partir de fuentes secundarias. No
-   son mediciones directas de sistemas físicos.
-
-2. Los análisis exploratorios del corpus mostraron señales estadísticas
-   consistentes con H-φ en dominios biológicos (p < 0.001), pero estos
-   tests fueron definidos después de observar los datos y sobre el mismo
-   conjunto usado para construir la teoría. Los p-values están inflados.
-
-3. La hipótesis requiere validación sobre datos primarios independientes
-   con series temporales verificadas — condición que el corpus actual no
-   satisface completamente.
-
-Lo publicable en este momento es el argumento deductivo. La confirmación
-empírica es trabajo futuro con protocolo pre-registrado.
+Esta hipótesis es deductiva. Los análisis exploratorios del corpus mostraron
+señales consistentes con H-φ en dominios biológicos (E3, p < 0.001), pero esos
+tests fueron post-hoc sobre el mismo corpus usado para construir la teoría.
 
 ---
 
-## 6. Criterio de refutación
+## 6. RESULTADOS DE VALIDACIÓN INDEPENDIENTE (Mayo 2026)
 
-H-φ queda refutada si:
+### Ronda 1 — Datos Crypto (BTC/Altcoin)
 
-- RC-φ-1: Un corpus ≥ 50 casos de dominios sin fricción institucional,
-  con datos primarios verificados, muestra distribución de b uniforme
-  sin clustering cerca de fracciones de φ.
+Métrica: R(t) = Marketcap_BTC / Marketcap_altcoin  
+Modelo: ley de potencia log-log | Permutation test N=2,000 | Tolerancia ±0.10
 
-- RC-φ-2: El mecanismo de preferential attachment bajo dos restricciones
-  acopladas puede producir distribuciones estacionarias con atractores
-  distintos de φ bajo condiciones especificadas a priori.
+| Par       | b observado | R²    | Dist. a φ | p perm. | Confirmada |
+|-----------|-------------|-------|-----------|---------|------------|
+| BTC/ETH   | −0.6123     | 0.454 | 1.017     | 1.000   | ✗          |
+| BTC/XRP   | −0.4258     | 0.192 | 0.830     | 1.000   | ✗          |
+| BTC/DOGE  | +0.0126     | 0.000 | 0.392     | 0.192   | ✗          |
+| BTC/ADA   | +0.0839     | 0.013 | 0.321     | <0.001  | ✗          |
 
-- RC-φ-3: Los exponentes b del corpus SNT son estadísticamente
-  indistinguibles de una distribución uniforme en el mismo rango cuando
-  se aplica corrección de Bonferroni por tests múltiples.
+**Resultado: 0/4 confirmados.**
+
+### Ronda 2 — Corpus Biológico Primario (Literatura Publicada)
+
+Fuentes: Norway MRSA 1997–2010 (PLoS ONE 2013), EU EARS-Net 2012–2023 (ECDC),
+UK MRSA BSI 2008–2021 (PHE/UKHSA), USA MRSA 2005–2017 (CDC AR Threats 2019),
+HIV/CD4 (cohorte MACS publicada), Trypanosoma brucei (Pays et al. 2014).
+
+| Dataset                  | b      | R²    | Dist. a φ | p perm. | Near φ | Confirmada |
+|--------------------------|--------|-------|-----------|---------|--------|------------|
+| Norway MRSA 1997–2010    | 0.688  | 0.940 | 0.121     | 0.083   | No     | ✗          |
+| EU EARS-Net 2012–2023    | −0.064 | 0.367 | 0.469     | 0.973   | No     | ✗          |
+| UK MRSA BSI 2008–2021    | −0.588 | 0.985 | 0.993     | 1.000   | No     | ✗          |
+| USA MRSA 2005–2017       | −0.458 | 0.956 | 0.863     | 1.000   | No     | ✗          |
+| HIV CD4 ratio (meses)    | −0.078 | 0.030 | 0.483     | 0.709   | No     | ✗          |
+| Trypanosoma parasitemia  | 2.091  | 0.289 | 0.067     | 0.158   | Sí*    | ✗          |
+
+\* near_φ=True (b cerca de φ·4/3=2.157), pero p_perm=0.158 con N=10 — sin poder estadístico suficiente.
+
+**Resultado: 0/6 confirmados.**
+
+### Conclusión de validación
+
+**H-φ: NO CONFIRMADA. Total: 0/10 datasets independientes.**
+
+H-φ se clasifica como **hipótesis especulativa de segundo orden**. No se incluye
+en los claims del paper principal (Journal of Complex Networks). No afecta la
+validez del marco general SNT, el exponente crítico b, ni el Índice ASI.
+
+Sub-hipótesis H-3 (denominador 3 dominante en b/φ): **DESCARTADA definitivamente.**
 
 ---
 
-*Fractal Core Research | Tlaxcala, Mexico | 2026*
-*Estado: Hipótesis deductiva — pendiente de validación empírica pre-registrada*
+## 7. Criterios de refutación (originales, conservados)
+
+- **RC-φ-1:** Corpus ≥ 50 casos sin fricción institucional, datos primarios,
+  distribución de b uniforme sin clustering cerca de fracciones de φ. ← **CUMPLIDO parcialmente con corpus de validación actual.**
+
+- **RC-φ-2:** El mecanismo bajo dos restricciones acopladas puede producir
+  atractores distintos de φ bajo condiciones especificadas a priori.
+
+- **RC-φ-3:** Los exponentes b del corpus SNT son estadísticamente
+  indistinguibles de una distribución uniforme tras corrección Bonferroni.
+
+---
+
+## 8. Protocolo de validación futura (si se desea continuar)
+
+Para una validación concluyente se requiere:
+
+1. Pre-registro en OSF o AsPredicted **antes** de recolectar datos nuevos
+2. Corpus: ≥ 30 sistemas E3 parásito-huésped **sin intervención terapéutica activa**
+3. Fuentes: NCBI, GenBank, bases de datos de coevolución
+4. Criterio de éxito pre-registrado: >60% con b en ±0.10 de fracción φ, p < 0.05
+5. Grupos control obligatorios: E1 (invasión biológica), D (digital)
+
+---
+
+*Fractal Core Research | Tlaxcala, México | Mayo 2026*  
+*Estado: Hipótesis especulativa — validación independiente completada, resultado negativo*  
+*SSRN: 6418778 | Zenodo: 10.5281/zenodo.19446521 | GitHub: Inzainos*

@@ -1,0 +1,5 @@
+pair,n_obs,b_observed,R2,dist_to_phi,p_permutation,near_phi_tol010,confirmed,date_analysis
+BTC/ETH,2160,-0.6123,0.4540,1.0168,1.0000,False,False,2026-05-19
+BTC/XRP,2893,-0.4258,0.1916,0.8303,1.0000,False,False,2026-05-19
+BTC/DOGE,2760,0.0126,0.0003,0.3919,0.1920,False,False,2026-05-19
+BTC/ADA,1374,0.0839,0.0126,0.3206,0.0005,False,False,2026-05-19

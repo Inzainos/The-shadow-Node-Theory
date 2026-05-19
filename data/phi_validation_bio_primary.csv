@@ -1,0 +1,7 @@
+dataset,source,n_points,b_observed,R2,dist_to_phi,p_permutation,near_phi_tol010,confirmed,notes,date_analysis
+Norway MRSA 1997-2010,"PLoS ONE 2013 (PMC3731260)",14,0.6881,0.9395,0.1209,0.0830,False,False,b cerca de phi/2=0.809 por 0.121,2026-05-19
+EU EARS-Net 2012-2023,"ECDC EARS-Net Annual Report 2023",12,-0.0640,0.3670,0.4685,0.9730,False,False,b negativo - sistemas en declive post-intervencion,2026-05-19
+UK MRSA BSI 2008-2021,"PHE/UKHSA AMR Report",14,-0.5880,0.9850,0.9930,1.0000,False,False,b negativo - reduccion sostenida post-MRSA strategy UK,2026-05-19
+USA MRSA invasive 2005-2017,"CDC AR Threats 2019",13,-0.4580,0.9560,0.8630,1.0000,False,False,b negativo - declive post-MRSA control programs USA,2026-05-19
+HIV CD4 ratio months,"MACS cohort published values",13,-0.0780,0.0300,0.4830,0.7090,False,False,formulacion: CD4_ratio no viral_load/CD4,2026-05-19
+Trypanosoma parasitemia,"Pays et al. 2014 approximated",10,2.0908,0.2890,0.0666,0.1580,True,False,near_phi=True pero N=10 insuf - p=0.158 no sig,2026-05-19
