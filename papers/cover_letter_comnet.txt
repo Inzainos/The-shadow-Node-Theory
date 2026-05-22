@@ -1,0 +1,102 @@
+Cover Letter — Journal of Complex Networks (Oxford University Press)
+Submission via ScholarOne: mc.manuscriptcentral.com/comnet
+
+─────────────────────────────────────────────────────────────────────────────
+
+To the Editors of Journal of Complex Networks,
+
+I am submitting the manuscript entitled:
+
+  "Scale-invariant satellization: a power-law model of node dominance
+   verified across 502 empirical cases in 11 domains"
+
+for consideration as an Original Research Article.
+
+─── WHY THIS JOURNAL ───────────────────────────────────────────────────────
+
+Journal of Complex Networks is the primary venue for this work. The paper
+formalizes satellization — the progressive extraction of productive resources
+from a peripheral node by a dominant hub — as a power-law dynamic R(t) = a·t^b,
+and verifies it across 502 cases spanning historical city-pairs, national
+economies, biological invasions, parasite-host systems, and astrophysical
+structures. This directly addresses the journal's mandate: "mathematical,
+physical and computational principles for studying complex networks and their
+applications." The paper connects the preferential attachment literature
+(Barabási & Albert 1999) to a specific mechanism — satellization — that has
+not been formally quantified across empirical domains before.
+
+─── SIGNIFICANCE ──────────────────────────────────────────────────────────
+
+Three findings are statistically robust across three successive corpus
+expansions (57 → 114 → 502 cases):
+
+1. Abrupt triggers produce satellization 5.9× faster than gradual ones
+   (Mann-Whitney U = 24,802, p = 1.91 × 10⁻⁵, n = 486).
+
+2. Institutional friction is the primary predictor of the exponent b —
+   more than substrate, time scale, or domain — verified across 11 domains
+   spanning 30 orders of magnitude of temporal scale.
+
+3. Political sovereignty and ecological mutual interdependence are
+   mathematically equivalent as satellization brakes (b_countries = −0.098,
+   n = 230 sovereign pairs; b_predator-prey ≈ 0 under stable conditions).
+
+The Atomic Sovereignty Index (ASI = δH·α/F) achieves ROC-AUC = 0.715 on
+first-session behavioral data (n = 4,774 users, HackerEarth 2026), with
+zero false positives at the ASI ≥ 1.0 threshold.
+
+─── ORIGINALITY ────────────────────────────────────────────────────────────
+
+This manuscript is original, has not been published previously, and is not
+under consideration elsewhere. A preprint is available on SSRN
+(https://ssrn.com/abstract=6418778) and Zenodo
+(https://doi.org/10.5281/zenodo.19446521). The journal's self-archiving policy
+permits preprint availability.
+
+─── REPLICATION PACKAGE ────────────────────────────────────────────────────
+
+All code, data, and figures are publicly available at:
+  https://github.com/Inzainos/The-shadow-Node-Theory (tag: v2.3.1)
+  https://doi.org/10.5281/zenodo.19446521
+
+─── SUGGESTED REVIEWERS ────────────────────────────────────────────────────
+
+1. Prof. Santo Fortunato — Indiana University, Network Science Institute.
+   Expertise: community detection, complex networks, scale-free systems.
+
+2. Prof. Vito Latora — Queen Mary University of London.
+   Expertise: complex networks, dynamical systems, network resilience.
+
+3. Prof. Yamir Moreno — Universidad de Zaragoza, BIFI Institute.
+   Expertise: spreading dynamics, complex systems, epidemic models on networks.
+
+─── EXCLUDED REVIEWERS ─────────────────────────────────────────────────────
+
+None requested.
+
+─── MANUSCRIPT DETAILS ─────────────────────────────────────────────────────
+
+Type:          Original Research Article
+Word count:    ~8,500
+Figures:       4 (colour, 300 dpi TIFF)
+Tables:        3
+References:    15
+Funding:       None (independent research)
+Conflicts:     None
+Data:          Fully open (GitHub + Zenodo DOI)
+ORCID:         [INSERT BEFORE SUBMISSION]
+
+─────────────────────────────────────────────────────────────────────────────
+
+Thank you for considering this submission.
+
+Sincerely,
+
+Elán Zainos Corona
+Fractal Core Research
+Tlaxcala, Mexico
+elan.zainos.corona@gmail.com
+ORCID: [INSERT BEFORE SUBMISSION — register at orcid.org]
+GitHub: https://github.com/Inzainos
+SSRN: https://ssrn.com/abstract=6418778
+
