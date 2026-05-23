@@ -84,7 +84,7 @@ References:    15
 Funding:       None (independent research)
 Conflicts:     None
 Data:          Fully open (GitHub + Zenodo DOI)
-ORCID:         [INSERT BEFORE SUBMISSION]
+ORCID:         https://orcid.org/0009-0009-9125-253X
 
 ─────────────────────────────────────────────────────────────────────────────
 
@@ -96,7 +96,7 @@ Elán Zainos Corona
 Fractal Core Research
 Tlaxcala, Mexico
 elan.zainos.corona@gmail.com
-ORCID: [INSERT BEFORE SUBMISSION — register at orcid.org]
+ORCID: https://orcid.org/0009-0009-9125-253X
 GitHub: https://github.com/Inzainos
 SSRN: https://ssrn.com/abstract=6418778
 
