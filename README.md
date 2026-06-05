@@ -5,7 +5,7 @@
 **Author:** Elán Zainos Corona  
 **Institution:** Fractal Core Research — Tlaxcala, Mexico  
 **Version:** v2.3.1 — 2026  
-**Status:** 🟡 Under peer review — Journal of Complex Networks (Oxford University Press)  
+**Status:** 🟢 SUBMITTED — Journal of Complex Networks (Oxford University Press) | Manuscript: COMNET-2026-214 | Submitted: June 4, 2026  
 **Zenodo DOI v2.3.1:** https://doi.org/10.5281/zenodo.19446521  
 **Zenodo DOI v2.0:** https://doi.org/10.5281/zenodo.19131327  
 **Zenodo DOI v1.0:** https://doi.org/10.5281/zenodo.19027089  
