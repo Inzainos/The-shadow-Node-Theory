@@ -1,0 +1,267 @@
+id,descripcion,dominio,b,r2,p,n,significativo,fuente_real
+B001,United Kingdom→France 1900-2018,B,-0.192,0.4206,0.0,119,True,True
+B002,Germany→United Kingdom 1900-2018,B,0.1947,0.4465,0.0,119,True,True
+B003,Netherlands→United Kingdom 1900-2018,B,0.1472,0.3536,0.0,119,True,True
+B004,Belgium→United Kingdom 1900-2018,B,0.0942,0.2495,0.0,119,True,True
+B005,Switzerland→United Kingdom 1900-2018,B,0.1522,0.5219,0.0,119,True,True
+B006,Austria→United Kingdom 1900-2018,B,0.2022,0.3235,0.0,119,True,True
+B007,Italy→United Kingdom 1900-2018,B,0.273,0.5061,0.0,119,True,True
+B008,Spain→United Kingdom 1900-2018,B,0.2569,0.41,0.0,119,True,True
+B009,United Kingdom→Portugal 1900-2018,B,-0.3425,0.571,0.0,119,True,True
+B010,Ireland→United Kingdom 1913-2018,B,0.2628,0.3606,0.0,99,True,True
+B011,Germany→France 1900-2018,B,0.0027,0.0002,0.8897,119,False,True
+B012,Netherlands→France 1900-2018,B,-0.0447,0.1924,0.0,119,True,True
+B013,Belgium→France 1900-2018,B,-0.0978,0.5046,0.0,119,True,True
+B014,Switzerland→France 1900-2018,B,-0.0397,0.0805,0.0018,119,True,True
+B015,Austria→France 1900-2018,B,0.0102,0.0027,0.5734,119,False,True
+B016,Italy→France 1900-2018,B,0.0811,0.3201,0.0,119,True,True
+B017,Spain→France 1900-2018,B,0.0649,0.0768,0.0023,119,True,True
+B018,France→Portugal 1900-2018,B,-0.1505,0.3478,0.0,119,True,True
+B019,Ireland→France 1913-2018,B,0.1149,0.0985,0.0016,99,True,True
+B020,Germany→Netherlands 1900-2018,B,0.0475,0.0477,0.017,119,True,True
+B021,Belgium→Germany 1900-2018,B,-0.1005,0.2433,0.0,119,True,True
+B022,Switzerland→Germany 1900-2018,B,-0.0425,0.054,0.011,119,True,True
+B023,Austria→Germany 1900-2018,B,0.0075,0.0028,0.5702,119,False,True
+B024,Germany→Italy 1900-2018,B,-0.0783,0.1463,0.0,119,True,True
+B025,Germany→Spain 1900-2018,B,-0.0622,0.0673,0.0044,119,True,True
+B026,Germany→Portugal 1900-2018,B,-0.1478,0.3209,0.0,119,True,True
+B027,Ireland→Germany 1913-2018,B,0.0814,0.0611,0.0136,99,True,True
+B028,Belgium→Netherlands 1900-2018,B,-0.053,0.2408,0.0,119,True,True
+B029,Switzerland→Netherlands 1900-2018,B,0.005,0.002,0.6319,119,False,True
+B030,Austria→Netherlands 1900-2018,B,0.055,0.0643,0.0054,119,True,True
+B031,Netherlands→Italy 1900-2018,B,-0.1258,0.3945,0.0,119,True,True
+B032,Spain→Netherlands 1900-2018,B,0.1097,0.1988,0.0,119,True,True
+B033,Netherlands→Portugal 1900-2018,B,-0.1953,0.4279,0.0,119,True,True
+B034,Ireland→Netherlands 1913-2018,B,0.1647,0.2446,0.0,99,True,True
+B035,Switzerland→Belgium 1900-2018,B,0.058,0.2874,0.0,119,True,True
+B036,Austria→Belgium 1900-2018,B,0.108,0.2331,0.0,119,True,True
+B037,Belgium→Italy 1900-2018,B,-0.1788,0.571,0.0,119,True,True
+B038,Belgium→Spain 1900-2018,B,-0.1627,0.4049,0.0,119,True,True
+B039,Belgium→Portugal 1900-2018,B,-0.2483,0.6276,0.0,119,True,True
+B040,Ireland→Belgium 1913-2018,B,0.1844,0.2875,0.0,99,True,True
+B041,Switzerland→Austria 1900-2018,B,-0.05,0.0539,0.0111,119,True,True
+B042,Switzerland→Italy 1900-2018,B,-0.1208,0.3168,0.0,119,True,True
+B043,Switzerland→Spain 1900-2018,B,-0.1047,0.1879,0.0,119,True,True
+B044,Switzerland→Portugal 1900-2018,B,-0.1903,0.4494,0.0,119,True,True
+B045,Ireland→Switzerland 1913-2018,B,0.1278,0.1709,0.0,99,True,True
+B046,Austria→Italy 1900-2018,B,-0.0708,0.2385,0.0,119,True,True
+B047,Austria→Spain 1900-2018,B,-0.0547,0.0877,0.0011,119,True,True
+B048,Austria→Portugal 1900-2018,B,-0.1403,0.4199,0.0,119,True,True
+B049,Ireland→Austria 1913-2018,B,0.0275,0.0083,0.3688,99,False,True
+B050,Spain→Italy 1900-2018,B,-0.0162,0.0085,0.3175,119,False,True
+B051,Italy→Portugal 1900-2018,B,-0.0694,0.184,0.0,119,True,True
+B052,Ireland→Italy 1913-2018,B,0.0005,0.0,0.9871,99,False,True
+B053,Spain→Portugal 1900-2018,B,-0.0856,0.3356,0.0,119,True,True
+B054,Ireland→Spain 1913-2018,B,0.0056,0.0006,0.804,99,False,True
+B055,Ireland→Portugal 1913-2018,B,-0.0774,0.0882,0.0028,99,True,True
+B056,Norway→Sweden 1900-2018,B,0.1347,0.1932,0.0,119,True,True
+B057,Denmark→Sweden 1900-2018,B,-0.1121,0.6459,0.0,119,True,True
+B058,Finland→Sweden 1900-2018,B,0.0767,0.2321,0.0,119,True,True
+B059,Norway→Denmark 1900-2018,B,0.2468,0.4972,0.0,119,True,True
+B060,Norway→Finland 1900-2018,B,0.058,0.0686,0.004,119,True,True
+B061,Denmark→Finland 1900-2018,B,-0.1888,0.6525,0.0,119,True,True
+B062,Czechia→Poland 1970-2018,B,0.0201,0.026,0.2684,49,False,True
+B063,Hungary→Poland 1900-2018,B,-0.0428,0.1208,0.0011,85,True,True
+B064,Romania→Poland 1900-2018,B,0.4294,0.7494,0.0,85,True,True
+B065,Bulgaria→Poland 1910-2018,B,0.0645,0.0884,0.0063,83,True,True
+B066,Russia→Poland 1960-2018,B,-0.0597,0.0936,0.0184,59,True,True
+B067,Ukraine→Poland 1973-2018,B,-0.3648,0.5836,0.0,40,True,True
+B068,Czechia→Hungary 1970-2018,B,0.0455,0.3504,0.0,49,True,True
+B069,Czechia→Romania 1970-2018,B,-0.1326,0.3913,0.0,49,True,True
+B070,Czechia→Bulgaria 1970-2018,B,0.1785,0.6742,0.0,49,True,True
+B071,Czechia→Russia 1970-2018,B,0.1287,0.3478,0.0,49,True,True
+B072,Czechia→Ukraine 1973-2018,B,0.3258,0.6385,0.0,40,True,True
+B073,Hungary→Romania 1900-2018,B,-0.4798,0.6402,0.0,96,True,True
+B074,Hungary→Bulgaria 1910-2018,B,-0.1383,0.3808,0.0,92,True,True
+B075,Russia→Hungary 1960-2018,B,-0.0178,0.0127,0.3964,59,False,True
+B076,Hungary→Ukraine 1973-2018,B,0.3036,0.6025,0.0,40,True,True
+B077,Bulgaria→Romania 1905-2018,B,-0.3366,0.4612,0.0,98,True,True
+B078,Russia→Romania 1960-2018,B,-0.3336,0.8196,0.0,59,True,True
+B079,Ukraine→Romania 1973-2018,B,-0.4408,0.7065,0.0,40,True,True
+B080,Russia→Bulgaria 1960-2018,B,0.0552,0.2385,0.0001,59,True,True
+B081,Ukraine→Bulgaria 1973-2018,B,-0.1682,0.4523,0.0,40,True,True
+B082,Russia→Ukraine 1973-2018,B,0.2199,0.6305,0.0,40,True,True
+B083,Greece→Italy 1900-2018,B,0.0004,0.0,0.9783,119,False,True
+B084,Turkey→Italy 1913-2018,B,0.073,0.102,0.0013,98,True,True
+B085,Greece→Spain 1900-2018,B,0.0166,0.006,0.4027,119,False,True
+B086,Spain→Turkey 1913-2018,B,-0.0684,0.0999,0.0015,98,True,True
+B087,Greece→Portugal 1900-2018,B,-0.069,0.0992,0.0005,119,True,True
+B088,Turkey→Portugal 1913-2018,B,-0.0126,0.0051,0.4864,98,False,True
+B089,Greece→Turkey 1913-2018,B,-0.0854,0.1037,0.0012,98,True,True
+B090,Canada→United States 1900-2018,B,0.1064,0.6824,0.0,119,True,True
+B091,United States→Mexico 1900-2018,B,-0.0933,0.3686,0.0,119,True,True
+B092,Canada→Mexico 1900-2018,B,0.0132,0.0123,0.2305,119,False,True
+B093,Guatemala→Mexico 1920-2018,B,-0.2729,0.4862,0.0,99,True,True
+B094,Mexico→Honduras 1920-2018,B,0.3827,0.7596,0.0,99,True,True
+B095,Costa Rica→Mexico 1920-2018,B,-0.1045,0.4903,0.0,99,True,True
+B096,Panama→Mexico 1906-2018,B,-0.1223,0.2534,0.0,113,True,True
+B097,Cuba→Mexico 1902-2018,B,-0.3085,0.5813,0.0,117,True,True
+B098,Guatemala→Honduras 1920-2018,B,0.1098,0.2701,0.0,99,True,True
+B099,Costa Rica→Guatemala 1920-2018,B,0.1684,0.3547,0.0,99,True,True
+B100,Panama→Guatemala 1920-2018,B,0.2214,0.2874,0.0,99,True,True
+B101,Guatemala→Cuba 1920-2018,B,0.0322,0.0183,0.1813,99,False,True
+B102,Costa Rica→Honduras 1920-2018,B,0.2782,0.7623,0.0,99,True,True
+B103,Panama→Honduras 1920-2018,B,0.3313,0.6092,0.0,99,True,True
+B104,Cuba→Honduras 1920-2018,B,0.0776,0.1608,0.0,99,True,True
+B105,Costa Rica→Panama 1920-2018,B,-0.053,0.0677,0.0093,99,True,True
+B106,Costa Rica→Cuba 1920-2018,B,0.2006,0.504,0.0,99,True,True
+B107,Panama→Cuba 1906-2018,B,0.1925,0.2926,0.0,113,True,True
+B108,Argentina→Brazil 1900-2018,B,-0.4744,0.6793,0.0,119,True,True
+B109,Chile→Brazil 1900-2018,B,-0.3934,0.6344,0.0,119,True,True
+B110,Uruguay→Brazil 1900-2018,B,-0.4215,0.6533,0.0,119,True,True
+B111,Paraguay→Brazil 1939-2018,B,-0.348,0.8727,0.0,80,True,True
+B112,Brazil→Bolivia 1900-2018,B,0.4917,0.5996,0.0,119,True,True
+B113,Brazil→Peru 1900-2018,B,0.2576,0.3305,0.0,119,True,True
+B114,Colombia→Brazil 1900-2018,B,-0.1301,0.2095,0.0,119,True,True
+B115,Venezuela→Brazil 1900-2018,B,-0.0188,0.0021,0.6196,119,False,True
+B116,Ecuador→Brazil 1900-2018,B,-0.2022,0.5129,0.0,119,True,True
+B117,Argentina→Chile 1900-2018,B,-0.081,0.1555,0.0,119,True,True
+B118,Argentina→Uruguay 1900-2018,B,-0.0528,0.136,0.0,119,True,True
+B119,Argentina→Paraguay 1939-2018,B,-0.0598,0.0635,0.0241,80,True,True
+B120,Argentina→Bolivia 1900-2018,B,0.0173,0.0179,0.147,119,False,True
+B121,Argentina→Peru 1900-2018,B,-0.2167,0.7091,0.0,119,True,True
+B122,Argentina→Colombia 1900-2018,B,-0.3442,0.8247,0.0,119,True,True
+B123,Argentina→Venezuela 1900-2018,B,-0.4555,0.6239,0.0,119,True,True
+B124,Argentina→Ecuador 1900-2018,B,-0.2721,0.7459,0.0,119,True,True
+B125,Uruguay→Chile 1900-2018,B,-0.0282,0.0324,0.05,119,False,True
+B126,Chile→Paraguay 1939-2018,B,0.0475,0.0469,0.0537,80,False,True
+B127,Chile→Bolivia 1900-2018,B,0.0983,0.1478,0.0,119,True,True
+B128,Chile→Peru 1900-2018,B,-0.1357,0.2147,0.0,119,True,True
+B129,Chile→Colombia 1900-2018,B,-0.2632,0.6751,0.0,119,True,True
+B130,Venezuela→Chile 1900-2018,B,0.3746,0.4183,0.0,119,True,True
+B131,Chile→Ecuador 1900-2018,B,-0.1912,0.4935,0.0,119,True,True
+B132,Uruguay→Paraguay 1939-2018,B,-0.0145,0.0048,0.5394,80,False,True
+B133,Uruguay→Bolivia 1900-2018,B,0.0702,0.1326,0.0,119,True,True
+B134,Uruguay→Peru 1900-2018,B,-0.1639,0.4275,0.0,119,True,True
+B135,Uruguay→Colombia 1900-2018,B,-0.2914,0.8091,0.0,119,True,True
+B136,Uruguay→Venezuela 1900-2018,B,-0.4027,0.5483,0.0,119,True,True
+B137,Uruguay→Ecuador 1900-2018,B,-0.2193,0.678,0.0,119,True,True
+B138,Paraguay→Bolivia 1939-2018,B,0.1585,0.3765,0.0,80,True,True
+B139,Paraguay→Peru 1939-2018,B,0.0248,0.0074,0.4488,80,False,True
+B140,Paraguay→Colombia 1939-2018,B,-0.0899,0.4023,0.0,80,True,True
+B141,Venezuela→Paraguay 1939-2018,B,0.0163,0.0015,0.7318,80,False,True
+B142,Paraguay→Ecuador 1939-2018,B,-0.1335,0.4024,0.0,80,True,True
+B143,Bolivia→Peru 1900-2018,B,-0.2341,0.7047,0.0,119,True,True
+B144,Colombia→Bolivia 1900-2018,B,0.3616,0.7822,0.0,119,True,True
+B145,Venezuela→Bolivia 1900-2018,B,0.4729,0.5968,0.0,119,True,True
+B146,Ecuador→Bolivia 1900-2018,B,0.2895,0.623,0.0,119,True,True
+B147,Colombia→Peru 1900-2018,B,0.1275,0.2968,0.0,119,True,True
+B148,Venezuela→Peru 1900-2018,B,0.2388,0.3537,0.0,119,True,True
+B149,Ecuador→Peru 1900-2018,B,0.0554,0.0684,0.0041,119,True,True
+B150,Venezuela→Colombia 1900-2018,B,0.1113,0.0904,0.0009,119,True,True
+B151,Ecuador→Colombia 1900-2018,B,-0.0721,0.2672,0.0,119,True,True
+B152,Venezuela→Ecuador 1900-2018,B,0.1834,0.2382,0.0,119,True,True
+B153,Japan→China 1900-2018,B,0.2344,0.1839,0.0001,82,True,True
+B154,Japan→South Korea 1911-2018,B,-0.0593,0.0148,0.2134,106,False,True
+B155,Japan→Taiwan 1901-2018,B,-0.0796,0.038,0.0423,109,True,True
+B156,Japan→Mongolia 1950-2018,B,0.0575,0.0103,0.4077,69,False,True
+B157,South Korea→China 1911-2018,B,0.3968,0.575,0.0,81,True,True
+B158,Taiwan→China 1911-2018,B,0.3717,0.6461,0.0,81,True,True
+B159,Mongolia→China 1950-2018,B,-0.0047,0.0005,0.8493,69,False,True
+B160,Taiwan→South Korea 1911-2018,B,0.0238,0.0462,0.0327,99,True,True
+B161,South Korea→Mongolia 1950-2018,B,0.4545,0.538,0.0,69,True,True
+B162,Taiwan→Mongolia 1950-2018,B,0.3709,0.4853,0.0,69,True,True
+B163,Singapore→Malaysia 1900-2018,B,0.104,0.0629,0.0085,109,True,True
+B164,Singapore→Thailand 1913-2018,B,0.2535,0.6427,0.0,72,True,True
+B165,Singapore→Indonesia 1900-2018,B,0.4364,0.5307,0.0,109,True,True
+B166,Singapore→Philippines 1902-2018,B,0.5528,0.4042,0.0,107,True,True
+B167,Singapore→Vietnam 1913-2018,B,0.6638,0.7835,0.0,70,True,True
+B168,Thailand→Malaysia 1913-2018,B,0.0663,0.1861,0.0002,72,True,True
+B169,Malaysia→Indonesia 1900-2018,B,0.3271,0.8178,0.0,112,True,True
+B170,Malaysia→Philippines 1902-2018,B,0.412,0.5728,0.0,111,True,True
+B171,Malaysia→Vietnam 1913-2018,B,0.3562,0.6986,0.0,70,True,True
+B172,Thailand→Indonesia 1913-2018,B,0.2186,0.724,0.0,72,True,True
+B173,Thailand→Philippines 1913-2018,B,0.4763,0.6751,0.0,72,True,True
+B174,Thailand→Vietnam 1913-2018,B,0.3931,0.6642,0.0,70,True,True
+B175,Philippines→Indonesia 1902-2018,B,-0.1027,0.0973,0.001,109,True,True
+B176,Vietnam→Indonesia 1913-2018,B,-0.1999,0.4897,0.0,70,True,True
+B177,Philippines→Vietnam 1913-2018,B,-0.0664,0.0457,0.0755,70,False,True
+B178,Pakistan→India 1950-2018,B,0.0446,0.0913,0.0116,69,True,True
+B179,India→Bangladesh 1950-2018,B,0.1545,0.7034,0.0,69,True,True
+B180,Sri Lanka→India 1900-2018,B,0.0173,0.0453,0.0201,119,True,True
+B181,India→Nepal 1913-2018,B,0.1811,0.5668,0.0,70,True,True
+B182,Pakistan→Bangladesh 1950-2018,B,0.1991,0.4421,0.0,69,True,True
+B183,Sri Lanka→Pakistan 1950-2018,B,-0.0387,0.0857,0.0146,69,True,True
+B184,Pakistan→Nepal 1950-2018,B,0.228,0.7394,0.0,69,True,True
+B185,Sri Lanka→Bangladesh 1950-2018,B,0.1604,0.5109,0.0,69,True,True
+B186,Bangladesh→Nepal 1950-2018,B,0.0288,0.02,0.2463,69,False,True
+B187,Sri Lanka→Nepal 1913-2018,B,0.1898,0.5099,0.0,70,True,True
+B188,Israel→Turkey 1950-2018,B,-0.0515,0.0573,0.0476,69,True,True
+B189,Israel→Iran 1950-2018,B,0.0483,0.0323,0.1394,69,False,True
+B190,Israel→Iraq 1950-2018,B,0.3498,0.2768,0.0,69,True,True
+B191,Saudi Arabia→Israel 1950-2018,B,0.1447,0.2404,0.0,69,True,True
+B192,Israel→Egypt 1950-2018,B,-0.059,0.0341,0.1288,69,False,True
+B193,Iran→Turkey 1913-2018,B,-0.0834,0.0853,0.0141,70,True,True
+B194,Turkey→Iraq 1913-2018,B,0.3799,0.2835,0.0,70,True,True
+B195,Saudi Arabia→Turkey 1913-2018,B,0.1534,0.2482,0.0,70,True,True
+B196,Turkey→Egypt 1913-2018,B,0.0333,0.038,0.106,70,False,True
+B197,Iran→Iraq 1913-2018,B,0.2965,0.2892,0.0,70,True,True
+B198,Saudi Arabia→Iran 1913-2018,B,0.2368,0.7522,0.0,70,True,True
+B199,Iran→Egypt 1913-2018,B,-0.0501,0.0174,0.2762,70,False,True
+B200,Saudi Arabia→Iraq 1913-2018,B,0.5333,0.5934,0.0,70,True,True
+B201,Iraq→Egypt 1913-2018,B,-0.3466,0.2123,0.0001,70,True,True
+B202,Saudi Arabia→Egypt 1913-2018,B,0.1867,0.2003,0.0001,70,True,True
+B203,Egypt→Morocco 1913-2018,B,0.2342,0.5225,0.0,70,True,True
+B204,Algeria→Egypt 1913-2018,B,-0.1119,0.2704,0.0,70,True,True
+B205,Tunisia→Egypt 1913-2018,B,-0.0477,0.0748,0.022,70,True,True
+B206,Egypt→Sudan 1950-2018,B,0.4554,0.7387,0.0,69,True,True
+B207,Algeria→Morocco 1913-2018,B,0.1223,0.3615,0.0,70,True,True
+B208,Tunisia→Morocco 1913-2018,B,0.1865,0.7139,0.0,70,True,True
+B209,Morocco→Sudan 1950-2018,B,0.1728,0.3651,0.0,69,True,True
+B210,Algeria→Tunisia 1913-2018,B,-0.0643,0.1569,0.0007,70,True,True
+B211,Algeria→Sudan 1950-2018,B,0.3214,0.7798,0.0,69,True,True
+B212,Tunisia→Sudan 1950-2018,B,0.3805,0.7114,0.0,69,True,True
+B213,South Africa→Nigeria 1950-2018,B,-0.0819,0.1448,0.0013,69,True,True
+B214,South Africa→Kenya 1950-2018,B,-0.0048,0.0024,0.6924,69,False,True
+B215,South Africa→Ghana 1950-2018,B,0.1791,0.6247,0.0,69,True,True
+B216,South Africa→Zimbabwe 1950-2018,B,0.1596,0.161,0.0006,69,True,True
+B217,South Africa→Zambia 1950-2018,B,0.0833,0.201,0.0001,69,True,True
+B218,South Africa→Tanzania 1950-2018,B,-0.0223,0.0229,0.2144,69,False,True
+B219,South Africa→Uganda 1950-2018,B,0.1837,0.7029,0.0,69,True,True
+B220,South Africa→Mozambique 1950-2018,B,0.4959,0.5914,0.0,69,True,True
+B221,Botswana→South Africa 1950-2018,B,0.9003,0.7224,0.0,69,True,True
+B222,Nigeria→Kenya 1950-2018,B,0.0771,0.108,0.0058,69,True,True
+B223,Nigeria→Ghana 1950-2018,B,0.261,0.5996,0.0,69,True,True
+B224,Nigeria→Zimbabwe 1950-2018,B,0.2415,0.1719,0.0004,69,True,True
+B225,Nigeria→Zambia 1950-2018,B,0.1652,0.4034,0.0,69,True,True
+B226,Nigeria→Tanzania 1950-2018,B,0.0595,0.2202,0.0,69,True,True
+B227,Nigeria→Uganda 1950-2018,B,0.2656,0.5929,0.0,69,True,True
+B228,Nigeria→Mozambique 1950-2018,B,0.5777,0.4984,0.0,69,True,True
+B229,Botswana→Nigeria 1950-2018,B,0.8184,0.7383,0.0,69,True,True
+B230,Ghana→Kenya 1950-2018,B,-0.1838,0.5114,0.0,69,True,True
+B231,Zimbabwe→Kenya 1950-2018,B,-0.1644,0.1861,0.0002,69,True,True
+B232,Kenya→Zambia 1950-2018,B,0.0881,0.128,0.0025,69,True,True
+B233,Kenya→Tanzania 1950-2018,B,-0.0176,0.0107,0.3977,69,False,True
+B234,Kenya→Uganda 1950-2018,B,0.1885,0.5205,0.0,69,True,True
+B235,Kenya→Mozambique 1950-2018,B,0.5006,0.5816,0.0,69,True,True
+B236,Botswana→Kenya 1950-2018,B,0.8955,0.7592,0.0,69,True,True
+B237,Ghana→Zimbabwe 1950-2018,B,-0.0195,0.0021,0.7053,69,False,True
+B238,Ghana→Zambia 1950-2018,B,-0.0957,0.3996,0.0,69,True,True
+B239,Ghana→Tanzania 1950-2018,B,-0.2014,0.6348,0.0,69,True,True
+B240,Ghana→Uganda 1950-2018,B,0.0046,0.0028,0.6685,69,False,True
+B241,Ghana→Mozambique 1950-2018,B,0.3168,0.3456,0.0,69,True,True
+B242,Botswana→Ghana 1950-2018,B,1.0793,0.7566,0.0,69,True,True
+B243,Zimbabwe→Zambia 1950-2018,B,-0.0763,0.0245,0.1986,69,False,True
+B244,Zimbabwe→Tanzania 1950-2018,B,-0.182,0.1198,0.0036,69,True,True
+B245,Zimbabwe→Uganda 1950-2018,B,0.0241,0.0034,0.6321,69,False,True
+B246,Zimbabwe→Mozambique 1950-2018,B,0.3362,0.7097,0.0,69,True,True
+B247,Botswana→Zimbabwe 1950-2018,B,1.0599,0.6668,0.0,69,True,True
+B248,Zambia→Tanzania 1950-2018,B,-0.1057,0.333,0.0,69,True,True
+B249,Zambia→Uganda 1950-2018,B,0.1004,0.402,0.0,69,True,True
+B250,Zambia→Mozambique 1950-2018,B,0.4125,0.4294,0.0,69,True,True
+B251,Botswana→Zambia 1950-2018,B,0.9836,0.702,0.0,69,True,True
+B252,Uganda→Tanzania 1950-2018,B,-0.206,0.6282,0.0,69,True,True
+B253,Mozambique→Tanzania 1950-2018,B,-0.5182,0.4808,0.0,69,True,True
+B254,Botswana→Tanzania 1950-2018,B,0.8779,0.7515,0.0,69,True,True
+B255,Mozambique→Uganda 1950-2018,B,-0.3122,0.3511,0.0,69,True,True
+B256,Botswana→Uganda 1950-2018,B,1.084,0.7565,0.0,69,True,True
+B257,Botswana→Mozambique 1950-2018,B,1.3961,0.71,0.0,69,True,True
+B258,New Zealand→Australia 1900-2018,B,-0.1096,0.4022,0.0,119,True,True
+D_01,HackerEarth activity power-law (4771 users),D,-1.6398,0.9519,0.0,4771,True,True
+D_02,HackerEarth credits power-law,D,-1.5205,0.7222,0.0,669,True,True
+D_03,HackerEarth runs power-law,D,-0.9311,0.9504,0.0,270,True,True
+E2_01,Lynx→Hare Hudson Bay 1900-1920,E2,0.5483,0.2031,0.0403,21,True,True
+E2_02,Lynx population vs equilibrium 1821-1850,E2,-0.2592,0.0289,0.369,30,False,True
+F1_01,Stellar/planetary mass dominance vs orbit (exoplanets),F1,-0.5399,0.2157,0.0,2300,True,True
+F1_02,Solar System Jupiter dominance,F1,-3.0737,0.5751,0.048159,7,True,True
+C_MX_NBODY,Mexico 32 entidades N-body (INEGI 2022),C,-0.4732,0.8705,0.0,32,True,True
