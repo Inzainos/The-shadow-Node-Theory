@@ -264,4 +264,6 @@ E2_01,Lynx→Hare Hudson Bay 1900-1920,E2,0.5483,0.2031,0.0403,21,True,True
 E2_02,Lynx population vs equilibrium 1821-1850,E2,-0.2592,0.0289,0.369,30,False,True
 F1_01,Stellar/planetary mass dominance vs orbit (exoplanets),F1,-0.5399,0.2157,0.0,2300,True,True
 F1_02,Solar System Jupiter dominance,F1,-3.0737,0.5751,0.048159,7,True,True
+F2_01,Stellar mass-radius relation (exoplanet hosts),F2,1.2734,0.4759,0.0,2306,True,True
+F3_01,Multiplanet mass dominance (n=11 planets),F3,1.264,0.9041,7e-06,11,True,True
 C_MX_NBODY,Mexico 32 entidades N-body (INEGI 2022),C,-0.4732,0.8705,0.0,32,True,True
