@@ -1,0 +1,25 @@
+id,descripcion,dominio,b,r2,p,n,fuente,significativo
+C_001,Mexico 32 entidades N-body (INEGI 2022),C,-0.4732,0.8705,0.0,32,INEGI 2022,True
+C_002,CA→NV pop 1900-2025 (US West),C,-0.2489,0.1796,0.0,126,US Census historical,True
+C_003,CA→AZ pop 1900-2025 (US West),C,-0.2027,0.3334,0.0,126,US Census historical,True
+C_004,CA→OR pop 1900-2025 (US West),C,0.354,0.8756,0.0,126,US Census historical,True
+C_005,NY→NJ pop 1900-2025 (US Northeast),C,-0.1766,0.8284,0.0,126,US Census historical,True
+C_006,NY→CT pop 1900-2025 (US Northeast),C,-0.1357,0.6787,0.0,126,US Census historical,True
+C_007,NY→PA pop 1900-2025 (US Northeast),C,0.103,0.796,0.0,126,US Census historical,True
+C_008,TX→OK pop 1900-2025 (US South),C,0.3138,0.5694,0.0,126,US Census historical,True
+C_009,TX→NM pop 1900-2025 (US South),C,-0.0481,0.1982,0.0,126,US Census historical,True
+C_010,TX→LA pop 1900-2025 (US South),C,0.2597,0.5984,0.0,126,US Census historical,True
+C_011,IL→IN pop 1900-2025 (US Midwest),C,-0.0141,0.0413,0.0224,126,US Census historical,True
+C_012,IL→WI pop 1900-2025 (US Midwest),C,-0.0163,0.0767,0.0017,126,US Census historical,True
+C_013,IL→MO pop 1900-2025 (US Midwest),C,0.0954,0.6937,0.0,126,US Census historical,True
+C_014,FL→GA pop 1900-2025 (US Southeast),C,0.739,0.8543,0.0,126,US Census historical,True
+C_015,FL→AL pop 1900-2025 (US Southeast),C,0.8914,0.8088,0.0,126,US Census historical,True
+C_016,MA→NH pop 1900-2025 (US NewEngland),C,-0.1308,0.2718,0.0,126,US Census historical,True
+C_017,MA→ME pop 1900-2025 (US NewEngland),C,0.0484,0.4159,0.0,126,US Census historical,True
+C_018,MA→VT pop 1900-2025 (US NewEngland),C,0.0636,0.2399,0.0,126,US Census historical,True
+C_019,WA→ID pop 1900-2025 (US Northwest),C,0.111,0.6072,0.0,126,US Census historical,True
+C_020,WA→MT pop 1900-2025 (US Northwest),C,0.3336,0.7567,0.0,126,US Census historical,True
+C_021,CO→WY pop 1900-2025 (US Mountain),C,0.1564,0.3117,0.0,126,US Census historical,True
+C_022,CO→UT pop 1900-2025 (US Mountain),C,-0.04,0.4314,0.0,126,US Census historical,True
+C_023,GA→SC pop 1900-2025 (US Southeast),C,0.0552,0.3503,0.0,126,US Census historical,True
+C_024,MI→OH pop 1900-2025 (US Midwest),C,0.1362,0.9017,0.0,126,US Census historical,True

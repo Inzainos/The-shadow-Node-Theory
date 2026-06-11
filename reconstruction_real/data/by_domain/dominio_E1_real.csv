@@ -1,0 +1,5 @@
+id,descripcion,dominio,b,r2,p,n,fuente,significativo
+E1_001,Global territorial invasion (countries colonized 2020),E1,1.142,0.8446,0.0,120,OWID COVID-19 spatial spread,True
+E1_002,Asia-Pacific invasion wavefront 2020,E1,2.724,0.8725,0.0,80,OWID COVID-19 spatial,True
+E1_003,Europe invasion wavefront 2020,E1,3.8202,0.8053,0.0,80,OWID COVID-19 spatial,True
+E1_004,Americas invasion wavefront 2020,E1,3.8795,0.7291,0.0,80,OWID COVID-19 spatial,True

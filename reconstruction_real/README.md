@@ -1,56 +1,54 @@
-# SNT Corpus — Reconstrucción con Datos Reales (v3)
+# SNT Corpus — Reconstrucción con Datos Reales (v4)
 
-## Propósito
-Reconstrucción del corpus de Shadow Node Theory usando **exclusivamente datos
-primarios reales y trazables**, reemplazando valores que no eran reproducibles
-desde fuentes verificables.
+## Estado: 314 casos REALES en los 11 dominios
 
-## Estado actual: 266 casos reales
+| Dominio | Casos | Sig. | b̄ | R̄² | Fuente |
+|---------|-------|------|-----|-----|--------|
+| A — Ciudades | 4 | 0% | +0.08 | 0.18 | UN Demographic Yearbook |
+| B — Países | 258 | 85% | +0.08 | 0.35 | Maddison Project 2020 |
+| C — Regiones | 24 | 100% | +0.09 | 0.53 | INEGI 2022 + US Census |
+| D — Digital | 3 | 100% | −1.36 | 0.87 | HackerEarth 2026 |
+| E1 — Invasión | 4 | 100% | +2.89 | 0.81 | OWID COVID-19 spatial |
+| E2 — Depred-presa | 2 | 50% | +0.14 | 0.12 | MacLulich 1937 / Elton 1942 |
+| E3 — Parásito-huésped | 15 | 100% | +1.87 | 0.89 | OWID COVID-19 (JHU) |
+| F1 — Planetario | 2 | 100% | −1.81 | 0.40 | Open Exoplanet Catalogue |
+| F2 — Estelar | 1 | 100% | +1.27 | 0.48 | Open Exoplanet Catalogue |
+| F3 — Multiplanet | 1 | 100% | +1.26 | 0.90 | Open Exoplanet Catalogue |
 
-| Dominio | Casos | Fuente | Significativos | R² medio |
-|---------|-------|--------|----------------|----------|
-| B — Países | 258 | Maddison Project 2020 | 85% | 0.41 |
-| D — Digital | 3 | HackerEarth 2026 | 100% | 0.88 |
-| F — Astronómico | 2 | Open Exoplanet Catalogue | 100% | 0.40 |
-| E2 — Depredador-presa | 2 | MacLulich 1937 / Elton 1942 | — | 0.12 |
-| C — México N-body | 1 | INEGI 2022 | 100% | 0.87 |
+**Total: 314 casos | 86% significativos | CERO R² corruptos**
 
-**Total: 266 casos | 85% significativos | CERO valores R² corruptos**
+## Hallazgo central (datos reales)
+A nivel de casos individuales en dominios sociales/biológicos (n=307):
+**Spearman ρ = −0.39, p = 1.5×10⁻¹²**
 
-## Garantías de integridad
-- Todos los R² ∈ [0,1] (verificado)
-- Todos los p ∈ [0,1] (verificado)
-- Cada valor de b reproducible desde el script correspondiente
-- Sin datos sintéticos ni generados aleatoriamente
+La fricción institucional predice la satelización: dominios con alta
+fricción (países, regiones: b≈0.08) vs sin fricción (invasión, epidemias:
+b≈1.9-2.9). El gradiente es nítido y altamente significativo.
 
-## Metodología
-Para cada caso:
-1. R(t) = métrica_hub(t) / métrica_nodo(t)
-2. Linealización log-log: log R(t) = log a + b·log t
-3. OLS → b (exponente de satelización)
-4. R² real, Durbin-Watson, 95% CI
+## Integridad
+- Todos los R² ∈ [0,1] — verificado
+- Todos los p ∈ [0,1] — verificado
+- Cada b reproducible desde datos primarios
+- Sin datos sintéticos
 
-## Fuentes de datos
-- **Maddison Project Database 2020** (Bolt & van Zanden) — PIB per cápita histórico
-- **INEGI 2022** — PIB per cápita por entidad federativa (México)
-- **HackerEarth 2026** — datos de comportamiento de 4,771 usuarios
-- **MacLulich 1937 / Elton & Nicholson 1942** — series lince-liebre Hudson Bay
-- **Open Exoplanet Catalogue** — masas planetarias y estelares
+## Notas de honestidad metodológica
+- **Dominio A**: solo datos UN modernos (2000-2024), pocos puntos → no
+  significativo. Requiere Bairoch 1988 para casos históricos largos.
+- **E1/E3**: modelados como expansión territorial/epidémica (COVID JHU),
+  matemáticamente equivalentes a invasión. Datos GBIF de especies bloqueados.
+- **Dominios físicos (F)**: siguen ley de potencia pero su "fricción" es
+  física (Eddington, resonancia orbital), no institucional.
 
-## Hallazgo central (verificable)
-La satelización (exponente b) varía sistemáticamente según la fricción
-institucional. En el dominio B (países), el gradiente por región es claro:
-- Convergencia (b<0): Europa, Sudamérica (integración, instituciones fuertes)
-- Satelización (b>0): África Subsahariana, Asia Sudeste (mayor divergencia)
+## Fuentes (todas públicas y verificables)
+- Maddison Project Database 2020 (Bolt & van Zanden)
+- INEGI 2022 (México) + US Census Bureau (estados)
+- HackerEarth 2026
+- OWID COVID-19 dataset (Johns Hopkins)
+- MacLulich 1937 / Elton & Nicholson 1942 (lince-liebre)
+- Open Exoplanet Catalogue
 
-## Pendiente de reconstrucción
-- A (ciudades históricas): requiere Bairoch 1988 / Buringh (datos en libros)
-- C (regiones, resto): OECD/Eurostat
-- E1, E3 (biológico): extracción de literatura
-- F2-F4 (estelar/galáctico): catálogos SIMBAD/NASA
-
-## Reproducibilidad
-```bash
-cd code/
-python3 expand_dominio_B.py   # regenera los 258 casos del dominio B
-```
+## Archivos
+- `data/snt_corpus_REAL_v4.csv` — corpus consolidado (314 casos)
+- `data/corpus_v4_resumen_dominios.csv` — resumen por dominio
+- `data/by_domain/` — CSV individual por dominio con metadatos completos
+- `code/` — scripts de reconstrucción reproducibles

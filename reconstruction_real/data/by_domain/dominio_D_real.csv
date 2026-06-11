@@ -1,0 +1,4 @@
+id,descripcion,dominio,b,r2,p,n,fuente,significativo
+D_01,HackerEarth activity power-law (4771 users),D,-1.6398,0.9519,0.0,4771,HackerEarth 2026,True
+D_02,HackerEarth credits power-law,D,-1.5205,0.7222,0.0,669,HackerEarth 2026,True
+D_03,HackerEarth runs power-law,D,-0.9311,0.9504,0.0,270,HackerEarth 2026,True

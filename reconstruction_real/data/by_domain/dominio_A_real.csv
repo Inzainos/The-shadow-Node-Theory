@@ -1,0 +1,5 @@
+id,descripcion,dominio,b,r2,p,n,fuente,significativo
+A_001,Tokyo→Osaka pop 2000-2020 (Japan),A,0.0723,0.3294,0.1778,7,UN Demographic Yearbook,False
+A_002,Tokyo→Yokohama pop 2000-2020 (Japan),A,0.0476,0.1706,0.357,7,UN Demographic Yearbook,False
+A_003,Paris→Lyon pop 1999-2021 (France),A,0.2384,0.1913,0.3858,6,UN Demographic Yearbook,False
+A_004,Madrid→Barcelona pop 2001-2023 (Spain),A,-0.0304,0.0321,0.5226,15,UN Demographic Yearbook,False
