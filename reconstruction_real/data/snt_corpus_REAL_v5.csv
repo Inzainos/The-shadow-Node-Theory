@@ -1,0 +1,722 @@
+id,descripcion,dominio,b,r2,p,n,significativo,fuente_real
+A_001,Tokyo→Osaka pop 2000-2020 (Japan),A,0.0723,0.3294,0.1778,7,False,True
+A_002,Tokyo→Yokohama pop 2000-2020 (Japan),A,0.0476,0.1706,0.357,7,False,True
+A_003,Paris→Lyon pop 1999-2021 (France),A,0.2384,0.1913,0.3858,6,False,True
+A_004,Madrid→Barcelona pop 2001-2023 (Spain),A,-0.0304,0.0321,0.5226,15,False,True
+B001,United Kingdom→France 1900-2018,B,-0.192,0.4206,0.0,119,True,True
+B002,Germany→United Kingdom 1900-2018,B,0.1947,0.4465,0.0,119,True,True
+B003,Netherlands→United Kingdom 1900-2018,B,0.1472,0.3536,0.0,119,True,True
+B004,Belgium→United Kingdom 1900-2018,B,0.0942,0.2495,0.0,119,True,True
+B005,Switzerland→United Kingdom 1900-2018,B,0.1522,0.5219,0.0,119,True,True
+B006,Austria→United Kingdom 1900-2018,B,0.2022,0.3235,0.0,119,True,True
+B007,Italy→United Kingdom 1900-2018,B,0.273,0.5061,0.0,119,True,True
+B008,Spain→United Kingdom 1900-2018,B,0.2569,0.41,0.0,119,True,True
+B009,United Kingdom→Portugal 1900-2018,B,-0.3425,0.571,0.0,119,True,True
+B010,Ireland→United Kingdom 1913-2018,B,0.2628,0.3606,0.0,99,True,True
+B011,Luxembourg→United Kingdom 1950-2018,B,0.1071,0.6066,0.0,69,True,True
+B012,Germany→France 1900-2018,B,0.0027,0.0002,0.8897,119,False,True
+B013,Netherlands→France 1900-2018,B,-0.0447,0.1924,0.0,119,True,True
+B014,Belgium→France 1900-2018,B,-0.0978,0.5046,0.0,119,True,True
+B015,Switzerland→France 1900-2018,B,-0.0397,0.0805,0.0018,119,True,True
+B016,Austria→France 1900-2018,B,0.0102,0.0027,0.5734,119,False,True
+B017,Italy→France 1900-2018,B,0.0811,0.3201,0.0,119,True,True
+B018,Spain→France 1900-2018,B,0.0649,0.0768,0.0023,119,True,True
+B019,France→Portugal 1900-2018,B,-0.1505,0.3478,0.0,119,True,True
+B020,Ireland→France 1913-2018,B,0.1149,0.0985,0.0016,99,True,True
+B021,Luxembourg→France 1950-2018,B,0.0092,0.0042,0.5962,69,False,True
+B022,Germany→Netherlands 1900-2018,B,0.0475,0.0477,0.017,119,True,True
+B023,Belgium→Germany 1900-2018,B,-0.1005,0.2433,0.0,119,True,True
+B024,Switzerland→Germany 1900-2018,B,-0.0425,0.054,0.011,119,True,True
+B025,Austria→Germany 1900-2018,B,0.0075,0.0028,0.5702,119,False,True
+B026,Germany→Italy 1900-2018,B,-0.0783,0.1463,0.0,119,True,True
+B027,Germany→Spain 1900-2018,B,-0.0622,0.0673,0.0044,119,True,True
+B028,Germany→Portugal 1900-2018,B,-0.1478,0.3209,0.0,119,True,True
+B029,Ireland→Germany 1913-2018,B,0.0814,0.0611,0.0136,99,True,True
+B030,Luxembourg→Germany 1950-2018,B,-0.0651,0.2096,0.0001,69,True,True
+B031,Belgium→Netherlands 1900-2018,B,-0.053,0.2408,0.0,119,True,True
+B032,Switzerland→Netherlands 1900-2018,B,0.005,0.002,0.6319,119,False,True
+B033,Austria→Netherlands 1900-2018,B,0.055,0.0643,0.0054,119,True,True
+B034,Netherlands→Italy 1900-2018,B,-0.1258,0.3945,0.0,119,True,True
+B035,Spain→Netherlands 1900-2018,B,0.1097,0.1988,0.0,119,True,True
+B036,Netherlands→Portugal 1900-2018,B,-0.1953,0.4279,0.0,119,True,True
+B037,Ireland→Netherlands 1913-2018,B,0.1647,0.2446,0.0,99,True,True
+B038,Luxembourg→Netherlands 1950-2018,B,0.0051,0.0032,0.6459,69,False,True
+B039,Switzerland→Belgium 1900-2018,B,0.058,0.2874,0.0,119,True,True
+B040,Austria→Belgium 1900-2018,B,0.108,0.2331,0.0,119,True,True
+B041,Belgium→Italy 1900-2018,B,-0.1788,0.571,0.0,119,True,True
+B042,Belgium→Spain 1900-2018,B,-0.1627,0.4049,0.0,119,True,True
+B043,Belgium→Portugal 1900-2018,B,-0.2483,0.6276,0.0,119,True,True
+B044,Ireland→Belgium 1913-2018,B,0.1844,0.2875,0.0,99,True,True
+B045,Luxembourg→Belgium 1950-2018,B,0.0004,0.0,0.9776,69,False,True
+B046,Switzerland→Austria 1900-2018,B,-0.05,0.0539,0.0111,119,True,True
+B047,Switzerland→Italy 1900-2018,B,-0.1208,0.3168,0.0,119,True,True
+B048,Switzerland→Spain 1900-2018,B,-0.1047,0.1879,0.0,119,True,True
+B049,Switzerland→Portugal 1900-2018,B,-0.1903,0.4494,0.0,119,True,True
+B050,Ireland→Switzerland 1913-2018,B,0.1278,0.1709,0.0,99,True,True
+B051,Luxembourg→Switzerland 1950-2018,B,0.0029,0.0008,0.8169,69,False,True
+B052,Austria→Italy 1900-2018,B,-0.0708,0.2385,0.0,119,True,True
+B053,Austria→Spain 1900-2018,B,-0.0547,0.0877,0.0011,119,True,True
+B054,Austria→Portugal 1900-2018,B,-0.1403,0.4199,0.0,119,True,True
+B055,Ireland→Austria 1913-2018,B,0.0275,0.0083,0.3688,99,False,True
+B056,Luxembourg→Austria 1950-2018,B,-0.1147,0.5575,0.0,69,True,True
+B057,Spain→Italy 1900-2018,B,-0.0162,0.0085,0.3175,119,False,True
+B058,Italy→Portugal 1900-2018,B,-0.0694,0.184,0.0,119,True,True
+B059,Ireland→Italy 1913-2018,B,0.0005,0.0,0.9871,99,False,True
+B060,Luxembourg→Italy 1950-2018,B,-0.0855,0.2922,0.0,69,True,True
+B061,Spain→Portugal 1900-2018,B,-0.0856,0.3356,0.0,119,True,True
+B062,Ireland→Spain 1913-2018,B,0.0056,0.0006,0.804,99,False,True
+B063,Luxembourg→Spain 1950-2018,B,-0.2223,0.8756,0.0,69,True,True
+B064,Ireland→Portugal 1913-2018,B,-0.0774,0.0882,0.0028,99,True,True
+B065,Luxembourg→Portugal 1950-2018,B,-0.1991,0.7793,0.0,69,True,True
+B066,Luxembourg→Ireland 1950-2018,B,-0.2421,0.5317,0.0,69,True,True
+B067,Norway→Sweden 1900-2018,B,0.1347,0.1932,0.0,119,True,True
+B068,Denmark→Sweden 1900-2018,B,-0.1121,0.6459,0.0,119,True,True
+B069,Finland→Sweden 1900-2018,B,0.0767,0.2321,0.0,119,True,True
+B070,Iceland→Sweden 1950-2018,B,0.0834,0.457,0.0,69,True,True
+B071,Norway→Denmark 1900-2018,B,0.2468,0.4972,0.0,119,True,True
+B072,Norway→Finland 1900-2018,B,0.058,0.0686,0.004,119,True,True
+B073,Iceland→Norway 1950-2018,B,-0.1949,0.3756,0.0,69,True,True
+B074,Denmark→Finland 1900-2018,B,-0.1888,0.6525,0.0,119,True,True
+B075,Iceland→Denmark 1950-2018,B,0.0556,0.2931,0.0,69,True,True
+B076,Iceland→Finland 1950-2018,B,-0.0412,0.281,0.0,69,True,True
+B077,Czechia→Poland 1970-2018,B,0.0201,0.026,0.2684,49,False,True
+B078,Hungary→Poland 1900-2018,B,-0.0428,0.1208,0.0011,85,True,True
+B079,Romania→Poland 1900-2018,B,0.4294,0.7494,0.0,85,True,True
+B080,Bulgaria→Poland 1910-2018,B,0.0645,0.0884,0.0063,83,True,True
+B081,Russia→Poland 1960-2018,B,-0.0597,0.0936,0.0184,59,True,True
+B082,Ukraine→Poland 1973-2018,B,-0.3648,0.5836,0.0,40,True,True
+B083,Slovakia→Poland 1985-2018,B,-0.1119,0.6999,0.0,34,True,True
+B084,Croatia→Poland 1952-2018,B,0.0815,0.109,0.0064,67,True,True
+B085,Serbia→Poland 1952-2018,B,-0.0155,0.0019,0.7241,67,False,True
+B086,Slovenia→Poland 1952-2018,B,0.0938,0.1073,0.0068,67,True,True
+B087,Czechia→Hungary 1970-2018,B,0.0455,0.3504,0.0,49,True,True
+B088,Czechia→Romania 1970-2018,B,-0.1326,0.3913,0.0,49,True,True
+B089,Czechia→Bulgaria 1970-2018,B,0.1785,0.6742,0.0,49,True,True
+B090,Czechia→Russia 1970-2018,B,0.1287,0.3478,0.0,49,True,True
+B091,Czechia→Ukraine 1973-2018,B,0.3258,0.6385,0.0,40,True,True
+B092,Czechia→Slovakia 1985-2018,B,0.0225,0.1615,0.0185,34,True,True
+B093,Czechia→Croatia 1970-2018,B,0.143,0.4885,0.0,49,True,True
+B094,Czechia→Serbia 1970-2018,B,0.2658,0.4766,0.0,49,True,True
+B095,Slovenia→Czechia 1970-2018,B,-0.1645,0.5355,0.0,49,True,True
+B096,Hungary→Romania 1900-2018,B,-0.4798,0.6402,0.0,96,True,True
+B097,Hungary→Bulgaria 1910-2018,B,-0.1383,0.3808,0.0,92,True,True
+B098,Russia→Hungary 1960-2018,B,-0.0178,0.0127,0.3964,59,False,True
+B099,Hungary→Ukraine 1973-2018,B,0.3036,0.6025,0.0,40,True,True
+B100,Slovakia→Hungary 1985-2018,B,-0.0331,0.2277,0.0043,34,True,True
+B101,Croatia→Hungary 1952-2018,B,0.1026,0.2502,0.0,67,True,True
+B102,Hungary→Serbia 1952-2018,B,-0.0056,0.0003,0.8842,67,False,True
+B103,Slovenia→Hungary 1952-2018,B,0.1149,0.2205,0.0001,67,True,True
+B104,Bulgaria→Romania 1905-2018,B,-0.3366,0.4612,0.0,98,True,True
+B105,Russia→Romania 1960-2018,B,-0.3336,0.8196,0.0,59,True,True
+B106,Ukraine→Romania 1973-2018,B,-0.4408,0.7065,0.0,40,True,True
+B107,Slovakia→Romania 1985-2018,B,-0.1618,0.5031,0.0,34,True,True
+B108,Croatia→Romania 1952-2018,B,-0.2735,0.5355,0.0,67,True,True
+B109,Serbia→Romania 1952-2018,B,-0.3705,0.5172,0.0,67,True,True
+B110,Slovenia→Romania 1952-2018,B,-0.2611,0.4315,0.0,67,True,True
+B111,Russia→Bulgaria 1960-2018,B,0.0552,0.2385,0.0001,59,True,True
+B112,Ukraine→Bulgaria 1973-2018,B,-0.1682,0.4523,0.0,40,True,True
+B113,Slovakia→Bulgaria 1985-2018,B,0.0858,0.5318,0.0,34,True,True
+B114,Croatia→Bulgaria 1952-2018,B,0.1153,0.5594,0.0,67,True,True
+B115,Serbia→Bulgaria 1952-2018,B,0.0183,0.0108,0.4033,67,False,True
+B116,Slovenia→Bulgaria 1952-2018,B,0.1276,0.45,0.0,67,True,True
+B117,Russia→Ukraine 1973-2018,B,0.2199,0.6305,0.0,40,True,True
+B118,Slovakia→Russia 1985-2018,B,0.0288,0.0249,0.3726,34,False,True
+B119,Russia→Croatia 1960-2018,B,-0.0257,0.0269,0.2147,59,False,True
+B120,Russia→Serbia 1960-2018,B,0.0924,0.2019,0.0004,59,True,True
+B121,Slovenia→Russia 1960-2018,B,0.0239,0.0121,0.4059,59,False,True
+B122,Slovakia→Ukraine 1985-2018,B,0.2701,0.5899,0.0,34,True,True
+B123,Croatia→Ukraine 1973-2018,B,0.1611,0.3526,0.0001,40,True,True
+B124,Ukraine→Serbia 1973-2018,B,-0.0359,0.0411,0.2099,40,False,True
+B125,Slovenia→Ukraine 1973-2018,B,0.1311,0.2166,0.0025,40,True,True
+B126,Slovakia→Croatia 1985-2018,B,0.1029,0.6189,0.0,34,True,True
+B127,Slovakia→Serbia 1985-2018,B,0.2054,0.5327,0.0,34,True,True
+B128,Slovenia→Slovakia 1985-2018,B,-0.1454,0.6569,0.0,34,True,True
+B129,Croatia→Serbia 1952-2018,B,0.097,0.2479,0.0,67,True,True
+B130,Slovenia→Croatia 1952-2018,B,0.0124,0.0215,0.236,67,False,True
+B131,Slovenia→Serbia 1952-2018,B,0.1094,0.2147,0.0001,67,True,True
+B132,Greece→Italy 1900-2018,B,0.0004,0.0,0.9783,119,False,True
+B133,Turkey→Italy 1913-2018,B,0.073,0.102,0.0013,98,True,True
+B134,Cyprus→Italy 1950-2018,B,0.1828,0.4004,0.0,69,True,True
+B135,Malta→Italy 1950-2018,B,0.391,0.6105,0.0,69,True,True
+B136,Greece→Spain 1900-2018,B,0.0166,0.006,0.4027,119,False,True
+B137,Spain→Turkey 1913-2018,B,-0.0684,0.0999,0.0015,98,True,True
+B138,Cyprus→Spain 1950-2018,B,0.046,0.0906,0.012,69,True,True
+B139,Malta→Spain 1950-2018,B,0.2542,0.5556,0.0,69,True,True
+B140,Greece→Portugal 1900-2018,B,-0.069,0.0992,0.0005,119,True,True
+B141,Turkey→Portugal 1913-2018,B,-0.0126,0.0051,0.4864,98,False,True
+B142,Cyprus→Portugal 1950-2018,B,0.0693,0.1566,0.0008,69,True,True
+B143,Malta→Portugal 1950-2018,B,0.2775,0.5796,0.0,69,True,True
+B144,Greece→Turkey 1913-2018,B,-0.0854,0.1037,0.0012,98,True,True
+B145,Cyprus→Greece 1950-2018,B,0.09,0.1331,0.0021,69,True,True
+B146,Malta→Greece 1950-2018,B,0.2982,0.4791,0.0,69,True,True
+B147,Cyprus→Turkey 1950-2018,B,0.109,0.3279,0.0,69,True,True
+B148,Malta→Turkey 1950-2018,B,0.3172,0.7074,0.0,69,True,True
+B149,Cyprus→Malta 1950-2018,B,-0.2082,0.5771,0.0,69,True,True
+B150,Canada→United States 1900-2018,B,0.1064,0.6824,0.0,119,True,True
+B151,United States→Mexico 1900-2018,B,-0.0933,0.3686,0.0,119,True,True
+B152,Canada→Mexico 1900-2018,B,0.0132,0.0123,0.2305,119,False,True
+B153,Guatemala→Mexico 1920-2018,B,-0.2729,0.4862,0.0,99,True,True
+B154,Mexico→Honduras 1920-2018,B,0.3827,0.7596,0.0,99,True,True
+B155,Costa Rica→Mexico 1920-2018,B,-0.1045,0.4903,0.0,99,True,True
+B156,Panama→Mexico 1906-2018,B,-0.1223,0.2534,0.0,113,True,True
+B157,Cuba→Mexico 1902-2018,B,-0.3085,0.5813,0.0,117,True,True
+B158,El Salvador→Mexico 1920-2018,B,-0.1363,0.3242,0.0,99,True,True
+B159,Nicaragua→Mexico 1920-2018,B,-0.4135,0.5083,0.0,99,True,True
+B160,Dominican Republic→Mexico 1950-2018,B,0.1205,0.1682,0.0005,69,True,True
+B161,Guatemala→Honduras 1920-2018,B,0.1098,0.2701,0.0,99,True,True
+B162,Costa Rica→Guatemala 1920-2018,B,0.1684,0.3547,0.0,99,True,True
+B163,Panama→Guatemala 1920-2018,B,0.2214,0.2874,0.0,99,True,True
+B164,Guatemala→Cuba 1920-2018,B,0.0322,0.0183,0.1813,99,False,True
+B165,Guatemala→El Salvador 1920-2018,B,-0.1366,0.2485,0.0,99,True,True
+B166,Guatemala→Nicaragua 1920-2018,B,0.1406,0.1857,0.0,99,True,True
+B167,Dominican Republic→Guatemala 1950-2018,B,0.3464,0.5035,0.0,69,True,True
+B168,Costa Rica→Honduras 1920-2018,B,0.2782,0.7623,0.0,99,True,True
+B169,Panama→Honduras 1920-2018,B,0.3313,0.6092,0.0,99,True,True
+B170,Cuba→Honduras 1920-2018,B,0.0776,0.1608,0.0,99,True,True
+B171,El Salvador→Honduras 1920-2018,B,0.2464,0.6932,0.0,99,True,True
+B172,Nicaragua→Honduras 1920-2018,B,-0.0307,0.0098,0.3306,99,False,True
+B173,Dominican Republic→Honduras 1950-2018,B,0.3454,0.6282,0.0,69,True,True
+B174,Costa Rica→Panama 1920-2018,B,-0.053,0.0677,0.0093,99,True,True
+B175,Costa Rica→Cuba 1920-2018,B,0.2006,0.504,0.0,99,True,True
+B176,Costa Rica→El Salvador 1920-2018,B,0.0318,0.0491,0.0276,99,True,True
+B177,Costa Rica→Nicaragua 1920-2018,B,0.309,0.4257,0.0,99,True,True
+B178,Costa Rica→Dominican Republic 1950-2018,B,-0.1744,0.321,0.0,69,True,True
+B179,Panama→Cuba 1906-2018,B,0.1925,0.2926,0.0,113,True,True
+B180,Panama→El Salvador 1920-2018,B,0.0849,0.1011,0.0013,99,True,True
+B181,Panama→Nicaragua 1920-2018,B,0.362,0.3557,0.0,99,True,True
+B182,Panama→Dominican Republic 1950-2018,B,0.0006,0.0,0.9727,69,False,True
+B183,El Salvador→Cuba 1920-2018,B,0.1688,0.4125,0.0,99,True,True
+B184,Cuba→Nicaragua 1920-2018,B,0.1084,0.1128,0.0007,99,True,True
+B185,Dominican Republic→Cuba 1950-2018,B,0.3336,0.5769,0.0,69,True,True
+B186,El Salvador→Nicaragua 1920-2018,B,0.2771,0.4575,0.0,99,True,True
+B187,Dominican Republic→El Salvador 1950-2018,B,0.2657,0.6166,0.0,69,True,True
+B188,Dominican Republic→Nicaragua 1950-2018,B,0.5657,0.6101,0.0,69,True,True
+B189,Argentina→Brazil 1900-2018,B,-0.4744,0.6793,0.0,119,True,True
+B190,Chile→Brazil 1900-2018,B,-0.3934,0.6344,0.0,119,True,True
+B191,Uruguay→Brazil 1900-2018,B,-0.4215,0.6533,0.0,119,True,True
+B192,Paraguay→Brazil 1939-2018,B,-0.348,0.8727,0.0,80,True,True
+B193,Brazil→Bolivia 1900-2018,B,0.4917,0.5996,0.0,119,True,True
+B194,Brazil→Peru 1900-2018,B,0.2576,0.3305,0.0,119,True,True
+B195,Colombia→Brazil 1900-2018,B,-0.1301,0.2095,0.0,119,True,True
+B196,Venezuela→Brazil 1900-2018,B,-0.0188,0.0021,0.6196,119,False,True
+B197,Ecuador→Brazil 1900-2018,B,-0.2022,0.5129,0.0,119,True,True
+B198,Argentina→Chile 1900-2018,B,-0.081,0.1555,0.0,119,True,True
+B199,Argentina→Uruguay 1900-2018,B,-0.0528,0.136,0.0,119,True,True
+B200,Argentina→Paraguay 1939-2018,B,-0.0598,0.0635,0.0241,80,True,True
+B201,Argentina→Bolivia 1900-2018,B,0.0173,0.0179,0.147,119,False,True
+B202,Argentina→Peru 1900-2018,B,-0.2167,0.7091,0.0,119,True,True
+B203,Argentina→Colombia 1900-2018,B,-0.3442,0.8247,0.0,119,True,True
+B204,Argentina→Venezuela 1900-2018,B,-0.4555,0.6239,0.0,119,True,True
+B205,Argentina→Ecuador 1900-2018,B,-0.2721,0.7459,0.0,119,True,True
+B206,Uruguay→Chile 1900-2018,B,-0.0282,0.0324,0.05,119,False,True
+B207,Chile→Paraguay 1939-2018,B,0.0475,0.0469,0.0537,80,False,True
+B208,Chile→Bolivia 1900-2018,B,0.0983,0.1478,0.0,119,True,True
+B209,Chile→Peru 1900-2018,B,-0.1357,0.2147,0.0,119,True,True
+B210,Chile→Colombia 1900-2018,B,-0.2632,0.6751,0.0,119,True,True
+B211,Venezuela→Chile 1900-2018,B,0.3746,0.4183,0.0,119,True,True
+B212,Chile→Ecuador 1900-2018,B,-0.1912,0.4935,0.0,119,True,True
+B213,Uruguay→Paraguay 1939-2018,B,-0.0145,0.0048,0.5394,80,False,True
+B214,Uruguay→Bolivia 1900-2018,B,0.0702,0.1326,0.0,119,True,True
+B215,Uruguay→Peru 1900-2018,B,-0.1639,0.4275,0.0,119,True,True
+B216,Uruguay→Colombia 1900-2018,B,-0.2914,0.8091,0.0,119,True,True
+B217,Uruguay→Venezuela 1900-2018,B,-0.4027,0.5483,0.0,119,True,True
+B218,Uruguay→Ecuador 1900-2018,B,-0.2193,0.678,0.0,119,True,True
+B219,Paraguay→Bolivia 1939-2018,B,0.1585,0.3765,0.0,80,True,True
+B220,Paraguay→Peru 1939-2018,B,0.0248,0.0074,0.4488,80,False,True
+B221,Paraguay→Colombia 1939-2018,B,-0.0899,0.4023,0.0,80,True,True
+B222,Venezuela→Paraguay 1939-2018,B,0.0163,0.0015,0.7318,80,False,True
+B223,Paraguay→Ecuador 1939-2018,B,-0.1335,0.4024,0.0,80,True,True
+B224,Bolivia→Peru 1900-2018,B,-0.2341,0.7047,0.0,119,True,True
+B225,Colombia→Bolivia 1900-2018,B,0.3616,0.7822,0.0,119,True,True
+B226,Venezuela→Bolivia 1900-2018,B,0.4729,0.5968,0.0,119,True,True
+B227,Ecuador→Bolivia 1900-2018,B,0.2895,0.623,0.0,119,True,True
+B228,Colombia→Peru 1900-2018,B,0.1275,0.2968,0.0,119,True,True
+B229,Venezuela→Peru 1900-2018,B,0.2388,0.3537,0.0,119,True,True
+B230,Ecuador→Peru 1900-2018,B,0.0554,0.0684,0.0041,119,True,True
+B231,Venezuela→Colombia 1900-2018,B,0.1113,0.0904,0.0009,119,True,True
+B232,Ecuador→Colombia 1900-2018,B,-0.0721,0.2672,0.0,119,True,True
+B233,Venezuela→Ecuador 1900-2018,B,0.1834,0.2382,0.0,119,True,True
+B234,Japan→China 1900-2018,B,0.2344,0.1839,0.0001,82,True,True
+B235,Japan→South Korea 1911-2018,B,-0.0593,0.0148,0.2134,106,False,True
+B236,Japan→Taiwan 1901-2018,B,-0.0796,0.038,0.0423,109,True,True
+B237,Japan→Mongolia 1950-2018,B,0.0575,0.0103,0.4077,69,False,True
+B238,South Korea→China 1911-2018,B,0.3968,0.575,0.0,81,True,True
+B239,Taiwan→China 1911-2018,B,0.3717,0.6461,0.0,81,True,True
+B240,Mongolia→China 1950-2018,B,-0.0047,0.0005,0.8493,69,False,True
+B241,Taiwan→South Korea 1911-2018,B,0.0238,0.0462,0.0327,99,True,True
+B242,South Korea→Mongolia 1950-2018,B,0.4545,0.538,0.0,69,True,True
+B243,Taiwan→Mongolia 1950-2018,B,0.3709,0.4853,0.0,69,True,True
+B244,Singapore→Malaysia 1900-2018,B,0.104,0.0629,0.0085,109,True,True
+B245,Singapore→Thailand 1913-2018,B,0.2535,0.6427,0.0,72,True,True
+B246,Singapore→Indonesia 1900-2018,B,0.4364,0.5307,0.0,109,True,True
+B247,Singapore→Philippines 1902-2018,B,0.5528,0.4042,0.0,107,True,True
+B248,Singapore→Vietnam 1913-2018,B,0.6638,0.7835,0.0,70,True,True
+B249,Singapore→Cambodia 1950-2018,B,0.7069,0.7424,0.0,69,True,True
+B250,Singapore→Myanmar 1901-2018,B,0.7403,0.7779,0.0,79,True,True
+B251,Singapore→Laos 1950-2018,B,0.4874,0.7434,0.0,69,True,True
+B252,Thailand→Malaysia 1913-2018,B,0.0663,0.1861,0.0002,72,True,True
+B253,Malaysia→Indonesia 1900-2018,B,0.3271,0.8178,0.0,112,True,True
+B254,Malaysia→Philippines 1902-2018,B,0.412,0.5728,0.0,111,True,True
+B255,Malaysia→Vietnam 1913-2018,B,0.3562,0.6986,0.0,70,True,True
+B256,Malaysia→Cambodia 1950-2018,B,0.3972,0.6369,0.0,69,True,True
+B257,Malaysia→Myanmar 1901-2018,B,0.4957,0.8011,0.0,79,True,True
+B258,Malaysia→Laos 1950-2018,B,0.1778,0.4852,0.0,69,True,True
+B259,Thailand→Indonesia 1913-2018,B,0.2186,0.724,0.0,72,True,True
+B260,Thailand→Philippines 1913-2018,B,0.4763,0.6751,0.0,72,True,True
+B261,Thailand→Vietnam 1913-2018,B,0.3931,0.6642,0.0,70,True,True
+B262,Thailand→Cambodia 1950-2018,B,0.4639,0.7177,0.0,69,True,True
+B263,Thailand→Myanmar 1913-2018,B,0.3577,0.5806,0.0,71,True,True
+B264,Thailand→Laos 1950-2018,B,0.2445,0.517,0.0,69,True,True
+B265,Philippines→Indonesia 1902-2018,B,-0.1027,0.0973,0.001,109,True,True
+B266,Vietnam→Indonesia 1913-2018,B,-0.1999,0.4897,0.0,70,True,True
+B267,Indonesia→Cambodia 1950-2018,B,0.2737,0.5635,0.0,69,True,True
+B268,Indonesia→Myanmar 1901-2018,B,0.2514,0.5498,0.0,79,True,True
+B269,Indonesia→Laos 1950-2018,B,0.0543,0.1085,0.0057,69,True,True
+B270,Philippines→Vietnam 1913-2018,B,-0.0664,0.0457,0.0755,70,False,True
+B271,Philippines→Cambodia 1950-2018,B,-0.0063,0.0026,0.6796,69,False,True
+B272,Philippines→Myanmar 1906-2018,B,0.0208,0.0044,0.5661,78,False,True
+B273,Philippines→Laos 1950-2018,B,-0.2257,0.3529,0.0,69,True,True
+B274,Vietnam→Cambodia 1950-2018,B,0.0788,0.0972,0.0091,69,True,True
+B275,Vietnam→Myanmar 1913-2018,B,-0.0616,0.1115,0.0047,70,True,True
+B276,Vietnam→Laos 1950-2018,B,-0.1406,0.5721,0.0,69,True,True
+B277,Myanmar→Cambodia 1950-2018,B,0.161,0.4221,0.0,69,True,True
+B278,Laos→Cambodia 1950-2018,B,0.2194,0.4304,0.0,69,True,True
+B279,Laos→Myanmar 1950-2018,B,0.0584,0.1288,0.0025,69,True,True
+B280,Pakistan→India 1950-2018,B,0.0446,0.0913,0.0116,69,True,True
+B281,India→Bangladesh 1950-2018,B,0.1545,0.7034,0.0,69,True,True
+B282,Sri Lanka→India 1900-2018,B,0.0173,0.0453,0.0201,119,True,True
+B283,India→Nepal 1913-2018,B,0.1811,0.5668,0.0,70,True,True
+B284,India→Afghanistan 1950-2018,B,0.5213,0.6094,0.0,69,True,True
+B285,Pakistan→Bangladesh 1950-2018,B,0.1991,0.4421,0.0,69,True,True
+B286,Sri Lanka→Pakistan 1950-2018,B,-0.0387,0.0857,0.0146,69,True,True
+B287,Pakistan→Nepal 1950-2018,B,0.228,0.7394,0.0,69,True,True
+B288,Pakistan→Afghanistan 1950-2018,B,0.5659,0.6196,0.0,69,True,True
+B289,Sri Lanka→Bangladesh 1950-2018,B,0.1604,0.5109,0.0,69,True,True
+B290,Bangladesh→Nepal 1950-2018,B,0.0288,0.02,0.2463,69,False,True
+B291,Bangladesh→Afghanistan 1950-2018,B,0.3668,0.4562,0.0,69,True,True
+B292,Sri Lanka→Nepal 1913-2018,B,0.1898,0.5099,0.0,70,True,True
+B293,Sri Lanka→Afghanistan 1950-2018,B,0.5272,0.5609,0.0,69,True,True
+B294,Nepal→Afghanistan 1950-2018,B,0.3379,0.4479,0.0,69,True,True
+B295,Israel→Turkey 1950-2018,B,-0.0515,0.0573,0.0476,69,True,True
+B296,Israel→Iran 1950-2018,B,0.0483,0.0323,0.1394,69,False,True
+B297,Israel→Iraq 1950-2018,B,0.3498,0.2768,0.0,69,True,True
+B298,Saudi Arabia→Israel 1950-2018,B,0.1447,0.2404,0.0,69,True,True
+B299,Israel→Egypt 1950-2018,B,-0.059,0.0341,0.1288,69,False,True
+B300,Israel→Jordan 1950-2018,B,0.165,0.4032,0.0,69,True,True
+B301,Israel→Lebanon 1950-2018,B,0.4242,0.4717,0.0,69,True,True
+B302,Israel→Syria 1950-2018,B,0.4812,0.5697,0.0,69,True,True
+B303,Israel→Yemen 1950-2018,B,0.2189,0.4853,0.0,69,True,True
+B304,Iran→Turkey 1913-2018,B,-0.0834,0.0853,0.0141,70,True,True
+B305,Turkey→Iraq 1913-2018,B,0.3799,0.2835,0.0,70,True,True
+B306,Saudi Arabia→Turkey 1913-2018,B,0.1534,0.2482,0.0,70,True,True
+B307,Turkey→Egypt 1913-2018,B,0.0333,0.038,0.106,70,False,True
+B308,Jordan→Turkey 1913-2018,B,-0.2112,0.4822,0.0,70,True,True
+B309,Lebanon→Turkey 1913-2018,B,-0.4608,0.5661,0.0,70,True,True
+B310,Syria→Turkey 1913-2018,B,-0.515,0.4305,0.0,70,True,True
+B311,Turkey→Yemen 1950-2018,B,0.2704,0.3959,0.0,69,True,True
+B312,Iran→Iraq 1913-2018,B,0.2965,0.2892,0.0,70,True,True
+B313,Saudi Arabia→Iran 1913-2018,B,0.2368,0.7522,0.0,70,True,True
+B314,Iran→Egypt 1913-2018,B,-0.0501,0.0174,0.2762,70,False,True
+B315,Iran→Jordan 1913-2018,B,0.1278,0.1439,0.0012,70,True,True
+B316,Iran→Lebanon 1913-2018,B,0.3775,0.4996,0.0,70,True,True
+B317,Iran→Syria 1913-2018,B,0.4316,0.3404,0.0,70,True,True
+B318,Iran→Yemen 1950-2018,B,0.1706,0.1542,0.0008,69,True,True
+B319,Saudi Arabia→Iraq 1913-2018,B,0.5333,0.5934,0.0,70,True,True
+B320,Iraq→Egypt 1913-2018,B,-0.3466,0.2123,0.0001,70,True,True
+B321,Jordan→Iraq 1913-2018,B,0.1688,0.0998,0.0077,70,True,True
+B322,Lebanon→Iraq 1913-2018,B,-0.0809,0.0204,0.238,70,False,True
+B323,Syria→Iraq 1913-2018,B,-0.135,0.0296,0.1544,70,False,True
+B324,Iraq→Yemen 1950-2018,B,-0.1309,0.0377,0.1098,69,False,True
+B325,Saudi Arabia→Egypt 1913-2018,B,0.1867,0.2003,0.0001,70,True,True
+B326,Saudi Arabia→Jordan 1913-2018,B,0.3646,0.6163,0.0,70,True,True
+B327,Saudi Arabia→Lebanon 1913-2018,B,0.6142,0.7194,0.0,70,True,True
+B328,Saudi Arabia→Syria 1913-2018,B,0.6684,0.5612,0.0,70,True,True
+B329,Saudi Arabia→Yemen 1950-2018,B,0.3636,0.4614,0.0,69,True,True
+B330,Jordan→Egypt 1913-2018,B,-0.1779,0.2675,0.0,70,True,True
+B331,Lebanon→Egypt 1913-2018,B,-0.4276,0.4538,0.0,70,True,True
+B332,Syria→Egypt 1913-2018,B,-0.4817,0.3146,0.0,70,True,True
+B333,Egypt→Yemen 1950-2018,B,0.2779,0.3096,0.0,69,True,True
+B334,Lebanon→Jordan 1913-2018,B,-0.2497,0.2617,0.0,70,True,True
+B335,Syria→Jordan 1913-2018,B,-0.3038,0.267,0.0,70,True,True
+B336,Jordan→Yemen 1950-2018,B,0.0539,0.0304,0.1519,69,False,True
+B337,Lebanon→Syria 1913-2018,B,0.0541,0.0051,0.5555,70,False,True
+B338,Lebanon→Yemen 1950-2018,B,-0.2053,0.1099,0.0054,69,True,True
+B339,Syria→Yemen 1950-2018,B,-0.2622,0.4263,0.0,69,True,True
+B340,Egypt→Morocco 1913-2018,B,0.2342,0.5225,0.0,70,True,True
+B341,Algeria→Egypt 1913-2018,B,-0.1119,0.2704,0.0,70,True,True
+B342,Tunisia→Egypt 1913-2018,B,-0.0477,0.0748,0.022,70,True,True
+B343,Egypt→Sudan 1950-2018,B,0.4554,0.7387,0.0,69,True,True
+B344,Libya→Egypt 1950-2018,B,0.3334,0.2797,0.0,69,True,True
+B345,Algeria→Morocco 1913-2018,B,0.1223,0.3615,0.0,70,True,True
+B346,Tunisia→Morocco 1913-2018,B,0.1865,0.7139,0.0,70,True,True
+B347,Morocco→Sudan 1950-2018,B,0.1728,0.3651,0.0,69,True,True
+B348,Libya→Morocco 1950-2018,B,0.616,0.6191,0.0,69,True,True
+B349,Algeria→Tunisia 1913-2018,B,-0.0643,0.1569,0.0007,70,True,True
+B350,Algeria→Sudan 1950-2018,B,0.3214,0.7798,0.0,69,True,True
+B351,Libya→Algeria 1950-2018,B,0.4674,0.4941,0.0,69,True,True
+B352,Tunisia→Sudan 1950-2018,B,0.3805,0.7114,0.0,69,True,True
+B353,Libya→Tunisia 1950-2018,B,0.4083,0.4581,0.0,69,True,True
+B354,Libya→Sudan 1950-2018,B,0.7888,0.7428,0.0,69,True,True
+B355,South Africa→Nigeria 1950-2018,B,-0.0819,0.1448,0.0013,69,True,True
+B356,South Africa→Kenya 1950-2018,B,-0.0048,0.0024,0.6924,69,False,True
+B357,South Africa→Ghana 1950-2018,B,0.1791,0.6247,0.0,69,True,True
+B358,South Africa→Zimbabwe 1950-2018,B,0.1596,0.161,0.0006,69,True,True
+B359,South Africa→Zambia 1950-2018,B,0.0833,0.201,0.0001,69,True,True
+B360,South Africa→Tanzania 1950-2018,B,-0.0223,0.0229,0.2144,69,False,True
+B361,South Africa→Uganda 1950-2018,B,0.1837,0.7029,0.0,69,True,True
+B362,South Africa→Mozambique 1950-2018,B,0.4959,0.5914,0.0,69,True,True
+B363,Botswana→South Africa 1950-2018,B,0.9003,0.7224,0.0,69,True,True
+B364,South Africa→Ethiopia 1950-2018,B,0.1164,0.3334,0.0,69,True,True
+B365,South Africa→Cameroon 1950-2018,B,0.0202,0.0144,0.3266,69,False,True
+B366,South Africa→Senegal 1950-2018,B,0.2956,0.741,0.0,69,True,True
+B367,South Africa→Angola 1950-2018,B,0.0309,0.0044,0.5892,69,False,True
+B368,Nigeria→Kenya 1950-2018,B,0.0771,0.108,0.0058,69,True,True
+B369,Nigeria→Ghana 1950-2018,B,0.261,0.5996,0.0,69,True,True
+B370,Nigeria→Zimbabwe 1950-2018,B,0.2415,0.1719,0.0004,69,True,True
+B371,Nigeria→Zambia 1950-2018,B,0.1652,0.4034,0.0,69,True,True
+B372,Nigeria→Tanzania 1950-2018,B,0.0595,0.2202,0.0,69,True,True
+B373,Nigeria→Uganda 1950-2018,B,0.2656,0.5929,0.0,69,True,True
+B374,Nigeria→Mozambique 1950-2018,B,0.5777,0.4984,0.0,69,True,True
+B375,Botswana→Nigeria 1950-2018,B,0.8184,0.7383,0.0,69,True,True
+B376,Nigeria→Ethiopia 1950-2018,B,0.1983,0.3034,0.0,69,True,True
+B377,Nigeria→Cameroon 1950-2018,B,0.102,0.09,0.0123,69,True,True
+B378,Nigeria→Senegal 1950-2018,B,0.3774,0.5378,0.0,69,True,True
+B379,Angola→Nigeria 1950-2018,B,-0.1127,0.0822,0.0169,69,True,True
+B380,Ghana→Kenya 1950-2018,B,-0.1838,0.5114,0.0,69,True,True
+B381,Zimbabwe→Kenya 1950-2018,B,-0.1644,0.1861,0.0002,69,True,True
+B382,Kenya→Zambia 1950-2018,B,0.0881,0.128,0.0025,69,True,True
+B383,Kenya→Tanzania 1950-2018,B,-0.0176,0.0107,0.3977,69,False,True
+B384,Kenya→Uganda 1950-2018,B,0.1885,0.5205,0.0,69,True,True
+B385,Kenya→Mozambique 1950-2018,B,0.5006,0.5816,0.0,69,True,True
+B386,Botswana→Kenya 1950-2018,B,0.8955,0.7592,0.0,69,True,True
+B387,Kenya→Ethiopia 1950-2018,B,0.1212,0.3152,0.0,69,True,True
+B388,Cameroon→Kenya 1950-2018,B,-0.0249,0.027,0.1776,69,False,True
+B389,Senegal→Kenya 1950-2018,B,-0.3003,0.7155,0.0,69,True,True
+B390,Angola→Kenya 1950-2018,B,-0.0356,0.0047,0.5746,69,False,True
+B391,Ghana→Zimbabwe 1950-2018,B,-0.0195,0.0021,0.7053,69,False,True
+B392,Ghana→Zambia 1950-2018,B,-0.0957,0.3996,0.0,69,True,True
+B393,Ghana→Tanzania 1950-2018,B,-0.2014,0.6348,0.0,69,True,True
+B394,Ghana→Uganda 1950-2018,B,0.0046,0.0028,0.6685,69,False,True
+B395,Ghana→Mozambique 1950-2018,B,0.3168,0.3456,0.0,69,True,True
+B396,Botswana→Ghana 1950-2018,B,1.0793,0.7566,0.0,69,True,True
+B397,Ghana→Ethiopia 1950-2018,B,-0.0626,0.0879,0.0134,69,True,True
+B398,Ghana→Cameroon 1950-2018,B,-0.1589,0.265,0.0,69,True,True
+B399,Ghana→Senegal 1950-2018,B,0.1165,0.2357,0.0,69,True,True
+B400,Angola→Ghana 1950-2018,B,0.1482,0.1192,0.0037,69,True,True
+B401,Zimbabwe→Zambia 1950-2018,B,-0.0763,0.0245,0.1986,69,False,True
+B402,Zimbabwe→Tanzania 1950-2018,B,-0.182,0.1198,0.0036,69,True,True
+B403,Zimbabwe→Uganda 1950-2018,B,0.0241,0.0034,0.6321,69,False,True
+B404,Zimbabwe→Mozambique 1950-2018,B,0.3362,0.7097,0.0,69,True,True
+B405,Botswana→Zimbabwe 1950-2018,B,1.0599,0.6668,0.0,69,True,True
+B406,Zimbabwe→Ethiopia 1950-2018,B,-0.0432,0.0171,0.2847,69,False,True
+B407,Cameroon→Zimbabwe 1950-2018,B,0.1395,0.1895,0.0002,69,True,True
+B408,Senegal→Zimbabwe 1950-2018,B,-0.1359,0.2292,0.0,69,True,True
+B409,Angola→Zimbabwe 1950-2018,B,0.1288,0.0252,0.1923,69,False,True
+B410,Zambia→Tanzania 1950-2018,B,-0.1057,0.333,0.0,69,True,True
+B411,Zambia→Uganda 1950-2018,B,0.1004,0.402,0.0,69,True,True
+B412,Zambia→Mozambique 1950-2018,B,0.4125,0.4294,0.0,69,True,True
+B413,Botswana→Zambia 1950-2018,B,0.9836,0.702,0.0,69,True,True
+B414,Zambia→Ethiopia 1950-2018,B,0.0331,0.0233,0.2107,69,False,True
+B415,Cameroon→Zambia 1950-2018,B,0.0632,0.043,0.0872,69,False,True
+B416,Senegal→Zambia 1950-2018,B,-0.2122,0.3916,0.0,69,True,True
+B417,Angola→Zambia 1950-2018,B,0.0525,0.0228,0.2157,69,False,True
+B418,Uganda→Tanzania 1950-2018,B,-0.206,0.6282,0.0,69,True,True
+B419,Mozambique→Tanzania 1950-2018,B,-0.5182,0.4808,0.0,69,True,True
+B420,Botswana→Tanzania 1950-2018,B,0.8779,0.7515,0.0,69,True,True
+B421,Tanzania→Ethiopia 1950-2018,B,0.1388,0.2373,0.0,69,True,True
+B422,Cameroon→Tanzania 1950-2018,B,-0.0425,0.0229,0.215,69,False,True
+B423,Senegal→Tanzania 1950-2018,B,-0.3179,0.5355,0.0,69,True,True
+B424,Angola→Tanzania 1950-2018,B,-0.0532,0.0204,0.2416,69,False,True
+B425,Mozambique→Uganda 1950-2018,B,-0.3122,0.3511,0.0,69,True,True
+B426,Botswana→Uganda 1950-2018,B,1.084,0.7565,0.0,69,True,True
+B427,Uganda→Ethiopia 1950-2018,B,-0.0673,0.0936,0.0106,69,True,True
+B428,Cameroon→Uganda 1950-2018,B,0.1635,0.2829,0.0,69,True,True
+B429,Senegal→Uganda 1950-2018,B,-0.1119,0.2325,0.0,69,True,True
+B430,Angola→Uganda 1950-2018,B,0.1528,0.1249,0.0029,69,True,True
+B431,Botswana→Mozambique 1950-2018,B,1.3961,0.71,0.0,69,True,True
+B432,Mozambique→Ethiopia 1950-2018,B,-0.3794,0.5534,0.0,69,True,True
+B433,Cameroon→Mozambique 1950-2018,B,0.4757,0.6227,0.0,69,True,True
+B434,Senegal→Mozambique 1950-2018,B,0.2003,0.3457,0.0,69,True,True
+B435,Angola→Mozambique 1950-2018,B,0.465,0.2611,0.0,69,True,True
+B436,Botswana→Ethiopia 1950-2018,B,1.0167,0.7056,0.0,69,True,True
+B437,Botswana→Cameroon 1950-2018,B,0.9204,0.7145,0.0,69,True,True
+B438,Botswana→Senegal 1950-2018,B,1.1958,0.759,0.0,69,True,True
+B439,Botswana→Angola 1950-2018,B,0.9311,0.6192,0.0,69,True,True
+B440,Cameroon→Ethiopia 1950-2018,B,0.0963,0.2321,0.0,69,True,True
+B441,Senegal→Ethiopia 1950-2018,B,-0.1791,0.5292,0.0,69,True,True
+B442,Angola→Ethiopia 1950-2018,B,0.0856,0.0251,0.1935,69,False,True
+B443,Senegal→Cameroon 1950-2018,B,-0.2754,0.7377,0.0,69,True,True
+B444,Angola→Cameroon 1950-2018,B,-0.0107,0.0003,0.8849,69,False,True
+B445,Angola→Senegal 1950-2018,B,0.2647,0.1689,0.0005,69,True,True
+B446,New Zealand→Australia 1900-2018,B,-0.1096,0.4022,0.0,119,True,True
+C_001,Mexico 32 entidades N-body (INEGI 2022),C,-0.4732,0.8705,0.0,32,True,True
+C_002,CA→NV pop 1900-2025 (US West),C,-0.2489,0.1796,0.0,126,True,True
+C_003,CA→AZ pop 1900-2025 (US West),C,-0.2027,0.3334,0.0,126,True,True
+C_004,CA→OR pop 1900-2025 (US West),C,0.354,0.8756,0.0,126,True,True
+C_005,NY→NJ pop 1900-2025 (US Northeast),C,-0.1766,0.8284,0.0,126,True,True
+C_006,NY→CT pop 1900-2025 (US Northeast),C,-0.1357,0.6787,0.0,126,True,True
+C_007,NY→PA pop 1900-2025 (US Northeast),C,0.103,0.796,0.0,126,True,True
+C_008,TX→OK pop 1900-2025 (US South),C,0.3138,0.5694,0.0,126,True,True
+C_009,TX→NM pop 1900-2025 (US South),C,-0.0481,0.1982,0.0,126,True,True
+C_010,TX→LA pop 1900-2025 (US South),C,0.2597,0.5984,0.0,126,True,True
+C_011,IL→IN pop 1900-2025 (US Midwest),C,-0.0141,0.0413,0.0224,126,True,True
+C_012,IL→WI pop 1900-2025 (US Midwest),C,-0.0163,0.0767,0.0017,126,True,True
+C_013,IL→MO pop 1900-2025 (US Midwest),C,0.0954,0.6937,0.0,126,True,True
+C_014,FL→GA pop 1900-2025 (US Southeast),C,0.739,0.8543,0.0,126,True,True
+C_015,FL→AL pop 1900-2025 (US Southeast),C,0.8914,0.8088,0.0,126,True,True
+C_016,MA→NH pop 1900-2025 (US NewEngland),C,-0.1308,0.2718,0.0,126,True,True
+C_017,MA→ME pop 1900-2025 (US NewEngland),C,0.0484,0.4159,0.0,126,True,True
+C_018,MA→VT pop 1900-2025 (US NewEngland),C,0.0636,0.2399,0.0,126,True,True
+C_019,WA→ID pop 1900-2025 (US Northwest),C,0.111,0.6072,0.0,126,True,True
+C_020,WA→MT pop 1900-2025 (US Northwest),C,0.3336,0.7567,0.0,126,True,True
+C_021,CO→WY pop 1900-2025 (US Mountain),C,0.1564,0.3117,0.0,126,True,True
+C_022,CO→UT pop 1900-2025 (US Mountain),C,-0.04,0.4314,0.0,126,True,True
+C_023,GA→SC pop 1900-2025 (US Southeast),C,0.0552,0.3503,0.0,126,True,True
+C_024,MI→OH pop 1900-2025 (US Midwest),C,0.1362,0.9017,0.0,126,True,True
+D_01,HackerEarth activity power-law (4771 users),D,-1.6398,0.9519,0.0,4771,True,True
+D_02,HackerEarth credits power-law,D,-1.5205,0.7222,0.0,669,True,True
+D_03,HackerEarth runs power-law,D,-0.9311,0.9504,0.0,270,True,True
+E1_001,Global territorial invasion (countries colonized 2020),E1,1.142,0.8446,0.0,120,True,True
+E1_002,Asia-Pacific invasion wavefront 2020,E1,2.724,0.8725,0.0,80,True,True
+E1_003,Europe invasion wavefront 2020,E1,3.8202,0.8053,0.0,80,True,True
+E1_004,Americas invasion wavefront 2020,E1,3.8795,0.7291,0.0,80,True,True
+E2_01,Lynx→Hare Hudson Bay 1900-1920,E2,0.5483,0.2031,0.0403,21,True,True
+E2_02,Lynx population vs equilibrium 1821-1850,E2,-0.2592,0.0289,0.369,30,False,True
+E3_001,Afghanistan COVID-19 growth phase 2020,E3,1.2393,0.8145,0.0,60,True,True
+E3_002,Albania COVID-19 growth phase 2020,E3,0.5681,0.9153,0.0,60,True,True
+E3_003,Algeria COVID-19 growth phase 2020,E3,1.2758,0.9232,0.0,60,True,True
+E3_004,American Samoa COVID-19 growth phase 2020,E3,1.1312,0.8761,0.0,60,True,True
+E3_005,Andorra COVID-19 growth phase 2020,E3,0.5883,0.8945,0.0,60,True,True
+E3_006,Angola COVID-19 growth phase 2020,E3,0.7762,0.7952,0.0,60,True,True
+E3_007,Anguilla COVID-19 growth phase 2020,E3,0.0036,0.209,0.000241,60,True,True
+E3_008,Antigua and Barbuda COVID-19 growth phase 2020,E3,0.0953,0.8208,0.0,60,True,True
+E3_009,Argentina COVID-19 growth phase 2020,E3,1.3649,0.9277,0.0,60,True,True
+E3_010,Armenia COVID-19 growth phase 2020,E3,0.9725,0.8913,0.0,60,True,True
+E3_011,Aruba COVID-19 growth phase 2020,E3,0.0039,0.6894,0.0,60,True,True
+E3_012,Australia COVID-19 growth phase 2020,E3,1.1501,0.8652,0.0,60,True,True
+E3_013,Austria COVID-19 growth phase 2020,E3,1.1413,0.8603,0.0,60,True,True
+E3_014,Azerbaijan COVID-19 growth phase 2020,E3,1.0212,0.9227,0.0,60,True,True
+E3_015,Bahamas COVID-19 growth phase 2020,E3,0.1254,0.1599,0.001551,60,True,True
+E3_016,Bahrain COVID-19 growth phase 2020,E3,0.9974,0.799,0.0,60,True,True
+E3_017,Bangladesh COVID-19 growth phase 2020,E3,1.4945,0.9115,0.0,60,True,True
+E3_018,Barbados COVID-19 growth phase 2020,E3,0.1984,0.7644,0.0,60,True,True
+E3_019,Belarus COVID-19 growth phase 2020,E3,1.5232,0.9283,0.0,60,True,True
+E3_020,Belgium COVID-19 growth phase 2020,E3,1.8094,0.9124,0.0,60,True,True
+E3_021,Belize COVID-19 growth phase 2020,E3,0.8709,0.93,0.0,60,True,True
+E3_022,Benin COVID-19 growth phase 2020,E3,0.7914,0.6805,0.0,60,True,True
+E3_023,Bermuda COVID-19 growth phase 2020,E3,0.0912,0.8225,0.0,60,True,True
+E3_024,Bhutan COVID-19 growth phase 2020,E3,0.3573,0.8039,0.0,60,True,True
+E3_025,Bolivia COVID-19 growth phase 2020,E3,1.2984,0.8267,0.0,60,True,True
+E3_026,Bonaire Sint Eustatius and Saba COVID-19 growth phase 2020,E3,0.0799,0.8142,0.0,60,True,True
+E3_027,Bosnia and Herzegovina COVID-19 growth phase 2020,E3,0.9852,0.9249,0.0,60,True,True
+E3_028,Botswana COVID-19 growth phase 2020,E3,0.7912,0.8977,0.0,60,True,True
+E3_029,Brazil COVID-19 growth phase 2020,E3,1.7736,0.8958,0.0,60,True,True
+E3_030,British Virgin Islands COVID-19 growth phase 2020,E3,0.1081,0.883,0.0,60,True,True
+E3_031,Brunei COVID-19 growth phase 2020,E3,0.0487,0.8295,0.0,60,True,True
+E3_032,Bulgaria COVID-19 growth phase 2020,E3,0.8191,0.8851,0.0,60,True,True
+E3_033,Burkina Faso COVID-19 growth phase 2020,E3,0.4323,0.928,0.0,60,True,True
+E3_034,Burundi COVID-19 growth phase 2020,E3,0.3859,0.8351,0.0,60,True,True
+E3_035,Cambodia COVID-19 growth phase 2020,E3,0.0592,0.7942,0.0,60,True,True
+E3_036,Cameroon COVID-19 growth phase 2020,E3,0.7181,0.8193,0.0,60,True,True
+E3_037,Canada COVID-19 growth phase 2020,E3,2.0542,0.9176,0.0,60,True,True
+E3_038,Cape Verde COVID-19 growth phase 2020,E3,0.5935,0.8469,0.0,60,True,True
+E3_039,Cayman Islands COVID-19 growth phase 2020,E3,0.1688,0.873,0.0,60,True,True
+E3_040,Central African Republic COVID-19 growth phase 2020,E3,1.1269,0.8844,0.0,60,True,True
+E3_041,Chad COVID-19 growth phase 2020,E3,0.6811,0.8988,0.0,60,True,True
+E3_042,Chile COVID-19 growth phase 2020,E3,1.3473,0.9118,0.0,60,True,True
+E3_043,China COVID-19 growth phase 2020,E3,2.2811,0.8938,0.0,60,True,True
+E3_044,Colombia COVID-19 growth phase 2020,E3,1.352,0.9088,0.0,60,True,True
+E3_045,Comoros COVID-19 growth phase 2020,E3,0.3499,0.9164,0.0,60,True,True
+E3_046,Congo COVID-19 growth phase 2020,E3,0.5581,0.8264,0.0,60,True,True
+E3_047,Cook Islands COVID-19 growth phase 2020,E3,1.276,0.9084,0.0,60,True,True
+E3_048,Costa Rica COVID-19 growth phase 2020,E3,0.665,0.9189,0.0,60,True,True
+E3_049,Cote d'Ivoire COVID-19 growth phase 2020,E3,0.8581,0.91,0.0,60,True,True
+E3_050,Croatia COVID-19 growth phase 2020,E3,0.8025,0.9078,0.0,60,True,True
+E3_051,Cuba COVID-19 growth phase 2020,E3,0.9881,0.9154,0.0,60,True,True
+E3_052,Curacao COVID-19 growth phase 2020,E3,0.686,0.8849,0.0,60,True,True
+E3_053,Cyprus COVID-19 growth phase 2020,E3,0.5461,0.8944,0.0,60,True,True
+E3_054,Czechia COVID-19 growth phase 2020,E3,1.2775,0.9098,0.0,60,True,True
+E3_055,Democratic Republic of Congo COVID-19 growth phase 2020,E3,0.919,0.7863,0.0,60,True,True
+E3_056,Denmark COVID-19 growth phase 2020,E3,0.9051,0.8783,0.0,60,True,True
+E3_057,Djibouti COVID-19 growth phase 2020,E3,0.8701,0.8637,0.0,60,True,True
+E3_058,Dominica COVID-19 growth phase 2020,E3,0.0931,0.6927,0.0,60,True,True
+E3_059,Dominican Republic COVID-19 growth phase 2020,E3,1.0606,0.9157,0.0,60,True,True
+E3_060,East Timor COVID-19 growth phase 2020,E3,0.6875,0.5846,0.0,60,True,True
+E3_061,Ecuador COVID-19 growth phase 2020,E3,1.4428,0.8999,0.0,60,True,True
+E3_062,Egypt COVID-19 growth phase 2020,E3,1.4308,0.881,0.0,60,True,True
+E3_063,El Salvador COVID-19 growth phase 2020,E3,1.0826,0.8141,0.0,60,True,True
+E3_064,Equatorial Guinea COVID-19 growth phase 2020,E3,0.7653,0.8799,0.0,60,True,True
+E3_065,Eritrea COVID-19 growth phase 2020,E3,0.2332,0.93,0.0,60,True,True
+E3_066,Estonia COVID-19 growth phase 2020,E3,1.295,0.7581,0.0,60,True,True
+E3_067,Eswatini COVID-19 growth phase 2020,E3,0.5811,0.8065,0.0,60,True,True
+E3_068,Ethiopia COVID-19 growth phase 2020,E3,0.9955,0.6284,0.0,60,True,True
+E3_069,European Union (27) COVID-19 growth phase 2020,E3,3.0186,0.9084,0.0,60,True,True
+E3_070,Falkland Islands COVID-19 growth phase 2020,E3,0.0665,0.8403,0.0,60,True,True
+E3_071,Faroe Islands COVID-19 growth phase 2020,E3,0.197,0.7846,0.0,60,True,True
+E3_072,Fiji COVID-19 growth phase 2020,E3,0.9911,0.6604,0.0,60,True,True
+E3_073,Finland COVID-19 growth phase 2020,E3,1.2887,0.9218,0.0,60,True,True
+E3_074,France COVID-19 growth phase 2020,E3,1.0984,0.9,0.0,60,True,True
+E3_075,French Guiana COVID-19 growth phase 2020,E3,0.8174,0.6253,0.0,60,True,True
+E3_076,French Polynesia COVID-19 growth phase 2020,E3,0.8961,0.8826,0.0,60,True,True
+E3_077,Gabon COVID-19 growth phase 2020,E3,1.2451,0.8463,0.0,60,True,True
+E3_078,Gambia COVID-19 growth phase 2020,E3,1.2348,0.8928,0.0,60,True,True
+E3_079,Georgia COVID-19 growth phase 2020,E3,0.528,0.9124,0.0,60,True,True
+E3_080,Germany COVID-19 growth phase 2020,E3,2.4692,0.9053,0.0,60,True,True
+E3_081,Ghana COVID-19 growth phase 2020,E3,1.3155,0.8278,0.0,60,True,True
+E3_082,Gibraltar COVID-19 growth phase 2020,E3,0.1215,0.8661,0.0,60,True,True
+E3_083,Greece COVID-19 growth phase 2020,E3,0.6612,0.9174,0.0,60,True,True
+E3_084,Greenland COVID-19 growth phase 2020,E3,0.4746,0.898,0.0,60,True,True
+E3_085,Grenada COVID-19 growth phase 2020,E3,0.0864,0.9073,0.0,60,True,True
+E3_086,Guadeloupe COVID-19 growth phase 2020,E3,0.0634,0.9125,0.0,60,True,True
+E3_087,Guam COVID-19 growth phase 2020,E3,0.0783,0.6798,0.0,60,True,True
+E3_088,Guatemala COVID-19 growth phase 2020,E3,1.2113,0.8028,0.0,60,True,True
+E3_089,Guernsey COVID-19 growth phase 2020,E3,0.2155,0.7903,0.0,60,True,True
+E3_090,Guinea COVID-19 growth phase 2020,E3,1.1928,0.8899,0.0,60,True,True
+E3_091,Guinea-Bissau COVID-19 growth phase 2020,E3,0.5964,0.9172,0.0,60,True,True
+E3_092,Guyana COVID-19 growth phase 2020,E3,0.2672,0.7096,0.0,60,True,True
+E3_093,Haiti COVID-19 growth phase 2020,E3,1.3519,0.8909,0.0,60,True,True
+E3_094,High-income countries COVID-19 growth phase 2020,E3,2.7157,0.7181,0.0,60,True,True
+E3_095,Honduras COVID-19 growth phase 2020,E3,0.9051,0.7296,0.0,60,True,True
+E3_096,Hungary COVID-19 growth phase 2020,E3,1.1372,0.9222,0.0,60,True,True
+E3_097,Iceland COVID-19 growth phase 2020,E3,0.7585,0.8685,0.0,60,True,True
+E3_098,India COVID-19 growth phase 2020,E3,2.1582,0.8717,0.0,60,True,True
+E3_099,Indonesia COVID-19 growth phase 2020,E3,1.602,0.9192,0.0,60,True,True
+E3_100,Iran COVID-19 growth phase 2020,E3,1.6599,0.929,0.0,60,True,True
+E3_101,Iraq COVID-19 growth phase 2020,E3,1.0864,0.8991,0.0,60,True,True
+E3_102,Ireland COVID-19 growth phase 2020,E3,1.2588,0.9143,0.0,60,True,True
+E3_103,Isle of Man COVID-19 growth phase 2020,E3,0.3471,0.8622,0.0,60,True,True
+E3_104,Israel COVID-19 growth phase 2020,E3,1.564,0.9086,0.0,60,True,True
+E3_105,Italy COVID-19 growth phase 2020,E3,1.8064,0.918,0.0,60,True,True
+E3_106,Jamaica COVID-19 growth phase 2020,E3,0.4408,0.9062,0.0,60,True,True
+E3_107,Japan COVID-19 growth phase 2020,E3,1.3289,0.7919,0.0,60,True,True
+E3_108,Jersey COVID-19 growth phase 2020,E3,0.2307,0.8988,0.0,60,True,True
+E3_109,Jordan COVID-19 growth phase 2020,E3,0.2676,0.8818,0.0,60,True,True
+E3_110,Kazakhstan COVID-19 growth phase 2020,E3,1.127,0.8671,0.0,60,True,True
+E3_111,Kenya COVID-19 growth phase 2020,E3,0.7876,0.7929,0.0,60,True,True
+E3_112,Kiribati COVID-19 growth phase 2020,E3,0.6765,0.807,0.0,60,True,True
+E3_113,Kosovo COVID-19 growth phase 2020,E3,0.6991,0.9127,0.0,60,True,True
+E3_114,Kuwait COVID-19 growth phase 2020,E3,1.3755,0.7799,0.0,60,True,True
+E3_115,Kyrgyzstan COVID-19 growth phase 2020,E3,0.7538,0.9273,0.0,60,True,True
+E3_116,Laos COVID-19 growth phase 2020,E3,0.6085,0.893,0.0,60,True,True
+E3_117,Latvia COVID-19 growth phase 2020,E3,0.649,0.9197,0.0,60,True,True
+E3_118,Lebanon COVID-19 growth phase 2020,E3,0.4227,0.9244,0.0,60,True,True
+E3_119,Lesotho COVID-19 growth phase 2020,E3,0.6161,0.9188,0.0,60,True,True
+E3_120,Liberia COVID-19 growth phase 2020,E3,0.4311,0.7902,0.0,60,True,True
+E3_121,Libya COVID-19 growth phase 2020,E3,0.9284,0.8775,0.0,60,True,True
+E3_122,Liechtenstein COVID-19 growth phase 2020,E3,0.1431,0.4062,0.0,60,True,True
+E3_123,Lithuania COVID-19 growth phase 2020,E3,0.5837,0.915,0.0,60,True,True
+E3_124,Low-income countries COVID-19 growth phase 2020,E3,1.4308,0.9031,0.0,60,True,True
+E3_125,Lower-middle-income countries COVID-19 growth phase 2020,E3,1.8158,0.9279,0.0,60,True,True
+E3_126,Luxembourg COVID-19 growth phase 2020,E3,0.4424,0.8459,0.0,60,True,True
+E3_127,Madagascar COVID-19 growth phase 2020,E3,0.6457,0.5712,0.0,60,True,True
+E3_128,Malawi COVID-19 growth phase 2020,E3,0.8265,0.7936,0.0,60,True,True
+E3_129,Malaysia COVID-19 growth phase 2020,E3,1.1041,0.9164,0.0,60,True,True
+E3_130,Maldives COVID-19 growth phase 2020,E3,0.8148,0.931,0.0,60,True,True
+E3_131,Mali COVID-19 growth phase 2020,E3,0.8665,0.9134,0.0,60,True,True
+E3_132,Malta COVID-19 growth phase 2020,E3,0.573,0.8884,0.0,60,True,True
+E3_133,Marshall Islands COVID-19 growth phase 2020,E3,0.8703,0.7054,0.0,60,True,True
+E3_134,Martinique COVID-19 growth phase 2020,E3,0.1087,0.8676,0.0,60,True,True
+E3_135,Mauritania COVID-19 growth phase 2020,E3,1.1544,0.8941,0.0,60,True,True
+E3_136,Mauritius COVID-19 growth phase 2020,E3,0.3923,0.8055,0.0,60,True,True
+E3_137,Mayotte COVID-19 growth phase 2020,E3,0.8506,0.7745,0.0,60,True,True
+E3_138,Mexico COVID-19 growth phase 2020,E3,1.74,0.8916,0.0,60,True,True
+E3_139,Micronesia (country) COVID-19 growth phase 2020,E3,1.202,0.7244,0.0,60,True,True
+E3_140,Moldova COVID-19 growth phase 2020,E3,1.1221,0.9289,0.0,60,True,True
+E3_141,Monaco COVID-19 growth phase 2020,E3,0.2505,0.9047,0.0,60,True,True
+E3_142,Mongolia COVID-19 growth phase 2020,E3,0.1836,0.8539,0.0,60,True,True
+E3_143,Montenegro COVID-19 growth phase 2020,E3,0.8603,0.8288,0.0,60,True,True
+E3_144,Montserrat COVID-19 growth phase 2020,E3,0.1399,0.8515,0.0,60,True,True
+E3_145,Morocco COVID-19 growth phase 2020,E3,1.0127,0.913,0.0,60,True,True
+E3_146,Mozambique COVID-19 growth phase 2020,E3,0.7523,0.8441,0.0,60,True,True
+E3_147,Myanmar COVID-19 growth phase 2020,E3,0.2721,0.8853,0.0,60,True,True
+E3_148,Namibia COVID-19 growth phase 2020,E3,1.1794,0.9146,0.0,60,True,True
+E3_149,Nauru COVID-19 growth phase 2020,E3,0.7872,0.7621,0.0,60,True,True
+E3_150,Nepal COVID-19 growth phase 2020,E3,1.7131,0.8677,0.0,60,True,True
+E3_151,Netherlands COVID-19 growth phase 2020,E3,1.6906,0.9206,0.0,60,True,True
+E3_152,New Caledonia COVID-19 growth phase 2020,E3,0.0222,0.8511,0.0,60,True,True
+E3_153,New Zealand COVID-19 growth phase 2020,E3,0.2798,0.8149,0.0,60,True,True
+E3_154,Nicaragua COVID-19 growth phase 2020,E3,0.7154,0.9092,0.0,60,True,True
+E3_155,Niger COVID-19 growth phase 2020,E3,0.5771,0.8481,0.0,60,True,True
+E3_156,Nigeria COVID-19 growth phase 2020,E3,1.3288,0.813,0.0,60,True,True
+E3_157,Niue COVID-19 growth phase 2020,E3,0.6349,0.7606,0.0,60,True,True
+E3_158,North Macedonia COVID-19 growth phase 2020,E3,0.9058,0.9136,0.0,60,True,True
+E3_159,Northern Mariana Islands COVID-19 growth phase 2020,E3,0.0692,0.7292,0.0,60,True,True
+E3_160,Norway COVID-19 growth phase 2020,E3,1.2447,0.9021,0.0,60,True,True
+E3_161,Oman COVID-19 growth phase 2020,E3,1.2628,0.862,0.0,60,True,True
+E3_162,Pakistan COVID-19 growth phase 2020,E3,1.4182,0.8797,0.0,60,True,True
+E3_163,Palau COVID-19 growth phase 2020,E3,1.2169,0.8972,0.0,60,True,True
+E3_164,Palestine COVID-19 growth phase 2020,E3,0.3592,0.791,0.0,60,True,True
+E3_165,Panama COVID-19 growth phase 2020,E3,1.3874,0.931,0.0,60,True,True
+E3_166,Papua New Guinea COVID-19 growth phase 2020,E3,0.3703,0.9069,0.0,60,True,True
+E3_167,Paraguay COVID-19 growth phase 2020,E3,0.7415,0.8136,0.0,60,True,True
+E3_168,Peru COVID-19 growth phase 2020,E3,1.9399,0.8409,0.0,60,True,True
+E3_169,Philippines COVID-19 growth phase 2020,E3,1.6119,0.8991,0.0,60,True,True
+E3_170,Poland COVID-19 growth phase 2020,E3,1.7237,0.9235,0.0,60,True,True
+E3_171,Portugal COVID-19 growth phase 2020,E3,1.5254,0.9211,0.0,60,True,True
+E3_172,Puerto Rico COVID-19 growth phase 2020,E3,0.4911,0.9244,0.0,60,True,True
+E3_173,Qatar COVID-19 growth phase 2020,E3,1.366,0.7414,0.0,60,True,True
+E3_174,Reunion COVID-19 growth phase 2020,E3,0.3451,0.7952,0.0,60,True,True
+E3_175,Romania COVID-19 growth phase 2020,E3,1.6656,0.8981,0.0,60,True,True
+E3_176,Russia COVID-19 growth phase 2020,E3,2.3362,0.8917,0.0,60,True,True
+E3_177,Rwanda COVID-19 growth phase 2020,E3,0.4359,0.8287,0.0,60,True,True
+E3_178,Saint Barthelemy COVID-19 growth phase 2020,E3,0.2041,0.8421,0.0,60,True,True
+E3_179,Saint Helena COVID-19 growth phase 2020,E3,0.851,0.7059,0.0,60,True,True
+E3_180,Saint Kitts and Nevis COVID-19 growth phase 2020,E3,0.4479,0.9046,0.0,60,True,True
+E3_181,Saint Lucia COVID-19 growth phase 2020,E3,0.3604,0.9175,0.0,60,True,True
+E3_182,Saint Martin (French part) COVID-19 growth phase 2020,E3,0.4518,0.8913,0.0,60,True,True
+E3_183,Saint Pierre and Miquelon COVID-19 growth phase 2020,E3,0.7739,0.916,0.0,60,True,True
+E3_184,Saint Vincent and the Grenadines COVID-19 growth phase 2020,E3,0.9326,0.7085,0.0,60,True,True
+E3_185,Samoa COVID-19 growth phase 2020,E3,1.2938,0.9256,0.0,60,True,True
+E3_186,San Marino COVID-19 growth phase 2020,E3,0.4649,0.8535,0.0,60,True,True
+E3_187,Sao Tome and Principe COVID-19 growth phase 2020,E3,0.47,0.8177,0.0,60,True,True
+E3_188,Saudi Arabia COVID-19 growth phase 2020,E3,1.9204,0.8814,0.0,60,True,True
+E3_189,Senegal COVID-19 growth phase 2020,E3,0.9664,0.7351,0.0,60,True,True
+E3_190,Serbia COVID-19 growth phase 2020,E3,1.4613,0.9169,0.0,60,True,True
+E3_191,Seychelles COVID-19 growth phase 2020,E3,0.0897,0.8546,0.0,60,True,True
+E3_192,Sierra Leone COVID-19 growth phase 2020,E3,0.7468,0.9158,0.0,60,True,True
+E3_193,Singapore COVID-19 growth phase 2020,E3,1.4124,0.7141,0.0,60,True,True
+E3_194,Sint Maarten (Dutch part) COVID-19 growth phase 2020,E3,0.5529,0.8938,0.0,60,True,True
+E3_195,Slovakia COVID-19 growth phase 2020,E3,0.7816,0.8913,0.0,60,True,True
+E3_196,Slovenia COVID-19 growth phase 2020,E3,0.6303,0.91,0.0,60,True,True
+E3_197,Solomon Islands COVID-19 growth phase 2020,E3,1.184,0.9198,0.0,60,True,True
+E3_198,Somalia COVID-19 growth phase 2020,E3,0.9719,0.9293,0.0,60,True,True
+E3_199,South Africa COVID-19 growth phase 2020,E3,1.1976,0.8911,0.0,60,True,True
+E3_200,South Korea COVID-19 growth phase 2020,E3,0.9453,0.8457,0.0,60,True,True
+E3_201,South Sudan COVID-19 growth phase 2020,E3,1.0135,0.9087,0.0,60,True,True
+E3_202,Spain COVID-19 growth phase 2020,E3,2.6125,0.9092,0.0,60,True,True
+E3_203,Sri Lanka COVID-19 growth phase 2020,E3,0.7847,0.7879,0.0,60,True,True
+E3_204,Sudan COVID-19 growth phase 2020,E3,1.2579,0.9112,0.0,60,True,True
+E3_205,Suriname COVID-19 growth phase 2020,E3,0.7717,0.8342,0.0,60,True,True
+E3_206,Sweden COVID-19 growth phase 2020,E3,1.6018,0.9207,0.0,60,True,True
+E3_207,Switzerland COVID-19 growth phase 2020,E3,1.5298,0.9029,0.0,60,True,True
+E3_208,Syria COVID-19 growth phase 2020,E3,0.5148,0.7401,0.0,60,True,True
+E3_209,Tajikistan COVID-19 growth phase 2020,E3,0.8202,0.9149,0.0,60,True,True
+E3_210,Tanzania COVID-19 growth phase 2020,E3,0.409,0.8052,0.0,60,True,True
+E3_211,Thailand COVID-19 growth phase 2020,E3,1.109,0.8894,0.0,60,True,True
+E3_212,Togo COVID-19 growth phase 2020,E3,0.5559,0.9026,0.0,60,True,True
+E3_213,Tonga COVID-19 growth phase 2020,E3,1.446,0.8112,0.0,60,True,True
+E3_214,Trinidad and Tobago COVID-19 growth phase 2020,E3,0.0493,0.8422,0.0,60,True,True
+E3_215,Tunisia COVID-19 growth phase 2020,E3,0.4479,0.9073,0.0,60,True,True
+E3_216,Turkey COVID-19 growth phase 2020,E3,1.7368,0.9212,0.0,60,True,True
+E3_217,Turks and Caicos Islands COVID-19 growth phase 2020,E3,0.6508,0.893,0.0,60,True,True
+E3_218,Tuvalu COVID-19 growth phase 2020,E3,0.8946,0.7847,0.0,60,True,True
+E3_219,Uganda COVID-19 growth phase 2020,E3,0.5476,0.9258,0.0,60,True,True
+E3_220,Ukraine COVID-19 growth phase 2020,E3,1.6867,0.9134,0.0,60,True,True
+E3_221,United Arab Emirates COVID-19 growth phase 2020,E3,1.718,0.9024,0.0,60,True,True
+E3_222,United Kingdom COVID-19 growth phase 2020,E3,2.1415,0.9142,0.0,60,True,True
+E3_223,United States COVID-19 growth phase 2020,E3,2.7497,0.9122,0.0,60,True,True
+E3_224,United States Virgin Islands COVID-19 growth phase 2020,E3,0.7359,0.861,0.0,60,True,True
+E3_225,Upper-middle-income countries COVID-19 growth phase 2020,E3,2.2696,0.8944,0.0,60,True,True
+E3_226,Uruguay COVID-19 growth phase 2020,E3,0.3345,0.9179,0.0,60,True,True
+E3_227,Uzbekistan COVID-19 growth phase 2020,E3,0.9218,0.9029,0.0,60,True,True
+E3_228,Vanuatu COVID-19 growth phase 2020,E3,1.1874,0.9145,0.0,60,True,True
+E3_229,Venezuela COVID-19 growth phase 2020,E3,0.5644,0.7404,0.0,60,True,True
+E3_230,Vietnam COVID-19 growth phase 2020,E3,0.1791,0.8745,0.0,60,True,True
+E3_231,Wallis and Futuna COVID-19 growth phase 2020,E3,0.3114,0.8631,0.0,60,True,True
+E3_232,Yemen COVID-19 growth phase 2020,E3,0.8417,0.8837,0.0,60,True,True
+E3_233,Zambia COVID-19 growth phase 2020,E3,0.8885,0.9014,0.0,60,True,True
+E3_234,Zimbabwe COVID-19 growth phase 2020,E3,0.7284,0.7841,0.0,60,True,True
+F1_01,Stellar/planetary mass dominance vs orbit (exoplanets),F1,-0.5399,0.2157,0.0,2300,True,True
+F1_02,Solar System Jupiter dominance,F1,-3.0737,0.5751,0.048159,7,True,True
+F2_01,Stellar mass-radius relation (exoplanet hosts),F2,1.2734,0.4759,0.0,2306,True,True
+F3_01,Multiplanet mass dominance (n=11 planets),F3,1.264,0.9041,7e-06,11,True,True

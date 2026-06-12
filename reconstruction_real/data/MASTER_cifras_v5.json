@@ -1,0 +1,16 @@
+{
+  "n_total": 721,
+  "n_sig": 644,
+  "pct_sig": 89.3,
+  "b_mean": 0.3656,
+  "b_median": 0.1791,
+  "pct_b_pos": 74.1,
+  "pct_b_super": 14.1,
+  "r2_sig": 0.5811,
+  "spearman_sb_rho": -0.678,
+  "spearman_sb_p": "2.50e-97",
+  "eco_b": 0.092,
+  "bio_b": 0.946,
+  "bio_vs_eco_U": 103538,
+  "bio_vs_eco_p": "2.37e-74"
+}
