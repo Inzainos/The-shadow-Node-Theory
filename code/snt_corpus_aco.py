@@ -1,6 +1,7 @@
 """
 WARNING: DEPRECATED — This script references the v2.3.1 corpus.
-For the current v2.4.0 corpus (721 real cases), see reconstruction_real/
+For the current v2.4.0 version (18 cases, 4 domains), see:
+    reconstruction_real/code/build_aco_v29.py
 
 Shadow Node Theory v2.3.1 — Módulo XVI: Arquitectura de Colapso Orbital (ACO) [HISTORICAL]
 Corpus de 4 casos verificados de colapso sistémico con absorción identificable

@@ -1,0 +1,19 @@
+﻿id,descripcion,dominio,b,r2,p,n,significativo,fuente_real
+ACO_F01_Lehman_2008,Lehman Brothers → Barclays + JPMorgan,ACO-F,0.246,0.8919,0.000647,7,True,True
+ACO_F02_BearStearns_2008,Bear Stearns → JPMorgan Chase,ACO-F,0.0433,0.9255,0.002339,6,True,True
+ACO_F03_WashingtonMutual_2008,Washington Mutual → JPMorgan Chase (FDIC),ACO-F,0.0089,0.9459,0.001108,6,True,True
+ACO_F04_Wachovia_2008,Wachovia → Wells Fargo,ACO-F,0.1527,0.8924,0.003783,6,True,True
+ACO_F05_MerrillLynch_2008,Merrill Lynch → Bank of America,ACO-F,0.2165,0.8456,0.004995,6,True,True
+ACO_F06_Chrysler_2009,Chrysler → Fiat + US Government,ACO-F,0.1376,0.99,2.4e-05,6,True,True
+ACO_T01_Nokia_2013,Nokia (moviles) → Microsoft,ACO-T,1.8136,0.8187,4.4e-05,8,True,True
+ACO_T02_Compaq_2002,Compaq → Hewlett-Packard,ACO-T,0.1525,0.9909,2.7e-05,6,True,True
+ACO_T03_SunMicrosystems_2010,Sun Microsystems → Oracle,ACO-T,0.2075,0.9187,0.008769,5,True,True
+ACO_T04_MySpace_2011,MySpace → Facebook,ACO-T,2.1947,0.9057,0.003487,5,True,True
+ACO_H01_URSS_1991,URSS → Rusia (hub vestigial heredero),ACO-H,0.3487,0.7727,0.080497,5,False,True
+ACO_H02_Roma_476,Imperio Romano Occidental → Bizancio,ACO-H,0.4529,0.9157,0.000131,9,True,False
+ACO_H03_Azteca_1521,Imperio Azteca → Corona de Castilla,ACO-H,0.6926,0.9917,2e-06,7,True,False
+ACO_H04_Cartago_146AC,Cartago → Republica Romana,ACO-H,0.3357,0.9928,1.2e-05,6,True,False
+ACO_I01_PanAm_1991,Pan Am → Delta + United,ACO-I,0.3624,0.8353,0.020057,5,True,True
+ACO_I02_Polaroid_2001,Polaroid → One Equity Partners (JP Morgan),ACO-I,0.4123,0.9343,0.006576,5,True,False
+ACO_I03_Kodak_2012,Kodak (film) → Patent consortium,ACO-I,1.2438,0.9708,0.000127,6,True,True
+ACO_I04_Blockbuster_2010,Blockbuster → Dish Network (activos fisicos),ACO-I,1.8059,0.9543,0.000899,5,True,True

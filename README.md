@@ -109,6 +109,24 @@ system.
 
 ---
 
+## Módulo XVI -- Arquitectura de Colapso Orbital (ACO)
+
+ACO extends SNT to cases where a hub undergoes **functional extinction** and its
+resources are **absorbed by an identifiable node**. Without both elements, the
+case is classical SNT satellization, not ACO.
+
+| Domain | Cases | b mean | Sig. | Notes |
+|--------|-------|--------|------|-------|
+| F -- Financial | 6 | +0.13 | 6/6 | 2008 crisis: Lehman, Bear Stearns, WaMu, Wachovia, Merrill, Chrysler |
+| T -- Technological | 4 | +1.09 | 4/4 | Nokia, Compaq, Sun, MySpace |
+| H -- Historical | 4 | +0.46 | 3/4 | USSR, Rome, Aztec Empire, Carthage |
+| I -- Industrial | 4 | +0.96 | 4/4 | Pan Am, Polaroid, Kodak, Blockbuster |
+| **TOTAL** | **18** | **+0.60** | **17/18** | 14 verified, 4 estimated (*) |
+
+Reproduced via `reconstruction_real/code/build_aco_v29.py`.
+
+---
+
 ## Atomic Sovereignty Index (ASI)
 
 ASI = delta_H x alpha / F
@@ -145,7 +163,8 @@ The-shadow-Node-Theory/
 |   |-- code/
 |   |   |-- expand_dominio_B.py        <-- Reproduces 446 cases (Maddison)
 |   |   |-- build_dominio_B.py
-|   |   +-- generate_figures_v29.py    <-- v29 PLOS-compliant figures (SVG+PNG)
+|   |   |-- generate_figures_v29.py    <-- v29 PLOS-compliant figures (SVG+PNG)
+|   |   +-- build_aco_v29.py           <-- ACO 18 cases, 4 domains (v2.4.0)
 |   +-- snt_phi_hypothesis.md          <-- H-phi REFUTED
 |
 |-- hypotheses/
@@ -178,8 +197,8 @@ The-shadow-Node-Theory/
 |   |-- generate_publication_figures.py <-- TIFF 300dpi figures
 |   |-- snt_v2_vectorizacion.py        <-- Trajectory vectorization
 |   |-- matriz_mexico_ncuerpos.py      <-- N-body matrix Mexico (32 states)
-|   |-- snt_corpus_aco.py             <-- ACO 4 cases (DEPRECATED v2.3.1)
-|   +-- snt_corpus_aco_expanded.py    <-- ACO 18 cases (DEPRECATED v2.3.1)
+|   |-- snt_corpus_aco.py             <-- ACO 4 cases (DEPRECATED, see build_aco_v29.py)
+|   +-- snt_corpus_aco_expanded.py    <-- ACO 18 cases (DEPRECATED, see build_aco_v29.py)
 |
 |-- data/                              <-- Data files (v28 -- historical)
 |   |-- snt_asi_scores.csv             <-- ASI scores HackerEarth
