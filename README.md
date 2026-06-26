@@ -144,7 +144,8 @@ The-shadow-Node-Theory/
 |   |   +-- phi_test_corpus_real_v4.csv
 |   |-- code/
 |   |   |-- expand_dominio_B.py        <-- Reproduces 446 cases (Maddison)
-|   |   +-- build_dominio_B.py
+|   |   |-- build_dominio_B.py
+|   |   +-- generate_figures_v29.py    <-- v29 PLOS-compliant figures (SVG+PNG)
 |   +-- snt_phi_hypothesis.md          <-- H-phi REFUTED
 |
 |-- hypotheses/
@@ -164,6 +165,8 @@ The-shadow-Node-Theory/
 |   |-- snt_paper_astrophysical.docx
 |   |-- snt_paper_investigacion_economica.docx
 |   |-- snt_paper_regional_economics_en.pdf
+|   |-- snt_english_v23.docx           <-- English translation v2.3
+|   |-- abstracts_marco_teorico.docx   <-- Abstracts & framework
 |   +-- cover_letter_comnet.txt
 |
 |-- code/                              <-- Analysis scripts (v28 -- historical)
@@ -174,7 +177,9 @@ The-shadow-Node-Theory/
 |   |-- hackerearth_validation_final.py <-- ASI / ROC-AUC validation
 |   |-- generate_publication_figures.py <-- TIFF 300dpi figures
 |   |-- snt_v2_vectorizacion.py        <-- Trajectory vectorization
-|   +-- matriz_mexico_ncuerpos.py      <-- N-body matrix Mexico (32 states)
+|   |-- matriz_mexico_ncuerpos.py      <-- N-body matrix Mexico (32 states)
+|   |-- snt_corpus_aco.py             <-- ACO 4 cases (DEPRECATED v2.3.1)
+|   +-- snt_corpus_aco_expanded.py    <-- ACO 18 cases (DEPRECATED v2.3.1)
 |
 |-- data/                              <-- Data files (v28 -- historical)
 |   |-- snt_asi_scores.csv             <-- ASI scores HackerEarth
