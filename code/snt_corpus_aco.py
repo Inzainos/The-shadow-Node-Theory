@@ -1,5 +1,8 @@
 """
-Shadow Node Theory v2.3.1 — Módulo XVI: Arquitectura de Colapso Orbital (ACO)
+WARNING: DEPRECATED — This script references the v2.3.1 corpus.
+For the current v2.4.0 corpus (721 real cases), see reconstruction_real/
+
+Shadow Node Theory v2.3.1 — Módulo XVI: Arquitectura de Colapso Orbital (ACO) [HISTORICAL]
 Corpus de 4 casos verificados de colapso sistémico con absorción identificable
 
 Criterio ACO (definitorio):

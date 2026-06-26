@@ -1,5 +1,8 @@
 """
-Shadow Node Theory v2.2 — Corpus Astronomico
+WARNING: DEPRECATED — This script references the v2.2 corpus with synthetic data.
+For the current v2.4.0 corpus (721 real cases), see reconstruction_real/
+
+Shadow Node Theory v2.2 — Corpus Astronomico [HISTORICAL REFERENCE ONLY]
 Analisis de ley de potencia para 47 casos en cuatro dominios cosmicos:
   F1 — Sistemas planetarios (n=14)
   F2 — Binarios estelares (n=8)

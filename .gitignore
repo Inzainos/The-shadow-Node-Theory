@@ -3,3 +3,16 @@ __pycache__/
 *.pyo
 .DS_Store
 *.egg-info/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*~
+
+# Proprietary data (not redistributable)
+zerve_hackathon_dataset.csv
+
+# Generated outputs
+hackerearth_first_session_features.csv
+*.tmp

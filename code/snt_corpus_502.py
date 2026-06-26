@@ -1,5 +1,9 @@
 """
-Shadow Node Theory v2.2 — Corpus de 502 Casos
+WARNING: DEPRECATED — This script references the v2.2/v2.3.1 corpus (502 cases)
+which contained ~188 synthetic b values and impossible R² values.
+For the current v2.4.0 corpus (721 real cases), see reconstruction_real/
+
+Shadow Node Theory v2.2 — Corpus de 502 Casos [HISTORICAL REFERENCE ONLY]
 Analisis estadistico del corpus completo: 11 dominios, 30 ordenes de magnitud temporal
 Fractal Core Research | Tlaxcala, Mexico | 2026
 

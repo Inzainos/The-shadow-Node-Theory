@@ -1,7 +1,12 @@
-# Data Sources — Shadow Node Theory v2.3.1
+# Data Sources — Shadow Node Theory v2.4.0
 
-**Fractal Core Research · Elan Zainos Corona · Tlaxcala, Mexico · 2026**  
-All data used in the SNT v2.3.1 corpus are either publicly available or clearly marked as proprietary with aggregate results only.
+**Fractal Core Research · Elan Zainos Corona · Tlaxcala, Mexico · 2026**
+All data used in the SNT v2.4.0 corpus (721 real cases) are either publicly available or clearly marked as proprietary with aggregate results only.
+
+> **Note:** This file was originally written for v2.3.1 (502 cases). The domain
+> counts below reflect the v2.3.1 source catalog. The v2.4.0 corpus uses a subset
+> of these sources plus new primary sources documented in `reconstruction_real/README.md`.
+> The v2.4.0 corpus is in `reconstruction_real/data/snt_corpus_REAL_v5.csv`.
 
 ---
 
@@ -181,4 +186,4 @@ All scripts, processed data files, and figures are available at:
 - **Zenodo v2.3.1:** [https://doi.org/10.5281/zenodo.19446521](https://doi.org/10.5281/zenodo.19446521)
 - **Zenodo v2.0:** [https://doi.org/10.5281/zenodo.19131327](https://doi.org/10.5281/zenodo.19131327)
 
-*Last updated: April 2026*
+*Last updated: June 2026 (v2.4.0)*

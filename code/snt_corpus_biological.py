@@ -1,5 +1,8 @@
 """
-Shadow Node Theory v2.2 — Corpus Biologico
+WARNING: DEPRECATED — This script references the v2.2 corpus with synthetic data.
+For the current v2.4.0 corpus (721 real cases), see reconstruction_real/
+
+Shadow Node Theory v2.2 — Corpus Biologico [HISTORICAL REFERENCE ONLY]
 Analisis de ley de potencia para 44 casos en tres dominios ecologicos:
   E1 — Competencia entre especies / invasion biologica (n=20)
   E2 — Depredador-presa (n=4)
