@@ -88,7 +88,7 @@ Systems with friction (A, B, C): b mean = +0.09
 |--------|--------|-------|
 | **SSRN** (abstract 6418778) | PUBLISHED | Active preprint |
 | **Zenodo** (DOI 10.5281/zenodo.19446521) | PUBLISHED | v2.3.1 |
-| **PLOS Complex Systems** (PCSY-D-26-00059) | MAJOR REVISION | Deadline 10 Aug 2026 |
+| **PLOS Complex Systems** (PCSY-D-26-00059) | MAJOR REVISION | Deadline 10 Aug 2026; v29 draft ready |
 | **J. Complex Networks** (COMNET-2026-214) | REJECTED | No external review |
 | **MIT GCFP Conference** | SUBMITTED / UNDER REVIEW | 13th Annual Conf, Oct 29-30 2026 |
 | J. Theoretical Biology | NOT RELEASED | Requires v29 update |
@@ -153,9 +153,11 @@ The-shadow-Node-Theory/
 |-- papers/                            <-- Academic submissions
 |   |-- SNT_Project_Report_v29.pdf     <-- Handover document (v29)
 |   |-- SNT_Genomic_Topologic_Analyzer_v3.pdf <-- Genomic agent docs
+|   |-- snt_plos_721cases_v29_DRAFT.docx <-- PLOS revision draft (721 cases, v29)
 |   |-- snt_oxford_submission.docx     <-- REJECTED (COMNET)
-|   |-- snt_plos_submission.docx       <-- v28 OBSOLETE
-|   |-- snt_plos_submission.pdf
+|   |-- snt_plos_submission.docx       <-- v28 OBSOLETE (502 cases)
+|   |-- snt_plos_submission.pdf        <-- v28 OBSOLETE (502 cases)
+|   |-- snt_paper_plos_complex_systems.docx <-- v28 OBSOLETE (502 cases)
 |   |-- marco_teorico_v28.pdf          <-- Unified framework (ES) v28
 |   |-- shadow_node_theory_SSRN_v10.docx
 |   |-- snt_paper_theoretical_biology.docx
