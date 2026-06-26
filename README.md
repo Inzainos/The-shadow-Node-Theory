@@ -90,7 +90,7 @@ Systems with friction (A, B, C): b mean = +0.09
 | **Zenodo** (DOI 10.5281/zenodo.19446521) | PUBLISHED | v2.3.1 |
 | **PLOS Complex Systems** (PCSY-D-26-00059) | MAJOR REVISION | Deadline 10 Aug 2026 |
 | **J. Complex Networks** (COMNET-2026-214) | REJECTED | No external review |
-| **MIT GCFP Conference** | IN PREPARATION | Deadline 17 Jul 2026 |
+| **MIT GCFP Conference** | SUBMITTED / UNDER REVIEW | 13th Annual Conf, Oct 29-30 2026 |
 | J. Theoretical Biology | NOT RELEASED | Requires v29 update |
 | Astrophysical Journal | NOT RELEASED | Requires v29 update |
 | Investigacion Economica | NOT RELEASED | Requires v29 update |
@@ -151,6 +151,8 @@ The-shadow-Node-Theory/
 |   +-- snt_phi_hypothesis.md          <-- H-phi REFUTED (3 validations)
 |
 |-- papers/                            <-- Academic submissions
+|   |-- SNT_Project_Report_v29.pdf     <-- Handover document (v29)
+|   |-- SNT_Genomic_Topologic_Analyzer_v3.pdf <-- Genomic agent docs
 |   |-- snt_oxford_submission.docx     <-- REJECTED (COMNET)
 |   |-- snt_plos_submission.docx       <-- v28 OBSOLETE
 |   |-- snt_plos_submission.pdf
@@ -179,10 +181,35 @@ The-shadow-Node-Theory/
 |   |-- phi_validation_crypto.csv      <-- H-phi validation round 1
 |   +-- phi_validation_bio_primary.csv <-- H-phi validation round 2
 |
+|-- genomic_agent/                     <-- SNT Genomic Topologic Analyzer v2
+|   |-- agent_core/                    <-- Analysis engine + Streamlit UI
+|   |-- genomic_database/             <-- HPA + UniProt database builder
+|   |-- mock_services/                <-- Jira/Slack/Email mock integrations
+|   |-- docker-compose.yml            <-- Container orchestration
+|   +-- paciente_omega_rnaseq.csv     <-- Demo patient (dirty CSV for ETL test)
+|
 |-- figures/                           <-- Publication figures
 |
 +-- archive/                           <-- Superseded versions
 ```
+
+---
+
+## SNT Genomic Topologic Analyzer
+
+Cross-domain application of SNT hub-satellite topology to functional genomics.
+Instead of detecting structural mutations (wrong letters in the code), the
+Genomic Agent detects **regulatory topology disruptions** (who stopped
+controlling whom) using Z-score analysis against Human Protein Atlas baselines.
+
+- **Two-Level Architecture:** Level-1 O(K) triage against 27 disease signatures
+  across 9 cancers; Level-2 chromosome-by-chromosome orphan anomaly scan
+- **Four anomaly types:** HUB_OVERACTIVATION, HUB_COLLAPSE,
+  SATELLITE_CAPTURE, LEAPFROG
+- **First ingestion (PX-OMEGA-001):** 8/27 confirmed signatures, 13 orphan
+  anomalies (potential novel biomarkers), 4.3s total pipeline time
+
+See `papers/SNT_Genomic_Topologic_Analyzer_v3.pdf` for full documentation.
 
 ---
 

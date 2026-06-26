@@ -13,6 +13,11 @@ __pycache__/
 # Proprietary data (not redistributable)
 zerve_hackathon_dataset.csv
 
+# Environment files (API keys)
+.env
+genomic_agent/.env
+
 # Generated outputs
 hackerearth_first_session_features.csv
 *.tmp
+*.db
