@@ -31,7 +31,7 @@ import matplotlib.gridspec as gridspec
 import argparse
 import os
 import warnings
-warnings.filterwarnings('ignore')
+warnings.filterwarnings('ignore', category=RuntimeWarning)
 
 # =============================================================================
 # SCHEMA DEL CSV
@@ -151,8 +151,8 @@ def generar_corpus_sintetico():
 # =============================================================================
 
 parser = argparse.ArgumentParser(description="SNT v2.2 — Corpus 502 casos")
-parser.add_argument("--input", default="snt_corpus_final.csv",
-                    help="CSV de entrada (default: snt_corpus_final.csv)")
+parser.add_argument("--input", default="data/snt_corpus_final.csv",
+                    help="CSV de entrada (default: data/snt_corpus_final.csv)")
 args = parser.parse_args()
 
 print("=" * 70)

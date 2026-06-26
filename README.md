@@ -93,36 +93,43 @@ shadow-node-theory/
 ├── snt_phi_hypothesis.md                         ← H-φ hypothesis + validation results
 │
 ├── papers/
-│   ├── snt_oxford_submission.docx                ← Main paper — J. Complex Networks ★
+│   ├── snt_oxford_submission.docx                ← Main paper — J. Complex Networks
 │   ├── marco_teorico_v28.pdf                     ← Unified Theoretical Framework (ES)
-│   ├── snt_paper_regional_economics_en.docx      ← Economics paper (EN) — SSRN
+│   ├── snt_paper_regional_economics_en.pdf       ← Economics paper (EN) — SSRN
 │   ├── snt_paper_investigacion_economica.docx    ← Economics paper (ES) — Inv. Económica
 │   ├── snt_paper_theoretical_biology.docx        ← Biology paper — J. Theoretical Biology
-│   └── snt_paper_astrophysical.docx              ← Astronomy paper — Astrophysical Journal
+│   ├── snt_paper_astrophysical.docx              ← Astronomy paper — Astrophysical Journal
+│   └── snt_plos_submission.docx                  ← PLOS Complex Systems submission
 │
 ├── code/
+│   ├── snt_utils.py                              ← Shared utilities (power-law fitting)
 │   ├── snt_corpus_502.py                         ← Extended corpus analysis
 │   ├── snt_corpus_biological.py                  ← Biological domains (E1–E3)
 │   ├── snt_corpus_astronomical.py                ← Astronomical domains (F1–F4)
+│   ├── snt_corpus_aco.py                         ← Orbital Collapse Architecture (ACO)
 │   ├── hackerearth_validation_final.py           ← ASI / ROC-AUC validation
 │   ├── generate_publication_figures.py           ← TIFF 300dpi figures
 │   ├── snt_v2_vectorizacion.py                   ← Trajectory vectorization
-│   └── shadow_node_verification_v2.py            ← Original v1.0 analysis
+│   └── matriz_mexico_ncuerpos.py                 ← N-body matrix Mexico (32 states)
 │
 ├── data/
 │   ├── snt_corpus_final.csv                      ← Full 502-case corpus
-│   ├── phi_validation_crypto.csv                 ← H-φ validation round 1 (crypto) ★
-│   ├── phi_validation_bio_primary.csv            ← H-φ validation round 2 (biological) ★
+│   ├── phi_validation_crypto.csv                 ← H-φ validation round 1 (crypto)
+│   ├── phi_validation_bio_primary.csv            ← H-φ validation round 2 (biological)
 │   ├── snt_corpus_500.csv                        ← Corpus v2.2
 │   ├── snt_asi_scores.csv                        ← ASI scores HackerEarth
 │   ├── matriz_mexico_32.csv                      ← 32 states INEGI classification
 │   └── snt_v2_vectores.csv                       ← Trajectory vectors 8 states
 │
-└── figures/
-    ├── Fig1.tif / Fig2.tif / Fig3.tif / Fig4.tif ← Publication figures (300dpi)
-    └── shadow_node_maddison_final.png             ← Main figure v1.0
+├── figures/
+│   ├── Fig1–4.tif                                ← Publication figures (300dpi)
+│   ├── fig1–4 .svg/.png                          ← Vector + raster versions
+│   └── shadow_node_maddison_final.png            ← Main figure v1.0
+│
+├── reconstruction_real/                          ← Real-data corpus reconstruction (v4–v5)
+│
+└── archive/                                      ← Superseded versions (v4–v22, etc.)
 ```
-★ New in v2.3.1
 
 ---
 
@@ -208,10 +215,12 @@ Sub-hypothesis H-3 (denominator-3 pattern): permanently discarded.
 ## Reproducing the Analysis
 
 ```bash
-pip install numpy scipy pandas matplotlib networkx openpyxl
-python code/snt_corpus_502.py          # Full 502-case corpus
-python code/hackerearth_validation_final.py   # ASI + ROC-AUC
-python code/generate_publication_figures.py   # TIFF 300dpi figures
+pip install -r requirements.txt
+python code/snt_corpus_502.py                   # Full 502-case corpus
+python code/snt_corpus_biological.py            # Biological domains (E1-E3)
+python code/snt_corpus_astronomical.py          # Astronomical domains (F1-F4)
+python code/hackerearth_validation_final.py     # ASI + ROC-AUC (requires proprietary dataset)
+python code/generate_publication_figures.py     # TIFF 300dpi figures
 ```
 
 Full step-by-step in prior README version or `requirements.txt`.
