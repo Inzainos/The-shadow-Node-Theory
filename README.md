@@ -173,7 +173,6 @@ The-shadow-Node-Theory/
 |   +-- matriz_mexico_ncuerpos.py      <-- N-body matrix Mexico (32 states)
 |
 |-- data/                              <-- Data files (v28 -- historical)
-|   |-- snt_corpus_500.csv
 |   |-- snt_asi_scores.csv             <-- ASI scores HackerEarth
 |   |-- matriz_mexico_32.csv           <-- 32 states INEGI
 |   |-- snt_v2_vectores.csv            <-- Trajectory vectors 8 states

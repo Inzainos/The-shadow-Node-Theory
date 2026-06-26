@@ -55,7 +55,7 @@ All data used in the SNT v2.4.0 corpus (721 real cases) are either publicly avai
 
 ## Domain D — Digital Ecosystems (n=53)
 
-- **HackerEarth 2026 — zerve_hackathon_dataset.csv:** Proprietary dataset, 4,774 users, 409,287 events, 141 event types. **Not redistributable.** Aggregate results available in `data/snt_asi_scores.csv` and `data/snt_corpus_final.csv`.
+- **HackerEarth 2026 — zerve_hackathon_dataset.csv:** Proprietary dataset, 4,774 users, 409,287 events, 141 event types. **Not redistributable.** Aggregate results available in `data/snt_asi_scores.csv` and `reconstruction_real/data/snt_corpus_REAL_v5.csv`.
 - **Browser market share (Chrome, IE, etc.):** StatCounter GlobalStats. [https://gs.statcounter.com/](https://gs.statcounter.com/)
 - **Smartphone market share (Apple, Nokia, BlackBerry):** IDC Worldwide Quarterly Mobile Phone Tracker. [https://www.idc.com/](https://www.idc.com/)
 - **Social network users (Facebook, MySpace):** Statista; Comscore historical data.

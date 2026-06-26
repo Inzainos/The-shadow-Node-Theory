@@ -51,7 +51,7 @@ if not os.path.exists(DATASET_PATH):
     print(f"\nERROR: '{DATASET_PATH}' not found.")
     print("This script requires the proprietary HackerEarth 2026 dataset")
     print("which is not redistributable. Only aggregate results are available")
-    print("in data/snt_asi_scores.csv and data/snt_corpus_final.csv.")
+    print("in data/snt_asi_scores.csv and reconstruction_real/data/snt_corpus_REAL_v5.csv.")
     print("\nContact elan.zainos.corona@gmail.com for collaboration requests.")
     sys.exit(1)
 

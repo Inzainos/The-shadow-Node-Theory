@@ -50,7 +50,7 @@ keywords:
 identifiers:
   - type: doi
     value: "10.5281/zenodo.19446521"
-    description: "Zenodo DOI v2.3.1"
+    description: "Zenodo DOI (originally published as v2.3.1)"
   - type: doi
     value: "10.5281/zenodo.19131327"
     description: "Zenodo DOI v2.0"

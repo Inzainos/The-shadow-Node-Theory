@@ -50,8 +50,9 @@ HackerEarth 2026 Dataset
 
 The raw zerve_hackathon_dataset.csv is proprietary and NOT included in this
 repository. Only aggregate results are included in data/snt_asi_scores.csv
-and data/snt_corpus_final.csv. Contact elan.zainos.corona@gmail.com for
-collaboration requests involving the raw dataset.
+and the consolidated corpus in reconstruction_real/data/snt_corpus_REAL_v5.csv.
+Contact elan.zainos.corona@gmail.com for collaboration requests involving the
+raw dataset.
 
 ---
 
@@ -59,8 +60,7 @@ Citation
 
 If you use this code or data, please cite:
 
-  Zainos Corona, E. (2026). Shadow Node Theory v2.3.1: Scale Invariance in
-  the Node Satellization Algorithm — 502 Verified Cases, 11 Domains,
-  30 Orders of Magnitude of Temporal Scale. Fractal Core Research Pre-print.
+  Zainos Corona, E. (2026). Shadow Node Theory v2.4.0: Scale-Invariant
+  Satellization Across 721 Empirical Cases. Fractal Core Research Pre-print.
   DOI: 10.5281/zenodo.19446521
   URL: https://ssrn.com/abstract=6418778
