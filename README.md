@@ -87,7 +87,7 @@ Systems with friction (A, B, C): b mean = +0.09
 | Target | Status | Notes |
 |--------|--------|-------|
 | **SSRN** (abstract 6418778) | PUBLISHED | Active preprint |
-| **Zenodo** (DOI 10.5281/zenodo.19446521) | PUBLISHED | v2.3.1 |
+| **Zenodo** (DOI 10.5281/zenodo.19446521) | PUBLISHED | v2.4.0 pending update |
 | **PLOS Complex Systems** (PCSY-D-26-00059) | MAJOR REVISION | Deadline 10 Aug 2026; v29 draft ready |
 | **J. Complex Networks** (COMNET-2026-214) | REJECTED | No external review |
 | **MIT GCFP Conference** | SUBMITTED / UNDER REVIEW | 13th Annual Conf, Oct 29-30 2026 |

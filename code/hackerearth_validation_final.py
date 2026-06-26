@@ -1,5 +1,5 @@
 """
-Shadow Node Theory v2.3.1 — Validación HackerEarth 2026
+Shadow Node Theory v2.4.0 — Validación HackerEarth 2026
 Reentrenamiento del modelo de churn con features de primera sesión únicamente
 
 CORRECCIÓN METODOLÓGICA:
@@ -42,7 +42,7 @@ warnings.filterwarnings('ignore', category=RuntimeWarning)
 # =============================================================================
 
 print("=" * 65)
-print("SNT v2.3.1 — VALIDACIÓN HACKEREARTH 2026 (PRIMERA SESIÓN)")
+print("SNT v2.4.0 — VALIDACIÓN HACKEREARTH 2026 (PRIMERA SESIÓN)")
 print("Fractal Core Research | Tlaxcala, Mexico | 2026")
 print("=" * 65)
 

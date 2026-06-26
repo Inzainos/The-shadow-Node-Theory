@@ -183,7 +183,7 @@ All data used in the SNT v2.4.0 corpus (721 real cases) are either publicly avai
 
 All scripts, processed data files, and figures are available at:
 - **GitHub:** [https://github.com/Inzainos/The-shadow-Node-Theory](https://github.com/Inzainos/The-shadow-Node-Theory)
-- **Zenodo v2.3.1:** [https://doi.org/10.5281/zenodo.19446521](https://doi.org/10.5281/zenodo.19446521)
+- **Zenodo v2.4.0:** [https://doi.org/10.5281/zenodo.19446521](https://doi.org/10.5281/zenodo.19446521)
 - **Zenodo v2.0:** [https://doi.org/10.5281/zenodo.19131327](https://doi.org/10.5281/zenodo.19131327)
 
 *Last updated: June 2026 (v2.4.0)*

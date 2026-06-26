@@ -1,5 +1,5 @@
 # φ como Atractor Teórico del Algoritmo de Satelización
-## Hipótesis Deductiva — SNT v2.3.1 | Estado: REFUTADA (3 validaciones independientes)
+## Hipótesis Deductiva — SNT v2.4.0 | Estado: REFUTADA (3 validaciones independientes)
 
 ---
 
