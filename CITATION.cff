@@ -1,30 +1,30 @@
 cff-version: 1.2.0
 message: "If you use this software or data, please cite it as below."
 type: software
-title: "Shadow Node Theory v2.3.1: Scale Invariance in the Node Satellization Algorithm"
+title: "Shadow Node Theory v2.4.0: Scale-Invariant Satellization Across 721 Empirical Cases"
 abstract: >
-  Replication package for Shadow Node Theory v2.3.1 (SNT v2.3.1),
-  a formal model of node satellization verified across 502 empirical cases
-  in 11 domains spanning 30 orders of magnitude of temporal scale —
-  from digital platform behavioral cycles (hours) to galactic merger
-  timescales (billions of years). The central finding is that
-  satellization dynamics follow a power law R(t) = a·t^b invariant
-  to temporal scale and substrate, with institutional friction as the
-  dominant predictor of the exponent b. Includes code for all analyses,
-  data for reproducible cases, and four specialized papers targeting
-  PLOS Complex Systems, Journal of Theoretical Biology, The Astrophysical
-  Journal, and Investigación Económica.
+  Replication package for Shadow Node Theory v2.4.0 (SNT v2.4.0),
+  a formal model of node satellization verified across 721 empirical cases
+  reconstructed entirely from verifiable primary sources. The corpus spans
+  11 domains and 30 orders of magnitude of temporal scale -- from digital
+  platform behavioral cycles (hours) to galactic merger timescales
+  (billions of years). The central finding is that institutional friction
+  is the dominant predictor of the satellization exponent b
+  (Spearman rho = -0.68, p = 2.5e-97, n=714). This version replaces
+  the v2.3.1 corpus (502 cases) which contained synthetic values.
+  All 721 cases are reproducible from public primary sources via
+  published Python scripts.
 authors:
   - family-names: "Zainos Corona"
-    given-names: "Elán"
+    given-names: "Elan"
     alias: "Captain 1n2a1n05"
     orcid: "https://orcid.org/0009-0009-9125-253X"
     affiliation: "Fractal Core Research"
     email: "elan.zainos.corona@gmail.com"
     city: "Tlaxcala"
     country: MX
-version: "2.3.1"
-date-released: "2026-04-07"
+version: "2.4.0"
+date-released: "2026-06-26"
 url: "https://github.com/Inzainos/The-shadow-Node-Theory"
 repository-code: "https://github.com/Inzainos/The-shadow-Node-Theory"
 license: "MIT"
@@ -41,17 +41,16 @@ keywords:
   - network theory
   - cognitive sovereignty
   - Atomic Sovereignty Index
+  - institutional friction
   - Mexico
   - Tlaxcala
-  - institutional friction
   - biological invasion
-  - galactic dynamics
-  - AI orchestration
+  - epidemic growth
   - digital ecosystems
 identifiers:
   - type: doi
     value: "10.5281/zenodo.19446521"
-    description: "Zenodo DOI v2.3.1 (current)"
+    description: "Zenodo DOI v2.3.1"
   - type: doi
     value: "10.5281/zenodo.19131327"
     description: "Zenodo DOI v2.0"
@@ -61,10 +60,10 @@ identifiers:
 references:
   - type: article
     authors:
-      - family-names: "Barabási"
-        given-names: "Albert-László"
+      - family-names: "Barabasi"
+        given-names: "Albert-Laszlo"
       - family-names: "Albert"
-        given-names: "Réka"
+        given-names: "Reka"
     title: "Emergence of scaling in random networks"
     journal: "Science"
     volume: 286
@@ -92,8 +91,8 @@ references:
         given-names: "Jutta"
       - family-names: "van Zanden"
         given-names: "Jan Luiten"
-    title: "Maddison Project Database 2023"
-    year: 2024
+    title: "Maddison Project Database 2020"
+    year: 2020
     url: "https://www.rug.nl/ggdc/historicaldevelopment/maddison/"
     institution:
       name: "University of Groningen"
