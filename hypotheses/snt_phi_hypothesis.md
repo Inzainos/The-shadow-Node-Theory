@@ -120,33 +120,9 @@ HIV/CD4 (cohorte MACS publicada), Trypanosoma brucei (Pays et al. 2014).
 
 **Resultado: 0/6 confirmados.**
 
-
-### Ronda 3 — Corpus Real Reconstruido v4 (Junio 2026)
-
-**Prueba independiente más limpia disponible:** 188 casos con b > 0 del corpus
-reconstruido completamente con datos primarios reales (Maddison, INEGI, US Census,
-JHU COVID-19, Open Exoplanet Catalogue). Estos datos NO se usaron para construir
-la teoría ni la hipótesis.
-
-Test: ¿qué fracción de b positivos cae dentro de ±0.10 de {φ/4, φ/3, φ/2, 2φ/3, 3φ/4, φ}?
-Método: Monte Carlo, N=5,000 simulaciones uniformes.
-
-| Métrica | Valor |
-|---------|-------|
-| Casos b > 0 | 188 |
-| Cerca de φ (±0.10) | 50 (26.6%) |
-| Esperado por azar | 27.5% (IC95: 21.3–34.0%) |
-| p-value | 0.642 |
-
-**Resultado: idéntico al azar. 0 señal de φ.**
-
-El clustering observado (26.6%) es estadísticamente indistinguible del esperado
-por una distribución uniforme (27.5%). Con n=188 casos reales —el mayor poder
-estadístico de las tres rondas— no hay rastro de atracción hacia φ.
-
 ### Conclusión de validación
 
-**H-φ: NO CONFIRMADA. Total: 0/10 datasets + corpus real n=188 (p=0.64).**
+**H-φ: NO CONFIRMADA. Total: 0/10 datasets independientes.**
 
 H-φ se clasifica como **hipótesis especulativa de segundo orden**. No se incluye
 en los claims del paper principal (Journal of Complex Networks). No afecta la

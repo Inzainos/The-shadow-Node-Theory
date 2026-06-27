@@ -1,5 +1,9 @@
 """
-Shadow Node Theory v2.2 — Corpus de 502 Casos
+WARNING: DEPRECATED — This script references the v2.2/v2.3.1 corpus (502 cases)
+which contained ~188 synthetic b values and impossible R² values.
+For the current v2.4.0 corpus (721 real cases), see reconstruction_real/
+
+Shadow Node Theory v2.2 — Corpus de 502 Casos [HISTORICAL REFERENCE ONLY]
 Analisis estadistico del corpus completo: 11 dominios, 30 ordenes de magnitud temporal
 Fractal Core Research | Tlaxcala, Mexico | 2026
 
@@ -31,7 +35,7 @@ import matplotlib.gridspec as gridspec
 import argparse
 import os
 import warnings
-warnings.filterwarnings('ignore')
+warnings.filterwarnings('ignore', category=RuntimeWarning)
 
 # =============================================================================
 # SCHEMA DEL CSV
@@ -151,8 +155,8 @@ def generar_corpus_sintetico():
 # =============================================================================
 
 parser = argparse.ArgumentParser(description="SNT v2.2 — Corpus 502 casos")
-parser.add_argument("--input", default="snt_corpus_final.csv",
-                    help="CSV de entrada (default: snt_corpus_final.csv)")
+parser.add_argument("--input", default="data/snt_corpus_final.csv",
+                    help="CSV de entrada (default: data/snt_corpus_final.csv)")
 args = parser.parse_args()
 
 print("=" * 70)

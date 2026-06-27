@@ -1,5 +1,5 @@
 """
-Shadow Node Theory v2.3.1 — Validación HackerEarth 2026
+Shadow Node Theory v2.4.0 — Validación HackerEarth 2026
 Reentrenamiento del modelo de churn con features de primera sesión únicamente
 
 CORRECCIÓN METODOLÓGICA:
@@ -26,6 +26,8 @@ HALLAZGO CENTRAL QUE SOBREVIVE LA CORRECCIÓN:
 Fractal Core Research | Tlaxcala, Mexico | 2026
 """
 
+import os
+import sys
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import GradientBoostingClassifier
@@ -33,18 +35,27 @@ from sklearn.model_selection import StratifiedKFold, cross_val_score
 from sklearn.metrics import roc_auc_score, classification_report
 import matplotlib.pyplot as plt
 import warnings
-warnings.filterwarnings('ignore')
+warnings.filterwarnings('ignore', category=RuntimeWarning)
 
 # =============================================================================
 # CARGA Y SEPARACIÓN DE PRIMERA SESIÓN
 # =============================================================================
 
 print("=" * 65)
-print("SNT v2.3.1 — VALIDACIÓN HACKEREARTH 2026 (PRIMERA SESIÓN)")
+print("SNT v2.4.0 — VALIDACIÓN HACKEREARTH 2026 (PRIMERA SESIÓN)")
 print("Fractal Core Research | Tlaxcala, Mexico | 2026")
 print("=" * 65)
 
-df = pd.read_csv('zerve_hackathon_dataset.csv',
+DATASET_PATH = 'zerve_hackathon_dataset.csv'
+if not os.path.exists(DATASET_PATH):
+    print(f"\nERROR: '{DATASET_PATH}' not found.")
+    print("This script requires the proprietary HackerEarth 2026 dataset")
+    print("which is not redistributable. Only aggregate results are available")
+    print("in data/snt_asi_scores.csv and reconstruction_real/data/snt_corpus_REAL_v5.csv.")
+    print("\nContact elan.zainos.corona@gmail.com for collaboration requests.")
+    sys.exit(1)
+
+df = pd.read_csv(DATASET_PATH,
                  usecols=['person_id','event','timestamp'])
 df['timestamp'] = pd.to_datetime(df['timestamp'], utc=True, errors='coerce')
 df = df.dropna(subset=['timestamp']).sort_values(['person_id','timestamp'])

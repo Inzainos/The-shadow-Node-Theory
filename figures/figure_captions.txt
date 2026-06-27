@@ -1,4 +1,9 @@
-FIGURE CAPTIONS — Shadow Node Theory v2.3.1
+WARNING: OBSOLETE — These captions reference the v2.3.1 corpus (502 cases) which
+contained synthetic data. The active corpus is v2.4.0 (721 real cases) in
+reconstruction_real/data/snt_corpus_REAL_v5.csv. These captions are retained as
+historical record for the v2.3.1 figures.
+
+FIGURE CAPTIONS — Shadow Node Theory v2.3.1 [OBSOLETE — see warning above]
 Fractal Core Research | Tlaxcala, Mexico | 2026
 
 Figure 1. Power-law satellization dynamics across 502 verified cases in 11 domains.

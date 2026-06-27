@@ -1,5 +1,8 @@
 """
-Shadow Node Theory v2.3.1 — Figuras Publicables (PLOS-ready)
+WARNING: DEPRECATED — This script references the v2.3.1 corpus (502 cases).
+For the current v2.4.0 corpus (721 real cases), see reconstruction_real/
+
+Shadow Node Theory v2.3.1 — Figuras Publicables (PLOS-ready) [HISTORICAL REFERENCE ONLY]
 Genera 4 figuras vectoriales SVG + PNG 300dpi con panel labels
 
 Figure 1: Distribucion de b — corpus 502 casos, 11 dominios

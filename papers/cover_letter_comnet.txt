@@ -1,3 +1,8 @@
+ARCHIVE: This cover letter accompanied the COMNET submission (COMNET-2026-214)
+which was REJECTED without external review. It references the v2.3.1 corpus
+(502 cases) which has been superseded by v2.4.0 (721 real cases). Retained
+as historical record.
+
 Cover Letter — Journal of Complex Networks (Oxford University Press)
 Submission via ScholarOne: mc.manuscriptcentral.com/comnet
 
