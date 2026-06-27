@@ -144,4 +144,3 @@ for trig in ['abrupto','gradual']:
 print(f"\nEjemplos significativos:")
 for _, r in dfB[dfB['significativo']].head(12).iterrows():
     print(f"  {r['id']}: {r['descripcion']:38} b={r['b']:+.3f} R²={r['r2']:.3f} p={r['p']:.4f}")
-PYEOF
