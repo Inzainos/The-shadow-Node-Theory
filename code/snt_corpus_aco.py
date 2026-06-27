@@ -385,7 +385,7 @@ try:
                         fontweight='bold',
                         bbox=dict(boxstyle='round,pad=0.3', facecolor='white', alpha=0.8))
 
-        ax.set_title(f"({"ABCD"[idx]}) {LABS[nombre]}\n{caso['t_unidad']} desde trigger {caso['trigger_año']}",
+        ax.set_title(f"({'ABCD'[idx]}) {LABS[nombre]}\n{caso['t_unidad']} desde trigger {caso['trigger_año']}",
                      fontsize=9, fontweight='bold', color=color)
         ax.set_xlabel(f"t ({caso['t_unidad']})", fontsize=8)
         ax.set_ylabel("R(t) = masa absorbente / masa colapsante", fontsize=7.5)
