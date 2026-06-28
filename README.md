@@ -98,14 +98,14 @@ Systems with friction (A, B, C): b mean = +0.09
 
 | Target | Status | Notes |
 |--------|--------|-------|
-| **SSRN** (abstract 6418778) | PUBLISHED | Active preprint |
-| **Zenodo** (DOI 10.5281/zenodo.19446521) | PUBLISHED | v2.5.0 update pending |
+| **SSRN** (abstract 6418778) | PUBLISHED | Active preprint, updated to v30 (721-case corpus) |
+| **Zenodo** (DOI 10.5281/zenodo.19446521) | PUBLISHED | Updated to v30 (721-case corpus) |
 | **PLOS Complex Systems** (PCSY-D-26-00059) | MAJOR REVISION | Deadline 10 Aug 2026; v29 draft ready |
 | **J. Complex Networks** (COMNET-2026-214) | REJECTED | No external review |
 | **MIT GCFP Conference** | PREPARING SUBMISSION | 13th Annual Conf, Oct 29-30 2026; deadline 17 Jul 2026; paper + abstract ready (`papers/mit_gcfp_2026_*`) |
-| J. Theoretical Biology | NOT RELEASED | Requires v29 update |
-| Astrophysical Journal | NOT RELEASED | Requires v29 update |
-| Investigacion Economica | NOT RELEASED | Requires v29 update |
+| J. Theoretical Biology | NOT RELEASED | Requires v30 update |
+| Astrophysical Journal | NOT RELEASED | Requires v30 update |
+| Investigacion Economica | NOT RELEASED | Requires v30 update |
 
 ---
 

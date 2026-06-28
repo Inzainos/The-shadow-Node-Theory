@@ -454,9 +454,10 @@ El marco completo —fundamentos epistemológicos, taxonomía de nodos de 5 nive
 
 # PARTE VII — Estado de publicaciones
 
-- **SSRN (abstract 6418778):** PUBLICADO — preprint activo. Cifras v28; actualizar
-  a v30.
-- **Zenodo (DOI 10.5281/zenodo.19446521):** PUBLICADO — v2.5.0.
+- **SSRN (abstract 6418778):** PUBLICADO — preprint activo, **actualizado a v30**
+  (corpus de 721 casos reales).
+- **Zenodo (DOI 10.5281/zenodo.19446521):** PUBLICADO — **actualizado a v30**
+  (corpus de 721 casos reales).
 - **PLOS Complex Systems (PCSY-D-26-00059):** REVISIÓN MAYOR — deadline 10 ago
   2026. Cifras actualizadas a v29 (721 casos). Editor: Haroldo V. Ribeiro;
   EIC: Hocine Cherifi.
