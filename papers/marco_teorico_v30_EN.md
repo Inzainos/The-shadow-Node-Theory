@@ -467,9 +467,10 @@ is the complete conceptual body.
 
 # PART VII — Publication status
 
-- **SSRN (abstract 6418778):** PUBLISHED — active preprint. v28 figures; update to
-  v30.
-- **Zenodo (DOI 10.5281/zenodo.19446521):** PUBLISHED — v2.5.0.
+- **SSRN (abstract 6418778):** PUBLISHED — active preprint, **updated to v30**
+  (721-case real corpus).
+- **Zenodo (DOI 10.5281/zenodo.19446521):** PUBLISHED — **updated to v30**
+  (721-case real corpus).
 - **PLOS Complex Systems (PCSY-D-26-00059):** MAJOR REVISION — deadline 10 Aug
   2026. Figures updated to v29 (721 cases). Editor: Haroldo V. Ribeiro;
   EIC: Hocine Cherifi.
