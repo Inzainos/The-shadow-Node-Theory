@@ -225,6 +225,8 @@ The-shadow-Node-Theory/
 |-- papers/                            <-- Academic submissions
 |   |-- marco_teorico_v30.md           <-- COMPLETE framework v30 (full v27 body restored + corpus v30 + collapse layer + phi r4)
 |   |-- marco_teorico_v30.pdf          <-- COMPLETE framework v30 (76 pp)
+|   |-- marco_teorico_v30_EN.md        <-- COMPLETE framework v30 (English, full translation)
+|   |-- marco_teorico_v30_EN.pdf       <-- COMPLETE framework v30 (English, 65 pp)
 |   |-- phi_retest.py                  <-- H-phi re-test on current corpus
 |   |-- phi_placebo.py                 <-- H-phi placebo control (band-coverage null)
 |   |-- SNT_Colapso_Acoplado.md        <-- Coupled Collapse theory (v2.5.0)
