@@ -140,6 +140,26 @@ Rango ~1,460×. WaMu ≈ 21 h valida contra el hecho real (toma del FDIC en ~48 
 también gobierna la forma de Δ** (el modo de colapso). La fricción es la palanca
 de los dos ejes.
 
+### 6.4 Fricción operacionalizada (primer resultado)
+
+Test controlado dentro del cohorte financiero 2008 (mismo dominio y unidades).
+Fricción = grado documentado de **pre-arreglo regulatorio del canal de
+resolución**, ordinal 1–6 (6 = FDIC receivership/P&A; 5 = Fed-brokered;
+4 = gobierno/TARP §363; 3 = FDIC-asistido open-bank; 2 = fusión privada
+presionada; 1 = quiebra desordenada sin resolución). La escala se construye del
+*mecanismo institucional*, no de Δ.
+
+| Test (n=6) | Resultado |
+|---|---|
+| Fricción vs Δ (exponente de colapso) | **Spearman ρ = −1.000, p < 0.001** |
+| Fricción vs log(tiempo a 90%) | ρ = −0.829, p = 0.042 |
+
+Más fricción → Δ más pequeño (absorción frontal y ordenada). Esto operacionaliza
+"la fricción gobierna la forma de Δ" como afirmación **medida y falsable**
+(RC-Δ2/RC-Δ4). Reproducible en `reconstruction_real/code/friction_operational.py`.
+*Caveats:* n=6; el ordinal de fricción es un juicio documentado (no circular,
+pero conviene pre-registrar la escala antes de ampliar casos).
+
 ---
 
 ## 7. El lenguaje visual: paisajes de estabilidad ("gráficas de valles")
@@ -262,7 +282,9 @@ SNT con estos marcos.
 ## 14. Qué nos faltaría
 
 - **Operacionalizar la fricción a lo largo de un camino**, por dominio — es lo
-  que vuelve el Principio de Mínima Fricción medible y no poético. *(Prioridad 1.)*
+  que vuelve el Principio de Mínima Fricción medible y no poético. *(Prioridad 1
+  — PRIMER RESULTADO en §6.4: fricción de resolución vs Δ, ρ=−1.000, n=6. Falta
+  extender a más casos y otros dominios, con escala pre-registrada.)*
 - **Más casos por modo:** n=3+ cripto; varios TDEs; biología con magnitud *sin
   techo* (carga viral absoluta, no frecuencia) para probar cliff/craquelado
   fuera de lo acotado.
