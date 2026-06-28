@@ -207,6 +207,77 @@ SNT con estos marcos.
 
 ---
 
+## 11. Conclusiones
+
+1. **El colapso es universal y tiene estructura.** Demostrado con datos reales
+   en 5 dominios independientes (finanzas, historia, cripto, biología,
+   astronomía): la absorción post-extinción sigue formas funcionales regulares
+   y clasificables, no es ruido idiosincrático.
+2. **La fricción es la palanca de los dos ejes.** Gobierna **b** (velocidad de
+   satelización, ρ=−0.68, n=714) y la **forma de Δ** (el modo de colapso). Una
+   sola variable une "cómo dominas" y "cómo colapsas".
+3. **Un solo principio genera todos los modos.** Mínima fricción = flujo
+   gradiente sobre un paisaje de estabilidad; la geometría del campo de fricción
+   (× trigger × piso) decide si el colapso es regulado, craquelado, caída-a-piso
+   o acantilado catastrófico.
+4. **Colapso ≠ muerte.** Es una bifurcación: decaer o brincar (leapfrog). La
+   extinción del hub genera los recursos del siguiente nivel (Uroboro).
+
+## 12. Hallazgos concretos
+
+- **Orden por fricción de resolución (finanzas 2008):** WaMu 21 h → Lehman
+  30,681 h, rango ~1,460×, monotónico con el grado de intervención regulatoria.
+- **La fricción regulariza la forma:** con fricción → ley de potencia suave
+  (R²=0.85–0.99 en finanzas e historia; **R²=0.975 fulguración solar; 0.84
+  TDE**). Sin fricción → la regularidad se rompe (EOS errático R²=0.10–0.70).
+- **Acantilado catastrófico verdadero requiere ausencia de piso:** LUNA (sin
+  piso) → 5.6 órdenes de magnitud en 11 días, super-exponencial; FTX (con piso
+  ~$1) → caída-a-piso tipo ley de potencia. Mismo trigger, distinto resultado.
+- **En magnitudes acotadas el modo es logístico siempre:** Delta→Ómicron
+  k=0.218/día (odds se duplican cada 3.2 días), R²=0.79.
+- **En astronomía la fricción es literal** (viscosidad de disco, fricción
+  dinámica de Chandrasekhar) y produce el caso regulado más limpio y con
+  exponente derivable de primeros principios (TDE ~ t^(−5/3)).
+
+## 13. Utilidades (para qué sirve)
+
+- **Política de resolución / estabilidad financiera:** Δ como diagnóstico
+  *ex post* de si los regímenes de resolución ordenada (Title II, FDIC SPOE)
+  cumplen su promesa de transferencia rápida; medición temporal de la
+  concentración "too-big-to-fail".
+- **Alerta temprana sistémica:** un campo de fricción que se erosiona predice
+  *qué modo* de colapso viene (riesgo de acantilado vs decaimiento manejable).
+- **Epidemiología / genómica:** la velocidad logística de reemplazo de variantes
+  como métrica de ventaja selectiva — alimenta directamente el SNT Genomic
+  Analyzer (una sucesión de variantes es colapso orbital con captura de nicho).
+- **Ecología y resiliencia:** distinguir sistemas frágiles (baja fricción →
+  acantilado) de sistemas con decaimiento amortiguado; dónde intervenir.
+- **Lenguaje común:** el paisaje de estabilidad ("gráficas de valles") permite
+  hablar de colapso con el mismo vocabulario en finanzas, biología, ecología y
+  física — y conecta la SNT con teoría de catástrofes, Waddington, Holling y
+  tipping points.
+- **Marco falsable y transferible:** un mismo kit de diagnóstico (b, Δ, h(τ), F,
+  modos) aplicable y refutable en cualquier dominio.
+
+## 14. Qué nos faltaría
+
+- **Operacionalizar la fricción a lo largo de un camino**, por dominio — es lo
+  que vuelve el Principio de Mínima Fricción medible y no poético. *(Prioridad 1.)*
+- **Más casos por modo:** n=3+ cripto; varios TDEs; biología con magnitud *sin
+  techo* (carga viral absoluta, no frecuencia) para probar cliff/craquelado
+  fuera de lo acotado.
+- **Test de ortogonalidad** `corr(b, Δ) ≈ 0` en casos con ambas coordenadas.
+- **Formalizar h(τ)** con datos de supervivencia de poblaciones de sistemas
+  (cuándo colapsan, no solo cómo).
+- **Definir el "piso" con rigor** y decidir si se folda en la fricción o es un
+  tercer eje independiente (hoy es factor, no variable medida).
+- **Reestructurar el repo:** ACO de módulo paralelo → capa transversal;
+  renombrar el exponente de absorción a **Δ** de forma consistente.
+- **Validación independiente / pre-registro** antes de afirmar causalidad (hoy
+  todo es correlacional y descriptivo).
+
+---
+
 ## Fuentes de datos de esta versión
 - Cripto: CSVs propios (EOS, ETH) + Yahoo Finance (LUNA1-USD, FTT-USD).
 - Biología: CoV-Spectrum / LAPIS open (GenBank), Sudáfrica.
