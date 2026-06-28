@@ -38,6 +38,17 @@ de golpe. Reloj distinto (τ ≠ t), razón distinta, exponente distinto.
 `corr(b, Δ) ≈ 0`. (Δ y su propio *tiempo de absorción* sí correlacionan: ambos
 viven en el eje de colapso. La ortogonalidad es **b ⊥ Δ**.)
 
+**Primer test (cripto, n=11).** El corpus de satelización y los casos de colapso
+son entidades disjuntas, así que el test usa un dataset emparejado dentro de un
+dominio: criptomonedas, donde la misma moneda tiene subida (exponente b_subida,
+ascenso al máximo histórico) y caída (Δ_caída, colapso desde el máximo).
+Resultado: **Spearman ρ(b_subida, Δ_caída) = +0.009 (p = 0.98)** — sin relación,
+**consistente con la ortogonalidad** (RC-Δ1 no refutado). Reproducible en
+`reconstruction_real/code/orthogonality_test.py`; datos en
+`reconstruction_real/data/orthogonality_crypto_v25.csv`. *Caveats:* un solo
+dominio; b_subida es un exponente de ascenso de precio (análogo de satelización,
+no el b canónico hub/nodo); la ortogonalidad cross-dominio sigue sin testearse.
+
 ---
 
 ## 2. Capa de hazard h(τ): la inevitabilidad, en forma falsable
@@ -220,7 +231,8 @@ SNT con estos marcos.
 1. **Operacionalizar la fricción** a lo largo de un camino, por dominio.
 2. Más casos por modo (n=3+ cripto; más TDEs; bio sin techo: carga viral
    absoluta, no frecuencia).
-3. Test de ortogonalidad `corr(b, Δ) ≈ 0`.
+3. Test de ortogonalidad `corr(b, Δ) ≈ 0` — primer resultado (cripto, n=11,
+   ρ=+0.009; ver §1). Falta el test cross-dominio.
 4. Formalizar h(τ) con datos de supervivencia de poblaciones de sistemas.
 5. Reestructurar el repo: ACO de módulo paralelo → capa transversal; renombrar
    exponente de absorción a **Δ**.
@@ -288,7 +300,9 @@ SNT con estos marcos.
 - **Más casos por modo:** n=3+ cripto; varios TDEs; biología con magnitud *sin
   techo* (carga viral absoluta, no frecuencia) para probar cliff/craquelado
   fuera de lo acotado.
-- **Test de ortogonalidad** `corr(b, Δ) ≈ 0` en casos con ambas coordenadas.
+- **Test de ortogonalidad** `corr(b, Δ) ≈ 0` — PRIMER RESULTADO (cripto, n=11,
+  ρ=+0.009, p=0.98 → consistente con b⊥Δ). Falta un test cross-dominio con un
+  dataset emparejado (misma entidad con b y Δ).
 - **Formalizar h(τ)** con datos de supervivencia de poblaciones de sistemas
   (cuándo colapsan, no solo cómo).
 - **Definir el "piso" con rigor** y decidir si se folda en la fricción o es un
