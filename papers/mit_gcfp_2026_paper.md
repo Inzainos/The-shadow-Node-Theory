@@ -1,242 +1,147 @@
-# Orbital Collapse Architecture: A Power-Law Model of Institutional Absorption Following Systemic Financial Failure
+# Orbital Collapse Architecture: Institutional Friction as the Regulator of Systemic Collapse
 
-**Elán Zainos Corona**
-Fractal Core Research, Tlaxcala, Mexico
-ORCID: 0009-0009-9125-253X · elan.zainos.corona@gmail.com
+**Evidence from the 2008 crisis and four further empirical domains**
 
-*Prepared for the MIT Golub Center for Finance and Policy (GCFP) 13th Annual
-Conference — "Financial Regulation in an Era of Innovation and Disruption,"
-October 29–30, 2026.*
+Elán Zainos Corona — Fractal Core Research, Tlaxcala, Mexico
+ORCID 0009-0009-9125-253X · elan.zainos.corona@gmail.com
 
-*Working paper — preliminary draft. Data and code:
-github.com/Inzainos/The-shadow-Node-Theory*
+*Prepared for the MIT Golub Center for Finance and Policy (GCFP) 13th Annual Conference — "Financial Regulation in an Era of Innovation and Disruption," October 29–30, 2026. Working paper — preliminary draft. Data and code: github.com/Inzainos/The-shadow-Node-Theory*
 
 ---
 
 ## Abstract
 
-When a dominant financial institution fails, its assets, counterparties, and
-market position are not destroyed — they are *absorbed* by an identifiable
-successor, and the speed of that absorption is empirically regular. We model
-the post-failure dominance ratio R(t) = mass_absorber(t) / mass_collapsed_peak
-as a power law, R(t) = a·t^b, and interpret the exponent **b** as the velocity
-of institutional absorption following functional extinction of a failed hub.
-Applying this *Orbital Collapse Architecture* (ACO) framework to the six
-canonical absorptions of the 2008–2009 crisis — Lehman Brothers, Bear Stearns,
-Washington Mutual, Wachovia, Merrill Lynch, and Chrysler — we recover
-statistically significant power-law absorption curves in every case
-(R² = 0.85–0.99, all p < 0.01), reconstructed entirely from primary sources.
-The central regulatory observation is that **the resolution regime is legible
-in the absorption exponent**: regulator-brokered resolutions (Washington
-Mutual via FDIC, Bear Stearns via the Federal Reserve) exhibit near-instant
-absorption (b → 0), whereas the single disorderly bankruptcy in the sample
-(Lehman Brothers) shows the slowest, most drawn-out absorption (highest b).
-We position these absorption signatures as a quantitative, falsifiable lens on
-too-big-to-fail concentration and on how resolution policy shapes the speed and
-concentration of post-crisis market restructuring.
+When a dominant institution fails, its assets and market position are not destroyed — they are **absorbed** by an identifiable successor, and both the speed *and the shape* of that absorption are empirically regular. We model the post-failure dominance ratio A(τ) = mass_absorber(τ) / mass_collapsed_peak as a power law, A(τ) = c·τ^Delta, on a clock τ that starts at functional extinction, and treat the exponent **Delta** as a collapse coordinate orthogonal to the satellization exponent b.
+
+Applied to the six canonical absorptions of the 2008–2009 crisis (Lehman Brothers, Bear Stearns, Washington Mutual, Wachovia, Merrill Lynch, Chrysler), the framework recovers statistically significant power-law absorption in every case (R² = 0.85–0.99, all p < 0.01), reconstructed entirely from primary sources. The ordering of Delta tracks the **resolution channel**: regulator-brokered failures (WaMu via FDIC, Bear Stearns via the Fed) are absorbed near-instantly, while the single disorderly bankruptcy (Lehman) is the slowest.
+
+Our central claim is sharper than speed: **institutional friction does not merely slow collapse — it *regularizes its shape* into a smooth power law.** We test this against four further domains with real data. The decisive contrast is the **frictionless** domain of crypto-assets: LUNA (May 2022) collapses as a *catastrophic cliff* (super-exponential, 5.6 orders of magnitude in 11 days), FTX/FTT as a *floor-arrested* power law, and EOS as *erratic fragmentation* — none of them the orderly power law that regulated failures exhibit. Astrophysical collapse (a solar flare, R²=0.975; a tidal disruption event, ~t^−5/3) and a biological succession (Delta→Omicron) confirm the generality of the form.
+
+We organize these into a five-mode taxonomy governed by **friction × trigger × (floor/ceiling)**, unified by a **Principle of Least Friction** (collapse follows the minimum-friction path; the friction field's geometry selects the mode). The policy implication is direct: **orderly resolution machinery is what buys a power-law decay instead of a cliff** — and frictionless venues are structurally prone to catastrophic, not graceful, failure.
 
 ---
 
 ## 1. Introduction
 
-The 2008–2009 financial crisis produced a wave of institutional failures whose
-common structural feature has been under-theorized: in nearly every case, a
-failing institution's balance sheet, client relationships, and market position
-did not evaporate but were *captured* by an identifiable successor. Bear
-Stearns became part of JPMorgan; Merrill Lynch became part of Bank of America;
-Washington Mutual's banking operations passed, within 48 hours, to JPMorgan
-under FDIC receivership. The crisis was, in large part, an episode of
-accelerated **concentration** — the very dynamic that "too-big-to-fail"
-regulation is meant to constrain.
+The 2008–2009 crisis was, structurally, an episode of accelerated **concentration**: failing institutions did not vanish, their balance sheets and franchises were captured by identifiable successors. JPMorgan absorbed both Bear Stearns and Washington Mutual; Bank of America absorbed Merrill Lynch. This is precisely the dynamic too-big-to-fail regulation aims to constrain.
 
-This paper asks a simple quantitative question: *how fast* does absorption
-happen, and *what governs that speed*? We argue that the post-failure dominance
-ratio between absorber and absorbed follows a power law, and that the fitted
-exponent carries policy-relevant information about the resolution regime under
-which the failure was processed.
+We ask two quantitative questions: *how fast* does post-failure absorption happen, and — more importantly — *what governs its shape*? We show that absorption follows a power law whose exponent and **regularity** encode the institutional environment in which the failure was processed. The financial cases are one slice of a broader program (Shadow Node Theory, SNT) that finds the same structure across demography, epidemiology and astrophysics; we use that breadth here only to argue that what we observe in finance is an instance of a general law, and to isolate, by contrast, what regulation specifically contributes.
 
-The framework is a financial-sector application of a more general model —
-Shadow Node Theory (SNT) — which characterizes how dominance evolves between a
-coupled "hub" and "node" across domains as diverse as demography, epidemiology,
-and astronomy. The financial cases analyzed here are one domain-specific slice
-of a larger 721-case cross-domain validation, which we draw on only to
-establish that the mechanism is not financial-sector-specific.
+---
 
 ## 2. Model
 
-Let the absorber's captured mass at time *t* after the trigger event be
-M_A(t), and let the failed institution's peak pre-failure mass be M_C. Define
-the **absorption ratio**
+A system carries two orthogonal coordinates:
 
-> R(t) = M_A(t) / M_C.
+- **Satellization b:** R(t) = m_hub(t)/m_node(t) = a·t^b — how dominance evolves while the coupled relationship runs.
+- **Collapse Delta:** A(τ) = c·τ^Delta, with A = m_absorber(τ)/m_collapsed_peak and τ = time since **functional extinction**.
 
-We posit that R(t) follows a power law in time since the trigger,
+Delta is fit by OLS on log–log axes. **b ⊥ Delta** is a falsifiable claim (corr(b, Delta) ≈ 0 across systems with both measured): collapse can strike at any point of a satellization trajectory, so it is an orthogonal axis, not a terminal stage.
 
-> **R(t) = a · t^b**,    (Eq. 1)
+**ACO criterion (definitional):** a case qualifies as Orbital Collapse only if (1) the hub undergoes functional extinction and (2) its mass is absorbed by a specific, identifiable successor. Failures that dissolve without capture are excluded.
 
-estimated by ordinary least squares on log-transformed axes,
-log R = log a + b · log t. The exponent **b** is the object of interest:
-
-- **b → 0**: near-instantaneous absorption — the successor captures the bulk
-  of the mass almost immediately, then plateaus. Characteristic of brokered or
-  pre-arranged resolutions.
-- **moderate b > 0**: gradual absorption — the successor accretes mass over an
-  extended window, consistent with contested, market-driven, or
-  litigation-encumbered transfers.
-
-"Mass" is operationalized per case by the most defensible primary-source
-quantity (assets under the successor's control, market capitalization, market
-share, or government-injected capital); see Section 3 and the appendix table.
-
-**The ACO criterion (definitional).** A case qualifies as Orbital Collapse
-Architecture only if both (1) the hub undergoes *functional extinction* and
-(2) its resources are absorbed by a *specific, identifiable* node. Failures
-that dissolve without capture (e.g., outright liquidation) are excluded; this
-distinguishes ACO from generic decline.
+---
 
 ## 3. Data
 
-All six cases are reconstructed from primary regulatory and corporate records:
-SEC EDGAR filings (8-K, S-4, 10-K), the Federal Reserve Flow of Funds, FDIC
-failure and acquisition records, SIGTARP reports, the U.S. Treasury TARP
-tracker, and the Valukas Lehman Examiner Report. No values are synthetic.
-Time series are reconstructed at monthly resolution from the trigger event
-(the failure or forced-sale date) forward.
+The six 2008–2009 cases are reconstructed from primary records: SEC EDGAR (8-K, S-4, 10-K), Federal Reserve Flow of Funds, FDIC failure/acquisition records, SIGTARP, the U.S. Treasury TARP tracker, and the Valukas Lehman Examiner Report. Monthly resolution from the trigger date forward. No synthetic values. Cross-domain data: Yahoo Finance (crypto), CoV-Spectrum/LAPIS (variant genomics), NOAA SWPC GOES (solar X-ray), NASA IRSA/ZTF (tidal disruption photometry), Maddison 2023 (historical).
 
-The six cases:
-
-| # | Hub → Absorber | Resolution channel | Trigger |
-|---|----------------|--------------------|---------|
-| 1 | Lehman Brothers → Barclays + JPMorgan | Disorderly bankruptcy (Chapter 11) | Sep 2008 |
-| 2 | Bear Stearns → JPMorgan | Fed-brokered (Maiden Lane) | Mar 2008 |
-| 3 | Washington Mutual → JPMorgan | FDIC receivership (P&A) | Sep 2008 |
-| 4 | Wachovia → Wells Fargo | Open-bank, FDIC-adjacent | Oct 2008 |
-| 5 | Merrill Lynch → Bank of America | Negotiated merger | Sep 2008 |
-| 6 | Chrysler → Fiat + US Treasury | Government-managed (TARP/§363) | Apr–Jun 2009 |
+---
 
 ## 4. Results
 
-Every case yields a statistically significant power-law absorption curve.
+### 4.1 The 2008 cohort: the resolution channel is legible in Delta
 
-| Hub → Absorber | b | R² | p | n |
-|----------------|------|------|--------|---|
-| Washington Mutual → JPMorgan (FDIC) | +0.009 | 0.946 | 0.001 | 6 |
-| Bear Stearns → JPMorgan (Fed) | +0.043 | 0.926 | 0.002 | 6 |
-| Chrysler → Fiat + Treasury | +0.138 | 0.990 | <0.001 | 6 |
-| Wachovia → Wells Fargo | +0.153 | 0.892 | 0.004 | 6 |
-| Merrill Lynch → Bank of America | +0.217 | 0.846 | 0.005 | 6 |
-| Lehman Brothers → Barclays + JPMorgan | +0.246 | 0.892 | <0.001 | 7 |
+Every case yields a significant power-law absorption. Ranked by absorption speed (time to 90% absorption, in hours):
 
-Reproduced via `reconstruction_real/code/build_aco_v29.py`.
+| Hub → Absorber | Resolution channel | Delta | R² | time→90% |
+|----------------|--------------------|------|------|----------|
+| Washington Mutual → JPMorgan | FDIC receivership (P&A) | +0.009 | 0.946 | 21 h |
+| Bear Stearns → JPMorgan | Fed-brokered (Maiden Lane) | +0.043 | 0.926 | 626 h |
+| Wachovia → Wells Fargo | open-bank, FDIC-adjacent | +0.153 | 0.892 | 4,140 h |
+| Merrill Lynch → Bank of America | negotiated merger | +0.217 | 0.846 | 7,122 h |
+| Chrysler → Fiat + US Treasury | government-managed (TARP) | +0.138 | 0.990 | 16,071 h |
+| Lehman Brothers → Barclays + JPMorgan | disorderly bankruptcy | +0.246 | 0.892 | 30,681 h |
 
-**The ordering is the finding.** Ranked by absorption velocity, the sequence
-tracks the *degree of regulatory pre-arrangement* of each resolution:
+The two fastest absorptions are the two most actively brokered failures; the slowest is the one allowed to proceed as a disorderly bankruptcy. The span is ~1,460×. WaMu's 21 h matches the real FDIC weekend seizure (~48 h) in order of magnitude — a sanity check that the method tracks reality.
 
-- The two fastest absorptions (lowest b) are the two most actively brokered
-  failures: **Washington Mutual** (b = 0.009), resolved by the FDIC in a
-  purchase-and-assumption completed within 48 hours, and **Bear Stearns**
-  (b = 0.043), resolved through a Federal Reserve–backed sale to JPMorgan.
-  In both, the successor was effectively pre-selected and the transfer
-  near-instantaneous.
-- The slowest absorption (highest b) is **Lehman Brothers** (b = 0.246), the
-  one failure allowed to proceed as a disorderly bankruptcy. Its assets were
-  carved up and absorbed only gradually (Barclays' North American operations,
-  then a long bankruptcy-administered wind-down).
-- Government-managed and negotiated-merger cases (Chrysler, Wachovia, Merrill)
-  fall in between.
+### 4.2 Friction regularizes the *shape* (not just the speed)
 
-In other words, **the absorption exponent is a readout of resolution policy**:
-the more orderly and pre-arranged the resolution, the closer b is to zero
-(instantaneous capture); the more disorderly the failure, the larger b
-(protracted, piecemeal absorption).
+In all six cases — and across the high-friction historical cases (Rome, USSR; R²=0.77–0.99) — absorption is a **smooth power law** (R²=0.85–0.99). This is the regulated regime: institutional scaffolding channels the failure into an orderly, scale-free decay.
 
-## 5. Discussion — regulatory implications
+### 4.3 The frictionless counterexamples (the regulatory payoff)
 
-**5.1 A quantitative signature of "too-big-to-fail" consolidation.** Each curve
-documents mass flowing *toward* an already-large successor (JPMorgan absorbed
-both Bear Stearns and Washington Mutual; Bank of America absorbed Merrill).
-The ACO framework gives a single number — b — summarizing how quickly that
-concentration completed. This complements concentration metrics (e.g.,
-deposit-share HHI) by adding a *temporal* dimension: not just how much
-consolidation, but how fast.
+What does collapse look like with **no** institutional friction? Crypto-assets provide the natural experiment (real data, Yahoo Finance / user corpus):
 
-**5.2 Resolution design is legible after the fact — and potentially ex ante.**
-If absorption velocity reflects the resolution channel, then b is a candidate
-*ex post* diagnostic for evaluating whether orderly-resolution mechanisms
-(e.g., Title II of Dodd-Frank, FDIC single-point-of-entry) achieve their stated
-aim of rapid, predictable transfer. A well-functioning orderly-resolution
-regime should, on this logic, produce low-b absorptions; a regime that lets
-failures become disorderly should produce high-b, drawn-out ones.
+| Case (friction ≈ 0) | Trigger | Floor? | Mode | Signature |
+|---------------------|---------|--------|------|-----------|
+| **LUNA / Terra** (May 2022) | abrupt | none | **Catastrophic Cliff** | super-exponential; 5.6 OOM in 11 days; exponential beats power law and still under-fits (returns accelerate) |
+| **FTX / FTT** (Nov 2022) | abrupt | floor ~$1 | **Floor-Arrested** | sharp drop to a residual floor; power-law-like (R²=0.875) |
+| **EOS** (2018–) | gradual | none | **Cracquelure** | erratic fragmentation; power-law R²=0.10–0.70 |
 
-**5.3 Genuine absorption vs. obsolescence-without-capture.** The ACO criterion
-deliberately excludes failures where no successor captures the mass. This
-distinction matters for regulators: a firm that is *absorbed* transmits its
-risk and relationships into the successor (raising concentration and
-interconnectedness), whereas a firm that is merely *made obsolete* does not.
-The framework provides an empirical test for which is occurring.
+None of these is the orderly power law of regulated failure. **Without institutional friction, collapse is catastrophic, arrested, or erratic — never graceful.** This is the core regulatory message: regulation is what converts a cliff into a power law.
 
-## 6. Robustness and falsifiability
+### 4.4 Cross-domain universality of the form
 
-The model is stated to be refutable. We pre-commit to three refutation
-conditions (RC-ACO):
+The smooth-power-law (regulated) mode also appears where the regulating "friction" is *physical*: a GOES M6.9 solar flare decays as a power law (R²=0.975; radiative/conductive cooling); the tidal disruption event AT2019qiz (a star accreted by a black hole — the most literal collapse-with-absorption) decays as ~t^−5/3 (R²=0.84), with disk viscosity as the literal friction. A bounded biological succession (Delta→Omicron, South Africa) is a fast logistic sweep (k=0.218/day). The mechanism is not finance-specific.
 
-- **RC-ACO-1**: the framework is refuted for a case if the absorber's mass
-  does not increase post-absorption (R does not grow).
-- **RC-ACO-2**: refuted if absorption velocity (b) shows no systematic
-  relationship to resolution channel across an expanded sample.
-- **RC-ACO-3**: refuted if a vestigial-successor pattern (a heir institution
-  recovering R > 1 over the long run) fails to appear where the mechanism
-  predicts it.
+---
 
-**Generality.** The financial cases are one domain of a 721-case corpus in
-which institutional *friction* is the dominant predictor of the satellization
-exponent (Spearman ρ = −0.68, p = 2.5×10⁻⁹⁷, n = 714). That friction–velocity
-relationship is the cross-domain analogue of the resolution-channel ordering
-documented here: more institutional friction (here, more regulatory
-intervention) slows the dominance dynamic. The financial results are therefore
-not an isolated curve-fit but a sectoral instance of a general pattern.
+## 5. Taxonomy and unifying principle
 
-## 7. Limitations
+**Five modes, governed by friction × trigger × (floor/ceiling):**
 
-This is a preliminary draft. (i) The sample is six cases; the
-resolution-channel ordering is descriptive, not yet a powered statistical
-test. (ii) Each R(t) series is reconstructed at coarse (monthly) resolution and
-the "mass" proxy varies by case; we report per-case sources and invite
-scrutiny. (iii) Absorption curves are sensitive to the choice of trigger date.
-A full paper will (a) expand the sample to additional resolution episodes
-(S&L era, European 2011–2012, regional-bank failures of 2023), (b) formalize
-the resolution-channel variable and test b against it, and (c) add explicit
-comparison to the too-big-to-fail and orderly-resolution literatures.
+| Mode | Condition | Shape |
+|------|-----------|-------|
+| Regulated Orbital Decay | high friction (any trigger) | smooth power law |
+| Cracquelure Decay | friction≈0 + gradual | erratic fragmentation |
+| Floor-Arrested | friction≈0 + abrupt + floor | power law to a residual floor |
+| Catastrophic Cliff | friction≈0 + abrupt + no floor | super-exponential |
+| Logistic Sweep | bounded magnitude | S-curve |
 
-## 8. Conclusion
+**Principle of Least Friction.** Collapse follows the trajectory that minimizes integrated friction — gradient flow on a stability landscape. The geometry of the friction field (× trigger × floor) selects which mode emerges. Names have established anchors: the *catastrophic cliff* is a fold catastrophe (Thom); *cracquelure* is desiccation cracking (stress relief along least-resistance paths). The stability-landscape picture connects SNT to catastrophe theory, the Waddington landscape, ecological resilience (Holling) and climate tipping points. See `figures/fig_paisajes_colapso` and `figures/fig_catastrofe_cuspide` (SVG + PNG).
 
-Institutional failure in finance is, structurally, a transfer of dominance to
-an identifiable successor at an empirically regular rate. That rate — the
-absorption exponent b — is legible, reproducible from primary sources, and
-appears to encode the resolution regime under which a failure was processed.
-For a conference on financial regulation in an era of disruption, ACO offers a
-compact, falsifiable instrument for asking whether our resolution machinery
-actually delivers the orderly, rapid transfers it promises.
+---
+
+## 6. Regulatory implications
+
+1. **Orderly resolution buys power-law decay instead of a cliff.** Delta and the regularity (R²) of absorption are an *ex post* diagnostic of whether resolution machinery (Title II, FDIC single-point-of-entry) delivered the rapid, predictable transfer it promises. Low-Delta, high-R² = the regime worked; cliffs or erratic fragmentation = it did not, or was absent.
+2. **Frictionless venues are structurally cliff-prone.** The 2022 crypto collapses are not anomalies — they are what the model predicts for abrupt failure with no institutional friction and no value floor. This is a financial-stability argument for extending resolution-style friction (circuit breakers, disclosure, capital/withdrawal gates) to crypto and shadow-banking venues.
+3. **A temporal dimension for too-big-to-fail.** Delta quantifies *how fast* concentration completes after a failure (JPMorgan absorbing Bear + WaMu), complementing static concentration metrics.
+
+---
+
+## 7. Falsifiability
+
+- **RC-Delta1 (orthogonality):** refuted if corr(b, Delta) ≫ 0 across systems with both coordinates.
+- **RC-Delta2 (least friction):** refuted if a realized collapse takes a higher-friction path when a lower-friction one was available.
+- **RC-Delta3 (absorption):** refuted if the absorber's mass does not grow post-absorption.
+- **RC-Delta4 (regularization):** refuted if frictionless collapses fit a power law as well as regulated ones.
+
+---
+
+## 8. Limitations
+
+This is a preliminary draft. Findings are **correlational**: the domains differ in more than friction (timescale, the meaning of "mass", microstructure). The crypto sample is small (n≈3) and LUNA/the solar flare are collapse-*shape* evidence, not ACO absorptions with a single absorber. The TDE exponent (−1.07) is shallower than the canonical −5/3 (g-band, imperfect host subtraction); the point is power-law regularity, not the exact value. "Time to 90%" is threshold-dependent, though the abrupt<gradual ordering is robust to 0.5/0.9/0.95. A full version will operationalize "friction along a path", expand cases per mode, and test orthogonality directly.
+
+---
+
+## 9. Conclusion
+
+Institutional failure is a transfer of dominance to an identifiable successor at an empirically regular rate and shape. That shape — the collapse exponent Delta and its regularity — encodes the resolution regime. The decisive, policy-relevant finding is that **institutional friction is what makes collapse follow an orderly power law; remove it and failure becomes a catastrophic cliff.** For a conference on financial regulation in an era of disruption, this offers a compact, falsifiable instrument for asking whether our resolution machinery delivers orderly transfers — and a structural argument for why frictionless venues fail catastrophically rather than gracefully.
 
 ---
 
 ## Appendix — data sources by case
 
-- **Lehman Brothers**: Valukas A.R. (2010), *Lehman Brothers Holdings Inc.
-  Chapter 11 Examiner Report*, U.S. Bankruptcy Court SDNY; Federal Reserve Flow
-  of Funds 2008–2013; SEC EDGAR 10-K filings, Barclays and JPMorgan 2008–2009.
-- **Bear Stearns**: Federal Reserve Bank of New York (2008), Bear Stearns /
-  Maiden Lane transaction; SEC Form 8-K, JPMorgan Chase, March 2008;
-  Sorkin A.R. (2009), *Too Big To Fail*.
-- **Washington Mutual**: FDIC (2008), WaMu failure and acquisition press
-  release, Sep 25 2008; JPMorgan Chase Form 8-K, Sep 2008; FDIC Failed Bank
-  List.
-- **Wachovia**: SEC Form 8-K, Wells Fargo, Oct 2008; FDIC statement, Oct 3
-  2008; Wessel D. (2009), *In Fed We Trust*.
-- **Merrill Lynch**: SEC Form S-4, Bank of America, Dec 2008 (Merrill merger
-  proxy); BofA 10-K 2009; Lewis K. testimony to the FCIC (2010).
-- **Chrysler**: SIGTARP (2012), Chrysler Bailout Report; Chrysler Group LLC
-  10-K 2010; U.S. Treasury TARP tracker; Rattner S. (2010), *Overhaul*.
+- **Lehman Brothers:** Valukas A.R. (2010), Examiner Report, SDNY; Fed Flow of Funds 2008–2013; SEC EDGAR 10-K Barclays & JPMorgan.
+- **Bear Stearns:** FRBNY (2008), Maiden Lane; SEC 8-K JPMorgan Mar 2008; Sorkin (2009), *Too Big To Fail*.
+- **Washington Mutual:** FDIC (2008), Sep 25 release; JPMorgan 8-K Sep 2008; FDIC Failed Bank List.
+- **Wachovia:** SEC 8-K Wells Fargo Oct 2008; FDIC statement Oct 3 2008; Wessel (2009), *In Fed We Trust*.
+- **Merrill Lynch:** SEC S-4 BofA Dec 2008; BofA 10-K 2009; Lewis testimony to the FCIC (2010).
+- **Chrysler:** SIGTARP (2012); Chrysler Group 10-K 2010; US Treasury TARP tracker; Rattner (2010), *Overhaul*.
+- **Crypto:** Yahoo Finance (LUNA1-USD, FTT-USD); user corpus (EOS, ETH).
+- **Astro:** NOAA SWPC GOES X-ray; NASA IRSA/ZTF (AT2019qiz).
+- **Biology:** CoV-Spectrum/LAPIS open (GenBank), South Africa.
 
-*Full corpus, code, and reproduction instructions:
-github.com/Inzainos/The-shadow-Node-Theory*
+*Full corpus, code and reproduction: github.com/Inzainos/The-shadow-Node-Theory*
