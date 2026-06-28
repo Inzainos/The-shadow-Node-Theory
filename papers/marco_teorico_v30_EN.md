@@ -467,8 +467,8 @@ is the complete conceptual body.
 
 # PART VII — Publication status
 
-- **SSRN (abstract 6418778):** PUBLISHED — live paper is still v2.3.1 (502-case);
-  **v30 revision prepared** (`papers/snt_ssrn_v30_EN`), pending re-submission.
+- **SSRN (abstract 6418778):** **v30 REVISION SUBMITTED** (28 Jun 2026,
+  `papers/snt_ssrn_v30_EN`); supersedes v2.3.1/502; under SSRN review.
 - **Zenodo (DOI 10.5281/zenodo.19446521):** PUBLISHED — **updated to v30**
   (721-case real corpus).
 - **PLOS Complex Systems (PCSY-D-26-00059):** MAJOR REVISION — deadline 10 Aug
