@@ -22,7 +22,7 @@ ORCID: [0009-0009-9125-253X](https://orcid.org/0009-0009-9125-253X)
 > **NEW in v2.5.0 -- Coupled Orbital Collapse layer (ACO-A)**
 > Collapse is reformulated as a **universal, transversal axis** of SNT, with
 > evidence in **5 domains** (finance, history, crypto, biology, astronomy) from
-> real data. See [Orbital Collapse Architecture (Coupled)](#orbital-collapse-architecture-coupled--v250)
+> real data. See [Orbital Collapse Architecture (Coupled, v2.5.0)](#orbital-collapse-architecture-coupled-v250)
 > below and the full theory in `papers/SNT_Colapso_Acoplado.md`.
 
 ---
@@ -139,7 +139,7 @@ Reproduced via `reconstruction_real/code/build_aco_v29.py`.
 
 ---
 
-## Orbital Collapse Architecture (Coupled) -- v2.5.0
+## Orbital Collapse Architecture (Coupled, v2.5.0)
 
 v2.5.0 reformulates collapse as a **universal, transversal axis** of SNT. A
 system has two orthogonal coordinates **(b, Delta)**: satellization (b) and the
@@ -225,7 +225,9 @@ The-shadow-Node-Theory/
 |-- papers/                            <-- Academic submissions
 |   |-- SNT_Colapso_Acoplado.md        <-- Coupled Collapse theory (v2.5.0)
 |   |-- mit_gcfp_2026_paper.pdf        <-- MIT GCFP paper (ACO/2008 finance)
+|   |-- mit_gcfp_2026_paper.md         <-- MIT GCFP paper (source)
 |   |-- mit_gcfp_2026_abstract.pdf     <-- MIT GCFP abstract
+|   |-- mit_gcfp_2026_abstract.md      <-- MIT GCFP abstract (source)
 |   |-- SNT_Project_Report_v29.pdf     <-- Handover document (v29)
 |   |-- SNT_Genomic_Topologic_Analyzer_v3.pdf <-- Genomic agent docs
 |   |-- snt_plos_721cases_v29_DRAFT.docx <-- PLOS revision draft (721 cases, v29)
