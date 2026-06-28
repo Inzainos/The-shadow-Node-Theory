@@ -217,12 +217,16 @@ The-shadow-Node-Theory/
 |   |   +-- make_collapse_landscapes.py <-- Stability-landscape figures (v2.5.0)
 |   |-- data/
 |   |   +-- collapse_multidomain_v29.csv <-- 5-domain collapse table (v2.5.0)
-|   +-- snt_phi_hypothesis.md          <-- H-phi REFUTED
+|   +-- snt_phi_hypothesis.md          <-- H-phi REFUTED (4 rounds + placebo)
 |
 |-- hypotheses/
-|   +-- snt_phi_hypothesis.md          <-- H-phi REFUTED (3 validations)
+|   +-- snt_phi_hypothesis.md          <-- H-phi REFUTED (4 rounds + placebo)
 |
 |-- papers/                            <-- Academic submissions
+|   |-- marco_teorico_v30.md           <-- Consolidated framework v30 (b axis + collapse layer + phi r4)
+|   |-- marco_teorico_v30.pdf          <-- Consolidated framework v30 (14 pp)
+|   |-- phi_retest.py                  <-- H-phi re-test on current corpus
+|   |-- phi_placebo.py                 <-- H-phi placebo control (band-coverage null)
 |   |-- SNT_Colapso_Acoplado.md        <-- Coupled Collapse theory (v2.5.0)
 |   |-- mit_gcfp_2026_paper.pdf        <-- MIT GCFP paper (friction regularizes collapse; 2008 + 5 domains)
 |   |-- mit_gcfp_2026_paper.md         <-- MIT GCFP paper (source)
