@@ -1,0 +1,15 @@
+domain,case,friction,trigger,floor_or_ceiling,collapse_mode,fit_form,exponent,r2,n,source
+astro,Solar flare M6.9 (GOES long band),physical_high,abrupt,none,Regulated Orbital Decay,power_law,-0.84,0.975,120,NOAA SWPC GOES X-ray
+astro,TDE AT2019qiz (ZTF g-band),physical_high,abrupt,none,Regulated Orbital Decay,power_law,-1.07,0.843,44,NASA IRSA ZTF (theoretical -5/3)
+finance,Lehman Brothers 2008,institutional_high,abrupt,none,Regulated Orbital Decay,power_law,0.246,0.892,7,Valukas Report; SEC EDGAR; Fed
+finance,Bear Stearns 2008,institutional_high,abrupt,none,Regulated Orbital Decay,power_law,0.043,0.926,6,FRBNY; SEC 8-K JPMorgan
+finance,Washington Mutual 2008,institutional_high,abrupt,none,Regulated Orbital Decay,power_law,0.009,0.946,6,FDIC; JPMorgan 8-K
+finance,Wachovia 2008,institutional_high,abrupt,none,Regulated Orbital Decay,power_law,0.153,0.892,6,SEC 8-K Wells Fargo; FDIC
+finance,Merrill Lynch 2008,institutional_high,abrupt,none,Regulated Orbital Decay,power_law,0.217,0.846,6,SEC S-4 BofA; FCIC
+finance,Chrysler 2009,institutional_high,abrupt,none,Regulated Orbital Decay,power_law,0.138,0.990,6,SIGTARP; US Treasury TARP
+history,Imperio Romano Occidental,institutional,gradual,none,Regulated Orbital Decay,power_law,0.453,0.916,9,Maddison 2023 (est.)
+history,URSS,institutional,abrupt,none,Regulated Orbital Decay,power_law,0.349,0.773,5,Maddison 2023; World Bank
+crypto,EOS (vs ETH),near_zero,gradual,none,Cracquelure Decay,erratic_power_law,0.332,0.095,40,Drive CSV + Yahoo (ETH)
+crypto,FTX / FTT,near_zero,abrupt,floor_~1usd,Floor-Arrested,power_law,NA,0.875,16,Yahoo Finance FTT-USD
+crypto,LUNA / Terra,near_zero,abrupt,no_floor,Catastrophic Cliff,super_exponential,NA,NA,11,Yahoo Finance LUNA1-USD
+biology,Delta to Omicron (South Africa),bounded,abrupt,ceiling_100pct,Logistic Sweep,logistic,0.218,0.785,6,CoV-Spectrum LAPIS open
