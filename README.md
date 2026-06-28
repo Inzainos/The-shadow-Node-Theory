@@ -242,9 +242,12 @@ The-shadow-Node-Theory/
 |   |-- snt_plos_submission.pdf        <-- v28 OBSOLETE (502 cases)
 |   |-- snt_paper_plos_complex_systems.docx <-- v28 OBSOLETE (502 cases)
 |   |-- marco_teorico_v28.pdf          <-- Unified framework (ES) v28
-|   |-- snt_ssrn_v30.md                <-- SSRN preprint v30 (721 real cases + collapse layer ACO-A) [CURRENT]
-|   |-- snt_ssrn_v30.pdf               <-- SSRN preprint v30 (17 pp)
-|   |-- snt_ssrn_v30.docx              <-- SSRN preprint v30 (Word)
+|   |-- snt_ssrn_v30_EN.md             <-- SSRN preprint v30 ENGLISH (matches published structure; revise-submit) [CURRENT]
+|   |-- snt_ssrn_v30_EN.pdf            <-- SSRN preprint v30 English (18 pp)
+|   |-- snt_ssrn_v30_EN.docx           <-- SSRN preprint v30 English (Word)
+|   |-- snt_ssrn_v30.md                <-- SSRN preprint v30 Spanish (721 real cases + collapse layer ACO-A)
+|   |-- snt_ssrn_v30.pdf               <-- SSRN preprint v30 Spanish (17 pp)
+|   |-- snt_ssrn_v30.docx              <-- SSRN preprint v30 Spanish (Word)
 |   |-- shadow_node_theory_SSRN_v10.docx <-- HISTORICAL preprint (SNT v2.0, 502-case era)
 |   |-- snt_paper_theoretical_biology.docx
 |   |-- snt_paper_astrophysical.docx
