@@ -224,7 +224,7 @@ The-shadow-Node-Theory/
 |
 |-- papers/                            <-- Academic submissions
 |   |-- SNT_Colapso_Acoplado.md        <-- Coupled Collapse theory (v2.5.0)
-|   |-- mit_gcfp_2026_paper.pdf        <-- MIT GCFP paper (ACO/2008 finance)
+|   |-- mit_gcfp_2026_paper.pdf        <-- MIT GCFP paper (friction regularizes collapse; 2008 + 5 domains)
 |   |-- mit_gcfp_2026_paper.md         <-- MIT GCFP paper (source)
 |   |-- mit_gcfp_2026_abstract.pdf     <-- MIT GCFP abstract
 |   |-- mit_gcfp_2026_abstract.md      <-- MIT GCFP abstract (source)
