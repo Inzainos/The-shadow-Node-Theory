@@ -223,8 +223,8 @@ The-shadow-Node-Theory/
 |   +-- snt_phi_hypothesis.md          <-- H-phi REFUTED (4 rounds + placebo)
 |
 |-- papers/                            <-- Academic submissions
-|   |-- marco_teorico_v30.md           <-- Consolidated framework v30 (b axis + collapse layer + phi r4)
-|   |-- marco_teorico_v30.pdf          <-- Consolidated framework v30 (14 pp)
+|   |-- marco_teorico_v30.md           <-- COMPLETE framework v30 (full v27 body restored + corpus v30 + collapse layer + phi r4)
+|   |-- marco_teorico_v30.pdf          <-- COMPLETE framework v30 (76 pp)
 |   |-- phi_retest.py                  <-- H-phi re-test on current corpus
 |   |-- phi_placebo.py                 <-- H-phi placebo control (band-coverage null)
 |   |-- SNT_Colapso_Acoplado.md        <-- Coupled Collapse theory (v2.5.0)
