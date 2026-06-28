@@ -68,6 +68,18 @@ observados **aún no colapsan** → datos censurados por la derecha → marco de
 
 `F` (fricción) modula las tres.
 
+**Primer hazard estimado (cripto, n=41).** Supervivencia sobre una cohorte de
+criptomonedas (Yahoo); extinción funcional = precio < 1% del máximo histórico
+(≥99% de caída sin recuperación). 15 extinciones; **muertes en todo el rango de
+edad (0.27 → 8.6 años), sin periodo libre de muerte**; Kaplan-Meier cae de forma
+sostenida a ~0.60; hazard positivo y creciente con la edad → **consistente con
+h(τ)>0**. Reproducible en `reconstruction_real/code/hazard_crypto.py`; tabla en
+`reconstruction_real/data/hazard_crypto_v25.csv`. *Caveats:* (1) sesgo de
+supervivencia (solo monedas listadas = sobrevivientes → hazard real *mayor*);
+(2) confound edad/calendario (casi todas nacidas 2017-18; el pico a ~8 años
+refleja en parte el bear market 2022-25); (3) la positividad estricta por-bin
+está limitada por n.
+
 ---
 
 ## 3. Ley de Inevitabilidad del Colapso
@@ -329,8 +341,10 @@ SNT con estos marcos.
 - **Test de ortogonalidad** `corr(b, Δ) ≈ 0` — PRIMER RESULTADO (cripto, n=11,
   ρ=+0.009, p=0.98 → consistente con b⊥Δ). Falta un test cross-dominio con un
   dataset emparejado (misma entidad con b y Δ).
-- **Formalizar h(τ)** con datos de supervivencia de poblaciones de sistemas
-  (cuándo colapsan, no solo cómo).
+- **Formalizar h(τ)** — PRIMER RESULTADO (§2: cripto, n=41, h(τ)>0 en todo el
+  rango de edad). Falta: cohorte más grande sin sesgo de supervivencia (incluir
+  monedas muertas no listadas) y desenredar edad vs calendario; extender a otros
+  dominios (longevidad de empresas, imperios).
 - **Definir el "piso" con rigor** y decidir si se folda en la fricción o es un
   tercer eje independiente (hoy es factor, no variable medida).
 - **Reestructurar el repo:** ACO de módulo paralelo → capa transversal;
