@@ -171,6 +171,30 @@ Más fricción → Δ más pequeño (absorción frontal y ordenada). Esto operac
 *Caveats:* n=6; el ordinal de fricción es un juicio documentado (no circular,
 pero conviene pre-registrar la escala antes de ampliar casos).
 
+### 6.5 Biología con magnitud sin techo (epidemia, casos absolutos)
+
+La *frecuencia* de variante está acotada [0,1] → logística por construcción
+(§6 Delta→Ómicron). Para salir del régimen logístico medimos el colapso de una
+**ola epidémica en casos absolutos** (sin techo): ola Ómicron en Sudáfrica
+(JHU CSSE), pico 14 dic 2021 (~23,437 casos/día), caída a 11% del pico en 49 d.
+
+| Ajuste de la caída | R² |
+|---|---|
+| Ley de potencia | 0.863 |
+| **Exponencial** (e-fold ≈ 22 d) | **0.958** |
+
+La caída es **suave (exponencial), NO acantilado** (los retornos no aceleran).
+Aun sin techo, el colapso biológico se mantiene **regulado**: la
+retroalimentación epidemiológica (inmunidad, agotamiento de susceptibles,
+R_eff<1) es **fricción intrínseca**. Reproducible en
+`reconstruction_real/code/bio_unbounded_collapse.py`.
+
+**Refinamiento de la taxonomía:** el modo *Decaimiento Orbital Regulado* es
+suave / no-acelerante, y puede ser **ley de potencia** (scale-free: finanzas,
+astro) **o exponencial** (tasa constante: epidemias). Lo que lo separa del
+*Acantilado Catastrófico* no es la forma exacta sino que **la tasa NO acelera**
+— solo el acantilado es super-exponencial.
+
 ---
 
 ## 7. El lenguaje visual: paisajes de estabilidad ("gráficas de valles")
@@ -297,9 +321,11 @@ SNT con estos marcos.
   que vuelve el Principio de Mínima Fricción medible y no poético. *(Prioridad 1
   — PRIMER RESULTADO en §6.4: fricción de resolución vs Δ, ρ=−1.000, n=6. Falta
   extender a más casos y otros dominios, con escala pre-registrada.)*
-- **Más casos por modo:** n=3+ cripto; varios TDEs; biología con magnitud *sin
-  techo* (carga viral absoluta, no frecuencia) para probar cliff/craquelado
-  fuera de lo acotado.
+- **Más casos por modo:** n=3+ cripto; varios TDEs. *Biología sin techo: PRIMER
+  RESULTADO (§6.5) — ola Ómicron en casos absolutos decae exponencial suave
+  (R²=0.96), no acantilado; la biología tiene fricción intrínseca.* Falta:
+  buscar algún colapso biológico SIN fricción intrínseca (¿extinción abrupta
+  por shock externo?) para ver si ahí sí aparece el acantilado.
 - **Test de ortogonalidad** `corr(b, Δ) ≈ 0` — PRIMER RESULTADO (cripto, n=11,
   ρ=+0.009, p=0.98 → consistente con b⊥Δ). Falta un test cross-dominio con un
   dataset emparejado (misma entidad con b y Δ).
