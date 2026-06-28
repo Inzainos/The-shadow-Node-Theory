@@ -1,4 +1,4 @@
-# Shadow Node Theory v2.4.0
+# Shadow Node Theory v2.5.0
 
 **Elan Zainos Corona** | Fractal Core Research, Tlaxcala, Mexico
 
@@ -15,7 +15,15 @@ ORCID: [0009-0009-9125-253X](https://orcid.org/0009-0009-9125-253X)
 > values and an r2 column with impossible values (down to -7.332).
 > Those files are preserved in `archive/` as historical record but
 > **must not be cited in academic publications**.
-> The active version is v2.4.0 with **721 real primary-source cases**.
+> The active version is v2.5.0 (721-case corpus + coupled collapse layer).
+
+---
+
+> **NEW in v2.5.0 -- Coupled Orbital Collapse layer (ACO-A)**
+> Collapse is reformulated as a **universal, transversal axis** of SNT, with
+> evidence in **5 domains** (finance, history, crypto, biology, astronomy) from
+> real data. See [Orbital Collapse Architecture (Coupled)](#orbital-collapse-architecture-coupled--v250)
+> below and the full theory in `papers/SNT_Colapso_Acoplado.md`.
 
 ---
 
@@ -23,9 +31,13 @@ ORCID: [0009-0009-9125-253X](https://orcid.org/0009-0009-9125-253X)
 
 When two coupled entities interact over time -- a dominant **hub** and a
 peripheral **node** -- the dominance ratio evolves in a regular way.
-SNT characterizes that evolution through a single scaling exponent **b**,
-estimated by fitting R(t) = metric_hub(t) / metric_node(t) to a power law
-on logarithmic axes.
+SNT characterizes that evolution through scaling exponents estimated by fitting
+power laws on logarithmic axes. Two orthogonal axes describe a system:
+
+- **Satellization (b):** `R(t) = metric_hub(t) / metric_node(t) = a*t^b` --
+  how dominance evolves *while the coupled relationship runs*.
+- **Collapse (Delta):** `A(tau) = c*tau^Delta` -- how the hub's mass is
+  *absorbed once it undergoes functional extinction* (the v2.5.0 layer).
 
 The sign and magnitude of **b** summarize the direction and speed of
 **satellization** -- the process by which a peripheral entity loses or gains
@@ -87,10 +99,10 @@ Systems with friction (A, B, C): b mean = +0.09
 | Target | Status | Notes |
 |--------|--------|-------|
 | **SSRN** (abstract 6418778) | PUBLISHED | Active preprint |
-| **Zenodo** (DOI 10.5281/zenodo.19446521) | PUBLISHED | v2.4.0 pending update |
+| **Zenodo** (DOI 10.5281/zenodo.19446521) | PUBLISHED | v2.5.0 update pending |
 | **PLOS Complex Systems** (PCSY-D-26-00059) | MAJOR REVISION | Deadline 10 Aug 2026; v29 draft ready |
 | **J. Complex Networks** (COMNET-2026-214) | REJECTED | No external review |
-| **MIT GCFP Conference** | PREPARING SUBMISSION | 13th Annual Conf, Oct 29-30 2026; submission deadline 17 Jul 2026 |
+| **MIT GCFP Conference** | PREPARING SUBMISSION | 13th Annual Conf, Oct 29-30 2026; deadline 17 Jul 2026; paper + abstract ready (`papers/mit_gcfp_2026_*`) |
 | J. Theoretical Biology | NOT RELEASED | Requires v29 update |
 | Astrophysical Journal | NOT RELEASED | Requires v29 update |
 | Investigacion Economica | NOT RELEASED | Requires v29 update |
@@ -127,6 +139,42 @@ Reproduced via `reconstruction_real/code/build_aco_v29.py`.
 
 ---
 
+## Orbital Collapse Architecture (Coupled) -- v2.5.0
+
+v2.5.0 reformulates collapse as a **universal, transversal axis** of SNT. A
+system has two orthogonal coordinates **(b, Delta)**: satellization (b) and the
+collapse/absorption exponent (Delta), fit on its own clock tau from functional
+extinction. A third layer, the hazard **h(tau) > 0**, states the falsifiable
+"no system is eternal".
+
+**The collapse mode is governed by friction x trigger x (floor/ceiling):**
+
+| Mode | Condition | Shape | Witness (real data) |
+|------|-----------|-------|---------------------|
+| **Regulated Orbital Decay** | high friction (physical or institutional) | smooth power law | 2008 cohort (R2 0.85-0.99); Rome/USSR; **astro** |
+| **Cracquelure Decay** | friction~0 + gradual | erratic fragmentation | EOS (R2 0.10-0.70) |
+| **Floor-Arrested** | friction~0 + abrupt + floor | power law to a residual floor | FTX/FTT (PL R2 0.875) |
+| **Catastrophic Cliff** | friction~0 + abrupt + no floor | super-exponential, accelerating | LUNA (5.6 OOM / 11 days) |
+| **Logistic Sweep** | bounded magnitude (frequency) | S-curve | Delta->Omicron (k=0.22/day) |
+
+**Five-domain evidence (real data).** Collapse demonstrated in finance, history,
+crypto, biology and astronomy. Highlights: solar flare X-ray decay (NOAA GOES,
+power law R2=0.975); tidal disruption event AT2019qiz (NASA/ZTF, ~t^-5/3);
+Delta->Omicron sweep (CoV-Spectrum). Full table:
+`reconstruction_real/data/collapse_multidomain_v29.csv`.
+
+**Principle of Least Friction (unifying).** Collapse follows the path that
+minimizes integrated friction -- gradient flow on a stability landscape. The
+friction field's geometry (x trigger x floor) decides which mode emerges. This
+extends the central SNT finding: friction governs **b** (the satellization
+speed) *and* the **shape of Delta** (the collapse mode).
+
+Theory: `papers/SNT_Colapso_Acoplado.md`. Figures (stability landscapes / "valles"
++ fold catastrophe): `figures/fig_paisajes_colapso.*`,
+`figures/fig_catastrofe_cuspide.*`. *(Draft -- correlational, see caveats.)*
+
+---
+
 ## Atomic Sovereignty Index (ASI)
 
 ASI = delta_H x alpha / F
@@ -145,7 +193,7 @@ as cognitive leapfrog.
 ```
 The-shadow-Node-Theory/
 |
-|-- README.md                          <-- this file (v2.4.0)
+|-- README.md                          <-- this file (v2.5.0)
 |-- requirements.txt                   <-- Python dependencies
 |-- sources.md                         <-- Data provenance
 |-- CITATION.cff                       <-- Citation metadata
@@ -164,13 +212,20 @@ The-shadow-Node-Theory/
 |   |   |-- expand_dominio_B.py        <-- Reproduces 446 cases (Maddison)
 |   |   |-- build_dominio_B.py
 |   |   |-- generate_figures_v29.py    <-- v29 PLOS-compliant figures (SVG+PNG)
-|   |   +-- build_aco_v29.py           <-- ACO 18 cases, 4 domains (v2.4.0)
+|   |   |-- build_aco_v29.py           <-- ACO 18 cases, 4 domains (v2.4.0)
+|   |   |-- collapse_multidomain.py    <-- Collapse repro manifest + fit funcs (v2.5.0)
+|   |   +-- make_collapse_landscapes.py <-- Stability-landscape figures (v2.5.0)
+|   |-- data/
+|   |   +-- collapse_multidomain_v29.csv <-- 5-domain collapse table (v2.5.0)
 |   +-- snt_phi_hypothesis.md          <-- H-phi REFUTED
 |
 |-- hypotheses/
 |   +-- snt_phi_hypothesis.md          <-- H-phi REFUTED (3 validations)
 |
 |-- papers/                            <-- Academic submissions
+|   |-- SNT_Colapso_Acoplado.md        <-- Coupled Collapse theory (v2.5.0)
+|   |-- mit_gcfp_2026_paper.pdf        <-- MIT GCFP paper (ACO/2008 finance)
+|   |-- mit_gcfp_2026_abstract.pdf     <-- MIT GCFP abstract
 |   |-- SNT_Project_Report_v29.pdf     <-- Handover document (v29)
 |   |-- SNT_Genomic_Topologic_Analyzer_v3.pdf <-- Genomic agent docs
 |   |-- snt_plos_721cases_v29_DRAFT.docx <-- PLOS revision draft (721 cases, v29)
@@ -215,6 +270,8 @@ The-shadow-Node-Theory/
 |   +-- paciente_omega_rnaseq.csv     <-- Demo patient (dirty CSV for ETL test)
 |
 |-- figures/                           <-- Publication figures
+|   |-- fig_paisajes_colapso.*         <-- Collapse stability landscapes (v2.5.0)
+|   +-- fig_catastrofe_cuspide.*       <-- Fold catastrophe / friction control (v2.5.0)
 |
 +-- archive/                           <-- Superseded versions
 ```
@@ -266,6 +323,9 @@ tested in three independent rounds:
 | RC6 | Shadow node reverses satellization without exogenous trigger | NOT REFUTED |
 | RC7 | ASI does not predict outcomes better than chance | NOT REFUTED |
 | RC8 | Mutual interdependence does not brake satellization | NOT REFUTED |
+| RC9 | Collapse axis is not orthogonal to satellization: corr(b, Delta) >> 0 | OPEN (test pending) |
+| RC10 | A realized collapse takes a higher-friction path when a lower one exists | NOT REFUTED |
+| RC11 | Absorber mass does not grow post-absorption (R does not increase) | NOT REFUTED |
 
 ---
 
@@ -297,8 +357,8 @@ python3 expand_dominio_B.py
 ```bibtex
 @misc{zainoscorona2026snt,
   author       = {Zainos Corona, El{\'a}n},
-  title        = {Shadow Node Theory v2.4.0: Scale-Invariant Satellization
-                  Across 721 Empirical Cases},
+  title        = {Shadow Node Theory v2.5.0: Scale-Invariant Satellization and
+                  Coupled Orbital Collapse Across Empirical Domains},
   year         = {2026},
   publisher    = {Zenodo},
   doi          = {10.5281/zenodo.19446521},
@@ -325,4 +385,4 @@ GitHub: [Inzainos](https://github.com/Inzainos)
 
 *Fractal Core Research -- Tlaxcala, Mexico*
 *"Technical truth above numerical impression."*
-*v2.4.0 | June 2026*
+*v2.5.0 | June 2026*

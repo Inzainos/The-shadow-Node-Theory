@@ -1,19 +1,23 @@
 cff-version: 1.2.0
 message: "If you use this software or data, please cite it as below."
 type: software
-title: "Shadow Node Theory v2.4.0: Scale-Invariant Satellization Across 721 Empirical Cases"
+title: "Shadow Node Theory v2.5.0: Scale-Invariant Satellization and Coupled Orbital Collapse Across Empirical Domains"
 abstract: >
-  Replication package for Shadow Node Theory v2.4.0 (SNT v2.4.0),
+  Replication package for Shadow Node Theory v2.5.0 (SNT v2.5.0),
   a formal model of node satellization verified across 721 empirical cases
   reconstructed entirely from verifiable primary sources. The corpus spans
   11 domains and 30 orders of magnitude of temporal scale -- from digital
   platform behavioral cycles (hours) to galactic merger timescales
   (billions of years). The central finding is that institutional friction
   is the dominant predictor of the satellization exponent b
-  (Spearman rho = -0.68, p = 2.5e-97, n=714). This version replaces
+  (Spearman rho = -0.68, p = 2.5e-97, n=714). Version 2.5.0 adds a coupled
+  Orbital Collapse layer (ACO-A): an orthogonal collapse axis (Delta), a
+  hazard layer h(tau), a three-factor taxonomy of collapse modes
+  (friction x trigger x floor/ceiling), and a Principle of Least Friction
+  unifying them, with collapse evidence in five domains (finance, history,
+  crypto, biology, astronomy) from real data. The v2.4.0 corpus replaced
   the v2.3.1 corpus (502 cases) which contained synthetic values.
-  All 721 cases are reproducible from public primary sources via
-  published Python scripts.
+  All cases are reproducible from public primary sources via published scripts.
 authors:
   - family-names: "Zainos Corona"
     given-names: "Elan"
@@ -23,8 +27,8 @@ authors:
     email: "elan.zainos.corona@gmail.com"
     city: "Tlaxcala"
     country: MX
-version: "2.4.0"
-date-released: "2026-06-26"
+version: "2.5.0"
+date-released: "2026-06-28"
 url: "https://github.com/Inzainos/The-shadow-Node-Theory"
 repository-code: "https://github.com/Inzainos/The-shadow-Node-Theory"
 license: "MIT"
@@ -42,6 +46,10 @@ keywords:
   - cognitive sovereignty
   - Atomic Sovereignty Index
   - institutional friction
+  - orbital collapse
+  - catastrophe theory
+  - tipping points
+  - stability landscape
   - Mexico
   - Tlaxcala
   - biological invasion
