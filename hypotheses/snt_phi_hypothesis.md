@@ -1,5 +1,5 @@
 # φ como Atractor Teórico del Algoritmo de Satelización
-## Hipótesis Deductiva — SNT v2.4.0 | Estado: REFUTADA (3 validaciones independientes)
+## Hipótesis Deductiva — SNT v2.4.0 | Estado: REFUTADA (4 rondas de validación independiente)
 
 ---
 
@@ -120,9 +120,47 @@ HIV/CD4 (cohorte MACS publicada), Trypanosoma brucei (Pays et al. 2014).
 
 **Resultado: 0/6 confirmados.**
 
+### Ronda 3 — Corpus real reconstruido (n=188, junio 2026)
+
+188 casos con b>0 del corpus reconstruido con datos primarios. ¿Qué fracción
+cae dentro de ±0.10 de {φ/4, φ/3, φ/2, 2φ/3, 3φ/4, φ}? Monte Carlo N=5,000.
+Resultado: 26.6% cerca de φ vs 27.5% esperado por azar, **p=0.642 — idéntico
+al azar.**
+
+### Ronda 4 — Re-test sobre corpus 721 con control placebo (junio 2026)
+
+Al re-correr el test sobre el corpus expandido (721 casos) **apareció una señal
+aparente** que obligó a un análisis más riguroso:
+
+| Subconjunto | % cerca de φ | null uniforme | placebo (objetivos aleatorios) |
+|---|---|---|---|
+| Corpus b>0 (n=534) | 42.3% | p<0.001 (señal) | **p=0.170 — NO especial** |
+| Bio sin fricción E1+E3 (n=238) | 60.1% | p<0.001 | p<0.001 (sobrevive) |
+
+**Dos trampas identificadas:**
+
+1. **Cobertura de bandas:** las 6 bandas de φ (±0.10) tapizan densamente
+   [0.3–1.3], justo donde b se concentra. El **null uniforme original
+   sobreestima el azar**; un **placebo** (6 objetivos *aleatorios* en el mismo
+   rango sobre los mismos datos) muestra que para el corpus completo φ **no es
+   especial** (p=0.170). El "signal" del corpus era artefacto.
+
+2. **Pseudoreplicación:** el "signal" bio sobrevive el placebo, pero E3 son
+   **234 países midiendo la MISMA pandemia (COVID)** — no son datos
+   independientes. La b característica de COVID ≈ 0.846 cae a 0.037 de
+   φ/2 = 0.809: **una sola coincidencia (1 en 6 objetivos) replicada 234×**,
+   no un atractor.
+
+**Conclusión Ronda 4: H-φ sigue refutada.** El corpus expandido NO la rescata;
+la señal aparente se explica por cobertura de bandas + pseudoreplicación de
+COVID. *Lección metodológica:* el test de φ requiere **placebo control** (objetivos
+aleatorios) y **manejo de no-independencia**, no solo un null uniforme.
+Reproducible: `papers/phi_retest.py` (re-test) + `papers/phi_placebo.py` (placebo control).
+
 ### Conclusión de validación
 
-**H-φ: NO CONFIRMADA. Total: 0/10 datasets independientes.**
+**H-φ: NO CONFIRMADA. Total: 0/10 datasets + corpus real n=188 (p=0.64) +
+re-test 721 con placebo (artefacto). 4 rondas, 0 señal robusta.**
 
 H-φ se clasifica como **hipótesis especulativa de segundo orden**. No se incluye
 en los claims del paper principal (Journal of Complex Networks). No afecta la
