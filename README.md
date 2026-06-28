@@ -52,7 +52,7 @@ b >= 1    --> superlinear satellization -- Roche Radius
 
 ---
 
-## Corpus v2.4.0 -- 721 cases, 100% real data
+## Corpus v2.5.0 -- 721 cases, 100% real data
 
 | Domain | Friction | Cases | Sig. | b mean | Source |
 |--------|----------|-------|------|--------|--------|
@@ -84,13 +84,13 @@ Systems with friction (A, B, C): b mean = +0.09
 
 ---
 
-## Three Core Statistical Findings (v29)
+## Three Core Statistical Findings (v30)
 
 | Finding | Result | Test |
 |---------|--------|------|
 | Abrupt triggers faster than gradual | Ratio 5.9x in historical corpus | Mann-Whitney U=24,802, p=1.91x10^-5, n=486 |
 | Institutional friction is dominant predictor of b | Friction-free: b~+0.95 / High friction: b~+0.09 | Spearman rho=-0.68, p=2.5x10^-97, n=714 |
-| Sovereignty = interdependence as brake | 230 country pairs vs 4 predator-prey | Mann-Whitney p=2.4x10^-74 |
+| Sovereignty = interdependence as brake | Country pairs (B, n=446, b~+0.09) vs predator-prey (E2, b~+0.15) statistically indistinguishable | Regime split MW p=2.4x10^-74 |
 
 ---
 
@@ -98,9 +98,9 @@ Systems with friction (A, B, C): b mean = +0.09
 
 | Target | Status | Notes |
 |--------|--------|-------|
-| **SSRN** (abstract 6418778) | PUBLISHED | Active preprint, updated to v30 (721-case corpus) |
-| **Zenodo** (DOI 10.5281/zenodo.19446521) | PUBLISHED | Updated to v30 (721-case corpus) |
-| **PLOS Complex Systems** (PCSY-D-26-00059) | MAJOR REVISION | Deadline 10 Aug 2026; v29 draft ready |
+| **SSRN** (abstract 6418778) | PUBLISHED | Live paper is still v2.3.1 (502-case); **v30 revision prepared** (`papers/snt_ssrn_v30_EN`), pending re-submission |
+| **Zenodo** (DOI 10.5281/zenodo.19446521) | PUBLISHED | Record updated to v2.5.0 (721-case corpus) |
+| **PLOS Complex Systems** (PCSY-D-26-00059) | MAJOR REVISION | Deadline 10 Aug 2026; v30 draft ready (721 cases) |
 | **J. Complex Networks** (COMNET-2026-214) | REJECTED | No external review |
 | **MIT GCFP Conference** | PREPARING SUBMISSION | 13th Annual Conf, Oct 29-30 2026; deadline 17 Jul 2026; paper + abstract ready (`papers/mit_gcfp_2026_*`) |
 | J. Theoretical Biology | NOT RELEASED | Requires v30 update |
@@ -327,7 +327,7 @@ tested in three independent rounds:
 
 ## Falsifiability Criteria (RC1-RC8)
 
-| RC | Refutation Condition | v29 Status |
+| RC | Refutation Condition | v30 Status |
 |----|---------------------|------------|
 | RC1 | Power law fits no better than linear/exponential across all domains | NOT REFUTED |
 | RC2 | b is not reproducible from primary series | NOT REFUTED |
