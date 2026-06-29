@@ -167,7 +167,7 @@ Systems with friction (A, B, C): b mean = +0.09
 |--------|--------|-------|
 | **SSRN** (abstract 6418778) | REVISION SUBMITTED | **v30 revision submitted 28 Jun 2026** (`papers/snt_ssrn_v30_EN`); supersedes v2.3.1/502; under SSRN review |
 | **Zenodo** (DOI 10.5281/zenodo.19446521) | PUBLISHED | Record updated to v2.5.0 (721-case corpus) |
-| **PLOS Complex Systems** (PCSY-D-26-00059) | MAJOR REVISION | Deadline 10 Aug 2026; v30 draft ready (721 cases) |
+| **PLOS Complex Systems** (PCSY-D-26-00059) | MAJOR REVISION | Deadline 10 Aug 2026; **v30 revision package ready** (`snt_plos_v30` + `plos_response_to_reviewers_v30`); addresses both reviewers |
 | **J. Complex Networks** (COMNET-2026-214) | REJECTED | No external review |
 | **MIT GCFP Conference** | PREPARING SUBMISSION | 13th Annual Conf, Oct 29-30 2026; deadline 17 Jul 2026; paper + abstract ready (`papers/mit_gcfp_2026_*`) |
 | J. Theoretical Biology | NOT RELEASED | Requires v30 update |
@@ -310,6 +310,9 @@ The-shadow-Node-Theory/
 |   |-- SNT_Project_Report_v29.pdf     <-- Handover document (v29)
 |   |-- SNT_Genomic_Topologic_Analyzer_v3.pdf <-- Genomic agent docs
 |   |-- snt_plos_721cases_v29_DRAFT.docx <-- PLOS revision draft (721 cases, v29)
+|   |-- snt_plos_v30.md                <-- PLOS revised manuscript v30 (721 cases; addresses reviewers) [CURRENT]
+|   |-- snt_plos_v30.pdf / .docx       <-- PLOS revised manuscript v30 (8 pp)
+|   |-- plos_response_to_reviewers_v30.md/.pdf/.docx <-- PLOS point-by-point response letter
 |   |-- marco_teorico_v28.pdf          <-- Unified framework (ES) v28
 |   |-- snt_ssrn_v30_EN.md             <-- SSRN preprint v30 ENGLISH (matches published structure; revise-submit) [CURRENT]
 |   |-- snt_ssrn_v30_EN.pdf            <-- SSRN preprint v30 English (18 pp)
