@@ -1,23 +1,87 @@
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
 __pycache__/
-*.pyc
-*.pyo
-.DS_Store
+*.py[cod]
+*$py.class
 *.egg-info/
+.eggs/
+build/
+dist/
+.Python
+*.so
 
-# IDEs
+# Entornos virtuales
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# Herramientas de test / cobertura / cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+
+# ---------------------------------------------------------------------------
+# Jupyter / IPython
+# ---------------------------------------------------------------------------
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+profile_default/
+ipython_config.py
+
+# ---------------------------------------------------------------------------
+# R
+# ---------------------------------------------------------------------------
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# ---------------------------------------------------------------------------
+# IDEs y editores
+# ---------------------------------------------------------------------------
 .vscode/
 .idea/
 *.swp
+*.swo
 *~
 
-# Proprietary data (not redistributable)
+# ---------------------------------------------------------------------------
+# Sistema operativo
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+
+# ---------------------------------------------------------------------------
+# Variables de entorno y secretos (claves de API)
+# ---------------------------------------------------------------------------
+.env
+*.env
+genomic_agent/.env
+!*.env.example
+
+# ---------------------------------------------------------------------------
+# Datos propietarios / no redistribuibles
+# ---------------------------------------------------------------------------
 zerve_hackathon_dataset.csv
 
-# Environment files (API keys)
-.env
-genomic_agent/.env
-
-# Generated outputs
+# ---------------------------------------------------------------------------
+# Salidas generadas y temporales
+# ---------------------------------------------------------------------------
 hackerearth_first_session_features.csv
 *.tmp
+*.log
 *.db
+*.sqlite
+
+# Artefactos intermedios de LaTeX (los PDF finales se versionan a propósito)
+*.aux
+*.toc
+*.out
+*.synctex.gz

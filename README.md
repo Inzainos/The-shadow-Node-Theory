@@ -194,6 +194,9 @@ as cognitive leapfrog.
 The-shadow-Node-Theory/
 |
 |-- README.md                          <-- this file (v2.5.0)
+|-- CHANGELOG.md                       <-- Version history (es)
+|-- CONTRIBUTING.md                    <-- Contribution guide (es)
+|-- LICENSE                            <-- MIT (code) + CC BY 4.0 (data) + CC BY-NC 4.0 (papers)
 |-- requirements.txt                   <-- Python dependencies
 |-- sources.md                         <-- Data provenance
 |-- CITATION.cff                       <-- Citation metadata
@@ -379,6 +382,13 @@ python3 expand_dominio_B.py
   url          = {https://ssrn.com/abstract=6418778}
 }
 ```
+
+---
+
+## Contributing & Changelog
+
+- Contribution guidelines: [`CONTRIBUTING.md`](CONTRIBUTING.md)
+- Version history: [`CHANGELOG.md`](CHANGELOG.md)
 
 ---
 
