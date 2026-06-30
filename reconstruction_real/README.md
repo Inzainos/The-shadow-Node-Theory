@@ -1,4 +1,4 @@
-# SNT Corpus -- Reconstruccion con Datos Reales (v5 / v2.4.0)
+# SNT Corpus -- Reconstruccion con Datos Reales (v5 / v2.5.0)
 
 ## Estado: 721 casos REALES en 11 dominios
 
@@ -14,8 +14,9 @@
 | F1 -- Planetario | 2 | 100% | -1.81 | 0.40 | Open Exoplanet Catalogue |
 | F2 -- Estelar | 1 | 100% | +1.27 | 0.48 | Open Exoplanet Catalogue |
 | F3 -- Multiplanet | 1 | 100% | +1.26 | 0.90 | Open Exoplanet Catalogue |
+| ACO -- Colapso Acoplado | 18 | 94% | +0.60 | 0.87 | ver build_aco_v29.py |
 
-**Total: 721 casos | 89% significativos | CERO R2 corruptos**
+**Total: 721 casos satelizacion + 18 casos ACO | CERO R2 corruptos**| 89% significativos | CERO R2 corruptos**
 
 ## Hallazgo central (datos reales)
 
