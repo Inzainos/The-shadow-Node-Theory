@@ -1,5 +1,0 @@
-id,descripcion,dominio,b,r2,p,n,fuente,significativo
-F1_01,Stellar/planetary mass dominance vs orbit (exoplanets),F1,-0.5399,0.2157,0.0,2300,Open Exoplanet Catalogue,True
-F1_02,Solar System Jupiter dominance,F1,-3.0737,0.5751,0.048159,7,NASA planetary fact sheet,True
-F2_01,Stellar mass-radius relation (exoplanet hosts),F2,1.2734,0.4759,0.0,2306,Open Exoplanet Catalogue,True
-F3_01,Multiplanet mass dominance (n=11 planets),F3,1.264,0.9041,7e-06,11,Open Exoplanet Catalogue,True
