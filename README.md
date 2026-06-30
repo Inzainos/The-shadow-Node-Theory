@@ -201,14 +201,13 @@ The-shadow-Node-Theory/
 |-- sources.md                         <-- Data provenance
 |-- CITATION.cff                       <-- Citation metadata
 |
-|-- reconstruction_real/               <-- REAL CORPUS v2.4.0
+|-- reconstruction_real/               <-- REAL CORPUS v2.5.0
 |   |-- README.md                      <-- Methodology and sources
 |   |-- data/
 |   |   |-- snt_corpus_REAL_v5.csv     <-- 721 consolidated cases
 |   |   |-- MASTER_cifras_v5.json      <-- All paper figures
 |   |   |-- MASTER_resumen_v5.csv      <-- Summary by domain
 |   |   |-- by_domain/                 <-- Individual CSVs per domain
-|   |   |-- dominio_B_real.csv         <-- Maddison 446 country pairs
 |   |   |-- DOMINIO_B_METODOLOGIA.md   <-- Domain B methodology
 |   |   +-- phi_test_corpus_real_v4.csv
 |   |-- code/
@@ -222,7 +221,7 @@ The-shadow-Node-Theory/
 |   |   +-- collapse_multidomain_v29.csv <-- 5-domain collapse table (v2.5.0)
 |   +-- snt_phi_hypothesis.md          <-- H-phi REFUTED (4 rounds + placebo)
 |
-|-- hypotheses/
+|-- (hypotheses/ removed — phi hypothesis lives in reconstruction_real/)
 |   +-- snt_phi_hypothesis.md          <-- H-phi REFUTED (4 rounds + placebo)
 |
 |-- papers/                            <-- Academic submissions
@@ -240,10 +239,6 @@ The-shadow-Node-Theory/
 |   |-- SNT_Project_Report_v29.pdf     <-- Handover document (v29)
 |   |-- SNT_Genomic_Topologic_Analyzer_v3.pdf <-- Genomic agent docs
 |   |-- snt_plos_721cases_v29_DRAFT.docx <-- PLOS revision draft (721 cases, v29)
-|   |-- snt_oxford_submission.docx     <-- REJECTED (COMNET)
-|   |-- snt_plos_submission.docx       <-- v28 OBSOLETE (502 cases)
-|   |-- snt_plos_submission.pdf        <-- v28 OBSOLETE (502 cases)
-|   |-- snt_paper_plos_complex_systems.docx <-- v28 OBSOLETE (502 cases)
 |   |-- marco_teorico_v28.pdf          <-- Unified framework (ES) v28
 |   |-- snt_ssrn_v30_EN.md             <-- SSRN preprint v30 ENGLISH (matches published structure; revise-submit) [CURRENT]
 |   |-- snt_ssrn_v30_EN.pdf            <-- SSRN preprint v30 English (18 pp)
@@ -251,26 +246,17 @@ The-shadow-Node-Theory/
 |   |-- snt_ssrn_v30.md                <-- SSRN preprint v30 Spanish (721 real cases + collapse layer ACO-A)
 |   |-- snt_ssrn_v30.pdf               <-- SSRN preprint v30 Spanish (17 pp)
 |   |-- snt_ssrn_v30.docx              <-- SSRN preprint v30 Spanish (Word)
-|   |-- shadow_node_theory_SSRN_v10.docx <-- HISTORICAL preprint (SNT v2.0, 502-case era)
-|   |-- snt_paper_theoretical_biology.docx
-|   |-- snt_paper_astrophysical.docx
-|   |-- snt_paper_investigacion_economica.docx
-|   |-- snt_paper_regional_economics_en.pdf
-|   |-- snt_english_v23.docx           <-- English translation v2.3
 |   |-- abstracts_marco_teorico.docx   <-- Abstracts & framework
 |   +-- cover_letter_comnet.txt
 |
 |-- code/                              <-- Analysis scripts (v28 -- historical)
 |   |-- snt_utils.py                   <-- Shared utilities (power-law fitting)
-|   |-- snt_corpus_502.py              <-- WARNING: v28 OBSOLETE
 |   |-- snt_corpus_biological.py       <-- Biological domains (E1-E3)
 |   |-- snt_corpus_astronomical.py     <-- Astronomical domains (F1-F4)
 |   |-- hackerearth_validation_final.py <-- ASI / ROC-AUC validation
 |   |-- generate_publication_figures.py <-- TIFF 300dpi figures
 |   |-- snt_v2_vectorizacion.py        <-- Trajectory vectorization
 |   |-- matriz_mexico_ncuerpos.py      <-- N-body matrix Mexico (32 states)
-|   |-- snt_corpus_aco.py             <-- ACO 4 cases (DEPRECATED, see build_aco_v29.py)
-|   +-- snt_corpus_aco_expanded.py    <-- ACO 18 cases (DEPRECATED, see build_aco_v29.py)
 |
 |-- data/                              <-- Data files (v28 -- historical)
 |   |-- snt_asi_scores.csv             <-- ASI scores HackerEarth
