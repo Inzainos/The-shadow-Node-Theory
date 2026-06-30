@@ -32,6 +32,8 @@ date-released: "2026-06-28"
 url: "https://github.com/Inzainos/The-shadow-Node-Theory"
 repository-code: "https://github.com/Inzainos/The-shadow-Node-Theory"
 license: "MIT"
+license-url: "https://github.com/Inzainos/The-shadow-Node-Theory/blob/main/LICENSE"
+# Multi-license: MIT (code) + CC BY 4.0 (data) + CC BY-NC 4.0 (papers). See LICENSE file.
 doi: "10.5281/zenodo.19446521"
 keywords:
   - complex systems
@@ -58,7 +60,7 @@ keywords:
 identifiers:
   - type: doi
     value: "10.5281/zenodo.19446521"
-    description: "Zenodo DOI v2.4.0"
+    description: "Zenodo DOI v2.5.0 (current)"
   - type: doi
     value: "10.5281/zenodo.19131327"
     description: "Zenodo DOI v2.0"
