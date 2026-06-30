@@ -1,4 +1,4 @@
-FIGURE CAPTIONS — Shadow Node Theory v2.4.0
+FIGURE CAPTIONS — Shadow Node Theory v2.5.0
 Fractal Core Research | Tlaxcala, Mexico | 2026
 
 Figure 1. Power-law satellization dynamics across 721 verified cases in 10 domains.
@@ -12,7 +12,7 @@ Figure 2. Institutional friction as primary predictor of satellization velocity 
 (A) Mean exponent b against institutional friction rank for all 10 domains.
 Point size proportional to n. Dashed line: OLS regression. (B) Case-level Spearman
 correlation between friction index and exponent b across social and biological domains
-(rho = -0.67, p = 6.4e-94, n = 717). (C) Normalized metrics by domain
+(rho = -0.68, p = 2.5e-97, n = 714). (C) Normalized metrics by domain
 ordered by mean b: b_mean, % significant cases, log10(n).
 
 Figure 3. N-body matrix of the Mexican national system (32 federal entities, INEGI 2022).
