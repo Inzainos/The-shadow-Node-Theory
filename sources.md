@@ -1,16 +1,16 @@
-# Data Sources — Shadow Node Theory v2.4.0
+# Data Sources — Shadow Node Theory v2.5.0
 
 **Fractal Core Research · Elan Zainos Corona · Tlaxcala, Mexico · 2026**
 All data used in the SNT v2.4.0 corpus (721 real cases) are either publicly available or clearly marked as proprietary with aggregate results only.
 
-> **Note:** This file was originally written for v2.3.1 (502 cases). The domain
-> counts below reflect the v2.3.1 source catalog. The v2.4.0 corpus uses a subset
-> of these sources plus new primary sources documented in `reconstruction_real/README.md`.
-> The v2.4.0 corpus is in `reconstruction_real/data/snt_corpus_REAL_v5.csv`.
+> **Note:** This file reflects the v2.5.0 corpus (721 real cases). Domain
+> counts below reflect the active v2.5.0 corpus. The primary data source for each domain
+> is documented in `reconstruction_real/README.md`.
+> The active corpus is `reconstruction_real/data/snt_corpus_REAL_v5.csv` (721 cases).
 
 ---
 
-## Domain A — Historical Cities (n=64)
+## Domain A — Historical Cities (n=4)
 
 **Primary source:**
 - Bairoch, P., Batou, J. & Chèvre, P. (1988). *La Population des Villes Européennes de 800 à 1850*. Centre d'Histoire Économique Internationale, Université de Genève. Covers 2,200 European cities.
@@ -28,7 +28,7 @@ All data used in the SNT v2.4.0 corpus (721 real cases) are either publicly avai
 
 ---
 
-## Domain B — Country Pairs (n=230)
+## Domain B — Country Pairs (n=446)
 
 **Primary source:**
 - Bolt, J. & van Zanden, J.L. (2024). *Maddison Project Database 2023*. Groningen Growth and Development Centre, University of Groningen. GDP per capita 1–2018 AD, 169 countries. [https://www.rug.nl/ggdc/historicaldevelopment/maddison/](https://www.rug.nl/ggdc/historicaldevelopment/maddison/) — License: CC BY 4.0
@@ -85,7 +85,7 @@ All data used in the SNT v2.4.0 corpus (721 real cases) are either publicly avai
 
 ---
 
-## Domain E2 — Predator-Prey (n=4)
+## Domain E2 — Predator-Prey (n=2)
 
 - **Canadian lynx vs snowshoe hare:** Maclulich, D.A. (1937). *Fluctuations in the numbers of the varying hare*. University of Toronto Studies, Biol. Ser. 43. Elton, C. & Nicholson, M. (1942). *Journal of Animal Ecology* 11(2), 215–244. Hudson Bay Company fur records 1845–1935.
 - **Adriatic shark vs prey fish:** D'Ancona, U. (1926) cited in Volterra, V. (1926). Fluctuations in the abundance of a species. *Nature* 118, 558–560.
@@ -94,7 +94,7 @@ All data used in the SNT v2.4.0 corpus (721 real cases) are either publicly avai
 
 ---
 
-## Domain E3 — Parasite-Host (n=20)
+## Domain E3 — Parasite-Host (n=234)
 
 - **MRSA vs S. aureus (antibiotic resistance):** CDC. (2019). *Antibiotic Resistance Threats in the United States*. WHO GLASS 2022.
 - **HIV vs CD4+ T cells:** Pantaleo, G. et al. (1993). *NEJM* 328(5), 327–335. Ho, D.D. et al. (1995). *Nature* 373, 123–126.
@@ -186,4 +186,4 @@ All scripts, processed data files, and figures are available at:
 - **Zenodo v2.4.0:** [https://doi.org/10.5281/zenodo.19446521](https://doi.org/10.5281/zenodo.19446521)
 - **Zenodo v2.0:** [https://doi.org/10.5281/zenodo.19131327](https://doi.org/10.5281/zenodo.19131327)
 
-*Last updated: June 2026 (v2.4.0)*
+*Last updated: June 2026 (v2.5.0)*
