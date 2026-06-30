@@ -72,6 +72,21 @@ b >= 1    --> superlinear satellization -- Roche Radius
 
 ---
 
+## Visualizaciones del corpus
+
+![Distribución del corpus y significancia estadística](figures/snt_fig1_final.png)
+*Fig. 1 — Distribución del exponente b por dominio y porcentaje de casos significativos (p < 0.05).*
+
+![Exponente b por dominio](figures/snt_fig2_final.png)
+*Fig. 2 — Exponente b medio por dominio: de convergencia (b < 0) a satelización (b > 0), con fricción institucional anotada.*
+
+![Bondad de ajuste R² por dominio](figures/snt_fig3_final.png)
+*Fig. 3 — R² medio por dominio. R² ∈ [0,1] verificado, cero valores corruptos.*
+
+---
+
+---
+
 ## Central Finding
 
 Institutional friction predicts the satellization exponent:
@@ -359,7 +374,7 @@ python3 expand_dominio_B.py
 
 ```bibtex
 @misc{zainoscorona2026snt,
-  author       = {Zainos Corona, El{\'a}n},
+  author       = {Zainos Corona, El{'a}n},
   title        = {Shadow Node Theory v2.5.0: Scale-Invariant Satellization and
                   Coupled Orbital Collapse Across Empirical Domains},
   year         = {2026},
