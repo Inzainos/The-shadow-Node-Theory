@@ -5,6 +5,12 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        # setup-miniconda only activates the conda env in login shells;
+        # without this, later steps fall back to the system Python/pip and
+        # conda-only tools (flake8) are not on PATH ("command not found").
+        shell: bash -l {0}
 
     steps:
     - uses: actions/checkout@v4
