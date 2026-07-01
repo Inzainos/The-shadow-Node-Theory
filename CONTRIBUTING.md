@@ -18,9 +18,49 @@ mantener trazabilidad y reproducibilidad. Esta guía describe cómo contribuir.
 ```bash
 git clone https://github.com/Inzainos/The-shadow-Node-Theory.git
 cd The-shadow-Node-Theory
+```
+
+### Entorno de runtime
+
+```bash
+conda env create -f environment.yml
+conda activate snt-env
+```
+
+### Entorno de desarrollo
+
+```bash
+conda env create -f environment-dev.yml
+conda activate snt-dev-env
+```
+
+### Alternativa con virtualenv
+
+Si prefieres `venv`, usa:
+
+```bash
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 ```
+
+### Actualizar el entorno Conda
+
+```bash
+conda env update -f environment.yml --prune
+```
+
+## Integración continua
+
+El flujo de CI se encuentra en `.github/workflows/python-package-conda.yml` y usa Miniconda para crear el ambiente `snt-env` desde `environment.yml`.
+
+El pipeline verifica:
+
+- checkout del repositorio
+- creación del ambiente Conda
+- instalación de dependencias Python
+- validación con `flake8`
+- compilación de módulos Python activos
+- un smoke test con `python reconstruction_real/code/build_aco_v29.py`
 
 ## Estructura del repositorio
 

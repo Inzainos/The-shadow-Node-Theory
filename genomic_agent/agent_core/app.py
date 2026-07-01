@@ -25,6 +25,7 @@ from agent_logic import (
     run_full_analysis,
     verify_guardrails,
     AnalysisReport,
+    ACOAResult,
 )
 from data_sanitizer import DataSanitizer, SanitizationReport
 
@@ -110,7 +111,7 @@ with st.sidebar:
         st.markdown("ETL Rules: ⚠️  Error")
 
     st.markdown("---")
-    st.caption("SNT Genomic Analyzer v1.0 | MIT License")
+    st.caption("SNT Genomic Analyzer v2.5.0 · Corpus v5 · MIT License")
 
 
 # ── Header ────────────────────────────────────────────────────────────────────
@@ -118,13 +119,19 @@ st.markdown("""
 <div class="snt-header">
     <h1 style="margin:0; font-size:2rem;">🧬 SNT Genomic Topologic Analyzer</h1>
     <p style="margin:0.4rem 0 0; opacity:0.8; font-size:1rem;">
-        Satellite-Node Topology · Two-Level Scanning · ETL Auto-Healing · Claude 3.5 Sonnet
+        Satellite-Node Topology · Two-Level Scanning · ETL Auto-Healing · SNT v2.5.0
     </p>
 </div>
 """, unsafe_allow_html=True)
 
-tab_analysis, tab_etl, tab_about, tab_logs = st.tabs(
-    ["🔬 Analysis", "🧹 ETL Sanitizer", "ℹ️ About SNT", "📋 Logs"]
+tab_analysis, tab_etl, tab_wall, tab_about, tab_logs = st.tabs(
+    [
+        "🔬 Analysis",
+        "🧹 ETL Sanitizer",
+        "🧪 5-Event Wall",
+        "ℹ️ About SNT",
+        "📋 Logs",
+    ]
 )
 
 
@@ -302,6 +309,45 @@ with tab_analysis:
                         "patterns NOT in the disease oracle. Possible novel biomarkers."
                     )
 
+            # ── ACO-A Frame ───────────────────────────────────────────────────
+            with st.expander("🌀 ACO-A — Orbital Collapse Analysis (b⊥Δ)", expanded=True):
+                if not report.aco_results:
+                    st.info("No HUB_COLLAPSE events confirmed — ACO-A analysis not triggered.")
+                else:
+                    st.markdown(
+                        "**Marco ortogonal (b, Δ):** cada hub colapsado se ubica en el "
+                        "espacio de satelización × absorción de la ACO-A. "
+                        "La fricción biológica determina el modo de colapso."
+                    )
+                    MODE_ICONS = {
+                        "Regulated_Orbital_Decay": "🟢",
+                        "Cracquelure_Decay":        "🟡",
+                        "Floor_Arrested":           "🟠",
+                        "Catastrophic_Cliff":       "🔴",
+                        "Logistic_Sweep":           "🔵",
+                    }
+                    aco_rows = []
+                    for a in report.aco_results:
+                        icon = MODE_ICONS.get(a.collapse_mode, "⚪")
+                        delta_str = f"{a.delta:.3f} (R²={a.delta_r2:.2f})" if a.delta == a.delta else "N/A"
+                        aco_rows.append({
+                            "Hub":           a.hub_gene,
+                            "Modo":          f"{icon} {a.collapse_mode.replace('_',' ')}",
+                            "Δ (absorción)": delta_str,
+                            "F (fricción)":  f"{a.friction_index:.2f}",
+                            "Trigger":       a.trigger,
+                            "Piso":          "✅" if a.has_floor else "❌",
+                            "Absorbedor":    a.absorber_gene,
+                            "ΔTPM abs":      f"+{a.absorber_delta_tpm:.1f}",
+                        })
+                    st.dataframe(pd.DataFrame(aco_rows), use_container_width=True)
+                    f_val   = report.aco_results[0].friction_index
+                    f_label = "🟢 Alta — Decaimiento Regulado probable" if f_val > 0.5                               else "🔴 Baja — Acantilado Catastrófico en riesgo"
+                    st.metric("Índice de Fricción Biológica (F)", f"{f_val:.3f}", f_label)
+                    st.caption(
+                        "Ref: SNT v2.5.0 · ACO-A · ssrn.com/abstract=6418778"
+                    )
+
             # ── LLM ──────────────────────────────────────────────────────────
             with st.expander("🤖 AI Medical Diagnosis (Claude 3.5 Sonnet)", expanded=True):
                 if report.llm_diagnosis.startswith("⚠️"):
@@ -406,16 +452,151 @@ with tab_etl:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# TAB 3 — ABOUT
+# TAB 3 — 5-EVENT WALL
 # ─────────────────────────────────────────────────────────────────────────────
+with tab_wall:
+    st.subheader("🧬 5-Event Wall — TCGA Corpus (n=2,746)")
+    st.markdown(
+        "Combinaciones de **≥5 anomalías hub simultáneas** (|Z|>2.5 vs baseline de cohorte) "
+        "encontradas empíricamente en el corpus TCGA. El muro emerge de los datos — "
+        "no está definido a priori."
+    )
+
+    import json as _json
+    from pathlib import Path as _Path
+
+    # Intentar cargar resultados TCGA
+    _wall_paths = [
+        _Path("/data/five_event_wall_v2.json"),
+        _Path(__file__).parent.parent / "analysis" / "results" / "five_event_wall_v2.json",
+        _Path(__file__).parent.parent.parent / "tcga_results" / "five_event_wall_v2.json",
+    ]
+    _wall_data = None
+    for _p in _wall_paths:
+        if _p.exists():
+            try:
+                _wall_data = _json.loads(_p.read_text())
+                break
+            except Exception:
+                pass
+
+    # Métricas globales
+    col1, col2, col3, col4 = st.columns(4)
+    col1.metric("Total Pacientes", "2,746")
+    col2.metric("% con ≥1 Anomalía", "~31%")
+    col3.metric("% con ≥5 Eventos", "2–5%")
+    col4.metric("Cohortes", "BRCA · LUAD · GBM · COAD")
+
+    st.divider()
+
+    _COHORT_INTERP = {
+        "BRCA": (
+            "**Checkpoint mitótico co-activado** (BUB1, PLK1, AURKB). "
+            "Reparación DNA compensatoria (BRCA2, FANCD2, RAD51). "
+            "Patrón: estrés de replicación + override mitótico."
+        ),
+        "LUAD": (
+            "**ATM como hub universal saturado.** Co-activación oncogénica (BRAF, PIK3CA) "
+            "+ pérdida de supresores (PTEN, SMAD4). "
+            "Perfil de colapso multi-dominio — señal pre-invasiva candidata."
+        ),
+        "GBM": (
+            "**Colapso de checkpoints DNA** (BRCA1, CHEK2) + replicación descontrolada "
+            "(E2F1, TOP2A, BUB1). Posible perfil de catástrofe replicativa."
+        ),
+        "COAD": (
+            "**APC como guardián WNT central.** Convergencia RAS-MAPK (KRAS) + "
+            "PI3K (PIK3CA, PTEN) + sensor DNA (ATM). "
+            "Oncogénesis colorrectal clásica + capa de inestabilidad DNA."
+        ),
+    }
+
+    if _wall_data:
+        _cohort = st.selectbox("Cohorte", ["LUAD", "COAD", "BRCA", "GBM"])
+        _candidates = _wall_data.get(_cohort, [])
+
+        if _candidates:
+            st.markdown(f"**Interpretación SNT — {_cohort}:** {_COHORT_INTERP.get(_cohort, '')}")
+            st.markdown(f"**{len(_candidates)} combinaciones de 5 eventos encontradas:**")
+
+            import pandas as _pd
+            _rows = []
+            for combo, n_patients, pct in _candidates[:20]:
+                _rows.append({
+                    "Combinación (5 genes hub)": " | ".join(combo),
+                    "N Pacientes": n_patients,
+                    "% Cohorte": f"{pct}%",
+                })
+            _df = _pd.DataFrame(_rows)
+            st.dataframe(_df, use_container_width=True, hide_index=True)
+
+            # Top combo detalle
+            if _candidates:
+                top_combo, top_n, top_pct = _candidates[0]
+                st.info(
+                    f"**Top combo — {_cohort}:** `{'  |  '.join(top_combo)}` "
+                    f"→ {top_n} pacientes ({top_pct}%)"
+                )
+        else:
+            st.warning(f"Sin candidatos para {_cohort} con el umbral actual.")
+    else:
+        st.info(
+            "Resultados TCGA no disponibles en este entorno. "
+            "Ejecuta `genomic_agent/analysis/snt_pipeline.py` para generar "
+            "`five_event_wall_v2.json` y colócalo en `genomic_agent/analysis/results/`."
+        )
+        # Mostrar los hallazgos hardcodeados como fallback
+        st.subheader("Hallazgos TCGA (hardcoded, corpus n=2,746)")
+        _static = {
+            "LUAD": [
+                (["ATM_UP","BRAF_UP","BRCA2_UP","PIK3CA_UP","SMAD4_UP"], 9, 1.5),
+                (["ATM_UP","BRAF_UP","BRCA2_UP","PTEN_UP","SMAD4_UP"],   9, 1.5),
+                (["ATM_UP","BRAF_UP","PIK3CA_UP","PTEN_UP","SMAD4_UP"],  9, 1.5),
+            ],
+            "COAD": [
+                (["APC_UP","ATM_UP","KRAS_UP","PIK3CA_UP","PTEN_UP"],    8, 1.5),
+                (["APC_UP","ATM_UP","BRAF_UP","KRAS_UP","PIK3CA_UP"],    7, 1.3),
+            ],
+            "BRCA": [
+                (["BRCA2_UP","BUB1_UP","FANCD2_UP","PLK1_UP","RAD51_UP"],4, 0.3),
+                (["AURKB_UP","BRCA2_UP","BUB1_UP","FANCD2_UP","PLK1_UP"],4, 0.3),
+            ],
+            "GBM": [
+                (["BRCA1_UP","BUB1_UP","CHEK2_UP","E2F1_UP","TOP2A_UP"], 2, 0.5),
+            ],
+        }
+        for cohort_name, combos in _static.items():
+            st.markdown(f"**{cohort_name}** — {_COHORT_INTERP.get(cohort_name, '')}")
+            for combo, n, pct in combos:
+                st.markdown(f"- `{'  |  '.join(combo)}` → {n} pacientes ({pct}%)")
+            st.markdown("")
+
+
 with tab_about:
     st.markdown("""
-## 🧬 SNT Analysis — Core Concepts
+## 🧬 SNT — Shadow Node Theory (Genomic Module)
+
+This application is the genomic implementation of the **Shadow Node Theory (SNT) v2.5.0**,
+a universal framework for detecting structural collapse in complex systems through
+hub-satellite topological analysis.
+
+### Published Research
+
+- **Preprint (SSRN):** [Shadow Node Theory — SSRN 6418778](https://ssrn.com/abstract=6418778)
+- **Repository:** [github.com/Inzainos/The-shadow-Node-Theory](https://github.com/Inzainos/The-shadow-Node-Theory)
+- **Zenodo:** [10.5281/zenodo.19446521](https://doi.org/10.5281/zenodo.19446521)
+- **Corpus:** v5 · n=721 real cases · 89.3% statistically significant (p=2.5×10⁻⁹⁷)
+
+### SNT Core Hypothesis
+
+> When a master regulator (hub) loses control of its downstream genes (satellites),
+> that loss of control **is** the collapse signal — detectable before structural mutations.
 
 | Approach | Traditional Genomics | SNT Topology |
 |---|---|---|
 | Unit of analysis | Individual mutations | Hub-satellite relationships |
 | What it detects | "Wrong letter in code" | "Who stopped controlling whom" |
+| Corpus validated | N/A | n=721, ρ=−0.68, p=2.5×10⁻⁹⁷ |
 | Novel discovery | Limited to known variants | Orphan anomaly detection |
 
 ### Anomaly Types
@@ -424,12 +605,13 @@ with tab_about:
 
 **🔵 SATELLITE CAPTURE** — Free gene drawn into hub dependency. Z << -2.5. Tumour suppressor reprogramming.
 
-**🔴 HUB COLLAPSE** — Master regulator loses control of its regulon. TP53 / BRCA1 / RB1 inactivation.
+**🔴 HUB COLLAPSE** — Master regulator loses global control of its regulon. TP53 / BRCA1 / RB1 inactivation.
 
 ### Z-Score Formula
 ```
 Z = (R_patient - μ_healthy) / σ_healthy
 R = TPM(satellite) / TPM(hub)    |    Threshold: |Z| > 2.5
+Corpus: n=721 · n_sig=644 (89.3%) · Spearman ρ=−0.678 · p=2.50×10⁻⁹⁷
 ```
 
 ### ETL Auto-Healing Pipeline

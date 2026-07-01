@@ -7,6 +7,58 @@ ORCID: [0009-0009-9125-253X](https://orcid.org/0009-0009-9125-253X)
 [![SSRN](https://img.shields.io/badge/SSRN-6418778-blue)](https://ssrn.com/abstract=6418778)
 [![Zenodo](https://img.shields.io/badge/Zenodo-10.5281%2Fzenodo.19446521-blue)](https://doi.org/10.5281/zenodo.19446521)
 [![GitHub](https://img.shields.io/badge/GitHub-Inzainos-black)](https://github.com/Inzainos/The-shadow-Node-Theory)
+[![Python CI](https://github.com/Inzainos/The-shadow-Node-Theory/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/Inzainos/The-shadow-Node-Theory/actions/workflows/python-package-conda.yml)
+
+## Setup
+
+Use Conda to install the project runtime environment:
+
+```bash
+conda env create -f environment.yml
+conda activate snt-env
+```
+
+This installs the runtime dependencies defined in `environment.yml`, including `flake8` for syntax validation.
+
+If you want to install the plain Python requirements inside the activated Conda environment later:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+For development, testing and linting tools, use the development environment:
+
+```bash
+conda env create -f environment-dev.yml
+conda activate snt-dev-env
+```
+
+`environment-dev.yml` includes the runtime dependencies plus common dev tools such as `pytest`, `pre-commit`, `black`, `isort`, `mypy`, `ruff`, and `tox`.
+
+For a quick command reference and workflow shortcuts, see `dev-guide.md`.
+
+To update an existing environment from the YAML file:
+
+```bash
+conda env update -f environment.yml --prune
+```
+
+---
+
+## Continuous Integration
+
+This repository uses GitHub Actions with a Conda-based workflow located at `.github/workflows/python-package-conda.yml`.
+
+The workflow currently:
+
+- checks out the repository
+- sets up Miniconda and creates the `snt-env` environment from `environment.yml`
+- installs standard Python requirements
+- runs `flake8` for syntax and undefined-name checks
+- compiles active Python modules
+- executes a smoke test with `python reconstruction_real/code/build_aco_v29.py`
+
+Use the badge at the top of this README to view CI status for the default branch.
 
 ---
 
@@ -213,8 +265,12 @@ The-shadow-Node-Theory/
 |-- CONTRIBUTING.md                    <-- Contribution guide (es)
 |-- LICENSE                            <-- MIT (code) + CC BY 4.0 (data) + CC BY-NC 4.0 (papers)
 |-- requirements.txt                   <-- Python dependencies
+|-- environment.yml                    <-- Conda runtime environment
+|-- environment-dev.yml                <-- Conda development environment
 |-- sources.md                         <-- Data provenance
 |-- CITATION.cff                       <-- Citation metadata
+|-- .github/workflows/                 <-- CI workflows
+|   +-- python-package-conda.yml       <-- Conda-based Python CI
 |
 |-- reconstruction_real/               <-- REAL CORPUS v2.5.0
 |   |-- README.md                      <-- Methodology and sources

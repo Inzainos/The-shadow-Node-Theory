@@ -5,6 +5,8 @@ WORKDIR /app
 # System dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     sqlite3 \
+    socat \
+    bubblewrap \
     && rm -rf /var/lib/apt/lists/*
 
 # Python dependencies
@@ -13,9 +15,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Source
 COPY db_builder.py .
+COPY hpa_db_builder.py .
 
-# Data volume mountpoint
-RUN mkdir -p /data
+# Non-root user for security
+RUN useradd -m -u 1000 sntuser && chown -R sntuser:sntuser /app
+RUN mkdir -p /data && chown sntuser:sntuser /data
+USER sntuser
 
 # Build the database on container start
 CMD ["python", "db_builder.py"]

@@ -117,8 +117,26 @@ def _random_id(prefix: str, length: int = 6) -> str:
     return f"{prefix}-{suffix}"
 
 
+# SECURITY: PHI fields (patient_id, clinical content) are redacted before logging.
+_PHI_FIELDS = {'patient_id', 'to', 'body', 'summary', 'text', 'subject', 'description'}
+_SAFE_HEADERS = {'content-type', 'content-length', 'host', 'user-agent', 'accept'}
+
+def _redact_phi(payload: Any) -> dict:
+    """Mask PHI keys and truncate large string values before logging."""
+    d = payload if isinstance(payload, dict) else (payload.dict() if hasattr(payload, 'dict') else {})
+    redacted = {}
+    for k, v in d.items():
+        if k in _PHI_FIELDS:
+            redacted[k] = '[REDACTED]'
+        elif isinstance(v, str) and len(v) > 60:
+            redacted[k] = v[:60] + '…'
+        else:
+            redacted[k] = v
+    return redacted
+
+
 def _log_request(service: str, payload: Any) -> None:
-    logger.info("[%s] Incoming request: %s", service, payload)
+    logger.info("[%s] Incoming request: %s", service, _redact_phi(payload))
 
 
 def _simulate_latency(service: str, min_ms: int = 80, max_ms: int = 400) -> None:
@@ -131,11 +149,12 @@ def _simulate_latency(service: str, min_ms: int = 80, max_ms: int = 400) -> None
 
 @app.middleware("http")
 async def log_all_requests(request: Request, call_next):
+    safe_headers = {k: v for k, v in request.headers.items() if k.lower() in _SAFE_HEADERS}
     logger.debug(
         "[HTTP] %s %s | Headers: %s",
         request.method,
         request.url.path,
-        dict(request.headers),
+        safe_headers,  # SECURITY: only safe headers logged — Authorization excluded
     )
     response = await call_next(request)
     logger.debug("[HTTP] Response status: %d", response.status_code)
@@ -226,6 +245,51 @@ def notify_reporter_email(payload: EmailNotifyRequest) -> EmailNotifyResponse:
 
 
 # ── Entry point ───────────────────────────────────────────────────────────────
+@app.get("/tcga/wall_summary", tags=["TCGA"])
+async def tcga_wall_summary():
+    """
+    Returns top 5-Event Wall candidates per cohort from TCGA corpus (n=2,746).
+    Source: SNT genomic pipeline, Fractal Core Research 2026.
+    """
+    import json as _json
+    from pathlib import Path as _Path
+
+    _wall_paths = [
+        _Path("/data/five_event_wall_v2.json"),
+        _Path(__file__).parent.parent / "analysis" / "results" / "five_event_wall_v2.json",
+    ]
+    for _p in _wall_paths:
+        if _p.exists():
+            try:
+                data = _json.loads(_p.read_text())
+                # Return top 3 per cohort
+                summary = {}
+                for cohort, candidates in data.items():
+                    summary[cohort] = [
+                        {"combo": c[0], "n_patients": c[1], "pct": c[2]}
+                        for c in candidates[:3]
+                    ]
+                logger.info("[TCGA] wall_summary served from %s", _p)
+                return {"source": str(_p), "corpus_n": 2746, "cohorts": summary}
+            except Exception as e:
+                logger.error("[TCGA] Failed to load wall data: %s", e)
+                raise HTTPException(status_code=500, detail=f"Failed to load TCGA data: {e}")
+
+    # Fallback — hardcoded from TCGA analysis
+    logger.info("[TCGA] wall_summary served from hardcoded fallback")
+    return {
+        "source": "hardcoded_fallback",
+        "corpus_n": 2746,
+        "note": "Run snt_pipeline.py to generate five_event_wall_v2.json",
+        "cohorts": {
+            "LUAD": [{"combo": ["ATM_UP","BRAF_UP","BRCA2_UP","PIK3CA_UP","SMAD4_UP"], "n_patients": 9, "pct": 1.5}],
+            "COAD": [{"combo": ["APC_UP","ATM_UP","KRAS_UP","PIK3CA_UP","PTEN_UP"],    "n_patients": 8, "pct": 1.5}],
+            "BRCA": [{"combo": ["BRCA2_UP","BUB1_UP","FANCD2_UP","PLK1_UP","RAD51_UP"],"n_patients": 4, "pct": 0.3}],
+            "GBM":  [{"combo": ["BRCA1_UP","BUB1_UP","CHEK2_UP","E2F1_UP","TOP2A_UP"], "n_patients": 2, "pct": 0.5}],
+        },
+    }
+
+
 if __name__ == "__main__":
     logger.info("=" * 60)
     logger.info("SNT Mock Services starting on port 8081...")

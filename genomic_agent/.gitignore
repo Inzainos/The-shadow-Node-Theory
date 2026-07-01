@@ -1,0 +1,70 @@
+# ==============================================================================
+# SNT Genomic Topologic Analyzer — .gitignore
+# ==============================================================================
+
+# Environment & secrets
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.venv/
+venv/
+env/
+pip-wheel-metadata/
+
+# SQLite databases (generated at runtime)
+*.db
+*.sqlite
+*.sqlite3
+
+# Data volumes / pipeline output
+/data/
+tcga_data/
+*.csv.gz
+*.tsv.gz
+
+# Pipeline result files (may contain pseudonymized patient records)
+# Regenerate with: python analysis/snt_pipeline.py
+analysis/results/*.json
+analysis/results/*.db
+analysis/results/patient_*.json
+analysis/results/patient_anomalies.json
+
+# Raw patient data / PHI — NEVER commit
+*.rnaseq.csv
+*_rnaseq.csv
+paciente_*.csv
+patient_*.csv
+*_expression.csv
+
+# Docker
+.docker/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
