@@ -6,6 +6,21 @@ y el proyecto sigue [Versionado Semántico](https://semver.org/lang/es/).
 
 Las fechas corresponden a la integración de cada versión en la rama `main`.
 
+## [No publicado] — 2026-07
+
+### Añadido
+- **Validación del agente genómico con datos reales de paciente**: el pipeline
+  completo (Triage Nivel 1 → Escáner de bloques Nivel 2 → análisis ACO-A) se
+  ejecutó de extremo a extremo contra un caso TCGA-BRCA genuino y de acceso
+  abierto (`TCGA-BH-A18H`, vía la API pública NIH GDC), confirmando que corre
+  sin errores sobre RNA-seq real (59/60 genes del panel SNT, 23 coincidencias
+  confirmadas, 23 anomalías huérfanas). Script reproducible, datos y reporte en
+  `genomic_agent/analysis/real_patient_validation/`.
+
+### Cambiado
+- Estado de publicaciones: revisión v30 de **PLOS Complex Systems** (PCSY-D-26-00059)
+  enviada; ponencia **MIT GCFP** (13ª conferencia anual) enviada.
+
 ## [2.5.0] — 2026-06-28
 
 ### Añadido

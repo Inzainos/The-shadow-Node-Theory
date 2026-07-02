@@ -167,9 +167,9 @@ Systems with friction (A, B, C): b mean = +0.09
 |--------|--------|-------|
 | **SSRN** (abstract 6418778) | REVISION SUBMITTED | **v30 revision submitted 28 Jun 2026** (`papers/snt_ssrn_v30_EN`); supersedes v2.3.1/502; under SSRN review |
 | **Zenodo** (DOI 10.5281/zenodo.19446521) | PUBLISHED | Record updated to v2.5.0 (721-case corpus) |
-| **PLOS Complex Systems** (PCSY-D-26-00059) | MAJOR REVISION | Deadline 10 Aug 2026; **v30 revision package ready** (`snt_plos_v30` + `plos_response_to_reviewers_v30`); addresses both reviewers |
+| **PLOS Complex Systems** (PCSY-D-26-00059) | REVISION SUBMITTED | v30 revision package submitted (`snt_plos_v30` + `plos_response_to_reviewers_v30`); addresses both reviewers; awaiting decision |
 | **J. Complex Networks** (COMNET-2026-214) | REJECTED | No external review |
-| **MIT GCFP Conference** | PREPARING SUBMISSION | 13th Annual Conf, Oct 29-30 2026; deadline 17 Jul 2026; paper + abstract ready (`papers/mit_gcfp_2026_*`) |
+| **MIT GCFP Conference** | SUBMITTED | 13th Annual Conf, Oct 29-30 2026; paper + abstract submitted (`papers/mit_gcfp_2026_*`) |
 | J. Theoretical Biology | NOT RELEASED | Requires v30 update |
 | Astrophysical Journal | NOT RELEASED | Requires v30 update |
 | Investigacion Economica | NOT RELEASED | Requires v30 update |
@@ -339,12 +339,15 @@ The-shadow-Node-Theory/
 |   |-- phi_validation_crypto.csv      <-- H-phi validation round 1
 |   +-- phi_validation_bio_primary.csv <-- H-phi validation round 2
 |
-|-- genomic_agent/                     <-- SNT Genomic Topologic Analyzer v2
-|   |-- agent_core/                    <-- Analysis engine + Streamlit UI
-|   |-- genomic_database/             <-- HPA + UniProt database builder
+|-- genomic_agent/                     <-- SNT Genomic Topologic Analyzer (v2.5.0)
+|   |-- agent_core/                    <-- Analysis engine (agent_logic.py) + Streamlit UI (app.py)
+|   |-- genomic_database/             <-- DB builders: db_builder.py (active oracle) + hpa_db_builder.py (HPA/UniProt alt)
 |   |-- mock_services/                <-- Jira/Slack/Email mock integrations
-|   |-- docker-compose.yml            <-- Container orchestration
-|   +-- paciente_omega_rnaseq.csv     <-- Demo patient (dirty CSV for ETL test)
+|   |-- analysis/                     <-- TCGA batch analysis (2,746 patients) + real-patient validation
+|   |   |-- TCGA_SNT_ANALYSIS.md       <-- 5-Event-Wall corpus report (BRCA/LUAD/GBM/COAD)
+|   |   |-- snt_pipeline.py            <-- TCGA batch Z-score pipeline
+|   |   +-- real_patient_validation/   <-- End-to-end run on real TCGA-BH-A18H case
+|   +-- docker-compose.yml            <-- Container orchestration
 |
 |-- figures/                           <-- Publication figures
 |   |-- fig_paisajes_colapso.*         <-- Collapse stability landscapes (v2.5.0)
@@ -362,12 +365,25 @@ Instead of detecting structural mutations (wrong letters in the code), the
 Genomic Agent detects **regulatory topology disruptions** (who stopped
 controlling whom) using Z-score analysis against Human Protein Atlas baselines.
 
-- **Two-Level Architecture:** Level-1 O(K) triage against 27 disease signatures
-  across 9 cancers; Level-2 chromosome-by-chromosome orphan anomaly scan
-- **Four anomaly types:** HUB_OVERACTIVATION, HUB_COLLAPSE,
-  SATELLITE_CAPTURE, LEAPFROG
-- **First ingestion (PX-OMEGA-001):** 8/27 confirmed signatures, 13 orphan
-  anomalies (potential novel biomarkers), 4.3s total pipeline time
+- **Two-Level Architecture:** Level-1 O(K) triage against 44 disease-signature
+  rows spanning 17 disease entries (7 solid tumors + 2 hereditary syndromes +
+  8 empirical TCGA "5-Event Wall" signatures); Level-2 chromosome-by-chromosome
+  orphan anomaly scan.
+- **Three anomaly types** (produced by the active engine): HUB_COLLAPSE,
+  SATELLITE_CAPTURE, LEAPFROG. The alternate HPA/UniProt oracle
+  (`genomic_database/hpa_db_builder.py`) additionally models HUB_OVERACTIVATION.
+- **ACO-A frame:** for confirmed HUB_COLLAPSE hubs, the agent fits the collapse
+  exponent Delta and classifies the collapse mode (Regulated Decay,
+  Cracquelure, Floor-Arrested, Catastrophic Cliff, Logistic Sweep), tying the
+  genomic layer to the v2.5.0 coupled-collapse theory.
+- **Empirical grounding:** the disease oracle's 5-Event-Wall signatures were
+  derived from a real 2,746-patient TCGA batch analysis across BRCA/LUAD/GBM/COAD
+  cohorts (`genomic_agent/analysis/TCGA_SNT_ANALYSIS.md`).
+- **Real-patient validation:** the full pipeline (Level 1 -> Level 2 -> ACO-A)
+  was run end-to-end against a genuine open-access TCGA-BRCA case (`TCGA-BH-A18H`,
+  via the NIH GDC API), confirming it executes without error on real RNA-seq
+  input (59/60 SNT-panel genes, 23 confirmed matches, 23 orphan anomalies).
+  See `genomic_agent/analysis/real_patient_validation/`.
 
 See `papers/SNT_Genomic_Topologic_Analyzer_v3.pdf` for full documentation.
 
@@ -376,15 +392,24 @@ See `papers/SNT_Genomic_Topologic_Analyzer_v3.pdf` for full documentation.
 ## H-phi Hypothesis -- Closed
 
 The hypothesis that **b** tends toward fractions of phi = 1.618... was
-tested in three independent rounds:
+tested in four independent rounds:
 
 | Round | Data | Result |
 |-------|------|--------|
 | 1 | Crypto (BTC/altcoins) | 0/4 |
 | 2 | Primary biological literature | 0/6 |
 | 3 | Real corpus n=188 (b>0) | p=0.642 -- identical to chance |
+| 4 | Full corpus n=534 (b>0) + **placebo control** | apparent signal (p<0.001 vs uniform null) collapses under placebo (p=0.170); bio "signal" is COVID pseudoreplication |
 
-**H-phi refuted.** Does not affect the central friction-satellization finding.
+**Round 4 lesson:** an apparent phi signal on the expanded corpus was an artifact
+of (i) *band coverage* -- the six phi bands densely tile the range where b
+concentrates, so the uniform null overstates chance; a placebo of random targets
+shows phi is not special (p=0.170) -- and (ii) *pseudoreplication* -- the surviving
+biological "signal" is 234 countries measuring the same pandemic (COVID), not
+independent data. Reproducible via `papers/phi_retest.py` + `papers/phi_placebo.py`.
+
+**H-phi refuted (4 rounds).** Does not affect the central friction-satellization
+finding.
 
 ---
 
@@ -400,7 +425,7 @@ tested in three independent rounds:
 | RC6 | Shadow node reverses satellization without exogenous trigger | NOT REFUTED |
 | RC7 | ASI does not predict outcomes better than chance | NOT REFUTED |
 | RC8 | Mutual interdependence does not brake satellization | NOT REFUTED |
-| RC9 | Collapse axis is not orthogonal to satellization: corr(b, Delta) >> 0 | OPEN (test pending) |
+| RC9 | Collapse axis is not orthogonal to satellization: corr(b, Delta) >> 0 | NOT REFUTED (first test: crypto n=11, Spearman rho=+0.009, p=0.98 -- consistent with orthogonality; cross-domain still untested) |
 | RC10 | A realized collapse takes a higher-friction path when a lower one exists | NOT REFUTED |
 | RC11 | Absorber mass does not grow post-absorption (R does not increase) | NOT REFUTED |
 
@@ -469,4 +494,4 @@ GitHub: [Inzainos](https://github.com/Inzainos)
 
 *Fractal Core Research -- Tlaxcala, Mexico*
 *"Technical truth above numerical impression."*
-*v2.5.0 | June 2026*
+*v2.5.0 | July 2026*
