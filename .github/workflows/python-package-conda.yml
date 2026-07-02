@@ -28,9 +28,8 @@ jobs:
         python -m pip install -r requirements.txt
     - name: Lint for syntax errors and undefined names (flake8)
       run: |
-        # Fail the build only on real errors; archive/ holds historical code
-        flake8 . --count --select=E9,F63,F7,F82 \
-          --exclude=archive,.git --show-source --statistics
+        # Config (select/exclude/etc.) lives in .flake8 — the single source.
+        flake8 .
     - name: Compile all active modules
       run: |
         python -m compileall -q code reconstruction_real genomic_agent dashboard

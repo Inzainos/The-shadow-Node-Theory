@@ -16,10 +16,27 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   sin errores sobre RNA-seq real (59/60 genes del panel SNT, 23 coincidencias
   confirmadas, 23 anomalías huérfanas). Script reproducible, datos y reporte en
   `genomic_agent/analysis/real_patient_validation/`.
+- **Baseline genómico derivado de tejido sano real**: `BASELINE_NETWORK` (el
+  denominador del Z-score en los escáneres Nivel 1/2) pasó de valores sintéticos
+  calibrados a mano a valores derivados de n=40 muestras TCGA-BRCA de tejido
+  normal-adyacente (vía API NIH GDC). 50/51 pares empíricos; solo `NRAS→PI3K`
+  permanece sintético. Con el nuevo baseline el escáner es más selectivo en el
+  paciente real (confirmadas 23→10, huérfanas 23→14) y los Z-scores caen a un
+  rango biológicamente plausible. Script y procedencia en
+  `genomic_agent/analysis/baseline_derivation/`.
+- **Carpeta del proyecto Delta** (`delta/`): scaffold del modelo independiente
+  de predicción cripto & bolsa sobre el exponente de colapso Δ (ACO-A), con la
+  línea Omega (Ω(t)) como precursor.
+- **`.flake8`**: configuración de linting como fuente única (antes vivía solo
+  inline en el flujo de CI).
+- **`SECURITY.md`**: política de seguridad y manejo de datos sensibles (PHI,
+  secretos, datos propietarios).
 
 ### Cambiado
 - Estado de publicaciones: revisión v30 de **PLOS Complex Systems** (PCSY-D-26-00059)
   enviada; ponencia **MIT GCFP** (13ª conferencia anual) enviada.
+- CI: el paso de `flake8` ahora lee su configuración desde `.flake8` en vez de
+  pasar las banderas `--select`/`--exclude` inline.
 
 ## [2.5.0] — 2026-06-28
 
