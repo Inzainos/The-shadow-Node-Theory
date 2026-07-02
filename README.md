@@ -346,6 +346,7 @@ The-shadow-Node-Theory/
 |   |-- analysis/                     <-- TCGA batch analysis (2,746 patients) + real-patient validation
 |   |   |-- TCGA_SNT_ANALYSIS.md       <-- 5-Event-Wall corpus report (BRCA/LUAD/GBM/COAD)
 |   |   |-- snt_pipeline.py            <-- TCGA batch Z-score pipeline
+|   |   |-- baseline_derivation/       <-- Empirical BASELINE_NETWORK from n=40 healthy TCGA samples
 |   |   +-- real_patient_validation/   <-- End-to-end run on real TCGA-BH-A18H case
 |   +-- docker-compose.yml            <-- Container orchestration
 |
@@ -363,7 +364,8 @@ The-shadow-Node-Theory/
 Cross-domain application of SNT hub-satellite topology to functional genomics.
 Instead of detecting structural mutations (wrong letters in the code), the
 Genomic Agent detects **regulatory topology disruptions** (who stopped
-controlling whom) using Z-score analysis against Human Protein Atlas baselines.
+controlling whom) using Z-score analysis against a healthy-tissue reference
+network derived from real TCGA normal-adjacent RNA-seq samples.
 
 - **Two-Level Architecture:** Level-1 O(K) triage against 44 disease-signature
   rows spanning 17 disease entries (7 solid tumors + 2 hereditary syndromes +
@@ -379,11 +381,15 @@ controlling whom) using Z-score analysis against Human Protein Atlas baselines.
 - **Empirical grounding:** the disease oracle's 5-Event-Wall signatures were
   derived from a real 2,746-patient TCGA batch analysis across BRCA/LUAD/GBM/COAD
   cohorts (`genomic_agent/analysis/TCGA_SNT_ANALYSIS.md`).
+- **Empirical healthy baseline:** the hub-satellite reference ratios in
+  `BASELINE_NETWORK` are derived from n=40 real TCGA-BRCA normal-adjacent
+  RNA-seq samples (50/51 pairs; only the unresolvable NRAS->PI3K pair remains
+  synthetic). See `genomic_agent/analysis/baseline_derivation/`.
 - **Real-patient validation:** the full pipeline (Level 1 -> Level 2 -> ACO-A)
   was run end-to-end against a genuine open-access TCGA-BRCA case (`TCGA-BH-A18H`,
-  via the NIH GDC API), confirming it executes without error on real RNA-seq
-  input (59/60 SNT-panel genes, 23 confirmed matches, 23 orphan anomalies).
-  See `genomic_agent/analysis/real_patient_validation/`.
+  via the NIH GDC API). Against the empirical baseline it produces biologically
+  plausible Z-scores (59/60 SNT-panel genes; 10 confirmed matches, 14 orphan
+  anomalies). See `genomic_agent/analysis/real_patient_validation/`.
 
 See `papers/SNT_Genomic_Topologic_Analyzer_v3.pdf` for full documentation.
 
