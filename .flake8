@@ -1,0 +1,12 @@
+[flake8]
+# Single source of truth for linting. CI runs `flake8 .` and picks this up.
+# We fail the build only on real errors (syntax, undefined names); archive/
+# holds historical/superseded code that is intentionally not linted.
+select = E9,F63,F7,F82
+exclude =
+    .git,
+    __pycache__,
+    archive
+show_source = True
+statistics = True
+count = True

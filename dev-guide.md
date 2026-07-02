@@ -36,8 +36,10 @@ pip install -r requirements.txt
 
 ### Lint Python files
 
+Configuration lives in `.flake8` (select/exclude/etc.), so just run:
+
 ```bash
-flake8 . --count --select=E9,F63,F7,F82 --exclude=archive,.git --show-source --statistics
+flake8 .
 ```
 
 ### Run smoke test
