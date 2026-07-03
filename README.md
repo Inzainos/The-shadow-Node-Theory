@@ -389,7 +389,10 @@ network derived from real TCGA normal-adjacent RNA-seq samples.
   was run end-to-end against a genuine open-access TCGA-BRCA case (`TCGA-BH-A18H`,
   via the NIH GDC API). Against the empirical baseline it produces biologically
   plausible Z-scores (59/60 SNT-panel genes; 10 confirmed matches, 14 orphan
-  anomalies). See `genomic_agent/analysis/real_patient_validation/`.
+  anomalies). A second round extends this to a batch of 8 real TCGA-BRCA tumor
+  patients (0 exceptions; heterogeneous per-patient results, means 5.5 confirmed
+  / 13.75 orphan). See `genomic_agent/analysis/real_patient_validation/` (and
+  `round2/`).
 
 See `papers/SNT_Genomic_Topologic_Analyzer_v3.pdf` for full documentation.
 
