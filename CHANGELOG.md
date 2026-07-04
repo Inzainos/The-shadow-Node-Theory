@@ -16,6 +16,12 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   sin errores sobre RNA-seq real (59/60 genes del panel SNT, 23 coincidencias
   confirmadas, 23 anomalías huérfanas). Script reproducible, datos y reporte en
   `genomic_agent/analysis/real_patient_validation/`.
+- **Validación a escala (976 pacientes reales)**: el pipeline se ejecutó contra
+  la cohorte completa de tumor primario TCGA-BRCA (976 casos únicos, descarga en
+  10 lotes de ~100 vía GDC POST /data), contra el baseline empírico. 976/976 sin
+  excepciones; distribuciones estables y discriminantes (confirmadas media 7.49,
+  huérfanas 14.79, hubs ACO-A 3.86). Reporte, agregado y runner en
+  `genomic_agent/analysis/real_patient_validation/scale_976/`.
 - **Ronda 2 de validación (lote de 8 pacientes reales)**: el pipeline se ejecutó
   en batch contra 8 casos TCGA-BRCA de tumor primario (vía API NIH GDC), esta vez
   contra el baseline empírico. 0 excepciones; resultados heterogéneos y
