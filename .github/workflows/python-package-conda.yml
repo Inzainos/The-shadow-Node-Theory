@@ -32,7 +32,7 @@ jobs:
         flake8 .
     - name: Compile all active modules
       run: |
-        python -m compileall -q code reconstruction_real genomic_agent dashboard
+        python -m compileall -q code reconstruction_real genomic_agent dashboard delta
     - name: Smoke test — ACO module (v2.4.0)
       run: |
         python reconstruction_real/code/build_aco_v29.py
