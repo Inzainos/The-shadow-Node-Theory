@@ -109,10 +109,10 @@ b >= 1    --> superlinear satellization -- Roche Radius
 | Domain | Friction | Cases | Sig. | b mean | Source |
 |--------|----------|-------|------|--------|--------|
 | A -- Cities | medium | 4 | 0% | +0.08 | UN Demographic Yearbook |
-| B -- Countries | high | 446 | 84% | +0.09 | Maddison Project 2020 |
+| B -- Countries | high | 446 | 84% | +0.09 | Maddison Project 2023 |
 | C -- Regions | high | 24 | 100% | +0.09 | INEGI + US Census |
 | D -- Digital | low | 3 | 100% | -1.36 | HackerEarth 2026 |
-| E1 -- Invasion | none | 4 | 100% | +2.89 | OWID COVID (spatial) |
+| E1 -- Invasion | none | 4 | 100% | +2.89 | Nature Comms / Conservation Biol. |
 | E2 -- Predator-prey | high | 2 | 50% | +0.15 | MacLulich/Elton |
 | E3 -- Parasite-host | none | 234 | 100% | +0.91 | JHU COVID-19 |
 | F1 -- Planetary | medium | 2 | 100% | -1.81 | Open Exoplanet Cat. |
