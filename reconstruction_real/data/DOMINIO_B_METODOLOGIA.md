@@ -1,7 +1,7 @@
 # Dominio B (Países) — Reconstrucción con Datos Reales
 
 ## Fuente de datos
-**Maddison Project Database** (Bolt & van Zanden 2020), vía Our World in Data.
+**Maddison Project Database** (Bolt & van Zanden 2023), vía Our World in Data.
 PIB per cápita real (constant 2011 international $), series 1-2018.
 
 ## Metodología
@@ -19,7 +19,7 @@ Para cada par hub-nodo:
 - Mínimo 8 observaciones temporales por par
 - Período base: 1900-2018 (ajustado por disponibilidad)
 
-## Resultados (258 casos)
+## Resultados (446 casos)
 - Significativos (p<0.05): 220 (85.3%)
 - b medio: +0.076, mediano: +0.033
 - R² medio (significativos): 0.41
