@@ -347,8 +347,15 @@ The-shadow-Node-Theory/
 |   |   |-- TCGA_SNT_ANALYSIS.md       <-- 5-Event-Wall corpus report (BRCA/LUAD/GBM/COAD)
 |   |   |-- snt_pipeline.py            <-- TCGA batch Z-score pipeline
 |   |   |-- baseline_derivation/       <-- Empirical BASELINE_NETWORK from n=40 healthy TCGA samples
-|   |   +-- real_patient_validation/   <-- End-to-end run on real TCGA-BH-A18H case
+|   |   +-- real_patient_validation/   <-- End-to-end run on real TCGA-BH-A18H case + round2/ (8 patients) + scale_976/ (976 patients)
 |   +-- docker-compose.yml            <-- Container orchestration
+|
+|-- delta/                             <-- Delta — crypto & market prediction engine (v0.1)
+|   |-- README.md                      <-- Module overview, run instructions, roadmap
+|   |-- snt_market_core.py             <-- Satellization fit R(t)=a·t^b, regime classification, rolling-b
+|   |-- market_mapping.py              <-- Map price series → hub/shadow dominance ratio; friction constants
+|   |-- delta_engine.py               <-- Full pipeline → DeltaSignal (b, regime, anomaly, leapfrog, confidence)
+|   +-- demo_delta.py                  <-- End-to-end smoke test on synthetic series (crypto + bolsa)
 |
 |-- figures/                           <-- Publication figures
 |   |-- fig_paisajes_colapso.*         <-- Collapse stability landscapes (v2.5.0)
@@ -393,8 +400,44 @@ network derived from real TCGA normal-adjacent RNA-seq samples.
   patients (0 exceptions; heterogeneous per-patient results, means 5.5 confirmed
   / 13.75 orphan). See `genomic_agent/analysis/real_patient_validation/` (and
   `round2/`).
+- **Scale validation (976 patients):** the pipeline was run against the full
+  TCGA-BRCA primary-tumor cohort (976 unique cases, downloaded in 10 batches of
+  ~100 via GDC POST /data), benchmarked against the empirical baseline.
+  976/976 ran without exceptions; distributions are stable and discriminant
+  (confirmed mean 7.49, orphan mean 14.79, ACO-A hubs mean 3.86). Report,
+  aggregated results and runner script in
+  `genomic_agent/analysis/real_patient_validation/scale_976/`.
 
 See `papers/SNT_Genomic_Topologic_Analyzer_v3.pdf` for full documentation.
+
+---
+
+## Delta — Crypto & Market Prediction Engine
+
+Delta is an **independent** SNT-based signal engine for crypto and equity markets
+(`delta/`). It applies the satellization law `R(t) = a·t^b` to financial price
+series and compares the observed exponent against the friction-expected b for
+each market class.
+
+- **Hub/shadow mapping:** crypto (hub = BTC, shadow = altcoin) and bolsa (hub =
+  index, shadow = stock) are treated as SNT pairs; the dominance ratio is built
+  from aligned price arrays.
+- **Friction anchor:** the SNT finding (ρ = −0.68) sets the expected b per
+  market: crypto (low friction, expected b ≈ 0.60) and bolsa (medium friction,
+  expected b ≈ 0.30). A large deviation from the friction-null is the tradable
+  anomaly.
+- **DeltaSignal:** the engine emits a structured signal with b, regime,
+  R², p-value, anomaly score, leapfrog flag, direction, and confidence.
+- **Rolling-b regime shifts:** a sliding-window b series detects leapfrog
+  transitions (b was positive, turned negative) in real time.
+
+This is a descriptive/decision-support signal, **not financial advice**.
+See `delta/README.md` for run instructions, module breakdown, and roadmap.
+
+```bash
+cd delta
+python demo_delta.py     # end-to-end smoke test on synthetic crypto + bolsa series
+```
 
 ---
 
