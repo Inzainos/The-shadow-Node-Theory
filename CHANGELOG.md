@@ -9,6 +9,14 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 ## [No publicado] — 2026-07
 
 ### Añadido
+- **v31 — Patch Módulo Micro + Macro (2026-07-06):** integración de Principio
+  del Paisaje Vivo, axiomas Ax-M1 a Ax-M4, dinámica del 5-Event Wall (cuatro
+  trayectorias tipo), Análisis de Divergencia Retrospectiva, extensión de
+  Filogenia Predictiva a clados biológicos, y Recurrencia de Poincaré
+  operacionalizada. Operador universal (b, F, E_res, C_k) demostrado invariante
+  a cualquier escala (individuo, linaje, civilización, planeta). Roadmap Item 5
+  abierto: corpus multi-escala con trayectorias completas etiquetadas.
+  Archivo: `papers/marco_teorico_v31_patch.md`.
 - **Validación del agente genómico con datos reales de paciente**: el pipeline
   completo (Triage Nivel 1 → Escáner de bloques Nivel 2 → análisis ACO-A) se
   ejecutó de extremo a extremo contra un caso TCGA-BRCA genuino y de acceso
