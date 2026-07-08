@@ -5,18 +5,18 @@
 | Dominio | Casos | Sig. | b mean | R2 mean | Fuente |
 |---------|-------|------|--------|---------|--------|
 | A -- Ciudades | 4 | 0% | +0.08 | 0.18 | UN Demographic Yearbook |
-| B -- Paises | 446 | 84% | +0.09 | 0.35 | Maddison Project 2020 |
+| B -- Paises | 446 | 84% | +0.09 | 0.35 | Maddison Project 2023 |
 | C -- Regiones | 24 | 100% | +0.09 | 0.53 | INEGI 2022 + US Census |
 | D -- Digital | 3 | 100% | -1.36 | 0.87 | HackerEarth 2026 |
-| E1 -- Invasion | 4 | 100% | +2.89 | 0.81 | OWID COVID-19 spatial |
-| E2 -- Depred-presa | 2 | 50% | +0.15 | 0.12 | MacLulich 1937 / Elton 1942 |
+| E1 -- Invasion | 4 | 100% | +2.89 | 0.81 | Nature Comms / Conservation Biol. |
+| E2 -- Depred-presa | 4 | 50% | +0.15 | 0.12 | MacLulich 1937 / Elton 1942 |
 | E3 -- Parasito-huesped | 234 | 100% | +0.91 | 0.85 | JHU COVID-19 |
 | F1 -- Planetario | 2 | 100% | -1.81 | 0.40 | Open Exoplanet Catalogue |
 | F2 -- Estelar | 1 | 100% | +1.27 | 0.48 | Open Exoplanet Catalogue |
 | F3 -- Multiplanet | 1 | 100% | +1.26 | 0.90 | Open Exoplanet Catalogue |
 | ACO -- Colapso Acoplado | 18 | 94% | +0.60 | 0.87 | ver build_aco_v29.py |
 
-**Total: 721 casos satelizacion + 18 casos ACO | CERO R2 corruptos**| 89% significativos | CERO R2 corruptos**
+**Total: 721 casos satelizacion + 18 casos ACO | 89% significativos | CERO R2 corruptos**
 
 ## Hallazgo central (datos reales)
 
@@ -49,7 +49,7 @@ b~+0.95). El gradiente es nitido y altamente significativo.
   fisica (Eddington, resonancia orbital), no institucional.
 
 ## Fuentes (todas publicas y verificables)
-- Maddison Project Database 2020 (Bolt & van Zanden)
+- Maddison Project Database 2023 (Bolt & van Zanden)
 - INEGI 2022 (Mexico) + US Census Bureau (estados)
 - HackerEarth 2026
 - OWID COVID-19 dataset (Johns Hopkins)

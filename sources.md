@@ -85,7 +85,7 @@ All data used in the SNT v2.4.0 corpus (721 real cases) are either publicly avai
 
 ---
 
-## Domain E2 — Predator-Prey (n=2)
+## Domain E2 — Predator-Prey (n=4)
 
 - **Canadian lynx vs snowshoe hare:** Maclulich, D.A. (1937). *Fluctuations in the numbers of the varying hare*. University of Toronto Studies, Biol. Ser. 43. Elton, C. & Nicholson, M. (1942). *Journal of Animal Ecology* 11(2), 215–244. Hudson Bay Company fur records 1845–1935.
 - **Adriatic shark vs prey fish:** D'Ancona, U. (1926) cited in Volterra, V. (1926). Fluctuations in the abundance of a species. *Nature* 118, 558–560.
@@ -186,4 +186,4 @@ All scripts, processed data files, and figures are available at:
 - **Zenodo v2.4.0:** [https://doi.org/10.5281/zenodo.19446521](https://doi.org/10.5281/zenodo.19446521)
 - **Zenodo v2.0:** [https://doi.org/10.5281/zenodo.19131327](https://doi.org/10.5281/zenodo.19131327)
 
-*Last updated: June 2026 (v2.5.0)*
+*Last updated: July 2026 (v2.5.0)*
