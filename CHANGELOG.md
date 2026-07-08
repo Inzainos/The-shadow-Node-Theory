@@ -39,6 +39,12 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 - **Carpeta del proyecto Delta** (`delta/`): scaffold del modelo independiente
   de predicción cripto & bolsa sobre el exponente de colapso Δ (ACO-A), con la
   línea Omega (Ω(t)) como precursor.
+- **Delta — motor SNT + datos reales**: núcleo de satelización portado
+  self-contained (R(t)=a·t^b + régimen), motor de señal (b vs fricción →
+  DeltaSignal), y adaptadores de datos reales sin API key (CoinGecko para
+  cripto BTC vs top-10 alts; Yahoo Finance para bolsa S&P 500 + IPC/BMV).
+  Corrida real: 23 señales (`delta/real_delta_signals.json`). Señal descriptiva,
+  no consejo financiero.
 - **`.flake8`**: configuración de linting como fuente única (antes vivía solo
   inline en el flujo de CI).
 - **`SECURITY.md`**: política de seguridad y manejo de datos sensibles (PHI,

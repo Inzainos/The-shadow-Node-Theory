@@ -51,9 +51,25 @@ synthetic demo series.
 - Independent of the Omega codebase (own data, pipeline, lifecycle); the SNT
   engine logic is ported here rather than imported.
 
+## Real data
+
+`data_adapters.py` + `run_real_delta.py` fetch **real historical daily closes
+with no API key**:
+
+- Crypto → CoinGecko (`/coins/{id}/market_chart`), BTC hub vs top-10 alts.
+- Bolsa → Yahoo Finance (`/v8/finance/chart`), S&P 500 (`^GSPC`) + US caps and
+  IPC (`^MXX`) + BMV emisoras.
+
+```bash
+cd delta
+python run_real_delta.py   # writes real_delta_signals.json (23 signals)
+```
+
+`real_delta_signals.json` holds the latest run (signals only — no raw prices).
+
 ## Roadmap
 
-- [ ] Real data adapters (exchange API for crypto, market-data API for bolsa).
+- [x] Real data adapters (CoinGecko crypto + Yahoo Finance bolsa, no keys).
 - [ ] Multi-shadow (N-Body) view: one hub vs a basket of shadows.
 - [ ] Backtest harness against historical series.
 - [ ] ACO-A collapse layer (Δ) for drawdown/collapse regimes.
