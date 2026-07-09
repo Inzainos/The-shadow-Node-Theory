@@ -1,0 +1,18 @@
+# Delta — Jupyter Requirements
+# Install with: pip install -r delta/notebooks/requirements_jupyter.txt
+
+# Core scientific stack (motor Delta)
+numpy>=1.24
+scipy>=1.10
+pandas>=2.0
+
+# Visualization
+matplotlib>=3.7
+
+# Jupyter
+jupyter>=1.0
+jupyterlab>=4.0
+ipywidgets>=8.0
+
+# HTTP (data adapters: CoinGecko + Yahoo, sin API key)
+requests>=2.28
