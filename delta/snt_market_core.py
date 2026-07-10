@@ -96,7 +96,12 @@ def fit_satellization(t: np.ndarray, ratio: np.ndarray) -> SatellizationResult:
     ss_tot = float(np.sum((r_clean - r_clean.mean()) ** 2))
     r_squared = 1.0 - ss_res / ss_tot if ss_tot > 0 else 0.0
 
-    r_pearson, p_value = pearsonr(log_t, log_r)
+    # A perfectly flat ratio (log_r constant) leaves the correlation undefined;
+    # report it as no linear trend rather than emitting a nan / warning.
+    if np.std(log_r) == 0 or np.std(log_t) == 0:
+        r_pearson, p_value = 0.0, 1.0
+    else:
+        r_pearson, p_value = pearsonr(log_t, log_r)
 
     return SatellizationResult(
         a=round(a, 6),
