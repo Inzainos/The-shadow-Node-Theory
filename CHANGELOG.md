@@ -57,6 +57,15 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   inline en el flujo de CI).
 - **`SECURITY.md`**: política de seguridad y manejo de datos sensibles (PHI,
   secretos, datos propietarios).
+- **`AGENTS.md` + `CLAUDE.md`**: guía operativa para agentes de IA en la raíz,
+  espejo del estándar del repo `workspaces` (rama→PR→merge, datos reales,
+  Conventional Commits, no PHI/secretos, CI verde antes de merge).
+
+### Documentación
+- `genomic_agent/README.md`: documenta el baseline empírico (n=40 tejido sano
+  TCGA) y las validaciones con pacientes reales (rondas 1/2 + escala 976).
+- `README.md`: árbol de archivos de `delta/` actualizado con los adaptadores de
+  datos reales (`data_adapters.py`, `run_real_delta.py`).
 
 ### Cambiado
 - Estado de publicaciones: revisión v30 de **PLOS Complex Systems** (PCSY-D-26-00059)

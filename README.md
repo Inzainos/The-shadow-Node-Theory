@@ -355,7 +355,9 @@ The-shadow-Node-Theory/
 |   |-- snt_market_core.py             <-- Satellization fit R(t)=a·t^b, regime classification, rolling-b
 |   |-- market_mapping.py              <-- Map price series → hub/shadow dominance ratio; friction constants
 |   |-- delta_engine.py               <-- Full pipeline → DeltaSignal (b, regime, anomaly, leapfrog, confidence)
-|   +-- demo_delta.py                  <-- End-to-end smoke test on synthetic series (crypto + bolsa)
+|   |-- demo_delta.py                  <-- End-to-end smoke test on synthetic series (crypto + bolsa)
+|   |-- data_adapters.py               <-- Real market data, no API key (CoinGecko crypto + Yahoo Finance bolsa)
+|   +-- run_real_delta.py              <-- Real-data run → real_delta_signals.json (BTC vs top-10 alts; S&P500 + IPC)
 |
 |-- figures/                           <-- Publication figures
 |   |-- fig_paisajes_colapso.*         <-- Collapse stability landscapes (v2.5.0)
