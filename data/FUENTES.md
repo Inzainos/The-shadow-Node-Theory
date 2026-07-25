@@ -14,25 +14,34 @@ script en fechas distintas podían obtener cifras distintas sin saberlo.
 
 ## 1. Fuentes externas que hay que descargar (NO están en el repo)
 
-### `data/owid-maddison.csv` — **AUSENTE en el repo**
+### `data/owid-maddison.csv` — **presente en el repo** (descargado 2026-07-25)
 
-- **Quién la usa:** `reconstruction_real/code/expand_dominio_B.py` (línea 11:
-  `pd.read_csv('data/owid-maddison.csv')`).
-- **Peso:** dominio B = **446 casos = 62% del corpus**. Sin este archivo el
-  dominio B **no se regenera clonando el repo**.
-- **Fuente primaria:** Maddison Project Database, Groningen Growth and
-  Development Centre (GGDC).
-  URL: <https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases>
-  (mirror habitual vía Our World in Data: <https://ourworldindata.org/grapher/gdp-per-capita-maddison>).
+- **Quién la usa:** `reconstruction_real/code/expand_dominio_B.py` (línea 11) y
+  `reconstruction_real/code/prueba_discriminante_dominio_B.py` (bloque 1).
+- **Peso:** dominio B = **446 casos = 62% del corpus**.
+- **Fuente primaria:** Maddison Project Database (Bolt & van Zanden), Groningen
+  Growth and Development Centre (GGDC), vía Our World in Data.
 - **Cuidado — dato vivo:** el Maddison Project **revisa sus estimaciones
-  históricas de PIB entre ediciones**. Hay que fijar edición + fecha + SHA-256.
+  históricas de PIB entre ediciones**. Por eso se fija edición + fecha + SHA-256.
 
 | Campo | Valor |
 |---|---|
-| Edición | _(pendiente: p.ej. "Maddison Project Database 2023")_ |
-| Fecha de descarga | _(pendiente)_ |
-| URL exacta del archivo | _(pendiente)_ |
-| SHA-256 | _(pendiente — correr `sha256sum data/owid-maddison.csv` tras descargar)_ |
+| Origen | OWID grapher `gdp-per-capita-maddison` (base: Maddison Project Database, cobertura hasta 2022 → release 2023) |
+| URL de descarga | <https://ourworldindata.org/grapher/gdp-per-capita-maddison.csv> |
+| Fecha de descarga | 2026-07-25 |
+| Columnas conservadas | `Entity, Code, Year, GDP per capita` (se descartó la columna vacía de anotaciones) |
+| Cobertura | 178 entidades · años 1–2022 · 21,586 filas |
+| Licencia | OWID: CC BY 4.0 (atribuir Maddison Project Database + Our World in Data) |
+| SHA-256 | `6e905c41324d50f2e4e468bad9d204a1efd44f6f34368c98425e8e0b33d6a4ec` |
+
+> **Nota de reproducibilidad:** esta es la edición **vigente** de OWID/Maddison
+> al 2026-07-25, no necesariamente la que se usó para construir
+> `dominio_B_real.csv` originalmente. Para la prueba discriminante (b vs brecha
+> inicial) eso no importa —testea una correlación, no reproduce el ajuste—, pero
+> re-generar el dominio B con esta edición puede dar cifras algo distintas a las
+> publicadas (el Maddison revisa el PIB histórico entre ediciones). Cobertura
+> sobre el corpus: 102/103 países (falta "Sudan"), 441/446 pares con `year_min`
+> disponible.
 
 ### Fuente de E3 (COVID-19) — series crudas **AUSENTES en el repo**
 
@@ -66,6 +75,7 @@ que se documente. Recalcular con `sha256sum <archivo>`.
 | `reconstruction_real/data/snt_corpus_REAL_v5.csv` | `6a4a89ed780552facfc0cd77a1abf7ce49b02d73211205d04f51f5eb5d38e9b1` |
 | `reconstruction_real/data/snt_corpus_aco_timeseries_v29.csv` | `68c11e95e3b609008820111e303141b2d9391923960a5f7855c074e44512d31c` |
 | `data/snt_asi_scores.csv` | `57e38ee9f779efc117b747247cb72ce6f869ae433f885aa116a653b766531fb6` |
+| `data/owid-maddison.csv` | `6e905c41324d50f2e4e468bad9d204a1efd44f6f34368c98425e8e0b33d6a4ec` |
 
 > Para regenerar la tabla:
 > ```sh
@@ -82,8 +92,11 @@ que se documente. Recalcular con `sha256sum <archivo>`.
 
 ## 3. Pendientes de provenance (heredados de la auditoría v32)
 
-- [ ] Descargar `data/owid-maddison.csv`, fijar edición + fecha + SHA-256 arriba.
+- [x] Descargar `data/owid-maddison.csv`, fijar edición + fecha + SHA-256 arriba.
+      **Hecho 2026-07-25** (OWID grapher, cobertura hasta 2022).
 - [ ] Recuperar las series crudas de E3 (OWID COVID snapshot) para desbloquear
       su corrección AR(1).
+- [ ] Conseguir la matriz de comercio bilateral direccional (IMF DOTS / CEPII
+      BACI / UN Comtrade) para desbloquear el bloque 2 de la prueba discriminante.
 - [ ] Opcional: `download_sources.sh` que baje ambas fuentes y verifique los
       checksums, para que el corpus sea regenerable de punta a punta.

@@ -37,9 +37,14 @@ python reconstruction_real/code/snt_auditoria_integral_v32.py
 - **Bloque 0 (corre ya):** el rol de "hub" es una propiedad del PAR, no del
   país — **85% de los hubs también aparecen como satélites** (Italia: hub en 3
   pares, satélite en 12). `b` depende de la región (Kruskal-Wallis p=1.2e-8) con
-  gradiente coherente con convergencia. Mueve el *prior*, no lo cierra.
-- **Bloques 1–3:** BLOQUEADOS por datos ausentes (Maddison + matriz de comercio
-  bilateral).
+  gradiente coherente con convergencia.
+- **Bloque 1 (corrido 2026-07-25, con Maddison real):** **H-CONVERGENCIA
+  RESPALDADA** — Spearman `b` vs brecha inicial de PIB: **ρ=−0.473, p=6.6e-26,
+  n=441**, y sobrevive el control intra-región (hasta ρ=−0.92 en Europa
+  Occidental). Combinado con el bloque 0: el dominio B (62% del corpus) es, en lo
+  medible hoy, consistente con β-convergencia y no con acoplamiento SNT.
+- **Bloques 2–3:** BLOQUEADOS por falta de matriz de comercio bilateral
+  direccional (decidiría si el acoplamiento añade algo sobre la convergencia).
 
 ### Los cuatro hallazgos que cambian algo
 

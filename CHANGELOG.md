@@ -19,9 +19,20 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   pares, satélite en 12; México 1/9) — y que `b` depende fuertemente de la región
   (Kruskal-Wallis H=63.5, p=1.2e-8) con un gradiente coherente con convergencia
   (negativo en regiones ya convergidas, positivo en rezagadas). Mueve el *prior*
-  hacia H-CONVERGENCIA sin cerrarla. Bloques 1–3 (b vs brecha inicial de PIB; b
-  vs comercio bilateral; modelo conjunto) quedan BLOQUEADOS por datos ausentes
-  (`owid-maddison.csv` + matriz de comercio bilateral direccional).
+  hacia H-CONVERGENCIA sin cerrarla. **Bloque 1 corrido (2026-07-25) con
+  `data/owid-maddison.csv` real: H-CONVERGENCIA RESPALDADA** — Spearman `b` vs
+  brecha inicial de PIB `log(PIB_hub/PIB_nodo)` = **−0.473 (p=6.6e-26, n=441)**,
+  que sobrevive el control intra-región (hasta −0.92 en Europa Occidental).
+  Combinado con el bloque 0, el dominio B (62% del corpus) es —en lo medible
+  hoy— consistente con β-convergencia y no con acoplamiento SNT; el bloque 2
+  (comercio bilateral) decidiría si el acoplamiento añade algo. Salida por par en
+  `reconstruction_real/data/discrim_bloque1_convergencia.csv`. Bloques 2–3
+  siguen BLOQUEADOS (falta matriz de comercio bilateral direccional).
+- **`data/owid-maddison.csv`** — descargado del grapher OWID
+  `gdp-per-capita-maddison` (Maddison Project Database, cobertura 1–2022, 178
+  entidades; CC BY 4.0). Cierra el hallazgo de reproducibilidad #7 de la
+  auditoría v32 para el dominio B. Provenance (URL, fecha, SHA-256) en
+  `data/FUENTES.md`.
 - **Auditoría integral v32 (`reconstruction_real/audits/`).** Recorrido completo
   de las cifras publicadas: 14/33 replican exacto; la aritmética del corpus está
   limpia (`MASTER_cifras_v5.json` 8/8, `MASTER_resumen_v5.csv` 40/40). Lo que
