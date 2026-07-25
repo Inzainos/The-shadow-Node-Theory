@@ -34,38 +34,45 @@ Lo recuperé de `by_domain/dominio_B_real.csv`:
 
 Consecuencia sobre la significancia:
 
-> **⚠️ Corrección fechada (2026-07-25) — revisión cruzada.** La cifra puntual
-> **145 (32.5%)** que aparecía en la tabla original de este bloque **estaba mal**:
-> venía de una media corrección incoherente (recortar los grados de libertad a
-> `n_eff − 2` pero dejar el estadístico `t = b/se` intacto). Si las observaciones
-> están correlacionadas, la varianza del estimador de la pendiente crece, así que
-> el **error estándar tiene que inflarse además de recortar gl** — son las dos
-> mitades de la misma corrección. Aplicando ambas (factor de inflación del SE
-> `√((1+ρ)/(1−ρ))`, mediana **5.9×**, rango 1.7×–16.3×) el resultado coherente es
-> **33 (7.4%)**, no 145. El error **subestimaba** la gravedad: la caída real es de
-> 374 a 33 (**91%**), no el 61% reportado. La corrección empeora el hallazgo.
+> **⚠️ Corrección fechada (2026-07-25) — dos rondas de revisión cruzada.**
+> La cifra puntual **145 (32.5%)** de la tabla original de este bloque **estaba
+> mal por dos razones independientes**:
+>
+> 1. **Media corrección incoherente.** Recortaba los grados de libertad a
+>    `n_eff − 2` pero dejaba `t = b/se` intacto. Si las observaciones están
+>    correlacionadas la varianza de la pendiente crece, así que el **error
+>    estándar debe inflarse además de recortar gl** (factor `√((1+ρ)/(1−ρ))`,
+>    mediana **5.9×**, rango 1.7×–16.3×).
+> 2. **Contaminación por casos no estimables.** Los 145 contaban como
+>    significativos ~33 casos con `n_eff < 3` — dos parámetros sobre ~2
+>    observaciones efectivas —, que **no admiten ajuste**. Reportarlos como
+>    "testeados y no significativos" mezcla dos afirmaciones distintas.
 
-El valor correcto es un **rango acotado**, no un punto — porque el propio factor
-de Bartlett está aplicado fuera de su derivación (media de un AR(1), no pendiente):
+El marco correcto no es un conteo sobre 446 sino **tres cifras**:
 
-| | Publicado | Cota inferior (SE inflado + gl) | Cota superior (solo gl) |
-|---|---|---|---|
-| Significativos dominio B | 374 (83.9%) | **33 (7.4%)** | 145 (32.5%) |
-| **pct_sig del corpus completo** | **89.3%** | **42.0%** | 57.6% |
+| Paso | Cifra |
+|---|---|
+| **Estimables** tras corrección (`n_eff ≥ 3`) | **156 / 446 (35.0%)** |
+| **No estimables** (`n_eff < 3`) → *no estimables, no "no significativos"* | **290 / 446 (65.0%)** |
+| Significativos **entre los 156 estimables** — cota inferior (SE inflado + gl) | **33 (21.2%)** |
+| Significativos **entre los 156 estimables** — cota superior (solo gl, `df>0`) | 112 (71.8%) |
+| Cifra puntual | pendiente de **Newey-West/GLS** sobre residuos crudos |
 
-El valor puntual verdadero vive **dentro de [33, 145]** (equivalente a
-42.0%–57.6% de pct_sig) y solo se fija con **Newey-West o GLS sobre los residuos
-crudos** — que requieren las series fuente ausentes del repo (`data/owid-maddison.csv`,
-hallazgo #7). Ese rango es corrigiendo **solo B**; E3 (234 casos COVID) no trae DW
-pero es igual o más autocorrelacionado, así que la cifra real será aún más baja.
+La partición **290/446 no estimables** es el hallazgo más limpio y más fuerte:
+sale directo de `n_eff < 3`, **sin depender de convenciones ni de la aproximación
+de Bartlett**. Entre los que sí se pueden testear, la significancia cae de un
+supuesto ~84% a **21.2%–71.8%** según la variante analítica; el valor puntual
+necesita Newey-West/GLS, que requiere las series fuente ausentes del repo
+(`data/owid-maddison.csv`, hallazgo #7). Todo esto corrigiendo **solo B**; E3 no
+trae DW pero es igual o más autocorrelacionado.
 
-> **Caveat honesto:** `n_eff = n(1−ρ)/(1+ρ)` y el factor de inflación
-> `√((1+ρ)/(1−ρ))` son la aproximación de Bartlett, derivada para la **media** de
-> un AR(1), no para la pendiente de una regresión con regresor tendencial (`log t`).
-> Sirve para **acotar**, no como corrección final. Para publicar: Newey-West o GLS
-> con estructura AR(1) (ambos en `snt_utils_v32.py`). `corregir_corpus()` emite
-> ahora las dos cotas (`sig_ar1` = 33, `sig_ar1_solo_gl` = 145) con un warning de
-> que el resultado es un rango; el test `test_correccion_ar1.py` fija ambas.
+> **Nota de método:** `n_eff = n(1−ρ)/(1+ρ)` y el factor `√((1+ρ)/(1−ρ))` son la
+> aproximación de Bartlett, derivada para la **media** de un AR(1), no para una
+> pendiente con regresor tendencial (`log t`) — acotan, no cierran. `corregir_corpus()`
+> emite la partición de estimabilidad y las dos cotas entre estimables
+> (`sig_ar1` = 33, `sig_ar1_solo_gl` = 112) con un warning; el test
+> `test_correccion_ar1.py` fija 156/290/33/112 (cifras invariantes a la
+> convención de gl — por eso **no** se fija 145).
 
 ### 2. El régimen superlineal b≥1 puede ser artefacto de modelo — hallazgo nuevo
 

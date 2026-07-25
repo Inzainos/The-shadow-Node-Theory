@@ -42,22 +42,26 @@ python reconstruction_real/code/snt_auditoria_integral_v32.py
    `round(p,6)`; dos definiciones de R² promediadas juntas; `trigger`
    hardcodeado a `'gradual'` en `expand_dominio_B.py`.
 
-### Importante — la corrección es un RANGO acotado, no un punto
+### Importante — estimabilidad primero, luego un rango entre los estimables
 
-Revisión cruzada (2026-07-25): la cifra puntual original de 145/446 era una
-**media corrección incoherente** (recortaba gl pero dejaba `t` intacto). La
-corrección coherente **infla el error estándar además de recortar gl** (factor
-`√((1+ρ)/(1−ρ))`, mediana 5.9×). Resultado:
+Dos rondas de revisión cruzada (2026-07-25) fijaron el marco correcto. No se
+reporta un conteo sobre 446 —eso trata a los casos no estimables como
+"testeados y no significativos"—, sino tres cifras:
 
-| Cota | Método | B sig. | pct_sig corpus |
-|---|---|---:|---:|
-| **Inferior** | SE inflado + gl recortado | **33 (7.4%)** | **42.0%** |
-| Superior | solo gl recortado | 145 (32.5%) | 57.6% |
+| Paso | Cifra |
+|---|---:|
+| Estimables (`n_eff ≥ 3`) | **156 / 446 (35.0%)** |
+| **No estimables** (`n_eff < 3`) | **290 / 446 (65.0%)** |
+| Sig. entre estimables — cota inf. (SE inflado + gl) | **33 (21.2%)** |
+| Sig. entre estimables — cota sup. (solo gl, `df>0`) | 112 (71.8%) |
+| Valor puntual | pendiente Newey-West/GLS |
 
-El valor puntual verdadero vive **dentro de [33, 145]** y solo se fija con
-**Newey-West** o **GLS con estructura AR(1)** (ambos en `snt_utils_v32.py`) sobre
-los residuos crudos —ausentes del repo (`data/owid-maddison.csv`)—. `n_eff` y el
-factor de inflación son la aproximación de Bartlett, derivada para la media de un
-AR(1), no para una pendiente: **acotan, no cierran**. `corregir_corpus()` emite
-ambas cotas con un warning; `tests/test_correccion_ar1.py` las fija (33 y 145).
-La dirección —una caída fuerte desde 374— no está en duda.
+La partición **290/446 no estimables** es el hallazgo más limpio: sale directo de
+`n_eff < 3`, sin convenciones ni aproximación de Bartlett. La cota inferior 33 es
+la corrección coherente (**inflar el SE** `√((1+ρ)/(1−ρ))`, mediana 5.9×, *además*
+de recortar gl) y es invariante a la convención de gl. El valor puntual necesita
+**Newey-West/GLS** sobre residuos crudos, ausentes del repo (`owid-maddison.csv`).
+`corregir_corpus()` emite la partición y ambas cotas con un warning;
+`tests/test_correccion_ar1.py` fija 156/290/33/112 — **no** 145, que dependía de
+una guarda de implementación. La dirección —una caída fuerte desde 374— no está
+en duda.

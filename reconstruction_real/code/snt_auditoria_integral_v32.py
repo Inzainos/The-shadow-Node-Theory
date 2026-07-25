@@ -109,11 +109,13 @@ def bloque_autocorrelacion_B(add):
 def bloque_correccion_ar1(add):
     """3 — Corrección AR(1) post-hoc sobre B (solo dominio con dw).
 
-    El conteo de significativos es un RANGO acotado, no un valor puntual
-    (corrección del error B4 del audit, confirmada por revisión cruzada
-    2026-07-25): cota inferior = SE inflado + gl recortado = 33; cota
-    superior = solo gl = 145. El valor final necesita Newey-West/GLS sobre
-    residuos crudos, que no están en el repo.
+    Marco correcto (revisión cruzada 2026-07-25): NO reportar un conteo
+    sobre 446 —eso trata a los casos no estimables como testeados-y-no-
+    significativos—. Reportar tres cifras: (a) la partición de
+    estimabilidad (n_eff>=3 vs n_eff<3), (b) significativos ENTRE los
+    estimables, como rango [SE inflado, solo gl], (c) valor puntual
+    pendiente de Newey-West. La partición 290/446 no estimables es el
+    hallazgo más limpio: sale directo de n_eff<3, sin convenciones.
     """
     import warnings
     rows = _read(os.path.join(DATA, "by_domain", "dominio_B_real.csv"))
@@ -121,27 +123,28 @@ def bloque_correccion_ar1(add):
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
         _, resumen = corregir_corpus(rows)
+    est = resumen["n_estimables"]
+    no_est = resumen["n_no_estimables"]
     lo = resumen["n_sig_ar1"]
     hi = resumen["n_sig_ar1_solo_gl"]
     add("3_correccion_ar1", "B_sig_publicado", 374, sig_pub, "REPLICA")
-    add("3_correccion_ar1", "B_sig_cota_inferior (SE inflado + gl)", 33, lo,
+    # (a) estimabilidad — hallazgo convención-independiente
+    add("3_correccion_ar1", "B_estimables (n_eff>=3)", 156, est, "REPLICA")
+    add("3_correccion_ar1", "B_no_estimables (n_eff<3)", 290, no_est,
         "REPLICA")
-    add("3_correccion_ar1", "B_sig_cota_superior (solo gl)", 145, hi,
-        "REPLICA")
-    add("3_correccion_ar1", "B_sig_rango", "[33, 145]", "[%d, %d]" % (lo, hi),
-        "RANGO")
-    # corpus-wide: sustituir el conteo de B por cada cota, resto publicado
-    corpus = _read(os.path.join(DATA, "snt_corpus_REAL_v5.csv"))
-    n_sig_pub = sum(1 for r in corpus if _truthy(r["significativo"]))
-
-    def pct(count):
-        return round(100 * (n_sig_pub - sig_pub + count) / len(corpus), 1)
-
-    add("3_correccion_ar1", "corpus_pct_sig_publicado",
-        round(100 * n_sig_pub / len(corpus), 1),
-        round(100 * n_sig_pub / len(corpus), 1), "REPLICA")
-    add("3_correccion_ar1", "corpus_pct_sig_rango (solo B corregido)",
-        "42.0%-57.6%", "%.1f%%-%.1f%%" % (pct(lo), pct(hi)), "RANGO")
+    # (b) significativos entre los estimables, como rango
+    add("3_correccion_ar1", "B_sig_estimables_cota_inf (SE inflado)",
+        "33/156", "%d/%d" % (lo, est), "REPLICA")
+    add("3_correccion_ar1", "B_sig_estimables_cota_sup (solo gl)",
+        "112/156", "%d/%d" % (hi, est), "REPLICA")
+    add("3_correccion_ar1", "B_sig_estimables_rango",
+        "33 (21.2%) - 112 (71.8%)",
+        "%d (%.1f%%) - %d (%.1f%%)" % (lo, 100 * lo / est, hi,
+                                       100 * hi / est), "RANGO")
+    # (c) valor puntual
+    add("3_correccion_ar1", "B_sig_valor_puntual",
+        "pendiente Newey-West/GLS sobre residuos crudos (ausentes)",
+        "no disponible en el repo", "BLOQUEADO")
     add("3_correccion_ar1", "nota_metodo", resumen["metodo"], "", "INFO")
 
 

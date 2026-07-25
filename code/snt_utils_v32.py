@@ -371,33 +371,41 @@ def corregir_corpus(rows, dw_key="dw", n_key="n", se_key="se_b", b_key="b"):
     *not* re-fit. For each row it derives ``rho = 1 - dw/2``, the Bartlett
     ``n_eff``, the standard-error inflation factor
     ``infl = sqrt((1 + rho) / (1 - rho))``, and evaluates the corrected
-    slope significance on ``df = max(n_eff - 2, 1)``.
+    slope significance on ``df = n_eff - 2`` **with a ``df > 0`` gate**: a
+    case with ``n_eff < 3`` cannot support a two-parameter fit, so it is
+    marked ``estimable = False`` and never counted as significant. Flooring
+    df at 1 (an earlier attempt) fabricates a 1-dof test where there is no
+    data for one — rejected on cross-review, 2026-07-25.
 
-    The count of surviving-significant cases is **a bounded range, not a
-    point value** — this is the correction of the v32 audit's B4 error
-    (confirmed by independent cross-check, 2026-07-25). Two variants:
+    Report significance **among the estimable cases**, not over the full
+    ``n`` — the two are different claims (see the v32 audit §1). The
+    ``estimable`` split is the cleaner, convention-independent finding:
+    it falls straight out of ``n_eff < 3`` and does not depend on the
+    Bartlett approximation at all.
+
+    Two variants remain, both gated by ``df > 0``:
 
     * ``sig_ar1`` — **coherent lower bound**: inflate the SE *and* cut the
-      dof (``t' = (b/se) / infl``). If observations are correlated the
-      slope variance grows, so the SE must inflate *in addition to* losing
-      dof — they are the two halves of one correction.
+      dof (``t' = (b/se) / infl``). If observations are correlated the slope
+      variance grows, so the SE must inflate *in addition to* losing dof.
+      Invariant to the df convention (33 either way).
     * ``sig_ar1_solo_gl`` — **upper bound**: cut the dof only, leave ``t``
-      untouched. This is the incoherent half-correction the original audit
-      reported (145/446 on domain B); kept solely as the upper bracket.
+      untouched. The incoherent half-correction the original audit reported;
+      kept as the upper bracket.
 
-    Both share the Bartlett ``infl`` factor, which — like ``n_eff`` — is
-    derived for the *mean* of an AR(1), not a regression slope, so the true
-    Newey-West/GLS value sits *inside* ``[sig_ar1, sig_ar1_solo_gl]`` and
-    can only be pinned with the raw residuals (absent from the repo). A
-    ``UserWarning`` is emitted to that effect.
+    The Bartlett ``infl`` factor is derived for the *mean* of an AR(1), not
+    a regression slope, so the true Newey-West/GLS value sits inside the
+    bracket and needs the raw residuals (absent from the repo). A
+    ``UserWarning`` says so.
 
     Rows without a usable ``dw`` pass through with ``corregible=False``.
     Returns (rows_out, resumen). Each output row gains ``rho_ar1``,
-    ``n_eff``, ``se_infl``, ``p_ar1``, ``sig_ar1``, ``sig_ar1_solo_gl`` and
-    ``corregible``.
+    ``n_eff``, ``se_infl``, ``estimable``, ``p_ar1``, ``sig_ar1``,
+    ``sig_ar1_solo_gl`` and ``corregible``.
     """
     out = []
     n_corr = n_total = 0
+    n_estimables = 0
     n_sig_ar1 = n_sig_solo_gl = 0
     for row in rows:
         r = dict(row)
@@ -421,7 +429,7 @@ def corregir_corpus(rows, dw_key="dw", n_key="n", se_key="se_b", b_key="b"):
 
         if not (dw == dw) or not (n == n) or n < 3:
             r.update({"rho_ar1": None, "n_eff": None, "se_infl": None,
-                      "p_ar1": None, "sig_ar1": None,
+                      "estimable": None, "p_ar1": None, "sig_ar1": None,
                       "sig_ar1_solo_gl": None, "corregible": False})
             out.append(r)
             continue
@@ -430,15 +438,24 @@ def corregir_corpus(rows, dw_key="dw", n_key="n", se_key="se_b", b_key="b"):
         n_eff = n_efectivo(n, rho)
         infl = float(np.sqrt((1.0 + rho) / (1.0 - rho)))
         n_corr += 1
+        # Estimability: a two-parameter fit needs n_eff >= 3 (df = n_eff-2 > 0).
+        estimable = n_eff >= 3.0
+        if estimable:
+            n_estimables += 1
         p_ar1 = None
         sig = sig_gl = None
         if se is not None and se > 0 and b is not None:
-            dof = max(n_eff - 2.0, 1.0)
-            t0 = abs(b / se)
-            p_ar1 = float(2.0 * stats.t.sf(t0 / infl, dof))   # coherent
-            p_gl = float(2.0 * stats.t.sf(t0, dof))           # dof-only
-            sig = p_ar1 < 0.05
-            sig_gl = p_gl < 0.05
+            dof = n_eff - 2.0
+            if estimable and dof > 0:
+                t0 = abs(b / se)
+                p_ar1 = float(2.0 * stats.t.sf(t0 / infl, dof))  # coherent
+                p_gl = float(2.0 * stats.t.sf(t0, dof))          # dof-only
+                sig = bool(p_ar1 < 0.05)
+                sig_gl = bool(p_gl < 0.05)
+            else:
+                # n_eff < 3: not estimable, never counted as significant.
+                sig = False
+                sig_gl = False
             if sig:
                 n_sig_ar1 += 1
             if sig_gl:
@@ -447,6 +464,7 @@ def corregir_corpus(rows, dw_key="dw", n_key="n", se_key="se_b", b_key="b"):
             "rho_ar1": round(rho, 4),
             "n_eff": round(n_eff, 2),
             "se_infl": round(infl, 3),
+            "estimable": estimable,
             "p_ar1": p_ar1,
             "sig_ar1": sig,
             "sig_ar1_solo_gl": sig_gl,
@@ -456,21 +474,26 @@ def corregir_corpus(rows, dw_key="dw", n_key="n", se_key="se_b", b_key="b"):
 
     if n_corr:
         warnings.warn(
-            "corregir_corpus: significativos AR(1) es un RANGO acotado "
-            "[%d (SE inflado, cota inferior), %d (solo gl, cota superior)], "
-            "no un valor puntual. Aproximacion analitica de Bartlett; el "
-            "valor final requiere Newey-West/GLS sobre residuos crudos."
-            % (n_sig_ar1, n_sig_solo_gl),
+            "corregir_corpus: de %d casos, %d NO son estimables (n_eff<3) y se "
+            "reportan como no estimables, no como no significativos. Entre los "
+            "%d estimables, los significativos AR(1) son un RANGO [%d (SE "
+            "inflado), %d (solo gl)], no un punto; el valor final requiere "
+            "Newey-West/GLS sobre residuos crudos."
+            % (n_corr, n_corr - n_estimables, n_estimables,
+               n_sig_ar1, n_sig_solo_gl),
             UserWarning, stacklevel=2)
 
     resumen = {
         "n_total": n_total,
         "n_corregibles": n_corr,
-        "n_sig_ar1": n_sig_ar1,               # cota inferior (coherente)
-        "n_sig_ar1_solo_gl": n_sig_solo_gl,   # cota superior (solo gl)
-        "metodo": "AR(1) analitico: cota [SE inflado + gl recortado, "
-                  "solo gl]. Valor puntual pendiente de Newey-West/GLS "
-                  "sobre residuos crudos.",
+        "n_estimables": n_estimables,               # n_eff >= 3
+        "n_no_estimables": n_corr - n_estimables,   # n_eff < 3
+        "n_sig_ar1": n_sig_ar1,               # cota inf. entre estimables
+        "n_sig_ar1_solo_gl": n_sig_solo_gl,   # cota sup. entre estimables
+        "metodo": "AR(1) analitico. Reportar significancia ENTRE los "
+                  "estimables (n_eff>=3); los no estimables (n_eff<3) son no "
+                  "estimables, no no-significativos. Rango [SE inflado, solo "
+                  "gl]; valor puntual pendiente de Newey-West/GLS.",
     }
     return out, resumen
 

@@ -32,16 +32,20 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   cifras, salida a CSV; absorbe rc12/rc13) y una prueba de regresión
   `reconstruction_real/tests/test_correccion_ar1.py`. Salidas:
   `dominio_B_corregido_ar1_v32.csv` y `auditoria_integral_v32_resultados.csv`.
-  **Corrección AR(1) como rango acotado (revisión cruzada 2026-07-25):** el
-  conteo de significativos corregidos del dominio B NO es un valor puntual sino
-  un rango **[33, 145]** (equivalente a **42.0%–57.6%** de pct_sig del corpus).
-  La cota inferior 33 (7.4%) es la corrección coherente —inflar el error estándar
-  `√((1+ρ)/(1−ρ))`, mediana 5.9×, *además* de recortar gl—; la superior 145 es la
-  media corrección que solo recorta gl. `corregir_corpus()` emite ambas cotas
-  (`sig_ar1`, `sig_ar1_solo_gl`) con un `UserWarning` de que es rango, no punto.
-  El valor puntual requiere Newey-West/GLS sobre residuos crudos (ausentes del
-  repo); el test fija ambas cotas para blindar contra una tercera implementación
-  divergente.
+  **Corrección AR(1): estimabilidad primero (dos rondas de revisión cruzada
+  2026-07-25).** El conteo original de 145/446 significativos del dominio B
+  estaba mal por dos razones independientes: (1) media corrección incoherente
+  (recortaba gl pero no inflaba el error estándar `√((1+ρ)/(1−ρ))`, mediana
+  5.9×); (2) contaba como significativos casos con `n_eff < 3`, que no admiten
+  un ajuste de dos parámetros. Marco correcto, tres cifras: **156/446 estimables
+  (n_eff≥3), 290/446 NO estimables (n_eff<3)** —reportados como no estimables,
+  no como no significativos: el hallazgo más limpio, sale directo de n_eff sin
+  convenciones—; entre los 156 estimables, los significativos caen a un rango
+  **[33 (21.2%), 112 (71.8%)]** según la variante analítica; el valor puntual
+  requiere Newey-West/GLS sobre residuos crudos (ausentes del repo).
+  `corregir_corpus()` expone `estimable`/`se_infl` por caso y emite un
+  `UserWarning`; `reconstruction_real/tests/test_correccion_ar1.py` fija
+  156/290/33/112 (cifras invariantes a la convención de gl — no 145).
 
 ### Corregido
 - **Provenance y circularidad (higiene de la auditoría v32).** `data/FUENTES.md`

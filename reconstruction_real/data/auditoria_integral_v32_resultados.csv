@@ -12,12 +12,13 @@ bloque,cifra,publicado,recomputado,estado
 2_autocorr_B,n_eff_mediana,2.2,2.21,REPLICA
 2_autocorr_B,casos_neff_lt3,290,290,REPLICA
 3_correccion_ar1,B_sig_publicado,374,374,REPLICA
-3_correccion_ar1,B_sig_cota_inferior (SE inflado + gl),33,33,REPLICA
-3_correccion_ar1,B_sig_cota_superior (solo gl),145,145,REPLICA
-3_correccion_ar1,B_sig_rango,"[33, 145]","[33, 145]",RANGO
-3_correccion_ar1,corpus_pct_sig_publicado,89.3,89.3,REPLICA
-3_correccion_ar1,corpus_pct_sig_rango (solo B corregido),42.0%-57.6%,42.0%-57.6%,RANGO
-3_correccion_ar1,nota_metodo,"AR(1) analitico: cota [SE inflado + gl recortado, solo gl]. Valor puntual pendiente de Newey-West/GLS sobre residuos crudos.",,INFO
+3_correccion_ar1,B_estimables (n_eff>=3),156,156,REPLICA
+3_correccion_ar1,B_no_estimables (n_eff<3),290,290,REPLICA
+3_correccion_ar1,B_sig_estimables_cota_inf (SE inflado),33/156,33/156,REPLICA
+3_correccion_ar1,B_sig_estimables_cota_sup (solo gl),112/156,112/156,REPLICA
+3_correccion_ar1,B_sig_estimables_rango,33 (21.2%) - 112 (71.8%),33 (21.2%) - 112 (71.8%),RANGO
+3_correccion_ar1,B_sig_valor_puntual,pendiente Newey-West/GLS sobre residuos crudos (ausentes),no disponible en el repo,BLOQUEADO
+3_correccion_ar1,nota_metodo,"AR(1) analitico. Reportar significancia ENTRE los estimables (n_eff>=3); los no estimables (n_eff<3) son no estimables, no no-significativos. Rango [SE inflado, solo gl]; valor puntual pendiente de Newey-West/GLS.",,INFO
 4_rc1_aic,potencia_gana,13/18,13/18,REPLICA
 4_rc1_aic,exponencial_gana,4/18,4,REPLICA
 4_rc1_aic,lineal_gana,1/18,1,REPLICA
