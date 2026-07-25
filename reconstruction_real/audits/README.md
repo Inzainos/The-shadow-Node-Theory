@@ -34,17 +34,22 @@ python reconstruction_real/code/snt_auditoria_integral_v32.py
 - **Pregunta:** ¿el exponente `b` del dominio B mide acoplamiento hub-satélite
   (SNT) o β-convergencia de PIB per cápita? Si gana convergencia, el 62% del
   corpus no es evidencia de SNT.
-- **Bloque 0 (corre ya):** el rol de "hub" es una propiedad del PAR, no del
-  país — **85% de los hubs también aparecen como satélites** (Italia: hub en 3
-  pares, satélite en 12). `b` depende de la región (Kruskal-Wallis p=1.2e-8) con
-  gradiente coherente con convergencia.
-- **Bloque 1 (corrido 2026-07-25, con Maddison real):** **H-CONVERGENCIA
-  RESPALDADA** — Spearman `b` vs brecha inicial de PIB: **ρ=−0.473, p=6.6e-26,
-  n=441**, y sobrevive el control intra-región (hasta ρ=−0.92 en Europa
-  Occidental). Combinado con el bloque 0: el dominio B (62% del corpus) es, en lo
-  medible hoy, consistente con β-convergencia y no con acoplamiento SNT.
-- **Bloques 2–3:** BLOQUEADOS por falta de matriz de comercio bilateral
-  direccional (decidiría si el acoplamiento añade algo sobre la convergencia).
+- **Bloque 0 (corre ya, firme):** el rol de "hub" es una propiedad del PAR, no
+  del país — **85% de los hubs también aparecen como satélites** (Italia: hub en
+  3 pares, satélite en 12). Sale de contar filas, sin supuestos.
+- **Bloque 1 (corrido 2026-07-25) — INCONCLUSO (confundido).** El ρ=−0.4725 de
+  `b` vs brecha inicial parecía respaldar convergencia **vs cero**, pero brecha y
+  `b` salen del mismo ajuste y el hub se asigna por PIB promedio → anticorrelación
+  por construcción. El **nulo correcto (1b, 500 iter, re-emparejamiento aleatorio)
+  da media −0.573, IC95 [−0.644, −0.505]**: el observado −0.4725 es *menos*
+  negativo que el nulo → **no supera el artefacto**. El test limpio (1c, muestra
+  partida) deja un residuo más débil (−0.37) sugestivo pero no concluyente.
+  ⚠️ Corrige un commit previo que decía "RESPALDADA".
+- **Veredicto honesto:** el dominio B no queda respaldado como β-convergencia
+  *ni* como acoplamiento SNT; el constructo de hub es post hoc y el estadístico
+  usado está dominado por un artefacto de asignación.
+- **Bloques 2–3:** deliberadamente NO corridos aún (traer comercio bilateral es
+  prematuro hasta reconstruir la prueba con un hub emergente y un nulo propio).
 
 ### Los cuatro hallazgos que cambian algo
 

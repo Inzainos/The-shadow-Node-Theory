@@ -20,14 +20,22 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   (Kruskal-Wallis H=63.5, p=1.2e-8) con un gradiente coherente con convergencia
   (negativo en regiones ya convergidas, positivo en rezagadas). Mueve el *prior*
   hacia H-CONVERGENCIA sin cerrarla. **Bloque 1 corrido (2026-07-25) con
-  `data/owid-maddison.csv` real: H-CONVERGENCIA RESPALDADA** — Spearman `b` vs
-  brecha inicial de PIB `log(PIB_hub/PIB_nodo)` = **−0.473 (p=6.6e-26, n=441)**,
-  que sobrevive el control intra-región (hasta −0.92 en Europa Occidental).
-  Combinado con el bloque 0, el dominio B (62% del corpus) es —en lo medible
-  hoy— consistente con β-convergencia y no con acoplamiento SNT; el bloque 2
-  (comercio bilateral) decidiría si el acoplamiento añade algo. Salida por par en
-  `reconstruction_real/data/discrim_bloque1_convergencia.csv`. Bloques 2–3
-  siguen BLOQUEADOS (falta matriz de comercio bilateral direccional).
+  `data/owid-maddison.csv` real, con su nulo correcto: INCONCLUSO (confundido).**
+  El Spearman `b` vs brecha inicial `log(PIB_hub/PIB_nodo)` = −0.4725 (n=441)
+  *parecía* respaldar convergencia contra cero, pero brecha y `b` salen del mismo
+  ajuste y el hub se asigna por PIB promedio → anticorrelación por construcción.
+  El **nulo por remuestreo (Bloque 1b, 500 iteraciones, re-emparejamiento
+  aleatorio dentro de región, mismo pipeline) da media −0.5732, IC95
+  [−0.6435, −0.5046]**: el ρ observado es *menos* negativo que el nulo, así que
+  **no supera el artefacto de asignación**. El test de muestra partida (Bloque
+  1c: brecha 1ª mitad, `b` 2ª mitad) deja un residuo más débil −0.3676 (p=1.5e-15
+  vs cero), sugestivo pero no concluyente sin su propio nulo. **Conclusión:** el
+  dominio B no queda respaldado ni como β-convergencia ni como acoplamiento SNT;
+  el constructo de hub es post hoc (Bloque 0) y el estadístico está dominado por
+  un artefacto de asignación. Se añaden Bloques 1b/1c al script y las salidas
+  `discrim_bloque1_convergencia.csv` / `discrim_bloque1c_split.csv`. **Corrige la
+  redacción "H-CONVERGENCIA RESPALDADA" de un commit anterior de esta misma rama.**
+  Bloques 2–3 (comercio bilateral) deliberadamente NO se corren aún.
 - **`data/owid-maddison.csv`** — descargado del grapher OWID
   `gdp-per-capita-maddison` (Maddison Project Database, cobertura 1–2022, 178
   entidades; CC BY 4.0). Cierra el hallazgo de reproducibilidad #7 de la

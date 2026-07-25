@@ -178,6 +178,151 @@ def bloque1_convergencia(B, maddison_path):
 
 
 # =============================================================================
+def _maddison_pivot(maddison_path):
+    """Carga el Maddison y devuelve (pivot año x país, columnas usadas)."""
+    M = pd.read_csv(maddison_path)
+    col_pais = next(
+        (c for c in ("country", "entity", "Entity") if c in M.columns), None)
+    col_anio = next((c for c in ("year", "Year") if c in M.columns), None)
+    col_pib = next(
+        (c for c in M.columns if "gdp" in c.lower() or "pib" in c.lower()),
+        None)
+    piv = M.pivot_table(index=col_anio, columns=col_pais, values=col_pib)
+    return piv
+
+
+def bloque1b_placebo(B, maddison_path, n_iter=500, seed=20260725):
+    """NULO CORRECTO para el Bloque 1 — controla el artefacto de asignacion.
+
+    PROBLEMA: expand_dominio_B.py asigna hub por PIB per capita PROMEDIO sobre
+    toda la serie (`pib_avg[a] >= pib_avg[b]`). Esa regla usa informacion de
+    TODO el periodo para decidir el rol, y la brecha inicial es esencialmente
+    el intercepto del mismo ajuste que produce b. Resultado: pendiente y brecha
+    quedan mecanicamente anticorrelacionadas ANTES de cualquier economia.
+
+    Simulacion con paseos aleatorios independientes (cero acoplamiento, cero
+    convergencia) bajo esta misma regla: rho ~ -0.26. Con hub asignado por PIB
+    del PRIMER anio: rho ~ -0.01. El artefacto lo inyecta la regla, no los datos.
+
+    Por eso el rho observado NO debe compararse contra cero, sino contra la
+    distribucion nula generada re-emparejando paises al azar dentro de region
+    con el mismo pipeline completo.
+    """
+    head("BLOQUE 1b — nulo por remuestreo (artefacto de asignacion de hub)")
+
+    if not os.path.exists(maddison_path):
+        log.warning("BLOQUEADO: no existe %s", maddison_path)
+        return None
+
+    rng = np.random.default_rng(seed)
+    piv = _maddison_pivot(maddison_path)
+
+    y0, y1 = int(B["year_min"].min()), int(B["year_max"].max())
+    paises_por_region = {r: sorted(set(g["hub"]) | set(g["nodo"]))
+                         for r, g in B.groupby("region")}
+    n_por_region = B["region"].value_counts().to_dict()
+
+    def ajusta_par(pa, pb):
+        """Replica exacta de expand_dominio_B: hub por PIB promedio, t=1..n."""
+        try:
+            s = piv.loc[y0:y1, [pa, pb]].dropna()
+        except KeyError:
+            return None
+        if len(s) < 8:
+            return None
+        hub, nodo = (pa, pb) if s[pa].mean() >= s[pb].mean() else (pb, pa)
+        R = (s[hub] / s[nodo]).values
+        t = np.arange(1, len(R) + 1)
+        if np.any(R <= 0):
+            return None
+        b = float(np.polyfit(np.log(t), np.log(R), 1)[0])
+        return b, float(np.log(R[0]))
+
+    nulos = []
+    for _ in range(n_iter):
+        bs, gaps = [], []
+        for reg, paises in paises_por_region.items():
+            if len(paises) < 2:
+                continue
+            for _ in range(n_por_region.get(reg, 0)):
+                pa, pb = rng.choice(paises, size=2, replace=False)
+                r = ajusta_par(pa, pb)
+                if r:
+                    bs.append(r[0])
+                    gaps.append(r[1])
+        if len(bs) > 30:
+            rho, _ = stats.spearmanr(gaps, bs)
+            if np.isfinite(rho):
+                nulos.append(rho)
+    nulos = np.array(nulos)
+    if len(nulos) == 0:
+        log.error("No se genero distribucion nula.")
+        return None
+
+    log.info("Distribucion nula (%d iteraciones, re-emparejamiento aleatorio",
+             len(nulos))
+    log.info("dentro de region, mismo pipeline con hub por PIB promedio):")
+    log.info("   media  = %+.4f", nulos.mean())
+    log.info("   IC95%%  = [%+.4f, %+.4f]", *np.percentile(nulos, [2.5, 97.5]))
+    log.info("")
+    log.info("IMPORTANTE: si la media del nulo NO es ~0, la regla de asignacion")
+    log.info("de hub esta inyectando correlacion espuria por si sola.")
+    return nulos
+
+
+def bloque1c_split(B, maddison_path):
+    """Rompe el acoplamiento mecanico: brecha en la 1a mitad, b en la 2a mitad.
+
+    Con datos disjuntos, la brecha ya no es el intercepto del ajuste que produce
+    b. Si la relacion sobrevive aqui, es economica; si desaparece, era artefacto.
+    Este es el test limpio.
+    """
+    head("BLOQUE 1c — muestra partida (brecha 1a mitad / b 2a mitad)")
+
+    if not os.path.exists(maddison_path):
+        log.warning("BLOQUEADO: no existe %s", maddison_path)
+        return None
+
+    piv = _maddison_pivot(maddison_path)
+
+    filas = []
+    for _, r in B.iterrows():
+        try:
+            s = piv.loc[int(r["year_min"]):int(r["year_max"]),
+                        [r["hub"], r["nodo"]]].dropna()
+        except KeyError:
+            continue
+        if len(s) < 16:
+            continue
+        mitad = len(s) // 2
+        R = (s[r["hub"]] / s[r["nodo"]]).values
+        if np.any(R <= 0):
+            continue
+        brecha_1a = float(np.log(R[:mitad].mean()))          # solo 1a mitad
+        R2 = R[mitad:]
+        t2 = np.arange(1, len(R2) + 1)                        # solo 2a mitad
+        b_2a = float(np.polyfit(np.log(t2), np.log(R2), 1)[0])
+        filas.append({"id": r["id"], "region": r["region"],
+                      "brecha_1a_mitad": brecha_1a, "b_2a_mitad": b_2a,
+                      "b_completo": r["b"]})
+    D = pd.DataFrame(filas)
+    log.info("pares con muestra partida: %d de %d", len(D), len(B))
+    if len(D) < 30:
+        log.warning("n insuficiente.")
+        return D
+
+    rho, p = stats.spearmanr(D["brecha_1a_mitad"], D["b_2a_mitad"])
+    log.info("")
+    log.info("Spearman  b(2a mitad) vs brecha(1a mitad)  [DATOS DISJUNTOS]:")
+    log.info("   rho = %+.4f   p = %.4g   n = %d", rho, p, len(D))
+    log.info("")
+    log.info("Comparar contra el rho del Bloque 1 (datos acoplados).")
+    log.info("Si cae mucho, buena parte del Bloque 1 era acoplamiento mecanico.")
+    D.to_csv("discrim_bloque1c_split.csv", index=False)
+    return D
+
+
+# =============================================================================
 def bloque2_acoplamiento(B, comercio_path, D1=None):
     """H-ACOPLAMIENTO: b ~ participacion de comercio bilateral.
 
@@ -275,6 +420,8 @@ def main():
     ap.add_argument("--corpus", default="by_domain/dominio_B_real.csv")
     ap.add_argument("--maddison", default="data/owid-maddison.csv")
     ap.add_argument("--comercio", default="data/comercio_bilateral.csv")
+    ap.add_argument("--n-placebo", type=int, default=500,
+                    help="iteraciones del nulo por remuestreo (bloque 1b)")
     a = ap.parse_args()
 
     log.info("Prueba discriminante dominio B — acoplamiento vs convergencia")
@@ -286,15 +433,25 @@ def main():
 
     bloque0_estructura(B)
     D1 = bloque1_convergencia(B, a.maddison)
+    NUL = bloque1b_placebo(B, a.maddison, n_iter=a.n_placebo)
+    D1c = bloque1c_split(B, a.maddison)
     D2 = bloque2_acoplamiento(B, a.comercio, D1)
     bloque3_conjunto(D1, D2)
 
     head("FIN")
-    log.info("Bloque 0 : siempre corre")
-    log.info("Bloque 1 : %s",
+    log.info("Bloque 0  (estructura)   : siempre corre")
+    log.info("Bloque 1  (convergencia) : %s",
              "corrido" if D1 is not None else "BLOQUEADO (falta Maddison)")
-    log.info("Bloque 2 : %s",
+    log.info("Bloque 1b (nulo placebo) : %s",
+             "corrido" if NUL is not None else "BLOQUEADO (falta Maddison)")
+    log.info("Bloque 1c (split)        : %s",
+             "corrido" if D1c is not None else "BLOQUEADO (falta Maddison)")
+    log.info("Bloque 2  (acoplamiento) : %s",
              "corrido" if D2 is not None else "BLOQUEADO (falta comercio)")
+    log.info("")
+    log.info("El Bloque 1 NO se interpreta solo: su rho se compara contra el "
+             "nulo")
+    log.info("del 1b, y se contrasta con el 1c (datos disjuntos).")
 
 
 if __name__ == "__main__":

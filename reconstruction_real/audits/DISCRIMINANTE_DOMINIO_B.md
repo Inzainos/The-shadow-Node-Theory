@@ -49,74 +49,96 @@ b<0 (convergencia): 170 / 446 (38.1%)
 b>0 (divergencia) : 276 / 446
 ```
 
-Este gradiente regional es **exactamente lo que β-convergencia predice** y no lo
-que un mecanismo de acoplamiento estructural requeriría. No es prueba definitiva
-—para eso están los bloques 1–3— pero mueve el *prior* con fuerza.
+Este gradiente regional es **compatible** con β-convergencia, pero no es prueba:
+`b` puede variar por región por muchas razones. La prueba formal es el Bloque 1
+— y una vez comparado contra su nulo correcto (1b), **no** respalda convergencia
+(ver abajo). Lo que sí queda firme del Bloque 0 es la **dualidad de rol del hub**,
+que no depende de ningún ajuste.
 
-## Bloque 1 — H-CONVERGENCIA — ✅ CORRIDO (2026-07-25) — **RESPALDADA**
+## Bloque 1 — H-CONVERGENCIA — CORRIDO (2026-07-25) — **INCONCLUSO (confundido)**
 
-Con `data/owid-maddison.csv` ya en el repo (Maddison Project Database vía OWID,
-cobertura hasta 2022; ver `data/FUENTES.md`), el bloque corre sobre **441 de 446
-pares** (`year_min` disponible para hub y nodo):
+> **⚠️ Corrección de una versión previa de este documento.** Un commit anterior
+> reportó el Bloque 1 como *"H-CONVERGENCIA RESPALDADA"* comparando el ρ observado
+> contra **cero**. Ésa era la comparación equivocada. La brecha inicial y `b`
+> salen del **mismo ajuste OLS** (la brecha es casi el intercepto; `b` la
+> pendiente) y el hub se asigna por **PIB promedio de toda la serie**. Eso
+> anticorrelaciona pendiente y brecha **por construcción, antes de cualquier
+> economía**. El nulo correcto (Bloque 1b) lo demuestra sobre los datos reales.
+
+Sobre **441 de 446 pares**:
 
 ```
-Spearman  b vs brecha inicial log(PIB_hub / PIB_nodo):
-   rho = -0.4725   p = 6.6e-26   n = 441
-PREDICCION H-CONVERGENCIA : rho NEGATIVO y significativo
-VEREDICTO                 : RESPALDADA
+Spearman b vs brecha inicial log(PIB_hub/PIB_nodo):
+   rho = -0.4725   p = 6.6e-26   n = 441   (vs CERO — comparación incorrecta)
 ```
 
-La predicción de convergencia —brecha inicial grande → el rezagado alcanza → el
-cociente hub/nodo cae → `b` menor— se cumple con fuerza. Y **sobrevive el control
-por región** (Spearman intra-región), así que no es un artefacto de mezclar
-regiones:
+### Bloque 1b — nulo por remuestreo (500 iter, `owid-maddison.csv` real)
 
-| Región | n | ρ intra | p |
-|---|---:|---:|---:|
-| Europa_Occidental | 66 | **−0.920** | <1e-4 |
-| Europa_Nordica | 10 | −0.709 | 0.022 |
-| Africa_Sub | 91 | −0.689 | <1e-4 |
-| Africa_Norte | 10 | −0.685 | 0.029 |
-| Sudamerica | 45 | −0.672 | <1e-4 |
-| Europa_Sur | 18 | −0.664 | 0.003 |
-| Asia_Sur | 15 | −0.443 | 0.098 |
-| Medio_Oriente | 45 | −0.387 | 0.009 |
-| Europa_Este | 55 | −0.201 | 0.141 |
-| Centroamerica | 36 | −0.116 | 0.501 |
-| Asia_Oriental | 10 | −0.091 | 0.803 |
-| Asia_Sudeste | 36 | +0.165 | 0.337 |
+Re-empareja países al azar **dentro de región** y corre el pipeline completo,
+incluida la asignación de hub por PIB promedio. Es la distribución nula correcta
+del ρ:
 
-Negativo en 11 de 12 regiones; solo Asia_Sudeste sale débilmente positivo y no
-significativo. Salida por par en `reconstruction_real/data/discrim_bloque1_convergencia.csv`.
+```
+media del nulo = -0.5732
+IC95           = [-0.6435, -0.5046]
+```
 
-> **Matiz honesto (Quah / Friedman):** una correlación negativa entre la pendiente
-> de `log R` y su nivel inicial es también la firma de la **regresión a la media**
-> (Galton) — el mismo fenómeno que la crítica clásica a la β-convergencia. No es
-> necesario decidir si es "convergencia real" o regresión a la media: en ninguno
-> de los dos casos es **acoplamiento estructural**. El hallazgo que importa para
-> SNT es el signo y la fuerza, no la etiqueta económica.
+**El ρ observado (−0.4725) NO es más extremo que el nulo — es *menos* negativo que
+su media (−0.57), y queda por fuera del IC95 por el lado menos negativo.** Es
+decir: la regla de asignación de hub, aplicada a pares **aleatorios**, produce una
+anticorrelación **más fuerte** que la de los pares reales. El −0.4725 **no supera
+el artefacto de asignación**; por sí solo no aporta evidencia de convergencia.
 
-## Bloques 2–3 — BLOQUEADOS por datos ausentes
+### Bloque 1c — muestra partida (test limpio)
+
+Rompe el acoplamiento mecánico: brecha medida en la **1ª mitad** de la serie, `b`
+ajustado en la **2ª mitad** (datos disjuntos → la brecha deja de ser el intercepto
+del ajuste que produce `b`):
+
+```
+Spearman b(2a mitad) vs brecha(1a mitad):  rho = -0.3676   p = 1.5e-15   n = 441
+```
+
+Sobre datos disjuntos **sobrevive una relación más débil** (−0.37 vs −0.47). Eso
+indica que hay *algo* real bajo el artefacto — pero **vs cero**, no vs su propio
+nulo split. Sin un nulo para la versión partida no se puede separar
+convergencia-económica de **regresión a la media** residual del cociente. Queda
+como **sugestivo, no concluyente**.
+
+> **Matiz (Quah / Friedman):** aun el residual del 1c puede ser regresión a la
+> media (Galton), la misma crítica clásica a la β-convergencia. En ninguno de los
+> casos es **acoplamiento estructural** — que es lo único que sostendría la
+> lectura SNT del dominio B.
+
+Salidas por par: `discrim_bloque1_convergencia.csv`, `discrim_bloque1c_split.csv`.
+
+## Bloques 2–3 — NO se corren todavía (decisión deliberada)
+
+Con el Bloque 1 confundido por el artefacto de asignación, **traer la matriz de
+comercio bilateral es prematuro**: primero hay que decidir si `b` mide algo más
+que la aritmética de dividir dos tendencias suaves con un rol asignado post hoc.
 
 | Bloque | Prueba | Estado |
 |---|---|---|
-| **2** H-ACOPLAMIENTO | `b` vs share de comercio bilateral (nodo→hub) | **BLOQUEADO** — falta matriz de comercio bilateral (IMF DOTS / CEPII BACI / UN Comtrade) |
-| **3** modelo conjunto | R² parcial de cada regresor | **BLOQUEADO** — requiere 1 y 2 |
+| **2** H-ACOPLAMIENTO | `b` vs comercio bilateral (nodo→hub) | pendiente — requiere matriz direccional (IMF DOTS / CEPII BACI / UN Comtrade) **y** que el hub **emerja** de la red, no se asigne por PIB |
+| **3** modelo conjunto | R² parcial de cada regresor | requiere 1 (bien especificado) y 2 |
 
-El bloque 2 impone además el requisito correcto: el hub debe **emerger** de la red
-(centralidad direccional del comercio), no asignarse por PIB per cápita.
+## Lectura combinada — qué se puede afirmar hoy
 
-## Lectura combinada (Bloque 0 + Bloque 1)
-
-Dos evidencias independientes, ambas sobre datos reales, apuntan en la misma
-dirección: (a) el rol de hub **no es estructural** (85% de dualidad de rol), y
-(b) el exponente `b` está **fuertemente explicado por la brecha inicial de PIB**
-(ρ=−0.47 global, hasta −0.92 dentro de una región). El bloque 2 (comercio
-bilateral) decidiría si el acoplamiento estructural **añade** algo sobre la
-convergencia; hasta entonces, la lectura honesta es que **el dominio B —62% del
-corpus— es, en lo que se puede medir hoy, consistente con β-convergencia y no
-con acoplamiento SNT**. No es refutación cerrada de SNT en B, pero sí desplaza
-la carga de la prueba: hace falta el bloque 2 para sostener la lectura SNT.
+1. **Bloque 0 (firme, sin supuestos):** el rol de hub **no es estructural** — 85%
+   de los países son hub y satélite a la vez. Sale de contar filas; no depende de
+   nulos ni aproximaciones. Es el hallazgo más sólido.
+2. **Bloque 1 (confundido):** el ρ=−0.4725 **no supera el nulo del artefacto de
+   asignación** (−0.57). No establece convergencia. La versión limpia (1c, −0.37)
+   deja un residuo sugestivo pero no concluyente.
+3. **Conclusión honesta:** no se puede afirmar "el dominio B mide β-convergencia"
+   —eso invalidaría el 62% del corpus y **no está demostrado**—. Pero **tampoco se
+   sostiene la lectura SNT**: el constructo de hub es post hoc (Bloque 0) y el
+   estadístico que se usó para defenderlo está dominado por un artefacto de
+   asignación (Bloque 1b). El dominio B queda **bajo sospecha metodológica seria,
+   sin veredicto positivo para ninguna de las dos hipótesis** hasta reconstruir la
+   prueba con un hub que emerja de datos independientes (comercio) y un nulo
+   propio.
 
 ## Cómo correrlo
 
