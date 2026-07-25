@@ -27,6 +27,20 @@ committeados.
 python reconstruction_real/code/snt_auditoria_integral_v32.py
 ```
 
+### Prueba discriminante del dominio B (2026-07-25)
+
+- **Informe:** [`DISCRIMINANTE_DOMINIO_B.md`](DISCRIMINANTE_DOMINIO_B.md).
+- **Script:** [`code/prueba_discriminante_dominio_B.py`](../code/prueba_discriminante_dominio_B.py).
+- **Pregunta:** ¿el exponente `b` del dominio B mide acoplamiento hub-satélite
+  (SNT) o β-convergencia de PIB per cápita? Si gana convergencia, el 62% del
+  corpus no es evidencia de SNT.
+- **Bloque 0 (corre ya):** el rol de "hub" es una propiedad del PAR, no del
+  país — **85% de los hubs también aparecen como satélites** (Italia: hub en 3
+  pares, satélite en 12). `b` depende de la región (Kruskal-Wallis p=1.2e-8) con
+  gradiente coherente con convergencia. Mueve el *prior*, no lo cierra.
+- **Bloques 1–3:** BLOQUEADOS por datos ausentes (Maddison + matriz de comercio
+  bilateral).
+
 ### Los cuatro hallazgos que cambian algo
 
 1. **Autocorrelación serial (dominio B, 62% del corpus).** DW mediana 0.112,

@@ -9,6 +9,19 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 ## [No publicado] — 2026-07
 
 ### Añadido
+- **Prueba discriminante del dominio B — acoplamiento vs convergencia**
+  (`reconstruction_real/code/prueba_discriminante_dominio_B.py`,
+  `audits/DISCRIMINANTE_DOMINIO_B.md`). Separa dos hipótesis sobre qué mide el
+  exponente `b` del dominio B (62% del corpus): acoplamiento hub-satélite (SNT)
+  vs β-convergencia de PIB per cápita. **Bloque 0** (diagnóstico estructural, sin
+  datos externos) muestra que el rol de "hub" es una propiedad del par, no del
+  país — **85% de los hubs también aparecen como satélites** (Italia: hub en 3
+  pares, satélite en 12; México 1/9) — y que `b` depende fuertemente de la región
+  (Kruskal-Wallis H=63.5, p=1.2e-8) con un gradiente coherente con convergencia
+  (negativo en regiones ya convergidas, positivo en rezagadas). Mueve el *prior*
+  hacia H-CONVERGENCIA sin cerrarla. Bloques 1–3 (b vs brecha inicial de PIB; b
+  vs comercio bilateral; modelo conjunto) quedan BLOQUEADOS por datos ausentes
+  (`owid-maddison.csv` + matriz de comercio bilateral direccional).
 - **Auditoría integral v32 (`reconstruction_real/audits/`).** Recorrido completo
   de las cifras publicadas: 14/33 replican exacto; la aritmética del corpus está
   limpia (`MASTER_cifras_v5.json` 8/8, `MASTER_resumen_v5.csv` 40/40). Lo que
