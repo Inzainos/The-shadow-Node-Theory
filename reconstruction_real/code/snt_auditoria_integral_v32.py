@@ -107,23 +107,41 @@ def bloque_autocorrelacion_B(add):
 
 
 def bloque_correccion_ar1(add):
-    """3 — Corrección AR(1) post-hoc sobre B (solo dominio con dw)."""
+    """3 — Corrección AR(1) post-hoc sobre B (solo dominio con dw).
+
+    El conteo de significativos es un RANGO acotado, no un valor puntual
+    (corrección del error B4 del audit, confirmada por revisión cruzada
+    2026-07-25): cota inferior = SE inflado + gl recortado = 33; cota
+    superior = solo gl = 145. El valor final necesita Newey-West/GLS sobre
+    residuos crudos, que no están en el repo.
+    """
+    import warnings
     rows = _read(os.path.join(DATA, "by_domain", "dominio_B_real.csv"))
     sig_pub = sum(1 for r in rows if _truthy(r["significativo"]))
-    _, resumen = corregir_corpus(rows)
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        _, resumen = corregir_corpus(rows)
+    lo = resumen["n_sig_ar1"]
+    hi = resumen["n_sig_ar1_solo_gl"]
     add("3_correccion_ar1", "B_sig_publicado", 374, sig_pub, "REPLICA")
-    add("3_correccion_ar1", "B_sig_corregido_ar1", "~145 (metodo-dependiente)",
-        resumen["n_sig_ar1"], "ORDEN_DE_MAGNITUD")
-    # corpus-wide: sustituir el conteo de B, dejar los demás como publicados
+    add("3_correccion_ar1", "B_sig_cota_inferior (SE inflado + gl)", 33, lo,
+        "REPLICA")
+    add("3_correccion_ar1", "B_sig_cota_superior (solo gl)", 145, hi,
+        "REPLICA")
+    add("3_correccion_ar1", "B_sig_rango", "[33, 145]", "[%d, %d]" % (lo, hi),
+        "RANGO")
+    # corpus-wide: sustituir el conteo de B por cada cota, resto publicado
     corpus = _read(os.path.join(DATA, "snt_corpus_REAL_v5.csv"))
     n_sig_pub = sum(1 for r in corpus if _truthy(r["significativo"]))
-    n_sig_corr = n_sig_pub - sig_pub + resumen["n_sig_ar1"]
+
+    def pct(count):
+        return round(100 * (n_sig_pub - sig_pub + count) / len(corpus), 1)
+
     add("3_correccion_ar1", "corpus_pct_sig_publicado",
         round(100 * n_sig_pub / len(corpus), 1),
         round(100 * n_sig_pub / len(corpus), 1), "REPLICA")
-    add("3_correccion_ar1", "corpus_pct_sig_corr_soloB",
-        "~57.6 (metodo-dependiente)",
-        round(100 * n_sig_corr / len(corpus), 1), "ORDEN_DE_MAGNITUD")
+    add("3_correccion_ar1", "corpus_pct_sig_rango (solo B corregido)",
+        "42.0%-57.6%", "%.1f%%-%.1f%%" % (pct(lo), pct(hi)), "RANGO")
     add("3_correccion_ar1", "nota_metodo", resumen["metodo"], "", "INFO")
 
 

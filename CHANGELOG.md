@@ -28,12 +28,20 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   `comparar_modelos` por AIC —la prueba RC1 que el README afirmaba sin
   implementar—, `ajustar_mle_clauset`, `spearman_cluster`, `corregir_corpus`,
   `fdr_bh`, `plegado_trigger`) y
-  `reconstruction_real/code/snt_auditoria_integral_v32.py` (runner único, 41
-  cifras, salida a CSV; absorbe rc12/rc13). Salidas:
+  `reconstruction_real/code/snt_auditoria_integral_v32.py` (runner único, 43
+  cifras, salida a CSV; absorbe rc12/rc13) y una prueba de regresión
+  `reconstruction_real/tests/test_correccion_ar1.py`. Salidas:
   `dominio_B_corregido_ar1_v32.csv` y `auditoria_integral_v32_resultados.csv`.
-  **Caveat:** `n_eff` de Bartlett dimensiona el orden de magnitud, no es la
-  corrección final (el conteo exacto es método-dependiente, ~33–145 sobre 446);
-  para publicar, usar Newey-West/GLS.
+  **Corrección AR(1) como rango acotado (revisión cruzada 2026-07-25):** el
+  conteo de significativos corregidos del dominio B NO es un valor puntual sino
+  un rango **[33, 145]** (equivalente a **42.0%–57.6%** de pct_sig del corpus).
+  La cota inferior 33 (7.4%) es la corrección coherente —inflar el error estándar
+  `√((1+ρ)/(1−ρ))`, mediana 5.9×, *además* de recortar gl—; la superior 145 es la
+  media corrección que solo recorta gl. `corregir_corpus()` emite ambas cotas
+  (`sig_ar1`, `sig_ar1_solo_gl`) con un `UserWarning` de que es rango, no punto.
+  El valor puntual requiere Newey-West/GLS sobre residuos crudos (ausentes del
+  repo); el test fija ambas cotas para blindar contra una tercera implementación
+  divergente.
 
 ### Corregido
 - **Provenance y circularidad (higiene de la auditoría v32).** `data/FUENTES.md`

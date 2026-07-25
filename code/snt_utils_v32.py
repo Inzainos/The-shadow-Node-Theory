@@ -38,6 +38,8 @@ References for the corrections:
   * Benjamini & Hochberg (1995) — false discovery rate.
 """
 
+import warnings
+
 import numpy as np
 from scipy import stats
 
@@ -367,15 +369,36 @@ def corregir_corpus(rows, dw_key="dw", n_key="n", se_key="se_b", b_key="b"):
 
     Operates on a list of dict rows that already carry ``dw`` — it does
     *not* re-fit. For each row it derives ``rho = 1 - dw/2``, the Bartlett
-    ``n_eff``, and a corrected slope p-value obtained by deflating the OLS
-    t by ``sqrt(n_eff / n)`` and re-evaluating on ``n_eff - 2`` dof. Rows
-    without a usable ``dw`` are passed through with ``corregible=False``.
+    ``n_eff``, the standard-error inflation factor
+    ``infl = sqrt((1 + rho) / (1 - rho))``, and evaluates the corrected
+    slope significance on ``df = max(n_eff - 2, 1)``.
 
+    The count of surviving-significant cases is **a bounded range, not a
+    point value** — this is the correction of the v32 audit's B4 error
+    (confirmed by independent cross-check, 2026-07-25). Two variants:
+
+    * ``sig_ar1`` — **coherent lower bound**: inflate the SE *and* cut the
+      dof (``t' = (b/se) / infl``). If observations are correlated the
+      slope variance grows, so the SE must inflate *in addition to* losing
+      dof — they are the two halves of one correction.
+    * ``sig_ar1_solo_gl`` — **upper bound**: cut the dof only, leave ``t``
+      untouched. This is the incoherent half-correction the original audit
+      reported (145/446 on domain B); kept solely as the upper bracket.
+
+    Both share the Bartlett ``infl`` factor, which — like ``n_eff`` — is
+    derived for the *mean* of an AR(1), not a regression slope, so the true
+    Newey-West/GLS value sits *inside* ``[sig_ar1, sig_ar1_solo_gl]`` and
+    can only be pinned with the raw residuals (absent from the repo). A
+    ``UserWarning`` is emitted to that effect.
+
+    Rows without a usable ``dw`` pass through with ``corregible=False``.
     Returns (rows_out, resumen). Each output row gains ``rho_ar1``,
-    ``n_eff``, ``p_ar1``, ``sig_ar1`` and ``corregible``.
+    ``n_eff``, ``se_infl``, ``p_ar1``, ``sig_ar1``, ``sig_ar1_solo_gl`` and
+    ``corregible``.
     """
     out = []
-    n_corr = n_sig_ar1 = n_total = 0
+    n_corr = n_total = 0
+    n_sig_ar1 = n_sig_solo_gl = 0
     for row in rows:
         r = dict(row)
         n_total += 1
@@ -397,38 +420,57 @@ def corregir_corpus(rows, dw_key="dw", n_key="n", se_key="se_b", b_key="b"):
             b = None
 
         if not (dw == dw) or not (n == n) or n < 3:
-            r.update({"rho_ar1": None, "n_eff": None, "p_ar1": None,
-                      "sig_ar1": None, "corregible": False})
+            r.update({"rho_ar1": None, "n_eff": None, "se_infl": None,
+                      "p_ar1": None, "sig_ar1": None,
+                      "sig_ar1_solo_gl": None, "corregible": False})
             out.append(r)
             continue
 
         rho = max(min(1.0 - dw / 2.0, 0.999), -0.999)
         n_eff = n_efectivo(n, rho)
+        infl = float(np.sqrt((1.0 + rho) / (1.0 - rho)))
         n_corr += 1
         p_ar1 = None
-        sig = None
-        if se is not None and se > 0 and b is not None and n_eff > 2:
-            t = abs(b / se) * np.sqrt(n_eff / n)
-            dof = n_eff - 2
-            p_ar1 = float(2.0 * stats.t.sf(t, dof))
+        sig = sig_gl = None
+        if se is not None and se > 0 and b is not None:
+            dof = max(n_eff - 2.0, 1.0)
+            t0 = abs(b / se)
+            p_ar1 = float(2.0 * stats.t.sf(t0 / infl, dof))   # coherent
+            p_gl = float(2.0 * stats.t.sf(t0, dof))           # dof-only
             sig = p_ar1 < 0.05
+            sig_gl = p_gl < 0.05
             if sig:
                 n_sig_ar1 += 1
+            if sig_gl:
+                n_sig_solo_gl += 1
         r.update({
             "rho_ar1": round(rho, 4),
             "n_eff": round(n_eff, 2),
+            "se_infl": round(infl, 3),
             "p_ar1": p_ar1,
             "sig_ar1": sig,
+            "sig_ar1_solo_gl": sig_gl,
             "corregible": True,
         })
         out.append(r)
 
+    if n_corr:
+        warnings.warn(
+            "corregir_corpus: significativos AR(1) es un RANGO acotado "
+            "[%d (SE inflado, cota inferior), %d (solo gl, cota superior)], "
+            "no un valor puntual. Aproximacion analitica de Bartlett; el "
+            "valor final requiere Newey-West/GLS sobre residuos crudos."
+            % (n_sig_ar1, n_sig_solo_gl),
+            UserWarning, stacklevel=2)
+
     resumen = {
         "n_total": n_total,
         "n_corregibles": n_corr,
-        "n_sig_ar1": n_sig_ar1,
-        "metodo": "Bartlett n_eff (orden de magnitud; "
-                  "usar Newey-West/GLS para publicar)",
+        "n_sig_ar1": n_sig_ar1,               # cota inferior (coherente)
+        "n_sig_ar1_solo_gl": n_sig_solo_gl,   # cota superior (solo gl)
+        "metodo": "AR(1) analitico: cota [SE inflado + gl recortado, "
+                  "solo gl]. Valor puntual pendiente de Newey-West/GLS "
+                  "sobre residuos crudos.",
     }
     return out, resumen
 

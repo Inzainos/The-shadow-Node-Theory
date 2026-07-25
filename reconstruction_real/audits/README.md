@@ -42,11 +42,22 @@ python reconstruction_real/code/snt_auditoria_integral_v32.py
    `round(p,6)`; dos definiciones de R² promediadas juntas; `trigger`
    hardcodeado a `'gradual'` en `expand_dominio_B.py`.
 
-### Importante — límites de la corrección
+### Importante — la corrección es un RANGO acotado, no un punto
 
-`n_eff` de Bartlett dimensiona el **orden de magnitud**, no es la corrección
-final. El conteo exacto de significativos corregidos es **método-dependiente**
-(entre ~33 y ~145 sobre 446, según la penalización). Para publicar: errores
-estándar **Newey-West** o **GLS con estructura AR(1)** (ambos disponibles en
-`snt_utils_v32.py`). El orden de magnitud —una caída fuerte desde 374— no está
-en duda.
+Revisión cruzada (2026-07-25): la cifra puntual original de 145/446 era una
+**media corrección incoherente** (recortaba gl pero dejaba `t` intacto). La
+corrección coherente **infla el error estándar además de recortar gl** (factor
+`√((1+ρ)/(1−ρ))`, mediana 5.9×). Resultado:
+
+| Cota | Método | B sig. | pct_sig corpus |
+|---|---|---:|---:|
+| **Inferior** | SE inflado + gl recortado | **33 (7.4%)** | **42.0%** |
+| Superior | solo gl recortado | 145 (32.5%) | 57.6% |
+
+El valor puntual verdadero vive **dentro de [33, 145]** y solo se fija con
+**Newey-West** o **GLS con estructura AR(1)** (ambos en `snt_utils_v32.py`) sobre
+los residuos crudos —ausentes del repo (`data/owid-maddison.csv`)—. `n_eff` y el
+factor de inflación son la aproximación de Bartlett, derivada para la media de un
+AR(1), no para una pendiente: **acotan, no cierran**. `corregir_corpus()` emite
+ambas cotas con un warning; `tests/test_correccion_ar1.py` las fija (33 y 145).
+La dirección —una caída fuerte desde 374— no está en duda.

@@ -34,18 +34,38 @@ Lo recuperé de `by_domain/dominio_B_real.csv`:
 
 Consecuencia sobre la significancia:
 
-| | Publicado | Corregido AR(1) |
-|---|---|---|
-| Significativos dominio B | 374 (83.9%) | **145 (32.5%)** |
-| **pct_sig del corpus completo** | **89.3%** | **57.6%** |
+> **⚠️ Corrección fechada (2026-07-25) — revisión cruzada.** La cifra puntual
+> **145 (32.5%)** que aparecía en la tabla original de este bloque **estaba mal**:
+> venía de una media corrección incoherente (recortar los grados de libertad a
+> `n_eff − 2` pero dejar el estadístico `t = b/se` intacto). Si las observaciones
+> están correlacionadas, la varianza del estimador de la pendiente crece, así que
+> el **error estándar tiene que inflarse además de recortar gl** — son las dos
+> mitades de la misma corrección. Aplicando ambas (factor de inflación del SE
+> `√((1+ρ)/(1−ρ))`, mediana **5.9×**, rango 1.7×–16.3×) el resultado coherente es
+> **33 (7.4%)**, no 145. El error **subestimaba** la gravedad: la caída real es de
+> 374 a 33 (**91%**), no el 61% reportado. La corrección empeora el hallazgo.
 
-Ese 57.6% es corrigiendo **solo B**. E3 (234 casos COVID) no trae DW, pero series de casos
-acumulados son igual o más autocorrelacionadas. La cifra real será más baja.
+El valor correcto es un **rango acotado**, no un punto — porque el propio factor
+de Bartlett está aplicado fuera de su derivación (media de un AR(1), no pendiente):
 
-> **Caveat honesto:** `n_eff = n(1−ρ)/(1+ρ)` es la aproximación de Bartlett, derivada para la
-> media de un AR(1), no para la pendiente de una regresión. Sirve para dimensionar el orden de
-> magnitud, **no como corrección final**. Para publicar: errores estándar Newey-West o GLS con
-> estructura AR(1). Pero el orden de magnitud no está en duda: 31× es 31×.
+| | Publicado | Cota inferior (SE inflado + gl) | Cota superior (solo gl) |
+|---|---|---|---|
+| Significativos dominio B | 374 (83.9%) | **33 (7.4%)** | 145 (32.5%) |
+| **pct_sig del corpus completo** | **89.3%** | **42.0%** | 57.6% |
+
+El valor puntual verdadero vive **dentro de [33, 145]** (equivalente a
+42.0%–57.6% de pct_sig) y solo se fija con **Newey-West o GLS sobre los residuos
+crudos** — que requieren las series fuente ausentes del repo (`data/owid-maddison.csv`,
+hallazgo #7). Ese rango es corrigiendo **solo B**; E3 (234 casos COVID) no trae DW
+pero es igual o más autocorrelacionado, así que la cifra real será aún más baja.
+
+> **Caveat honesto:** `n_eff = n(1−ρ)/(1+ρ)` y el factor de inflación
+> `√((1+ρ)/(1−ρ))` son la aproximación de Bartlett, derivada para la **media** de
+> un AR(1), no para la pendiente de una regresión con regresor tendencial (`log t`).
+> Sirve para **acotar**, no como corrección final. Para publicar: Newey-West o GLS
+> con estructura AR(1) (ambos en `snt_utils_v32.py`). `corregir_corpus()` emite
+> ahora las dos cotas (`sig_ar1` = 33, `sig_ar1_solo_gl` = 145) con un warning de
+> que el resultado es un rango; el test `test_correccion_ar1.py` fija ambas.
 
 ### 2. El régimen superlineal b≥1 puede ser artefacto de modelo — hallazgo nuevo
 
