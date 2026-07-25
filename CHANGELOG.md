@@ -9,6 +9,41 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 ## [No publicado] — 2026-07
 
 ### Añadido
+- **Auditoría integral v32 (`reconstruction_real/audits/`).** Recorrido completo
+  de las cifras publicadas: 14/33 replican exacto; la aritmética del corpus está
+  limpia (`MASTER_cifras_v5.json` 8/8, `MASTER_resumen_v5.csv` 40/40). Lo que
+  falla es la capa de inferencia, en cuatro puntos independientes:
+  (1) **autocorrelación serial** del dominio B —62% del corpus— con DW mediana
+  0.112, 99.8% de casos con DW<1, ρ AR(1)≈0.944 y **n efectivo mediano ≈2.2**
+  (no 69), que infla la significancia por caso; (2) el **régimen superlineal
+  b≥1 puede ser artefacto de modelo** (por AIC sobre las 18 series ACO la
+  potencia gana 13/18, pero los 4 casos exponenciales tienen b̄ +1.54:
+  a mayor b, peor ajusta la ley de potencia); (3) **la dirección aguanta pero el
+  p no** (doble inflación: autocorrelación + 714 casos no independientes);
+  (4) **defectos de reporte** (557/721 p-values truncados a `0.0` por
+  `round(p,6)`, dos definiciones de R² promediadas juntas, `trigger`
+  hardcodeado a `'gradual'`). Nuevos scripts, retrocompatibles:
+  `code/snt_utils_v32.py` (extiende `snt_utils.py`: DW para todos los ajustes,
+  `rho_ar1`/`n_eff`/`p_ar1` Newey-West, `r2_log`+`r2_raw`, `p_exacto`,
+  `comparar_modelos` por AIC —la prueba RC1 que el README afirmaba sin
+  implementar—, `ajustar_mle_clauset`, `spearman_cluster`, `corregir_corpus`,
+  `fdr_bh`, `plegado_trigger`) y
+  `reconstruction_real/code/snt_auditoria_integral_v32.py` (runner único, 41
+  cifras, salida a CSV; absorbe rc12/rc13). Salidas:
+  `dominio_B_corregido_ar1_v32.csv` y `auditoria_integral_v32_resultados.csv`.
+  **Caveat:** `n_eff` de Bartlett dimensiona el orden de magnitud, no es la
+  corrección final (el conteo exacto es método-dependiente, ~33–145 sobre 446);
+  para publicar, usar Newey-West/GLS.
+
+### Corregido
+- **Provenance y circularidad (higiene de la auditoría v32).** `data/FUENTES.md`
+  ancla las fuentes externas (Maddison Project y OWID COVID) con URL, edición,
+  fecha y SHA-256, y documenta que `data/owid-maddison.csv` está **ausente** en
+  el repo (por eso el dominio B, 62% del corpus, no se regenera clonando).
+  `data/snt_asi_scores_README.md` marca la columna `soberania` como **umbral de
+  ASI** (separación perfecta ASI>~1), advirtiendo que usarla como target sería
+  circular por construcción (solo 13/4,774 = 0.27% positivos).
+
 - **v31 — Patch Módulo Micro + Macro (2026-07-06):** integración de Principio
   del Paisaje Vivo, axiomas Ax-M1 a Ax-M4, dinámica del 5-Event Wall (cuatro
   trayectorias tipo), Análisis de Divergencia Retrospectiva, extensión de

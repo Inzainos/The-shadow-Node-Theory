@@ -1,0 +1,447 @@
+id,descripcion,dominio,region,hub,nodo,trigger,b,r2,r_pearson,p,se_b,ci_lo,ci_hi,dw,n,year_min,year_max,significativo,rho_ar1,n_eff,p_ar1,sig_ar1,corregible
+B001,United Kingdom→France 1900-2018,B,Europa_Occidental,United Kingdom,France,gradual,-0.192,0.4206,-0.6485,0.0,0.0208,-0.2328,-0.1511,0.145,119,1900,2018,True,0.9275,4.48,0.19044071118925304,False,True
+B002,Germany→United Kingdom 1900-2018,B,Europa_Occidental,Germany,United Kingdom,gradual,0.1947,0.4465,0.6682,0.0,0.02,0.1554,0.234,0.178,119,1900,2018,True,0.911,5.54,0.11248557895896111,False,True
+B003,Netherlands→United Kingdom 1900-2018,B,Europa_Occidental,Netherlands,United Kingdom,gradual,0.1472,0.3536,0.5946,0.0,0.0184,0.1112,0.1833,0.191,119,1900,2018,True,0.9045,5.97,0.1482961504668068,False,True
+B004,Belgium→United Kingdom 1900-2018,B,Europa_Occidental,Belgium,United Kingdom,gradual,0.0942,0.2495,0.4995,0.0,0.0151,0.0646,0.1238,0.144,119,1900,2018,True,0.928,4.44,0.33167415495975133,False,True
+B005,Switzerland→United Kingdom 1900-2018,B,Europa_Occidental,Switzerland,United Kingdom,gradual,0.1522,0.5219,0.7224,0.0,0.0135,0.1258,0.1786,0.139,119,1900,2018,True,0.9305,4.28,0.14977194936568236,False,True
+B006,Austria→United Kingdom 1900-2018,B,Europa_Occidental,Austria,United Kingdom,gradual,0.2022,0.3235,0.5688,0.0,0.027,0.1492,0.2552,0.123,119,1900,2018,True,0.9385,3.78,0.32771996959171584,False,True
+B007,Italy→United Kingdom 1900-2018,B,Europa_Occidental,Italy,United Kingdom,gradual,0.273,0.5061,0.7114,0.0,0.0249,0.2242,0.3219,0.059,119,1900,2018,True,0.9705,1.78,,,True
+B008,Spain→United Kingdom 1900-2018,B,Europa_Occidental,Spain,United Kingdom,gradual,0.2569,0.41,0.6403,0.0,0.0285,0.201,0.3127,0.038,119,1900,2018,True,0.981,1.14,,,True
+B009,United Kingdom→Portugal 1900-2018,B,Europa_Occidental,United Kingdom,Portugal,gradual,-0.3425,0.571,-0.7557,0.0,0.0274,-0.3963,-0.2887,0.043,119,1900,2018,True,0.9785,1.29,,,True
+B010,Ireland→United Kingdom 1913-2018,B,Europa_Occidental,Ireland,United Kingdom,gradual,0.2628,0.3606,0.6005,0.0,0.0355,0.1931,0.3324,0.019,99,1913,2018,True,0.9905,0.47,,,True
+B011,Luxembourg→United Kingdom 1950-2018,B,Europa_Occidental,Luxembourg,United Kingdom,gradual,0.1071,0.6066,0.7788,0.0,0.0105,0.0864,0.1278,0.202,69,1950,2018,True,0.899,3.67,0.16736262913687425,False,True
+B012,Germany→France 1900-2018,B,Europa_Occidental,Germany,France,gradual,0.0027,0.0002,0.0128,0.8897,0.0196,-0.0357,0.0411,0.415,119,1900,2018,False,0.7925,13.78,0.9634030066655884,False,True
+B013,Netherlands→France 1900-2018,B,Europa_Occidental,Netherlands,France,gradual,-0.0447,0.1924,-0.4386,0.0,0.0085,-0.0613,-0.0281,0.288,119,1900,2018,True,0.856,9.23,0.18504223851906942,False,True
+B014,Belgium→France 1900-2018,B,Europa_Occidental,Belgium,France,gradual,-0.0978,0.5046,-0.7103,0.0,0.009,-0.1153,-0.0802,0.298,119,1900,2018,True,0.851,9.58,0.01607236117579166,True,True
+B015,Switzerland→France 1900-2018,B,Europa_Occidental,Switzerland,France,gradual,-0.0397,0.0805,-0.2837,0.0018,0.0124,-0.0641,-0.0154,0.186,119,1900,2018,True,0.907,5.8,0.5204542370914488,False,True
+B016,Austria→France 1900-2018,B,Europa_Occidental,Austria,France,gradual,0.0102,0.0027,0.0521,0.5734,0.0182,-0.0253,0.0458,0.354,119,1900,2018,False,0.823,11.55,0.8650142802618523,False,True
+B017,Italy→France 1900-2018,B,Europa_Occidental,Italy,France,gradual,0.0811,0.3201,0.5658,0.0,0.0109,0.0597,0.1025,0.237,119,1900,2018,True,0.8815,7.49,0.1155896233569495,False,True
+B018,Spain→France 1900-2018,B,Europa_Occidental,Spain,France,gradual,0.0649,0.0768,0.2771,0.0023,0.0208,0.0241,0.1057,0.142,119,1900,2018,True,0.929,4.38,0.6015107276442584,False,True
+B019,France→Portugal 1900-2018,B,Europa_Occidental,France,Portugal,gradual,-0.1505,0.3478,-0.5897,0.0,0.0191,-0.1879,-0.1132,0.141,119,1900,2018,True,0.9295,4.35,0.25290776050932773,False,True
+B020,Ireland→France 1913-2018,B,Europa_Occidental,Ireland,France,gradual,0.1149,0.0985,0.3139,0.0016,0.0353,0.0458,0.1841,0.046,99,1913,2018,True,0.977,1.15,,,True
+B021,Luxembourg→France 1950-2018,B,Europa_Occidental,Luxembourg,France,gradual,0.0092,0.0042,0.0649,0.5962,0.0172,-0.0245,0.0429,0.06,69,1950,2018,False,0.97,1.05,,,True
+B022,Germany→Netherlands 1900-2018,B,Europa_Occidental,Germany,Netherlands,gradual,0.0475,0.0477,0.2184,0.017,0.0196,0.009,0.0859,0.467,119,1900,2018,True,0.7665,15.73,0.3934280142284247,False,True
+B023,Belgium→Germany 1900-2018,B,Europa_Occidental,Belgium,Germany,gradual,-0.1005,0.2433,-0.4933,0.0,0.0164,-0.1326,-0.0684,0.352,119,1900,2018,True,0.824,11.48,0.08771821917162456,False,True
+B024,Switzerland→Germany 1900-2018,B,Europa_Occidental,Switzerland,Germany,gradual,-0.0425,0.054,-0.2323,0.011,0.0164,-0.0747,-0.0102,0.412,119,1900,2018,True,0.794,13.66,0.3975915339891294,False,True
+B025,Austria→Germany 1900-2018,B,Europa_Occidental,Austria,Germany,gradual,0.0075,0.0028,0.0526,0.5702,0.0132,-0.0184,0.0334,0.548,119,1900,2018,False,0.726,18.89,0.8236210522943442,False,True
+B026,Germany→Italy 1900-2018,B,Europa_Occidental,Germany,Italy,gradual,-0.0783,0.1463,-0.3825,0.0,0.0175,-0.1126,-0.0441,0.388,119,1900,2018,True,0.806,12.78,0.17107470678038644,False,True
+B027,Germany→Spain 1900-2018,B,Europa_Occidental,Germany,Spain,gradual,-0.0622,0.0673,-0.2593,0.0044,0.0214,-0.1042,-0.0202,0.202,119,1900,2018,True,0.899,6.33,0.5367325668463907,False,True
+B028,Germany→Portugal 1900-2018,B,Europa_Occidental,Germany,Portugal,gradual,-0.1478,0.3209,-0.5665,0.0,0.0199,-0.1868,-0.1088,0.24,119,1900,2018,True,0.88,7.6,0.11321907071127371,False,True
+B029,Ireland→Germany 1913-2018,B,Europa_Occidental,Ireland,Germany,gradual,0.0814,0.0611,0.2473,0.0136,0.0324,0.0179,0.1448,0.105,99,1913,2018,True,0.9475,2.67,0.7745842858104317,False,True
+B030,Luxembourg→Germany 1950-2018,B,Europa_Occidental,Luxembourg,Germany,gradual,-0.0651,0.2096,-0.4578,0.0001,0.0155,-0.0954,-0.0348,0.074,69,1950,2018,True,0.963,1.3,,,True
+B031,Belgium→Netherlands 1900-2018,B,Europa_Occidental,Belgium,Netherlands,gradual,-0.053,0.2408,-0.4907,0.0,0.0087,-0.0701,-0.036,0.557,119,1900,2018,True,0.7215,19.25,0.025222461680527674,True,True
+B032,Switzerland→Netherlands 1900-2018,B,Europa_Occidental,Switzerland,Netherlands,gradual,0.005,0.002,0.0444,0.6319,0.0104,-0.0154,0.0254,0.429,119,1900,2018,False,0.7855,14.3,0.8703649142441472,False,True
+B033,Austria→Netherlands 1900-2018,B,Europa_Occidental,Austria,Netherlands,gradual,0.055,0.0643,0.2535,0.0054,0.0194,0.017,0.093,0.32,119,1900,2018,True,0.84,10.35,0.426429363907737,False,True
+B034,Netherlands→Italy 1900-2018,B,Europa_Occidental,Netherlands,Italy,gradual,-0.1258,0.3945,-0.6281,0.0,0.0144,-0.1541,-0.0976,0.129,119,1900,2018,True,0.9355,3.97,0.2539305496995646,False,True
+B035,Spain→Netherlands 1900-2018,B,Europa_Occidental,Spain,Netherlands,gradual,0.1097,0.1988,0.4459,0.0,0.0203,0.0698,0.1495,0.176,119,1900,2018,True,0.912,5.48,0.31969463970219636,False,True
+B036,Netherlands→Portugal 1900-2018,B,Europa_Occidental,Netherlands,Portugal,gradual,-0.1953,0.4279,-0.6542,0.0,0.0209,-0.2362,-0.1543,0.145,119,1900,2018,True,0.9275,4.48,0.1867203990055424,False,True
+B037,Ireland→Netherlands 1913-2018,B,Europa_Occidental,Ireland,Netherlands,gradual,0.1647,0.2446,0.4945,0.0,0.0294,0.1071,0.2223,0.094,99,1913,2018,True,0.953,2.38,0.6735003453951165,False,True
+B038,Luxembourg→Netherlands 1950-2018,B,Europa_Occidental,Luxembourg,Netherlands,gradual,0.0051,0.0032,0.0563,0.6459,0.011,-0.0165,0.0266,0.142,69,1950,2018,False,0.929,2.54,0.9511703505044009,False,True
+B039,Switzerland→Belgium 1900-2018,B,Europa_Occidental,Switzerland,Belgium,gradual,0.058,0.2874,0.5361,0.0,0.0084,0.0415,0.0746,0.293,119,1900,2018,True,0.8535,9.41,0.09109641001994288,False,True
+B040,Austria→Belgium 1900-2018,B,Europa_Occidental,Austria,Belgium,gradual,0.108,0.2331,0.4828,0.0,0.0181,0.0725,0.1435,0.311,119,1900,2018,True,0.8445,10.03,0.12127033092291249,False,True
+B041,Belgium→Italy 1900-2018,B,Europa_Occidental,Belgium,Italy,gradual,-0.1788,0.571,-0.7556,0.0,0.0143,-0.2069,-0.1507,0.166,119,1900,2018,True,0.917,5.15,0.07629021129292424,False,True
+B042,Belgium→Spain 1900-2018,B,Europa_Occidental,Belgium,Spain,gradual,-0.1627,0.4049,-0.6363,0.0,0.0182,-0.1984,-0.1269,0.104,119,1900,2018,True,0.948,3.18,0.35523302468427964,False,True
+B043,Belgium→Portugal 1900-2018,B,Europa_Occidental,Belgium,Portugal,gradual,-0.2483,0.6276,-0.7922,0.0,0.0177,-0.2829,-0.2136,0.094,119,1900,2018,True,0.953,2.86,0.3040304027103286,False,True
+B044,Ireland→Belgium 1913-2018,B,Europa_Occidental,Ireland,Belgium,gradual,0.1844,0.2875,0.5362,0.0,0.0295,0.1266,0.2422,0.027,99,1913,2018,True,0.9865,0.67,,,True
+B045,Luxembourg→Belgium 1950-2018,B,Europa_Occidental,Luxembourg,Belgium,gradual,0.0004,0.0,0.0035,0.9776,0.0133,-0.0257,0.0265,0.1,69,1950,2018,False,0.95,1.77,,,True
+B046,Switzerland→Austria 1900-2018,B,Europa_Occidental,Switzerland,Austria,gradual,-0.05,0.0539,-0.2322,0.0111,0.0194,-0.0879,-0.012,0.254,119,1900,2018,True,0.873,8.07,0.5268470902129226,False,True
+B047,Switzerland→Italy 1900-2018,B,Europa_Occidental,Switzerland,Italy,gradual,-0.1208,0.3168,-0.5629,0.0,0.0164,-0.153,-0.0887,0.091,119,1900,2018,True,0.9545,2.77,0.5026818646185233,False,True
+B048,Switzerland→Spain 1900-2018,B,Europa_Occidental,Switzerland,Spain,gradual,-0.1047,0.1879,-0.4335,0.0,0.0201,-0.1441,-0.0652,0.087,119,1900,2018,True,0.9565,2.65,0.6295499687118592,False,True
+B049,Switzerland→Portugal 1900-2018,B,Europa_Occidental,Switzerland,Portugal,gradual,-0.1903,0.4494,-0.6704,0.0,0.0195,-0.2284,-0.1521,0.072,119,1900,2018,True,0.964,2.18,0.7233404951619326,False,True
+B050,Ireland→Switzerland 1913-2018,B,Europa_Occidental,Ireland,Switzerland,gradual,0.1278,0.1709,0.4134,0.0,0.0286,0.0718,0.1839,0.039,99,1913,2018,True,0.9805,0.97,,,True
+B051,Luxembourg→Switzerland 1950-2018,B,Europa_Occidental,Luxembourg,Switzerland,gradual,0.0029,0.0008,0.0284,0.8169,0.0123,-0.0213,0.027,0.119,69,1950,2018,False,0.9405,2.12,0.9870090445845898,False,True
+B052,Austria→Italy 1900-2018,B,Europa_Occidental,Austria,Italy,gradual,-0.0708,0.2385,-0.4884,0.0,0.0117,-0.0938,-0.0479,0.562,119,1900,2018,True,0.719,19.45,0.025275459604284803,True,True
+B053,Austria→Spain 1900-2018,B,Europa_Occidental,Austria,Spain,gradual,-0.0547,0.0877,-0.2962,0.0011,0.0163,-0.0866,-0.0227,0.347,119,1900,2018,True,0.8265,11.3,0.3271383044173598,False,True
+B054,Austria→Portugal 1900-2018,B,Europa_Occidental,Austria,Portugal,gradual,-0.1403,0.4199,-0.648,0.0,0.0152,-0.1701,-0.1104,0.405,119,1900,2018,True,0.7975,13.41,0.00974283865554026,True,True
+B055,Ireland→Austria 1913-2018,B,Europa_Occidental,Ireland,Austria,gradual,0.0275,0.0083,0.0913,0.3688,0.0305,-0.0322,0.0873,0.14,99,1913,2018,False,0.93,3.59,0.8829459919076642,False,True
+B056,Luxembourg→Austria 1950-2018,B,Europa_Occidental,Luxembourg,Austria,gradual,-0.1147,0.5575,-0.7467,0.0,0.0125,-0.1392,-0.0902,0.12,69,1950,2018,True,0.94,2.13,0.7506838686938315,False,True
+B057,Spain→Italy 1900-2018,B,Europa_Occidental,Spain,Italy,gradual,-0.0162,0.0085,-0.0924,0.3175,0.0161,-0.0477,0.0154,0.145,119,1900,2018,False,0.9275,4.48,0.8601580180277792,False,True
+B058,Italy→Portugal 1900-2018,B,Europa_Occidental,Italy,Portugal,gradual,-0.0694,0.184,-0.4289,0.0,0.0135,-0.096,-0.0429,0.186,119,1900,2018,True,0.907,5.8,0.32270760987590413,False,True
+B059,Ireland→Italy 1913-2018,B,Europa_Occidental,Ireland,Italy,gradual,0.0005,0.0,0.0016,0.9871,0.0334,-0.0649,0.0659,0.038,99,1913,2018,False,0.981,0.95,,,True
+B060,Luxembourg→Italy 1950-2018,B,Europa_Occidental,Luxembourg,Italy,gradual,-0.0855,0.2922,-0.5406,0.0,0.0163,-0.1174,-0.0537,0.061,69,1950,2018,True,0.9695,1.07,,,True
+B061,Spain→Portugal 1900-2018,B,Europa_Occidental,Spain,Portugal,gradual,-0.0856,0.3356,-0.5793,0.0,0.0111,-0.1074,-0.0638,0.216,119,1900,2018,True,0.892,6.79,0.1272663064827012,False,True
+B062,Ireland→Spain 1913-2018,B,Europa_Occidental,Ireland,Spain,gradual,0.0056,0.0006,0.0253,0.804,0.0226,-0.0387,0.05,0.07,99,1913,2018,False,0.965,1.76,,,True
+B063,Luxembourg→Spain 1950-2018,B,Europa_Occidental,Luxembourg,Spain,gradual,-0.2223,0.8756,-0.9358,0.0,0.0102,-0.2424,-0.2023,0.212,69,1950,2018,True,0.894,3.86,0.04127725395839799,True,True
+B064,Ireland→Portugal 1913-2018,B,Europa_Occidental,Ireland,Portugal,gradual,-0.0774,0.0882,-0.2969,0.0028,0.0253,-0.127,-0.0279,0.048,99,1913,2018,True,0.976,1.2,,,True
+B065,Luxembourg→Portugal 1950-2018,B,Europa_Occidental,Luxembourg,Portugal,gradual,-0.1991,0.7793,-0.8828,0.0,0.0129,-0.2245,-0.1737,0.138,69,1950,2018,True,0.931,2.47,0.39074899994237833,False,True
+B066,Luxembourg→Ireland 1950-2018,B,Europa_Occidental,Luxembourg,Ireland,gradual,-0.2421,0.5317,-0.7292,0.0,0.0278,-0.2965,-0.1877,0.045,69,1950,2018,True,0.9775,0.79,,,True
+B067,Norway→Sweden 1900-2018,B,Europa_Nordica,Norway,Sweden,gradual,0.1347,0.1932,0.4396,0.0,0.0254,0.0848,0.1845,0.021,119,1900,2018,True,0.9895,0.63,,,True
+B068,Denmark→Sweden 1900-2018,B,Europa_Nordica,Denmark,Sweden,gradual,-0.1121,0.6459,-0.8037,0.0,0.0077,-0.1272,-0.0971,0.192,119,1900,2018,True,0.904,6.0,0.030817723503391518,True,True
+B069,Finland→Sweden 1900-2018,B,Europa_Nordica,Finland,Sweden,gradual,0.0767,0.2321,0.4818,0.0,0.0129,0.0514,0.1019,0.093,119,1900,2018,True,0.9535,2.83,0.550783673528035,False,True
+B070,Iceland→Sweden 1950-2018,B,Europa_Nordica,Iceland,Sweden,gradual,0.0834,0.457,0.6761,0.0,0.0111,0.0616,0.1051,0.251,69,1950,2018,True,0.8745,4.62,0.16031450236268424,False,True
+B071,Norway→Denmark 1900-2018,B,Europa_Nordica,Norway,Denmark,gradual,0.2468,0.4972,0.7051,0.0,0.0229,0.2018,0.2918,0.044,119,1900,2018,True,0.978,1.32,,,True
+B072,Norway→Finland 1900-2018,B,Europa_Nordica,Norway,Finland,gradual,0.058,0.0686,0.2619,0.004,0.0198,0.0193,0.0967,0.051,119,1900,2018,True,0.9745,1.54,,,True
+B073,Iceland→Norway 1950-2018,B,Europa_Nordica,Iceland,Norway,gradual,-0.1949,0.3756,-0.6128,0.0,0.0307,-0.255,-0.1347,0.04,69,1950,2018,True,0.98,0.7,,,True
+B074,Denmark→Finland 1900-2018,B,Europa_Nordica,Denmark,Finland,gradual,-0.1888,0.6525,-0.8078,0.0,0.0127,-0.2138,-0.1638,0.132,119,1900,2018,True,0.934,4.06,0.1074042396028462,False,True
+B075,Iceland→Denmark 1950-2018,B,Europa_Nordica,Iceland,Denmark,gradual,0.0556,0.2931,0.5414,0.0,0.0106,0.0349,0.0763,0.295,69,1950,2018,True,0.8525,5.49,0.2228563174970799,False,True
+B076,Iceland→Finland 1950-2018,B,Europa_Nordica,Iceland,Finland,gradual,-0.0412,0.281,-0.5301,0.0,0.008,-0.057,-0.0254,0.462,69,1950,2018,True,0.769,9.01,0.10499397355258293,False,True
+B077,Czechia→Poland 1970-2018,B,Europa_Este,Czechia,Poland,gradual,0.0201,0.026,0.1612,0.2684,0.018,-0.0151,0.0553,0.086,49,1970,2018,False,0.957,1.08,,,True
+B078,Hungary→Poland 1900-2018,B,Europa_Este,Hungary,Poland,gradual,-0.0428,0.1208,-0.3476,0.0011,0.0127,-0.0676,-0.0179,0.385,85,1900,2018,True,0.8075,9.05,0.30753470724528986,False,True
+B079,Romania→Poland 1900-2018,B,Europa_Este,Romania,Poland,gradual,0.4294,0.7494,0.8657,0.0,0.0273,0.376,0.4829,0.33,85,1900,2018,True,0.835,7.64,0.0038426775160388823,True,True
+B080,Bulgaria→Poland 1910-2018,B,Europa_Este,Bulgaria,Poland,gradual,0.0645,0.0884,0.2973,0.0063,0.023,0.0194,0.1096,0.104,83,1910,2018,True,0.948,2.22,0.8394997846473536,False,True
+B081,Russia→Poland 1960-2018,B,Europa_Este,Russia,Poland,gradual,-0.0597,0.0936,-0.306,0.0184,0.0246,-0.108,-0.0115,0.105,59,1960,2018,True,0.9475,1.59,,,True
+B082,Ukraine→Poland 1973-2018,B,Europa_Este,Ukraine,Poland,gradual,-0.3648,0.5836,-0.7639,0.0,0.05,-0.4628,-0.2668,0.15,40,1973,2018,True,0.925,1.56,,,True
+B083,Slovakia→Poland 1985-2018,B,Europa_Este,Slovakia,Poland,gradual,-0.1119,0.6999,-0.8366,0.0,0.013,-0.1373,-0.0865,0.445,34,1985,2018,True,0.7775,4.26,0.08010591635506774,False,True
+B084,Croatia→Poland 1952-2018,B,Europa_Este,Croatia,Poland,gradual,0.0815,0.109,0.3302,0.0064,0.0289,0.0249,0.1381,0.055,67,1952,2018,True,0.9725,0.93,,,True
+B085,Serbia→Poland 1952-2018,B,Europa_Este,Serbia,Poland,gradual,-0.0155,0.0019,-0.0439,0.7241,0.0438,-0.1013,0.0703,0.081,67,1952,2018,False,0.9595,1.38,,,True
+B086,Slovenia→Poland 1952-2018,B,Europa_Este,Slovenia,Poland,gradual,0.0938,0.1073,0.3275,0.0068,0.0336,0.028,0.1597,0.028,67,1952,2018,True,0.986,0.47,,,True
+B087,Czechia→Hungary 1970-2018,B,Europa_Este,Czechia,Hungary,gradual,0.0455,0.3504,0.592,0.0,0.009,0.0278,0.0631,0.214,49,1970,2018,True,0.893,2.77,0.48361928062793635,False,True
+B088,Czechia→Romania 1970-2018,B,Europa_Este,Czechia,Romania,gradual,-0.1326,0.3913,-0.6255,0.0,0.0241,-0.1799,-0.0853,0.083,49,1970,2018,True,0.9585,1.04,,,True
+B089,Czechia→Bulgaria 1970-2018,B,Europa_Este,Czechia,Bulgaria,gradual,0.1785,0.6742,0.8211,0.0,0.0181,0.143,0.2139,0.143,49,1970,2018,True,0.9285,1.82,,,True
+B090,Czechia→Russia 1970-2018,B,Europa_Este,Czechia,Russia,gradual,0.1287,0.3478,0.5898,0.0,0.0257,0.0783,0.1791,0.099,49,1970,2018,True,0.9505,1.24,,,True
+B091,Czechia→Ukraine 1973-2018,B,Europa_Este,Czechia,Ukraine,gradual,0.3258,0.6385,0.7991,0.0,0.0398,0.2478,0.4037,0.15,40,1973,2018,True,0.925,1.56,,,True
+B092,Czechia→Slovakia 1985-2018,B,Europa_Este,Czechia,Slovakia,gradual,0.0225,0.1615,0.4019,0.0185,0.0091,0.0047,0.0403,0.364,34,1985,2018,True,0.818,3.4,0.5442542227283047,False,True
+B093,Czechia→Croatia 1970-2018,B,Europa_Este,Czechia,Croatia,gradual,0.143,0.4885,0.6989,0.0,0.0213,0.1011,0.1848,0.107,49,1970,2018,True,0.9465,1.35,,,True
+B094,Czechia→Serbia 1970-2018,B,Europa_Este,Czechia,Serbia,gradual,0.2658,0.4766,0.6904,0.0,0.0406,0.1862,0.3455,0.133,49,1970,2018,True,0.9335,1.69,,,True
+B095,Slovenia→Czechia 1970-2018,B,Europa_Este,Slovenia,Czechia,gradual,-0.1645,0.5355,-0.7318,0.0,0.0224,-0.2083,-0.1207,0.082,49,1970,2018,True,0.959,1.03,,,True
+B096,Hungary→Romania 1900-2018,B,Europa_Este,Hungary,Romania,gradual,-0.4798,0.6402,-0.8001,0.0,0.0371,-0.5525,-0.4071,0.145,96,1900,2018,True,0.9275,3.61,0.15826744249413321,False,True
+B097,Hungary→Bulgaria 1910-2018,B,Europa_Este,Hungary,Bulgaria,gradual,-0.1383,0.3808,-0.6171,0.0,0.0186,-0.1747,-0.1018,0.096,92,1910,2018,True,0.952,2.26,0.679123238561902,False,True
+B098,Russia→Hungary 1960-2018,B,Europa_Este,Russia,Hungary,gradual,-0.0178,0.0127,-0.1125,0.3964,0.0208,-0.0585,0.023,0.103,59,1960,2018,False,0.9485,1.56,,,True
+B099,Hungary→Ukraine 1973-2018,B,Europa_Este,Hungary,Ukraine,gradual,0.3036,0.6025,0.7762,0.0,0.04,0.2252,0.382,0.148,40,1973,2018,True,0.926,1.54,,,True
+B100,Slovakia→Hungary 1985-2018,B,Europa_Este,Slovakia,Hungary,gradual,-0.0331,0.2277,-0.4772,0.0043,0.0108,-0.0542,-0.012,0.362,34,1985,2018,True,0.819,3.38,0.47199811957081483,False,True
+B101,Croatia→Hungary 1952-2018,B,Europa_Este,Croatia,Hungary,gradual,0.1026,0.2502,0.5002,0.0,0.022,0.0594,0.1457,0.05,67,1952,2018,True,0.975,0.85,,,True
+B102,Hungary→Serbia 1952-2018,B,Europa_Este,Hungary,Serbia,gradual,-0.0056,0.0003,-0.0181,0.8842,0.0381,-0.0803,0.0692,0.085,67,1952,2018,False,0.9575,1.45,,,True
+B103,Slovenia→Hungary 1952-2018,B,Europa_Este,Slovenia,Hungary,gradual,0.1149,0.2205,0.4696,0.0001,0.0268,0.0624,0.1675,0.028,67,1952,2018,True,0.986,0.47,,,True
+B104,Bulgaria→Romania 1905-2018,B,Europa_Este,Bulgaria,Romania,gradual,-0.3366,0.4612,-0.6791,0.0,0.0371,-0.4093,-0.2638,0.164,98,1905,2018,True,0.918,4.19,0.19036462830637577,False,True
+B105,Russia→Romania 1960-2018,B,Europa_Este,Russia,Romania,gradual,-0.3336,0.8196,-0.9053,0.0,0.0207,-0.3742,-0.2929,0.191,59,1960,2018,True,0.9045,2.96,0.18054195160894926,False,True
+B106,Ukraine→Romania 1973-2018,B,Europa_Este,Ukraine,Romania,gradual,-0.4408,0.7065,-0.8406,0.0,0.0461,-0.5311,-0.3504,0.144,40,1973,2018,True,0.928,1.49,,,True
+B107,Slovakia→Romania 1985-2018,B,Europa_Este,Slovakia,Romania,gradual,-0.1618,0.5031,-0.7093,0.0,0.0284,-0.2176,-0.1061,0.144,34,1985,2018,True,0.928,1.27,,,True
+B108,Croatia→Romania 1952-2018,B,Europa_Este,Croatia,Romania,gradual,-0.2735,0.5355,-0.7318,0.0,0.0316,-0.3354,-0.2116,0.066,67,1952,2018,True,0.967,1.12,,,True
+B109,Serbia→Romania 1952-2018,B,Europa_Este,Serbia,Romania,gradual,-0.3705,0.5172,-0.7192,0.0,0.0444,-0.4575,-0.2835,0.079,67,1952,2018,True,0.9605,1.35,,,True
+B110,Slovenia→Romania 1952-2018,B,Europa_Este,Slovenia,Romania,gradual,-0.2611,0.4315,-0.6569,0.0,0.0372,-0.334,-0.1882,0.055,67,1952,2018,True,0.9725,0.93,,,True
+B111,Russia→Bulgaria 1960-2018,B,Europa_Este,Russia,Bulgaria,gradual,0.0552,0.2385,0.4884,0.0001,0.0131,0.0296,0.0808,0.258,59,1960,2018,True,0.871,4.07,0.3805726226180445,False,True
+B112,Ukraine→Bulgaria 1973-2018,B,Europa_Este,Ukraine,Bulgaria,gradual,-0.1682,0.4523,-0.6725,0.0,0.03,-0.2271,-0.1094,0.2,40,1973,2018,True,0.9,2.11,0.8061913238555208,False,True
+B113,Slovakia→Bulgaria 1985-2018,B,Europa_Este,Slovakia,Bulgaria,gradual,0.0858,0.5318,0.7292,0.0,0.0142,0.0579,0.1137,0.318,34,1985,2018,True,0.841,2.94,0.3389534415746391,False,True
+B114,Croatia→Bulgaria 1952-2018,B,Europa_Este,Croatia,Bulgaria,gradual,0.1153,0.5594,0.7479,0.0,0.0127,0.0904,0.1401,0.252,67,1952,2018,True,0.874,4.5,0.11707048848684933,False,True
+B115,Serbia→Bulgaria 1952-2018,B,Europa_Este,Serbia,Bulgaria,gradual,0.0183,0.0108,0.1038,0.4033,0.0217,-0.0243,0.0609,0.219,67,1952,2018,False,0.8905,3.88,0.858986782766779,False,True
+B116,Slovenia→Bulgaria 1952-2018,B,Europa_Este,Slovenia,Bulgaria,gradual,0.1276,0.45,0.6708,0.0,0.0175,0.0933,0.162,0.108,67,1952,2018,True,0.946,1.86,,,True
+B117,Russia→Ukraine 1973-2018,B,Europa_Este,Russia,Ukraine,gradual,0.2199,0.6305,0.7941,0.0,0.0273,0.1663,0.2734,0.121,40,1973,2018,True,0.9395,1.25,,,True
+B118,Slovakia→Russia 1985-2018,B,Europa_Este,Slovakia,Russia,gradual,0.0288,0.0249,0.1579,0.3726,0.0319,-0.0336,0.0913,0.153,34,1985,2018,False,0.9235,1.35,,,True
+B119,Russia→Croatia 1960-2018,B,Europa_Este,Russia,Croatia,gradual,-0.0257,0.0269,-0.1639,0.2147,0.0205,-0.0658,0.0144,0.146,59,1960,2018,False,0.927,2.24,0.9022851792861852,False,True
+B120,Russia→Serbia 1960-2018,B,Europa_Este,Russia,Serbia,gradual,0.0924,0.2019,0.4494,0.0004,0.0243,0.0447,0.1401,0.188,59,1960,2018,True,0.906,2.91,0.5645590065952918,False,True
+B121,Slovenia→Russia 1960-2018,B,Europa_Este,Slovenia,Russia,gradual,0.0239,0.0121,0.1102,0.4059,0.0285,-0.032,0.0797,0.068,59,1960,2018,False,0.966,1.02,,,True
+B122,Slovakia→Ukraine 1985-2018,B,Europa_Este,Slovakia,Ukraine,gradual,0.2701,0.5899,0.768,0.0,0.0398,0.1921,0.3481,0.22,34,1985,2018,True,0.89,1.98,,,True
+B123,Croatia→Ukraine 1973-2018,B,Europa_Este,Croatia,Ukraine,gradual,0.1611,0.3526,0.5938,0.0001,0.0354,0.0917,0.2305,0.207,40,1973,2018,True,0.8965,2.18,0.7491552460786491,False,True
+B124,Ukraine→Serbia 1973-2018,B,Europa_Este,Ukraine,Serbia,gradual,-0.0359,0.0411,-0.2026,0.2099,0.0282,-0.0911,0.0193,0.432,40,1973,2018,False,0.784,4.84,0.6893093809157439,False,True
+B125,Slovenia→Ukraine 1973-2018,B,Europa_Este,Slovenia,Ukraine,gradual,0.1311,0.2166,0.4654,0.0025,0.0404,0.0518,0.2104,0.151,40,1973,2018,True,0.9245,1.57,,,True
+B126,Slovakia→Croatia 1985-2018,B,Europa_Este,Slovakia,Croatia,gradual,0.1029,0.6189,0.7867,0.0,0.0143,0.075,0.1309,0.214,34,1985,2018,True,0.893,1.92,,,True
+B127,Slovakia→Serbia 1985-2018,B,Europa_Este,Slovakia,Serbia,gradual,0.2054,0.5327,0.7298,0.0,0.034,0.1388,0.2721,0.312,34,1985,2018,True,0.844,2.88,0.35461535533965216,False,True
+B128,Slovenia→Slovakia 1985-2018,B,Europa_Este,Slovenia,Slovakia,gradual,-0.1454,0.6569,-0.8105,0.0,0.0186,-0.1818,-0.109,0.119,34,1985,2018,True,0.9405,1.04,,,True
+B129,Croatia→Serbia 1952-2018,B,Europa_Este,Croatia,Serbia,gradual,0.097,0.2479,0.4979,0.0,0.021,0.0559,0.138,0.177,67,1952,2018,True,0.9115,3.1,0.48941866317654936,False,True
+B130,Slovenia→Croatia 1952-2018,B,Europa_Este,Slovenia,Croatia,gradual,0.0124,0.0215,0.1468,0.236,0.0104,-0.0079,0.0327,0.188,67,1952,2018,False,0.906,3.3,0.8268728292869462,False,True
+B131,Slovenia→Serbia 1952-2018,B,Europa_Este,Slovenia,Serbia,gradual,0.1094,0.2147,0.4633,0.0001,0.0259,0.0585,0.1602,0.192,67,1952,2018,True,0.904,3.38,0.4791196238989306,False,True
+B132,Greece→Italy 1900-2018,B,Europa_Sur,Greece,Italy,gradual,0.0004,0.0,0.0025,0.9783,0.0161,-0.0311,0.032,0.4,119,1900,2018,False,0.8,13.22,0.9935377266730298,False,True
+B133,Turkey→Italy 1913-2018,B,Europa_Sur,Turkey,Italy,gradual,0.073,0.102,0.3194,0.0013,0.0221,0.0297,0.1163,0.176,98,1913,2018,True,0.912,4.51,0.5386225281314533,False,True
+B134,Cyprus→Italy 1950-2018,B,Europa_Sur,Cyprus,Italy,gradual,0.1828,0.4004,0.6328,0.0,0.0273,0.1293,0.2364,0.108,69,1950,2018,True,0.946,1.91,,,True
+B135,Malta→Italy 1950-2018,B,Europa_Sur,Malta,Italy,gradual,0.391,0.6105,0.7813,0.0,0.0382,0.3162,0.4658,0.055,69,1950,2018,True,0.9725,0.96,,,True
+B136,Greece→Spain 1900-2018,B,Europa_Sur,Greece,Spain,gradual,0.0166,0.006,0.0774,0.4027,0.0198,-0.0221,0.0553,0.363,119,1900,2018,False,0.8185,11.88,0.7965586814698825,False,True
+B137,Spain→Turkey 1913-2018,B,Europa_Sur,Spain,Turkey,gradual,-0.0684,0.0999,-0.3161,0.0015,0.0209,-0.1094,-0.0273,0.274,98,1913,2018,True,0.863,7.21,0.4139269671140879,False,True
+B138,Cyprus→Spain 1950-2018,B,Europa_Sur,Cyprus,Spain,gradual,0.046,0.0906,0.301,0.012,0.0178,0.0111,0.081,0.244,69,1950,2018,True,0.878,4.48,0.5659910872096624,False,True
+B139,Malta→Spain 1950-2018,B,Europa_Sur,Malta,Spain,gradual,0.2542,0.5556,0.7454,0.0,0.0278,0.1998,0.3087,0.076,69,1950,2018,True,0.962,1.34,,,True
+B140,Greece→Portugal 1900-2018,B,Europa_Sur,Greece,Portugal,gradual,-0.069,0.0992,-0.3149,0.0005,0.0192,-0.1067,-0.0313,0.33,119,1900,2018,True,0.835,10.7,0.31016698722702124,False,True
+B141,Turkey→Portugal 1913-2018,B,Europa_Sur,Turkey,Portugal,gradual,-0.0126,0.0051,-0.0711,0.4864,0.0181,-0.048,0.0228,0.314,98,1913,2018,False,0.843,8.35,0.8453520400220409,False,True
+B142,Cyprus→Portugal 1950-2018,B,Europa_Sur,Cyprus,Portugal,gradual,0.0693,0.1566,0.3958,0.0008,0.0196,0.0308,0.1078,0.156,69,1950,2018,True,0.922,2.8,0.6285182537010482,False,True
+B143,Malta→Portugal 1950-2018,B,Europa_Sur,Malta,Portugal,gradual,0.2775,0.5796,0.7613,0.0,0.0289,0.2209,0.3341,0.066,69,1950,2018,True,0.967,1.16,,,True
+B144,Greece→Turkey 1913-2018,B,Europa_Sur,Greece,Turkey,gradual,-0.0854,0.1037,-0.322,0.0012,0.0256,-0.1355,-0.0352,0.231,98,1913,2018,True,0.8845,6.01,0.4552203389410981,False,True
+B145,Cyprus→Greece 1950-2018,B,Europa_Sur,Cyprus,Greece,gradual,0.09,0.1331,0.3648,0.0021,0.0281,0.035,0.1451,0.097,69,1950,2018,True,0.9515,1.71,,,True
+B146,Malta→Greece 1950-2018,B,Europa_Sur,Malta,Greece,gradual,0.2982,0.4791,0.6922,0.0,0.038,0.2238,0.3727,0.047,69,1950,2018,True,0.9765,0.82,,,True
+B147,Cyprus→Turkey 1950-2018,B,Europa_Sur,Cyprus,Turkey,gradual,0.109,0.3279,0.5726,0.0,0.0191,0.0716,0.1463,0.316,69,1950,2018,True,0.842,5.92,0.17144569064962883,False,True
+B148,Malta→Turkey 1950-2018,B,Europa_Sur,Malta,Turkey,gradual,0.3172,0.7074,0.8411,0.0,0.0249,0.2683,0.366,0.129,69,1950,2018,True,0.9355,2.3,0.5406394367505688,False,True
+B149,Cyprus→Malta 1950-2018,B,Europa_Sur,Cyprus,Malta,gradual,-0.2082,0.5771,-0.7597,0.0,0.0218,-0.2509,-0.1655,0.214,69,1950,2018,True,0.893,3.9,0.15778882058309288,False,True
+B150,Canada→United States 1900-2018,B,Norteamerica,Canada,United States,gradual,0.1064,0.6824,0.826,0.0,0.0067,0.0933,0.1196,0.324,119,1900,2018,True,0.838,10.49,0.0012871150790848731,True,True
+B151,United States→Mexico 1900-2018,B,Norteamerica,United States,Mexico,gradual,-0.0933,0.3686,-0.6071,0.0,0.0113,-0.1154,-0.0712,0.184,119,1900,2018,True,0.908,5.74,0.14904114252333944,False,True
+B152,Canada→Mexico 1900-2018,B,Norteamerica,Canada,Mexico,gradual,0.0132,0.0123,0.1107,0.2305,0.0109,-0.0082,0.0346,0.273,119,1900,2018,False,0.8635,8.72,0.7530755526237594,False,True
+B153,Guatemala→Mexico 1920-2018,B,Centroamerica,Guatemala,Mexico,gradual,-0.2729,0.4862,-0.6973,0.0,0.0285,-0.3287,-0.2171,0.09,99,1920,2018,True,0.955,2.28,0.6321671054921072,False,True
+B154,Mexico→Honduras 1920-2018,B,Centroamerica,Mexico,Honduras,gradual,0.3827,0.7596,0.8716,0.0,0.0219,0.3399,0.4256,0.117,99,1920,2018,True,0.9415,2.98,0.2061880455674902,False,True
+B155,Costa Rica→Mexico 1920-2018,B,Centroamerica,Costa Rica,Mexico,gradual,-0.1045,0.4903,-0.7002,0.0,0.0108,-0.1257,-0.0833,0.395,99,1920,2018,True,0.8025,10.85,0.011019810613563396,True,True
+B156,Panama→Mexico 1906-2018,B,Centroamerica,Panama,Mexico,gradual,-0.1223,0.2534,-0.5034,0.0,0.0199,-0.1614,-0.0832,0.08,113,1906,2018,True,0.96,2.31,0.7033380431533302,False,True
+B157,Cuba→Mexico 1902-2018,B,Centroamerica,Cuba,Mexico,gradual,-0.3085,0.5813,-0.7624,0.0,0.0244,-0.3564,-0.2607,0.091,117,1902,2018,True,0.9545,2.72,0.3704525571916507,False,True
+B158,El Salvador→Mexico 1920-2018,B,Centroamerica,El Salvador,Mexico,gradual,-0.1363,0.3242,-0.5694,0.0,0.02,-0.1755,-0.0972,0.133,99,1920,2018,True,0.9335,3.4,0.37641929969240295,False,True
+B159,Nicaragua→Mexico 1920-2018,B,Centroamerica,Nicaragua,Mexico,gradual,-0.4135,0.5083,-0.7129,0.0,0.0413,-0.4944,-0.3325,0.063,99,1920,2018,True,0.9685,1.58,,,True
+B160,Dominican Republic→Mexico 1950-2018,B,Centroamerica,Dominican Republic,Mexico,gradual,0.1205,0.1682,0.4101,0.0005,0.0327,0.0563,0.1846,0.048,69,1950,2018,True,0.976,0.84,,,True
+B161,Guatemala→Honduras 1920-2018,B,Centroamerica,Guatemala,Honduras,gradual,0.1098,0.2701,0.5197,0.0,0.0183,0.0739,0.1458,0.213,99,1920,2018,True,0.8935,5.57,0.23597844600899695,False,True
+B162,Costa Rica→Guatemala 1920-2018,B,Centroamerica,Costa Rica,Guatemala,gradual,0.1684,0.3547,0.5955,0.0,0.0231,0.1232,0.2136,0.168,99,1920,2018,True,0.916,4.34,0.24861820807329274,False,True
+B163,Panama→Guatemala 1920-2018,B,Centroamerica,Panama,Guatemala,gradual,0.2214,0.2874,0.5361,0.0,0.0354,0.152,0.2908,0.074,99,1920,2018,True,0.963,1.87,,,True
+B164,Guatemala→Cuba 1920-2018,B,Centroamerica,Guatemala,Cuba,gradual,0.0322,0.0183,0.1355,0.1813,0.0239,-0.0147,0.0791,0.145,99,1920,2018,False,0.9275,3.72,0.8217071808941486,False,True
+B165,Guatemala→El Salvador 1920-2018,B,Centroamerica,Guatemala,El Salvador,gradual,-0.1366,0.2485,-0.4985,0.0,0.0241,-0.1838,-0.0893,0.168,99,1920,2018,True,0.916,4.34,0.34175827166503364,False,True
+B166,Guatemala→Nicaragua 1920-2018,B,Centroamerica,Guatemala,Nicaragua,gradual,0.1406,0.1857,0.4309,0.0,0.0299,0.082,0.1992,0.16,99,1920,2018,True,0.92,4.12,0.43326133124323046,False,True
+B167,Dominican Republic→Guatemala 1950-2018,B,Centroamerica,Dominican Republic,Guatemala,gradual,0.3464,0.5035,0.7096,0.0,0.042,0.264,0.4287,0.032,69,1950,2018,True,0.984,0.56,,,True
+B168,Costa Rica→Honduras 1920-2018,B,Centroamerica,Costa Rica,Honduras,gradual,0.2782,0.7623,0.8731,0.0,0.0158,0.2473,0.3091,0.23,99,1920,2018,True,0.885,6.04,0.011903682541635369,True,True
+B169,Panama→Honduras 1920-2018,B,Centroamerica,Panama,Honduras,gradual,0.3313,0.6092,0.7805,0.0,0.0269,0.2785,0.3841,0.083,99,1920,2018,True,0.9585,2.1,0.7900767699312301,False,True
+B170,Cuba→Honduras 1920-2018,B,Centroamerica,Cuba,Honduras,gradual,0.0776,0.1608,0.401,0.0,0.018,0.0423,0.1129,0.236,99,1920,2018,True,0.882,6.21,0.3383263176629818,False,True
+B171,El Salvador→Honduras 1920-2018,B,Centroamerica,El Salvador,Honduras,gradual,0.2464,0.6932,0.8326,0.0,0.0166,0.2138,0.279,0.263,99,1920,2018,True,0.8685,6.97,0.011127726605938266,True,True
+B172,Nicaragua→Honduras 1920-2018,B,Centroamerica,Nicaragua,Honduras,gradual,-0.0307,0.0098,-0.0988,0.3306,0.0314,-0.0923,0.0309,0.097,99,1920,2018,False,0.9515,2.46,0.9198308412502465,False,True
+B173,Dominican Republic→Honduras 1950-2018,B,Centroamerica,Dominican Republic,Honduras,gradual,0.3454,0.6282,0.7926,0.0,0.0325,0.2818,0.409,0.065,69,1950,2018,True,0.9675,1.14,,,True
+B174,Costa Rica→Panama 1920-2018,B,Centroamerica,Costa Rica,Panama,gradual,-0.053,0.0677,-0.2602,0.0093,0.02,-0.0922,-0.0139,0.127,99,1920,2018,True,0.9365,3.25,0.7019166375633994,False,True
+B175,Costa Rica→Cuba 1920-2018,B,Centroamerica,Costa Rica,Cuba,gradual,0.2006,0.504,0.7099,0.0,0.0202,0.161,0.2402,0.234,99,1920,2018,True,0.883,6.15,0.06626750346448176,False,True
+B176,Costa Rica→El Salvador 1920-2018,B,Centroamerica,Costa Rica,El Salvador,gradual,0.0318,0.0491,0.2215,0.0276,0.0142,0.0039,0.0597,0.229,99,1920,2018,True,0.8855,6.01,0.6103425876169429,False,True
+B177,Costa Rica→Nicaragua 1920-2018,B,Centroamerica,Costa Rica,Nicaragua,gradual,0.309,0.4257,0.6524,0.0,0.0364,0.2375,0.3804,0.086,99,1920,2018,True,0.957,2.18,0.7347766610284157,False,True
+B178,Costa Rica→Dominican Republic 1950-2018,B,Centroamerica,Costa Rica,Dominican Republic,gradual,-0.1744,0.321,-0.5666,0.0,0.031,-0.2351,-0.1136,0.063,69,1950,2018,True,0.9685,1.1,,,True
+B179,Panama→Cuba 1906-2018,B,Centroamerica,Panama,Cuba,gradual,0.1925,0.2926,0.5409,0.0,0.0284,0.1368,0.2482,0.079,113,1906,2018,True,0.9605,2.28,0.7022562948211588,False,True
+B180,Panama→El Salvador 1920-2018,B,Centroamerica,Panama,El Salvador,gradual,0.0849,0.1011,0.3179,0.0013,0.0257,0.0345,0.1352,0.095,99,1920,2018,True,0.9525,2.41,0.7688330474851457,False,True
+B181,Panama→Nicaragua 1920-2018,B,Centroamerica,Panama,Nicaragua,gradual,0.362,0.3557,0.5964,0.0,0.0495,0.265,0.4589,0.042,99,1920,2018,True,0.979,1.05,,,True
+B182,Panama→Dominican Republic 1950-2018,B,Centroamerica,Panama,Dominican Republic,gradual,0.0006,0.0,0.0042,0.9727,0.0188,-0.0361,0.0374,0.176,69,1950,2018,False,0.912,3.18,0.9955102903346161,False,True
+B183,El Salvador→Cuba 1920-2018,B,Centroamerica,El Salvador,Cuba,gradual,0.1688,0.4125,0.6423,0.0,0.0204,0.1287,0.2088,0.22,99,1920,2018,True,0.89,5.76,0.12107414423443282,False,True
+B184,Cuba→Nicaragua 1920-2018,B,Centroamerica,Cuba,Nicaragua,gradual,0.1084,0.1128,0.3359,0.0007,0.0309,0.0479,0.1688,0.117,99,1920,2018,True,0.9415,2.98,0.653198434351744,False,True
+B185,Dominican Republic→Cuba 1950-2018,B,Centroamerica,Dominican Republic,Cuba,gradual,0.3336,0.5769,0.7595,0.0,0.0349,0.2652,0.402,0.088,69,1950,2018,True,0.956,1.55,,,True
+B186,El Salvador→Nicaragua 1920-2018,B,Centroamerica,El Salvador,Nicaragua,gradual,0.2771,0.4575,0.6764,0.0,0.0306,0.2171,0.3372,0.104,99,1920,2018,True,0.948,2.64,0.46061877422573816,False,True
+B187,Dominican Republic→El Salvador 1950-2018,B,Centroamerica,Dominican Republic,El Salvador,gradual,0.2657,0.6166,0.7852,0.0,0.0256,0.2155,0.3158,0.083,69,1950,2018,True,0.9585,1.46,,,True
+B188,Dominican Republic→Nicaragua 1950-2018,B,Centroamerica,Dominican Republic,Nicaragua,gradual,0.5657,0.6101,0.7811,0.0,0.0553,0.4574,0.674,0.055,69,1950,2018,True,0.9725,0.96,,,True
+B189,Argentina→Brazil 1900-2018,B,Sudamerica,Argentina,Brazil,gradual,-0.4744,0.6793,-0.8242,0.0,0.0301,-0.5334,-0.4153,0.055,119,1900,2018,True,0.9725,1.66,,,True
+B190,Chile→Brazil 1900-2018,B,Sudamerica,Chile,Brazil,gradual,-0.3934,0.6344,-0.7965,0.0,0.0276,-0.4475,-0.3393,0.094,119,1900,2018,True,0.953,2.86,0.3002922703825542,False,True
+B191,Uruguay→Brazil 1900-2018,B,Sudamerica,Uruguay,Brazil,gradual,-0.4215,0.6533,-0.8082,0.0,0.0284,-0.4772,-0.3659,0.085,119,1900,2018,True,0.9575,2.58,0.39054630108486155,False,True
+B192,Paraguay→Brazil 1939-2018,B,Sudamerica,Paraguay,Brazil,gradual,-0.348,0.8727,-0.9342,0.0,0.0151,-0.3775,-0.3185,0.234,80,1939,2018,True,0.883,4.97,0.010760068006583435,True,True
+B193,Brazil→Bolivia 1900-2018,B,Sudamerica,Brazil,Bolivia,gradual,0.4917,0.5996,0.7744,0.0,0.0371,0.4189,0.5645,0.028,119,1900,2018,True,0.986,0.84,,,True
+B194,Brazil→Peru 1900-2018,B,Sudamerica,Brazil,Peru,gradual,0.2576,0.3305,0.5749,0.0,0.0339,0.1912,0.3241,0.029,119,1900,2018,True,0.9855,0.87,,,True
+B195,Colombia→Brazil 1900-2018,B,Sudamerica,Colombia,Brazil,gradual,-0.1301,0.2095,-0.4578,0.0,0.0234,-0.1759,-0.0843,0.03,119,1900,2018,True,0.985,0.9,,,True
+B196,Venezuela→Brazil 1900-2018,B,Sudamerica,Venezuela,Brazil,gradual,-0.0188,0.0021,-0.046,0.6196,0.0378,-0.093,0.0553,0.035,119,1900,2018,False,0.9825,1.05,,,True
+B197,Ecuador→Brazil 1900-2018,B,Sudamerica,Ecuador,Brazil,gradual,-0.2022,0.5129,-0.7162,0.0,0.0182,-0.2379,-0.1665,0.06,119,1900,2018,True,0.97,1.81,,,True
+B198,Argentina→Chile 1900-2018,B,Sudamerica,Argentina,Chile,gradual,-0.081,0.1555,-0.3944,0.0,0.0174,-0.1152,-0.0468,0.203,119,1900,2018,True,0.8985,6.36,0.3376524629162678,False,True
+B199,Argentina→Uruguay 1900-2018,B,Sudamerica,Argentina,Uruguay,gradual,-0.0528,0.136,-0.3688,0.0,0.0123,-0.0769,-0.0287,0.357,119,1900,2018,True,0.8215,11.66,0.2097200732452798,False,True
+B200,Argentina→Paraguay 1939-2018,B,Sudamerica,Argentina,Paraguay,gradual,-0.0598,0.0635,-0.252,0.0241,0.026,-0.1107,-0.0088,0.115,80,1939,2018,True,0.9425,2.37,0.8212546084233656,False,True
+B201,Argentina→Bolivia 1900-2018,B,Sudamerica,Argentina,Bolivia,gradual,0.0173,0.0179,0.1338,0.147,0.0119,-0.0059,0.0406,0.228,119,1900,2018,False,0.886,7.19,0.734845369978881,False,True
+B202,Argentina→Peru 1900-2018,B,Sudamerica,Argentina,Peru,gradual,-0.2167,0.7091,-0.8421,0.0,0.0128,-0.2419,-0.1916,0.206,119,1900,2018,True,0.897,6.46,0.01365681709762424,True,True
+B203,Argentina→Colombia 1900-2018,B,Sudamerica,Argentina,Colombia,gradual,-0.3442,0.8247,-0.9081,0.0,0.0147,-0.373,-0.3155,0.173,119,1900,2018,True,0.9135,5.38,0.011669458268148697,True,True
+B204,Argentina→Venezuela 1900-2018,B,Sudamerica,Argentina,Venezuela,gradual,-0.4555,0.6239,-0.7899,0.0,0.0327,-0.5196,-0.3914,0.073,119,1900,2018,True,0.9635,2.21,0.6473631139726128,False,True
+B205,Argentina→Ecuador 1900-2018,B,Sudamerica,Argentina,Ecuador,gradual,-0.2721,0.7459,-0.8637,0.0,0.0147,-0.3009,-0.2434,0.162,119,1900,2018,True,0.919,5.02,0.03151856097634564,True,True
+B206,Uruguay→Chile 1900-2018,B,Sudamerica,Uruguay,Chile,gradual,-0.0282,0.0324,-0.1801,0.05,0.0142,-0.056,-0.0003,0.385,119,1900,2018,False,0.8075,12.67,0.5306194843123951,False,True
+B207,Chile→Paraguay 1939-2018,B,Sudamerica,Chile,Paraguay,gradual,0.0475,0.0469,0.2165,0.0537,0.0243,-0.0,0.0951,0.093,80,1939,2018,False,0.9535,1.9,,,True
+B208,Chile→Bolivia 1900-2018,B,Sudamerica,Chile,Bolivia,gradual,0.0983,0.1478,0.3844,0.0,0.0218,0.0555,0.1411,0.099,119,1900,2018,True,0.9505,3.02,0.6015151449194083,False,True
+B209,Chile→Peru 1900-2018,B,Sudamerica,Chile,Peru,gradual,-0.1357,0.2147,-0.4634,0.0,0.024,-0.1828,-0.0887,0.094,119,1900,2018,True,0.953,2.86,0.5594152129207977,False,True
+B210,Chile→Colombia 1900-2018,B,Sudamerica,Chile,Colombia,gradual,-0.2632,0.6751,-0.8216,0.0,0.0169,-0.2963,-0.2301,0.219,119,1900,2018,True,0.8905,6.89,0.013858924661769483,True,True
+B211,Venezuela→Chile 1900-2018,B,Sudamerica,Venezuela,Chile,gradual,0.3746,0.4183,0.6468,0.0,0.0408,0.2945,0.4546,0.058,119,1900,2018,True,0.971,1.75,,,True
+B212,Chile→Ecuador 1900-2018,B,Sudamerica,Chile,Ecuador,gradual,-0.1912,0.4935,-0.7025,0.0,0.0179,-0.2263,-0.1561,0.192,119,1900,2018,True,0.904,6.0,0.0744786230523869,False,True
+B213,Uruguay→Paraguay 1939-2018,B,Sudamerica,Uruguay,Paraguay,gradual,-0.0145,0.0048,-0.0696,0.5394,0.0235,-0.0605,0.0315,0.092,80,1939,2018,False,0.954,1.88,,,True
+B214,Uruguay→Bolivia 1900-2018,B,Sudamerica,Uruguay,Bolivia,gradual,0.0702,0.1326,0.3641,0.0,0.0166,0.0376,0.1027,0.17,119,1900,2018,True,0.915,5.28,0.433422786609364,False,True
+B215,Uruguay→Peru 1900-2018,B,Sudamerica,Uruguay,Peru,gradual,-0.1639,0.4275,-0.6538,0.0,0.0175,-0.1983,-0.1295,0.166,119,1900,2018,True,0.917,5.15,0.14199352206428287,False,True
+B216,Uruguay→Colombia 1900-2018,B,Sudamerica,Uruguay,Colombia,gradual,-0.2914,0.8091,-0.8995,0.0,0.0131,-0.317,-0.2658,0.312,119,1900,2018,True,0.844,10.07,0.0001872142929479728,True,True
+B217,Uruguay→Venezuela 1900-2018,B,Sudamerica,Uruguay,Venezuela,gradual,-0.4027,0.5483,-0.7404,0.0,0.0338,-0.469,-0.3365,0.089,119,1900,2018,True,0.9555,2.71,0.39229338939994307,False,True
+B218,Uruguay→Ecuador 1900-2018,B,Sudamerica,Uruguay,Ecuador,gradual,-0.2193,0.678,-0.8234,0.0,0.014,-0.2467,-0.1919,0.289,119,1900,2018,True,0.8555,9.27,0.0029892154679128854,True,True
+B219,Paraguay→Bolivia 1939-2018,B,Sudamerica,Paraguay,Bolivia,gradual,0.1585,0.3765,0.6136,0.0,0.0231,0.1132,0.2037,0.104,80,1939,2018,True,0.948,2.14,0.78528501746987,False,True
+B220,Paraguay→Peru 1939-2018,B,Sudamerica,Paraguay,Peru,gradual,0.0248,0.0074,0.0859,0.4488,0.0326,-0.0391,0.0887,0.054,80,1939,2018,False,0.973,1.09,,,True
+B221,Paraguay→Colombia 1939-2018,B,Sudamerica,Paraguay,Colombia,gradual,-0.0899,0.4023,-0.6343,0.0,0.0124,-0.1143,-0.0656,0.196,80,1939,2018,True,0.902,4.12,0.2344274503000706,False,True
+B222,Venezuela→Paraguay 1939-2018,B,Sudamerica,Venezuela,Paraguay,gradual,0.0163,0.0015,0.0389,0.7318,0.0475,-0.0768,0.1094,0.055,80,1939,2018,False,0.9725,1.12,,,True
+B223,Paraguay→Ecuador 1939-2018,B,Sudamerica,Paraguay,Ecuador,gradual,-0.1335,0.4024,-0.6343,0.0,0.0184,-0.1696,-0.0974,0.133,80,1939,2018,True,0.9335,2.75,0.456160667557615,False,True
+B224,Bolivia→Peru 1900-2018,B,Sudamerica,Bolivia,Peru,gradual,-0.2341,0.7047,-0.8395,0.0,0.014,-0.2615,-0.2066,0.122,119,1900,2018,True,0.939,3.74,0.11434345698408128,False,True
+B225,Colombia→Bolivia 1900-2018,B,Sudamerica,Colombia,Bolivia,gradual,0.3616,0.7822,0.8844,0.0,0.0176,0.327,0.3961,0.085,119,1900,2018,True,0.9575,2.58,0.32617487548770613,False,True
+B226,Venezuela→Bolivia 1900-2018,B,Sudamerica,Venezuela,Bolivia,gradual,0.4729,0.5968,0.7726,0.0,0.0359,0.4024,0.5433,0.056,119,1900,2018,True,0.972,1.69,,,True
+B227,Ecuador→Bolivia 1900-2018,B,Sudamerica,Ecuador,Bolivia,gradual,0.2895,0.623,0.7893,0.0,0.0208,0.2487,0.3303,0.05,119,1900,2018,True,0.975,1.51,,,True
+B228,Colombia→Peru 1900-2018,B,Sudamerica,Colombia,Peru,gradual,0.1275,0.2968,0.5448,0.0,0.0181,0.0919,0.1631,0.074,119,1900,2018,True,0.963,2.24,0.7207554533448357,False,True
+B229,Venezuela→Peru 1900-2018,B,Sudamerica,Venezuela,Peru,gradual,0.2388,0.3537,0.5947,0.0,0.0298,0.1803,0.2973,0.071,119,1900,2018,True,0.9645,2.15,0.7752994344954092,False,True
+B230,Ecuador→Peru 1900-2018,B,Sudamerica,Ecuador,Peru,gradual,0.0554,0.0684,0.2615,0.0041,0.0189,0.0184,0.0925,0.078,119,1900,2018,True,0.961,2.37,0.8147835007937568,False,True
+B231,Venezuela→Colombia 1900-2018,B,Sudamerica,Venezuela,Colombia,gradual,0.1113,0.0904,0.3007,0.0009,0.0326,0.0473,0.1753,0.042,119,1900,2018,True,0.979,1.26,,,True
+B232,Ecuador→Colombia 1900-2018,B,Sudamerica,Ecuador,Colombia,gradual,-0.0721,0.2672,-0.5169,0.0,0.011,-0.0937,-0.0504,0.092,119,1900,2018,True,0.954,2.8,0.5289182518656117,False,True
+B233,Venezuela→Ecuador 1900-2018,B,Sudamerica,Venezuela,Ecuador,gradual,0.1834,0.2382,0.488,0.0,0.0303,0.124,0.2428,0.051,119,1900,2018,True,0.9745,1.54,,,True
+B234,Japan→China 1900-2018,B,Asia_Oriental,Japan,China,gradual,0.2344,0.1839,0.4288,0.0001,0.0552,0.1262,0.3427,0.032,82,1900,2018,True,0.984,0.66,,,True
+B235,Japan→South Korea 1911-2018,B,Asia_Oriental,Japan,South Korea,gradual,-0.0593,0.0148,-0.1218,0.2134,0.0473,-0.152,0.0335,0.03,106,1911,2018,False,0.985,0.8,,,True
+B236,Japan→Taiwan 1901-2018,B,Asia_Oriental,Japan,Taiwan,gradual,-0.0796,0.038,-0.1949,0.0423,0.0388,-0.1556,-0.0037,0.023,109,1901,2018,True,0.9885,0.63,,,True
+B237,Japan→Mongolia 1950-2018,B,Asia_Oriental,Japan,Mongolia,gradual,0.0575,0.0103,0.1013,0.4077,0.069,-0.0777,0.1927,0.015,69,1950,2018,False,0.9925,0.26,,,True
+B238,South Korea→China 1911-2018,B,Asia_Oriental,South Korea,China,gradual,0.3968,0.575,0.7583,0.0,0.0384,0.3216,0.472,0.088,81,1911,2018,True,0.956,1.82,,,True
+B239,Taiwan→China 1911-2018,B,Asia_Oriental,Taiwan,China,gradual,0.3717,0.6461,0.8038,0.0,0.0309,0.311,0.4323,0.098,81,1911,2018,True,0.951,2.03,0.9017131754182697,False,True
+B240,Mongolia→China 1950-2018,B,Asia_Oriental,Mongolia,China,gradual,-0.0047,0.0005,-0.0233,0.8493,0.0248,-0.0533,0.0439,0.108,69,1950,2018,False,0.946,1.91,,,True
+B241,Taiwan→South Korea 1911-2018,B,Asia_Oriental,Taiwan,South Korea,gradual,0.0238,0.0462,0.2149,0.0327,0.011,0.0023,0.0453,0.495,99,1911,2018,True,0.7525,13.98,0.4320229070003435,False,True
+B242,South Korea→Mongolia 1950-2018,B,Asia_Oriental,South Korea,Mongolia,gradual,0.4545,0.538,0.7335,0.0,0.0515,0.3536,0.5553,0.044,69,1950,2018,True,0.978,0.77,,,True
+B243,Taiwan→Mongolia 1950-2018,B,Asia_Oriental,Taiwan,Mongolia,gradual,0.3709,0.4853,0.6966,0.0,0.0467,0.2794,0.4623,0.037,69,1950,2018,True,0.9815,0.64,,,True
+B244,Singapore→Malaysia 1900-2018,B,Asia_Sudeste,Singapore,Malaysia,gradual,0.104,0.0629,0.2507,0.0085,0.0388,0.0279,0.1801,0.092,109,1900,2018,True,0.954,2.57,0.7859342317543347,False,True
+B245,Singapore→Thailand 1913-2018,B,Asia_Sudeste,Singapore,Thailand,gradual,0.2535,0.6427,0.8017,0.0,0.0226,0.2092,0.2977,0.3,72,1913,2018,True,0.85,5.84,0.035082508883179445,True,True
+B246,Singapore→Indonesia 1900-2018,B,Asia_Sudeste,Singapore,Indonesia,gradual,0.4364,0.5307,0.7285,0.0,0.0397,0.3586,0.5141,0.108,109,1900,2018,True,0.946,3.02,0.313637860552859,False,True
+B247,Singapore→Philippines 1902-2018,B,Asia_Sudeste,Singapore,Philippines,gradual,0.5528,0.4042,0.6357,0.0,0.0655,0.4244,0.6812,0.057,107,1902,2018,True,0.9715,1.55,,,True
+B248,Singapore→Vietnam 1913-2018,B,Asia_Sudeste,Singapore,Vietnam,gradual,0.6638,0.7835,0.8851,0.0,0.0423,0.5808,0.7467,0.126,70,1913,2018,True,0.937,2.28,0.5305583495729079,False,True
+B249,Singapore→Cambodia 1950-2018,B,Asia_Sudeste,Singapore,Cambodia,gradual,0.7069,0.7424,0.8616,0.0,0.0509,0.6071,0.8066,0.127,69,1950,2018,True,0.9365,2.26,0.5605198801121107,False,True
+B250,Singapore→Myanmar 1901-2018,B,Asia_Sudeste,Singapore,Myanmar,gradual,0.7403,0.7779,0.882,0.0,0.0451,0.652,0.8287,0.206,79,1901,2018,True,0.897,4.29,0.049903293437561315,True,True
+B251,Singapore→Laos 1950-2018,B,Asia_Sudeste,Singapore,Laos,gradual,0.4874,0.7434,0.8622,0.0,0.035,0.4189,0.556,0.161,69,1950,2018,True,0.9195,2.89,0.23801252014451196,False,True
+B252,Thailand→Malaysia 1913-2018,B,Asia_Sudeste,Thailand,Malaysia,gradual,0.0663,0.1861,0.4314,0.0002,0.0166,0.0338,0.0987,1.058,72,1913,2018,True,0.471,25.89,0.02481202596814819,True,True
+B253,Malaysia→Indonesia 1900-2018,B,Asia_Sudeste,Malaysia,Indonesia,gradual,0.3271,0.8178,0.9043,0.0,0.0147,0.2982,0.3559,0.506,112,1900,2018,True,0.747,16.22,6.273542352854041e-07,True,True
+B254,Malaysia→Philippines 1902-2018,B,Asia_Sudeste,Malaysia,Philippines,gradual,0.412,0.5728,0.7568,0.0,0.0341,0.3452,0.4788,0.102,111,1902,2018,True,0.949,2.9,0.320797702837826,False,True
+B255,Malaysia→Vietnam 1913-2018,B,Asia_Sudeste,Malaysia,Vietnam,gradual,0.3562,0.6986,0.8358,0.0,0.0284,0.3006,0.4118,0.161,70,1913,2018,True,0.9195,2.94,0.2499510838147256,False,True
+B256,Malaysia→Cambodia 1950-2018,B,Asia_Sudeste,Malaysia,Cambodia,gradual,0.3972,0.6369,0.7981,0.0,0.0366,0.3254,0.469,0.097,69,1950,2018,True,0.9515,1.71,,,True
+B257,Malaysia→Myanmar 1901-2018,B,Asia_Sudeste,Malaysia,Myanmar,gradual,0.4957,0.8011,0.895,0.0,0.0282,0.4406,0.5509,0.277,79,1901,2018,True,0.8615,5.88,0.009375492865315214,True,True
+B258,Malaysia→Laos 1950-2018,B,Asia_Sudeste,Malaysia,Laos,gradual,0.1778,0.4852,0.6966,0.0,0.0224,0.1339,0.2216,0.1,69,1950,2018,True,0.95,1.77,,,True
+B259,Thailand→Indonesia 1913-2018,B,Asia_Sudeste,Thailand,Indonesia,gradual,0.2186,0.724,0.8509,0.0,0.0161,0.187,0.2503,0.328,72,1913,2018,True,0.836,6.43,0.012494617132139476,True,True
+B260,Thailand→Philippines 1913-2018,B,Asia_Sudeste,Thailand,Philippines,gradual,0.4763,0.6751,0.8217,0.0,0.0395,0.3989,0.5537,0.121,72,1913,2018,True,0.9395,2.25,0.5996672894366716,False,True
+B261,Thailand→Vietnam 1913-2018,B,Asia_Sudeste,Thailand,Vietnam,gradual,0.3931,0.6642,0.815,0.0,0.0339,0.3267,0.4596,0.065,70,1913,2018,True,0.9675,1.16,,,True
+B262,Thailand→Cambodia 1950-2018,B,Asia_Sudeste,Thailand,Cambodia,gradual,0.4639,0.7177,0.8471,0.0,0.0355,0.3942,0.5336,0.103,69,1950,2018,True,0.9485,1.82,,,True
+B263,Thailand→Myanmar 1913-2018,B,Asia_Sudeste,Thailand,Myanmar,gradual,0.3577,0.5806,0.7619,0.0,0.0366,0.286,0.4295,0.114,71,1913,2018,True,0.943,2.08,0.8176855988373667,False,True
+B264,Thailand→Laos 1950-2018,B,Asia_Sudeste,Thailand,Laos,gradual,0.2445,0.517,0.7191,0.0,0.0289,0.1879,0.3011,0.065,69,1950,2018,True,0.9675,1.14,,,True
+B265,Philippines→Indonesia 1902-2018,B,Asia_Sudeste,Philippines,Indonesia,gradual,-0.1027,0.0973,-0.3119,0.001,0.0302,-0.1619,-0.0434,0.04,109,1902,2018,True,0.98,1.1,,,True
+B266,Vietnam→Indonesia 1913-2018,B,Asia_Sudeste,Vietnam,Indonesia,gradual,-0.1999,0.4897,-0.6998,0.0,0.0247,-0.2483,-0.1514,0.077,70,1913,2018,True,0.9615,1.37,,,True
+B267,Indonesia→Cambodia 1950-2018,B,Asia_Sudeste,Indonesia,Cambodia,gradual,0.2737,0.5635,0.7507,0.0,0.0294,0.2161,0.3314,0.122,69,1950,2018,True,0.939,2.17,0.7068241456158642,False,True
+B268,Indonesia→Myanmar 1901-2018,B,Asia_Sudeste,Indonesia,Myanmar,gradual,0.2514,0.5498,0.7415,0.0,0.0259,0.2006,0.3022,0.157,79,1901,2018,True,0.9215,3.23,0.26244642350805836,False,True
+B269,Indonesia→Laos 1950-2018,B,Asia_Sudeste,Indonesia,Laos,gradual,0.0543,0.1085,0.3294,0.0057,0.019,0.017,0.0916,0.111,69,1950,2018,True,0.9445,1.97,,,True
+B270,Philippines→Vietnam 1913-2018,B,Asia_Sudeste,Philippines,Vietnam,gradual,-0.0664,0.0457,-0.2138,0.0755,0.0368,-0.1386,0.0057,0.042,70,1913,2018,False,0.979,0.74,,,True
+B271,Philippines→Cambodia 1950-2018,B,Asia_Sudeste,Philippines,Cambodia,gradual,-0.0063,0.0026,-0.0506,0.6796,0.0151,-0.0358,0.0233,0.315,69,1950,2018,False,0.8425,5.9,0.9089409566432922,False,True
+B272,Philippines→Myanmar 1906-2018,B,Asia_Sudeste,Philippines,Myanmar,gradual,0.0208,0.0044,0.066,0.5661,0.0361,-0.05,0.0916,0.079,78,1906,2018,False,0.9605,1.57,,,True
+B273,Philippines→Laos 1950-2018,B,Asia_Sudeste,Philippines,Laos,gradual,-0.2257,0.3529,-0.5941,0.0,0.0373,-0.2988,-0.1525,0.04,69,1950,2018,True,0.98,0.7,,,True
+B274,Vietnam→Cambodia 1950-2018,B,Asia_Sudeste,Vietnam,Cambodia,gradual,0.0788,0.0972,0.3118,0.0091,0.0293,0.0213,0.1363,0.084,69,1950,2018,True,0.958,1.48,,,True
+B275,Vietnam→Myanmar 1913-2018,B,Asia_Sudeste,Vietnam,Myanmar,gradual,-0.0616,0.1115,-0.334,0.0047,0.0211,-0.1029,-0.0203,0.264,70,1913,2018,True,0.868,4.95,0.4952152077910232,False,True
+B276,Vietnam→Laos 1950-2018,B,Asia_Sudeste,Vietnam,Laos,gradual,-0.1406,0.5721,-0.7564,0.0,0.0149,-0.1697,-0.1115,0.217,69,1950,2018,True,0.8915,3.96,0.15500046103169987,False,True
+B277,Myanmar→Cambodia 1950-2018,B,Asia_Sudeste,Myanmar,Cambodia,gradual,0.161,0.4221,0.6497,0.0,0.023,0.1159,0.2061,0.179,69,1950,2018,True,0.9105,3.23,0.33647150182331653,False,True
+B278,Laos→Cambodia 1950-2018,B,Asia_Sudeste,Laos,Cambodia,gradual,0.2194,0.4304,0.656,0.0,0.0308,0.159,0.2799,0.102,69,1950,2018,True,0.949,1.81,,,True
+B279,Laos→Myanmar 1950-2018,B,Asia_Sudeste,Laos,Myanmar,gradual,0.0584,0.1288,0.3589,0.0025,0.0186,0.022,0.0948,0.126,69,1950,2018,True,0.937,2.24,0.800713646624053,False,True
+B280,Pakistan→India 1950-2018,B,Asia_Sur,Pakistan,India,gradual,0.0446,0.0913,0.3021,0.0116,0.0172,0.0109,0.0783,0.068,69,1950,2018,True,0.966,1.19,,,True
+B281,India→Bangladesh 1950-2018,B,Asia_Sur,India,Bangladesh,gradual,0.1545,0.7034,0.8387,0.0,0.0123,0.1305,0.1785,0.246,69,1950,2018,True,0.877,4.52,0.06203418213666027,False,True
+B282,Sri Lanka→India 1900-2018,B,Asia_Sur,Sri Lanka,India,gradual,0.0173,0.0453,0.2128,0.0201,0.0074,0.0029,0.0318,0.393,119,1900,2018,True,0.8035,12.97,0.45661159433199905,False,True
+B283,India→Nepal 1913-2018,B,Asia_Sur,India,Nepal,gradual,0.1811,0.5668,0.7528,0.0,0.0192,0.1435,0.2188,0.086,70,1913,2018,True,0.957,1.54,,,True
+B284,India→Afghanistan 1950-2018,B,Asia_Sur,India,Afghanistan,gradual,0.5213,0.6094,0.7806,0.0,0.051,0.4214,0.6212,0.112,69,1950,2018,True,0.944,1.99,,,True
+B285,Pakistan→Bangladesh 1950-2018,B,Asia_Sur,Pakistan,Bangladesh,gradual,0.1991,0.4421,0.6649,0.0,0.0273,0.1456,0.2527,0.057,69,1950,2018,True,0.9715,1.0,,,True
+B286,Sri Lanka→Pakistan 1950-2018,B,Asia_Sur,Sri Lanka,Pakistan,gradual,-0.0387,0.0857,-0.2928,0.0146,0.0154,-0.0689,-0.0084,0.103,69,1950,2018,True,0.9485,1.82,,,True
+B287,Pakistan→Nepal 1950-2018,B,Asia_Sur,Pakistan,Nepal,gradual,0.228,0.7394,0.8599,0.0,0.0165,0.1955,0.2604,0.146,69,1950,2018,True,0.927,2.61,0.33610956964060856,False,True
+B288,Pakistan→Afghanistan 1950-2018,B,Asia_Sur,Pakistan,Afghanistan,gradual,0.5659,0.6196,0.7872,0.0,0.0542,0.4597,0.6721,0.107,69,1950,2018,True,0.9465,1.9,,,True
+B289,Sri Lanka→Bangladesh 1950-2018,B,Asia_Sur,Sri Lanka,Bangladesh,gradual,0.1604,0.5109,0.7147,0.0,0.0192,0.1229,0.198,0.108,69,1950,2018,True,0.946,1.91,,,True
+B290,Bangladesh→Nepal 1950-2018,B,Asia_Sur,Bangladesh,Nepal,gradual,0.0288,0.02,0.1415,0.2463,0.0247,-0.0195,0.0772,0.051,69,1950,2018,False,0.9745,0.89,,,True
+B291,Bangladesh→Afghanistan 1950-2018,B,Asia_Sur,Bangladesh,Afghanistan,gradual,0.3668,0.4562,0.6754,0.0,0.0489,0.2709,0.4627,0.109,69,1950,2018,True,0.9455,1.93,,,True
+B292,Sri Lanka→Nepal 1913-2018,B,Asia_Sur,Sri Lanka,Nepal,gradual,0.1898,0.5099,0.7141,0.0,0.0226,0.1455,0.234,0.06,70,1913,2018,True,0.97,1.07,,,True
+B293,Sri Lanka→Afghanistan 1950-2018,B,Asia_Sur,Sri Lanka,Afghanistan,gradual,0.5272,0.5609,0.7489,0.0,0.057,0.4155,0.6389,0.095,69,1950,2018,True,0.9525,1.68,,,True
+B294,Nepal→Afghanistan 1950-2018,B,Asia_Sur,Nepal,Afghanistan,gradual,0.3379,0.4479,0.6693,0.0,0.0458,0.2481,0.4278,0.13,69,1950,2018,True,0.935,2.32,0.6192437853229281,False,True
+B295,Israel→Turkey 1950-2018,B,Medio_Oriente,Israel,Turkey,gradual,-0.0515,0.0573,-0.2394,0.0476,0.0255,-0.1015,-0.0015,0.088,69,1950,2018,True,0.956,1.55,,,True
+B296,Israel→Iran 1950-2018,B,Medio_Oriente,Israel,Iran,gradual,0.0483,0.0323,0.1797,0.1394,0.0323,-0.015,0.1117,0.097,69,1950,2018,False,0.9515,1.71,,,True
+B297,Israel→Iraq 1950-2018,B,Medio_Oriente,Israel,Iraq,gradual,0.3498,0.2768,0.5261,0.0,0.0691,0.2144,0.4852,0.115,69,1950,2018,True,0.9425,2.04,0.9134496179009701,False,True
+B298,Saudi Arabia→Israel 1950-2018,B,Medio_Oriente,Saudi Arabia,Israel,gradual,0.1447,0.2404,0.4903,0.0,0.0314,0.0831,0.2062,0.079,69,1950,2018,True,0.9605,1.39,,,True
+B299,Israel→Egypt 1950-2018,B,Medio_Oriente,Israel,Egypt,gradual,-0.059,0.0341,-0.1846,0.1288,0.0384,-0.1342,0.0162,0.033,69,1950,2018,False,0.9835,0.57,,,True
+B300,Israel→Jordan 1950-2018,B,Medio_Oriente,Israel,Jordan,gradual,0.165,0.4032,0.635,0.0,0.0245,0.1169,0.213,0.18,69,1950,2018,True,0.91,3.25,0.34524619814338436,False,True
+B301,Israel→Lebanon 1950-2018,B,Medio_Oriente,Israel,Lebanon,gradual,0.4242,0.4717,0.6868,0.0,0.0549,0.3167,0.5317,0.245,69,1950,2018,True,0.8775,4.5,0.16093516693226995,False,True
+B302,Israel→Syria 1950-2018,B,Medio_Oriente,Israel,Syria,gradual,0.4812,0.5697,0.7548,0.0,0.0511,0.381,0.5813,0.078,69,1950,2018,True,0.961,1.37,,,True
+B303,Israel→Yemen 1950-2018,B,Medio_Oriente,Israel,Yemen,gradual,0.2189,0.4853,0.6966,0.0,0.0275,0.1649,0.2729,0.124,69,1950,2018,True,0.938,2.21,0.6904575470294056,False,True
+B304,Iran→Turkey 1913-2018,B,Medio_Oriente,Iran,Turkey,gradual,-0.0834,0.0853,-0.2921,0.0141,0.0331,-0.1483,-0.0185,0.139,70,1913,2018,True,0.9305,2.52,0.7630347942557018,False,True
+B305,Turkey→Iraq 1913-2018,B,Medio_Oriente,Turkey,Iraq,gradual,0.3799,0.2835,0.5325,0.0,0.0732,0.2364,0.5235,0.106,70,1913,2018,True,0.947,1.91,,,True
+B306,Saudi Arabia→Turkey 1913-2018,B,Medio_Oriente,Saudi Arabia,Turkey,gradual,0.1534,0.2482,0.4982,0.0,0.0324,0.0899,0.2168,0.26,70,1913,2018,True,0.87,4.87,0.30415840636015845,False,True
+B307,Turkey→Egypt 1913-2018,B,Medio_Oriente,Turkey,Egypt,gradual,0.0333,0.038,0.1948,0.106,0.0203,-0.0065,0.0731,0.25,70,1913,2018,False,0.875,4.67,0.7036990903746951,False,True
+B308,Jordan→Turkey 1913-2018,B,Medio_Oriente,Jordan,Turkey,gradual,-0.2112,0.4822,-0.6944,0.0,0.0265,-0.2632,-0.1592,0.201,70,1913,2018,True,0.8995,3.7,0.22967573143816183,False,True
+B309,Lebanon→Turkey 1913-2018,B,Medio_Oriente,Lebanon,Turkey,gradual,-0.4608,0.5661,-0.7524,0.0,0.0489,-0.5567,-0.365,0.33,70,1913,2018,True,0.835,6.29,0.043820199107718664,True,True
+B310,Syria→Turkey 1913-2018,B,Medio_Oriente,Syria,Turkey,gradual,-0.515,0.4305,-0.6561,0.0,0.0718,-0.6558,-0.3742,0.058,70,1913,2018,True,0.971,1.03,,,True
+B311,Turkey→Yemen 1950-2018,B,Medio_Oriente,Turkey,Yemen,gradual,0.2704,0.3959,0.6292,0.0,0.0408,0.1904,0.3504,0.062,69,1950,2018,True,0.969,1.09,,,True
+B312,Iran→Iraq 1913-2018,B,Medio_Oriente,Iran,Iraq,gradual,0.2965,0.2892,0.5377,0.0,0.0564,0.186,0.4071,0.19,70,1913,2018,True,0.905,3.49,0.3944703316609006,False,True
+B313,Saudi Arabia→Iran 1913-2018,B,Medio_Oriente,Saudi Arabia,Iran,gradual,0.2368,0.7522,0.8673,0.0,0.0165,0.2045,0.2691,0.475,70,1913,2018,True,0.7625,9.43,0.0009599191390312011,True,True
+B314,Iran→Egypt 1913-2018,B,Medio_Oriente,Iran,Egypt,gradual,-0.0501,0.0174,-0.1319,0.2762,0.0456,-0.1396,0.0394,0.151,70,1913,2018,False,0.9245,2.75,0.8721387188738587,False,True
+B315,Iran→Jordan 1913-2018,B,Medio_Oriente,Iran,Jordan,gradual,0.1278,0.1439,0.3793,0.0012,0.0378,0.0537,0.2019,0.127,70,1913,2018,True,0.9365,2.3,0.7698215882746086,False,True
+B316,Iran→Lebanon 1913-2018,B,Medio_Oriente,Iran,Lebanon,gradual,0.3775,0.4996,0.7068,0.0,0.0458,0.2877,0.4672,0.392,70,1913,2018,True,0.804,7.61,0.03726749401832795,True,True
+B317,Iran→Syria 1913-2018,B,Medio_Oriente,Iran,Syria,gradual,0.4316,0.3404,0.5835,0.0,0.0729,0.2888,0.5744,0.048,70,1913,2018,True,0.976,0.85,,,True
+B318,Iran→Yemen 1950-2018,B,Medio_Oriente,Iran,Yemen,gradual,0.1706,0.1542,0.3927,0.0008,0.0488,0.0749,0.2663,0.062,69,1950,2018,True,0.969,1.09,,,True
+B319,Saudi Arabia→Iraq 1913-2018,B,Medio_Oriente,Saudi Arabia,Iraq,gradual,0.5333,0.5934,0.7703,0.0,0.0535,0.4284,0.6383,0.218,70,1913,2018,True,0.891,4.03,0.13692728827265366,False,True
+B320,Iraq→Egypt 1913-2018,B,Medio_Oriente,Iraq,Egypt,gradual,-0.3466,0.2123,-0.4608,0.0001,0.081,-0.5053,-0.188,0.112,70,1913,2018,True,0.944,2.02,0.9608248126370746,False,True
+B321,Jordan→Iraq 1913-2018,B,Medio_Oriente,Jordan,Iraq,gradual,0.1688,0.0998,0.316,0.0077,0.0614,0.0483,0.2892,0.124,70,1913,2018,True,0.938,2.24,0.8220926942083009,False,True
+B322,Lebanon→Iraq 1913-2018,B,Medio_Oriente,Lebanon,Iraq,gradual,-0.0809,0.0204,-0.1429,0.238,0.068,-0.2141,0.0523,0.268,70,1913,2018,False,0.866,5.03,0.7706039426660208,False,True
+B323,Syria→Iraq 1913-2018,B,Medio_Oriente,Syria,Iraq,gradual,-0.135,0.0296,-0.1721,0.1544,0.0938,-0.3188,0.0487,0.073,70,1913,2018,False,0.9635,1.3,,,True
+B324,Iraq→Yemen 1950-2018,B,Medio_Oriente,Iraq,Yemen,gradual,-0.1309,0.0377,-0.1942,0.1098,0.0807,-0.2891,0.0274,0.089,69,1950,2018,False,0.9555,1.57,,,True
+B325,Saudi Arabia→Egypt 1913-2018,B,Medio_Oriente,Saudi Arabia,Egypt,gradual,0.1867,0.2003,0.4476,0.0001,0.0452,0.098,0.2753,0.26,70,1913,2018,True,0.87,4.87,0.35912043046020525,False,True
+B326,Saudi Arabia→Jordan 1913-2018,B,Medio_Oriente,Saudi Arabia,Jordan,gradual,0.3646,0.6163,0.785,0.0,0.0349,0.2962,0.4329,0.181,70,1913,2018,True,0.9095,3.32,0.21272453028436375,False,True
+B327,Saudi Arabia→Lebanon 1913-2018,B,Medio_Oriente,Saudi Arabia,Lebanon,gradual,0.6142,0.7194,0.8482,0.0,0.0465,0.5231,0.7054,0.338,70,1913,2018,True,0.831,6.46,0.01283829119610072,True,True
+B328,Saudi Arabia→Syria 1913-2018,B,Medio_Oriente,Saudi Arabia,Syria,gradual,0.6684,0.5612,0.7491,0.0,0.0717,0.5279,0.8088,0.048,70,1913,2018,True,0.976,0.85,,,True
+B329,Saudi Arabia→Yemen 1950-2018,B,Medio_Oriente,Saudi Arabia,Yemen,gradual,0.3636,0.4614,0.6793,0.0,0.048,0.2695,0.4577,0.061,69,1950,2018,True,0.9695,1.07,,,True
+B330,Jordan→Egypt 1913-2018,B,Medio_Oriente,Jordan,Egypt,gradual,-0.1779,0.2675,-0.5172,0.0,0.0357,-0.2479,-0.1079,0.177,70,1913,2018,True,0.9115,3.24,0.4489696023157262,False,True
+B331,Lebanon→Egypt 1913-2018,B,Medio_Oriente,Lebanon,Egypt,gradual,-0.4276,0.4538,-0.6736,0.0,0.0569,-0.539,-0.3161,0.306,70,1913,2018,True,0.847,5.8,0.10019980957563619,False,True
+B332,Syria→Egypt 1913-2018,B,Medio_Oriente,Syria,Egypt,gradual,-0.4817,0.3146,-0.5609,0.0,0.0862,-0.6507,-0.3127,0.068,70,1913,2018,True,0.966,1.21,,,True
+B333,Egypt→Yemen 1950-2018,B,Medio_Oriente,Egypt,Yemen,gradual,0.2779,0.3096,0.5564,0.0,0.0507,0.1786,0.3773,0.038,69,1950,2018,True,0.981,0.66,,,True
+B334,Lebanon→Jordan 1913-2018,B,Medio_Oriente,Lebanon,Jordan,gradual,-0.2497,0.2617,-0.5116,0.0,0.0509,-0.3493,-0.15,0.315,70,1913,2018,True,0.8425,5.98,0.22507818849132394,False,True
+B335,Syria→Jordan 1913-2018,B,Medio_Oriente,Syria,Jordan,gradual,-0.3038,0.267,-0.5168,0.0,0.061,-0.4234,-0.1842,0.056,70,1913,2018,True,0.972,0.99,,,True
+B336,Jordan→Yemen 1950-2018,B,Medio_Oriente,Jordan,Yemen,gradual,0.0539,0.0304,0.1744,0.1519,0.0372,-0.019,0.1269,0.106,69,1950,2018,False,0.947,1.88,,,True
+B337,Lebanon→Syria 1913-2018,B,Medio_Oriente,Lebanon,Syria,gradual,0.0541,0.0051,0.0717,0.5555,0.0914,-0.1249,0.2332,0.1,70,1913,2018,False,0.95,1.79,,,True
+B338,Lebanon→Yemen 1950-2018,B,Medio_Oriente,Lebanon,Yemen,gradual,-0.2053,0.1099,-0.3315,0.0054,0.0714,-0.3452,-0.0654,0.159,69,1950,2018,True,0.9205,2.86,0.6756466254655297,False,True
+B339,Syria→Yemen 1950-2018,B,Medio_Oriente,Syria,Yemen,gradual,-0.2622,0.4263,-0.6529,0.0,0.0372,-0.3351,-0.1894,0.145,69,1950,2018,True,0.9275,2.6,0.49533397732463114,False,True
+B340,Egypt→Morocco 1913-2018,B,Africa_Norte,Egypt,Morocco,gradual,0.2342,0.5225,0.7228,0.0,0.0271,0.181,0.2874,0.404,70,1913,2018,True,0.798,7.86,0.028181410524463178,True,True
+B341,Algeria→Egypt 1913-2018,B,Africa_Norte,Algeria,Egypt,gradual,-0.1119,0.2704,-0.52,0.0,0.0223,-0.1556,-0.0682,0.225,70,1913,2018,True,0.8875,4.17,0.3367471302625383,False,True
+B342,Tunisia→Egypt 1913-2018,B,Africa_Norte,Tunisia,Egypt,gradual,-0.0477,0.0748,-0.2735,0.022,0.0203,-0.0875,-0.0078,0.19,70,1913,2018,True,0.905,3.49,0.6671353984394314,False,True
+B343,Egypt→Sudan 1950-2018,B,Africa_Norte,Egypt,Sudan,gradual,0.4554,0.7387,0.8595,0.0,0.0331,0.3905,0.5202,0.101,69,1950,2018,True,0.9495,1.79,,,True
+B344,Libya→Egypt 1950-2018,B,Africa_Norte,Libya,Egypt,gradual,0.3334,0.2797,0.5288,0.0,0.0654,0.2053,0.4616,0.189,69,1950,2018,True,0.9055,3.42,0.41213237286944,False,True
+B345,Algeria→Morocco 1913-2018,B,Africa_Norte,Algeria,Morocco,gradual,0.1223,0.3615,0.6012,0.0,0.0197,0.0836,0.1609,0.504,70,1913,2018,True,0.748,10.09,0.04581761634180433,True,True
+B346,Tunisia→Morocco 1913-2018,B,Africa_Norte,Tunisia,Morocco,gradual,0.1865,0.7139,0.8449,0.0,0.0143,0.1585,0.2146,0.714,70,1913,2018,True,0.643,15.21,3.6484917660775654e-05,True,True
+B347,Morocco→Sudan 1950-2018,B,Africa_Norte,Morocco,Sudan,gradual,0.1728,0.3651,0.6042,0.0,0.0278,0.1183,0.2274,0.112,69,1950,2018,True,0.944,1.99,,,True
+B348,Libya→Morocco 1950-2018,B,Africa_Norte,Libya,Morocco,gradual,0.616,0.6191,0.7868,0.0,0.059,0.5003,0.7317,0.251,69,1950,2018,True,0.8745,4.62,0.08537642315063677,False,True
+B349,Algeria→Tunisia 1913-2018,B,Africa_Norte,Algeria,Tunisia,gradual,-0.0643,0.1569,-0.3961,0.0007,0.0181,-0.0997,-0.0289,0.231,70,1913,2018,True,0.8845,4.29,0.46158781647177,False,True
+B350,Algeria→Sudan 1950-2018,B,Africa_Norte,Algeria,Sudan,gradual,0.3214,0.7798,0.883,0.0,0.0209,0.2805,0.3623,0.344,69,1950,2018,True,0.828,6.49,0.0068966182081461715,True,True
+B351,Libya→Algeria 1950-2018,B,Africa_Norte,Libya,Algeria,gradual,0.4674,0.4941,0.7029,0.0,0.0578,0.3542,0.5807,0.267,69,1950,2018,True,0.8665,4.94,0.12126199761376402,False,True
+B352,Tunisia→Sudan 1950-2018,B,Africa_Norte,Tunisia,Sudan,gradual,0.3805,0.7114,0.8435,0.0,0.0296,0.3225,0.4385,0.145,69,1950,2018,True,0.9275,2.6,0.35866790560765255,False,True
+B353,Libya→Tunisia 1950-2018,B,Africa_Norte,Libya,Tunisia,gradual,0.4083,0.4581,0.6769,0.0,0.0542,0.302,0.5146,0.279,69,1950,2018,True,0.8605,5.17,0.12615139610617024,False,True
+B354,Libya→Sudan 1950-2018,B,Africa_Norte,Libya,Sudan,gradual,0.7888,0.7428,0.8619,0.0,0.0567,0.6777,0.8999,0.318,69,1950,2018,True,0.841,5.96,0.015308993343024548,True,True
+B355,South Africa→Nigeria 1950-2018,B,Africa_Sub,South Africa,Nigeria,gradual,-0.0819,0.1448,-0.3806,0.0013,0.0243,-0.1295,-0.0342,0.121,69,1950,2018,True,0.9395,2.15,0.8382185122163062,False,True
+B356,South Africa→Kenya 1950-2018,B,Africa_Sub,South Africa,Kenya,gradual,-0.0048,0.0024,-0.0485,0.6924,0.012,-0.0282,0.0187,0.213,69,1950,2018,False,0.8935,3.88,0.9335522578811807,False,True
+B357,South Africa→Ghana 1950-2018,B,Africa_Sub,South Africa,Ghana,gradual,0.1791,0.6247,0.7904,0.0,0.017,0.1458,0.2123,0.143,69,1950,2018,True,0.9285,2.56,0.41700298783342993,False,True
+B358,South Africa→Zimbabwe 1950-2018,B,Africa_Sub,South Africa,Zimbabwe,gradual,0.1596,0.161,0.4013,0.0006,0.0445,0.0724,0.2469,0.039,69,1950,2018,True,0.9805,0.68,,,True
+B359,South Africa→Zambia 1950-2018,B,Africa_Sub,South Africa,Zambia,gradual,0.0833,0.201,0.4484,0.0001,0.0203,0.0436,0.1231,0.113,69,1950,2018,True,0.9435,2.01,0.9829778090734533,False,True
+B360,South Africa→Tanzania 1950-2018,B,Africa_Sub,South Africa,Tanzania,gradual,-0.0223,0.0229,-0.1514,0.2144,0.0178,-0.0572,0.0126,0.056,69,1950,2018,False,0.972,0.98,,,True
+B361,South Africa→Uganda 1950-2018,B,Africa_Sub,South Africa,Uganda,gradual,0.1837,0.7029,0.8384,0.0,0.0146,0.1551,0.2123,0.157,69,1950,2018,True,0.9215,2.82,0.2806007168845668,False,True
+B362,South Africa→Mozambique 1950-2018,B,Africa_Sub,South Africa,Mozambique,gradual,0.4959,0.5914,0.7691,0.0,0.0503,0.3972,0.5946,0.046,69,1950,2018,True,0.977,0.8,,,True
+B363,Botswana→South Africa 1950-2018,B,Africa_Sub,Botswana,South Africa,gradual,0.9003,0.7224,0.8499,0.0,0.0682,0.7666,1.0339,0.054,69,1950,2018,True,0.973,0.94,,,True
+B364,South Africa→Ethiopia 1950-2018,B,Africa_Sub,South Africa,Ethiopia,gradual,0.1164,0.3334,0.5774,0.0,0.0201,0.077,0.1559,0.078,69,1950,2018,True,0.961,1.37,,,True
+B365,South Africa→Cameroon 1950-2018,B,Africa_Sub,South Africa,Cameroon,gradual,0.0202,0.0144,0.1199,0.3266,0.0204,-0.0198,0.0602,0.066,69,1950,2018,False,0.967,1.16,,,True
+B366,South Africa→Senegal 1950-2018,B,Africa_Sub,South Africa,Senegal,gradual,0.2956,0.741,0.8608,0.0,0.0214,0.2537,0.3374,0.124,69,1950,2018,True,0.938,2.21,0.6181331774718763,False,True
+B367,South Africa→Angola 1950-2018,B,Africa_Sub,South Africa,Angola,gradual,0.0309,0.0044,0.0662,0.5892,0.0569,-0.0807,0.1424,0.044,69,1950,2018,False,0.978,0.77,,,True
+B368,Nigeria→Kenya 1950-2018,B,Africa_Sub,Nigeria,Kenya,gradual,0.0771,0.108,0.3286,0.0058,0.0271,0.024,0.1302,0.13,69,1950,2018,True,0.935,2.32,0.7890137930442077,False,True
+B369,Nigeria→Ghana 1950-2018,B,Africa_Sub,Nigeria,Ghana,gradual,0.261,0.5996,0.7743,0.0,0.0261,0.2099,0.312,0.137,69,1950,2018,True,0.9315,2.45,0.4836439261394346,False,True
+B370,Nigeria→Zimbabwe 1950-2018,B,Africa_Sub,Nigeria,Zimbabwe,gradual,0.2415,0.1719,0.4146,0.0004,0.0648,0.1146,0.3684,0.036,69,1950,2018,True,0.982,0.63,,,True
+B371,Nigeria→Zambia 1950-2018,B,Africa_Sub,Nigeria,Zambia,gradual,0.1652,0.4034,0.6351,0.0,0.0245,0.1171,0.2133,0.173,69,1950,2018,True,0.9135,3.12,0.3690557482819749,False,True
+B372,Nigeria→Tanzania 1950-2018,B,Africa_Sub,Nigeria,Tanzania,gradual,0.0595,0.2202,0.4692,0.0,0.0137,0.0327,0.0864,0.39,69,1950,2018,True,0.805,7.45,0.2080945664870306,False,True
+B373,Nigeria→Uganda 1950-2018,B,Africa_Sub,Nigeria,Uganda,gradual,0.2656,0.5929,0.77,0.0,0.0269,0.2129,0.3183,0.129,69,1950,2018,True,0.9355,2.3,0.5817845191827064,False,True
+B374,Nigeria→Mozambique 1950-2018,B,Africa_Sub,Nigeria,Mozambique,gradual,0.5777,0.4984,0.706,0.0,0.0708,0.4389,0.7165,0.041,69,1950,2018,True,0.9795,0.71,,,True
+B375,Botswana→Nigeria 1950-2018,B,Africa_Sub,Botswana,Nigeria,gradual,0.8184,0.7383,0.8593,0.0,0.0595,0.7017,0.9351,0.079,69,1950,2018,True,0.9605,1.39,,,True
+B376,Nigeria→Ethiopia 1950-2018,B,Africa_Sub,Nigeria,Ethiopia,gradual,0.1983,0.3034,0.5508,0.0,0.0367,0.1264,0.2703,0.078,69,1950,2018,True,0.961,1.37,,,True
+B377,Nigeria→Cameroon 1950-2018,B,Africa_Sub,Nigeria,Cameroon,gradual,0.102,0.09,0.3,0.0123,0.0396,0.0243,0.1797,0.071,69,1950,2018,True,0.9645,1.25,,,True
+B378,Nigeria→Senegal 1950-2018,B,Africa_Sub,Nigeria,Senegal,gradual,0.3774,0.5378,0.7333,0.0,0.0428,0.2936,0.4612,0.069,69,1950,2018,True,0.9655,1.21,,,True
+B379,Angola→Nigeria 1950-2018,B,Africa_Sub,Angola,Nigeria,gradual,-0.1127,0.0822,-0.2867,0.0169,0.046,-0.203,-0.0225,0.086,69,1950,2018,True,0.957,1.52,,,True
+B380,Ghana→Kenya 1950-2018,B,Africa_Sub,Ghana,Kenya,gradual,-0.1838,0.5114,-0.7151,0.0,0.022,-0.2269,-0.1408,0.114,69,1950,2018,True,0.943,2.02,0.9321282731782946,False,True
+B381,Zimbabwe→Kenya 1950-2018,B,Africa_Sub,Zimbabwe,Kenya,gradual,-0.1644,0.1861,-0.4314,0.0002,0.042,-0.2467,-0.0821,0.048,69,1950,2018,True,0.976,0.84,,,True
+B382,Kenya→Zambia 1950-2018,B,Africa_Sub,Kenya,Zambia,gradual,0.0881,0.128,0.3577,0.0025,0.0281,0.033,0.1432,0.101,69,1950,2018,True,0.9495,1.79,,,True
+B383,Kenya→Tanzania 1950-2018,B,Africa_Sub,Kenya,Tanzania,gradual,-0.0176,0.0107,-0.1034,0.3977,0.0206,-0.058,0.0229,0.048,69,1950,2018,False,0.976,0.84,,,True
+B384,Kenya→Uganda 1950-2018,B,Africa_Sub,Kenya,Uganda,gradual,0.1885,0.5205,0.7215,0.0,0.0221,0.1452,0.2318,0.113,69,1950,2018,True,0.9435,2.01,0.9787445796277144,False,True
+B385,Kenya→Mozambique 1950-2018,B,Africa_Sub,Kenya,Mozambique,gradual,0.5006,0.5816,0.7626,0.0,0.0519,0.399,0.6023,0.045,69,1950,2018,True,0.9775,0.79,,,True
+B386,Botswana→Kenya 1950-2018,B,Africa_Sub,Botswana,Kenya,gradual,0.8955,0.7592,0.8713,0.0,0.0616,0.7747,1.0163,0.072,69,1950,2018,True,0.964,1.26,,,True
+B387,Kenya→Ethiopia 1950-2018,B,Africa_Sub,Kenya,Ethiopia,gradual,0.1212,0.3152,0.5614,0.0,0.0218,0.0784,0.164,0.104,69,1950,2018,True,0.948,1.84,,,True
+B388,Cameroon→Kenya 1950-2018,B,Africa_Sub,Cameroon,Kenya,gradual,-0.0249,0.027,-0.1642,0.1776,0.0183,-0.0608,0.0109,0.14,69,1950,2018,False,0.93,2.5,0.8644119162772121,False,True
+B389,Senegal→Kenya 1950-2018,B,Africa_Sub,Senegal,Kenya,gradual,-0.3003,0.7155,-0.8459,0.0,0.0231,-0.3457,-0.255,0.121,69,1950,2018,True,0.9395,2.15,0.6920158259597251,False,True
+B390,Angola→Kenya 1950-2018,B,Africa_Sub,Angola,Kenya,gradual,-0.0356,0.0047,-0.0687,0.5746,0.0632,-0.1595,0.0882,0.043,69,1950,2018,False,0.9785,0.75,,,True
+B391,Ghana→Zimbabwe 1950-2018,B,Africa_Sub,Ghana,Zimbabwe,gradual,-0.0195,0.0021,-0.0464,0.7053,0.0512,-0.1198,0.0809,0.036,69,1950,2018,False,0.982,0.63,,,True
+B392,Ghana→Zambia 1950-2018,B,Africa_Sub,Ghana,Zambia,gradual,-0.0957,0.3996,-0.6321,0.0,0.0143,-0.1239,-0.0676,0.256,69,1950,2018,True,0.872,4.72,0.1878590096957688,False,True
+B393,Ghana→Tanzania 1950-2018,B,Africa_Sub,Ghana,Tanzania,gradual,-0.2014,0.6348,-0.7967,0.0,0.0187,-0.238,-0.1648,0.146,69,1950,2018,True,0.927,2.61,0.38796801227047706,False,True
+B394,Ghana→Uganda 1950-2018,B,Africa_Sub,Ghana,Uganda,gradual,0.0046,0.0028,0.0525,0.6685,0.0108,-0.0165,0.0257,0.544,69,1950,2018,False,0.728,10.86,0.8696033582795591,False,True
+B395,Ghana→Mozambique 1950-2018,B,Africa_Sub,Ghana,Mozambique,gradual,0.3168,0.3456,0.5879,0.0,0.0533,0.2124,0.4212,0.036,69,1950,2018,True,0.982,0.63,,,True
+B396,Botswana→Ghana 1950-2018,B,Africa_Sub,Botswana,Ghana,gradual,1.0793,0.7566,0.8698,0.0,0.0748,0.9328,1.2259,0.064,69,1950,2018,True,0.968,1.12,,,True
+B397,Ghana→Ethiopia 1950-2018,B,Africa_Sub,Ghana,Ethiopia,gradual,-0.0626,0.0879,-0.2964,0.0134,0.0247,-0.111,-0.0143,0.105,69,1950,2018,True,0.9475,1.86,,,True
+B398,Ghana→Cameroon 1950-2018,B,Africa_Sub,Ghana,Cameroon,gradual,-0.1589,0.265,-0.5148,0.0,0.0323,-0.2223,-0.0955,0.069,69,1950,2018,True,0.9655,1.21,,,True
+B399,Ghana→Senegal 1950-2018,B,Africa_Sub,Ghana,Senegal,gradual,0.1165,0.2357,0.4855,0.0,0.0256,0.0663,0.1667,0.115,69,1950,2018,True,0.9425,2.04,0.9174647442451683,False,True
+B400,Angola→Ghana 1950-2018,B,Africa_Sub,Angola,Ghana,gradual,0.1482,0.1192,0.3452,0.0037,0.0492,0.0517,0.2447,0.063,69,1950,2018,True,0.9685,1.1,,,True
+B401,Zimbabwe→Zambia 1950-2018,B,Africa_Sub,Zimbabwe,Zambia,gradual,-0.0763,0.0245,-0.1567,0.1986,0.0588,-0.1915,0.0389,0.033,69,1950,2018,False,0.9835,0.57,,,True
+B402,Zimbabwe→Tanzania 1950-2018,B,Africa_Sub,Zimbabwe,Tanzania,gradual,-0.182,0.1198,-0.3461,0.0036,0.0603,-0.3001,-0.0639,0.03,69,1950,2018,True,0.985,0.52,,,True
+B403,Zimbabwe→Uganda 1950-2018,B,Africa_Sub,Zimbabwe,Uganda,gradual,0.0241,0.0034,0.0587,0.6321,0.0501,-0.0741,0.1222,0.037,69,1950,2018,False,0.9815,0.64,,,True
+B404,Zimbabwe→Mozambique 1950-2018,B,Africa_Sub,Zimbabwe,Mozambique,gradual,0.3362,0.7097,0.8425,0.0,0.0263,0.2847,0.3877,0.144,69,1950,2018,True,0.928,2.58,0.36818748774751503,False,True
+B405,Botswana→Zimbabwe 1950-2018,B,Africa_Sub,Botswana,Zimbabwe,gradual,1.0599,0.6668,0.8166,0.0,0.0915,0.8805,1.2393,0.046,69,1950,2018,True,0.977,0.8,,,True
+B406,Zimbabwe→Ethiopia 1950-2018,B,Africa_Sub,Zimbabwe,Ethiopia,gradual,-0.0432,0.0171,-0.1306,0.2847,0.04,-0.1217,0.0353,0.052,69,1950,2018,False,0.974,0.91,,,True
+B407,Cameroon→Zimbabwe 1950-2018,B,Africa_Sub,Cameroon,Zimbabwe,gradual,0.1395,0.1895,0.4353,0.0002,0.0352,0.0704,0.2085,0.07,69,1950,2018,True,0.965,1.23,,,True
+B408,Senegal→Zimbabwe 1950-2018,B,Africa_Sub,Senegal,Zimbabwe,gradual,-0.1359,0.2292,-0.4788,0.0,0.0305,-0.1956,-0.0763,0.099,69,1950,2018,True,0.9505,1.75,,,True
+B409,Angola→Zimbabwe 1950-2018,B,Africa_Sub,Angola,Zimbabwe,gradual,0.1288,0.0252,0.1589,0.1923,0.0978,-0.0629,0.3204,0.027,69,1950,2018,False,0.9865,0.47,,,True
+B410,Zambia→Tanzania 1950-2018,B,Africa_Sub,Zambia,Tanzania,gradual,-0.1057,0.333,-0.5771,0.0,0.0183,-0.1415,-0.0699,0.162,69,1950,2018,True,0.919,2.91,0.4598735122676167,False,True
+B411,Zambia→Uganda 1950-2018,B,Africa_Sub,Zambia,Uganda,gradual,0.1004,0.402,0.634,0.0,0.015,0.0711,0.1297,0.264,69,1950,2018,True,0.868,4.88,0.1771964714660029,False,True
+B412,Zambia→Mozambique 1950-2018,B,Africa_Sub,Zambia,Mozambique,gradual,0.4125,0.4294,0.6553,0.0,0.0581,0.2987,0.5264,0.04,69,1950,2018,True,0.98,0.7,,,True
+B413,Botswana→Zambia 1950-2018,B,Africa_Sub,Botswana,Zambia,gradual,0.9836,0.702,0.8378,0.0,0.0783,0.8301,1.1371,0.058,69,1950,2018,True,0.971,1.02,,,True
+B414,Zambia→Ethiopia 1950-2018,B,Africa_Sub,Zambia,Ethiopia,gradual,0.0331,0.0233,0.1526,0.2107,0.0262,-0.0182,0.0845,0.11,69,1950,2018,False,0.945,1.95,,,True
+B415,Cameroon→Zambia 1950-2018,B,Africa_Sub,Cameroon,Zambia,gradual,0.0632,0.043,0.2074,0.0872,0.0364,-0.0082,0.1345,0.055,69,1950,2018,False,0.9725,0.96,,,True
+B416,Senegal→Zambia 1950-2018,B,Africa_Sub,Senegal,Zambia,gradual,-0.2122,0.3916,-0.6258,0.0,0.0323,-0.2756,-0.1489,0.07,69,1950,2018,True,0.965,1.23,,,True
+B417,Angola→Zambia 1950-2018,B,Africa_Sub,Angola,Zambia,gradual,0.0525,0.0228,0.1509,0.2157,0.042,-0.0298,0.1347,0.088,69,1950,2018,False,0.956,1.55,,,True
+B418,Uganda→Tanzania 1950-2018,B,Africa_Sub,Uganda,Tanzania,gradual,-0.206,0.6282,-0.7926,0.0,0.0194,-0.244,-0.1681,0.104,69,1950,2018,True,0.948,1.84,,,True
+B419,Mozambique→Tanzania 1950-2018,B,Africa_Sub,Mozambique,Tanzania,gradual,-0.5182,0.4808,-0.6934,0.0,0.0658,-0.6471,-0.3893,0.031,69,1950,2018,True,0.9845,0.54,,,True
+B420,Botswana→Tanzania 1950-2018,B,Africa_Sub,Botswana,Tanzania,gradual,0.8779,0.7515,0.8669,0.0,0.0617,0.757,0.9988,0.067,69,1950,2018,True,0.9665,1.18,,,True
+B421,Tanzania→Ethiopia 1950-2018,B,Africa_Sub,Tanzania,Ethiopia,gradual,0.1388,0.2373,0.4872,0.0,0.0304,0.0792,0.1983,0.045,69,1950,2018,True,0.9775,0.79,,,True
+B422,Cameroon→Tanzania 1950-2018,B,Africa_Sub,Cameroon,Tanzania,gradual,-0.0425,0.0229,-0.1512,0.215,0.034,-0.1091,0.024,0.036,69,1950,2018,False,0.982,0.63,,,True
+B423,Senegal→Tanzania 1950-2018,B,Africa_Sub,Senegal,Tanzania,gradual,-0.3179,0.5355,-0.7318,0.0,0.0362,-0.3888,-0.247,0.041,69,1950,2018,True,0.9795,0.71,,,True
+B424,Angola→Tanzania 1950-2018,B,Africa_Sub,Angola,Tanzania,gradual,-0.0532,0.0204,-0.1429,0.2416,0.045,-0.1415,0.0351,0.079,69,1950,2018,False,0.9605,1.39,,,True
+B425,Mozambique→Uganda 1950-2018,B,Africa_Sub,Mozambique,Uganda,gradual,-0.3122,0.3511,-0.5926,0.0,0.0518,-0.4138,-0.2105,0.043,69,1950,2018,True,0.9785,0.75,,,True
+B426,Botswana→Uganda 1950-2018,B,Africa_Sub,Botswana,Uganda,gradual,1.084,0.7565,0.8698,0.0,0.0751,0.9367,1.2312,0.058,69,1950,2018,True,0.971,1.02,,,True
+B427,Uganda→Ethiopia 1950-2018,B,Africa_Sub,Uganda,Ethiopia,gradual,-0.0673,0.0936,-0.306,0.0106,0.0256,-0.1174,-0.0171,0.074,69,1950,2018,True,0.963,1.3,,,True
+B428,Cameroon→Uganda 1950-2018,B,Africa_Sub,Cameroon,Uganda,gradual,0.1635,0.2829,0.5319,0.0,0.0318,0.1012,0.2259,0.055,69,1950,2018,True,0.9725,0.96,,,True
+B429,Senegal→Uganda 1950-2018,B,Africa_Sub,Senegal,Uganda,gradual,-0.1119,0.2325,-0.4822,0.0,0.0248,-0.1605,-0.0632,0.086,69,1950,2018,True,0.957,1.52,,,True
+B430,Angola→Uganda 1950-2018,B,Africa_Sub,Angola,Uganda,gradual,0.1528,0.1249,0.3534,0.0029,0.0494,0.0559,0.2497,0.064,69,1950,2018,True,0.968,1.12,,,True
+B431,Botswana→Mozambique 1950-2018,B,Africa_Sub,Botswana,Mozambique,gradual,1.3961,0.71,0.8426,0.0,0.109,1.1825,1.6098,0.047,69,1950,2018,True,0.9765,0.82,,,True
+B432,Mozambique→Ethiopia 1950-2018,B,Africa_Sub,Mozambique,Ethiopia,gradual,-0.3794,0.5534,-0.7439,0.0,0.0416,-0.461,-0.2978,0.057,69,1950,2018,True,0.9715,1.0,,,True
+B433,Cameroon→Mozambique 1950-2018,B,Africa_Sub,Cameroon,Mozambique,gradual,0.4757,0.6227,0.7891,0.0,0.0452,0.387,0.5644,0.065,69,1950,2018,True,0.9675,1.14,,,True
+B434,Senegal→Mozambique 1950-2018,B,Africa_Sub,Senegal,Mozambique,gradual,0.2003,0.3457,0.588,0.0,0.0337,0.1343,0.2663,0.085,69,1950,2018,True,0.9575,1.5,,,True
+B435,Angola→Mozambique 1950-2018,B,Africa_Sub,Angola,Mozambique,gradual,0.465,0.2611,0.5109,0.0,0.0956,0.2777,0.6523,0.025,69,1950,2018,True,0.9875,0.43,,,True
+B436,Botswana→Ethiopia 1950-2018,B,Africa_Sub,Botswana,Ethiopia,gradual,1.0167,0.7056,0.84,0.0,0.0802,0.8594,1.174,0.051,69,1950,2018,True,0.9745,0.89,,,True
+B437,Botswana→Cameroon 1950-2018,B,Africa_Sub,Botswana,Cameroon,gradual,0.9204,0.7145,0.8453,0.0,0.0711,0.7811,1.0597,0.057,69,1950,2018,True,0.9715,1.0,,,True
+B438,Botswana→Senegal 1950-2018,B,Africa_Sub,Botswana,Senegal,gradual,1.1958,0.759,0.8712,0.0,0.0823,1.0345,1.3572,0.063,69,1950,2018,True,0.9685,1.1,,,True
+B439,Botswana→Angola 1950-2018,B,Africa_Sub,Botswana,Angola,gradual,0.9311,0.6192,0.7869,0.0,0.0892,0.7563,1.106,0.051,69,1950,2018,True,0.9745,0.89,,,True
+B440,Cameroon→Ethiopia 1950-2018,B,Africa_Sub,Cameroon,Ethiopia,gradual,0.0963,0.2321,0.4818,0.0,0.0214,0.0543,0.1382,0.108,69,1950,2018,True,0.946,1.91,,,True
+B441,Senegal→Ethiopia 1950-2018,B,Africa_Sub,Senegal,Ethiopia,gradual,-0.1791,0.5292,-0.7275,0.0,0.0206,-0.2196,-0.1387,0.137,69,1950,2018,True,0.9315,2.45,0.5123947247038105,False,True
+B442,Angola→Ethiopia 1950-2018,B,Africa_Sub,Angola,Ethiopia,gradual,0.0856,0.0251,0.1584,0.1935,0.0651,-0.0421,0.2133,0.04,69,1950,2018,False,0.98,0.7,,,True
+B443,Senegal→Cameroon 1950-2018,B,Africa_Sub,Senegal,Cameroon,gradual,-0.2754,0.7377,-0.8589,0.0,0.0201,-0.3147,-0.2361,0.14,69,1950,2018,True,0.93,2.5,0.3915413512802759,False,True
+B444,Angola→Cameroon 1950-2018,B,Africa_Sub,Angola,Cameroon,gradual,-0.0107,0.0003,-0.0177,0.8849,0.0737,-0.1551,0.1337,0.037,69,1950,2018,False,0.9815,0.64,,,True
+B445,Angola→Senegal 1950-2018,B,Africa_Sub,Angola,Senegal,gradual,0.2647,0.1689,0.411,0.0005,0.0717,0.1241,0.4053,0.045,69,1950,2018,True,0.9775,0.79,,,True
+B446,New Zealand→Australia 1900-2018,B,Oceania,New Zealand,Australia,gradual,-0.1096,0.4022,-0.6342,0.0,0.0123,-0.1338,-0.0854,0.158,119,1900,2018,True,0.921,4.89,0.1718606811178857,False,True

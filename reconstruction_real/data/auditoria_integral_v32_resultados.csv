@@ -1,0 +1,42 @@
+bloque,cifra,publicado,recomputado,estado
+1_master_cifras,n_total,721,721,REPLICA
+1_master_cifras,n_sig,644,644,REPLICA
+1_master_cifras,pct_sig,89.3,89.3,REPLICA
+1_master_cifras,b_mean,0.3656,0.3656,REPLICA
+1_master_cifras,b_median,0.1791,0.1791,REPLICA
+1_master_cifras,pct_b_pos,74.1,74.1,REPLICA
+1_master_cifras,pct_b_super,14.1,14.1,REPLICA
+2_autocorr_B,dw_mediana,0.112,0.112,REPLICA
+2_autocorr_B,pct_dw_lt1,99.8,99.8,REPLICA
+2_autocorr_B,rho_ar1_mediana,0.944,0.944,REPLICA
+2_autocorr_B,n_eff_mediana,2.2,2.21,REPLICA
+2_autocorr_B,casos_neff_lt3,290,290,REPLICA
+3_correccion_ar1,B_sig_publicado,374,374,REPLICA
+3_correccion_ar1,B_sig_corregido_ar1,~145 (metodo-dependiente),33,ORDEN_DE_MAGNITUD
+3_correccion_ar1,corpus_pct_sig_publicado,89.3,89.3,REPLICA
+3_correccion_ar1,corpus_pct_sig_corr_soloB,~57.6 (metodo-dependiente),42.0,ORDEN_DE_MAGNITUD
+3_correccion_ar1,nota_metodo,Bartlett n_eff (orden de magnitud; usar Newey-West/GLS para publicar),,INFO
+4_rc1_aic,potencia_gana,13/18,13/18,REPLICA
+4_rc1_aic,exponencial_gana,4/18,4,REPLICA
+4_rc1_aic,lineal_gana,1/18,1,REPLICA
+4_rc1_aic,spearman_b_vs_dAIC,-0.657 (p=0.003),rho=-0.796 p=0.0001,REPLICA_SIGNO
+4_rc1_aic,superlineales_b>=1,4,4,REPLICA
+5_p_truncados,corpus_p_igual_0,557,557,REPLICA
+5_p_truncados,B_p_igual_0,n/d,294,INFO
+6_soberania,ASI_soberano_min,1.0874,1.0874,INFO
+6_soberania,ASI_no_soberano_max,0.9126,0.9126,INFO
+6_soberania,separacion_perfecta,esperada,SI,CIRCULAR
+6_soberania,pct_soberanos,0.27%,13/4774 = 0.27%,REPLICA
+7_asi_formula,error_max (ASI_raw),~2e-14,0.00e+00,REPLICA
+8_fdr,corpus_rechazos_FDR5pct,n/d,642,INFO
+8_fdr,caveat,557 p truncados a 0 -> FDR no exacto,,INFO
+9_nbody,b,-0.473,-0.4732,REPLICA
+9_nbody,n_entidades,32,32,REPLICA
+9_nbody,refit_desde_crudo,requiere serie rank-size de 32 entidades,archivo es solo resumen (1 fila) — no recomputable aquí,NO_REPRODUCIBLE
+9_nbody,caveat,rank-size sobre 32 entidades da R2 alto por construccion; comparar vs lognormal (Clauset 2009),,INFO
+10_reproducibilidad,data/owid-maddison.csv,requerido por expand_dominio_B.py,AUSENTE,NO_REPRODUCIBLE
+10_reproducibilidad,dominio_B_regenerable,62% del corpus,NO sin owid-maddison.csv,NO_REPRODUCIBLE
+11_no_reproducible,"5.9x_abrupto_gradual (U=24802,n=486)",README,corpus v5 sin variable trigger utilizable; n=486 no es subconjunto de 721 (parece heredado de v28/502 OBSOLETE),NO_REPRODUCIBLE
+11_no_reproducible,ROC-AUC 0.715 (ASI),README,target de retencion no está en snt_asi_scores.csv,NO_REPRODUCIBLE
+11_no_reproducible,RC9 rho=+0.009 crypto n=11,README,"ACO (18, tiene b) y colapso (14, tiene Δ) no comparten casos; no hay pares (b,Δ)",NO_REPRODUCIBLE
+11_no_reproducible,E3 correccion AR(1),-,"dominio_E3_real.csv no trae series crudas (solo b,r2,p,n)",BLOQUEADO
