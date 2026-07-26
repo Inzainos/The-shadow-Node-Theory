@@ -63,7 +63,8 @@ que no depende de ningún ajuste.
 > salen del **mismo ajuste OLS** (la brecha es casi el intercepto; `b` la
 > pendiente) y el hub se asigna por **PIB promedio de toda la serie**. Eso
 > anticorrelaciona pendiente y brecha **por construcción, antes de cualquier
-> economía**. El nulo correcto (Bloque 1b) lo demuestra sobre los datos reales.
+> economía**. El nulo correcto es un **nulo sintético calibrado** (Bloque 1d),
+> no la comparación contra cero ni el re-emparejamiento del 1b.
 
 Sobre **441 de 446 pares**:
 
@@ -72,73 +73,106 @@ Spearman b vs brecha inicial log(PIB_hub/PIB_nodo):
    rho = -0.4725   p = 6.6e-26   n = 441   (vs CERO — comparación incorrecta)
 ```
 
-### Bloque 1b — nulo por remuestreo (500 iter, `owid-maddison.csv` real)
+### Bloque 1d — nulo sintético calibrado (el correcto) ✅
 
-Re-empareja países al azar **dentro de región** y corre el pipeline completo,
-incluida la asignación de hub por PIB promedio. Es la distribución nula correcta
-del ρ:
-
-```
-media del nulo = -0.5732
-IC95           = [-0.6435, -0.5046]
-```
-
-**El ρ observado (−0.4725) NO es más extremo que el nulo — es *menos* negativo que
-su media (−0.57), y queda por fuera del IC95 por el lado menos negativo.** Es
-decir: la regla de asignación de hub, aplicada a pares **aleatorios**, produce una
-anticorrelación **más fuerte** que la de los pares reales. El −0.4725 **no supera
-el artefacto de asignación**; por sí solo no aporta evidencia de convergencia.
-
-### Bloque 1c — muestra partida (test limpio)
-
-Rompe el acoplamiento mecánico: brecha medida en la **1ª mitad** de la serie, `b`
-ajustado en la **2ª mitad** (datos disjuntos → la brecha deja de ser el intercepto
-del ajuste que produce `b`):
+Genera series **sintéticas sin ninguna economía** (paseos aleatorios), con la
+**misma estructura de regiones y el mismo n**, y con deriva, volatilidad y
+dispersión de niveles **calibradas al Maddison real**. Corre el pipeline completo
+(hub por PIB promedio) y produce el nulo para el ρ del test completo **y** del
+partido. Calibración extraída de `owid-maddison.csv`:
 
 ```
-Spearman b(2a mitad) vs brecha(1a mitad):  rho = -0.3676   p = 1.5e-15   n = 441
+deriva anual (media Δlog) = +0.0215
+volatilidad (sd Δlog)     =  0.0647
+nivel inicial log         =  media 7.804 · sd 0.670
+años por serie            =  119        (n=446, semilla 20260725)
 ```
 
-Sobre datos disjuntos **sobrevive una relación más débil** (−0.37 vs −0.47). Eso
-indica que hay *algo* real bajo el artefacto — pero **vs cero**, no vs su propio
-nulo split. Sin un nulo para la versión partida no se puede separar
-convergencia-económica de **regresión a la media** residual del cociente. Queda
-como **sugestivo, no concluyente**.
+| Test | Observado | Nulo calibrado (media, IC95) | Veredicto |
+|---|---:|---:|---|
+| **Bloque 1** (serie completa) | −0.4725 | −0.4244, [−0.5796, −0.2608] | **DENTRO — compatible con puro artefacto** |
+| **Bloque 1c** (muestra partida) | −0.3676 | −0.2465, [−0.4132, −0.0902] | **DENTRO — compatible con puro artefacto** |
 
-> **Matiz (Quah / Friedman):** aun el residual del 1c puede ser regresión a la
-> media (Galton), la misma crítica clásica a la β-convergencia. En ninguno de los
-> casos es **acoplamiento estructural** — que es lo único que sostendría la
-> lectura SNT del dominio B.
+**Los dos observados caen dentro del intervalo del nulo. No hay señal por encima
+del artefacto de asignación de hub — ni en el test completo ni en el de datos
+disjuntos.** (Ejecutando el script se reproducen estas cifras dentro del ruido
+Monte Carlo, p.ej. full −0.42 [−0.57, −0.25], split −0.25 [−0.42, −0.08].)
+
+El punto clave del 1c: rompe el acoplamiento mecánico por construcción, y **aun
+así su nulo calibrado es −0.2465**. Es decir, la regla `pib_avg` inyecta
+correlación espuria **incluso cuando la brecha y la pendiente vienen de mitades
+disjuntas de la serie**, porque el rol de hub se sigue decidiendo con información
+de todo el periodo. Ése era el punto que faltaba en la versión anterior de este
+documento (que reportaba el 1c como "sugestivo").
+
+### Bloque 1b — re-emparejamiento — NO es un nulo válido
+
+El 1b (media −0.5704) re-empareja países al azar dentro de región, pero eso
+**conserva el mecanismo que se quiere aislar** y además añade la estructura común
+de las series reales (shocks globales, tendencias compartidas); mide artefacto +
+covarianza real, no artefacto puro. Se conserva en el script como **observación
+aparte**, no como nulo: los pares reales están *menos* anticorrelacionados que
+pares arbitrarios de la misma región, lo cual apunta —si acaso— en dirección
+**contraria** a la convergencia. No se mezcla con el veredicto.
+
+> **Matiz (Quah / Friedman):** el residual es indistinguible de **regresión a la
+> media** (Galton), la crítica clásica a la β-convergencia. En ningún caso es
+> **acoplamiento estructural** — lo único que sostendría la lectura SNT.
 
 Salidas por par: `discrim_bloque1_convergencia.csv`, `discrim_bloque1c_split.csv`.
 
 ## Bloques 2–3 — NO se corren todavía (decisión deliberada)
 
 Con el Bloque 1 confundido por el artefacto de asignación, **traer la matriz de
-comercio bilateral es prematuro**: primero hay que decidir si `b` mide algo más
-que la aritmética de dividir dos tendencias suaves con un rol asignado post hoc.
+comercio bilateral es prematuro**. La pregunta ya no es "¿convergencia o
+acoplamiento?" sino "¿existe acoplamiento medible con un hub que **emerja** de la
+red en vez de asignarse?". Es **reconstruir** el dominio, no rescatarlo.
 
 | Bloque | Prueba | Estado |
 |---|---|---|
-| **2** H-ACOPLAMIENTO | `b` vs comercio bilateral (nodo→hub) | pendiente — requiere matriz direccional (IMF DOTS / CEPII BACI / UN Comtrade) **y** que el hub **emerja** de la red, no se asigne por PIB |
+| **2** H-ACOPLAMIENTO | `b` vs comercio bilateral (nodo→hub) | pendiente — requiere matriz direccional (IMF DOTS / CEPII BACI / UN Comtrade) **y** hub emergente de la red |
 | **3** modelo conjunto | R² parcial de cada regresor | requiere 1 (bien especificado) y 2 |
 
-## Lectura combinada — qué se puede afirmar hoy
+## Estado del dominio B — cierre
 
-1. **Bloque 0 (firme, sin supuestos):** el rol de hub **no es estructural** — 85%
-   de los países son hub y satélite a la vez. Sale de contar filas; no depende de
-   nulos ni aproximaciones. Es el hallazgo más sólido.
-2. **Bloque 1 (confundido):** el ρ=−0.4725 **no supera el nulo del artefacto de
-   asignación** (−0.57). No establece convergencia. La versión limpia (1c, −0.37)
-   deja un residuo sugestivo pero no concluyente.
-3. **Conclusión honesta:** no se puede afirmar "el dominio B mide β-convergencia"
-   —eso invalidaría el 62% del corpus y **no está demostrado**—. Pero **tampoco se
-   sostiene la lectura SNT**: el constructo de hub es post hoc (Bloque 0) y el
-   estadístico que se usó para defenderlo está dominado por un artefacto de
-   asignación (Bloque 1b). El dominio B queda **bajo sospecha metodológica seria,
-   sin veredicto positivo para ninguna de las dos hipótesis** hasta reconstruir la
-   prueba con un hub que emerja de datos independientes (comercio) y un nulo
-   propio.
+Tres problemas independientes, **ninguno resuelto a favor de la teoría**:
+
+1. **Autocorrelación serial.** DW mediana 0.112, ρ AR(1) 0.944. **290/446 casos no
+   estimables** (`n_eff < 3`); entre los 156 estimables, significativos entre 33
+   (21.2%) y 112 (71.8%) según variante; cifra puntual pendiente de Newey-West.
+   *Cerrado en concepto, cuantificado.*
+2. **Validez de constructo.** El rol de hub se asigna por PIB per cápita promedio;
+   **77/91 países (85%) son hub y satélite a la vez** (Italia hub en 3 / satélite
+   en 12; México 1/9). El rol es propiedad del par, no de una posición en red.
+   *Sin resolver. El más firme — sale de contar filas.*
+3. **Artefacto en el estadístico usado para evaluarlo.** La regla `pib_avg` acopla
+   mecánicamente la pendiente con la brecha inicial; contra el nulo calibrado, la
+   relación observada **no se distingue del artefacto** (Bloque 1d). *Cerrado.*
+
+**Conclusión:** el dominio B —446 de 721 casos, **62% del corpus**— **no queda
+respaldado ni como β-convergencia ni como acoplamiento SNT**. Lo único que
+sobrevive sin supuestos, sin nulos y sin parámetros es el **Bloque 0**: el rol de
+hub no es estructural.
+
+> **Redacción para el corpus/README (estado metodológico).** El exponente `b` del
+> dominio B presenta tres problemas independientes. (i) Las series subyacentes
+> tienen autocorrelación severa (DW mediana 0.112); tras corrección AR(1), 290 de
+> 446 casos quedan por debajo del mínimo estimable y se reportan como no
+> estimables. (ii) El rol de hub se asigna por PIB per cápita promedio, y 85% de
+> los países aparecen en ambos roles, por lo que no representa una posición
+> estructural en una red. (iii) Esa misma regla de asignación acopla mecánicamente
+> la pendiente `b` con la brecha inicial de PIB; contra un nulo sintético
+> calibrado sobre los datos reales (deriva +0.0215, volatilidad 0.0647, n=446), la
+> correlación observada (ρ=−0.4725) cae dentro del intervalo del nulo
+> ([−0.5796, −0.2608]), al igual que la versión con muestra partida (ρ=−0.3676 vs
+> nulo [−0.4132, −0.0902]). El dominio B no queda respaldado ni como
+> β-convergencia ni como acoplamiento estructural.
+
+### Consecuencia para el corpus
+
+Si el dominio B no mide lo que la teoría dice, el argumento de **invariancia de
+escala del v31 se sostiene sobre los dominios restantes**, que son bastante más
+chicos. Esa consecuencia hay que verla de frente — no la resuelve este documento.
 
 ## Cómo correrlo
 
@@ -149,15 +183,26 @@ python reconstruction_real/code/prueba_discriminante_dominio_B.py \
     --comercio data/comercio_bilateral.csv
 ```
 
-Bloque 0 corre siempre. Los bloques 1–3 se activan al aparecer las fuentes
-(fijar edición + SHA-256 en `data/FUENTES.md` antes de correr: el Maddison
-Project revisa sus estimaciones entre ediciones).
+Bloques 0, 1, 1b, 1c y 1d corren con `owid-maddison.csv` (ya en el repo). El
+Bloque 2 requiere además la matriz de comercio bilateral. `--n-placebo` controla
+las iteraciones de los nulos (1b y 1d).
+
+## Lo que queda abierto
+
+1. **Newey-West** sobre los residuos crudos para fijar la cifra puntual de
+   significancia AR(1) dentro de [33, 112]. El Maddison ya está en el repo, así
+   que está **desbloqueado**.
+2. **Bloque 2 (comercio bilateral)** — sigue teniendo sentido, pero como pregunta
+   distinta: no "¿convergencia o acoplamiento?" sino "¿existe acoplamiento
+   medible, con un hub que emerja de la red en vez de asignarse?". Es reconstruir
+   el dominio, no rescatarlo.
+3. **Composición del corpus** — si el dominio B (62%) no mide lo que la teoría
+   dice, la invariancia de escala del v31 se sostiene sobre los dominios
+   restantes, más chicos.
 
 ## Lectura para el track de la auditoría
 
 Esto **no reemplaza** la corrección por autocorrelación (dominio B: 290/446 no
-estimables tras AR(1)); es una pregunta distinta y anterior. Si el bloque 1
-confirma H-CONVERGENCIA, el problema del dominio B no es solo de *precisión
-estadística* (autocorrelación) sino de *qué está midiendo el exponente*. Ambas
-apuntan en la misma dirección: tratar el dominio B con cautela como evidencia de
-SNT hasta que aparezcan las series fuente.
+estimables tras AR(1)); es una pregunta distinta y anterior. Son **problemas
+independientes que se acumulan** sobre el mismo 62% del corpus. Ambos apuntan en
+la misma dirección: el dominio B no puede tratarse como evidencia limpia de SNT.

@@ -39,6 +39,7 @@ USO
         --comercio data/comercio_bilateral.csv
 """
 import argparse
+import itertools
 import logging
 import os
 import sys
@@ -323,6 +324,104 @@ def bloque1c_split(B, maddison_path):
 
 
 # =============================================================================
+def bloque1d_nulo_calibrado(B, maddison_path, n_iter=300, seed=20260725):
+    """NULO CORRECTO para el artefacto de asignacion — series sinteticas
+    calibradas al Maddison real.
+
+    POR QUE NO SIRVE EL BLOQUE 1b: re-emparejar paises dentro de region NO
+    destruye el mecanismo que se quiere aislar. El acoplamiento pendiente-brecha
+    aplica a CUALQUIER par de series; re-emparejar lo conserva intacto. El 1b no
+    es un nulo, es mas cercano a un bootstrap: mide artefacto + estructura comun
+    de las series reales (shocks globales, tendencias compartidas). Por eso sale
+    mas extremo que lo observado.
+
+    EL NULO QUE SI CORRESPONDE: series sinteticas sin ninguna economia, con la
+    MISMA estructura de regiones y el MISMO n, y con los parametros de deriva,
+    volatilidad y dispersion de niveles CALIBRADOS al Maddison real.
+
+    Sin calibrar, la ubicacion del nulo depende de parametros inventados.
+    """
+    head("BLOQUE 1d — nulo sintetico calibrado (el correcto para el artefacto)")
+
+    if not os.path.exists(maddison_path):
+        log.warning("BLOQUEADO: no existe %s", maddison_path)
+        return None
+
+    rng = np.random.default_rng(seed)
+    piv = _maddison_pivot(maddison_path)
+
+    paises = sorted(set(B["hub"]) | set(B["nodo"]))
+    y0, y1 = int(B["year_min"].min()), int(B["year_max"].max())
+    sub = piv.loc[y0:y1, [p for p in paises if p in piv.columns]]
+
+    # calibracion sobre los datos reales
+    lg = np.log(sub)
+    dif = lg.diff().values
+    dif = dif[np.isfinite(dif)]
+    drift, sigma = float(np.mean(dif)), float(np.std(dif))
+    niv = lg.iloc[0].dropna().values
+    niv_mu, niv_sd = float(np.mean(niv)), float(np.std(niv))
+    n_anios = len(sub)
+    log.info("Calibracion sobre Maddison real:")
+    log.info("   deriva anual (media dlog) = %+.5f", drift)
+    log.info("   volatilidad (sd dlog)     = %.5f", sigma)
+    log.info("   nivel inicial log: media=%.3f  sd=%.3f", niv_mu, niv_sd)
+    log.info("   anios por serie           = %d", n_anios)
+
+    n_por_region = B["region"].value_counts().to_dict()
+
+    def n_paises(k):
+        n = 2
+        while n * (n - 1) // 2 < k:
+            n += 1
+        return n
+
+    def una_corrida(split):
+        bs, gs = [], []
+        for reg, k in n_por_region.items():
+            S = [np.exp(np.cumsum(rng.normal(drift, sigma, n_anios))
+                        + rng.normal(niv_mu, niv_sd))
+                 for _ in range(n_paises(k))]
+            for idx, (i, j) in enumerate(
+                    itertools.combinations(range(len(S)), 2)):
+                if idx >= k:
+                    break
+                A, Bs = S[i], S[j]
+                hub, nodo = (A, Bs) if A.mean() >= Bs.mean() else (Bs, A)
+                R = hub / nodo
+                if split:
+                    m = len(R) // 2
+                    gs.append(float(np.log(R[:m].mean())))
+                    R2 = R[m:]
+                    t2 = np.arange(1, len(R2) + 1)
+                    bs.append(float(np.polyfit(np.log(t2), np.log(R2), 1)[0]))
+                else:
+                    t = np.arange(1, len(R) + 1)
+                    gs.append(float(np.log(R[0])))
+                    bs.append(float(np.polyfit(np.log(t), np.log(R), 1)[0]))
+        return stats.spearmanr(gs, bs)[0], len(bs)
+
+    salida = {}
+    for split, etiqueta in ((False, "Bloque 1 (serie completa)"),
+                            (True, "Bloque 1c (muestra partida)")):
+        r = np.array([una_corrida(split)[0] for _ in range(n_iter)])
+        r = r[np.isfinite(r)]
+        lo, hi = np.percentile(r, [2.5, 97.5])
+        _, n_nulo = una_corrida(split)
+        log.info("")
+        log.info("--- %s ---  n del nulo = %d", etiqueta, n_nulo)
+        log.info("   nulo calibrado: media = %+.4f   IC95 = [%+.4f, %+.4f]",
+                 r.mean(), lo, hi)
+        salida[etiqueta] = {"media": float(r.mean()),
+                            "ic95": (float(lo), float(hi)), "dist": r}
+    log.info("")
+    log.info("COMPARAR el rho observado contra ESTE nulo, no contra cero y no")
+    log.info("contra el del Bloque 1b. Si cae fuera del IC95, hay senal por")
+    log.info("encima del artefacto de asignacion de hub.")
+    return salida
+
+
+# =============================================================================
 def bloque2_acoplamiento(B, comercio_path, D1=None):
     """H-ACOPLAMIENTO: b ~ participacion de comercio bilateral.
 
@@ -435,6 +534,7 @@ def main():
     D1 = bloque1_convergencia(B, a.maddison)
     NUL = bloque1b_placebo(B, a.maddison, n_iter=a.n_placebo)
     D1c = bloque1c_split(B, a.maddison)
+    CAL = bloque1d_nulo_calibrado(B, a.maddison, n_iter=a.n_placebo)
     D2 = bloque2_acoplamiento(B, a.comercio, D1)
     bloque3_conjunto(D1, D2)
 
@@ -446,12 +546,14 @@ def main():
              "corrido" if NUL is not None else "BLOQUEADO (falta Maddison)")
     log.info("Bloque 1c (split)        : %s",
              "corrido" if D1c is not None else "BLOQUEADO (falta Maddison)")
+    log.info("Bloque 1d (nulo calibr.) : %s",
+             "corrido" if CAL is not None else "BLOQUEADO (falta Maddison)")
     log.info("Bloque 2  (acoplamiento) : %s",
              "corrido" if D2 is not None else "BLOQUEADO (falta comercio)")
     log.info("")
-    log.info("El Bloque 1 NO se interpreta solo: su rho se compara contra el "
-             "nulo")
-    log.info("del 1b, y se contrasta con el 1c (datos disjuntos).")
+    log.info("El rho observado se compara contra el nulo del 1d (calibrado), NO")
+    log.info("contra cero y NO contra el 1b. El 1b conserva el mecanismo que se")
+    log.info("quiere aislar, asi que no es un nulo valido para esta pregunta.")
 
 
 if __name__ == "__main__":

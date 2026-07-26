@@ -40,16 +40,18 @@ python reconstruction_real/code/snt_auditoria_integral_v32.py
 - **Bloque 1 (corrido 2026-07-25) — INCONCLUSO (confundido).** El ρ=−0.4725 de
   `b` vs brecha inicial parecía respaldar convergencia **vs cero**, pero brecha y
   `b` salen del mismo ajuste y el hub se asigna por PIB promedio → anticorrelación
-  por construcción. El **nulo correcto (1b, 500 iter, re-emparejamiento aleatorio)
-  da media −0.573, IC95 [−0.644, −0.505]**: el observado −0.4725 es *menos*
-  negativo que el nulo → **no supera el artefacto**. El test limpio (1c, muestra
-  partida) deja un residuo más débil (−0.37) sugestivo pero no concluyente.
-  ⚠️ Corrige un commit previo que decía "RESPALDADA".
-- **Veredicto honesto:** el dominio B no queda respaldado como β-convergencia
-  *ni* como acoplamiento SNT; el constructo de hub es post hoc y el estadístico
-  usado está dominado por un artefacto de asignación.
+  por construcción. El **nulo correcto es sintético calibrado al Maddison real
+  (Bloque 1d)**: full media −0.4244 [−0.5796, −0.2608], split −0.2465
+  [−0.4132, −0.0902]. **Los dos observados (−0.4725 y −0.3676) caen DENTRO del
+  nulo → no hay señal por encima del artefacto de asignación de hub**, ni en el
+  test completo ni en el de datos disjuntos. El Bloque 1b (re-emparejamiento,
+  media −0.57) NO es un nulo válido (conserva el mecanismo); se reporta como
+  observación aparte. ⚠️ Este documento corrige dos redacciones previas.
+- **Veredicto honesto:** el dominio B **no queda respaldado ni como β-convergencia
+  ni como acoplamiento SNT**; el constructo de hub es post hoc (Bloque 0) y el
+  estadístico está dominado por un artefacto de asignación (Bloque 1d).
 - **Bloques 2–3:** deliberadamente NO corridos aún (traer comercio bilateral es
-  prematuro hasta reconstruir la prueba con un hub emergente y un nulo propio).
+  reconstruir el dominio con un hub emergente, no rescatarlo).
 
 ### Los cuatro hallazgos que cambian algo
 
