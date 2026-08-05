@@ -9,6 +9,89 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 ## [No publicado] — 2026-07
 
 ### Añadido
+- **Prueba discriminante del dominio B — acoplamiento vs convergencia**
+  (`reconstruction_real/code/prueba_discriminante_dominio_B.py`,
+  `audits/DISCRIMINANTE_DOMINIO_B.md`). Separa dos hipótesis sobre qué mide el
+  exponente `b` del dominio B (62% del corpus): acoplamiento hub-satélite (SNT)
+  vs β-convergencia de PIB per cápita. **Bloque 0** (diagnóstico estructural, sin
+  datos externos) muestra que el rol de "hub" es una propiedad del par, no del
+  país — **85% de los hubs también aparecen como satélites** (Italia: hub en 3
+  pares, satélite en 12; México 1/9) — y que `b` depende fuertemente de la región
+  (Kruskal-Wallis H=63.5, p=1.2e-8) con un gradiente coherente con convergencia
+  (negativo en regiones ya convergidas, positivo en rezagadas). Mueve el *prior*
+  hacia H-CONVERGENCIA sin cerrarla. **Bloque 1 corrido (2026-07-25) con
+  `data/owid-maddison.csv` real, contra su nulo correcto: INCONCLUSO
+  (confundido).** El Spearman `b` vs brecha inicial `log(PIB_hub/PIB_nodo)` =
+  −0.4725 (n=441) *parecía* respaldar convergencia contra cero, pero brecha y `b`
+  salen del mismo ajuste y el hub se asigna por PIB promedio → anticorrelación por
+  construcción. El **nulo que corresponde es sintético calibrado al Maddison real
+  (Bloque 1d):** deriva +0.0215, volatilidad 0.0647, nivel inicial log media 7.804
+  sd 0.670, n=446, semilla 20260725. Da media −0.4244, IC95 [−0.5796, −0.2608]
+  para el test completo y −0.2465, [−0.4132, −0.0902] para el partido. **Los dos
+  observados (−0.4725 y −0.3676) caen DENTRO del nulo → no hay señal por encima
+  del artefacto de asignación de hub**, ni en el test completo ni en el de datos
+  disjuntos (1c). El Bloque 1b (re-emparejamiento, media −0.57) NO es un nulo
+  válido —conserva el mecanismo que se quiere aislar— y se conserva sólo como
+  observación aparte. **Conclusión:** el dominio B no queda respaldado ni como
+  β-convergencia ni como acoplamiento SNT; lo único firme (sin supuestos ni
+  nulos) es el Bloque 0 (85% de dualidad de rol hub/satélite). Se añaden Bloques
+  1b/1c/1d al script (`--n-placebo`) y las salidas
+  `discrim_bloque1_convergencia.csv` / `discrim_bloque1c_split.csv`. **Corrige la
+  redacción de dos commits previos de esta rama** ("RESPALDADA" primero, y luego
+  la justificación vía el nulo 1b inválido). Bloque 2 (comercio bilateral) sigue
+  sin correrse: reconstruir el dominio con un hub emergente, no rescatarlo.
+- **`data/owid-maddison.csv`** — descargado del grapher OWID
+  `gdp-per-capita-maddison` (Maddison Project Database, cobertura 1–2022, 178
+  entidades; CC BY 4.0). Cierra el hallazgo de reproducibilidad #7 de la
+  auditoría v32 para el dominio B. Provenance (URL, fecha, SHA-256) en
+  `data/FUENTES.md`.
+- **Auditoría integral v32 (`reconstruction_real/audits/`).** Recorrido completo
+  de las cifras publicadas: 14/33 replican exacto; la aritmética del corpus está
+  limpia (`MASTER_cifras_v5.json` 8/8, `MASTER_resumen_v5.csv` 40/40). Lo que
+  falla es la capa de inferencia, en cuatro puntos independientes:
+  (1) **autocorrelación serial** del dominio B —62% del corpus— con DW mediana
+  0.112, 99.8% de casos con DW<1, ρ AR(1)≈0.944 y **n efectivo mediano ≈2.2**
+  (no 69), que infla la significancia por caso; (2) el **régimen superlineal
+  b≥1 puede ser artefacto de modelo** (por AIC sobre las 18 series ACO la
+  potencia gana 13/18, pero los 4 casos exponenciales tienen b̄ +1.54:
+  a mayor b, peor ajusta la ley de potencia); (3) **la dirección aguanta pero el
+  p no** (doble inflación: autocorrelación + 714 casos no independientes);
+  (4) **defectos de reporte** (557/721 p-values truncados a `0.0` por
+  `round(p,6)`, dos definiciones de R² promediadas juntas, `trigger`
+  hardcodeado a `'gradual'`). Nuevos scripts, retrocompatibles:
+  `code/snt_utils_v32.py` (extiende `snt_utils.py`: DW para todos los ajustes,
+  `rho_ar1`/`n_eff`/`p_ar1` Newey-West, `r2_log`+`r2_raw`, `p_exacto`,
+  `comparar_modelos` por AIC —la prueba RC1 que el README afirmaba sin
+  implementar—, `ajustar_mle_clauset`, `spearman_cluster`, `corregir_corpus`,
+  `fdr_bh`, `plegado_trigger`) y
+  `reconstruction_real/code/snt_auditoria_integral_v32.py` (runner único, 43
+  cifras, salida a CSV; absorbe rc12/rc13) y una prueba de regresión
+  `reconstruction_real/tests/test_correccion_ar1.py`. Salidas:
+  `dominio_B_corregido_ar1_v32.csv` y `auditoria_integral_v32_resultados.csv`.
+  **Corrección AR(1): estimabilidad primero (dos rondas de revisión cruzada
+  2026-07-25).** El conteo original de 145/446 significativos del dominio B
+  estaba mal por dos razones independientes: (1) media corrección incoherente
+  (recortaba gl pero no inflaba el error estándar `√((1+ρ)/(1−ρ))`, mediana
+  5.9×); (2) contaba como significativos casos con `n_eff < 3`, que no admiten
+  un ajuste de dos parámetros. Marco correcto, tres cifras: **156/446 estimables
+  (n_eff≥3), 290/446 NO estimables (n_eff<3)** —reportados como no estimables,
+  no como no significativos: el hallazgo más limpio, sale directo de n_eff sin
+  convenciones—; entre los 156 estimables, los significativos caen a un rango
+  **[33 (21.2%), 112 (71.8%)]** según la variante analítica; el valor puntual
+  requiere Newey-West/GLS sobre residuos crudos (ausentes del repo).
+  `corregir_corpus()` expone `estimable`/`se_infl` por caso y emite un
+  `UserWarning`; `reconstruction_real/tests/test_correccion_ar1.py` fija
+  156/290/33/112 (cifras invariantes a la convención de gl — no 145).
+
+### Corregido
+- **Provenance y circularidad (higiene de la auditoría v32).** `data/FUENTES.md`
+  ancla las fuentes externas (Maddison Project y OWID COVID) con URL, edición,
+  fecha y SHA-256, y documenta que `data/owid-maddison.csv` está **ausente** en
+  el repo (por eso el dominio B, 62% del corpus, no se regenera clonando).
+  `data/snt_asi_scores_README.md` marca la columna `soberania` como **umbral de
+  ASI** (separación perfecta ASI>~1), advirtiendo que usarla como target sería
+  circular por construcción (solo 13/4,774 = 0.27% positivos).
+
 - **v31 — Patch Módulo Micro + Macro (2026-07-06):** integración de Principio
   del Paisaje Vivo, axiomas Ax-M1 a Ax-M4, dinámica del 5-Event Wall (cuatro
   trayectorias tipo), Análisis de Divergencia Retrospectiva, extensión de
