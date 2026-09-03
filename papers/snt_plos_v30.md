@@ -1,4 +1,4 @@
-# Scale-Invariant Satellization: A Power-Law Framework for Node Dominance Across 721 Empirical Cases in Economic, Biological, and Physical Systems
+# Scale-Invariant Satellization: A Power-Law Framework for Node Dominance Governed by Institutional Friction
 
 
 Elán Zainos Corona
