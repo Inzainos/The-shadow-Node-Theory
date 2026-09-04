@@ -1,0 +1,37 @@
+name: Build Manuscript DOCX
+
+on:
+  workflow_dispatch:
+    inputs:
+      md_path:
+        description: 'Path to source Markdown file'
+        required: true
+        default: 'papers/snt_plos_v30.md'
+      output_name:
+        description: 'Output .docx filename'
+        required: true
+        default: 'snt_plos_v30_scientific_format.docx'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install python-docx
+
+      - name: Convert Markdown to DOCX
+        run: |
+          python reconstruction_real/code/md_to_docx.py "${{ github.event.inputs.md_path }}" "${{ github.event.inputs.output_name }}"
+
+      - name: Upload DOCX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: manuscript-docx
+          path: ${{ github.event.inputs.output_name }}
