@@ -54,7 +54,7 @@ Subject in English, typed prefix: `feat:` `fix:` `docs:` `data:` `refactor:`
 ## Repository map
 
 - `reconstruction_real/` — real 721-case corpus (data + code + methodology).
-- `papers/` — academic documents and preprints (marco teórico v31 is active).
+- `papers/` — academic documents and preprints (marco teórico v33 is active).
 - `genomic_agent/` — SNT Genomic Topologic Analyzer (empirical baseline; validated
   on real TCGA patients up to the full 976-case cohort).
 - `delta/` — independent crypto & bolsa signal engine (real CoinGecko + Yahoo data).
