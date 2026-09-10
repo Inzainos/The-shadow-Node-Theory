@@ -1,4 +1,4 @@
-# Shadow Node Theory v2.5.0
+# Shadow Node Theory v2.5.1
 
 **Elan Zainos Corona** | Fractal Core Research, Tlaxcala, Mexico
 
@@ -67,7 +67,7 @@ Use the badge at the top of this README to view CI status for the default branch
 > values and an r2 column with impossible values (down to -7.332).
 > Those files are preserved in `archive/` as historical record but
 > **must not be cited in academic publications**.
-> The active version is v2.5.0 (721-case corpus + coupled collapse layer).
+> The active version is v2.5.1 (721-case corpus + coupled collapse layer + Domain G skeleton + marco teórico v33).
 
 ---
 
@@ -287,15 +287,20 @@ The-shadow-Node-Theory/
 |   |   |-- generate_figures_v29.py    <-- v29 PLOS-compliant figures (SVG+PNG)
 |   |   |-- build_aco_v29.py           <-- ACO 18 cases, 4 domains (v2.4.0)
 |   |   |-- collapse_multidomain.py    <-- Collapse repro manifest + fit funcs (v2.5.0)
-|   |   +-- make_collapse_landscapes.py <-- Stability-landscape figures (v2.5.0)
+|   |   |-- make_collapse_landscapes.py <-- Stability-landscape figures (v2.5.0)
+|   |   +-- build_dominio_G.py         <-- Domain G skeleton: cosmic packages, 5 cases, t/R pending (v2.5.1)
 |   |-- data/
-|   |   +-- collapse_multidomain_v29.csv <-- 5-domain collapse table (v2.5.0)
+|   |   |-- collapse_multidomain_v29.csv <-- 5-domain collapse table (v2.5.0)
+|   |   |-- snt_corpus_dominio_G.csv   <-- Domain G metadata + provenance, no fits yet (v2.5.1)
+|   |   +-- snt_corpus_dominio_G_fuentes.md <-- Domain G primary sources (v2.5.1)
 |   +-- snt_phi_hypothesis.md          <-- H-phi REFUTED (4 rounds + placebo)
 |
 |-- (hypotheses/ removed — phi hypothesis lives in reconstruction_real/)
 |   +-- snt_phi_hypothesis.md          <-- H-phi REFUTED (4 rounds + placebo)
 |
 |-- papers/                            <-- Academic submissions
+|   |-- marco_teorico_v33.md           <-- ACTIVE conceptual framework v33: Axiom 0 (uncertainty fabric) + status tags per axiom (v2.5.1)
+|   |-- marco_teorico_v31_patch.md     <-- v31 patch (Living Landscape principle, Ax-M1–M4)
 |   |-- marco_teorico_v30.md           <-- COMPLETE framework v30 (full v27 body restored + corpus v30 + collapse layer + phi r4)
 |   |-- marco_teorico_v30.pdf          <-- COMPLETE framework v30 (76 pp)
 |   |-- marco_teorico_v30_EN.md        <-- COMPLETE framework v30 (English, full translation)
@@ -548,4 +553,4 @@ GitHub: [Inzainos](https://github.com/Inzainos)
 
 *Fractal Core Research -- Tlaxcala, Mexico*
 *"Technical truth above numerical impression."*
-*v2.5.0 | July 2026*
+*v2.5.1 | September 2026*

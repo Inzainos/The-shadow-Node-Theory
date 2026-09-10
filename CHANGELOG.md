@@ -156,6 +156,45 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 - CI: el paso de `flake8` ahora lee su configuración desde `.flake8` en vez de
   pasar las banderas `--select`/`--exclude` inline.
 
+## [2.5.1] — 2026-09-10
+
+### Añadido
+- **Dominio G — Paquetes cósmicos / desempaquetado de vida (esqueleto)**
+  (`reconstruction_real/code/build_dominio_G.py`,
+  `data/snt_corpus_dominio_G.csv`, `data/snt_corpus_dominio_G_fuentes.md`).
+  Primer puente entre el marco teórico v33 (Axiomas 1 y 8) y el aparato
+  ACO-A. 5 casos con metadatos y citas primarias (4
+  verificadas en sesión); 5 casos con serie temporal `t`/`R`
+  **pendiente** (vacía, NaN — regla "missing stays missing"). Registra una
+  relación transversal candidata (ratio purina/pirimidina vs amoníaco entre
+  Ryugu, Bennu y Orgueil) sobre el eje del receptor (Axioma 2), no ajustada.
+  No altera el corpus de 721 casos ni los 18 casos ACO. Ningún resultado
+  estadístico nuevo: `b`, `Δ`, `R²` y `p` no existen todavía para este
+  dominio.
+- **Marco teórico v33 — marco conceptual con base** (`papers/marco_teorico_v33.md`,
+  `papers/CHANGELOG_marco.md`). v32 íntegra + **Axioma 0: tela de incertidumbre**
+  (capa FUNDAMENTAL: vacío cuántico + fondo estocástico de ondas
+  gravitacionales; no medible por SNT ni pretende serlo; relación con
+  `h(τ) > 0` escrita como lectura de compatibilidad, no derivación) + etiqueta
+  de estatus en cada axioma (FUNDAMENTAL 0; ANCLADO 4, 5, 10; INFRAESTRUCTURA
+  1, 8; CONCEPTUAL 2, 3, 6, 7, 9, 11, 12) + cavidad/modos propios como
+  vocabulario del Axioma 2 (Schumann como caso medido) + cimática como
+  evidencia del Axioma 12 + cadena operativa renumerada 0–8 + cinco cláusulas
+  metodológicas (metáfora vs validación; etiquetas visibles; Dominio G no es
+  evidencia hasta n≥3; marco y paper empírico separados; capa humana fuera del
+  cuerpo axiomático).
+
+### Cambiado
+- Versión activa: **2.5.1**. `README.md`, `AGENTS.md` (marco teórico v33
+  activo) y `data/FUENTES.md` (bloque Dominio G) actualizados. El corpus de 721
+  casos y los 18 casos ACO no cambian.
+
+### Nota de nomenclatura
+- Existen dos "v32" no relacionadas: el marco teórico v32 (fusión v31 + marco
+  conceptual, 2026-07-24, no versionada en el repo) y `AUDITORIA_INTEGRAL_v32.md`
+  / `snt_utils_v32.py` (auditoría estadística del corpus). Los items de
+  `[No publicado] — 2026-07` no se incluyen en 2.5.1 hasta decisión del autor.
+
 ## [2.5.0] — 2026-06-28
 
 ### Añadido
