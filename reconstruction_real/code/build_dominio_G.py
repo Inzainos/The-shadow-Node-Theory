@@ -25,21 +25,35 @@ Criterio Dominio G (definitorio, paralelo al criterio ACO):
 Regla del repo (AGENTS.md §2): "Real data first. No fabricated values in the
 active corpus; derived data cite a primary source. Missing values stay
 missing, not zero." Por eso:
-    - `t` y `R` se dejan VACÍOS en todos los casos. Ningún caso del corpus
-      publicado ofrece hoy una serie temporal ≥3 puntos de señal orgánica vs
-      tiempo de exposición para un mismo cuerpo. `fit_power_law` devuelve
-      "PENDIENTE" y el CSV conserva NaN, no cero.
+    - `t` y `R` se dejan VACÍOS salvo donde exista serie publicada ≥3 puntos
+      del mismo cuerpo y mismo protocolo (hoy: solo G03). En los demás,
+      `fit_power_law` devuelve "PENDIENTE" y el CSV conserva NaN, no cero.
     - `valores_reportados` contiene únicamente cifras publicadas con cita
       primaria (verificadas en sesión salvo donde se marca lo contrario).
     - `campo_candidato` describe qué medición exacta habría que extraer de
       la literatura para poblar `t`/`R` sin inventar.
 
 Casos (n=5):
-    G01 Murchison 1969 (caída, CM2)            — cita verificada
-    G02 Ryugu / Hayabusa2 2020 (retorno)       — cita verificada
-    G03 Bennu / OSIRIS-REx 2023 (retorno)      — cita verificada
+    G01 Murchison 1969 (caída, CM2)            — cita verificada, t/R pendiente
+    G02 Ryugu / Hayabusa2 2020 (retorno)       — cita verificada, t/R pendiente
+    G03 Bennu / OSIRIS-REx 2023 (retorno)      — cita verificada, SERIE REAL n=3
     G04 Orgueil 1864 (caída, CI1)              — cita verificada (parcial)
     G05 Tagish Lake 2000 (caída, C2 ungr.)     — cita NO verificada en sesión
+
+Primera serie poblada (2026-09-10): G03. Fuente: Mojarro A. et al. (2025),
+PNAS 122(49) e2512461122, Table 2. Tres piedras de Bennu, mismo protocolo
+(one-pot MTBSTFA:DMF + GC-QqQ-MS), medición única por piedra:
+    angular  OREX-800055-113  ΣC1-Np/Ph = 8.6   11/20 α-aminoácidos proteicos
+    hummocky OREX-800088-108  ΣC1-Np/Ph = 9.4    8/20
+    mottled  OREX-800023-103  ΣC1-Np/Ph = 17     4/20
+    (agregado OREX-800107-0  ΣC1-Np/Ph = 6.6–9.6  15/20 — EXCLUIDO del ajuste
+     principal por los propios autores: sesgo de detección por masa, 5 mg vs
+     <1 mg. Se corre solo como sensibilidad, punto medio 8.1.)
+    t = ΣC1-alquilnaftalenos/fenantreno (proxy adimensional de alteración
+        acuosa en el cuerpo padre; sube con la alteración).
+    R = fracción de los 20 α-aminoácidos proteicos detectados (diversidad).
+    Lectura de los autores: "α-amino acid diversity decreased with increasing
+    ΣC1-Np/Ph values". n=3 es el mínimo ajustable; p con 1 grado de libertad.
 
 Salida:
     reconstruction_real/data/snt_corpus_dominio_G.csv
@@ -77,6 +91,7 @@ OUT_CSV = DATA_DIR / "snt_corpus_dominio_G.csv"
 OUT_TS_CSV = DATA_DIR / "snt_corpus_dominio_G_timeseries.csv"
 OUT_FUENTES = DATA_DIR / "snt_corpus_dominio_G_fuentes.md"
 OUT_CHANGELOG = DATA_DIR / "snt_corpus_dominio_G_changelog_entry.md"
+OUT_COMPL = DATA_DIR / "snt_corpus_dominio_G_ajustes_complementarios.csv"
 LOG_FILE = LOG_DIR / "build_dominio_G_log.txt"
 
 # =============================================================================
@@ -139,6 +154,10 @@ CORPUS_G = {
             "nucleobases_2024": "purinas extraterrestres abundantes; "
                                 "Murchison enriquecido en purinas frente a "
                                 "Ryugu (comparación 2026)",
+            "aminoacidos_total_C2_C6_nmol_g_2025": 250,
+            "purina_sobre_pirimidina_2025": "~2.8",
+            "amoniaco_relativo_2025": "1/12 de Bennu (mismo protocolo, "
+                                      "Glavin 2025)",
         },
         "campo_candidato": "Fracción de aminoácidos no proteinogénicos "
                            "(AIB, isovalina) sobre el inventario total, o "
@@ -210,6 +229,10 @@ CORPUS_G = {
             "aminoacidos": "racémicos (Naraoka 2023; Parker 2023)",
             "afinidad_meteoritica": "similar a condritas CI tipo Ivuna "
                                     "(Yokoyama 2023)",
+            "aminoacidos_total_C2_C6_nmol_g_2025": 15,
+            "beta_alanina_sobre_glicina": ">2.7 (alteración hidrotermal "
+                                          "extensa; Glavin 2025)",
+            "amoniaco_relativo_2025": "1/75 de Bennu",
         },
         "campo_candidato": "Concentración de uracilo (y B3) por muestra en "
                            "función de la dosis de exposición espacial "
@@ -248,17 +271,65 @@ CORPUS_G = {
         "trigger_fecha": "2023-09-24",
         "tipo_trigger": "abrupto",
         "tipo_muestra": "retorno_de_muestra",
-        "t_unidad": "años (alteración acuosa en cuerpo padre, proxy)",
-        "hub": "Inventario orgánico prístino (33 aminoácidos, 5 "
-               "nucleobases, amoníaco, formaldehído, sales evaporíticas)",
-        "absorbente": "Alteración acuosa heterogénea entre piedras del "
-                      "mismo cuerpo padre (secuencia evaporítica de "
-                      "salmuera antigua)",
+        "t_unidad": "ΣC1-alquilnaftalenos/fenantreno (adimensional; proxy "
+                    "de alteración acuosa por pirólisis a ~610 °C)",
+        "hub": "Diversidad de α-aminoácidos proteicos (de 20) en el "
+               "inventario orgánico prístino del cuerpo padre",
+        "absorbente": "Alteración acuosa heterogénea entre litologías del "
+                      "mismo cuerpo padre (angular → hummocky → mottled; "
+                      "número y cronología de eventos de fluido)",
         "contaminacion_terrestre": "Nula por diseño (control de "
                                    "contaminación y curación en NASA JSC)",
-        "t": [],
-        "R": [],
+        "t": [8.6, 9.4, 17.0],
+        "R": [11 / 20, 8 / 20, 4 / 20],
+        "puntos": ["OREX-800055-113 (angular)",
+                   "OREX-800088-108 (hummocky)",
+                   "OREX-800023-103 (mottled)"],
+        "R_definicion": "α-aminoácidos proteicos detectados / 20 "
+                        "(Mojarro 2025, Table 2; medición única por piedra)",
+        "ajustes_complementarios": [
+            {
+                "nombre": "sensibilidad_con_agregado_n4",
+                "nota": "Incluye OREX-800107-0 (agregado, cuadruplicado) "
+                        "con ΣC1-Np/Ph = punto medio 8.1 del rango 6.6-9.6 y "
+                        "15/20. Los autores lo EXCLUYEN por sesgo de masa; se "
+                        "reporta solo como sensibilidad.",
+                "t": [8.1, 8.6, 9.4, 17.0],
+                "R": [15 / 20, 11 / 20, 8 / 20, 4 / 20],
+            },
+            {
+                "nombre": "absorcion_ACO_A_n3",
+                "nota": "Forma ACO-A A(τ) = c·τ^Δ: fracción absorbida "
+                        "relativa al máximo observado en el mismo cuerpo "
+                        "(15/20 en el agregado): A = 1 - div/15.",
+                "t": [8.6, 9.4, 17.0],
+                "R": [1 - 11 / 15, 1 - 8 / 15, 1 - 4 / 15],
+            },
+        ],
         "valores_reportados": {
+            "serie_t_R": "Table 2, Mojarro 2025: (8.6, 11/20), (9.4, 8/20), "
+                         "(17, 4/20); agregado 6.6-9.6 → 15/20",
+            "masa_analizada_mg": "agregado 2.6-3.2 por split; angular 1.0; "
+                                 "hummocky 0.7; mottled 0.8 (one-pot)",
+            "lectura_autores": "α-amino acid diversity decreased with "
+                               "increasing ΣC1-Np/Ph; angular = un evento "
+                               "acuoso mayor, hummocky y mottled = más de "
+                               "uno; mottled comparable a Tagish Lake 5b",
+            "aminoacidos_total_C2_C6_nmol_g": "~70 (hot-water, OREX-803001-0; "
+                                              "Glavin 2025); 3.6x menor que "
+                                              "Murchison, 4.7x mayor que Ryugu",
+            "glicina_nmol_g": 44,
+            "beta_alanina_sobre_glicina": 0.08,
+            "amoniaco_umol_g": 13.6,
+            "amoniaco_relativo": "12x Murchison, 75x Ryugu A0106",
+            "metilamina_nmol_g": 914,
+            "acido_formico_nmol_g": 4106,
+            "acido_acetico_nmol_g": 1436,
+            "N_heterociclos_nmol_g": "~5 (5-10x Ryugu y Orgueil)",
+            "purina_sobre_pirimidina": 0.55,
+            "C_wt_pct": "4.5-4.7",
+            "N_wt_pct": "0.23-0.25",
+            "d15N_extracto_permil": "+180 ± 47",
             "masa_retornada_g": 121.6,
             "aminoacidos_total": 33,
             "aminoacidos_proteicos_de_20": 14,
@@ -277,14 +348,19 @@ CORPUS_G = {
                                 "negativamente con amoníaco entre "
                                 "Ryugu-Bennu-Orgueil",
         },
-        "campo_candidato": "Abundancia de aminoácidos o nucleobases por "
-                           "piedra en función de un índice de alteración "
-                           "acuosa por piedra (mineralogía/evaporitas). "
-                           "121.6 g permiten múltiples alícuotas: es el "
-                           "caso con mayor probabilidad de alcanzar n≥3 "
-                           "puntos reales sin extrapolar.",
+        "campo_candidato": "POBLADO (n=3, diversidad). Siguiente paso: "
+                           "abundancias absolutas (nmol/g) por piedra con el "
+                           "mismo proxy, o más piedras por litología, para "
+                           "subir n y pasar de conteo a concentración.",
         "eje_axioma": [1, 2, 8],
-        "fuente": "Glavin D.P., Dworkin J.P. et al. (2025). Abundant ammonia "
+        "fuente": "Mojarro A., Aponte J.C., Dworkin J.P., Elsila J.E., "
+                  "Glavin D.P., Connolly H.C., Lauretta D.S. (2025). "
+                  "Prebiotic organic compounds in samples of asteroid Bennu "
+                  "indicate heterogeneous aqueous alteration. PNAS 122(49), "
+                  "e2512461122. DOI 10.1073/pnas.2512461122 (Table 2; datos "
+                  "en Astromat DOI 10.60707/1k00-p463, 10.60707/sxy1-sq73, "
+                  "10.60707/kacg-nb16); "
+                  "Glavin D.P., Dworkin J.P. et al. (2025). Abundant ammonia "
                   "and nitrogen-rich soluble organic matter in samples from "
                   "asteroid (101955) Bennu. Nat. Astron. DOI "
                   "10.1038/s41550-024-02472-9; "
@@ -298,7 +374,7 @@ CORPUS_G = {
                   "DOI 10.1073/pnas.2512461122",
         "cita_verificada_en_sesion": True,
         "estimado": False,
-        "datos_pendientes": True,
+        "datos_pendientes": False,
     },
 
     "G04_Orgueil_1864": {
@@ -328,6 +404,10 @@ CORPUS_G = {
             "nucleobases_2026": "enriquecido en pirimidinas; participa en "
                                 "la correlación negativa purina/pirimidina "
                                 "vs amoníaco (Ryugu-Bennu-Orgueil)",
+            "purina_sobre_pirimidina_2025": "~1.1 (Glavin 2025)",
+            "amoniaco_2025": "dos extractos publicados discrepan "
+                             "fuertemente (heterogeneidad o método); "
+                             "valor no fijable en sesión",
         },
         "campo_candidato": "Mismo índice que G01 (fracción no "
                            "proteinogénica o racemización) en alícuotas de "
@@ -400,12 +480,19 @@ RELACION_TRANSVERSAL = {
                    "enriquecidos en pirimidinas.",
     "eje": "química del entorno receptor (amoníaco) — no tiempo",
     "cuerpos": ["Ryugu", "Bennu", "Orgueil", "Murchison (cualitativo)"],
-    "valores_numericos": None,
-    "nota": "Los valores numéricos del ratio y del amoníaco por cuerpo no "
-            "fueron extraídos en sesión; se registra la relación cualitativa "
-            "publicada. Es el candidato más cercano a un ajuste real con "
-            "n=3-4 puntos, pero sobre el eje 'resonancia del receptor' "
-            "(Axioma 2), no sobre el eje temporal de ACO-A.",
+    "valores_numericos": {
+        "purina_sobre_pirimidina": {"Bennu": 0.55, "Orgueil": 1.1,
+                                    "Murchison": 2.8, "Ryugu": None},
+        "amoniaco_nmol_g": {"Bennu": 13600, "Murchison": "≈1130 (1/12)",
+                            "Ryugu": "≈181 (1/75)", "Orgueil": None},
+        "fuente_cifras": "Glavin 2025, Nat. Astron. (texto principal y "
+                         "Extended Data Table 6)",
+    },
+    "nota": "Puntos limpios con ambas variables: Bennu y Murchison (n=2). "
+            "Orgueil tiene ratio pero amoníaco discrepante entre extractos; "
+            "Ryugu tiene amoníaco pero ratio solo cualitativo (≈1, Oba "
+            "2026). n limpio = 2 < 3: sigue sin ajustar. Eje 'resonancia "
+            "del receptor' (Axioma 2), no el eje temporal de ACO-A.",
     "eje_axioma": [2, 3],
     "fuente": "Oba Y. et al. (2026). A complete set of canonical nucleobases "
               "in the carbonaceous asteroid (162173) Ryugu. Nat. Astron. "
@@ -527,9 +614,19 @@ def escribir_changelog_entry(df):
     n_total = len(df)
     n_pend = int((df["estado"].str.startswith("PENDIENTE")).sum())
     n_verif = int(df["cita_verificada_en_sesion"].sum())
-    texto = f"""## [2.5.1] — {FECHA_BUILD}
+    aj = df[df["n"] >= 3]
+    linea_aj = ""
+    for _, r in aj.iterrows():
+        linea_aj += (f"  Primer ajuste real: `{r['id']}` b = {r['b']:+.3f}, "
+                     f"R² = {r['r2']:.3f}, p = {r['p']:.3f}, n = {r['n']} "
+                     f"(Mojarro 2025, Table 2; diversidad de α-aminoácidos "
+                     f"vs ΣC1-Np/Ph, 3 piedras de Bennu).\n")
+    texto = f"""## [2.5.2] — {FECHA_BUILD}
 
 ### Añadido
+- **Dominio G — primera serie real poblada (G03 Bennu, n=3)**
+{linea_aj}
+### Contexto (2.5.1)
 - **Dominio G — Paquetes cósmicos / desempaquetado de vida (esqueleto)**
   (`reconstruction_real/code/build_dominio_G.py`,
   `data/snt_corpus_dominio_G.csv`, `data/snt_corpus_dominio_G_fuentes.md`).
@@ -564,6 +661,7 @@ if __name__ == "__main__":
 
     rows = []
     ts_rows = []
+    compl_rows = []
 
     for caso_id, caso in CORPUS_G.items():
         log.info("-" * 70)
@@ -623,12 +721,37 @@ if __name__ == "__main__":
                 "t": t_val, "R": r_val, "t_unidad": caso["t_unidad"],
             })
 
+        for comp in caso.get("ajustes_complementarios", []):
+            cfit = fit_power_law(comp["t"], comp["R"])
+            if cfit["b"] is None:
+                log.warning("  complementario %s: n=%d < 3, sin ajuste",
+                            comp["nombre"], cfit["n"])
+            else:
+                log.info("  complementario %s: b=%+.4f R²=%.4f p=%.6f "
+                         "n=%d [%s]", comp["nombre"], cfit["b"],
+                         cfit["r2"], cfit["p_value"], cfit["n"],
+                         significancia(cfit["p_value"]))
+            compl_rows.append({
+                "id": caso_id, "ajuste": comp["nombre"],
+                "t": ";".join(str(x) for x in comp["t"]),
+                "R": ";".join(f"{x:.4f}" for x in comp["R"]),
+                "a": cfit["a"], "b": cfit["b"], "r2": cfit["r2"],
+                "p": cfit["p_value"], "n": cfit["n"],
+                "significancia": significancia(cfit["p_value"]),
+                "nota": comp["nota"],
+            })
+
     df = pd.DataFrame(rows)
     df_ts = pd.DataFrame(ts_rows, columns=["id", "dominio", "t", "R",
                                            "t_unidad"])
 
+    df_compl = pd.DataFrame(compl_rows, columns=[
+        "id", "ajuste", "t", "R", "a", "b", "r2", "p", "n",
+        "significancia", "nota"])
+
     df.to_csv(OUT_CSV, index=False, encoding="utf-8")
     df_ts.to_csv(OUT_TS_CSV, index=False, encoding="utf-8")
+    df_compl.to_csv(OUT_COMPL, index=False, encoding="utf-8")
     escribir_fuentes(df)
     escribir_changelog_entry(df)
 
@@ -651,11 +774,18 @@ if __name__ == "__main__":
     log.info("Axiomas v32 cubiertos          : %s", axiomas)
     log.info("Relación transversal registrada: %s (eje: %s)",
              RELACION_TRANSVERSAL["id"], RELACION_TRANSVERSAL["eje"])
-    log.info("b / Δ / R² / p del dominio     : NO EXISTEN todavía "
-             "(ningún valor imputado)")
+    ajustados = df[df["n"] >= 3]
+    if len(ajustados) == 0:
+        log.info("b / R² / p del dominio         : NO EXISTEN todavía "
+                 "(ningún valor imputado)")
+    for _, r in ajustados.iterrows():
+        log.info("AJUSTE %s: b=%+.4f R²=%.4f p=%.6f n=%d [%s] — n mínimo, "
+                 "1 g.l.; conteo de diversidad, medición única por piedra",
+                 r["id"], r["b"], r["r2"], r["p"], r["n"], r["significancia"])
     log.info("Salidas:")
     log.info("  %s", OUT_CSV)
     log.info("  %s (%d filas)", OUT_TS_CSV, len(df_ts))
+    log.info("  %s (%d filas)", OUT_COMPL, len(df_compl))
     log.info("  %s", OUT_FUENTES)
     log.info("  %s", OUT_CHANGELOG)
     log.info("  %s", LOG_FILE)

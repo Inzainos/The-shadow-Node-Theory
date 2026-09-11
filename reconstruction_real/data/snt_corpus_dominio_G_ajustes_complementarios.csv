@@ -1,0 +1,3 @@
+id,ajuste,t,R,a,b,r2,p,n,significancia,nota
+G03_Bennu_OSIRISREx_2023,sensibilidad_con_agregado_n4,8.1;8.6;9.4;17.0,0.7500;0.5500;0.4000;0.2000,17.2026,-1.5875,0.8459,0.04236,4,*,"Incluye OREX-800107-0 (agregado, cuadruplicado) con ΣC1-Np/Ph = punto medio 8.1 del rango 6.6-9.6 y 15/20. Los autores lo EXCLUYEN por sesgo de masa; se reporta solo como sensibilidad."
+G03_Bennu_OSIRISREx_2023,absorcion_ACO_A_n3,8.6;9.4;17.0,0.2667;0.4667;0.7333,0.0237,1.223,0.8685,0.295775,3,n.s.,Forma ACO-A A(τ) = c·τ^Δ: fracción absorbida relativa al máximo observado en el mismo cuerpo (15/20 en el agregado): A = 1 - div/15.
