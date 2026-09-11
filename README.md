@@ -293,14 +293,14 @@ The-shadow-Node-Theory/
 |   |   |-- collapse_multidomain_v29.csv <-- 5-domain collapse table (v2.5.0)
 |   |   |-- snt_corpus_dominio_G.csv   <-- Domain G metadata + provenance + G03 fit (v2.5.2)
 |   |   |-- snt_corpus_dominio_G_ajustes_complementarios.csv <-- G03 sensitivity + ACO-A form (v2.5.2)
-|   |   +-- snt_corpus_dominio_G_fuentes.md <-- Domain G primary sources (v2.5.1)
+|   |   +-- snt_corpus_dominio_G_fuentes.md <-- Domain G primary sources (v2.5.2)
 |   +-- snt_phi_hypothesis.md          <-- H-phi REFUTED (4 rounds + placebo)
 |
 |-- (hypotheses/ removed — phi hypothesis lives in reconstruction_real/)
 |   +-- snt_phi_hypothesis.md          <-- H-phi REFUTED (4 rounds + placebo)
 |
 |-- papers/                            <-- Academic submissions
-|   |-- marco_teorico_v33.md           <-- ACTIVE conceptual framework v33: Axiom 0 (uncertainty fabric) + status tags per axiom (v2.5.1)
+|   |-- marco_teorico_v33.md           <-- ACTIVE conceptual framework v33: Axiom 0 (uncertainty fabric) + status tags per axiom (v2.5.2)
 |   |-- marco_teorico_v31_patch.md     <-- v31 patch (Living Landscape principle, Ax-M1–M4)
 |   |-- marco_teorico_v30.md           <-- COMPLETE framework v30 (full v27 body restored + corpus v30 + collapse layer + phi r4)
 |   |-- marco_teorico_v30.pdf          <-- COMPLETE framework v30 (76 pp)
