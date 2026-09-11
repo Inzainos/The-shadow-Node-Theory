@@ -1,5 +1,5 @@
 # SNT v33 — Marco conceptual
-## Versión 33 del marco teórico de la Shadow Node Theory (SNT v2.5.1 → v2.5.2)
+## Versión 33 del marco teórico de la Shadow Node Theory (SNT v2.5.2)
 
 > **Fecha de integración:** 2026-09-10
 > **Sesión:** Fractal Core Research — Tlaxcala, México
