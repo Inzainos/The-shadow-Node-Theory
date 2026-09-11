@@ -156,6 +156,42 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 - CI: el paso de `flake8` ahora lee su configuración desde `.flake8` en vez de
   pasar las banderas `--select`/`--exclude` inline.
 
+## [2.5.2] — 2026-09-10
+
+### Añadido
+- **Dominio G — primera serie real poblada: G03 Bennu (n = 3).** Fuente:
+  Mojarro A. et al. (2025), PNAS 122(49) e2512461122, Table 2 (datos crudos
+  en Astromat). Tres piedras de Bennu, mismo protocolo, medición única por
+  piedra: t = ΣC1-alquilnaftalenos/fenantreno (proxy de alteración acuosa),
+  R = fracción de los 20 α-aminoácidos proteicos detectados.
+  Puntos: angular (8.6, 11/20), hummocky (9.4, 8/20), mottled (17, 4/20).
+  Ajuste principal: **b = -1.371, R² = 0.931, p = 0.123, n = 3**
+  (no significativo al 5 %; 1 grado de libertad). Complementarios:
+  sensibilidad con el agregado (excluido por los autores por sesgo de masa,
+  punto medio 8.1, 15/20): b = -1.587, R² = 0.846, p = 0.042, n = 4;
+  forma ACO-A A = 1 − div/15: Δ = +1.223, R² = 0.869, p = 0.296, n = 3.
+  Signo del exponente coherente con la lectura de los autores ("α-amino acid
+  diversity decreased with increasing ΣC1-Np/Ph") y con el modo "regulado"
+  de ACO-A (ley de potencia suave, exponente negativo, como en astro).
+- Cifras de Glavin et al. (2025, Nat. Astron.) agregadas a G01/G02/G03/G04
+  (mismo protocolo hot-water): aminoácidos C2–C6 Murchison 250, Bennu ~70,
+  Ryugu 15 nmol/g; purina/pirimidina Bennu 0.55, Orgueil ~1.1, Murchison
+  ~2.8; amoníaco Bennu 13.6 µmol/g (12× Murchison, 75× Ryugu). GX01 sigue
+  sin ajustar: n limpio con ambas variables = 2.
+- `data/snt_corpus_dominio_G_ajustes_complementarios.csv` (nuevo).
+
+### Cambiado
+- Versión activa: **2.5.2**. `README.md`, `data/FUENTES.md` (bloque Dominio G
+  regenerado), `papers/marco_teorico_v33.md` (nota fechada bajo Axioma 8;
+  etiqueta de estatus **sin cambio** hasta decisión del autor).
+
+### Nota metodológica
+- n = 3 es el mínimo que `fit_power_law` acepta. R es un conteo de diversidad
+  (entero de 0 a 20), no una concentración; una sola medición por piedra; los
+  autores advierten heterogeneidad a masas < 1 mg. El ajuste existe y es
+  real; su peso inferencial es bajo. La regla 3 de v33 ("G no es evidencia
+  hasta n ≥ 3") se cumple en su umbral literal, no en su espíritu.
+
 ## [2.5.1] — 2026-09-10
 
 ### Añadido

@@ -1,5 +1,5 @@
 # SNT v33 — Marco conceptual
-## Versión 33 del marco teórico de la Shadow Node Theory (SNT v2.5.1)
+## Versión 33 del marco teórico de la Shadow Node Theory (SNT v2.5.1 → v2.5.2)
 
 > **Fecha de integración:** 2026-09-10
 > **Sesión:** Fractal Core Research — Tlaxcala, México
@@ -133,6 +133,8 @@ Se incorpora explícitamente la diferencia entre simulantes y muestras reales. U
 Esta distinción es clave porque el marco ya no trabaja solo con estados finales, sino con trayectorias. Un material no vale únicamente por lo que contiene, sino por el camino que lo llevó hasta ahí. Por eso la historia de exposición se vuelve una variable estructural del modelo.[cite:340][cite:343]
 
 **Agregado v33.** El puente empírico más limpio para este axioma ya está publicado, aunque todavía no ajustable. En las muestras de Ryugu, la diferencia de concentración de uracilo entre A0106 (superficie, primer touchdown) y C0107 (material subsuperficial, cerca del cráter artificial) se atribuye tentativamente a distinto grado de alteración por partículas energéticas, UV y rayos cósmicos, con contaminación terrestre descartada por diseño de la misión. Es historia de exposición medida. Son dos puntos: n = 2 < 3, no ajustable. El Dominio G registra este caso y define, para cada uno de sus cinco casos, el campo exacto que habría que extraer de la literatura para poblar t/R sin inventar.
+
+**Actualización 2026-09-10 (SNT v2.5.2).** G03 (Bennu) alcanzó n = 3 con una serie real del mismo cuerpo y mismo protocolo: tres piedras de distinta litología (angular, hummocky, mottled), t = ΣC1-alquilnaftalenos/fenantreno como proxy de alteración acuosa, R = fracción de α-aminoácidos proteicos detectados (Mojarro et al. 2025, PNAS, Table 2). Ajuste: b = -1.371, R² = 0.931, p = 0.123. El signo coincide con la lectura de los autores y con el modo "regulado" de ACO-A. Con n mínimo, un grado de libertad, R como conteo y una medición por piedra, la regla metodológica 3 se cumple en su umbral literal, no en su espíritu: la etiqueta de este axioma se mantiene en INFRAESTRUCTURA hasta decisión explícita del autor.
 
 ## Axioma 9: Existen picos locales, no un pico evolutivo universal
 **Estatus: CONCEPTUAL.**

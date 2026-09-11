@@ -1,4 +1,4 @@
-# Shadow Node Theory v2.5.1
+# Shadow Node Theory v2.5.2
 
 **Elan Zainos Corona** | Fractal Core Research, Tlaxcala, Mexico
 
@@ -67,7 +67,7 @@ Use the badge at the top of this README to view CI status for the default branch
 > values and an r2 column with impossible values (down to -7.332).
 > Those files are preserved in `archive/` as historical record but
 > **must not be cited in academic publications**.
-> The active version is v2.5.1 (721-case corpus + coupled collapse layer + Domain G skeleton + marco teórico v33).
+> The active version is v2.5.2 (721-case corpus + coupled collapse layer + Domain G with first real series + marco teórico v33).
 
 ---
 
@@ -288,10 +288,11 @@ The-shadow-Node-Theory/
 |   |   |-- build_aco_v29.py           <-- ACO 18 cases, 4 domains (v2.4.0)
 |   |   |-- collapse_multidomain.py    <-- Collapse repro manifest + fit funcs (v2.5.0)
 |   |   |-- make_collapse_landscapes.py <-- Stability-landscape figures (v2.5.0)
-|   |   +-- build_dominio_G.py         <-- Domain G skeleton: cosmic packages, 5 cases, t/R pending (v2.5.1)
+|   |   +-- build_dominio_G.py         <-- Domain G: cosmic packages, 5 cases; G03 Bennu n=3 fitted b=-1.37 R²=0.93 p=0.12 (v2.5.2)
 |   |-- data/
 |   |   |-- collapse_multidomain_v29.csv <-- 5-domain collapse table (v2.5.0)
-|   |   |-- snt_corpus_dominio_G.csv   <-- Domain G metadata + provenance, no fits yet (v2.5.1)
+|   |   |-- snt_corpus_dominio_G.csv   <-- Domain G metadata + provenance + G03 fit (v2.5.2)
+|   |   |-- snt_corpus_dominio_G_ajustes_complementarios.csv <-- G03 sensitivity + ACO-A form (v2.5.2)
 |   |   +-- snt_corpus_dominio_G_fuentes.md <-- Domain G primary sources (v2.5.1)
 |   +-- snt_phi_hypothesis.md          <-- H-phi REFUTED (4 rounds + placebo)
 |
@@ -553,4 +554,4 @@ GitHub: [Inzainos](https://github.com/Inzainos)
 
 *Fractal Core Research -- Tlaxcala, Mexico*
 *"Technical truth above numerical impression."*
-*v2.5.1 | September 2026*
+*v2.5.2 | September 2026*
