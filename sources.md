@@ -1,10 +1,11 @@
-# Data Sources — Shadow Node Theory v2.5.0
+# Data Sources — Shadow Node Theory v2.5.2
 
 **Fractal Core Research · Elan Zainos Corona · Tlaxcala, Mexico · 2026**
-All data used in the SNT v2.4.0 corpus (721 real cases) are either publicly available or clearly marked as proprietary with aggregate results only.
+All data used in the active SNT v2.5.2 repository release (721 real cases) are either publicly available or clearly marked as proprietary with aggregate results only.
 
-> **Note:** This file reflects the v2.5.0 corpus (721 real cases). Domain
-> counts below reflect the active v2.5.0 corpus. The primary data source for each domain
+> **Note:** This file reflects the active v2.5.2 repository release built on the
+> 721-case real corpus introduced in v2.5.0. Domain counts below reflect that
+> active corpus. The primary data source for each domain
 > is documented in `reconstruction_real/README.md`.
 > The active corpus is `reconstruction_real/data/snt_corpus_REAL_v5.csv` (721 cases).
 
@@ -183,7 +184,7 @@ All data used in the SNT v2.4.0 corpus (721 real cases) are either publicly avai
 
 All scripts, processed data files, and figures are available at:
 - **GitHub:** [https://github.com/Inzainos/The-shadow-Node-Theory](https://github.com/Inzainos/The-shadow-Node-Theory)
-- **Zenodo v2.4.0:** [https://doi.org/10.5281/zenodo.19446521](https://doi.org/10.5281/zenodo.19446521)
+- **Zenodo archive (721-case corpus / v2.5.0 snapshot):** [https://doi.org/10.5281/zenodo.19446521](https://doi.org/10.5281/zenodo.19446521)
 - **Zenodo v2.0:** [https://doi.org/10.5281/zenodo.19131327](https://doi.org/10.5281/zenodo.19131327)
 
-*Last updated: July 2026 (v2.5.0)*
+*Last updated: September 2026 (v2.5.2)*

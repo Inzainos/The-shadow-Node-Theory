@@ -1,22 +1,25 @@
 cff-version: 1.2.0
 message: "If you use this software or data, please cite it as below."
 type: software
-title: "Shadow Node Theory v2.5.0: Scale-Invariant Satellization and Coupled Orbital Collapse Across Empirical Domains"
+title: "Shadow Node Theory v2.5.2: Scale-Invariant Satellization and Coupled Orbital Collapse Across Empirical Domains"
 abstract: >
-  Replication package for Shadow Node Theory v2.5.0 (SNT v2.5.0),
+  Replication package for Shadow Node Theory v2.5.2 (SNT v2.5.2),
   a formal model of node satellization verified across 721 empirical cases
   reconstructed entirely from verifiable primary sources. The corpus spans
   11 domains and 30 orders of magnitude of temporal scale -- from digital
   platform behavioral cycles (hours) to galactic merger timescales
   (billions of years). The central finding is that institutional friction
   is the dominant predictor of the satellization exponent b
-  (Spearman rho = -0.68, p = 2.5e-97, n=714). Version 2.5.0 adds a coupled
-  Orbital Collapse layer (ACO-A): an orthogonal collapse axis (Delta), a
+  (Spearman rho = -0.68, p = 2.5e-97, n=714). The active v2.5.2 release
+  retains the coupled Orbital Collapse layer (ACO-A) introduced in v2.5.0:
+  an orthogonal collapse axis (Delta), a
   hazard layer h(tau), a three-factor taxonomy of collapse modes
   (friction x trigger x floor/ceiling), and a Principle of Least Friction
   unifying them, with collapse evidence in five domains (finance, history,
-  crypto, biology, astronomy) from real data. The v2.4.0 corpus replaced
-  the v2.3.1 corpus (502 cases) which contained synthetic values.
+  crypto, biology, astronomy) from real data. Version 2.5.2 also adds the
+  Domain G bridge and aligns the active conceptual framework with marco
+  teórico v33. The v2.4.0 corpus replaced the v2.3.1 corpus (502 cases)
+  which contained synthetic values.
   All cases are reproducible from public primary sources via published scripts.
 authors:
   - family-names: "Zainos Corona"
@@ -27,8 +30,8 @@ authors:
     email: "elan.zainos.corona@gmail.com"
     city: "Tlaxcala"
     country: MX
-version: "2.5.0"
-date-released: "2026-06-28"
+version: "2.5.2"
+date-released: "2026-09-10"
 url: "https://github.com/Inzainos/The-shadow-Node-Theory"
 repository-code: "https://github.com/Inzainos/The-shadow-Node-Theory"
 license: "MIT"
@@ -60,7 +63,7 @@ keywords:
 identifiers:
   - type: doi
     value: "10.5281/zenodo.19446521"
-    description: "Zenodo DOI v2.5.0 (current)"
+    description: "Zenodo DOI for the 721-case corpus release line"
   - type: doi
     value: "10.5281/zenodo.19131327"
     description: "Zenodo DOI v2.0"

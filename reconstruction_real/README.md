@@ -1,4 +1,4 @@
-# SNT Corpus -- Reconstruccion con Datos Reales (v5 / v2.5.0)
+# SNT Corpus -- Reconstruccion con Datos Reales (v5 / v2.5.2)
 
 ## Estado: 721 casos REALES en 11 dominios
 

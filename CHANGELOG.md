@@ -8,6 +8,13 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 
 ## [No publicado] — 2026-07
 
+### Documentación
+- Alineación de metadatos y documentación principal con la versión activa
+  **2.5.2**: `CITATION.cff`, `README.md`, `reconstruction_real/README.md` y
+  `sources.md` distinguen ahora entre el release activo del repositorio, el
+  corpus real de 721 casos introducido en `2.5.0` y el marco teórico activo
+  **v33**.
+
 ### Añadido
 - **Prueba discriminante del dominio B — acoplamiento vs convergencia**
   (`reconstruction_real/code/prueba_discriminante_dominio_B.py`,
@@ -296,4 +303,4 @@ PR [#37](https://github.com/Inzainos/The-shadow-Node-Theory/pull/37) +
 > **Nota histórica.** El corpus de 502 casos (v2.3.1 y anteriores) contenía
 > valores generados sintéticamente y una columna r² con valores imposibles.
 > Esos archivos se conservan en `archive/` como registro histórico, pero
-> **no deben citarse en publicaciones académicas**. La versión activa es la v2.5.0.
+> **no deben citarse en publicaciones académicas**. La versión activa es la v2.5.2.
