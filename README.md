@@ -71,6 +71,15 @@ Use the badge at the top of this README to view CI status for the default branch
 
 ---
 
+> **Versioning note**
+> Repository release: **v2.5.2**. Active empirical corpus: **721 real cases**
+> (`reconstruction_real/data/snt_corpus_REAL_v5.csv`). Active conceptual
+> framework: **marco teórico v33**. References to **v30** in this README refer
+> to manuscript / submission packages, while references to **v2.5.0** mark the
+> release where the 721-case corpus and the coupled ACO-A layer were introduced.
+
+---
+
 > **NEW in v2.5.0 -- Coupled Orbital Collapse layer (ACO-A)**
 > Collapse is reformulated as a **universal, transversal axis** of SNT, with
 > evidence in **5 domains** (finance, history, crypto, biology, astronomy) from
@@ -104,7 +113,7 @@ b >= 1    --> superlinear satellization -- Roche Radius
 
 ---
 
-## Corpus v2.5.0 -- 721 cases, 100% real data
+## Corpus activo v2.5.2 -- 721 cases, 100% real data
 
 | Domain | Friction | Cases | Sig. | b mean | Source |
 |--------|----------|-------|------|--------|--------|
@@ -166,7 +175,7 @@ Systems with friction (A, B, C): b mean = +0.09
 | Target | Status | Notes |
 |--------|--------|-------|
 | **SSRN** (abstract 6418778) | REVISION SUBMITTED | **v30 revision submitted 28 Jun 2026** (`papers/snt_ssrn_v30_EN`); supersedes v2.3.1/502; under SSRN review |
-| **Zenodo** (DOI 10.5281/zenodo.19446521) | PUBLISHED | Record updated to v2.5.0 (721-case corpus) |
+| **Zenodo** (DOI 10.5281/zenodo.19446521) | PUBLISHED | 721-case corpus archive record (v2.5.0 snapshot; active repo release: v2.5.2) |
 | **PLOS Complex Systems** (PCSY-D-26-00059) | REVISION SUBMITTED | v30 revision package submitted (`snt_plos_v30` + `plos_response_to_reviewers_v30`); addresses both reviewers; awaiting decision |
 | **J. Complex Networks** (COMNET-2026-214) | REJECTED | No external review |
 | **MIT GCFP Conference** | SUBMITTED | 13th Annual Conf, Oct 29-30 2026; paper + abstract submitted (`papers/mit_gcfp_2026_*`) |
@@ -208,7 +217,8 @@ Reproduced via `reconstruction_real/code/build_aco_v29.py`.
 
 ## Orbital Collapse Architecture (Coupled, v2.5.0)
 
-v2.5.0 reformulates collapse as a **universal, transversal axis** of SNT. A
+Introduced in v2.5.0 and retained in the active v2.5.2 release, this layer
+reformulates collapse as a **universal, transversal axis** of SNT. A
 system has two orthogonal coordinates **(b, Delta)**: satellization (b) and the
 collapse/absorption exponent (Delta), fit on its own clock tau from functional
 extinction. A third layer, the hazard **h(tau) > 0**, states the falsifiable
@@ -260,7 +270,7 @@ as cognitive leapfrog.
 ```
 The-shadow-Node-Theory/
 |
-|-- README.md                          <-- this file (v2.5.0)
+|-- README.md                          <-- this file (active v2.5.2)
 |-- CHANGELOG.md                       <-- Version history (es)
 |-- CONTRIBUTING.md                    <-- Contribution guide (es)
 |-- LICENSE                            <-- MIT (code) + CC BY 4.0 (data) + CC BY-NC 4.0 (papers)
@@ -272,7 +282,7 @@ The-shadow-Node-Theory/
 |-- .github/workflows/                 <-- CI workflows
 |   +-- python-package-conda.yml       <-- Conda-based Python CI
 |
-|-- reconstruction_real/               <-- REAL CORPUS v2.5.0
+|-- reconstruction_real/               <-- REAL CORPUS (active v2.5.2)
 |   |-- README.md                      <-- Methodology and sources
 |   |-- data/
 |   |   |-- snt_corpus_REAL_v5.csv     <-- 721 consolidated cases
@@ -345,7 +355,7 @@ The-shadow-Node-Theory/
 |   |-- phi_validation_crypto.csv      <-- H-phi validation round 1
 |   +-- phi_validation_bio_primary.csv <-- H-phi validation round 2
 |
-|-- genomic_agent/                     <-- SNT Genomic Topologic Analyzer (v2.5.0)
+|-- genomic_agent/                     <-- SNT Genomic Topologic Analyzer (active in v2.5.2)
 |   |-- agent_core/                    <-- Analysis engine (agent_logic.py) + Streamlit UI (app.py)
 |   |-- genomic_database/             <-- DB builders: db_builder.py (active oracle) + hpa_db_builder.py (HPA/UniProt alt)
 |   |-- mock_services/                <-- Jira/Slack/Email mock integrations
@@ -519,7 +529,7 @@ python3 expand_dominio_B.py
 ```bibtex
 @misc{zainoscorona2026snt,
   author       = {Zainos Corona, El{'a}n},
-  title        = {Shadow Node Theory v2.5.0: Scale-Invariant Satellization and
+  title        = {Shadow Node Theory v2.5.2: Scale-Invariant Satellization and
                   Coupled Orbital Collapse Across Empirical Domains},
   year         = {2026},
   publisher    = {Zenodo},
