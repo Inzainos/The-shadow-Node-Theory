@@ -9,6 +9,16 @@
 
 ---
 
+> **Archive note (repo maintenance).** This file is the replication-package
+> README for the SNT **v2.0** pre-print; the "Repository Structure" tree below
+> describes that package, **not** the current contents of `archive/`. The repo's
+> `archive/` directory is the store of superseded versions. On **2026-09-14** the
+> conceptual framework **v33** (`archive/marco_teorico_v33.md`) was moved here when
+> **v34** became the active framework at `papers/marco_teorico.md`. Full version
+> lineage is tracked in `papers/CHANGELOG_marco.md` and `CHANGELOG.md`.
+
+---
+
 ## What's New in v2.0
 
 The SNT v2.0 extends the binary model with three major contributions:
