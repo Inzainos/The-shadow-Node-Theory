@@ -1,4 +1,4 @@
-# Marco Teórico — Linaje de versiones y auditoría (v01 → v33)
+# Marco Teórico — Linaje de versiones y auditoría (v01 → v34)
 
 Documento de trazabilidad del marco teórico de la Shadow Node Theory. Registra la
 evolución entre versiones y la auditoría de junio 2026 que verificó que **nada
@@ -17,7 +17,8 @@ restaurada en la v30).
 | **v30** | md + pdf | 76 pp | **Versión completa anterior**: cuerpo v27 restaurado íntegro (Anexo A) + corpus real v30 + capa de Colapso Acoplado (ACO-A) + φ Ronda 4 |
 | v31 | md (patch) | — | Versión activa hasta 2026-09-10: Principio del Paisaje Vivo + Ax-M1–M4 + 4 trayectorias tipo del 5-Event Wall + Análisis de Divergencia Retrospectiva + Filogenia Predictiva + Recurrencia de Poincaré operacionalizada. Invarianza de escala individual→planeta. Roadmap Item 5 abierto. Archivo: `papers/marco_teorico_v31_patch.md` |
 | v32 | md (patch) | — | Fusión v31 + marco conceptual (12 axiomas: paquetes cósmicos, resonancia, filtros, fricción, banda soportable, nichos), 2026-07-24. **No versionada en el repo.** No confundir con `AUDITORIA_INTEGRAL_v32.md` (auditoría del corpus) |
-| **v33** | md | — | **Versión activa** (SNT v2.5.2, 2026-09-10): v32 íntegra + **Axioma 0, tela de incertidumbre** (capa FUNDAMENTAL, no medible por SNT) + etiqueta de estatus por axioma (FUNDAMENTAL 0; ANCLADO 4, 5, 10; INFRAESTRUCTURA 1, 8 vía Dominio G, incl. G03 Bennu n=3) + cavidad/modos propios en Ax. 2 + cimática en Ax. 12 + cadena operativa 0–8 + 5 cláusulas metodológicas. Archivo: `papers/marco_teorico_v33.md` |
+| **v33** | md | — | Activa hasta 2026-09-14 (archivada al integrar v34): v32 íntegra + **Axioma 0, tela de incertidumbre** (capa FUNDAMENTAL, no medible por SNT) + etiqueta de estatus por axioma (FUNDAMENTAL 0; ANCLADO 4, 5, 10; INFRAESTRUCTURA 1, 8 vía Dominio G, incl. G03 Bennu n=3) + cavidad/modos propios en Ax. 2 + cimática en Ax. 12 + cadena operativa 0–8 + 5 cláusulas metodológicas. Archivo: `archive/marco_teorico_v33.md` |
+| **v34** | md | — | **Versión activa** (cruzada contra SNT v2.5.2, 2026-09-14): v33 íntegra (aditiva, ninguna cifra ni etiqueta cambia) + **capa de proyección** — Axioma 0.1 (cubo de incertidumbre, ESTRUCTURAL) y 0.2 (sombra/proyección `Π_θ`, OBSERVABLE) + **fricción como campo escalar `φ`** sobre el volumen (postulada, no medida) + **cimática del colapso** como extensión del Axioma 12 (con cláusula anti-metáfora) + etiquetas ESTRUCTURAL/OBSERVABLE/ESPECULATIVO + cláusulas metodológicas 6–9 + capa transversal de proyección en la cadena operativa + apéndice especulativo (cubo ontológico). "Tela" queda reservada al Axioma 0; lo observable es **sombra/proyección**. Archivo: `papers/marco_teorico.md` |
 
 ## Auditoría de continuidad (junio 2026)
 
