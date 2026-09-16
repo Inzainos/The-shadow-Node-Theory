@@ -6,6 +6,46 @@ y el proyecto sigue [Versionado Semántico](https://semver.org/lang/es/).
 
 Las fechas corresponden a la integración de cada versión en la rama `main`.
 
+## [Marco teórico v34] — 2026-09-14 — Capa de proyección
+*Cruzado contra el corpus Shadow Node Theory v2.5.2. Las dos numeraciones son independientes: esta entrada versiona el marco teórico, no el corpus.*
+
+### Agregado
+
+- **Axioma 0.1 (ESTRUCTURAL) — Cubo de incertidumbre.** Corolario estructural del Axioma 0. Formaliza el volumen de estados `𝒞 ⊂ ℝⁿ × T`, instanciado de trabajo como `𝒞(u, m, τ)` con `u` = apertura de posibilidades, `m` = magnitud o capacidad de sostén, `τ` = fase normalizada. Lectura vinculante: **cubo de estados** (no de observación, no ontológico). Se declara de forma explícita que **`u` carece de definición operativa en todos los dominios actuales** y que el volumen opera en `(m, τ)` hasta que se resuelva: sin proxies, misma regla que rige las series vacías del Dominio G. Regla de admisión de ejes: un eje entra a `𝒞` con definición operativa en dos dominios o más; con uno es etiqueta, no coordenada. Responde al horizonte que el cierre de la v33 dejó escrito ("traducir los axiomas a variables, ejes y dinámicas dentro de un espacio 3D").
+
+- **Axioma 0.2 (OBSERVABLE) — Sombra / proyección.** Establece la capa entre el cubo y el dato: `𝒮ᶿ = Π_θ(𝒞)`. Marco de medición obligatorio **`θ = (B, V, ρ, W, λ)`** — base de observación, selección de variables, resolución, ventana temporal y umbral de corte. Define cinco clases de corte admitidas, la **no identificabilidad** de `Π_θ` con sus tres consecuencias normativas, el criterio de **invarianza de proyección** (dos `θ` independientes, diferentes en al menos dos componentes, uno de ellos `B` o `V`), y la reconstrucción como **conjunto `ℛ`** en vez de elemento único. Se ancla el criterio en un caso real del repo: la autocorrelación del Dominio B (99.8 % de 446 casos, `n` efectivo mediano 2.2) es invarianza de proyección fallida.
+
+- **Geometría de la fricción.** La fricción entra al Axioma 0.1 como **campo escalar `φ` sobre el volumen**, no como eje coordenado ni como parámetro por caso, apoyada en el Principio de Mínima Fricción de ACO-A §5 (flujo gradiente sobre un paisaje de estabilidad). El cubo deja de ser espacio neutro y pasa a ser paisaje; los seis paneles de `figures/fig_paisajes_colapso` son ese paisaje dibujado. Se declara que **`φ` está postulado y no medido** — hoy existe fricción por dominio (categórica, 11 dominios) y por caso (ordinal 1–6, cohorte 2008, n=6) — y que operacionalizarla a lo largo de un camino sigue siendo el pendiente prioritario que ACO-A ya registraba.
+
+- **Extensión del Axioma 12 — Cimática del colapso.** Extiende el axioma del extremo de la forma que emerge al de la forma que aparece cuando un sistema pierde o reorganiza regiones del volumen. Toma los modos de ACO-A como familias morfológicas iniciales; fija las cuatro condiciones simultáneas para declarar subfamilia (residual no explicado por la familia madre, `n ≥ 3` en dos dominios o más, separabilidad no explicable por ruido ni por el `n` efectivo, invarianza verificada), con figura de "candidato" para quien cumpla tres de cuatro. Incorpora **cláusula anti-metáfora** explícita (analogía de forma, sin campo vibratorio, sin placa material). Acota el alcance actual al eje **acelera / no acelera** conforme a ACO-A §6.5, porque el piso sigue siendo factor y no variable medida. **Estatus del Axioma 12 sin cambio: CONCEPTUAL**, con condición escrita para pasar a METODOLÓGICO.
+
+- **Etiquetas de estatus.** Tres nuevas: **ESTRUCTURAL** (modelo, obliga a definición operativa por dominio), **OBSERVABLE** (capa que se mide, exige `θ` declarado) y **ESPECULATIVO** (fuera del cuerpo axiomático, no citable como premisa).
+
+- **Cláusulas metodológicas 6, 7, 8 y 9.**
+  - **6.** Marco de medición obligatorio: toda figura, sombra o volumen lleva su `θ` completo en el pie; sin `θ` no se cita como evidencia. Aplica también a las figuras ya existentes en `figures/`.
+  - **7.** Protocolo ciego con pre-registro: los descriptores morfológicos se calculan sobre la serie cruda `t/R` y **nunca** sobre `b`, `Δ` ni fricción, por ser insumos definicionales del modo; hipótesis fechadas antes de correr.
+  - **8.** Prohibición de imputar descriptores faltantes; se registran como faltantes con motivo.
+  - **9.** El alcance del marco no se encoge entre versiones: el marco es cosmológico, geofísico y evolutivo, y SNT está contenido en él. Un axioma que pierde anclaje cambia de etiqueta, no se borra ni se subordina.
+
+- **Apéndice especulativo — cubo ontológico.** Se aísla la lectura ontológica del volumen fuera del cuerpo axiomático, junto a la capa humana de la v33, e impide su uso como premisa de resultados del marco o del paper empírico.
+
+- **Cadena operativa.** Capa transversal de proyección que atraviesa los pasos medibles de la cadena 0–8: datos heterogéneos → sombra con `θ` → secuencia → repetición bajo `θ'` → reconstrucción del volumen → familias morfológicas.
+
+### Modificado
+
+- **Aclaración semántica.** "Tela" queda reservada con exclusividad para el Axioma 0. Todo material observado o reconstruido se denomina **sombra** (uso descriptivo) o **proyección** `Π_θ` (contexto matemático). La ambigüedad venía de la propia v33, que usaba "tela" para el lienzo del Axioma 0 y "la tela ya tejida" para lo que SNT describe.
+- **Encabezado del documento.** Deja de subtitularse como marco *de* la Shadow Node Theory. Se declara el alcance real y la independencia de las dos numeraciones.
+
+### Mantenido
+
+- **Integridad de la v33.** La v34 es aditiva. Axiomas 1 al 12 intactos, cláusulas 1 a 5 intactas, cadena operativa original intacta. Ninguna cifra, dominio ni etiqueta de estatus de la v33 cambió de valor. Verificado línea por línea: las 115 líneas de la v33 desde la convención de estatus en adelante están presentes sin parafraseo.
+
+### Pendientes declarados en esta versión
+
+- Eje `u` del Axioma 0.1 sin definición operativa en ningún dominio.
+- Campo de fricción `φ` postulado, no medido.
+- El piso sigue siendo factor y no variable, lo que acota la cimática del colapso al eje acelera / no acelera.
+
 ## [No publicado] — 2026-07
 
 ### Documentación

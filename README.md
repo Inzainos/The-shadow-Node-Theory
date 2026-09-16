@@ -310,7 +310,7 @@ The-shadow-Node-Theory/
 |   +-- snt_phi_hypothesis.md          <-- H-phi REFUTED (4 rounds + placebo)
 |
 |-- papers/                            <-- Academic submissions
-|   |-- marco_teorico_v33.md           <-- ACTIVE conceptual framework v33: Axiom 0 (uncertainty fabric) + status tags per axiom (v2.5.2)
+|   |-- marco_teorico.md               <-- ACTIVE conceptual framework v34: projection layer (Axioms 0.1/0.2), friction as scalar field, collapse cymatics; additive over v33 (SNT corpus v2.5.2)
 |   |-- marco_teorico_v31_patch.md     <-- v31 patch (Living Landscape principle, Ax-M1–M4)
 |   |-- marco_teorico_v30.md           <-- COMPLETE framework v30 (full v27 body restored + corpus v30 + collapse layer + phi r4)
 |   |-- marco_teorico_v30.pdf          <-- COMPLETE framework v30 (76 pp)

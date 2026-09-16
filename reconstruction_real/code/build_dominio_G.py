@@ -3,7 +3,7 @@ Shadow Node Theory v2.5.1 — Dominio G: Paquetes Cósmicos / Desempaquetado de 
 Esqueleto de corpus (estructura + provenance), sin series temporales fabricadas
 
 Origen:
-    Integración del marco teórico v33 (`papers/marco_teorico_v33.md`;
+    Integración del marco teórico v33 (`archive/marco_teorico_v33.md`;
     marco conceptual: paquetes cósmicos, resonancia,
     filtros geofísicos, fricción, banda de realidad soportable, nichos) al
     aparato empírico ACO-A (`A(τ) = c·τ^Δ`, hub / absorbente, extinción
