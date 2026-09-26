@@ -9,7 +9,13 @@ mantener trazabilidad y reproducibilidad. Esta guía describe cómo contribuir.
 - **La verdad técnica está por encima de la impresión numérica.** Todo resultado
   debe ser reproducible desde fuentes primarias públicas y scripts versionados.
 - **Datos reales, no sintéticos.** No se aceptan valores fabricados en el corpus
-  activo. Los datos derivados deben citar su fuente primaria en `sources.md`.
+  activo. Los datos derivados deben citar su fuente primaria en `sources.md`, y
+  los archivos fuente externos se anclan (URL, edición, fecha, SHA-256) en
+  `data/FUENTES.md`.
+- **Inferencia honesta.** Los p-values por caso del corpus están inflados
+  (autocorrelación serial en el dominio B; 714 casos no independientes). No
+  cites el p por fila sin las salvedades de la auditoría v32 (README → "Audit
+  v32").
 - **Idioma.** Los documentos del repositorio se escriben principalmente en
   español. Las traducciones al inglés se identifican con el sufijo `_EN`.
 
@@ -62,15 +68,30 @@ El pipeline verifica:
 - compilación de módulos Python activos
 - un smoke test con `python reconstruction_real/code/build_aco_v29.py`
 
+Fuera del CI, si tocas el corpus corre también la prueba de regresión y la
+auditoría integral:
+
+```bash
+pytest reconstruction_real/tests
+python reconstruction_real/code/snt_auditoria_integral_v32.py
+```
+
 ## Estructura del repositorio
 
 Consulta la sección *Repository Structure* del [README](README.md) para el mapa
 completo de carpetas. En resumen:
 
-- `reconstruction_real/` — corpus real v2.5.0 (datos + código + metodología).
-- `papers/` — documentos académicos y preprints.
-- `code/`, `data/` — scripts y datos históricos (v28).
+- `reconstruction_real/` — corpus real de 721 casos (introducido en v2.4.0;
+  release activa **2.5.2**): datos, código, metodología, `audits/` (auditoría
+  integral v32 y prueba discriminante del dominio B) y `tests/`.
+- `papers/` — marco teórico activo **v34** (`papers/marco_teorico.md`), linaje en
+  `papers/CHANGELOG_marco.md`, y manuscritos/preprints (v30).
+- `code/` — utilidades compartidas (`snt_utils.py`, `snt_utils_v32.py`) y scripts
+  históricos (v28).
+- `data/` — datos fuente y provenance (`FUENTES.md` con URL, edición y SHA-256).
 - `genomic_agent/` — SNT Genomic Topologic Analyzer.
+- `delta/` — motor de señales cripto y bolsa (independiente).
+- `dashboard/` — dashboard interactivo en Streamlit.
 - `figures/` — figuras de publicación.
 - `archive/` — versiones superadas (no citar).
 

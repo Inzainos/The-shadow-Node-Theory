@@ -3,6 +3,13 @@
 **Fecha:** 2026-07-24 · **Datos:** `Inzainos/The-shadow-Node-Theory@main`, sin datos externos
 **Scripts:** `snt_utils_v32.py` (extiende `code/snt_utils.py`) + `snt_auditoria_integral_v32.py`
 
+> **Seguimiento (2026-09-26).** Este informe se conserva tal como se emitió. Desde
+> entonces: `data/owid-maddison.csv` ya está en el repo (§7 resuelto para el
+> dominio B), RC9 sí es verificable desde `data/orthogonality_crypto_v25.csv`
+> (§5, replica ρ = +0.009) y el origen del 5.9× quedó localizado en
+> `code/generate_publication_figures.py` (§8). Detalle en
+> [`README.md` → Seguimiento](README.md#seguimiento--re-verificación-2026-09-26).
+
 Se recorrieron 33 cifras publicadas. **14 replican exacto. 19 cambian o no son verificables.**
 
 ---

@@ -49,11 +49,65 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 ## [No publicado] — 2026-07
 
 ### Documentación
+- **Actualización integral de la documentación a la versión actual (release
+  2.5.2, marco teórico v34) e integración de los hallazgos de la auditoría v32**
+  (2026-09-26). Toda cifra nueva se recalculó desde los datos versionados.
+  - `README.md`: marco activo v34 y numeraciones independientes; aviso de estado
+    de la inferencia; tabla del corpus con fuentes reales por dominio (E1 =
+    OWID COVID-19 *spatial spread*, no invasiones biológicas; C = US Census 23 +
+    INEGI 1; F1 = Open Exoplanet + NASA) y significancia marcada como nominal;
+    hallazgo central con variantes por cluster/bootstrap/sin E3 (ρ por cluster
+    −0.556, p = 0.25, n = 6); columna de estado en los tres hallazgos (5.9× **no
+    reproducible**; hallazgo 3 apoyado en el dominio B, **inconcluso**); nueva
+    sección *Audit v32 — inference status*; advertencias en N-cuerpos y ASI;
+    notas de auditoría en RC1–RC11; árbol del repositorio completo (`audits/`,
+    `tests/`, `dashboard/`, todos los scripts); sección de reproducción con
+    fuentes por dominio.
+  - `AGENTS.md`, `CONTRIBUTING.md`, `dev-guide.md`: marco v34, mapa completo,
+    comandos de prueba de regresión y de la auditoría, regla de inferencia
+    honesta; `dev-guide.md` alinea `compileall` con el CI (incluye `delta`).
+  - `CITATION.cff`: marco v34 y salvedad de inferencia en el resumen (versión
+    y fecha de release sin cambio).
+  - `reconstruction_real/README.md`: **E2 corregido de 4 a 2 casos** (el corpus
+    tiene 2; con 4 el total sumaría 723), fuentes reales por dominio, salvedades
+    de integridad (557/721 p truncados, dos R², `trigger` fijo), estado de
+    reproducibilidad y lista de archivos.
+  - `reconstruction_real/audits/`: sección de seguimiento con la re-verificación
+    del 2026-09-26 y aviso fechado en `AUDITORIA_INTEGRAL_v32.md`. **Corrige el
+    §5 de la auditoría:** RC9 sí es verificable desde
+    `data/orthogonality_crypto_v25.csv` (ρ = +0.009, p = 0.98, n = 11). **Localiza
+    el origen del 5.9×:** texto fijo en `code/generate_publication_figures.py` (v28).
+  - `sources.md`: encabezados con el conteo activo real y la fuente que usan los
+    casos activos (C 24, D 3, E1 4, E2 2, F1 2, F2 1, F3 = Multiplanet; F4 y
+    agujeros negros no están en el corpus activo); la bibliografía previa se
+    conserva como corpus histórico.
+  - `data/FUENTES.md`: estado real por fuente, checksums re-verificados (6/6
+    coinciden), bloque del Dominio G actualizado (G03 ajustado).
+  - `genomic_agent/README.md` + `SCALING.md`: oráculo de 44 filas / 17
+    enfermedades (no 9), baseline empírico de 51 pares / 14 hubs / 11
+    cromosomas, árbol con `analysis/` y `hpa_db_builder.py`.
+  - **Release de origen del corpus corregida:** el corpus de 721 casos entró en
+    **2.4.0** (según la entrada `[2.4.0]` de este CHANGELOG), no en 2.5.0 como
+    decían `README.md`, `sources.md` y `CONTRIBUTING.md`; 2.5.0 introdujo la
+    capa acoplada ACO-A.
+  - `delta/README.md`: tabla de módulos con adaptadores reales y nota sobre el
+    prior de fricción. `dashboard/`: versión 2.5.2 (antes 2.4.0/2.5.0) y
+    salvedad de la auditoría junto al hallazgo central.
+- **Datos:** `reconstruction_real/data/auditoria_integral_v32_resultados.csv`
+  regenerado; única diferencia: `data/owid-maddison.csv` pasa de
+  `AUSENTE/NO_REPRODUCIBLE` a `PRESENTE/OK`.
+- **Estructura de esta entrada:** los ítems de adición que estaban bajo
+  *Corregido* (patch v31, validaciones del agente genómico, Delta, `.flake8`,
+  `SECURITY.md`, `AGENTS.md`/`CLAUDE.md`) se movieron a *Añadido*.
 - Alineación de metadatos y documentación principal con la versión activa
   **2.5.2**: `CITATION.cff`, `README.md`, `reconstruction_real/README.md` y
   `sources.md` distinguen ahora entre el release activo del repositorio, el
   corpus real de 721 casos introducido en `2.5.0` y el marco teórico activo
   **v33**.
+- `genomic_agent/README.md`: documenta el baseline empírico (n=40 tejido sano
+  TCGA) y las validaciones con pacientes reales (rondas 1/2 + escala 976).
+- `README.md`: árbol de archivos de `delta/` actualizado con los adaptadores de
+  datos reales (`data_adapters.py`, `run_real_delta.py`).
 
 ### Añadido
 - **Prueba discriminante del dominio B — acoplamiento vs convergencia**
@@ -130,15 +184,6 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   `UserWarning`; `reconstruction_real/tests/test_correccion_ar1.py` fija
   156/290/33/112 (cifras invariantes a la convención de gl — no 145).
 
-### Corregido
-- **Provenance y circularidad (higiene de la auditoría v32).** `data/FUENTES.md`
-  ancla las fuentes externas (Maddison Project y OWID COVID) con URL, edición,
-  fecha y SHA-256, y documenta que `data/owid-maddison.csv` está **ausente** en
-  el repo (por eso el dominio B, 62% del corpus, no se regenera clonando).
-  `data/snt_asi_scores_README.md` marca la columna `soberania` como **umbral de
-  ASI** (separación perfecta ASI>~1), advirtiendo que usarla como target sería
-  circular por construcción (solo 13/4,774 = 0.27% positivos).
-
 - **v31 — Patch Módulo Micro + Macro (2026-07-06):** integración de Principio
   del Paisaje Vivo, axiomas Ax-M1 a Ax-M4, dinámica del 5-Event Wall (cuatro
   trayectorias tipo), Análisis de Divergencia Retrospectiva, extensión de
@@ -191,11 +236,14 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   espejo del estándar del repo `workspaces` (rama→PR→merge, datos reales,
   Conventional Commits, no PHI/secretos, CI verde antes de merge).
 
-### Documentación
-- `genomic_agent/README.md`: documenta el baseline empírico (n=40 tejido sano
-  TCGA) y las validaciones con pacientes reales (rondas 1/2 + escala 976).
-- `README.md`: árbol de archivos de `delta/` actualizado con los adaptadores de
-  datos reales (`data_adapters.py`, `run_real_delta.py`).
+### Corregido
+- **Provenance y circularidad (higiene de la auditoría v32).** `data/FUENTES.md`
+  ancla las fuentes externas (Maddison Project y OWID COVID) con URL, edición,
+  fecha y SHA-256, y documenta que `data/owid-maddison.csv` está **ausente** en
+  el repo (por eso el dominio B, 62% del corpus, no se regenera clonando).
+  `data/snt_asi_scores_README.md` marca la columna `soberania` como **umbral de
+  ASI** (separación perfecta ASI>~1), advirtiendo que usarla como target sería
+  circular por construcción (solo 13/4,774 = 0.27% positivos).
 
 ### Cambiado
 - Estado de publicaciones: revisión v30 de **PLOS Complex Systems** (PCSY-D-26-00059)

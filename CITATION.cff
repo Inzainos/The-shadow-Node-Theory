@@ -17,10 +17,17 @@ abstract: >
   (friction x trigger x floor/ceiling), and a Principle of Least Friction
   unifying them, with collapse evidence in five domains (finance, history,
   crypto, biology, astronomy) from real data. Version 2.5.2 also adds the
-  Domain G bridge and aligns the active conceptual framework with marco
-  teórico v33. The v2.4.0 corpus replaced the v2.3.1 corpus (502 cases)
+  Domain G bridge. The active conceptual framework is marco teórico v34
+  (papers/marco_teorico.md), numbered independently from the corpus.
+  An internal integral audit (v32) confirms that the published arithmetic
+  replicates and that the direction of the friction finding holds, but that
+  its per-case significance is inflated by serial autocorrelation (Domain B)
+  and by treating 714 clustered cases as independent (cluster-level
+  rho = -0.56, p = 0.25, n = 6 domains); see the README "Audit v32" section.
+  The v2.4.0 corpus replaced the v2.3.1 corpus (502 cases)
   which contained synthetic values.
-  All cases are reproducible from public primary sources via published scripts.
+  Domain B is reproducible from the committed Maddison/OWID file; the raw
+  COVID-19 series behind Domains E1/E3 are public but not committed.
 authors:
   - family-names: "Zainos Corona"
     given-names: "Elan"

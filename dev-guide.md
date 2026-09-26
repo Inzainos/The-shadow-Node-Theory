@@ -51,15 +51,24 @@ python reconstruction_real/code/build_aco_v29.py
 ### Compile active modules
 
 ```bash
-python -m compileall -q code reconstruction_real genomic_agent dashboard
+python -m compileall -q code reconstruction_real genomic_agent dashboard delta
 ```
 
 ### Run tests
 
-If you add tests in the future, run them with:
+Regression test for the audit v32 AR(1) correction (fixes 156 / 290 / 33 / 112):
 
 ```bash
-pytest
+pytest reconstruction_real/tests
+```
+
+### Re-run the integral audit (v32)
+
+Re-derives every published figure from the committed data and writes
+`reconstruction_real/data/auditoria_integral_v32_resultados.csv`:
+
+```bash
+python reconstruction_real/code/snt_auditoria_integral_v32.py
 ```
 
 ## GitHub Actions CI
@@ -71,8 +80,8 @@ It performs:
 - checkout of the repository
 - Conda environment setup from `environment.yml`
 - installation of Python dependencies
-- static checking with `flake8`
-- Python module compilation
+- static checking with `flake8` (config in `.flake8`)
+- Python module compilation (`code reconstruction_real genomic_agent dashboard delta`)
 - smoke testing via `build_aco_v29.py`
 
 ## Notes

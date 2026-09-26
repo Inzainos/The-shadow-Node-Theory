@@ -28,7 +28,10 @@ Projects housed here: the SNT theory + corpus (`reconstruction_real/`,
 4. **Security.** Never commit PHI, secrets, or `.env` (see `.gitignore`,
    `SECURITY.md`). `genomic_agent` blocks raw patient RNA-seq patterns.
 5. **Update `CHANGELOG.md`** on every relevant change (the practice that slips most).
-6. **Tests/CI must pass before merge.**
+6. **Report inference honestly.** Per-case p-values in the corpus are inflated
+   (serial autocorrelation in Domain B; 714 non-independent cases). Never cite
+   the per-row p-value without the audit v32 caveats (README → "Audit v32").
+7. **Tests/CI must pass before merge.**
 
 ## Commands
 
@@ -41,6 +44,10 @@ python -m compileall -q code reconstruction_real genomic_agent dashboard delta
 
 # Smoke test (CI runs this)
 python reconstruction_real/code/build_aco_v29.py
+
+# Regression test + full audit re-run (not in CI; run when touching the corpus)
+pytest reconstruction_real/tests
+python reconstruction_real/code/snt_auditoria_integral_v32.py
 ```
 
 CI lives in `.github/workflows/python-package-conda.yml` (Conda env `snt-env`
@@ -53,12 +60,19 @@ Subject in English, typed prefix: `feat:` `fix:` `docs:` `data:` `refactor:`
 
 ## Repository map
 
-- `reconstruction_real/` — real 721-case corpus (data + code + methodology).
-- `papers/` — academic documents and preprints (marco teórico v33 is active).
+- `reconstruction_real/` — real 721-case corpus (data + code + methodology);
+  `audits/` holds the v32 integral audit and the Domain B discriminant test,
+  `tests/` the regression test (`pytest reconstruction_real/tests`).
+- `papers/` — academic documents and preprints. Active conceptual framework:
+  **marco teórico v34** (`papers/marco_teorico.md`; lineage in
+  `papers/CHANGELOG_marco.md`). Framework and corpus are numbered independently.
 - `genomic_agent/` — SNT Genomic Topologic Analyzer (empirical baseline; validated
   on real TCGA patients up to the full 976-case cohort).
 - `delta/` — independent crypto & bolsa signal engine (real CoinGecko + Yahoo data).
-- `code/`, `data/` — historical scripts/data (v28).
+- `code/` — shared utilities (`snt_utils.py`, audit extension `snt_utils_v32.py`)
+  and historical v28 scripts.
+- `data/` — source data and provenance (`FUENTES.md`: URLs, editions, SHA-256).
+- `dashboard/` — Streamlit dashboard (Hugging Face Spaces).
 - `figures/` — publication figures.
 - `archive/` — superseded versions (do not cite).
 

@@ -3,15 +3,22 @@
 **Fractal Core Research · Elan Zainos Corona · Tlaxcala, Mexico · 2026**
 All data used in the active SNT v2.5.2 repository release (721 real cases) are either publicly available or clearly marked as proprietary with aggregate results only.
 
-> **Note:** This file reflects the active v2.5.2 repository release built on the
-> 721-case real corpus introduced in v2.5.0. Domain counts below reflect that
-> active corpus. The primary data source for each domain
-> is documented in `reconstruction_real/README.md`.
-> The active corpus is `reconstruction_real/data/snt_corpus_REAL_v5.csv` (721 cases).
+> **Note:** This file serves the active v2.5.2 repository release, built on the
+> 721-case real corpus introduced in v2.4.0
+> (`reconstruction_real/data/snt_corpus_REAL_v5.csv`). Each domain header gives
+> the **active** case count and the source the active cases actually use (the
+> `fuente` column of `reconstruction_real/data/by_domain/`). The bibliography
+> listed under each header is the research background of the **historical
+> (pre-v2.5.0) corpus**, which in several domains was larger and built from different
+> sources; it is kept as reference, not as the source of the active cases.
+> Editions, download dates and SHA-256 checksums of external files:
+> `data/FUENTES.md`. Last verified against the corpus: 2026-09-26.
 
 ---
 
-## Domain A — Historical Cities (n=4)
+## Domain A — Cities (active n=4)
+
+**Active corpus (4 cases):** UN Demographic Yearbook, modern population series 2000–2023 (Tokyo→Osaka, Tokyo→Yokohama, Paris→Lyon, Madrid→Barcelona). The historical-city bibliography below belongs to the historical corpus; long historical series would require Bairoch (1988).
 
 **Primary source:**
 - Bairoch, P., Batou, J. & Chèvre, P. (1988). *La Population des Villes Européennes de 800 à 1850*. Centre d'Histoire Économique Internationale, Université de Genève. Covers 2,200 European cities.
@@ -29,7 +36,9 @@ All data used in the active SNT v2.5.2 repository release (721 real cases) are e
 
 ---
 
-## Domain B — Country Pairs (n=446)
+## Domain B — Country Pairs (active n=446)
+
+**Active corpus (446 cases):** Maddison Project Database via Our World in Data, committed as `data/owid-maddison.csv` (downloaded 2026-07-25; SHA-256 in `data/FUENTES.md`).
 
 **Primary source:**
 - Bolt, J. & van Zanden, J.L. (2024). *Maddison Project Database 2023*. Groningen Growth and Development Centre, University of Groningen. GDP per capita 1–2018 AD, 169 countries. [https://www.rug.nl/ggdc/historicaldevelopment/maddison/](https://www.rug.nl/ggdc/historicaldevelopment/maddison/) — License: CC BY 4.0
@@ -42,7 +51,9 @@ All data used in the active SNT v2.5.2 repository release (721 real cases) are e
 
 ---
 
-## Domain C — Intra-national Regions (n=64)
+## Domain C — Intra-national Regions (active n=24; historical corpus n=64)
+
+**Active corpus (24 cases):** US Census historical state populations 1900–2025 (23 state pairs) + INEGI 2022 N-body matrix for Mexico (1 case).
 
 - **Mexico (32 federal entities):** INEGI. (2022–2023). *Sistema de Cuentas Nacionales de México (SCNM)*. PIB per capita by federal entity. [https://www.inegi.org.mx/temas/pib/](https://www.inegi.org.mx/temas/pib/)
 - **Mexico historical 1940–1993:** Maddison Project Database 2023, calibrated with INEGI series. See `code/snt_v2_vectorizacion.py` for methodology.
@@ -54,7 +65,9 @@ All data used in the active SNT v2.5.2 repository release (721 real cases) are e
 
 ---
 
-## Domain D — Digital Ecosystems (n=53)
+## Domain D — Digital Ecosystems (active n=3; historical corpus n=53)
+
+**Active corpus (3 cases):** HackerEarth 2026 power laws (activity, credits, runs; 4,771 users). The market-share sources below belong to the historical corpus.
 
 - **HackerEarth 2026 — zerve_hackathon_dataset.csv:** Proprietary dataset, 4,774 users, 409,287 events, 141 event types. **Not redistributable.** Aggregate results available in `data/snt_asi_scores.csv` and `reconstruction_real/data/snt_corpus_REAL_v5.csv`.
 - **Browser market share (Chrome, IE, etc.):** StatCounter GlobalStats. [https://gs.statcounter.com/](https://gs.statcounter.com/)
@@ -66,7 +79,9 @@ All data used in the active SNT v2.5.2 repository release (721 real cases) are e
 
 ---
 
-## Domain E1 — Biological Invasion / Species Competition (n=20)
+## Domain E1 — Invasion / Territorial Spread (active n=4; historical corpus n=20)
+
+**Active corpus (4 cases):** OWID COVID-19 spatial spread, 2020 (global, Asia-Pacific, Europe, Americas wavefronts), modeled as territorial expansion — mathematically equivalent to an invasion front, **not** biological species invasions (GBIF species data were not available). The species-invasion bibliography below belongs to the historical corpus.
 
 - **Rattus norvegicus vs R. rattus (Europe):** He Yu et al. (2022). Introgression, displacement, and collapse. *Nature Communications* 13, 2656. [https://doi.org/10.1038/s41467-022-30080-8](https://doi.org/10.1038/s41467-022-30080-8)
 - **African honeybee vs European honeybee (Brazil):** Kerr, W.E. (1967). The history of the introduction of African bees in Brazil. *South African Bee Journal* 39, 3–5.
@@ -86,7 +101,9 @@ All data used in the active SNT v2.5.2 repository release (721 real cases) are e
 
 ---
 
-## Domain E2 — Predator-Prey (n=4)
+## Domain E2 — Predator-Prey (active n=2; historical corpus n=4)
+
+**Active corpus (2 cases):** Lynx→hare, Hudson Bay Company records (MacLulich 1937) and Elton & Nicholson 1942 (via Rdatasets).
 
 - **Canadian lynx vs snowshoe hare:** Maclulich, D.A. (1937). *Fluctuations in the numbers of the varying hare*. University of Toronto Studies, Biol. Ser. 43. Elton, C. & Nicholson, M. (1942). *Journal of Animal Ecology* 11(2), 215–244. Hudson Bay Company fur records 1845–1935.
 - **Adriatic shark vs prey fish:** D'Ancona, U. (1926) cited in Volterra, V. (1926). Fluctuations in the abundance of a species. *Nature* 118, 558–560.
@@ -95,7 +112,9 @@ All data used in the active SNT v2.5.2 repository release (721 real cases) are e
 
 ---
 
-## Domain E3 — Parasite-Host (n=234)
+## Domain E3 — Parasite-Host (active n=234)
+
+**Active corpus (234 cases):** OWID COVID-19 per-country curves (JHU CSSE), one case per country. The raw series are **not** committed (only fitted summaries), which blocks the AR(1) correction of E3. The other pathogen references below belong to the historical corpus.
 
 - **MRSA vs S. aureus (antibiotic resistance):** CDC. (2019). *Antibiotic Resistance Threats in the United States*. WHO GLASS 2022.
 - **HIV vs CD4+ T cells:** Pantaleo, G. et al. (1993). *NEJM* 328(5), 327–335. Ho, D.D. et al. (1995). *Nature* 373, 123–126.
@@ -112,7 +131,9 @@ All data used in the active SNT v2.5.2 repository release (721 real cases) are e
 
 ---
 
-## Domain F1 — Planetary Systems (n=14)
+## Domain F1 — Planetary Systems (active n=2; historical corpus n=14)
+
+**Active corpus (2 cases):** Open Exoplanet Catalogue (stellar/planetary mass dominance vs orbit) + NASA planetary fact sheet (Solar System, Jupiter dominance).
 
 - **Jupiter formation and runaway accretion:** Pollack, J.B. et al. (1996). Formation of the giant planets by concurrent accretion. *Icarus* 124(1), 62–85. D'Angelo, G. et al. (2014). Giant planet formation. In *Planets, Stars and Stellar Systems*. Springer.
 - **Grand Tack (Jupiter–Mars):** Walsh, K.J. et al. (2011). A low mass for Mars from Jupiter's early gas-driven migration. *Nature* 475, 206–209.
@@ -124,7 +145,9 @@ All data used in the active SNT v2.5.2 repository release (721 real cases) are e
 
 ---
 
-## Domain F2 — Stellar Binaries (n=8)
+## Domain F2 — Stellar (active n=1; historical corpus: stellar binaries, n=8)
+
+**Active corpus (1 case):** Open Exoplanet Catalogue — stellar mass-radius relation of exoplanet hosts. The binary-star references below belong to the historical corpus.
 
 - **Sirius A/B system:** Holberg, J.B. (2009). Sirius B: A new, more accurate view. *The Astronomical Journal* 135(3), 1239–1247. Bond, H.E. et al. (2017). *ApJ* 840(1), 70.
 - **Cataclysmic variables (SS Cygni):** Patterson, J. (1984). The evolution of cataclysmic and low-mass X-ray binaries. *ApJS* 54, 443–493.
@@ -136,7 +159,9 @@ All data used in the active SNT v2.5.2 repository release (721 real cases) are e
 
 ---
 
-## Domain F3 — Black Hole Accretion (n=13)
+## Domain F3 — Multiplanet (active n=1) · Black Hole Accretion (historical corpus only, n=13)
+
+**Active corpus (1 case):** Open Exoplanet Catalogue — multiplanet mass dominance (11 planets). Black-hole accretion is **not** in the active corpus; the references below belong to the historical corpus.
 
 - **Sagittarius A* / G2 cloud (real-time):** Gillessen, S. et al. (2012). A gas cloud on its way towards the supermassive black hole. *Nature* 481, 51–54. Gillessen, S. et al. (2013). *ApJ* 763(2), 78.
 - **M87* (Event Horizon Telescope):** Event Horizon Telescope Collaboration (2019). First M87 Event Horizon Telescope Results. *ApJL* 875, L1–L17. Walsh, J.L. et al. (2013). *ApJ* 770(2), 86.
@@ -148,7 +173,7 @@ All data used in the active SNT v2.5.2 repository release (721 real cases) are e
 
 ---
 
-## Domain F4 — Galactic Systems (n=12)
+## Domain F4 — Galactic Systems (historical corpus only, n=12; not in the active corpus)
 
 - **Sagittarius dwarf spheroidal:** Majewski, S.R. et al. (2003). A 2MASS view of the Sagittarius dwarf galaxy. *ApJ* 599(2), 1082–1115. Law, D.R. & Majewski, S.R. (2010). The Sagittarius dwarf galaxy. *ApJ* 714(1), 229–254.
 - **M32 / Andromeda:** Graham, A.W. (2002). Evidence for an outer Sérsic profile. *ApJL* 568(1), L13–L17. Dierickx, M. et al. (2014). *ApJ* 789(1), 16.

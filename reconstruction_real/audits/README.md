@@ -91,3 +91,24 @@ de recortar gl) y es invariante a la convención de gl. El valor puntual necesit
 `tests/test_correccion_ar1.py` fija 156/290/33/112 — **no** 145, que dependía de
 una guarda de implementación. La dirección —una caída fuerte desde 374— no está
 en duda.
+
+## Seguimiento — re-verificación 2026-09-26
+
+Re-corrida completa de `snt_auditoria_integral_v32.py` sobre `main` y
+recálculo independiente de las cifras que el runner no emite:
+
+| Punto | Estado 2026-09-26 |
+|---|---|
+| Runner v32 | Corre limpio; **ninguna discrepancia**: 26 REPLICA, 1 REPLICA_SIGNO, 1 RANGO, 1 OK. El resto no es replicable por diseño: 5 NO_REPRODUCIBLE y 2 BLOQUEADO (requieren datos ausentes del repo), 1 CIRCULAR (`soberania` = umbral de ASI) y 7 INFO. |
+| `data/owid-maddison.csv` (hallazgo #7) | **PRESENTE** — la fila del CSV de salida pasó de `AUSENTE/NO_REPRODUCIBLE` a `PRESENTE/OK`. La fila `dominio_B_regenerable` sigue fija en `NO` dentro del runner (pendiente de actualizar el script). |
+| Hallazgo central por cluster | Recalculado con `spearman_cluster()`: ρ = −0.5555, p = 0.2525 (6 dominios); bootstrap por cluster IC95 [−0.7219, −0.0063]; sin E3 ρ = −0.1162 (p = 0.011, n = 480); sin E3 ni B ρ = −0.4264 (p = 0.0119, n = 34). **Replica exacto.** |
+| RC9 (§5 del informe: "no verificable") | **Corregido:** los pares (b_rise, Δ_fall) sí están versionados en `data/orthogonality_crypto_v25.csv`; Spearman ρ = +0.009, p = 0.98, n = 11. Replica exacto. Alcance: solo cripto. |
+| Origen del 5.9× (§8) | **Localizado:** aparece como texto fijo en el script histórico v28 `code/generate_publication_figures.py` (líneas del texto de la figura y del pie), no como cálculo sobre el corpus v5. Confirma la hipótesis del informe. |
+| Composición del polo sin fricción | E1 (4) + E3 (234) = 238 casos, **todos OWID COVID-19** según la columna `fuente` de `by_domain/`. E1 no son invasiones biológicas. |
+| Checksums de `data/FUENTES.md` | Los 6 SHA-256 coinciden con los archivos actuales. |
+| Prueba de regresión | `pytest reconstruction_real/tests` → 4 passed. |
+
+Pendientes que siguen abiertos: series crudas de E3 (corrección AR(1) de E3),
+prueba de b ≥ 1 en otros dominios, p sin truncar + `r2_log`/`r2_raw`
+separados en el corpus consolidado, decisión sobre la cifra 5.9×, nota al
+editor de PLOS, y bloque 2 de la prueba discriminante (comercio bilateral).
