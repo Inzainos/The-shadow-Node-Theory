@@ -37,7 +37,7 @@ bloque,cifra,publicado,recomputado,estado
 9_nbody,n_entidades,32,32,REPLICA
 9_nbody,refit_desde_crudo,requiere serie rank-size de 32 entidades,archivo es solo resumen (1 fila) — no recomputable aquí,NO_REPRODUCIBLE
 9_nbody,caveat,rank-size sobre 32 entidades da R2 alto por construccion; comparar vs lognormal (Clauset 2009),,INFO
-10_reproducibilidad,data/owid-maddison.csv,requerido por expand_dominio_B.py,AUSENTE,NO_REPRODUCIBLE
+10_reproducibilidad,data/owid-maddison.csv,requerido por expand_dominio_B.py,PRESENTE,OK
 10_reproducibilidad,dominio_B_regenerable,62% del corpus,NO sin owid-maddison.csv,NO_REPRODUCIBLE
 11_no_reproducible,"5.9x_abrupto_gradual (U=24802,n=486)",README,corpus v5 sin variable trigger utilizable; n=486 no es subconjunto de 721 (parece heredado de v28/502 OBSOLETE),NO_REPRODUCIBLE
 11_no_reproducible,ROC-AUC 0.715 (ASI),README,target de retencion no está en snt_asi_scores.csv,NO_REPRODUCIBLE
