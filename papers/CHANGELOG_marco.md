@@ -20,6 +20,17 @@ restaurada en la v30).
 | **v33** | md | — | Activa hasta 2026-09-14 (archivada al integrar v34): v32 íntegra + **Axioma 0, tela de incertidumbre** (capa FUNDAMENTAL, no medible por SNT) + etiqueta de estatus por axioma (FUNDAMENTAL 0; ANCLADO 4, 5, 10; INFRAESTRUCTURA 1, 8 vía Dominio G, incl. G03 Bennu n=3) + cavidad/modos propios en Ax. 2 + cimática en Ax. 12 + cadena operativa 0–8 + 5 cláusulas metodológicas. Archivo: `archive/marco_teorico_v33.md` |
 | **v34** | md | — | **Versión activa** (cruzada contra SNT v2.5.2, 2026-09-14): v33 íntegra (aditiva, ninguna cifra ni etiqueta cambia) + **capa de proyección** — Axioma 0.1 (cubo de incertidumbre, ESTRUCTURAL) y 0.2 (sombra/proyección `Π_θ`, OBSERVABLE) + **fricción como campo escalar `φ`** sobre el volumen (postulada, no medida) + **cimática del colapso** como extensión del Axioma 12 (con cláusula anti-metáfora) + etiquetas ESTRUCTURAL/OBSERVABLE/ESPECULATIVO + cláusulas metodológicas 6–9 + capa transversal de proyección en la cadena operativa + apéndice especulativo (cubo ontológico). "Tela" queda reservada al Axioma 0; lo observable es **sombra/proyección**. Archivo: `papers/marco_teorico.md` |
 
+## Notas posteriores a la integración de la v34
+
+- **2026-09-27 — Nota de auditoría en el Axioma 5** (a pedido del autor). Registra,
+  sin cambiar el texto del axioma ni su etiqueta ANCLADO, que el anclaje fricción → b
+  (ρ = −0.68, p = 2.5×10⁻⁹⁷, n = 714) no es significativo a nivel de dominio
+  (ρ = −0.556, p = 0.25), que el n = 714 excluye el Dominio D, y que la prueba
+  pre-registrada con dominios nuevos sin COVID no lo respalda (ρ = −0.131,
+  p = 0.39). El polo sin fricción (E3) sí resultó robusto con series crudas. El
+  posible cambio de etiqueta queda para la siguiente versión del marco
+  (cláusula 9). La fila del Axioma 5 en la tabla de estatus remite a la nota.
+
 ## Auditoría de continuidad (junio 2026)
 
 Se comparó el inventario de v01/v10/v15/v22 contra v27 en tres niveles:

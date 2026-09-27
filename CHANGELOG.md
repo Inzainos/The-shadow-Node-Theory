@@ -49,6 +49,14 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 ## [No publicado] — 2026-07
 
 ### Documentación
+- **Marco v34, nota de auditoría en el Axioma 5** (2026-09-27, a pedido del
+  autor): sin cambiar el texto ni la etiqueta ANCLADO, registra que fricción → b
+  no es significativo por dominio (ρ = −0.556, p = 0.25), que el n = 714 excluye
+  el Dominio D (con D, sin E3 ni B: ρ = −0.145, p = 0.39) y que la prueba
+  pre-registrada con dominios nuevos sin COVID no lo respalda (ρ = −0.131,
+  p = 0.39); el polo sin fricción (E3) sí es robusto con series crudas. La fila
+  del Axioma 5 en la tabla de estatus remite a la nota. Registrado en
+  `papers/CHANGELOG_marco.md`.
 - **Preprint SSRN r31 en español y notas del formulario** (2026-09-27): nuevo
   `papers/snt_ssrn_v31.md` (+ `.pdf`, `.docx`), traducción completa de la r31 en
   inglés con la tabla de metadatos en español (JEL, palabras clave, datos,
