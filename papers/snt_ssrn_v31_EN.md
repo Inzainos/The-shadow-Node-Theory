@@ -28,7 +28,9 @@ Pre-print, manuscript revision r31 (2026-09-27; supersedes the v30 posted 2026-0
 > friction-free pole of the regime contrast is COVID-19 data (§12); (6) Domain B
 > (62% of the corpus) is now reproduced byte for byte from the Maddison Project
 > Database **2020**, but a discriminant test leaves it supported neither as SNT
-> coupling nor as β-convergence (§12). The v30 note below is kept for history.
+> coupling nor as β-convergence, and rebuilding it with hubs taken from bilateral
+> trade instead of assigned by GDP does not recover a coupling signal (§12). The
+> v30 note below is kept for history.
 
 > **Version note (v30).** This revision supersedes the previously posted SNT v2.3.1
 > (502-case corpus). A June 2026 audit found that the 502-case corpus contained
@@ -80,8 +82,11 @@ is **withdrawn** in this revision (see the revision note). Domain B (country
 pairs, 62% of the corpus) is reproduced exactly from the Maddison Project
 Database 2020, but a discriminant test (calibrated null plus bilateral trade
 from the Correlates of War) supports it neither as hub–node coupling nor as
-β-convergence, so the claim that political sovereignty brakes satellization like
-ecological interdependence is retained only as a hypothesis.
+β-convergence; rebuilt with each country's main export destination as its hub,
+two of three countries converge toward that hub, and the hub diverges no more
+than a partner with the same initial gap. The claim that political sovereignty
+brakes satellization like ecological interdependence is therefore retained only
+as a hypothesis.
 
 This revision adds a **Coupled Orbital Collapse layer (ACO-A)**: collapse is
 reformulated as an orthogonal axis (Δ), with a falsifiable hazard layer
@@ -259,6 +264,9 @@ examined with a discriminant test: correlation of b with the initial GDP gap
 compared against a synthetic null calibrated to the Maddison data (the hub is
 assigned by mean GDP, which couples gap and slope by construction), and
 correlation of b with bilateral trade shares (Correlates of War Trade v4.0).
+Domain B is also rebuilt with a hub that emerges from trade (each country's
+largest export destination in its first decade of data), fitted identically, and
+the trade hub is compared with partners matched on initial gap.
 Collapse layer: Spearman ρ(b, Δ) for orthogonality and Kaplan-Meier survival for
 the hazard. Significance threshold α = 0.05; all tests in Python 3.11
 (scipy.stats); scripts in the public repository.
@@ -498,7 +506,8 @@ operationalization is untested.
 
 **On the corpus:** this version retires the previously posted 502-case corpus,
 which contained synthetic values, and replaces it with 721 cases reconstructed
-from verifiable primary sources (R² ∈ [0,1]; 89% significant). The collapse layer
+from verifiable primary sources (R² ∈ [0,1]; 89% nominally significant). The
+collapse layer
 (Section 13) is correlational and, on the crypto side, based on small n; it is
 framed as a strong hypothesis, not causal proof.
 
@@ -509,9 +518,12 @@ estimable (effective n < 3), and among the 156 estimable ones 33–112 remain
 significant depending on the correction variant. (ii) *Pseudo-replication:* the
 714 cases behind the friction finding are clustered in six domains; the
 cluster-level test is not significant (§12). (iii) *Construct validity of Domain
-B:* the hub is assigned by mean GDP, and 77 of 91 countries (85%) appear both as
-hub and as satellite, so the role is a property of the pair, not a network
-position. (iv) *Superlinear regime:* in the 18 raw collapse-layer series, AIC
+B:* the hub is assigned by mean GDP, and 77 of the 91 countries that act as hub
+in some pair (85%) are satellite in another, so the role is a property of the
+pair, not a network position; rebuilt with trade-emergent hubs, only 9 of 102 hub–node trade
+pairs are in Domain B, and the main export destination changes by 2005–2014 for
+77 of 102 countries, so a single fixed hub over 50–119 years is itself a strong
+approximation. (iv) *Superlinear regime:* in the 18 raw collapse-layer series, AIC
 prefers the power law in 13, an exponential in 4 (mean b = +1.54) and a linear
 model in 1; the higher b, the worse the power law fits, so part of the b ≥ 1 band
 (102 of 721 cases) may be misspecification. (v) *Reporting:* per-case p-values
@@ -631,8 +643,18 @@ bilateral trade from the Correlates of War (432 pairs), the node's export share
 to its hub does not predict b (ρ = −0.043; within-region permutation p = 0.72;
 partial R² = 0.0001), and the initial share goes with **lower** b (ρ = −0.185;
 cluster-by-node p = 0.022), opposite to the coupling prediction. Domain B is
-therefore supported neither as hub–node coupling nor as β-convergence, and the
-sovereignty-as-brake statement is kept as a hypothesis. v30 closed this finding
+therefore supported neither as hub–node coupling nor as β-convergence. (c)
+Rebuilt with a hub that emerges from trade — each country's largest export
+destination in its first decade of COW data (102 of 103 countries; 19 distinct
+hubs, mostly the United Kingdom and the United States) — only 9 of the 102
+trade hub–node pairs exist in Domain B, 62 of the 95 nodes whose hub was richer
+converge toward it (b < 0), and the trade hub diverges no more than up to five
+partners with the same initial gap that are not major trade partners (median
+difference −0.014; 45/102 positive; Wilcoxon p = 0.78; clustered by hub,
+p = 0.62). A within-country comparison across partners gives a weak, non-robust
+positive association between export share and b (median partial ρ = +0.115;
+sign-flip permutation p = 0.15). The sovereignty-as-brake statement is kept as a
+hypothesis. v30 closed this finding
 with the contrast that, when resource transfer is direct and unmediated (a
 herring shoal cannot negotiate with a school of mackerel; a Hot Jupiter does not
 apply for regulatory approval), b exceeds 1 regardless of substrate. In the
@@ -730,9 +752,11 @@ points.
 
 ## 15. Conclusions
 
-**15.1 What SNT demonstrates.** The satellization cycle — from dependent child node
-to peer to hub of new children — operates across all domains. The five-level
-taxonomy is verifiable with INEGI data and follows a power law; the binary model
+**15.1 What SNT demonstrates.** SNT proposes that the satellization cycle — from
+dependent child node to peer to hub of new children — operates across domains;
+the corpus documents power-law-like trajectories in every domain it covers, with
+the inference caveats of §9 and §12. The five-level taxonomy is consistent with a
+rank-size power law in INEGI data (pending a lognormal comparison); the binary model
 underestimated Tlaxcala's satellization by 9.3×; the first documented leapfrog
 cases within the Mexican national system are verified (Querétaro b = −0.155, Nuevo
 León b = −0.058); the ASI is computable from behavior on 4,774 users (its
@@ -750,7 +774,8 @@ validation; the ASI requires validation against an outcome independent of its
 own threshold; the collapse layer is correlational and requires larger cohorts
 and cross-domain tests. SNT does not demonstrate that Domain B measures hub–node
 coupling: a discriminant test with a calibrated null and bilateral trade data
-does not support that reading (§12, Finding 4).
+does not support that reading, and neither does a reconstruction with hubs
+taken from trade (§12, Finding 4).
 
 **15.3 Future research lines.** Validation of the Micro Module with longitudinal
 individual trajectory data; ASI operationalization with other platforms; extension
@@ -760,8 +785,10 @@ claiming causality. Added in r31: Newey-West/GLS estimation on raw residuals to
 pin the autocorrelation-corrected significance of Domain B; recovery of the raw
 COVID-19 series to correct E1/E3; re-testing the superlinear band against
 exponential and lognormal models; a satellization corpus with independently
-coded triggers; and rebuilding Domain B with a hub that emerges from the trade
-network instead of being assigned by GDP.
+coded triggers; and, since Domain B rebuilt with trade-emergent hubs shows no
+coupling, a time-varying hub definition (the main export destination changes for
+most countries) before any further use of country pairs as satellization
+evidence.
 
 **15.4 The major implication.** Not theoretical but practical. If satellization
 follows a predictable algorithm with an identifiable failure taxonomy, it is
@@ -832,7 +859,7 @@ Watts, D.J. & Strogatz, S.H. (1998). Collective dynamics of small-world networks
 Zainos Corona, E. (2026). Shadow Node Theory — Replication Package v2.5.0
 (721-case real corpus + Coupled Collapse layer ACO-A). Zenodo.
 https://doi.org/10.5281/zenodo.19446521. Current repository (release v2.5.2,
-integral audit v32, discriminant test of Domain B):
+integral audit v32, discriminant test and reconstruction of Domain B):
 https://github.com/Inzainos/The-shadow-Node-Theory
 
 Collapse-layer data sources: Yahoo Finance (LUNA, FTT, EOS); NOAA SWPC GOES (solar

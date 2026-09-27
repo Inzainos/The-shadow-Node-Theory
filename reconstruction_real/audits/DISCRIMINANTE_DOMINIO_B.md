@@ -293,3 +293,12 @@ Esto **no reemplaza** la corrección por autocorrelación (dominio B: 290/446 no
 estimables tras AR(1)); es una pregunta distinta y anterior. Son **problemas
 independientes que se acumulan** sobre el mismo 62% del corpus. Ambos apuntan en
 la misma dirección: el dominio B no puede tratarse como evidencia limpia de SNT.
+
+## Seguimiento — reconstrucción con hub emergente del comercio (2026-09-27)
+
+La pregunta que este informe dejó abierta (¿aparece el acoplamiento si el hub
+**emerge** de la red de comercio en lugar de asignarse por PIB?) se contestó en
+[`RECONSTRUCCION_DOMINIO_B_HUB_COMERCIO.md`](RECONSTRUCCION_DOMINIO_B_HUB_COMERCIO.md):
+**no**. Con el mayor destino de exportación de cada país como hub, el hub no se
+separa del nodo más que un país con la misma brecha inicial (d mediana −0.014,
+p = 0.78), y 62 de 95 nodos convergen hacia su hub.

@@ -49,6 +49,20 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 ## [No publicado] — 2026-07
 
 ### Documentación
+- **Preprint SSRN r31 en español y notas del formulario** (2026-09-27): nuevo
+  `papers/snt_ssrn_v31.md` (+ `.pdf`, `.docx`), traducción completa de la r31 en
+  inglés con la tabla de metadatos en español (JEL, palabras clave, datos,
+  conflicto de interés); `snt_ssrn_v30.*` queda intacto. Nuevo
+  `papers/SSRN_revision_v31.md` con título, resumen (1,877 caracteres), palabras
+  clave, JEL y comentarios de revisión listos para el formulario "Revise my
+  Submission"; `SSRN_revision_v30.md` queda como registro de lo enviado. La r31
+  en inglés incorpora la reconstrucción del dominio B (resumen, §3.5, §9 (iii),
+  Hallazgo 4 (c), §15.2–15.3) y corrige tres detalles de la primera redacción:
+  "89% significant" → nominal en §9, la redacción del 77/91 (son 77 de los 91
+  países que actúan como hub) y §15.1 ("operates across all domains" / "follows a
+  power law" → propuesta con salvedades; rango-tamaño pendiente de lognormal).
+  PLOS y la figura del ASI de `generate_figures_v29.py` (paquete PLOS) no se
+  tocan, por indicación del autor.
 - **Preprint SSRN, revisión r31** (2026-09-27): nuevo
   `papers/snt_ssrn_v31_EN.md` (+ `.pdf` y `.docx`); `snt_ssrn_v30_EN.*` queda
   intacto como registro de lo enviado el 2026-06-28. Nota de revisión al inicio
@@ -151,6 +165,21 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   datos reales (`data_adapters.py`, `run_real_delta.py`).
 
 ### Añadido
+- **Reconstrucción del dominio B con hub emergente del comercio** (2026-09-27;
+  pendiente 9 de la auditoría). Nuevo
+  `reconstruction_real/code/reconstruccion_B_hub_comercio.py` (con log) →
+  `reconstruction_real/data/dominio_B_hub_comercio.csv` y
+  `dominio_B_hub_comercio_intra_nodo.csv`; informe
+  `reconstruction_real/audits/RECONSTRUCCION_DOMINIO_B_HUB_COMERCIO.md`. Hub =
+  mayor destino de exportación de cada país (COW v4.0, entidades del mismo
+  territorio en Maddison 2020) en su primera década de datos; mismo ajuste que
+  `expand_B_massive.py`. 102/103 países, 19 hubs; solo 9/102 pares existen en el
+  dominio B; 62/95 nodos convergen hacia su hub; hub vs controles con la misma
+  brecha: d mediana −0.014, Wilcoxon p = 0.78 (cluster por hub p = 0.62) — **sin
+  acoplamiento**; la prueba dentro de cada nodo (ρ parcial mediana +0.115,
+  permutación p = 0.15) no es concluyente. Marca de cobertura CMEA dudosa
+  (Mongolia, Vietnam: comercio con la URSS faltante en COW; verificado). El
+  dominio B del corpus no cambia.
 - **Bloques 2–3 de la prueba discriminante del dominio B (comercio bilateral)**
   (2026-09-27). Fuente: Correlates of War Trade v4.0 (`data/COW_Trade_4.0.zip`,
   SHA-256 `c44c4b5c…`). Nuevo `reconstruction_real/code/build_comercio_bilateral_cow.py`
