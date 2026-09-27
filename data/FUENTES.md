@@ -26,7 +26,8 @@ script en fechas distintas podían obtener cifras distintas sin saberlo.
   Drive del autor solo había `mpd2023_web.xlsx` (edición 2023, distinta).
 - **Quién la usa:** `reconstruction_real/code/build_maddison_mpd2020_csv.py`
   → `data/maddison_mpd2020.csv` (mismos datos con los nombres de país de OWID,
-  traducidos por ISO3; "Sudan (Former)" → "Sudan") → `expand_B_massive.py`.
+  traducidos por ISO3; "Sudan (Former)" → "Sudan") → `expand_B_massive.py` y
+  `prueba_discriminante_dominio_B.py` (por defecto desde 2026-09-27).
 - **Peso:** dominio B = **446 casos = 62% del corpus**.
 - **Cita:** Bolt, J. & van Zanden, J. L. (2020). *Maddison style estimates of
   the evolution of the world economy. A new 2020 update.* Maddison Project
@@ -45,8 +46,10 @@ script en fechas distintas podían obtener cifras distintas sin saberlo.
 
 - **No es la edición del corpus.** Es una edición OWID posterior; con ella el
   dominio B solo se reproduce de forma aproximada (ver la medición abajo).
-- **Quién la usa:** `reconstruction_real/code/prueba_discriminante_dominio_B.py`
-  (bloque 1), `reconstruction_real/code/expand_dominio_B.py` (línea 11), la
+- **Quién la usa:** la corrida de sensibilidad de
+  `reconstruction_real/code/prueba_discriminante_dominio_B.py` (con
+  `--maddison data/owid-maddison.csv`; por defecto el script usa MPD2020 desde
+  2026-09-27), `reconstruction_real/code/expand_dominio_B.py` (línea 11), la
   medición de sensibilidad a la edición del runner de la auditoría y, solo
   como tabla de nombres Code → Entity, `build_maddison_mpd2020_csv.py`.
 - **Fuente primaria:** Maddison Project Database (Bolt & van Zanden), Groningen

@@ -299,7 +299,7 @@ and the statistic replicates exactly (Spearman ρ = +0.009, p = 0.98, n = 11).
 Scope unchanged: within crypto only; re-fitting each coin's exponents needs
 network access (`reconstruction_real/code/orthogonality_test.py`).
 
-### Domain B discriminant test (2026-07-25)
+### Domain B discriminant test (2026-07-25; re-run with MPD2020 2026-09-27)
 
 Report: [`reconstruction_real/audits/DISCRIMINANTE_DOMINIO_B.md`](reconstruction_real/audits/DISCRIMINANTE_DOMINIO_B.md).
 Question: does `b` in Domain B measure SNT hub–satellite coupling or
@@ -308,14 +308,25 @@ Question: does `b` in Domain B measure SNT hub–satellite coupling or
 - **Block 0 (firm, no assumptions):** the "hub" role is a property of the pair,
   not of the country — **77/91 countries (85% of hubs) also appear as
   satellites**.
-- **Block 1 (run with the real Maddison file — the later OWID edition, not the
-  corpus edition MPD2020; re-running it with MPD2020 is pending): INCONCLUSIVE
-  (confounded).** The
-  observed ρ (−0.4725 full, −0.3676 split) falls **inside** the null calibrated
-  to real Maddison data; gap and `b` come from the same fit and the hub is
-  assigned by mean GDP, which anticorrelates them by construction.
-- **Verdict:** Domain B is supported **neither** as β-convergence **nor** as
-  SNT coupling. Blocks 2–3 (bilateral trade) not run.
+- **Block 1: INCONCLUSIVE (confounded).** Gap and `b` come from the same fit
+  and the hub is assigned by mean GDP, which anticorrelates them by
+  construction, so the observed ρ is compared against a null calibrated to
+  real Maddison data (Block 1d), not against zero. **Re-run 2026-09-27 with the
+  corpus edition (MPD2020, all 446 pairs; 5000 null iterations):**
+
+  | Test | Observed ρ | Calibrated null: mean [IC95] | Position · empirical p |
+  |---|---:|---:|---|
+  | Block 1 (full series) | −0.4893 | −0.4226 [−0.5765, −0.2418] | inside · 0.213 |
+  | Block 1c (disjoint halves) | −0.3846 | −0.2508 [−0.4050, −0.0788] | inside · **0.050** |
+
+  The original run used the later OWID edition (441 pairs: −0.4725 / −0.3676,
+  empirical p 0.287 / 0.080). The clean split test (1c) is now **borderline**
+  (one-sided p = 0.050, 0.020 from the interval edge): weak, non-conclusive
+  evidence of convergence beyond the hub-assignment artefact.
+- **Verdict (pre-registered IC95 criterion): unchanged** — Domain B is
+  supported **neither** as β-convergence **nor** as SNT coupling, though it
+  leans closer to β-convergence with the corpus edition. Blocks 2–3 (bilateral
+  trade) not run.
 
 ### Reproducibility status
 
@@ -337,9 +348,10 @@ Question: does `b` in Domain B measure SNT hub–satellite coupling or
 ### Pending (order suggested by the audit)
 
 1. AR(1)-correct E3 and the other domains (needs their raw series).
-2. Note to the PLOS editor covering autocorrelation and clustering together; the
-   same applies to the SSRN v30 EN preprint, whose abstract states the 5.9×
-   figure and its stability "57 → 114 → 721" (not reproducible).
+2. Update the SSRN v30 EN preprint: its abstract states the 5.9× figure and its
+   stability "57 → 114 → 721" (not reproducible), and it carries the per-row
+   p-value without the autocorrelation and clustering caveats. PLOS is deferred
+   until the theory is resubmitted once refined.
 3. Test b ≥ 1 on the other domains' raw series.
 4. Report exact p-values and split `r2_log` / `r2_raw` in the consolidated corpus.
 5. ~~Decide on the 5.9× figure~~ — recalculated 2026-09-27: not reproducible and
@@ -347,6 +359,10 @@ Question: does `b` in Domain B measure SNT hub–satellite coupling or
    table and `reconstruction_real/data/trigger_abrupto_gradual_recalculo.csv`).
    The SSRN v30 EN abstract still states this figure (see pending item 2).
 6. ~~Mark `soberania` as derived from ASI~~ — done (`data/snt_asi_scores_README.md`).
+7. ~~Pin the Maddison edition of Domain B and re-run the discriminant test with
+   it~~ — done 2026-09-27 (MPD2020: exact reproduction; test still inconclusive,
+   split test borderline at p = 0.050).
+8. Block 2 of the discriminant test (bilateral trade matrix).
 
 ---
 

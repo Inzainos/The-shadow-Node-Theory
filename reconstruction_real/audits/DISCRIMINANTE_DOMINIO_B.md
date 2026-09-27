@@ -15,6 +15,41 @@ cápita (Barro & Sala-i-Martin)? Las dos hipótesis hacen predicciones separable
 
 **Si gana H-CONVERGENCIA, el dominio B no es evidencia de SNT.**
 
+## ⚠️ Re-corrida con la edición del corpus (MPD2020) — 2026-09-27
+
+La corrida original (2026-07-25, secciones siguientes) usó `data/owid-maddison.csv`,
+una edición OWID **posterior** a la que produjo el corpus: por eso solo encontró
+441 de 446 pares (faltaba Sudán). El 2026-09-27 se identificó la edición real del
+corpus, el **Maddison Project Database 2020** (`data/mpd2020.xlsx` →
+`data/maddison_mpd2020.csv`; reproduce el dominio B byte a byte), y se re-corrió
+la prueba con ella. Nulos con **5000 iteraciones** (semilla 20260725), para que
+el IC95 sea estable (con 500, su borde variaba ~0.014 entre corridas):
+
+| | OWID (edición posterior) | **MPD2020 (edición del corpus)** |
+|---|---:|---:|
+| Pares | 441 / 446 | **446 / 446** |
+| Calibración 1d: deriva · volatilidad · nivel log | 0.02153 · 0.06473 · 7.804 (sd 0.670) | 0.02170 · 0.06522 · 7.847 (sd 0.693) |
+| **Bloque 1** ρ observado | −0.4725 | **−0.4893** |
+| Nulo 1d: media [IC95] | −0.4239 [−0.5787, −0.2434] | −0.4226 [−0.5765, −0.2418] |
+| Posición · p empírico (nulo ≤ obs) | DENTRO · 0.287 | **DENTRO · 0.213** |
+| **Bloque 1c** ρ observado (datos disjuntos) | −0.3676 | **−0.3846** |
+| Nulo 1c: media [IC95] | −0.2526 [−0.4068, −0.0810] | −0.2508 [−0.4050, −0.0788] |
+| Posición · margen al borde · p empírico | DENTRO · 0.039 · 0.080 | **DENTRO · 0.020 · 0.050** |
+
+**Veredicto con el criterio preestablecido (IC95 del nulo calibrado): sigue
+INCONCLUSO.** Los dos ρ observados caen dentro del nulo; el Bloque 0 no cambia
+(no depende de Maddison). **Matiz:** con la edición correcta, el test limpio
+(1c, datos disjuntos) queda **en el límite**: p empírico de una cola = 0.050 y a
+0.020 del borde del intervalo. Es una señal débil de convergencia por encima del
+artefacto de asignación de hub, **no concluyente**; no cambia el veredicto, pero
+el dominio B queda más cerca de la lectura β-convergencia que en la corrida
+original (p 0.080 → 0.050).
+
+El script calcula ahora este veredicto por sí mismo (`veredicto_nulo_calibrado`)
+y ya no imprime "RESPALDADA" por la comparación contra cero. Salidas:
+`reconstruction_real/data/discrim_bloque1_convergencia.csv` y
+`discrim_bloque1c_split.csv` (ahora con MPD2020, 446 pares).
+
 ## Bloque 0 — diagnóstico estructural (corre sin datos externos) — ⚠️ resultado
 
 El motivo de la prueba: el "hub" se asigna por **mayor PIB per cápita** dentro de
@@ -179,13 +214,17 @@ chicos. Esa consecuencia hay que verla de frente — no la resuelve este documen
 ```sh
 python reconstruction_real/code/prueba_discriminante_dominio_B.py \
     --corpus reconstruction_real/data/by_domain/dominio_B_real.csv \
-    --maddison data/owid-maddison.csv \
-    --comercio data/comercio_bilateral.csv
+    --maddison data/maddison_mpd2020.csv \
+    --comercio data/comercio_bilateral.csv \
+    --n-placebo 5000 --omitir-1b
 ```
 
-Bloques 0, 1, 1b, 1c y 1d corren con `owid-maddison.csv` (ya en el repo). El
-Bloque 2 requiere además la matriz de comercio bilateral. `--n-placebo` controla
-las iteraciones de los nulos (1b y 1d).
+Bloques 0, 1, 1b, 1c y 1d corren con la edición del corpus (`maddison_mpd2020.csv`,
+ya en el repo). `--maddison data/owid-maddison.csv` reproduce la corrida de
+sensibilidad con la edición OWID posterior. El Bloque 2 requiere además la
+matriz de comercio bilateral. `--n-placebo` controla las iteraciones de los
+nulos (1b y 1d); `--omitir-1b` salta el 1b (no es un nulo válido y es el paso
+más lento) sin cambiar 1, 1c, 1d ni el veredicto.
 
 ## Lo que queda abierto
 

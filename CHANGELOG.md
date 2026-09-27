@@ -256,6 +256,18 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   Conventional Commits, no PHI/secretos, CI verde antes de merge).
 
 ### Corregido
+- **Prueba discriminante del dominio B re-corrida con la edición del corpus**
+  (2026-09-27). La corrida original usó la edición OWID posterior (441 pares).
+  Con MPD2020 (446 pares) y 5000 iteraciones de los nulos: Bloque 1 ρ = −0.4893
+  vs nulo calibrado −0.4226 [−0.5765, −0.2418] → DENTRO (p empírico 0.213);
+  Bloque 1c ρ = −0.3846 vs −0.2508 [−0.4050, −0.0788] → DENTRO **en el límite**
+  (p empírico 0.050, margen 0.020). **Veredicto con el criterio IC95: sigue
+  INCONCLUSO**; el test limpio se acerca a β-convergencia (p 0.080 → 0.050).
+  El script ya no imprime "VEREDICTO H-CONVERGENCIA: RESPALDADA" por la
+  comparación contra cero (declarada inválida): calcula el veredicto contra el
+  nulo calibrado (`veredicto_nulo_calibrado`), usa MPD2020 por defecto y acepta
+  `--omitir-1b`. Salidas `discrim_bloque1_convergencia.csv` y
+  `discrim_bloque1c_split.csv` regeneradas con MPD2020.
 - **Filas fijas del runner de la auditoría v32** (2026-09-27).
   `dominio_B_regenerable` era un literal (`NO`) escrito cuando faltaba
   `owid-maddison.csv` y nunca comprobaba nada; ahora el runner regenera el
