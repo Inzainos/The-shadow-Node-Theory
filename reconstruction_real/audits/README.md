@@ -47,6 +47,13 @@ python reconstruction_real/code/snt_auditoria_integral_v32.py
   test completo ni en el de datos disjuntos. El Bloque 1b (re-emparejamiento,
   media −0.57) NO es un nulo válido (conserva el mecanismo); se reporta como
   observación aparte. ⚠️ Este documento corrige dos redacciones previas.
+- **Re-corrida con la edición del corpus (MPD2020), 2026-09-27.** La corrida
+  anterior usó la edición OWID posterior (441 pares). Con MPD2020 (446 pares) y
+  5000 iteraciones: Bloque 1 ρ = −0.4893 vs nulo −0.4226 [−0.5765, −0.2418] →
+  DENTRO (p empírico 0.213); Bloque 1c ρ = −0.3846 vs nulo −0.2508 [−0.4050,
+  −0.0788] → DENTRO, pero **en el límite** (p empírico 0.050, a 0.020 del
+  borde). Veredicto con el criterio IC95: **sigue INCONCLUSO**; el test limpio
+  se acerca a β-convergencia (p 0.080 → 0.050) sin ser concluyente.
 - **Veredicto honesto:** el dominio B **no queda respaldado ni como β-convergencia
   ni como acoplamiento SNT**; el constructo de hub es post hoc (Bloque 0) y el
   estadístico está dominado por un artefacto de asignación (Bloque 1d).
@@ -66,7 +73,8 @@ python reconstruction_real/code/snt_auditoria_integral_v32.py
    (autocorrelación + pseudo-replicación de 714 casos no independientes).
 4. **Defectos de reporte.** 557/721 p-values truncados a `0.0` por
    `round(p,6)`; dos definiciones de R² promediadas juntas; `trigger`
-   hardcodeado a `'gradual'` en `expand_dominio_B.py`.
+   hardcodeado a `'gradual'` en los constructores del dominio B
+   (`expand_B_massive.py` y `expand_dominio_B.py`).
 
 ### Importante — estimabilidad primero, luego un rango entre los estimables
 
@@ -108,7 +116,20 @@ recálculo independiente de las cifras que el runner no emite:
 | Checksums de `data/FUENTES.md` | Los 6 SHA-256 coinciden con los archivos actuales. |
 | Prueba de regresión | `pytest reconstruction_real/tests` → 4 passed. |
 
+## Seguimiento — 2026-09-27: recálculo del 5.9× y filas fijas del runner
+
+| Punto | Resultado |
+|---|---|
+| **Recálculo abrupto vs gradual** (hallazgo 1 del README; RC3, RC-ACO-2) | Nuevo script `code/recalculo_trigger_abrupto_gradual.py` → `data/trigger_abrupto_gradual_recalculo.csv` (+ log en `reconstruction_real/logs/`). **Origen del 5.9×:** tabla v1.0 de **2 abruptos vs 2 graduales** (`data/shadow_node_maddison_resumen.csv`): 0.717 / 0.122 = **5.87×**, Mann-Whitney p = 0.33. **Histórico v2.0** (57 casos, sin 13 híbridos): razón 6.3, p = 0.053, pero 7 casos tienen R² < 0 (era obsoleta, no citable). n = 486 no corresponde a ningún conjunto del repo. El corpus de satelización activo no tiene variable de disparador. **ACO (n = 18: 10 abruptos, 8 graduales)** sí la tiene, pero su b es un **exponente de absorción** (R = masa absorbente / masa pico del hub): prueba RC-ACO-2, no el RC3. Ahí gradual ≥ abrupto: b̄ +0.85 vs +0.40, razón 0.47, Mann-Whitney p = 0.10 (dos colas); solo verificados (n = 14): razón 0.37, p = 0.14; intra-dominio (permutación exacta estratificada, H y T, 16 permutaciones) p = 0.94; disparador confundido con el dominio (F todo abrupto, I todo gradual). **Veredicto: RC3 pasa a UNTESTABLE** (prueba publicada no reproducible, corpus activo sin variable de disparador); RC-ACO-2 queda indeciso con n = 18. |
+| **Fila `dominio_B_regenerable`** (fija en `NO`) | **Causa:** era un literal escrito cuando faltaba `owid-maddison.csv`; nunca comprobaba nada. **Corregido:** el runner regenera B en un directorio temporal y lo compara caso a caso y por SHA-256 contra `by_domain/dominio_B_real.csv`. **Edición del corpus identificada:** Maddison Project Database 2020 (`data/mpd2020.xlsx`, descargado de la GGDC; en Google Drive solo estaba la edición 2023). Con ella `expand_B_massive.py` reproduce los 446 casos **byte a byte** (SHA-256 idéntico, 19 columnas iguales) → `REPLICA`. Con la edición OWID posterior: 441 vs 446, corr(b) = 0.979, 12/408 b idénticos → `PARCIAL` (sensibilidad a la edición). `expand_dominio_B.py` (script previo): 254 casos → `PARCIAL`. |
+| **Fila RC9** (fija en `NO_REPRODUCIBLE`) | Mismo defecto. Ahora se calcula desde `orthogonality_crypto_v25.csv`: ρ = +0.009, p = 0.98, n = 11 → `REPLICA`. |
+| **Prueba discriminante con MPD2020** | Re-corrida con la edición del corpus (446 pares; antes 441 con OWID) y 5000 iteraciones. Bloque 1: −0.4893, DENTRO (p 0.213). Bloque 1c: −0.3846, DENTRO en el límite (p 0.050, margen 0.020). **Veredicto: sigue INCONCLUSO.** El script ahora calcula este veredicto por sí mismo (antes imprimía "RESPALDADA" por la comparación contra cero) y acepta `--omitir-1b`. Salidas `discrim_bloque1*.csv` regeneradas con MPD2020. |
+| **Runner v32** | 51 filas: 28 REPLICA, 1 REPLICA_SIGNO, 1 RANGO, 2 OK, 2 PARCIAL (sensibilidad a la edición y script previo), 3 NO_REPRODUCIBLE, 2 BLOQUEADO, 1 CIRCULAR, 11 INFO. Ninguna discrepancia. |
+
 Pendientes que siguen abiertos: series crudas de E3 (corrección AR(1) de E3),
 prueba de b ≥ 1 en otros dominios, p sin truncar + `r2_log`/`r2_raw`
-separados en el corpus consolidado, decisión sobre la cifra 5.9×, nota al
-editor de PLOS, y bloque 2 de la prueba discriminante (comercio bilateral).
+separados en el corpus consolidado, actualizar el preprint de SSRN (su resumen
+afirma la cifra 5.9×; PLOS queda para el reenvío de la teoría una vez afinada) y
+el bloque 2 de la prueba discriminante (comercio bilateral). Hechos el
+2026-09-27: ~~fijar la edición exacta de Maddison~~ (MPD2020, reproducción byte
+a byte) y ~~re-correr la prueba discriminante con MPD2020~~ (sigue inconclusa).

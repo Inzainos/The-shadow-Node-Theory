@@ -1,9 +1,28 @@
-"""Expansión masiva del dominio B con TODOS los pares regionales viables."""
+"""Expansión masiva del dominio B con TODOS los pares regionales viables.
+
+Este es el script que genera el dominio B publicado (446 casos).
+
+Entrada por defecto: data/maddison_mpd2020.csv (Maddison Project Database 2020
+con nombres de país OWID; la genera build_maddison_mpd2020_csv.py desde
+data/mpd2020.xlsx). Con esa edición el dominio B publicado se reproduce byte a
+byte. Con data/owid-maddison.csv (edición OWID posterior) solo se reproduce de
+forma aproximada.
+
+Uso, desde la raíz del repo:
+    python reconstruction_real/code/expand_B_massive.py [--maddison RUTA] [--salida RUTA]
+"""
+import argparse
 import pandas as pd, numpy as np
 from scipy import stats
 from itertools import combinations
 
-df = pd.read_csv('data/owid-maddison.csv')
+ap = argparse.ArgumentParser(description="Construye el dominio B (pares de países).")
+ap.add_argument('--maddison', default='data/maddison_mpd2020.csv',
+                help="CSV con columnas Entity, Code, Year, GDP per capita")
+ap.add_argument('--salida', default='data/dominio_B_real.csv')
+args = ap.parse_args()
+
+df = pd.read_csv(args.maddison)
 
 def calc(hub, nodo, ymin=1900, ymax=2018):
     h = df[(df['Entity']==hub)&(df['Year']>=ymin)&(df['Year']<=ymax)][['Year','GDP per capita']].dropna()
@@ -57,7 +76,8 @@ for region, paises in REGIONES.items():
 dfB=pd.DataFrame(resultados).drop_duplicates(subset=['hub','nodo']).reset_index(drop=True)
 dfB['id']=[f"B{i+1:03d}" for i in range(len(dfB))]
 cols=['id','descripcion','dominio','region','hub','nodo','trigger','b','r2','r_pearson','p','se_b','ci_lo','ci_hi','dw','n','year_min','year_max','significativo']
-dfB[cols].to_csv('data/dominio_B_real.csv',index=False)
+dfB[cols].to_csv(args.salida,index=False)
+print(f"Entrada: {args.maddison} | Salida: {args.salida}")
 print(f"DOMINIO B EXPANDIDO: {len(dfB)} casos")
 print(f"  Significativos: {dfB['significativo'].sum()} ({100*dfB['significativo'].mean():.0f}%)")
 print(f"  b medio: {dfB['b'].mean():+.3f}, R²<0: {(dfB['r2']<0).sum()}")

@@ -37,9 +37,16 @@ bloque,cifra,publicado,recomputado,estado
 9_nbody,n_entidades,32,32,REPLICA
 9_nbody,refit_desde_crudo,requiere serie rank-size de 32 entidades,archivo es solo resumen (1 fila) — no recomputable aquí,NO_REPRODUCIBLE
 9_nbody,caveat,rank-size sobre 32 entidades da R2 alto por construccion; comparar vs lognormal (Clauset 2009),,INFO
-10_reproducibilidad,data/owid-maddison.csv,requerido por expand_dominio_B.py,PRESENTE,OK
-10_reproducibilidad,dominio_B_regenerable,62% del corpus,NO sin owid-maddison.csv,NO_REPRODUCIBLE
-11_no_reproducible,"5.9x_abrupto_gradual (U=24802,n=486)",README,corpus v5 sin variable trigger utilizable; n=486 no es subconjunto de 721 (parece heredado de v28/502 OBSOLETE),NO_REPRODUCIBLE
+10_reproducibilidad,data/maddison_mpd2020.csv,edicion del corpus (MPD2020),PRESENTE,OK
+10_reproducibilidad,data/owid-maddison.csv,edicion OWID 2026-07-25 (discriminante),PRESENTE,OK
+10_reproducibilidad,regenerar_B:expand_B_massive.py+MPD2020,446 casos (b medio +0.0916),446 casos (b medio +0.0916); 446 pares comunes; b identico 446/446; corr(b)=1.000; signo coincide 446/446; SHA-256 IDENTICO,REPLICA
+10_reproducibilidad,sensibilidad_edicion:expand_B_massive.py+OWID,446 casos (b medio +0.0916),441 casos (b medio +0.0883); 408 pares comunes; b identico 12/408; corr(b)=0.979; signo coincide 396/408; SHA-256 distinto,PARCIAL
+10_reproducibilidad,script_previo:expand_dominio_B.py+OWID,446 casos (b medio +0.0916),254 casos (b medio +0.0608); 232 pares comunes; b identico 7/232; corr(b)=0.971; signo coincide 223/232; SHA-256 distinto,PARCIAL
+11_no_reproducible,"5.9x_abrupto_gradual (U=24802,n=486)",README,corpus v5 sin variable trigger utilizable; n=486 no es subconjunto de ningun conjunto del repo,NO_REPRODUCIBLE
+11_recalculo_trigger,ACO v29 (18 casos),ACTIVO,razon medias=0.467869; p2=0.101102; p1(abr>grad)=0.95843,INFO
+11_recalculo_trigger,ACO v29 (intra-dominio),ACTIVO,razon medias=-; p2=0.9375; p1(abr>grad)=0.4375,INFO
+11_recalculo_trigger,v1.0 Maddison resumen (4 casos),HISTÓRICO (no citable),razon medias=5.86629; p2=0.333333; p1(abr>grad)=0.166667,INFO
+11_recalculo_trigger,v2.0 corpus 57 casos,HISTÓRICO (no citable),razon medias=6.32581; p2=0.0533919; p1(abr>grad)=0.026696,INFO
 11_no_reproducible,ROC-AUC 0.715 (ASI),README,target de retencion no está en snt_asi_scores.csv,NO_REPRODUCIBLE
-11_no_reproducible,RC9 rho=+0.009 crypto n=11,README,"ACO (18, tiene b) y colapso (14, tiene Δ) no comparten casos; no hay pares (b,Δ)",NO_REPRODUCIBLE
+11_rc9_orthogonalidad,RC9 rho=+0.009 crypto n=11,rho=+0.009 p=0.98 n=11,rho=+0.009 p=0.98 n=11 (orthogonality_crypto_v25.csv),REPLICA
 11_no_reproducible,E3 correccion AR(1),-,"dominio_E3_real.csv no trae series crudas (solo b,r2,p,n)",BLOQUEADO

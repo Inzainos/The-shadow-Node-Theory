@@ -27,16 +27,23 @@ evidencia de SNT.
 
 ESTADO
 ------
-Bloque 1 (H-CONVERGENCIA) corre en cuanto exista data/owid-maddison.csv.
+Bloque 1 (H-CONVERGENCIA) corre con la edicion de Maddison del corpus:
+data/maddison_mpd2020.csv (Maddison Project Database 2020; la genera
+build_maddison_mpd2020_csv.py). Con data/owid-maddison.csv (edicion OWID
+posterior) se obtiene la corrida de sensibilidad.
 Bloque 2 (H-ACOPLAMIENTO) requiere ademas una matriz de comercio bilateral.
 Bloque 0 (diagnostico estructural) corre YA, sin datos externos.
 
 USO
 ---
-    python prueba_discriminante_dominio_B.py \
-        --corpus by_domain/dominio_B_real.csv \
-        --maddison data/owid-maddison.csv \
-        --comercio data/comercio_bilateral.csv
+    python reconstruction_real/code/prueba_discriminante_dominio_B.py \
+        --corpus reconstruction_real/data/by_domain/dominio_B_real.csv \
+        --maddison data/maddison_mpd2020.csv \
+        --comercio data/comercio_bilateral.csv \
+        --n-placebo 5000 --omitir-1b
+
+    --omitir-1b salta el Bloque 1b (re-emparejamiento: no es un nulo valido y
+    es el paso mas lento); no cambia 1, 1c, 1d ni el veredicto.
 """
 import argparse
 import itertools
@@ -162,8 +169,9 @@ def bloque1_convergencia(B, maddison_path):
     log.info("PREDICCION H-CONVERGENCIA: rho NEGATIVO y significativo")
     log.info("   (brecha grande -> el rezagado alcanza -> el cociente "
              "hub/nodo cae -> b menor)")
-    log.info("VEREDICTO H-CONVERGENCIA: %s",
-             "RESPALDADA" if (rho < 0 and p < 0.05) else "NO respaldada")
+    log.info("vs CERO: %s  <- comparacion INCORRECTA (brecha y b salen del "
+             "mismo ajuste); el veredicto sale del nulo 1d al final",
+             "rho<0 y p<0.05" if (rho < 0 and p < 0.05) else "no significativo")
 
     # dentro de region, para descartar que sea puro efecto de region
     log.info("")
@@ -512,15 +520,54 @@ def bloque3_conjunto(D1, D2):
 
 
 # =============================================================================
+def veredicto_nulo_calibrado(D1, D1c, CAL):
+    """Veredicto del Bloque 1 y 1c: rho observado contra el nulo calibrado 1d.
+
+    DENTRO del IC95 del nulo -> compatible con el puro artefacto de asignacion
+    de hub (inconcluso). FUERA y mas negativo -> senal de convergencia por
+    encima del artefacto. p empirico = fraccion del nulo <= rho observado.
+    """
+    head("VEREDICTO — rho observado vs nulo calibrado (Bloque 1d)")
+    if CAL is None or D1 is None or D1c is None:
+        log.warning("BLOQUEADO: requiere los bloques 1, 1c y 1d.")
+        return None
+    pares = (("Bloque 1 (serie completa)", D1, "brecha_log", "b"),
+             ("Bloque 1c (muestra partida)", D1c, "brecha_1a_mitad",
+              "b_2a_mitad"))
+    salida = {}
+    for etiqueta, D, x, y in pares:
+        obs = float(stats.spearmanr(D[x], D[y])[0])
+        nulo = CAL[etiqueta]
+        lo, hi = nulo["ic95"]
+        dentro = lo <= obs <= hi
+        p_emp = float(np.mean(nulo["dist"] <= obs))
+        margen = min(obs - lo, hi - obs)
+        log.info("%s: rho = %+.4f | nulo media %+.4f IC95 [%+.4f, %+.4f] | "
+                 "%s (margen al borde %.4f) | p empirico (nulo <= obs) = %.4f",
+                 etiqueta, obs, nulo["media"], lo, hi,
+                 "DENTRO" if dentro else "FUERA", margen, p_emp)
+        salida[etiqueta] = {"obs": obs, "dentro": dentro, "p_emp": p_emp}
+    if all(v["dentro"] for v in salida.values()):
+        log.info("VEREDICTO: INCONCLUSO — ambos observados caen dentro del "
+                 "nulo; no hay senal por encima del artefacto de asignacion.")
+    else:
+        log.info("VEREDICTO: al menos un observado cae FUERA del nulo; revisar "
+                 "con mas iteraciones antes de concluir.")
+    return salida
+
+
+# =============================================================================
 def main():
     ap = argparse.ArgumentParser(
         description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--corpus", default="by_domain/dominio_B_real.csv")
-    ap.add_argument("--maddison", default="data/owid-maddison.csv")
+    ap.add_argument("--maddison", default="data/maddison_mpd2020.csv")
     ap.add_argument("--comercio", default="data/comercio_bilateral.csv")
     ap.add_argument("--n-placebo", type=int, default=500,
-                    help="iteraciones del nulo por remuestreo (bloque 1b)")
+                    help="iteraciones de los nulos (bloques 1b y 1d)")
+    ap.add_argument("--omitir-1b", action="store_true",
+                    help="no correr el bloque 1b (no es un nulo valido; lento)")
     a = ap.parse_args()
 
     log.info("Prueba discriminante dominio B — acoplamiento vs convergencia")
@@ -532,17 +579,20 @@ def main():
 
     bloque0_estructura(B)
     D1 = bloque1_convergencia(B, a.maddison)
-    NUL = bloque1b_placebo(B, a.maddison, n_iter=a.n_placebo)
+    NUL = (None if a.omitir_1b
+           else bloque1b_placebo(B, a.maddison, n_iter=a.n_placebo))
     D1c = bloque1c_split(B, a.maddison)
     CAL = bloque1d_nulo_calibrado(B, a.maddison, n_iter=a.n_placebo)
     D2 = bloque2_acoplamiento(B, a.comercio, D1)
     bloque3_conjunto(D1, D2)
+    veredicto_nulo_calibrado(D1, D1c, CAL)
 
     head("FIN")
     log.info("Bloque 0  (estructura)   : siempre corre")
     log.info("Bloque 1  (convergencia) : %s",
              "corrido" if D1 is not None else "BLOQUEADO (falta Maddison)")
     log.info("Bloque 1b (nulo placebo) : %s",
+             "omitido (--omitir-1b)" if a.omitir_1b else
              "corrido" if NUL is not None else "BLOQUEADO (falta Maddison)")
     log.info("Bloque 1c (split)        : %s",
              "corrido" if D1c is not None else "BLOQUEADO (falta Maddison)")

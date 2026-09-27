@@ -110,6 +110,25 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   datos reales (`data_adapters.py`, `run_real_delta.py`).
 
 ### Añadido
+- **Recálculo de "abrupto vs gradual" (cifra 5.9×)** (2026-09-27):
+  `reconstruction_real/code/recalculo_trigger_abrupto_gradual.py` →
+  `reconstruction_real/data/trigger_abrupto_gradual_recalculo.csv` (con log).
+  Recalcula la comparación sobre todos los conjuntos del repo con etiqueta de
+  disparador. **Origen del 5.9×:** tabla v1.0 de 2 abruptos vs 2 graduales
+  (5.87×, Mann-Whitney p = 0.33). Histórico v2.0 (57 casos): razón 6.3,
+  p = 0.053, no citable (7 casos con R² < 0). n = 486 no corresponde a ningún
+  conjunto. El corpus de satelización activo (721) no tiene variable de
+  disparador. Los 18 casos ACO sí la tienen, pero su b es un **exponente de
+  absorción** (R = masa absorbente / masa pico del hub), así que prueban
+  RC-ACO-2, no esta afirmación: ahí gradual ≥ abrupto (0.47×, p = 0.10, n.s.;
+  permutación intra-dominio p = 0.94; disparador confundido con dominio).
+- **RC3 del README pasa de NOT REFUTED a UNTESTABLE** (2026-09-27, decisión del
+  autor tras la revisión): la prueba publicada no es reproducible y el corpus
+  activo no puede evaluarla. Se agrega una nota de numeración: el RC3 del
+  README (abrupto vs gradual) no es el RC3 del marco v30 / SSRN v30 EN
+  (inextractabilidad cualitativa) ni el del SSRN v30 ES §2.3 (convergencia
+  espontánea). **Pendiente del autor:** el resumen del preprint SSRN v30 EN
+  (en revisión) afirma la cifra 5.9× y su estabilidad "57 → 114 → 721".
 - **Prueba discriminante del dominio B — acoplamiento vs convergencia**
   (`reconstruction_real/code/prueba_discriminante_dominio_B.py`,
   `audits/DISCRIMINANTE_DOMINIO_B.md`). Separa dos hipótesis sobre qué mide el
@@ -237,6 +256,52 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   Conventional Commits, no PHI/secretos, CI verde antes de merge).
 
 ### Corregido
+- **Prueba discriminante del dominio B re-corrida con la edición del corpus**
+  (2026-09-27). La corrida original usó la edición OWID posterior (441 pares).
+  Con MPD2020 (446 pares) y 5000 iteraciones de los nulos: Bloque 1 ρ = −0.4893
+  vs nulo calibrado −0.4226 [−0.5765, −0.2418] → DENTRO (p empírico 0.213);
+  Bloque 1c ρ = −0.3846 vs −0.2508 [−0.4050, −0.0788] → DENTRO **en el límite**
+  (p empírico 0.050, margen 0.020). **Veredicto con el criterio IC95: sigue
+  INCONCLUSO**; el test limpio se acerca a β-convergencia (p 0.080 → 0.050).
+  El script ya no imprime "VEREDICTO H-CONVERGENCIA: RESPALDADA" por la
+  comparación contra cero (declarada inválida): calcula el veredicto contra el
+  nulo calibrado (`veredicto_nulo_calibrado`), usa MPD2020 por defecto y acepta
+  `--omitir-1b`. Salidas `discrim_bloque1_convergencia.csv` y
+  `discrim_bloque1c_split.csv` regeneradas con MPD2020.
+- **Filas fijas del runner de la auditoría v32** (2026-09-27).
+  `dominio_B_regenerable` era un literal (`NO`) escrito cuando faltaba
+  `owid-maddison.csv` y nunca comprobaba nada; ahora el runner regenera el
+  dominio B en un directorio temporal con cada script constructor y lo compara
+  caso a caso: `expand_B_massive.py` → 441 vs 446 casos, corr(b) = 0.979,
+  12/408 b idénticos (`PARCIAL`); `expand_dominio_B.py` → 254 casos
+  (`PARCIAL`). La fila de RC9 (fija en `NO_REPRODUCIBLE`) ahora se calcula desde
+  `orthogonality_crypto_v25.csv` (ρ = +0.009 → `REPLICA`). *(Esa medición usó la
+  edición OWID posterior; con la edición del corpus, MPD2020, la reproducción
+  es exacta — ver "Dominio B: edición de Maddison identificada" abajo.)*
+- **Script regenerador del dominio B mal atribuido.** README,
+  `reconstruction_real/README.md`, `DOMINIO_B_METODOLOGIA.md` y
+  `data/FUENTES.md` decían que `expand_dominio_B.py` reproduce los 446 casos;
+  produce 254. El que genera el dominio es `expand_B_massive.py`. El `trigger`
+  fijo en `'gradual'` está en ambos scripts.
+- **Dominio B: edición de Maddison identificada y fijada; reproducción exacta**
+  (2026-09-27). La edición del corpus nunca se había fijado: era el **Maddison
+  Project Database 2020** (cobertura 1–2018), no la 2023 que citaban README,
+  `sources.md` y `CITATION.cff`. Se buscó en Google Drive del autor (solo estaba
+  `mpd2023_web.xlsx`) y se descargó la 2020 de la GGDC. Nuevo
+  `data/mpd2020.xlsx` (SHA-256 `d20853c2…`) y
+  `reconstruction_real/code/build_maddison_mpd2020_csv.py` →
+  `data/maddison_mpd2020.csv` (nombres OWID por ISO3; "Sudan (Former)" →
+  "Sudan"). Con ella `expand_B_massive.py` reproduce los 446 casos **byte a
+  byte** (SHA-256 idéntico, 19 columnas iguales). `expand_B_massive.py` acepta
+  `--maddison`/`--salida` y por defecto lee la edición fijada; el runner de la
+  auditoría verifica la reproducción exacta (`REPLICA`) y mide la sensibilidad
+  a la edición OWID posterior (`PARCIAL`, 441 vs 446). Citas corregidas de 2023
+  a 2020 en README, `reconstruction_real/README.md`, `sources.md`,
+  `DOMINIO_B_METODOLOGIA.md`, `data/FUENTES.md` y `CITATION.cff`. No fue
+  necesario re-publicar B.
+- **Dashboard:** las 16 llamadas con `use_container_width=True` (deprecado)
+  pasan a `width="stretch"`; verificado con Streamlit 1.58.0 (versión del
+  despliegue en Hugging Face) y 1.64.0: 6/6 páginas, 0 excepciones, 0 avisos.
 - **Provenance y circularidad (higiene de la auditoría v32).** `data/FUENTES.md`
   ancla las fuentes externas (Maddison Project y OWID COVID) con URL, edición,
   fecha y SHA-256, y documenta que `data/owid-maddison.csv` está **ausente** en
@@ -246,6 +311,8 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   circular por construcción (solo 13/4,774 = 0.27% positivos).
 
 ### Cambiado
+- `dashboard/requirements.txt`: `streamlit>=1.58.0` (antes `>=1.30.0`, que no
+  garantiza el parámetro `width`); `.gitignore`: ignora `reconstruction_real/logs/`.
 - Estado de publicaciones: revisión v30 de **PLOS Complex Systems** (PCSY-D-26-00059)
   enviada; ponencia **MIT GCFP** (13ª conferencia anual) enviada.
 - CI: el paso de `flake8` ahora lee su configuración desde `.flake8` en vez de

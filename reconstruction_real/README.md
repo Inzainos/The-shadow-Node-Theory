@@ -5,7 +5,7 @@
 | Dominio | Casos | Sig. | b mean | R2 mean | Fuente |
 |---------|-------|------|--------|---------|--------|
 | A -- Ciudades | 4 | 0% | +0.08 | 0.18 | UN Demographic Yearbook |
-| B -- Paises | 446 | 84%† | +0.09 | 0.35 | Maddison Project 2023 (via OWID) |
+| B -- Paises | 446 | 84%† | +0.09 | 0.35 | Maddison Project Database 2020 |
 | C -- Regiones | 24 | 100% | +0.09 | 0.53 | US Census historico (23) + INEGI 2022 (1) |
 | D -- Digital | 3 | 100% | -1.36 | 0.87 | HackerEarth 2026 |
 | E1 -- Invasion (expansion territorial) | 4 | 100% | +2.89 | 0.81 | OWID COVID-19 (spatial spread, 2020) |
@@ -58,15 +58,24 @@ respaldado ni como acoplamiento SNT ni como beta-convergencia.
   leen exactamente `0.0`** (impide FDR exacto y meta-analisis)
 - Dos definiciones de R2 conviven: B usa r de Pearson al cuadrado (escala log),
   el resto 1 - SSres/SStot (escala cruda); `r2_mean` las promedia juntas
-- `trigger` esta fijo en `'gradual'` para los 446 casos de B (`expand_dominio_B.py`)
+- `trigger` esta fijo en `'gradual'` para los 446 casos de B (en ambos constructores:
+  `expand_B_massive.py` y `expand_dominio_B.py`)
 - Sin datos sinteticos
 - Checksums SHA-256 de los archivos del corpus anclados en `../data/FUENTES.md`
   (re-verificados 2026-09-26)
 
 ## Reproducibilidad
-- **Dominio B:** regenerable desde `../data/owid-maddison.csv` (en el repo,
-  descargado 2026-07-25). La edicion vigente de Maddison/OWID puede diferir
-  ligeramente de la usada originalmente.
+- **Dominio B: reproduccion exacta** (verificada 2026-09-27). El dominio se
+  construyo con el **Maddison Project Database 2020** (cobertura 1-2018), ahora
+  en el repo como `../data/mpd2020.xlsx`. `code/build_maddison_mpd2020_csv.py`
+  lo convierte a `../data/maddison_mpd2020.csv` y `code/expand_B_massive.py`
+  regenera los 446 casos **byte a byte** (SHA-256 identico al de
+  `data/by_domain/dominio_B_real.csv`).
+- Con la edicion OWID posterior (`../data/owid-maddison.csv`, 2026-07-25) B solo
+  se reproduce aproximado: 441 vs 446 casos, corr(b) = 0.979, 12/408 b
+  identicos (Maddison revisa el PIB historico entre ediciones y el hub se asigna
+  por PIB medio). `code/expand_dominio_B.py` es una expansion anterior (254
+  casos) y **no** reproduce el dominio.
 - **Dominios E1/E3 (COVID-19):** solo estan los resumenes ajustados; las series
   crudas **no** estan en el repo. Esto bloquea la correccion AR(1) de E3.
 - **Auditoria completa:** `python reconstruction_real/code/snt_auditoria_integral_v32.py`
@@ -94,7 +103,7 @@ respaldado ni como acoplamiento SNT ni como beta-convergencia.
 
 ## Fuentes (publicas y verificables, salvo HackerEarth)
 - UN Demographic Yearbook (A)
-- Maddison Project Database 2023 (Bolt & van Zanden), via OWID (B)
+- Maddison Project Database 2020 (Bolt & van Zanden 2020) (B)
 - US Census Bureau (estados) + INEGI 2022 (Mexico) (C)
 - HackerEarth 2026 (D; propietario, solo resultados agregados)
 - OWID COVID-19 dataset, JHU CSSE (E1, E3)
@@ -110,11 +119,14 @@ respaldado ni como acoplamiento SNT ni como beta-convergencia.
 - `data/snt_corpus_dominio_G*.csv` + `data/snt_corpus_dominio_G_fuentes.md` -- Dominio G (v2.5.2)
 - `data/auditoria_integral_v32_resultados.csv` -- salida de la auditoria v32
 - `data/dominio_B_corregido_ar1_v32.csv` -- dominio B con correccion AR(1) por caso
-- `code/expand_dominio_B.py` -- reproduce 446 casos B (lee `../data/owid-maddison.csv`)
+- `code/build_maddison_mpd2020_csv.py` -- convierte `../data/mpd2020.xlsx` en `../data/maddison_mpd2020.csv` (verifica SHA-256)
+- `code/expand_B_massive.py` -- construye el dominio B (446 casos; reproduccion byte a byte desde `../data/maddison_mpd2020.csv`)
+- `code/expand_dominio_B.py` -- expansion regional previa (254 casos; no reproduce los 446)
 - `code/build_dominio_B.py` -- construye dominio B
 - `code/build_aco_v29.py` -- ACO, 18 casos (smoke test del CI)
 - `code/build_dominio_G.py` -- Dominio G, 5 casos; G03 Bennu n=3
 - `code/snt_auditoria_integral_v32.py` -- runner de la auditoria v32
 - `code/prueba_discriminante_dominio_B.py` -- prueba discriminante del dominio B
+- `code/recalculo_trigger_abrupto_gradual.py` -- recalculo de abrupto vs gradual (cifra 5.9x); salida en `data/trigger_abrupto_gradual_recalculo.csv`
 - `audits/` -- informes de auditoria (`AUDITORIA_INTEGRAL_v32.md`, `DISCRIMINANTE_DOMINIO_B.md`)
 - `tests/test_correccion_ar1.py` -- prueba de regresion (156/290/33/112)

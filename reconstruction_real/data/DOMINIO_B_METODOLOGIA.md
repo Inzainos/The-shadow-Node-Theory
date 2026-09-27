@@ -31,5 +31,21 @@ La satelización (b) varía sistemáticamente por región según fricción insti
 - Satelización (b>0): África Subsahariana, Asia Sudeste (mayor divergencia)
 
 ## Trazabilidad
-Todo valor de b y R² es reproducible ejecutando `expand_dominio_B.py`
-sobre `owid-maddison.csv`. Sin datos sintéticos.
+Fuente: **Maddison Project Database 2020** (Bolt & van Zanden 2020; cobertura
+1–2018), en `data/mpd2020.xlsx`. Sin datos sintéticos. Reproducción, desde la
+raíz del repo:
+
+```bash
+python reconstruction_real/code/build_maddison_mpd2020_csv.py  # xlsx -> data/maddison_mpd2020.csv
+python reconstruction_real/code/expand_B_massive.py            # -> data/dominio_B_real.csv
+```
+
+**Reproducción exacta (verificada 2026-09-27):** los 446 casos salen **byte a
+byte** iguales a `by_domain/dominio_B_real.csv` (mismo SHA-256, las 19 columnas
+idénticas). La edición del corpus no estaba fijada en el repo; se identificó
+probando la edición 2020 contra lo publicado. Con la edición OWID posterior
+(`data/owid-maddison.csv`) solo se obtiene una reproducción aproximada (441 vs
+446 casos, corr(b) = 0.979), porque Maddison revisa el PIB histórico entre
+ediciones y el hub se asigna por PIB medio. `expand_dominio_B.py` es una
+expansión anterior (254 casos) y no reproduce los 446. El runner
+`snt_auditoria_integral_v32.py` repite la verificación en cada ejecución.

@@ -23,9 +23,13 @@ No descarga nada ni toca la red. Solo lee ``reconstruction_real/data`` y
 import argparse
 import collections
 import csv
+import hashlib
 import json
 import os
+import shutil
+import subprocess
 import sys
+import tempfile
 
 import numpy as np
 from scipy import stats
@@ -269,28 +273,122 @@ def bloque_nbody(add):
         "construccion; comparar vs lognormal (Clauset 2009)", "", "INFO")
 
 
+def _regenerar_B(script, entrada, argumentos=()):
+    """Corre un script de construcción del dominio B en un directorio temporal.
+
+    Los scripts de B leen y escriben en ``data/`` con rutas relativas al
+    directorio de trabajo; correrlos en un directorio temporal evita
+    sobrescribir nada del repo. ``entrada`` se copia a ``data/`` con su mismo
+    nombre. Devuelve (filas, sha256 de la salida) o (None, None) si falla.
+    """
+    with tempfile.TemporaryDirectory() as tmp:
+        os.makedirs(os.path.join(tmp, "data"))
+        shutil.copy(entrada, os.path.join(tmp, "data",
+                                          os.path.basename(entrada)))
+        proc = subprocess.run([sys.executable, script] + list(argumentos),
+                              cwd=tmp, capture_output=True, text=True)
+        salida = os.path.join(tmp, "data", "dominio_B_real.csv")
+        if proc.returncode != 0 or not os.path.exists(salida):
+            return None, None
+        with open(salida, "rb") as fh:
+            digest = hashlib.sha256(fh.read()).hexdigest()
+        return _read(salida), digest
+
+
+def _comparar_B(add, etiqueta, publicado, digest_pub, filas, digest):
+    """Compara un dominio B regenerado contra el publicado, caso por caso."""
+    pub = {(r["hub"], r["nodo"]): r for r in publicado}
+    if filas is None:
+        add("10_reproducibilidad", etiqueta, "%d casos" % len(pub),
+            "el script falló", "NO_REPRODUCIBLE")
+        return
+    new = {(r["hub"], r["nodo"]): r for r in filas}
+    comunes = sorted(set(pub) & set(new))
+    bp = np.array([_f(pub[k]["b"]) for k in comunes])
+    bn = np.array([_f(new[k]["b"]) for k in comunes])
+    identicos = int(np.sum(np.abs(bp - bn) < 5e-5))
+    corr = float(np.corrcoef(bp, bn)[0, 1]) if len(comunes) > 2 else np.nan
+    signo = int(np.sum(np.sign(bp) == np.sign(bn)))
+    byte_a_byte = digest == digest_pub
+    add("10_reproducibilidad", etiqueta,
+        "%d casos (b medio %+.4f)" % (
+            len(pub), np.mean([_f(r["b"]) for r in publicado])),
+        "%d casos (b medio %+.4f); %d pares comunes; b identico %d/%d; "
+        "corr(b)=%.3f; signo coincide %d/%d; SHA-256 %s" % (
+            len(new), np.mean([_f(r["b"]) for r in filas]),
+            len(comunes), identicos, len(comunes), corr, signo,
+            len(comunes), "IDENTICO" if byte_a_byte else "distinto"),
+        "REPLICA" if byte_a_byte else "PARCIAL")
+
+
 def bloque_reproducibilidad(add):
-    """10 — Fuentes externas ausentes."""
-    maddison = os.path.join(DATA_TOP, "owid-maddison.csv")
-    add("10_reproducibilidad", "data/owid-maddison.csv",
-        "requerido por expand_dominio_B.py",
-        "PRESENTE" if os.path.exists(maddison) else "AUSENTE",
-        "OK" if os.path.exists(maddison) else "NO_REPRODUCIBLE")
-    add("10_reproducibilidad", "dominio_B_regenerable",
-        "62% del corpus", "NO sin owid-maddison.csv", "NO_REPRODUCIBLE")
+    """10 — Fuentes externas y regenerabilidad del dominio B.
+
+    El dominio B se construyó con el Maddison Project Database 2020
+    (``data/mpd2020.xlsx`` -> ``data/maddison_mpd2020.csv``). La prueba
+    regenera B en un directorio temporal y lo compara caso por caso y por
+    SHA-256 con ``by_domain/dominio_B_real.csv``; también mide la
+    sensibilidad a la edición OWID posterior (``data/owid-maddison.csv``).
+    """
+    mpd2020 = os.path.join(DATA_TOP, "maddison_mpd2020.csv")
+    owid = os.path.join(DATA_TOP, "owid-maddison.csv")
+    for ruta, uso in ((mpd2020, "edicion del corpus (MPD2020)"),
+                      (owid, "edicion OWID 2026-07-25 (discriminante)")):
+        presente = os.path.exists(ruta)
+        add("10_reproducibilidad", "data/" + os.path.basename(ruta), uso,
+            "PRESENTE" if presente else "AUSENTE",
+            "OK" if presente else "NO_REPRODUCIBLE")
+
+    ruta_pub = os.path.join(DATA, "by_domain", "dominio_B_real.csv")
+    publicado = _read(ruta_pub)
+    with open(ruta_pub, "rb") as fh:
+        digest_pub = hashlib.sha256(fh.read()).hexdigest()
+    code = os.path.join(_ROOT, "reconstruction_real", "code")
+    massive = os.path.join(code, "expand_B_massive.py")
+
+    if os.path.exists(mpd2020):
+        filas, digest = _regenerar_B(
+            massive, mpd2020, ["--maddison", "data/maddison_mpd2020.csv",
+                               "--salida", "data/dominio_B_real.csv"])
+        _comparar_B(add, "regenerar_B:expand_B_massive.py+MPD2020",
+                    publicado, digest_pub, filas, digest)
+    if os.path.exists(owid):
+        filas, digest = _regenerar_B(
+            massive, owid, ["--maddison", "data/owid-maddison.csv",
+                            "--salida", "data/dominio_B_real.csv"])
+        _comparar_B(add, "sensibilidad_edicion:expand_B_massive.py+OWID",
+                    publicado, digest_pub, filas, digest)
+        filas, digest = _regenerar_B(
+            os.path.join(code, "expand_dominio_B.py"), owid)
+        _comparar_B(add, "script_previo:expand_dominio_B.py+OWID",
+                    publicado, digest_pub, filas, digest)
 
 
 def bloque_no_reproducibles(add):
     """11 — Cifras que necesitan datos fuera del repo (hallazgo #5 del audit)."""
     add("11_no_reproducible", "5.9x_abrupto_gradual (U=24802,n=486)",
         "README", "corpus v5 sin variable trigger utilizable; n=486 no es "
-        "subconjunto de 721 (parece heredado de v28/502 OBSOLETE)",
-        "NO_REPRODUCIBLE")
+        "subconjunto de ningun conjunto del repo", "NO_REPRODUCIBLE")
+    recalc = os.path.join(DATA, "trigger_abrupto_gradual_recalculo.csv")
+    if os.path.exists(recalc):
+        for r in _read(recalc):
+            if not (r["analisis"].startswith("global")
+                    or r["analisis"].startswith("permutación")):
+                continue
+            add("11_recalculo_trigger", r["dataset"], r["estatus"],
+                "razon medias=%s; p2=%s; p1(abr>grad)=%s" % (
+                    r["razon_medias"] or "-", r["p_dos_colas"] or "-",
+                    r["p_una_cola_abrupto_mayor"] or "-"), "INFO")
     add("11_no_reproducible", "ROC-AUC 0.715 (ASI)", "README",
         "target de retencion no está en snt_asi_scores.csv", "NO_REPRODUCIBLE")
-    add("11_no_reproducible", "RC9 rho=+0.009 crypto n=11", "README",
-        "ACO (18, tiene b) y colapso (14, tiene Δ) no comparten casos; "
-        "no hay pares (b,Δ)", "NO_REPRODUCIBLE")
+    orto = _read(os.path.join(DATA, "orthogonality_crypto_v25.csv"))
+    rho, p = stats.spearmanr([_f(r["b_rise"]) for r in orto],
+                             [_f(r["delta_fall"]) for r in orto])
+    add("11_rc9_orthogonalidad", "RC9 rho=+0.009 crypto n=11",
+        "rho=+0.009 p=0.98 n=11",
+        "rho=%+.3f p=%.2f n=%d (orthogonality_crypto_v25.csv)" % (
+            rho, p, len(orto)),
+        "REPLICA" if abs(rho - 0.009) < 5e-4 else "CAMBIA")
     add("11_no_reproducible", "E3 correccion AR(1)", "-",
         "dominio_E3_real.csv no trae series crudas (solo b,r2,p,n)",
         "BLOQUEADO")

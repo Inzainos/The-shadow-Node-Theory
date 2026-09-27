@@ -26,7 +26,8 @@ abstract: >
   rho = -0.56, p = 0.25, n = 6 domains); see the README "Audit v32" section.
   The v2.4.0 corpus replaced the v2.3.1 corpus (502 cases)
   which contained synthetic values.
-  Domain B is reproducible from the committed Maddison/OWID file; the raw
+  Domain B reproduces byte for byte from the committed Maddison Project
+  Database 2020 (data/mpd2020.xlsx); the raw
   COVID-19 series behind Domains E1/E3 are public but not committed.
 authors:
   - family-names: "Zainos Corona"
@@ -111,8 +112,8 @@ references:
         given-names: "Jutta"
       - family-names: "van Zanden"
         given-names: "Jan Luiten"
-    title: "Maddison Project Database 2023"
-    year: 2023
-    url: "https://www.rug.nl/ggdc/historicaldevelopment/maddison/"
+    title: "Maddison Project Database 2020"
+    year: 2020
+    url: "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
     institution:
       name: "University of Groningen"

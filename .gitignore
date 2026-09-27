@@ -85,3 +85,6 @@ hackerearth_first_session_features.csv
 *.toc
 *.out
 *.synctex.gz
+
+# Logs de ejecución de los scripts de reconstruction_real (no se versionan)
+reconstruction_real/logs/
