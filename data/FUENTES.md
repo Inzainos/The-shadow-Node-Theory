@@ -112,23 +112,46 @@ script en fechas distintas podían obtener cifras distintas sin saberlo.
 | SHA-256 `COW_Trade_4.0.zip` | `c44c4b5ce62e68865368482c428306df4624d3a39edec29adc1aa2c0928f7cc7` |
 | SHA-256 `comercio_bilateral.csv` | `9625f8403800f6834c5ebd03a5ab7c094d9be603c4954561de6be66ce7eea6cb` |
 
-### Fuente de E3 (COVID-19) — series crudas **AUSENTES en el repo**
+### Fuente de E3 (COVID-19) — series crudas **recuperadas** (2026-09-27)
 
-- **Quién la usa:** el dominio E3 (234 casos, 32% del corpus). En el repo solo
-  vive el resumen ya ajustado (`by_domain/dominio_E3_real.csv`: `b,r2,p,n`), **no
-  las curvas de casos acumulados**.
-- **Fuente primaria (según la columna `fuente`):** Our World in Data COVID-19,
-  a su vez de Johns Hopkins University (JHU CSSE).
-  URL: <https://github.com/owid/covid-19-data/tree/master/public/data>
-- **Consecuencia:** la corrección por autocorrelación de E3 está **bloqueada**
-  hasta recuperar las series crudas (la aproximación AR(1) necesita los
-  residuos, y E3 no los trae).
+- **Quién la usa:** el dominio E3 (234 casos) y el dominio nuevo E4 (mpox) del
+  pre-registro 2026-09-27.
+- **Archivo:** Our World in Data, `owid-covid-data.csv` (repositorio
+  owid/covid-19-data), descargado el 2026-09-27 de
+  <https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv>.
+  El archivo completo (98 MB) no se versiona (`data/raw_covid/`, en .gitignore);
+  se versiona el subconjunto `data/owid_covid_casos_totales.csv.gz`
+  (iso_code, continent, location, date, total_cases).
+- **Receta de E3 identificada** (`reconstruction_real/code/covid_E3_series_crudas.py`):
+  casos acumulados, 60 días desde el primer día con ≥ 100 casos; reproduce 233/234
+  b publicados dentro de ±0.01 (Timor Oriental no). E1 no es reproducible con las
+  construcciones naturales.
 
 | Campo | Valor |
 |---|---|
-| Snapshot / commit de OWID | _(pendiente)_ |
-| Fecha de descarga | _(pendiente)_ |
-| SHA-256 del archivo crudo | _(pendiente)_ |
+| Fecha de descarga | 2026-09-27 |
+| SHA-256 `owid-covid-data.csv` | `8473d0f0fdf962e1ffbd5b85b18726fc96a49bab109e271186c339725a12b10c` |
+| SHA-256 subconjunto `owid_covid_casos_totales.csv.gz` | `21869b75d0e466f3e4a7d1bfc370fa1705e64e51bfb8739d561efaaa62e1473d` |
+
+### Fuentes del pre-registro 2026-09-27 (puntos 2, 4 y 5)
+
+Descargadas el 2026-09-27, **después** de subir el pre-registro
+(`reconstruction_real/preregistro/PREREGISTRO_2026-09-27.md`, commit `c319fac`).
+Los crudos grandes no se versionan (`data/raw_*`, en .gitignore); se versionan
+subconjuntos derivados, y cada script verifica el SHA del crudo cuando está
+presente.
+
+| Fuente | Crudo (SHA-256) | Subconjunto versionado (SHA-256) | Uso |
+|---|---|---|---|
+| OWID mpox — `owid-monkeypox-data.csv` (<https://raw.githubusercontent.com/owid/monkeypox/main/owid-monkeypox-data.csv>) | `2764761fd455f9fb295101129b10e37cf1f4e7acf1ae3c779b6f6d2b25b2c927` | `data/owid_mpox_casos_totales.csv.gz` — `bc7d9ca5476448d62fd201e07a2af5e7519cda227730e38c0c0f2bd41b3c41c0` | Dominio E4 (punto 2) |
+| StatCounter Global Stats, mundial mensual 2009-01..2024-12 (browser, search_engine, os_combined, social_media: todas las plataformas; vendor: móvil), exportación CSV de <https://gs.statcounter.com> | browser `4811c535…`, search_engine `158017b6…`, os_combined `eb3a5703…`, social_media `1b45289f…`, vendor `d8983f44…` (completos en el script) | `data/statcounter_2009_2024.csv.gz` — `851ed4eedcff152724af3e3c84325810f2211712361ac72b3282c6b9f223a118` | Dominio D2 (punto 2) |
+| ONU, World Urbanization Prospects 2018 — `WUP2018-Excel-files.zip` (<https://population.un.org/wup/assets/Download/Archive/WUP2018-Excel-files.zip>), archivo `WUP2018-F22-Cities_Over_300K_Annual.xls` | zip `80eb71bbabb46cb2e1599b51b16133bf28b0a99a541d72de20a1248ec6170a75`; F22 `4366cc15ecdda4d9ab420adfe730da6a7e35a8334615f50172a08d60b121c11c` | `data/wup2018_aglomeraciones_1950_2018.csv.gz` — `8eb47691607e7e9a3cafb0c3049d3dff51b4c6bd8c1927c8eb11398baf2d0665` | Punto 4 (disparadores) y dominio A2 (punto 2) |
+| Binance, archivo público de velas diarias spot (<https://data.binance.vision>), todos los pares contra USDT salvo estables/fiat y apalancados | por par en `data/raw_binance/klines_1d/` | `data/binance_cierres_diarios.csv.gz` (SHA en el log de `descargar_binance_klines.py`) | Punto 5 (ortogonalidad y hazard cripto) |
+| FDIC BankFind API — instituciones (índice `institutions_20260925090006`) y quiebras (índice `failures_1787667198788`), <https://api.fdic.gov/banks> | institutions `8d410c2583a59d7b4540046f77f28dd6fa6761beb816ec94a7531d4fb4c0003e`; failures `65e727fff36cc9bf86a772e7cec4dd8d0b8368f2990b945742e40f0ddc90161c` | `data/fdic_instituciones_2026-09-25.csv.gz`, `data/fdic_quiebras_2026-08-25.csv.gz` | Punto 5 (hazard bancos) |
+
+Notas de calidad: WUP incluye solo aglomeraciones con ≥ 300 mil habitantes en
+2018 (filtro de supervivencia); la base de la FDIC no registra cierres antes de
+1970; 41 instituciones tienen fecha de fundación de relleno (01/01/1800).
 
 ---
 

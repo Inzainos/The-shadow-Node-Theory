@@ -145,3 +145,18 @@ bilateral~~ (acoplamiento no respaldado), ~~actualizar el preprint de SSRN~~
 (revisión r31 en inglés y español, `papers/snt_ssrn_v31*`; la subida la hace el
 autor) y ~~reconstruir el dominio B con hub emergente del comercio~~ (no rescata
 el acoplamiento).
+
+## Pre-registro 2026-09-27 — seis puntos pedidos por el autor
+
+- **Pre-registro:** [`../preregistro/PREREGISTRO_2026-09-27.md`](../preregistro/PREREGISTRO_2026-09-27.md)
+  (commit `c319fac`, subido antes de descargar datos nuevos o correr pruebas).
+- **Informe:** [`RESULTADOS_PREREGISTRO_2026-09-27.md`](RESULTADOS_PREREGISTRO_2026-09-27.md).
+
+| Punto | Script | Decisión pre-registrada |
+|---|---|---|
+| 1. Hub variable en el tiempo | `code/prueba_hub_temporal.py` | **No respaldada** (H = 20: d mediana −0.009, p = 0.95); H = 30 **contraria** (p = 0.0002, d < 0) |
+| 2. Fricción con dominios nuevos sin COVID | `code/prueba_friccion_dominios_nuevos.py` | **No respaldada** (7 dominios, ρ = −0.131, permutación exacta p = 0.39) |
+| 3. Series crudas COVID | `code/covid_E3_series_crudas.py` | E3 reproducido 233/234 y **robusto** a la autocorrelación (Newey-West 233/234); E1 no reproducible |
+| 4. Disparadores codificados a ciegas | `code/prueba_disparadores_ciudades.py` | **Respaldada** (8/8, Wilcoxon p = 0.0039; salvedad de supervivencia de WUP) |
+| 5. Cohortes ACO-A | `code/descargar_binance_klines.py`, `code/aco_cohortes_ampliadas.py` | ver informe |
+| 6. Pre-registro | — | hecho antes de todo lo anterior |

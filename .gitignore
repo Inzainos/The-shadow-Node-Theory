@@ -93,3 +93,5 @@ reconstruction_real/logs/
 data/raw_covid/
 data/raw_binance/
 data/raw_wup/
+data/raw_fdic/
+data/raw_statcounter/
