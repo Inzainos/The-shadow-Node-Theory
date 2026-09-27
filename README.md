@@ -72,11 +72,12 @@ Use the badge at the top of this README to view CI status for the default branch
 ---
 
 > **Versioning note**
-> Repository release: **v2.6.0** (2026-09-27; previous: v2.5.2, 2026-09-10).
-> What v2.6.0 adds: the integral audit v32 findings, the Domain B edition
+> Repository release: **v2.6.0** (2026-09-27; previous: v2.5.3, 2026-09-26, tagged
+> retroactively on the state that matches SSRN r31; before that v2.5.2, 2026-09-10).
+> What v2.5.3 adds: the integral audit v32 findings, the Domain B edition
 > (MPD2020, byte-exact) and discriminant test with bilateral trade, the Domain
-> B reconstruction with trade-emergent hubs, the SSRN preprint revision r31,
-> and five **pre-registered tests** (time-varying hub, friction with new
+> B reconstruction with trade-emergent hubs and the SSRN preprint revision r31.
+> What v2.6.0 adds on top: five **pre-registered tests** (time-varying hub, friction with new
 > domains, raw COVID series, blind-coded triggers, larger ACO-A cohorts) —
 > see `reconstruction_real/audits/RESULTADOS_PREREGISTRO_2026-09-27.md`. The
 > 721-case corpus itself is **unchanged** since v2.5.2.
