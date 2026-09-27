@@ -16,7 +16,8 @@ script en fechas distintas podían obtener cifras distintas sin saberlo.
 
 ### `data/owid-maddison.csv` — **presente en el repo** (descargado 2026-07-25)
 
-- **Quién la usa:** `reconstruction_real/code/expand_dominio_B.py` (línea 11) y
+- **Quién la usa:** `reconstruction_real/code/expand_B_massive.py` (regenera el
+  dominio B), `reconstruction_real/code/expand_dominio_B.py` (línea 11) y
   `reconstruction_real/code/prueba_discriminante_dominio_B.py` (bloque 1).
 - **Peso:** dominio B = **446 casos = 62% del corpus**.
 - **Fuente primaria:** Maddison Project Database (Bolt & van Zanden), Groningen
@@ -42,6 +43,12 @@ script en fechas distintas podían obtener cifras distintas sin saberlo.
 > publicadas (el Maddison revisa el PIB histórico entre ediciones). Cobertura
 > sobre el corpus: 102/103 países (falta "Sudan"), 441/446 pares con `year_min`
 > disponible.
+>
+> **Medición (2026-09-27):** regenerado con `expand_B_massive.py` sobre esta
+> edición, el dominio B da 441 casos vs 446 publicados; 408 pares comunes,
+> corr(b) = 0.979, signo coincide 396/408 y solo 12/408 b idénticos. La
+> diferencia confirma que la edición original no coincide con esta. El runner
+> `snt_auditoria_integral_v32.py` repite la medición en cada ejecución.
 
 ### Fuente de E3 (COVID-19) — series crudas **AUSENTES en el repo**
 

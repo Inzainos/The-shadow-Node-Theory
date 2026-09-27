@@ -31,5 +31,15 @@ La satelización (b) varía sistemáticamente por región según fricción insti
 - Satelización (b>0): África Subsahariana, Asia Sudeste (mayor divergencia)
 
 ## Trazabilidad
-Todo valor de b y R² es reproducible ejecutando `expand_dominio_B.py`
-sobre `owid-maddison.csv`. Sin datos sintéticos.
+Los valores de b y R² se regeneran ejecutando `expand_B_massive.py` (desde la
+raíz del repo) sobre `data/owid-maddison.csv`. Sin datos sintéticos.
+
+**Alcance de la reproducción (medido 2026-09-27):** la regeneración es
+**aproximada, no exacta**. Con la edición de Maddison/OWID versionada
+(descargada 2026-07-25) se obtienen 441 casos vs 446 publicados: 408 pares
+comunes, corr(b) = 0.979, signo de b coincide en 396/408 y solo 12/408 valores
+de b idénticos. La edición usada al construir el dominio no se fijó y Maddison
+revisa el PIB histórico entre ediciones; como el hub se asigna por PIB medio,
+la revisión puede invertir el orden de un par. `expand_dominio_B.py` es una
+expansión anterior (254 casos) y no reproduce los 446. El runner
+`snt_auditoria_integral_v32.py` repite esta medición en cada ejecución.

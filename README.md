@@ -159,11 +159,14 @@ not available).
 
 **Integrity verified:** R² in [0,1] for all cases, p in [0,1], zero corrupt
 values; SHA-256 checksums of the corpus files are pinned in `data/FUENTES.md`
-(re-verified 2026-09-26). **Reproducibility is partial:** Domain B is
-regenerable from `data/owid-maddison.csv` (in the repo; the current OWID
-edition may differ slightly from the one originally used), but the raw
-COVID-19 series behind E1/E3 are **not** in the repo, only their fitted
-summaries. Per-case p-values were rounded to 6 decimals, so 557/721 read
+(re-verified 2026-09-26). **Reproducibility is partial:** Domain B
+regenerates only **approximately** from `data/owid-maddison.csv` —
+`expand_B_massive.py` yields 441 cases vs 446 published (408 common pairs,
+corr(b) = 0.979, sign agrees 396/408, only 12/408 identical b; aggregates hold:
+b̄ +0.088 vs +0.092, 83.7% vs 83.9% nominal significant), because the Maddison
+edition used originally was not pinned and Maddison revises historical GDP
+between editions. The raw COVID-19 series behind E1/E3 are **not** in the repo,
+only their fitted summaries. Per-case p-values were rounded to 6 decimals, so 557/721 read
 exactly `0.0`.
 
 ---
@@ -219,7 +222,7 @@ with `code/snt_utils_v32.py` from the committed corpus.
 
 | Finding | Result | Test | Status (audit v32) |
 |---------|--------|------|--------------------|
-| Abrupt triggers faster than gradual | Ratio 5.9x in historical corpus | Mann-Whitney U=24,802, p=1.91x10^-5, n=486 | **NOT REPRODUCIBLE** from the active corpus: v5 has no usable trigger variable (`trigger` is hardcoded to `'gradual'` for all 446 B cases) and n=486 is not a subset of 721. The figure only appears as fixed text in the historical v28 script `code/generate_publication_figures.py`; it appears inherited from the obsolete 502-case corpus. |
+| Abrupt triggers faster than gradual | Published: ratio 5.9x. **Recalculated 2026-09-27:** the 5.9x originates in the v1.0 table of **2 abrupt vs 2 gradual cases** (0.717 / 0.122 = 5.87x, Mann-Whitney p = 0.33). On the only active trigger-labeled data (ACO, n = 18: 10 abrupt, 8 gradual) the direction **reverses**: abrupt b̄ = +0.40 vs gradual b̄ = +0.85 (ratio 0.47) | Published: Mann-Whitney U=24,802, p=1.91x10^-5, n=486 — n=486 matches no dataset in the repo. **Active (ACO):** Mann-Whitney two-sided p = 0.10; within-domain exact stratified permutation (H, T) p = 0.94 | **NOT SUPPORTED by the active data.** Trigger is confounded with domain in ACO (finance all abrupt, industry all gradual). The historical 57-case corpus (v2.0) gives ratio 6.3, p = 0.053, but it predates v2.4.0 (7 cases with impossible R² < 0) and is not citable. The 721-case corpus cannot test it (`trigger` fixed to `'gradual'` in B). Script: `reconstruction_real/code/recalculo_trigger_abrupto_gradual.py`. |
 | Institutional friction is dominant predictor of b | Friction-free: b~+0.95 / High friction: b~+0.09 | Spearman rho=-0.68, p=2.5x10^-97, n=714 | **Direction holds, p inflated**: cluster-level rho=−0.556, p=0.25 (n=6 domains). See [Central Finding](#central-finding). |
 | Sovereignty = interdependence as brake | Country pairs (B, n=446, b~+0.09) vs predator-prey (E2, b~+0.15) statistically indistinguishable | Regime split MW p=2.4x10^-74 | **Rests on Domain B**, which the discriminant test leaves **inconclusive**: `b` in B is supported neither as SNT hub-satellite coupling nor as β-convergence (85% of hubs also appear as satellites; the observed statistic falls inside the calibrated null). |
 
@@ -276,13 +279,14 @@ pytest reconstruction_real/tests                                 # fixes 156 / 2
 4. **Reporting defects.** 557/721 p-values truncated to `0.0` by `round(p, 6)`;
    two R² definitions averaged together in `r2_mean` (Domain B uses Pearson r²
    on log scale, the rest use 1 − SSres/SStot on raw scale); `trigger`
-   hardcoded to `'gradual'` in `expand_dominio_B.py`.
+   hardcoded to `'gradual'` in both Domain B builders (`expand_B_massive.py`,
+   `expand_dominio_B.py`).
 
 ### Not reproducible from the repository
 
 | Figure | Why |
 |---|---|
-| 5.9× abrupt vs gradual (U=24,802, n=486) | No usable trigger variable in v5; n=486 is not a subset of 721; fixed text in the v28 script `code/generate_publication_figures.py` |
+| 5.9× abrupt vs gradual (U=24,802, n=486) | n=486 matches no dataset in the repo; the U/p appear only as fixed text in the v28 script `code/generate_publication_figures.py`. **Recalculated 2026-09-27** on every trigger-labeled dataset: the ratio comes from v1.0 (2 vs 2 cases, 5.87×); the active ACO data give 0.47×, p = 0.10 (see the findings table) |
 | ASI ROC-AUC 0.715 | Retention target not in `data/snt_asi_scores.csv` (proprietary source) |
 | N-body refit from raw | Committed file is a one-row summary |
 
@@ -312,8 +316,11 @@ Question: does `b` in Domain B measure SNT hub–satellite coupling or
 ### Reproducibility status
 
 - `data/owid-maddison.csv` — **present** (OWID/Maddison, downloaded 2026-07-25,
-  SHA-256 pinned in `data/FUENTES.md`). Domain B is regenerable; the current
-  edition may differ slightly from the one originally used.
+  SHA-256 pinned in `data/FUENTES.md`). Domain B regenerates **approximately**,
+  not exactly (measured 2026-09-27 by the audit runner, which now regenerates B
+  in a temporary directory instead of a fixed row): `expand_B_massive.py` gives
+  441 vs 446 cases, corr(b) = 0.979, 12/408 identical b. `expand_dominio_B.py`
+  produces only 254 cases and does not reproduce the published domain.
 - Raw COVID-19 series for **E1/E3** — **absent** (only fitted summaries). This
   blocks the AR(1) correction of E3.
 - Bilateral trade matrix (IMF DOTS / CEPII BACI / UN Comtrade) — needed for
@@ -325,7 +332,9 @@ Question: does `b` in Domain B measure SNT hub–satellite coupling or
 2. Note to the PLOS editor covering autocorrelation and clustering together.
 3. Test b ≥ 1 on the other domains' raw series.
 4. Report exact p-values and split `r2_log` / `r2_raw` in the consolidated corpus.
-5. Decide on the 5.9× figure: remove from the headline or recompute (origin now located).
+5. ~~Decide on the 5.9× figure~~ — recalculated 2026-09-27: not supported by the
+   active data (see the findings table and
+   `reconstruction_real/data/trigger_abrupto_gradual_recalculo.csv`).
 6. ~~Mark `soberania` as derived from ASI~~ — done (`data/snt_asi_scores_README.md`).
 
 ---
@@ -469,9 +478,10 @@ The-shadow-Node-Theory/
 |   |   |-- AUDITORIA_INTEGRAL_v32.md  <-- Full audit v32 (inference layer)
 |   |   +-- DISCRIMINANTE_DOMINIO_B.md <-- Domain B: coupling vs convergence (inconclusive)
 |   |-- code/
-|   |   |-- expand_dominio_B.py        <-- Reproduces the 446 B cases (reads data/owid-maddison.csv)
-|   |   |-- build_dominio_B.py         <-- Domain B builder
-|   |   |-- expand_B_massive.py        <-- Domain B massive regional expansion
+|   |   |-- expand_B_massive.py        <-- Regenerates Domain B (all viable regional pairs; approximate with the current Maddison edition: 441 vs 446)
+|   |   |-- expand_dominio_B.py        <-- Earlier regional expansion (254 cases; does NOT reproduce the 446)
+|   |   |-- build_dominio_B.py         <-- Original Domain B builder
+|   |   |-- recalculo_trigger_abrupto_gradual.py <-- Recalculation of the abrupt-vs-gradual claim (5.9x)
 |   |   |-- build_aco_v29.py           <-- ACO 18 cases, 4 domains (CI smoke test)
 |   |   |-- collapse_multidomain.py    <-- Collapse repro manifest + fit funcs (v2.5.0)
 |   |   |-- make_collapse_landscapes.py <-- Stability-landscape figures (v2.5.0)
@@ -499,6 +509,7 @@ The-shadow-Node-Theory/
 |   |   |-- snt_corpus_dominio_G_fuentes.md <-- Domain G primary sources (v2.5.2)
 |   |   |-- auditoria_integral_v32_resultados.csv <-- Audit v32 output (regenerable)
 |   |   |-- dominio_B_corregido_ar1_v32.csv <-- Domain B with per-case AR(1) correction
+|   |   |-- trigger_abrupto_gradual_recalculo.csv <-- Abrupt-vs-gradual recalculation output
 |   |   |-- discrim_bloque1_convergencia.csv / discrim_bloque1c_split.csv <-- Discriminant test outputs
 |   |   |-- phi_test_corpus_real_v4.csv <-- H-phi test corpus
 |   |   +-- snt_corpus_REAL_v3.csv / snt_corpus_REAL_v4.csv <-- Previous corpus snapshots
@@ -692,8 +703,8 @@ finding.
 | RC | Refutation Condition | v30 Status | Audit v32 note (re-verified 2026-09-26) |
 |----|---------------------|------------|----------------------------------------|
 | RC1 | Power law fits no better than linear/exponential across all domains | NOT REFUTED | First actual test (AIC, 18 raw ACO series): power 13/18, exponential 4/18, linear 1/18. Holds in majority; exponential winners concentrate at b ≥ 1. Other domains untested (raw series absent). |
-| RC2 | b is not reproducible from primary series | NOT REFUTED | Partial: B regenerable from `data/owid-maddison.csv`; E1/E3 raw series absent. |
-| RC3 | Abrupt triggers produce same b as gradual | NOT REFUTED | **Untestable on the active corpus**: no usable trigger variable; the 5.9× figure is not reproducible. |
+| RC2 | b is not reproducible from primary series | NOT REFUTED | Partial: B regenerates **approximately** from `data/owid-maddison.csv` (`expand_B_massive.py`: 441 vs 446 cases, corr(b) = 0.979, sign agrees 396/408, only 12/408 identical b — the Maddison edition used originally was not pinned); E1/E3 raw series absent. |
+| RC3 | Abrupt triggers produce same b as gradual | NOT REFUTED | **Prediction not supported by the active data (recalculated 2026-09-27):** on ACO (n = 18) abrupt and gradual b do not differ significantly (p = 0.10) and the direction is reversed (0.47×); within domains, exact permutation p = 0.94. The 721-case corpus has no usable trigger variable. |
 | RC4 | Friction index is not correlated with b | NOT REFUTED | Direction holds in every variant; cluster-level p = 0.25 (n = 6 domains). |
 | RC5 | N-body matrix does not change satellization estimates | NOT REFUTED | Fit replicates; lognormal comparison pending. |
 | RC6 | Shadow node reverses satellization without exogenous trigger | NOT REFUTED | Not covered by the audit. |
@@ -712,14 +723,16 @@ finding.
 git clone https://github.com/Inzainos/The-shadow-Node-Theory.git
 cd The-shadow-Node-Theory
 
-# Regenerate domain B (446 cases) -- data/owid-maddison.csv is in the repo
-python3 reconstruction_real/code/expand_dominio_B.py
+# Regenerate domain B -- writes data/dominio_B_real.csv (run from the repo root).
+# Approximate with the committed Maddison edition: 441 vs 446 cases, corr(b)=0.979
+python3 reconstruction_real/code/expand_B_massive.py
 
 # ACO smoke test (what CI runs)
 python3 reconstruction_real/code/build_aco_v29.py
 
 # Re-derive every published figure (audit v32) + regression test
 python3 reconstruction_real/code/snt_auditoria_integral_v32.py
+python3 reconstruction_real/code/recalculo_trigger_abrupto_gradual.py
 pytest reconstruction_real/tests
 
 # Consolidated corpus

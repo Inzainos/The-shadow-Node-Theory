@@ -58,15 +58,22 @@ respaldado ni como acoplamiento SNT ni como beta-convergencia.
   leen exactamente `0.0`** (impide FDR exacto y meta-analisis)
 - Dos definiciones de R2 conviven: B usa r de Pearson al cuadrado (escala log),
   el resto 1 - SSres/SStot (escala cruda); `r2_mean` las promedia juntas
-- `trigger` esta fijo en `'gradual'` para los 446 casos de B (`expand_dominio_B.py`)
+- `trigger` esta fijo en `'gradual'` para los 446 casos de B (en ambos constructores:
+  `expand_B_massive.py` y `expand_dominio_B.py`)
 - Sin datos sinteticos
 - Checksums SHA-256 de los archivos del corpus anclados en `../data/FUENTES.md`
   (re-verificados 2026-09-26)
 
 ## Reproducibilidad
-- **Dominio B:** regenerable desde `../data/owid-maddison.csv` (en el repo,
-  descargado 2026-07-25). La edicion vigente de Maddison/OWID puede diferir
-  ligeramente de la usada originalmente.
+- **Dominio B:** se regenera **de forma aproximada, no exacta**, desde
+  `../data/owid-maddison.csv` (en el repo, descargado 2026-07-25). Medido el
+  2026-09-27: `code/expand_B_massive.py` da 441 casos vs 446 publicados (408
+  pares comunes, corr(b) = 0.979, signo coincide 396/408, solo 12/408 b
+  identicos; agregados casi iguales: b medio +0.088 vs +0.092, 83.7% vs 83.9%
+  significativos nominales). La edicion de Maddison usada originalmente no se
+  fijo y Maddison revisa el PIB historico entre ediciones; ademas, el hub se
+  asigna por PIB medio y la revision puede invertir pares.
+  `code/expand_dominio_B.py` produce solo 254 casos: **no** reproduce el dominio.
 - **Dominios E1/E3 (COVID-19):** solo estan los resumenes ajustados; las series
   crudas **no** estan en el repo. Esto bloquea la correccion AR(1) de E3.
 - **Auditoria completa:** `python reconstruction_real/code/snt_auditoria_integral_v32.py`
@@ -110,11 +117,13 @@ respaldado ni como acoplamiento SNT ni como beta-convergencia.
 - `data/snt_corpus_dominio_G*.csv` + `data/snt_corpus_dominio_G_fuentes.md` -- Dominio G (v2.5.2)
 - `data/auditoria_integral_v32_resultados.csv` -- salida de la auditoria v32
 - `data/dominio_B_corregido_ar1_v32.csv` -- dominio B con correccion AR(1) por caso
-- `code/expand_dominio_B.py` -- reproduce 446 casos B (lee `../data/owid-maddison.csv`)
+- `code/expand_B_massive.py` -- regenera el dominio B de forma aproximada (441 vs 446; lee `../data/owid-maddison.csv`)
+- `code/expand_dominio_B.py` -- expansion regional previa (254 casos; no reproduce los 446)
 - `code/build_dominio_B.py` -- construye dominio B
 - `code/build_aco_v29.py` -- ACO, 18 casos (smoke test del CI)
 - `code/build_dominio_G.py` -- Dominio G, 5 casos; G03 Bennu n=3
 - `code/snt_auditoria_integral_v32.py` -- runner de la auditoria v32
 - `code/prueba_discriminante_dominio_B.py` -- prueba discriminante del dominio B
+- `code/recalculo_trigger_abrupto_gradual.py` -- recalculo de abrupto vs gradual (cifra 5.9x); salida en `data/trigger_abrupto_gradual_recalculo.csv`
 - `audits/` -- informes de auditoria (`AUDITORIA_INTEGRAL_v32.md`, `DISCRIMINANTE_DOMINIO_B.md`)
 - `tests/test_correccion_ar1.py` -- prueba de regresion (156/290/33/112)

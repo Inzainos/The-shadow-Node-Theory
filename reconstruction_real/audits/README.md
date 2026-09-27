@@ -66,7 +66,8 @@ python reconstruction_real/code/snt_auditoria_integral_v32.py
    (autocorrelación + pseudo-replicación de 714 casos no independientes).
 4. **Defectos de reporte.** 557/721 p-values truncados a `0.0` por
    `round(p,6)`; dos definiciones de R² promediadas juntas; `trigger`
-   hardcodeado a `'gradual'` en `expand_dominio_B.py`.
+   hardcodeado a `'gradual'` en los constructores del dominio B
+   (`expand_B_massive.py` y `expand_dominio_B.py`).
 
 ### Importante — estimabilidad primero, luego un rango entre los estimables
 
@@ -108,7 +109,17 @@ recálculo independiente de las cifras que el runner no emite:
 | Checksums de `data/FUENTES.md` | Los 6 SHA-256 coinciden con los archivos actuales. |
 | Prueba de regresión | `pytest reconstruction_real/tests` → 4 passed. |
 
+## Seguimiento — 2026-09-27: recálculo del 5.9× y filas fijas del runner
+
+| Punto | Resultado |
+|---|---|
+| **Recálculo abrupto vs gradual** (hallazgo 1 del README; RC3, RC-ACO-2) | Nuevo script `code/recalculo_trigger_abrupto_gradual.py` → `data/trigger_abrupto_gradual_recalculo.csv` (+ log en `reconstruction_real/logs/`). **Origen del 5.9×:** tabla v1.0 de **2 abruptos vs 2 graduales** (`data/shadow_node_maddison_resumen.csv`): 0.717 / 0.122 = **5.87×**, Mann-Whitney p = 0.33. **Corpus activo ACO (n = 18: 10 abruptos, 8 graduales):** b̄ abrupto +0.40 vs gradual +0.85 → razón **0.47** (dirección inversa), Mann-Whitney p = 0.10 (dos colas), p = 0.96 (abrupto > gradual). Solo verificados (n = 14): razón 0.37, p = 0.14. **Intra-dominio** (permutación exacta estratificada; solo H y T tienen ambos disparadores; 16 permutaciones): p = 0.94. El disparador está confundido con el dominio (F todo abrupto, I todo gradual). **Histórico v2.0** (57 casos, sin 13 híbridos): razón 6.3, p = 0.053, pero 7 casos tienen R² < 0 (era obsoleta, no citable). n = 486 no corresponde a ningún conjunto del repo. **Veredicto: la afirmación no está respaldada por los datos activos.** |
+| **Fila `dominio_B_regenerable`** (fija en `NO`) | **Causa:** era un literal escrito cuando faltaba `owid-maddison.csv`; nunca comprobaba nada. **Corregido:** el runner ahora regenera B en un directorio temporal con cada script constructor y lo compara contra `by_domain/dominio_B_real.csv`. Resultado: `expand_B_massive.py` → 441 casos vs 446 (408 pares comunes, corr(b) = 0.979, signo 396/408, **12/408 b idénticos**) → `PARCIAL`; `expand_dominio_B.py` → 254 casos (no reproduce el dominio) → `PARCIAL`. La edición de Maddison usada originalmente no se fijó. |
+| **Fila RC9** (fija en `NO_REPRODUCIBLE`) | Mismo defecto. Ahora se calcula desde `orthogonality_crypto_v25.csv`: ρ = +0.009, p = 0.98, n = 11 → `REPLICA`. |
+| **Runner v32** | 50 filas: 27 REPLICA, 1 REPLICA_SIGNO, 1 RANGO, 1 OK, 2 PARCIAL, 3 NO_REPRODUCIBLE, 2 BLOQUEADO, 1 CIRCULAR, 12 INFO (4 de ellas, el recálculo del disparador). Ninguna discrepancia. |
+
 Pendientes que siguen abiertos: series crudas de E3 (corrección AR(1) de E3),
 prueba de b ≥ 1 en otros dominios, p sin truncar + `r2_log`/`r2_raw`
-separados en el corpus consolidado, decisión sobre la cifra 5.9×, nota al
-editor de PLOS, y bloque 2 de la prueba discriminante (comercio bilateral).
+separados en el corpus consolidado, fijar la edición exacta de Maddison que
+reproduzca B (o re-publicar B con la edición versionada), nota al editor de
+PLOS, y bloque 2 de la prueba discriminante (comercio bilateral).

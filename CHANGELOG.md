@@ -110,6 +110,18 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   datos reales (`data_adapters.py`, `run_real_delta.py`).
 
 ### Añadido
+- **Recálculo de "abrupto vs gradual" (cifra 5.9×)** (2026-09-27):
+  `reconstruction_real/code/recalculo_trigger_abrupto_gradual.py` →
+  `reconstruction_real/data/trigger_abrupto_gradual_recalculo.csv` (con log).
+  Recalcula la comparación sobre todos los conjuntos del repo con etiqueta de
+  disparador. **Origen del 5.9×:** tabla v1.0 de 2 abruptos vs 2 graduales
+  (5.87×, Mann-Whitney p = 0.33). **Corpus activo ACO (n = 18):** b̄ abrupto
+  +0.40 vs gradual +0.85, razón 0.47 (dirección inversa), p = 0.10; permutación
+  exacta estratificada por dominio p = 0.94 (disparador confundido con
+  dominio). Histórico v2.0 (57 casos): razón 6.3, p = 0.053, no citable (7
+  casos con R² < 0). n = 486 no corresponde a ningún conjunto. **La afirmación
+  no está respaldada por los datos activos**; README (hallazgo 1, RC3) y
+  dashboard actualizados.
 - **Prueba discriminante del dominio B — acoplamiento vs convergencia**
   (`reconstruction_real/code/prueba_discriminante_dominio_B.py`,
   `audits/DISCRIMINANTE_DOMINIO_B.md`). Separa dos hipótesis sobre qué mide el
@@ -237,6 +249,23 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   Conventional Commits, no PHI/secretos, CI verde antes de merge).
 
 ### Corregido
+- **Filas fijas del runner de la auditoría v32** (2026-09-27).
+  `dominio_B_regenerable` era un literal (`NO`) escrito cuando faltaba
+  `owid-maddison.csv` y nunca comprobaba nada; ahora el runner regenera el
+  dominio B en un directorio temporal con cada script constructor y lo compara
+  caso a caso: `expand_B_massive.py` → 441 vs 446 casos, corr(b) = 0.979,
+  12/408 b idénticos (`PARCIAL`); `expand_dominio_B.py` → 254 casos
+  (`PARCIAL`). La fila de RC9 (fija en `NO_REPRODUCIBLE`) ahora se calcula desde
+  `orthogonality_crypto_v25.csv` (ρ = +0.009 → `REPLICA`).
+- **Script regenerador del dominio B mal atribuido.** README,
+  `reconstruction_real/README.md`, `DOMINIO_B_METODOLOGIA.md` y
+  `data/FUENTES.md` decían que `expand_dominio_B.py` reproduce los 446 casos;
+  produce 254. El que regenera el dominio es `expand_B_massive.py`, y de forma
+  aproximada (la edición de Maddison original no se fijó). El `trigger` fijo en
+  `'gradual'` está en ambos scripts.
+- **Dashboard:** las 16 llamadas con `use_container_width=True` (deprecado)
+  pasan a `width="stretch"`; verificado con Streamlit 1.58.0 (versión del
+  despliegue en Hugging Face) y 1.64.0: 6/6 páginas, 0 excepciones, 0 avisos.
 - **Provenance y circularidad (higiene de la auditoría v32).** `data/FUENTES.md`
   ancla las fuentes externas (Maddison Project y OWID COVID) con URL, edición,
   fecha y SHA-256, y documenta que `data/owid-maddison.csv` está **ausente** en
@@ -246,6 +275,8 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   circular por construcción (solo 13/4,774 = 0.27% positivos).
 
 ### Cambiado
+- `dashboard/requirements.txt`: `streamlit>=1.58.0` (antes `>=1.30.0`, que no
+  garantiza el parámetro `width`); `.gitignore`: ignora `reconstruction_real/logs/`.
 - Estado de publicaciones: revisión v30 de **PLOS Complex Systems** (PCSY-D-26-00059)
   enviada; ponencia **MIT GCFP** (13ª conferencia anual) enviada.
 - CI: el paso de `flake8` ahora lee su configuración desde `.flake8` en vez de
