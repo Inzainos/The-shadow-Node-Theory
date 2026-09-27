@@ -1,5 +1,5 @@
 """
-Shadow Node Theory v2.5.2 — Interactive Dashboard
+Shadow Node Theory v2.6.0 — Interactive Dashboard
 Fractal Core Research | Tlaxcala, Mexico | 2026
 
 721 empirical cases across 10 domains and 30 orders of magnitude.
@@ -14,7 +14,7 @@ import plotly.graph_objects as go
 from pathlib import Path
 
 st.set_page_config(
-    page_title="Shadow Node Theory v2.5.2",
+    page_title="Shadow Node Theory v2.6.0",
     page_icon="🔬",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -76,7 +76,7 @@ df_aco = load_aco()
 # ── Sidebar ──────────────────────────────────────────────────────────────────
 
 st.sidebar.title("🔬 Shadow Node Theory")
-st.sidebar.markdown("**v2.5.2** | 721 cases | 10 domains")
+st.sidebar.markdown("**v2.6.0** | 721 cases | 10 domains")
 st.sidebar.markdown("---")
 
 page = st.sidebar.radio(
@@ -97,7 +97,7 @@ st.sidebar.markdown(
 # ── Page: Overview ───────────────────────────────────────────────────────────
 
 if page == "Overview":
-    st.title("Shadow Node Theory v2.5.2")
+    st.title("Shadow Node Theory v2.6.0")
     st.markdown(
         "*Scale-Invariant Satellization Across 721 Empirical Cases*  \n"
         "**Elan Zainos Corona** — Fractal Core Research, Tlaxcala, Mexico"
@@ -171,7 +171,7 @@ if page == "Overview":
     st.markdown("---")
     st.subheader("Central Finding")
     st.info(
-        "**Institutional friction is the dominant predictor of b**  \n"
+        "**As published (v30): institutional friction predicts b**  \n"
         "Spearman rho = **-0.68**, p = 2.5×10⁻⁹⁷ (n=714)  \n"
         "Friction-free systems: b = +0.95 | High friction: b = +0.09  \n"
         "Mann-Whitney p = 2.4×10⁻⁷⁴"
@@ -179,6 +179,8 @@ if page == "Overview":
     st.caption(
         "*Audit v32: direction holds, p inflated — cluster-level rho = -0.56, "
         "p = 0.25 (n = 6 domains); friction-free pole (E1+E3) is COVID-19 data. "
+        "Pre-registered test 2026-09-27 with new non-COVID domains: "
+        "rho = -0.13, p = 0.39 (not supported). "
         "See the repository README, section Audit v32.*"
     )
 
@@ -314,6 +316,8 @@ elif page == "Friction vs b":
     st.caption(
         "*Audit v32: direction holds, p inflated — cluster-level rho = -0.56, "
         "p = 0.25 (n = 6 domains); friction-free pole (E1+E3) is COVID-19 data. "
+        "Pre-registered test 2026-09-27 with new non-COVID domains: "
+        "rho = -0.13, p = 0.39 (not supported). "
         "See the repository README, section Audit v32.*"
     )
 
@@ -473,22 +477,23 @@ b >= 1    → superlinear satellization — Roche Radius
 |----|---------------------|------------|
 | RC1 | Power law fits no better than alternatives | NOT REFUTED |
 | RC2 | b is not reproducible from primary series | NOT REFUTED |
-| RC3 | Abrupt triggers produce same b as gradual | UNTESTABLE |
+| RC3 | Abrupt triggers produce same b as gradual | NOT REFUTED (pre-registered city test, 2026-09-27) |
 | RC4 | Friction index is not correlated with b | NOT REFUTED |
 | RC5 | N-body matrix does not change estimates | NOT REFUTED |
 | RC6 | Shadow node reverses without trigger | NOT REFUTED |
 | RC7 | ASI does not predict better than chance | NOT REFUTED |
 | RC8 | Mutual interdependence does not brake | NOT REFUTED |
 
-*Audit notes (see the repository README): RC3 is now UNTESTABLE — the
-published 5.9x test is not reproducible and the active satellization corpus
-has no trigger variable; RC4 direction holds but cluster-level p = 0.25
+*Audit notes (see the repository README): the published 5.9x test for RC3
+is not reproducible and the 721-case corpus has no trigger variable, but a
+pre-registered test on a new city corpus (2026-09-27) supports it (8/8
+decree-driven cities, p = 0.004), so RC3 stays NOT REFUTED; RC4 direction holds but cluster-level p = 0.25
 (n = 6 domains); RC7 ROC-AUC not reproducible from the repository.*
 
 ### Citation
 
 ```
-Zainos Corona, E. (2026). Shadow Node Theory v2.5.2:
+Zainos Corona, E. (2026). Shadow Node Theory v2.6.0:
 Scale-Invariant Satellization and Coupled Orbital Collapse Across Empirical Domains.
 Zenodo. doi:10.5281/zenodo.19446521
 ```

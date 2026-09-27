@@ -46,9 +46,47 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 - Campo de fricción `φ` postulado, no medido.
 - El piso sigue siendo factor y no variable, lo que acota la cimática del colapso al eje acelera / no acelera.
 
-## [No publicado] — 2026-07
+## [2.6.0] — 2026-09-27
+
+Auditoría, prueba discriminante y reconstrucción del dominio B, revisión r31 del
+preprint de SSRN y **pre-registro con cinco pruebas** de la teoría. El corpus de 721
+casos no cambia. PR [#42](https://github.com/Inzainos/The-shadow-Node-Theory/pull/42)
+a [#46](https://github.com/Inzainos/The-shadow-Node-Theory/pull/46).
+
+> **Nota de trazabilidad.** Las entradas fechadas en julio de 2026 (auditoría
+> integral v32 y su runner, prueba discriminante inicial del dominio B y
+> `owid-maddison.csv`, parche v31 del marco, validaciones del agente genómico,
+> Delta, `.flake8`, `SECURITY.md`, `AGENTS.md`/`CLAUDE.md`) ya estaban en el
+> código de la etiqueta 2.5.2, pero su entrada no las listaba; se conservan aquí
+> como registro. Lo nuevo de 2.6.0 son las entradas del 26 y 27 de septiembre de
+> 2026.
 
 ### Documentación
+- **Figuras del README regeneradas para v2.6.0** (2026-09-27). Nuevo
+  `reconstruction_real/code/generate_readme_figures.py` (con log), que genera desde
+  los CSV del repo cinco figuras en versión clara y oscura
+  (`figures/snt_v260_fig*_{light,dark}.png`, servidas con `<picture>`): (1) b por
+  dominio y significancia nominal vs corregida (B: cotas AR(1); E3: Newey-West);
+  (2) b̄ por dominio y fricción con los dominios nuevos del pre-registro; (3) R² con
+  la advertencia de las definiciones mezcladas; (4) disparadores a ciegas;
+  (5) hazard por edad en cripto y bancos. Paleta de referencia validada (claro y
+  oscuro). Se retiran `figures/snt_fig{1,2,3}_final.png` (rotuladas v2.5.0, sin
+  script generador, solo significancia nominal). Las figuras del paquete PLOS
+  (`fig*_v29`, `Fig*.tif`) no se tocan.
+- **Barrido del README y del dashboard** (2026-09-27): recuadro "NEW in v2.6.0";
+  "Central Finding" marcado como afirmación publicada con su estado actual (n = 714
+  excluye D; prueba pre-registrada no respaldada); series crudas de E3 ya
+  presentes (antes decía "not in the repo"); pendientes y RC3/RC4 actualizados;
+  el dashboard deja de llamar a la fricción "predictor dominante" y marca RC3 como
+  NOT REFUTED por la prueba pre-registrada.
+- **Marco v34, nota de auditoría en el Axioma 5** (2026-09-27, a pedido del
+  autor): sin cambiar el texto ni la etiqueta ANCLADO, registra que fricción → b
+  no es significativo por dominio (ρ = −0.556, p = 0.25), que el n = 714 excluye
+  el Dominio D (con D, sin E3 ni B: ρ = −0.145, p = 0.39) y que la prueba
+  pre-registrada con dominios nuevos sin COVID no lo respalda (ρ = −0.131,
+  p = 0.39); el polo sin fricción (E3) sí es robusto con series crudas. La fila
+  del Axioma 5 en la tabla de estatus remite a la nota. Registrado en
+  `papers/CHANGELOG_marco.md`.
 - **Preprint SSRN r31 en español y notas del formulario** (2026-09-27): nuevo
   `papers/snt_ssrn_v31.md` (+ `.pdf`, `.docx`), traducción completa de la r31 en
   inglés con la tabla de metadatos en español (JEL, palabras clave, datos,
@@ -165,6 +203,30 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   datos reales (`data_adapters.py`, `run_real_delta.py`).
 
 ### Añadido
+- **Pre-registro y cinco pruebas de la SNT** (2026-09-27, seis puntos pedidos por el
+  autor). Pre-registro `reconstruction_real/preregistro/PREREGISTRO_2026-09-27.md`
+  subido (commit `c319fac`) antes de descargar datos o correr pruebas; informe
+  `reconstruction_real/audits/RESULTADOS_PREREGISTRO_2026-09-27.md` con desviaciones.
+  - **Punto 1, hub variable en el tiempo** (`prueba_hub_temporal.py`): no
+    respaldada (H = 20: d mediana −0.009, p = 0.95); H = 30 contraria (p = 0.0002).
+    Funciones COW/Maddison compartidas en `comercio_maddison.py` (la reconstrucción
+    estática reproduce salidas y log idénticos).
+  - **Punto 2, fricción con dominios nuevos sin COVID**
+    (`prueba_friccion_dominios_nuevos.py`; E4 mpox, D2 StatCounter, A2 ciudades
+    WUP, B-comercio): no respaldada (ρ = −0.131, permutación exacta p = 0.39).
+  - **Punto 3, series crudas de COVID** (`covid_E3_series_crudas.py`): receta de E3
+    identificada (233/234); Newey-West p < 0.05 en 233/234; E1 no reproducible.
+  - **Punto 4, disparadores a ciegas** (`prueba_disparadores_ciudades.py`):
+    respaldada (8/8, Wilcoxon p = 0.0039; capitales 5.1×; salvedad de
+    supervivencia de WUP).
+  - **Punto 5, cohortes ACO-A** (`descargar_binance_klines.py` con reintentos,
+    `aco_cohortes_ampliadas.py`): ortogonalidad respaldada por equivalencia (242
+    pares, ρ = −0.119); h > 0 respaldada en cripto (663) y bancos FDIC (27,771);
+    hazard creciente solo en cripto (confundido con el calendario), bancos en
+    bañera; fricción → Δ no ampliable.
+  - Subconjuntos versionados de cada fuente nueva y SHA-256 en `data/FUENTES.md`;
+    README (RC3 no refutado por prueba pre-registrada; fila de fricción; RC9; hazard)
+    e índice de auditorías actualizados.
 - **Reconstrucción del dominio B con hub emergente del comercio** (2026-09-27;
   pendiente 9 de la auditoría). Nuevo
   `reconstruction_real/code/reconstruccion_B_hub_comercio.py` (con log) →

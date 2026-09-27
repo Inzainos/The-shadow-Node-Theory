@@ -82,8 +82,9 @@ Consulta la sección *Repository Structure* del [README](README.md) para el mapa
 completo de carpetas. En resumen:
 
 - `reconstruction_real/` — corpus real de 721 casos (introducido en v2.4.0;
-  release activa **2.5.2**): datos, código, metodología, `audits/` (auditoría
-  integral v32 y prueba discriminante del dominio B) y `tests/`.
+  release activa **2.6.0**): datos, código, metodología, `audits/` (auditoría
+  integral v32, prueba discriminante y reconstrucción del dominio B, resultados
+  del pre-registro 2026-09-27), `preregistro/` y `tests/`.
 - `papers/` — marco teórico activo **v34** (`papers/marco_teorico.md`), linaje en
   `papers/CHANGELOG_marco.md`, y manuscritos/preprints (v30).
 - `code/` — utilidades compartidas (`snt_utils.py`, `snt_utils_v32.py`) y scripts

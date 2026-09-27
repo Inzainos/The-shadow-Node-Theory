@@ -1,0 +1,209 @@
+cohorte,banda_ini,banda_fin,en_riesgo,fines,persona_anios,hazard
+cripto ACO,0,1,663,4,578.562628,0.006914
+cripto ACO,1,2,516,7,455.994524,0.015351
+cripto ACO,2,3,392,17,356.489391,0.047687
+cripto ACO,3,4,321,22,284.422313,0.07735
+cripto ACO,4,5,244,37,202.926078,0.182332
+cripto ACO,5,6,159,24,120.338809,0.199437
+cripto ACO,6,7,83,9,55.90486,0.160988
+cripto ACO,7,8,37,4,21.862423,0.182962
+cripto ACO,8,9,13,0,6.503765,0.0
+cripto ACO,9,10,2,0,0.075291,0.0
+cripto ACO+retiro,0,1,663,19,578.562628,0.03284
+cripto ACO+retiro,1,2,516,41,455.994524,0.089913
+cripto ACO+retiro,2,3,392,37,356.489391,0.10379
+cripto ACO+retiro,3,4,321,48,284.422313,0.168763
+cripto ACO+retiro,4,5,244,55,202.926078,0.271035
+cripto ACO+retiro,5,6,159,36,120.338809,0.299155
+cripto ACO+retiro,6,7,83,12,55.90486,0.21465
+cripto ACO+retiro,7,8,37,4,21.862423,0.182962
+cripto ACO+retiro,8,9,13,0,6.503765,0.0
+cripto ACO+retiro,9,10,2,0,0.075291,0.0
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",0,5,15619,1889,71184.182752,0.026537
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",5,10,14470,2334,64330.21013,0.036282
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",10,15,13303,1897,58554.094456,0.032397
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",15,20,12347,1400,55694.338125,0.025137
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",20,25,12353,1130,54177.77755,0.020857
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",25,30,12702,882,56280.36345,0.015672
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",30,35,13203,716,60820.486653,0.011772
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",35,40,12911,516,61635.231348,0.008372
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",40,45,13405,455,62036.208761,0.007334
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",45,50,13669,541,64674.909651,0.008365
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",50,55,13458,568,64813.409309,0.008764
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",55,60,13025,697,62443.302533,0.011162
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",60,65,12659,851,59881.258727,0.014211
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",65,70,12003,807,56962.155373,0.014167
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",70,75,11252,761,53978.362081,0.014098
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",75,80,10574,828,50304.742642,0.01646
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",80,85,9814,903,46243.805613,0.019527
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",85,90,8889,871,41944.525667,0.020766
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",90,95,7967,896,36912.403149,0.024274
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",95,100,6853,791,31675.405202,0.024972
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",100,105,5972,728,27504.425736,0.026468
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",105,110,5105,642,23371.192334,0.02747
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",110,115,4281,526,19552.774812,0.026902
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",115,120,3556,404,15894.563997,0.025417
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",120,125,2815,325,12255.377823,0.026519
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",125,130,2082,306,9028.241615,0.033894
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",130,135,1590,219,7114.697467,0.030781
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",135,140,1234,156,5294.56742,0.029464
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",140,145,893,120,3845.253251,0.031207
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",145,150,649,93,2891.379192,0.032165
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",150,155,508,51,2280.494182,0.022364
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",155,160,394,46,1661.479808,0.027686
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",160,165,277,35,1164.446954,0.030057
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",165,170,197,30,873.710472,0.034336
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",170,175,152,27,636.166324,0.042442
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",175,180,105,21,418.448323,0.050185
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",180,185,70,13,298.451745,0.043558
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",185,190,54,7,246.069815,0.028447
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",190,195,43,7,179.109514,0.039082
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",195,200,27,8,103.648871,0.077184
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",200,205,15,1,64.928131,0.015402
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",205,210,12,4,40.862423,0.097889
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",210,215,6,1,28.881588,0.034624
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",215,220,4,1,16.361396,0.061119
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",220,225,3,1,9.17796,0.108957
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",225,230,1,0,5.0,0.0
+"bancos cualquier fin, entrada pre-registro 1934 (sesgada)",230,235,1,0,4.732375,0.0
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",0,5,15619,323,71184.182752,0.004538
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",5,10,14470,527,64330.21013,0.008192
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",10,15,13303,349,58554.094456,0.00596
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",15,20,12347,218,55694.338125,0.003914
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",20,25,12353,170,54177.77755,0.003138
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",25,30,12702,175,56280.36345,0.003109
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",30,35,13203,140,60820.486653,0.002302
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",35,40,12911,93,61635.231348,0.001509
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",40,45,13405,63,62036.208761,0.001016
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",45,50,13669,58,64674.909651,0.000897
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",50,55,13458,125,64813.409309,0.001929
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",55,60,13025,165,62443.302533,0.002642
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",60,65,12659,123,59881.258727,0.002054
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",65,70,12003,140,56962.155373,0.002458
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",70,75,11252,82,53978.362081,0.001519
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",75,80,10574,135,50304.742642,0.002684
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",80,85,9814,133,46243.805613,0.002876
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",85,90,8889,99,41944.525667,0.00236
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",90,95,7967,55,36912.403149,0.00149
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",95,100,6853,99,31675.405202,0.003125
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",100,105,5972,101,27504.425736,0.003672
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",105,110,5105,54,23371.192334,0.002311
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",110,115,4281,30,19552.774812,0.001534
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",115,120,3556,22,15894.563997,0.001384
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",120,125,2815,25,12255.377823,0.00204
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",125,130,2082,9,9028.241615,0.000997
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",130,135,1590,14,7114.697467,0.001968
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",135,140,1234,10,5294.56742,0.001889
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",140,145,893,7,3845.253251,0.00182
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",145,150,649,5,2891.379192,0.001729
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",150,155,508,2,2280.494182,0.000877
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",155,160,394,0,1661.479808,0.0
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",160,165,277,8,1164.446954,0.00687
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",165,170,197,2,873.710472,0.002289
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",170,175,152,0,636.166324,0.0
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",175,180,105,1,418.448323,0.00239
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",180,185,70,1,298.451745,0.003351
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",185,190,54,0,246.069815,0.0
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",190,195,43,0,179.109514,0.0
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",195,200,27,1,103.648871,0.009648
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",200,205,15,0,64.928131,0.0
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",205,210,12,0,40.862423,0.0
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",210,215,6,0,28.881588,0.0
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",215,220,4,1,16.361396,0.061119
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",220,225,3,0,9.17796,0.0
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",225,230,1,0,5.0,0.0
+"bancos solo quiebras, entrada pre-registro 1934 (sesgada)",230,235,1,0,4.732375,0.0
+"bancos cualquier fin, entrada corregida 1970",0,5,10230,1889,44294.72553,0.042646
+"bancos cualquier fin, entrada corregida 1970",5,10,9429,2334,38705.28679,0.060302
+"bancos cualquier fin, entrada corregida 1970",10,15,7814,1897,32151.974675,0.059001
+"bancos cualquier fin, entrada corregida 1970",15,20,6379,1400,27038.323751,0.051778
+"bancos cualquier fin, entrada corregida 1970",20,25,5412,1130,22064.47091,0.051214
+"bancos cualquier fin, entrada corregida 1970",25,30,4359,882,18324.171116,0.048133
+"bancos cualquier fin, entrada corregida 1970",30,35,3769,716,15191.13963,0.047133
+"bancos cualquier fin, entrada corregida 1970",35,40,4540,516,18763.884326,0.0275
+"bancos cualquier fin, entrada corregida 1970",40,45,4845,455,20193.851472,0.022532
+"bancos cualquier fin, entrada corregida 1970",45,50,5224,541,21969.380561,0.024625
+"bancos cualquier fin, entrada corregida 1970",50,55,5629,568,24463.730322,0.023218
+"bancos cualquier fin, entrada corregida 1970",55,60,6191,697,25953.281314,0.026856
+"bancos cualquier fin, entrada corregida 1970",60,65,7381,851,29439.234086,0.028907
+"bancos cualquier fin, entrada corregida 1970",65,70,8123,807,34279.873374,0.023542
+"bancos cualquier fin, entrada corregida 1970",70,75,7743,761,35340.952772,0.021533
+"bancos cualquier fin, entrada corregida 1970",75,80,7834,828,34138.885695,0.024254
+"bancos cualquier fin, entrada corregida 1970",80,85,7979,903,34822.44011,0.025932
+"bancos cualquier fin, entrada corregida 1970",85,90,7503,871,33876.34976,0.025711
+"bancos cualquier fin, entrada corregida 1970",90,95,6763,896,30370.204654,0.029503
+"bancos cualquier fin, entrada corregida 1970",95,100,5982,791,26387.788501,0.029976
+"bancos cualquier fin, entrada corregida 1970",100,105,5363,728,23690.812457,0.030729
+"bancos cualquier fin, entrada corregida 1970",105,110,4633,642,20780.170431,0.030895
+"bancos cualquier fin, entrada corregida 1970",110,115,3921,526,17404.410678,0.030222
+"bancos cualquier fin, entrada corregida 1970",115,120,3328,404,14436.30527,0.027985
+"bancos cualquier fin, entrada corregida 1970",120,125,2637,325,11239.737851,0.028915
+"bancos cualquier fin, entrada corregida 1970",125,130,1903,306,8138.746749,0.037598
+"bancos cualquier fin, entrada corregida 1970",130,135,1438,219,6263.533881,0.034964
+"bancos cualquier fin, entrada corregida 1970",135,140,1125,156,4652.73306,0.033529
+"bancos cualquier fin, entrada corregida 1970",140,145,809,120,3354.613963,0.035772
+"bancos cualquier fin, entrada corregida 1970",145,150,575,93,2507.655715,0.037086
+"bancos cualquier fin, entrada corregida 1970",150,155,452,51,1956.354552,0.026069
+"bancos cualquier fin, entrada corregida 1970",155,160,361,45,1450.793977,0.031017
+"bancos cualquier fin, entrada corregida 1970",160,165,252,35,1018.173854,0.034375
+"bancos cualquier fin, entrada corregida 1970",165,170,184,30,791.7577,0.03789
+"bancos cualquier fin, entrada corregida 1970",170,175,143,27,576.184805,0.04686
+"bancos cualquier fin, entrada corregida 1970",175,180,101,21,382.877481,0.054848
+"bancos cualquier fin, entrada corregida 1970",180,185,66,13,278.451745,0.046687
+"bancos cualquier fin, entrada corregida 1970",185,190,54,7,239.455168,0.029233
+"bancos cualquier fin, entrada corregida 1970",190,195,43,7,179.109514,0.039082
+"bancos cualquier fin, entrada corregida 1970",195,200,27,8,103.648871,0.077184
+"bancos cualquier fin, entrada corregida 1970",200,205,15,1,64.928131,0.015402
+"bancos cualquier fin, entrada corregida 1970",205,210,12,4,40.862423,0.097889
+"bancos cualquier fin, entrada corregida 1970",210,215,6,1,28.881588,0.034624
+"bancos cualquier fin, entrada corregida 1970",215,220,4,1,16.361396,0.061119
+"bancos cualquier fin, entrada corregida 1970",220,225,3,1,9.17796,0.108957
+"bancos cualquier fin, entrada corregida 1970",225,230,1,0,5.0,0.0
+"bancos cualquier fin, entrada corregida 1970",230,235,1,0,4.732375,0.0
+"bancos solo quiebras, entrada corregida 1970",0,5,10230,323,44294.72553,0.007292
+"bancos solo quiebras, entrada corregida 1970",5,10,9429,527,38705.28679,0.013616
+"bancos solo quiebras, entrada corregida 1970",10,15,7814,349,32151.974675,0.010855
+"bancos solo quiebras, entrada corregida 1970",15,20,6379,218,27038.323751,0.008063
+"bancos solo quiebras, entrada corregida 1970",20,25,5412,170,22064.47091,0.007705
+"bancos solo quiebras, entrada corregida 1970",25,30,4359,175,18324.171116,0.00955
+"bancos solo quiebras, entrada corregida 1970",30,35,3769,140,15191.13963,0.009216
+"bancos solo quiebras, entrada corregida 1970",35,40,4540,93,18763.884326,0.004956
+"bancos solo quiebras, entrada corregida 1970",40,45,4845,63,20193.851472,0.00312
+"bancos solo quiebras, entrada corregida 1970",45,50,5224,58,21969.380561,0.00264
+"bancos solo quiebras, entrada corregida 1970",50,55,5629,125,24463.730322,0.00511
+"bancos solo quiebras, entrada corregida 1970",55,60,6191,165,25953.281314,0.006358
+"bancos solo quiebras, entrada corregida 1970",60,65,7381,123,29439.234086,0.004178
+"bancos solo quiebras, entrada corregida 1970",65,70,8123,140,34279.873374,0.004084
+"bancos solo quiebras, entrada corregida 1970",70,75,7743,82,35340.952772,0.00232
+"bancos solo quiebras, entrada corregida 1970",75,80,7834,135,34138.885695,0.003954
+"bancos solo quiebras, entrada corregida 1970",80,85,7979,133,34822.44011,0.003819
+"bancos solo quiebras, entrada corregida 1970",85,90,7503,99,33876.34976,0.002922
+"bancos solo quiebras, entrada corregida 1970",90,95,6763,55,30370.204654,0.001811
+"bancos solo quiebras, entrada corregida 1970",95,100,5982,99,26387.788501,0.003752
+"bancos solo quiebras, entrada corregida 1970",100,105,5363,101,23690.812457,0.004263
+"bancos solo quiebras, entrada corregida 1970",105,110,4633,54,20780.170431,0.002599
+"bancos solo quiebras, entrada corregida 1970",110,115,3921,30,17404.410678,0.001724
+"bancos solo quiebras, entrada corregida 1970",115,120,3328,22,14436.30527,0.001524
+"bancos solo quiebras, entrada corregida 1970",120,125,2637,25,11239.737851,0.002224
+"bancos solo quiebras, entrada corregida 1970",125,130,1903,9,8138.746749,0.001106
+"bancos solo quiebras, entrada corregida 1970",130,135,1438,14,6263.533881,0.002235
+"bancos solo quiebras, entrada corregida 1970",135,140,1125,10,4652.73306,0.002149
+"bancos solo quiebras, entrada corregida 1970",140,145,809,7,3354.613963,0.002087
+"bancos solo quiebras, entrada corregida 1970",145,150,575,5,2507.655715,0.001994
+"bancos solo quiebras, entrada corregida 1970",150,155,452,2,1956.354552,0.001022
+"bancos solo quiebras, entrada corregida 1970",155,160,361,0,1450.793977,0.0
+"bancos solo quiebras, entrada corregida 1970",160,165,252,8,1018.173854,0.007857
+"bancos solo quiebras, entrada corregida 1970",165,170,184,2,791.7577,0.002526
+"bancos solo quiebras, entrada corregida 1970",170,175,143,0,576.184805,0.0
+"bancos solo quiebras, entrada corregida 1970",175,180,101,1,382.877481,0.002612
+"bancos solo quiebras, entrada corregida 1970",180,185,66,1,278.451745,0.003591
+"bancos solo quiebras, entrada corregida 1970",185,190,54,0,239.455168,0.0
+"bancos solo quiebras, entrada corregida 1970",190,195,43,0,179.109514,0.0
+"bancos solo quiebras, entrada corregida 1970",195,200,27,1,103.648871,0.009648
+"bancos solo quiebras, entrada corregida 1970",200,205,15,0,64.928131,0.0
+"bancos solo quiebras, entrada corregida 1970",205,210,12,0,40.862423,0.0
+"bancos solo quiebras, entrada corregida 1970",210,215,6,0,28.881588,0.0
+"bancos solo quiebras, entrada corregida 1970",215,220,4,1,16.361396,0.061119
+"bancos solo quiebras, entrada corregida 1970",220,225,3,0,9.17796,0.0
+"bancos solo quiebras, entrada corregida 1970",225,230,1,0,5.0,0.0
+"bancos solo quiebras, entrada corregida 1970",230,235,1,0,4.732375,0.0

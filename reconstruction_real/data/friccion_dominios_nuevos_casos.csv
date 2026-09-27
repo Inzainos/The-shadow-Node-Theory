@@ -1,0 +1,2601 @@
+dominio,caso,b,n,friccion
+E4,Argentina mpox 2022,0.532029,60.0,0
+E4,Australia mpox 2022,0.100269,60.0,0
+E4,Austria mpox 2022,0.344628,60.0,0
+E4,Belgium mpox 2022,0.597593,60.0,0
+E4,Bolivia mpox 2022,0.258561,60.0,0
+E4,Brazil mpox 2022,1.231628,60.0,0
+E4,Burundi mpox 2022,0.664793,60.0,0
+E4,Canada mpox 2022,0.717554,60.0,0
+E4,Central African Republic mpox 2022,0.055548,60.0,0
+E4,Chile mpox 2022,0.726431,60.0,0
+E4,China mpox 2022,0.271044,60.0,0
+E4,Colombia mpox 2022,1.008164,60.0,0
+E4,Congo mpox 2022,0.05094,60.0,0
+E4,Costa Rica mpox 2022,0.233038,60.0,0
+E4,Cote d'Ivoire mpox 2022,0.020501,60.0,0
+E4,Czechia mpox 2022,0.00197,60.0,0
+E4,Democratic Republic of Congo mpox 2022,0.328507,60.0,0
+E4,Denmark mpox 2022,0.190317,60.0,0
+E4,Ecuador mpox 2022,0.375989,60.0,0
+E4,El Salvador mpox 2022,0.014676,60.0,0
+E4,France mpox 2022,0.916693,60.0,0
+E4,Germany mpox 2022,1.014761,60.0,0
+E4,Ghana mpox 2022,0.022011,60.0,0
+E4,Greece mpox 2022,0.0,60.0,0
+E4,Guatemala mpox 2022,0.284689,60.0,0
+E4,Guinea mpox 2022,0.700835,60.0,0
+E4,Ireland mpox 2022,0.223799,60.0,0
+E4,Israel mpox 2022,0.309182,60.0,0
+E4,Italy mpox 2022,0.532137,60.0,0
+E4,Japan mpox 2022,0.154533,60.0,0
+E4,Kenya mpox 2022,0.203835,60.0,0
+E4,Liberia mpox 2022,0.306258,60.0,0
+E4,Madagascar mpox 2022,0.427701,60.0,0
+E4,Malawi mpox 2022,0.091647,60.0,0
+E4,Mexico mpox 2022,0.853232,60.0,0
+E4,Netherlands mpox 2022,0.597401,60.0,0
+E4,Nigeria mpox 2022,0.347328,60.0,0
+E4,Norway mpox 2022,0.006496,60.0,0
+E4,Panama mpox 2022,0.203835,60.0,0
+E4,Paraguay mpox 2022,0.074624,60.0,0
+E4,Peru mpox 2022,0.997458,60.0,0
+E4,Philippines mpox 2022,0.074304,60.0,0
+E4,Poland mpox 2022,0.217682,60.0,0
+E4,Portugal mpox 2022,0.517774,60.0,0
+E4,Rwanda mpox 2022,0.037382,60.0,0
+E4,Saudi Arabia mpox 2022,0.302711,60.0,0
+E4,Sierra Leone mpox 2022,0.888964,60.0,0
+E4,South Korea mpox 2022,0.075744,60.0,0
+E4,Spain mpox 2022,1.060523,60.0,0
+E4,Sweden mpox 2022,0.198233,60.0,0
+E4,Switzerland mpox 2022,0.448588,60.0,0
+E4,Tanzania mpox 2022,0.140491,60.0,0
+E4,Thailand mpox 2022,0.291825,60.0,0
+E4,Uganda mpox 2022,0.718092,60.0,0
+E4,United Kingdom mpox 2022,0.944376,60.0,0
+E4,United States mpox 2022,1.430929,60.0,0
+E4,Vietnam mpox 2022,0.0742,60.0,0
+E4,World mpox 2022,1.467824,60.0,0
+E4,Zambia mpox 2022,0.184416,60.0,0
+D2,browser: IE/Chrome,-2.57656,192.0,1
+D2,browser: IE/Firefox,-0.915294,192.0,1
+D2,browser: IE/Opera,-1.644046,192.0,1
+D2,browser: IE/Safari,-2.2174,192.0,1
+D2,os_combined: Windows/OS X,-0.503136,192.0,1
+D2,search_engine: Google/Yahoo!,0.407659,192.0,1
+D2,search_engine: Google/bing,0.062373,187.0,1
+D2,social_media: Facebook/Digg,2.38821,87.0,1
+D2,social_media: Facebook/MySpace,2.789521,52.0,1
+D2,social_media: Facebook/StumbleUpon,2.589156,145.0,1
+D2,social_media: Facebook/Twitter,0.081078,189.0,1
+D2,social_media: Facebook/YouTube,0.111675,184.0,1
+D2,social_media: Facebook/iWiW,2.188482,43.0,1
+D2,social_media: Facebook/reddit,0.86283,189.0,1
+D2,vendor: Nokia/Apple,-1.53844,177.0,1
+D2,vendor: Nokia/RIM,0.875284,145.0,1
+D2,vendor: Nokia/Samsung,-2.015515,177.0,1
+D2,vendor: Nokia/Sony,-0.627956,177.0,1
+A2,Afghanistan: Kabul/Herat,0.507343,69.0,2
+A2,Afghanistan: Kabul/Kandahar,0.478062,69.0,2
+A2,Afghanistan: Kabul/Mazar-e Sharif,0.279709,69.0,2
+A2,Algeria: El Djazaïr  (Algiers)/Annaba,0.065634,69.0,2
+A2,Algeria: El Djazaïr  (Algiers)/Batna,-0.520176,69.0,2
+A2,Algeria: El Djazaïr  (Algiers)/Blida,-0.253902,69.0,2
+A2,Algeria: El Djazaïr  (Algiers)/El Djelfa,-0.62129,69.0,2
+A2,Algeria: El Djazaïr  (Algiers)/Qacentina,-0.024554,69.0,2
+A2,Algeria: El Djazaïr  (Algiers)/Sétif,-0.109512,69.0,2
+A2,Algeria: El Djazaïr  (Algiers)/Wahran (Oran),0.089819,69.0,2
+A2,Angola: Luanda/Benguela,-0.012529,69.0,2
+A2,Angola: Luanda/Cabinda,-0.472497,69.0,2
+A2,Angola: Luanda/Cuito,0.053354,69.0,2
+A2,Angola: Luanda/Huambo,-0.004095,69.0,2
+A2,Angola: Luanda/Lobito,0.359658,69.0,2
+A2,Angola: Luanda/Lubango,-0.11398,69.0,2
+A2,Angola: Luanda/Malanje,0.018799,69.0,2
+A2,Angola: Luanda/Uige,-0.219783,69.0,2
+A2,Argentina: Buenos Aires/Bahia Blanca,-0.016094,69.0,2
+A2,Argentina: Buenos Aires/Corrientes,-0.247282,69.0,2
+A2,Argentina: Buenos Aires/Córdoba,-0.080001,69.0,2
+A2,Argentina: Buenos Aires/La Plata,0.021222,69.0,2
+A2,Argentina: Buenos Aires/Mar Del Plata,-0.17579,69.0,2
+A2,Argentina: Buenos Aires/Mendoza,-0.146036,69.0,2
+A2,Argentina: Buenos Aires/Neuquén-Plottier-Cipolletti,-0.731936,69.0,2
+A2,Argentina: Buenos Aires/Posadas,-0.325015,69.0,2
+A2,Argentina: Buenos Aires/Resistencia,-0.25081,69.0,2
+A2,Argentina: Buenos Aires/Rosario,0.035422,69.0,2
+A2,Argentina: Buenos Aires/Salta,-0.346411,69.0,2
+A2,Argentina: Buenos Aires/San Juan,-0.180945,69.0,2
+A2,Argentina: Buenos Aires/San Miguel de Tucumán,-0.120315,69.0,2
+A2,Argentina: Buenos Aires/San Salvador de Jujuy,-0.459676,69.0,2
+A2,Argentina: Buenos Aires/Santa Fe,0.048408,69.0,2
+A2,Argentina: Buenos Aires/Santiago Del Estero,-0.201829,69.0,2
+A2,Australia: Sydney/Adelaide,-0.042013,69.0,2
+A2,Australia: Sydney/Brisbane,-0.200117,69.0,2
+A2,Australia: Sydney/Canberra,-0.670271,69.0,2
+A2,Australia: Sydney/Central Coast,-0.196065,69.0,2
+A2,Australia: Sydney/Gold Coast-Tweed Head,-0.69633,69.0,2
+A2,Australia: Sydney/Melbourne,-0.043514,69.0,2
+A2,Australia: Sydney/Newcastle-Maitland,0.007301,69.0,2
+A2,Australia: Sydney/Perth,-0.28791,69.0,2
+A2,Australia: Sydney/Sunshine Coast,-0.833247,69.0,2
+A2,Australia: Sydney/Wollongong,-0.110949,69.0,2
+A2,Azerbaijan: Baku/Gäncä,-0.102932,69.0,2
+A2,Azerbaijan: Baku/Sumquayit,-0.564865,69.0,2
+A2,Bangladesh: Dhaka/Barisal,0.800831,69.0,2
+A2,Bangladesh: Dhaka/Bogra,0.508902,69.0,2
+A2,Bangladesh: Dhaka/Chittagong,0.401358,69.0,2
+A2,Bangladesh: Dhaka/Comilla,0.769812,69.0,2
+A2,Bangladesh: Dhaka/Khulna,0.335951,69.0,2
+A2,Bangladesh: Dhaka/Mymensingh,0.689052,69.0,2
+A2,Bangladesh: Dhaka/Rajshahi,0.253634,69.0,2
+A2,Bangladesh: Dhaka/Rangpur,0.522274,69.0,2
+A2,Bangladesh: Dhaka/Rupganj,0.391772,69.0,2
+A2,Bangladesh: Dhaka/Sylhet,0.630227,69.0,2
+A2,Belarus: Minsk/Brest,0.018252,69.0,2
+A2,Belarus: Minsk/Gomel,0.100247,69.0,2
+A2,Belarus: Minsk/Grodno,-0.007758,69.0,2
+A2,Belarus: Minsk/Mogilev,0.090777,69.0,2
+A2,Belarus: Minsk/Vitebsk,0.195002,69.0,2
+A2,Belgium: Bruxelles-Brussel/Antwerpen,0.015775,69.0,2
+A2,Belgium: Bruxelles-Brussel/Charleroi,0.113133,69.0,2
+A2,Belgium: Bruxelles-Brussel/Gent,0.039838,69.0,2
+A2,Belgium: Bruxelles-Brussel/Liège,0.07501,69.0,2
+A2,Benin: Cotonou/Abomey-Calavi,-0.140622,69.0,2
+A2,Benin: Cotonou/Djougou,-0.42448,69.0,2
+A2,Benin: Cotonou/Parakou,-0.109193,69.0,2
+A2,Bolivia (Plurinational State of): La Paz/Cochabamba,-0.251107,69.0,2
+A2,Bolivia (Plurinational State of): La Paz/Oruro,0.087627,69.0,2
+A2,Bolivia (Plurinational State of): La Paz/Santa Cruz,-0.630502,69.0,2
+A2,Brazil: Rio de Janeiro/Anápolis,-0.468779,69.0,2
+A2,Brazil: Rio de Janeiro/Aracaju,-0.380458,69.0,2
+A2,Brazil: Rio de Janeiro/Baixada Santista,-0.188614,69.0,2
+A2,Brazil: Rio de Janeiro/Bauru,-0.170209,69.0,2
+A2,Brazil: Rio de Janeiro/Belo Horizonte,-0.404757,69.0,2
+A2,Brazil: Rio de Janeiro/Belém,-0.248007,69.0,2
+A2,Brazil: Rio de Janeiro/Blumenau,-0.379155,69.0,2
+A2,Brazil: Rio de Janeiro/Boa Vista,-0.916043,69.0,2
+A2,Brazil: Rio de Janeiro/Brasília,-1.063224,69.0,2
+A2,Brazil: Rio de Janeiro/Campina Grande,-0.077274,69.0,2
+A2,Brazil: Rio de Janeiro/Campinas,-0.531517,69.0,2
+A2,Brazil: Rio de Janeiro/Campo Grande,-0.640252,69.0,2
+A2,Brazil: Rio de Janeiro/Campos dos Goytacazes,-0.11764,69.0,2
+A2,Brazil: Rio de Janeiro/Caruaru,-0.151492,69.0,2
+A2,Brazil: Rio de Janeiro/Cascavel,-1.377587,69.0,2
+A2,Brazil: Rio de Janeiro/Caxias Do Sul,-0.39601,69.0,2
+A2,Brazil: Rio de Janeiro/Cuiabá,-0.588891,69.0,2
+A2,Brazil: Rio de Janeiro/Curitiba,-0.511721,69.0,2
+A2,Brazil: Rio de Janeiro/Feira De Santana,-0.518051,69.0,2
+A2,Brazil: Rio de Janeiro/Florianópolis,-0.480911,69.0,2
+A2,Brazil: Rio de Janeiro/Fortaleza,-0.403691,69.0,2
+A2,Brazil: Rio de Janeiro/Franca,-0.383206,69.0,2
+A2,Brazil: Rio de Janeiro/Goiânia,-0.741075,69.0,2
+A2,Brazil: Rio de Janeiro/Grande São Luís,-0.378189,69.0,2
+A2,Brazil: Rio de Janeiro/Grande Vitória,-0.560079,69.0,2
+A2,Brazil: Rio de Janeiro/Joinville,-0.518254,69.0,2
+A2,Brazil: Rio de Janeiro/João Pessoa,-0.341809,69.0,2
+A2,Brazil: Rio de Janeiro/Juazeiro Do Norte,-0.178444,69.0,2
+A2,Brazil: Rio de Janeiro/Juiz De Fora,-0.146601,69.0,2
+A2,Brazil: Rio de Janeiro/Jundiaí,-0.418499,69.0,2
+A2,Brazil: Rio de Janeiro/Londrina,-0.43758,69.0,2
+A2,Brazil: Rio de Janeiro/Macapá,-0.704421,69.0,2
+A2,Brazil: Rio de Janeiro/Maceió,-0.301873,69.0,2
+A2,Brazil: Rio de Janeiro/Manaus,-0.577209,69.0,2
+A2,Brazil: Rio de Janeiro/Maringá,-0.507801,69.0,2
+A2,Brazil: Rio de Janeiro/Montes Claros,-0.492521,69.0,2
+A2,Brazil: Rio de Janeiro/Natal,-0.344623,69.0,2
+A2,Brazil: Rio de Janeiro/Pelotas,0.006595,69.0,2
+A2,Brazil: Rio de Janeiro/Petrolina,-0.515031,69.0,2
+A2,Brazil: Rio de Janeiro/Piracicaba,-0.221176,69.0,2
+A2,Brazil: Rio de Janeiro/Ponta Grossa,-0.178532,69.0,2
+A2,Brazil: Rio de Janeiro/Pôrto Alegre,-0.228382,69.0,2
+A2,Brazil: Rio de Janeiro/Pôrto Velho,-0.813009,69.0,2
+A2,Brazil: Rio de Janeiro/Recife,-0.092119,69.0,2
+A2,Brazil: Rio de Janeiro/Ribeirão  Preto,-0.282351,69.0,2
+A2,Brazil: Rio de Janeiro/Rio Branco,-0.753101,69.0,2
+A2,Brazil: Rio de Janeiro/Salvador,-0.25216,69.0,2
+A2,Brazil: Rio de Janeiro/Sorocaba,-0.281371,69.0,2
+A2,Brazil: Rio de Janeiro/São José do Rio Preto,-0.328336,69.0,2
+A2,Brazil: Rio de Janeiro/São José dos Campos,-0.608015,69.0,2
+A2,Brazil: Rio de Janeiro/São Paulo,-0.255213,69.0,2
+A2,Brazil: Rio de Janeiro/Taubaté,-0.205899,69.0,2
+A2,Brazil: Rio de Janeiro/Teresina,-0.503283,69.0,2
+A2,Brazil: Rio de Janeiro/Uberaba,-0.169053,69.0,2
+A2,Brazil: Rio de Janeiro/Uberlândia,-0.487591,69.0,2
+A2,Brazil: Rio de Janeiro/Vale do Aço,-0.740714,69.0,2
+A2,Brazil: Rio de Janeiro/Vitória da Conquista,-0.406995,69.0,2
+A2,Brazil: Rio de Janeiro/Volta Redonda,-0.188093,69.0,2
+A2,Bulgaria: Sofia/Plovdiv,-0.039089,69.0,2
+A2,Bulgaria: Sofia/Varna,-0.148217,69.0,2
+A2,Burkina Faso: Bobo-Dioulasso/Ouagadougou,-0.38529,69.0,2
+A2,Cameroon: Douala/Bafoussam,0.021572,69.0,2
+A2,Cameroon: Douala/Bamenda,-0.148661,69.0,2
+A2,Cameroon: Douala/Garoua,-0.164454,69.0,2
+A2,Cameroon: Douala/Loum,-0.225281,69.0,2
+A2,Cameroon: Douala/Mbouda,-0.186883,69.0,2
+A2,Cameroon: Douala/Yaoundé,-0.335628,69.0,2
+A2,Canada: Montréal/Calgary,-0.381547,69.0,2
+A2,Canada: Montréal/Edmonton,-0.29657,69.0,2
+A2,Canada: Montréal/Halifax,-0.041602,69.0,2
+A2,Canada: Montréal/Hamilton,0.010421,69.0,2
+A2,Canada: Montréal/Kitchener-Cambrigde-Waterloo,-0.329395,69.0,2
+A2,Canada: Montréal/London,-0.124923,69.0,2
+A2,Canada: Montréal/Oshawa,-0.342677,69.0,2
+A2,Canada: Montréal/Ottawa-Gatineau,-0.163879,69.0,2
+A2,Canada: Montréal/Québec,-0.029165,69.0,2
+A2,Canada: Montréal/Saskatoon,-0.014358,69.0,2
+A2,Canada: Montréal/St. Catharines-Niagara,0.141469,69.0,2
+A2,Canada: Montréal/Toronto,-0.200759,69.0,2
+A2,Canada: Montréal/Vancouver,-0.181559,69.0,2
+A2,Canada: Montréal/Victoria,-0.072212,69.0,2
+A2,Canada: Montréal/Windsor,0.092366,69.0,2
+A2,Canada: Montréal/Winnipeg,0.085331,69.0,2
+A2,Chile: Santiago/Antofagasta,-0.080794,69.0,2
+A2,Chile: Santiago/Concepción,0.028372,69.0,2
+A2,Chile: Santiago/La Serena-Coquimbo,-0.069527,69.0,2
+A2,Chile: Santiago/Temuco,-0.071627,69.0,2
+A2,Chile: Santiago/Valparaíso,0.191993,69.0,2
+A2,China: Shanghai/Akesu,-0.491413,69.0,2
+A2,China: Shanghai/Ankang,-0.728272,69.0,2
+A2,China: Shanghai/Anlu,-0.931646,69.0,2
+A2,China: Shanghai/Anning,-0.906849,69.0,2
+A2,China: Shanghai/Anqing,-0.501501,69.0,2
+A2,China: Shanghai/Anqiu,-1.160364,69.0,2
+A2,China: Shanghai/Anshan,0.092413,69.0,2
+A2,China: Shanghai/Anshun,-0.969471,69.0,2
+A2,China: Shanghai/Anyang,-0.243348,69.0,2
+A2,China: Shanghai/Baicheng,0.108631,69.0,2
+A2,China: Shanghai/Baishan,-0.099232,69.0,2
+A2,China: Shanghai/Baiyin,-0.232537,69.0,2
+A2,China: Shanghai/Baoding,-0.250422,69.0,2
+A2,China: Shanghai/Baoji,-0.235539,69.0,2
+A2,China: Shanghai/Baotou,-0.389528,69.0,2
+A2,China: Shanghai/Bayannaoer,-1.314432,69.0,2
+A2,China: Shanghai/Bazhong,-1.220954,69.0,2
+A2,China: Shanghai/Beihai,-0.198324,69.0,2
+A2,China: Shanghai/Beijing,-0.221168,69.0,2
+A2,China: Shanghai/Bengbu,-0.088309,69.0,2
+A2,China: Shanghai/Benxi,0.064578,69.0,2
+A2,China: Shanghai/Bijie,-1.225153,69.0,2
+A2,China: Shanghai/Binzhou,-1.746944,69.0,2
+A2,China: Shanghai/Botou,-0.306408,69.0,2
+A2,China: Shanghai/Bozhou,-0.695433,69.0,2
+A2,China: Shanghai/Cangzhou,-0.00338,69.0,2
+A2,China: Shanghai/Cenxi,-1.134611,69.0,2
+A2,China: Shanghai/Changchun,-0.067101,69.0,2
+A2,China: Shanghai/Changde,-0.228563,69.0,2
+A2,China: Shanghai/Changge,-1.053835,69.0,2
+A2,China: Shanghai/Changji,-0.769084,69.0,2
+A2,China: Shanghai/Changning,-1.13811,69.0,2
+A2,China: Shanghai/Changsha,-0.07683,69.0,2
+A2,China: Shanghai/Changshu,-1.181901,69.0,2
+A2,China: Shanghai/Changyi,-1.066381,69.0,2
+A2,China: Shanghai/Changzhi,-0.240212,69.0,2
+A2,"China: Shanghai/Changzhou, Jiangsu",-0.505995,69.0,2
+A2,China: Shanghai/Chaohu,-1.320522,69.0,2
+A2,China: Shanghai/Chaoyang,-0.870239,69.0,2
+A2,China: Shanghai/Chaozhou,-0.400809,69.0,2
+A2,China: Shanghai/Chengde,-0.526678,69.0,2
+A2,China: Shanghai/Chengdu,-0.262071,69.0,2
+A2,China: Shanghai/Chenzhou,-0.820051,69.0,2
+A2,China: Shanghai/Chifeng,-0.260396,69.0,2
+A2,China: Shanghai/Chizhou,-1.080912,69.0,2
+A2,China: Shanghai/Chongqing,-0.189363,69.0,2
+A2,China: Shanghai/Chuxiong,-0.868373,69.0,2
+A2,China: Shanghai/Chuzhou,-0.882381,69.0,2
+A2,China: Shanghai/Cixi,-1.535267,69.0,2
+A2,China: Shanghai/Dali,-0.839093,69.0,2
+A2,China: Shanghai/Dalian,-0.144853,69.0,2
+A2,China: Shanghai/Dandong,-0.170741,69.0,2
+A2,China: Shanghai/Danyang,-1.237775,69.0,2
+A2,China: Shanghai/Danzhou,-0.985579,69.0,2
+A2,China: Shanghai/Daqing,-0.259855,69.0,2
+A2,China: Shanghai/Dashiqiao,-1.14543,69.0,2
+A2,China: Shanghai/Datong,-0.190058,69.0,2
+A2,China: Shanghai/Daye,-1.286824,69.0,2
+A2,China: Shanghai/Dazhou,-0.887738,69.0,2
+A2,China: Shanghai/Dengfeng,-1.051175,69.0,2
+A2,China: Shanghai/Dengzhou,-1.192137,69.0,2
+A2,China: Shanghai/Deyang,-0.877806,69.0,2
+A2,China: Shanghai/Dezhou,-0.501423,69.0,2
+A2,China: Shanghai/Dingzhou,-0.368414,69.0,2
+A2,China: Shanghai/Donggang,-1.011812,69.0,2
+A2,China: Shanghai/Dongguan,-1.015527,69.0,2
+A2,China: Shanghai/Dongtai,-1.280388,69.0,2
+A2,China: Shanghai/Dongyang,-1.260163,69.0,2
+A2,China: Shanghai/Dongying,-0.861678,69.0,2
+A2,China: Shanghai/Dujiangyan,-1.144537,69.0,2
+A2,China: Shanghai/Emeishan,-0.988373,69.0,2
+A2,China: Shanghai/Enping,-0.268222,69.0,2
+A2,China: Shanghai/Enshi,-0.777347,69.0,2
+A2,China: Shanghai/Erduosi (Ordoss),-1.213238,69.0,2
+A2,China: Shanghai/Ezhou,-1.380773,69.0,2
+A2,China: Shanghai/Fangchenggang,-1.076782,69.0,2
+A2,China: Shanghai/Feicheng,-0.936877,69.0,2
+A2,China: Shanghai/Fengcheng,-1.191644,69.0,2
+A2,China: Shanghai/Foshan,-0.920792,69.0,2
+A2,China: Shanghai/Fuan,-1.129842,69.0,2
+A2,China: Shanghai/Fujin,-0.103945,69.0,2
+A2,China: Shanghai/Fuqing,-0.487739,69.0,2
+A2,"China: Shanghai/Fushun, Liaoning",0.164096,69.0,2
+A2,China: Shanghai/Fuxin,-0.073977,69.0,2
+A2,China: Shanghai/Fuyang,-0.880446,69.0,2
+A2,"China: Shanghai/Fuzhou, Fujian",-0.352254,69.0,2
+A2,"China: Shanghai/Fuzhou, Jiangxi",-0.520449,69.0,2
+A2,China: Shanghai/Ganzhou,-0.821179,69.0,2
+A2,China: Shanghai/Gaoan,-1.086397,69.0,2
+A2,China: Shanghai/Gaomi,-0.992436,69.0,2
+A2,China: Shanghai/Gaoping,-0.954154,69.0,2
+A2,China: Shanghai/Gaoyou,-1.148897,69.0,2
+A2,China: Shanghai/Gaozhou,-1.141852,69.0,2
+A2,China: Shanghai/Gongyi,-1.160677,69.0,2
+A2,China: Shanghai/Gongzhuling,-0.428361,69.0,2
+A2,China: Shanghai/Guang'an,-1.111612,69.0,2
+A2,China: Shanghai/Guangyuan,0.06262,69.0,2
+A2,"China: Shanghai/Guangzhou, Guangdong",-0.336366,69.0,2
+A2,China: Shanghai/Guigang,-0.639646,69.0,2
+A2,China: Shanghai/Guilin,-0.234471,69.0,2
+A2,China: Shanghai/Guiping,-1.266521,69.0,2
+A2,China: Shanghai/Guiyang,-0.307653,69.0,2
+A2,China: Shanghai/Haerbin,-0.127651,69.0,2
+A2,China: Shanghai/Haicheng,-0.502336,69.0,2
+A2,China: Shanghai/Haikou,-0.403173,69.0,2
+A2,China: Shanghai/Hailin,0.021555,69.0,2
+A2,China: Shanghai/Haimen,-1.238932,69.0,2
+A2,China: Shanghai/Haining,-0.139708,69.0,2
+A2,China: Shanghai/Haiyang,-0.828538,69.0,2
+A2,China: Shanghai/Hami,-0.969964,69.0,2
+A2,China: Shanghai/Hanchuan,-1.254729,69.0,2
+A2,China: Shanghai/Handan,-0.635479,69.0,2
+A2,China: Shanghai/Hangzhou,-0.246272,69.0,2
+A2,China: Shanghai/Hanzhong,-0.588001,69.0,2
+A2,China: Shanghai/Hebi,-0.823252,69.0,2
+A2,China: Shanghai/Hechi,-0.456086,69.0,2
+A2,China: Shanghai/Hefei,-0.485902,69.0,2
+A2,China: Shanghai/Hegang,0.309196,69.0,2
+A2,China: Shanghai/Hejian,-1.002606,69.0,2
+A2,China: Shanghai/Hengshui,-1.128725,69.0,2
+A2,China: Shanghai/Hengyang,-0.380444,69.0,2
+A2,China: Shanghai/Heshan,-1.080889,69.0,2
+A2,China: Shanghai/Heyuan,-0.916418,69.0,2
+A2,China: Shanghai/Heze,-1.464074,69.0,2
+A2,China: Shanghai/Hezhou,-0.693947,69.0,2
+A2,China: Shanghai/Hohhot,-0.342202,69.0,2
+A2,China: Shanghai/Huai'an,-0.623733,69.0,2
+A2,China: Shanghai/Huaibei,-0.551837,69.0,2
+A2,China: Shanghai/Huaihua,-0.444047,69.0,2
+A2,China: Shanghai/Huainan,-0.065876,69.0,2
+A2,China: Shanghai/Huangshan,-0.393346,69.0,2
+A2,China: Shanghai/Huangshi,-0.085826,69.0,2
+A2,China: Shanghai/Huazhou,-1.079643,69.0,2
+A2,China: Shanghai/Huixian,-1.056932,69.0,2
+A2,China: Shanghai/Huizhou,-0.725662,69.0,2
+A2,China: Shanghai/Huludao,-1.172403,69.0,2
+A2,China: Shanghai/Huzhou,-0.416929,69.0,2
+A2,"China: Shanghai/Ji'an, Jiangxi",-0.19742,69.0,2
+A2,"China: Shanghai/Ji'nan, Shandong",-0.160589,69.0,2
+A2,China: Shanghai/Jiamusi,-0.099518,69.0,2
+A2,China: Shanghai/Jiangmen,-0.441112,69.0,2
+A2,China: Shanghai/Jiangyin,-1.292298,69.0,2
+A2,China: Shanghai/Jianyang,-1.182277,69.0,2
+A2,China: Shanghai/Jiaozhou,-0.651252,69.0,2
+A2,China: Shanghai/Jiaozuo,-0.28264,69.0,2
+A2,China: Shanghai/Jiaxing,-0.323357,69.0,2
+A2,China: Shanghai/Jiayuguan,-0.439215,69.0,2
+A2,China: Shanghai/Jieyang,-1.260263,69.0,2
+A2,China: Shanghai/Jilin,0.003712,69.0,2
+A2,China: Shanghai/Jincheng,-1.126268,69.0,2
+A2,China: Shanghai/Jingdezhen,-0.069999,69.0,2
+A2,China: Shanghai/Jingjiang,-1.184769,69.0,2
+A2,China: Shanghai/Jingmen,-0.505362,69.0,2
+A2,"China: Shanghai/Jingzhou, Hubei",-0.387815,69.0,2
+A2,China: Shanghai/Jinhua,-0.871042,69.0,2
+A2,"China: Shanghai/Jining, Shandong",-0.567092,69.0,2
+A2,China: Shanghai/Jinjiang,-0.883713,69.0,2
+A2,China: Shanghai/Jinzhong,-0.143605,69.0,2
+A2,China: Shanghai/Jinzhou,-0.123688,69.0,2
+A2,China: Shanghai/Jiujiang,-0.720944,69.0,2
+A2,China: Shanghai/Jiuquan,-1.17433,69.0,2
+A2,"China: Shanghai/Jixi, Heilongjiang",-0.25858,69.0,2
+A2,China: Shanghai/Jiyuan,-1.107622,69.0,2
+A2,China: Shanghai/Jurong,-1.093654,69.0,2
+A2,China: Shanghai/Kaifeng,0.070916,69.0,2
+A2,China: Shanghai/Kaili,-0.372825,69.0,2
+A2,China: Shanghai/Kaiping,-1.197205,69.0,2
+A2,China: Shanghai/Kelamayi,-0.180288,69.0,2
+A2,China: Shanghai/Kuerle,-0.610016,69.0,2
+A2,China: Shanghai/Kunming,-0.361492,69.0,2
+A2,China: Shanghai/Kunshan ,-0.626444,69.0,2
+A2,China: Shanghai/Laibin,-1.063421,69.0,2
+A2,China: Shanghai/Laiwu,-0.351836,69.0,2
+A2,China: Shanghai/Laixi,-1.149116,69.0,2
+A2,China: Shanghai/Laiyang,-0.701757,69.0,2
+A2,China: Shanghai/Laizhou,-1.095564,69.0,2
+A2,China: Shanghai/Langfang,-0.823445,69.0,2
+A2,China: Shanghai/Lanzhou,-0.178921,69.0,2
+A2,China: Shanghai/Leiyang,-0.935542,69.0,2
+A2,China: Shanghai/Lengshuijiang,-0.185855,69.0,2
+A2,China: Shanghai/Leping,-1.097028,69.0,2
+A2,China: Shanghai/Leshan,-0.314418,69.0,2
+A2,China: Shanghai/Lianyungang,-0.191096,69.0,2
+A2,China: Shanghai/Liaocheng,-0.962991,69.0,2
+A2,China: Shanghai/Liaoyang,-0.09497,69.0,2
+A2,China: Shanghai/Liaoyuan,-0.000818,69.0,2
+A2,China: Shanghai/Liling,-1.33469,69.0,2
+A2,China: Shanghai/Linfen,-0.84677,69.0,2
+A2,China: Shanghai/Linhai,-0.821457,69.0,2
+A2,China: Shanghai/Linqing,-1.123951,69.0,2
+A2,"China: Shanghai/Linyi, Shandong",-1.118781,69.0,2
+A2,China: Shanghai/Linzhou,-1.116948,69.0,2
+A2,"China: Shanghai/Lishui, Zhejiang",-0.662778,69.0,2
+A2,China: Shanghai/Liuan,-0.487703,69.0,2
+A2,China: Shanghai/Liupanshui,-0.441882,69.0,2
+A2,China: Shanghai/Liuyang,-0.913849,69.0,2
+A2,China: Shanghai/Liuzhou,-0.37224,69.0,2
+A2,China: Shanghai/Liyang,-0.962567,69.0,2
+A2,China: Shanghai/Longchang,-0.506697,69.0,2
+A2,China: Shanghai/Longhai,-1.215645,69.0,2
+A2,China: Shanghai/Longkou,-1.195754,69.0,2
+A2,China: Shanghai/Longyan,-0.587067,69.0,2
+A2,China: Shanghai/Loudi,-1.007679,69.0,2
+A2,China: Shanghai/Luoding,-1.101554,69.0,2
+A2,China: Shanghai/Luohe,-1.30955,69.0,2
+A2,China: Shanghai/Luoyang,-0.356919,69.0,2
+A2,China: Shanghai/Luzhou,-0.340915,69.0,2
+A2,China: Shanghai/Lvliang,-1.018665,69.0,2
+A2,China: Shanghai/Ma'anshan,-0.437195,69.0,2
+A2,China: Shanghai/Macheng,-0.632022,69.0,2
+A2,China: Shanghai/Manzhouli,-0.168122,69.0,2
+A2,China: Shanghai/Maoming,-1.010454,69.0,2
+A2,China: Shanghai/Meishan,-1.274921,69.0,2
+A2,China: Shanghai/Meizhou,-1.015236,69.0,2
+A2,"China: Shanghai/Mianyang, Sichuan",-0.456544,69.0,2
+A2,China: Shanghai/Miluo,-1.046325,69.0,2
+A2,China: Shanghai/Mudanjiang,-0.155705,69.0,2
+A2,China: Shanghai/Nanchang,-0.184955,69.0,2
+A2,China: Shanghai/Nanchong,-0.111761,69.0,2
+A2,"China: Shanghai/Nanjing, Jiangsu",-0.166632,69.0,2
+A2,China: Shanghai/Nankang,-1.014428,69.0,2
+A2,China: Shanghai/Nanning,-0.449971,69.0,2
+A2,China: Shanghai/Nanping,-0.316554,69.0,2
+A2,China: Shanghai/Nantong,-0.161408,69.0,2
+A2,"China: Shanghai/Nanyang, Henan",-0.478022,69.0,2
+A2,China: Shanghai/Neijiang,0.030077,69.0,2
+A2,China: Shanghai/Ningbo,-0.322152,69.0,2
+A2,China: Shanghai/Ningde,-1.047873,69.0,2
+A2,China: Shanghai/Ningguo,-0.962574,69.0,2
+A2,China: Shanghai/Panjin,-0.454189,69.0,2
+A2,China: Shanghai/Panzhihua,-0.026669,69.0,2
+A2,"China: Shanghai/Pingdingshan, Henan",-1.305546,69.0,2
+A2,China: Shanghai/Pingdu,-1.241897,69.0,2
+A2,China: Shanghai/Pinghu,-1.008244,69.0,2
+A2,China: Shanghai/Pingliang,-0.477104,69.0,2
+A2,"China: Shanghai/Pingxiang, Jiangxi",-0.184654,69.0,2
+A2,China: Shanghai/Pizhou,-1.33256,69.0,2
+A2,China: Shanghai/Puning,-0.894893,69.0,2
+A2,China: Shanghai/Putian,-0.421137,69.0,2
+A2,China: Shanghai/Puyang,-0.342006,69.0,2
+A2,China: Shanghai/Qianjiang,-1.238409,69.0,2
+A2,China: Shanghai/Qidong,-1.060588,69.0,2
+A2,China: Shanghai/Qingdao,-0.153055,69.0,2
+A2,China: Shanghai/Qingyuan,-1.466972,69.0,2
+A2,China: Shanghai/Qingzhou,-1.198372,69.0,2
+A2,China: Shanghai/Qinhuangdao,-0.376968,69.0,2
+A2,China: Shanghai/Qinzhou,-1.280746,69.0,2
+A2,China: Shanghai/Qiqihaer,-0.071907,69.0,2
+A2,China: Shanghai/Qitaihe,-0.109547,69.0,2
+A2,China: Shanghai/Quanzhou,-0.332807,69.0,2
+A2,China: Shanghai/Qufu,-1.125283,69.0,2
+A2,China: Shanghai/Qujing,-0.763745,69.0,2
+A2,China: Shanghai/Quzhou,-0.363842,69.0,2
+A2,China: Shanghai/Renqiu,-1.225361,69.0,2
+A2,China: Shanghai/Rizhao,-1.228452,69.0,2
+A2,China: Shanghai/Rongcheng,-1.190979,69.0,2
+A2,China: Shanghai/Rugao,-1.074017,69.0,2
+A2,China: Shanghai/Ruian,-1.190208,69.0,2
+A2,China: Shanghai/Rushan,-0.737269,69.0,2
+A2,China: Shanghai/Sanhe,-1.11073,69.0,2
+A2,China: Shanghai/Sanmenxia,-0.799487,69.0,2
+A2,China: Shanghai/Sanming,-0.365508,69.0,2
+A2,China: Shanghai/Sanya,-1.24529,69.0,2
+A2,China: Shanghai/Shangqiu,-0.2147,69.0,2
+A2,China: Shanghai/Shangrao,-0.756341,69.0,2
+A2,China: Shanghai/Shangyu,-1.110891,69.0,2
+A2,China: Shanghai/Shantou,-0.444368,69.0,2
+A2,China: Shanghai/Shanwei,-0.662939,69.0,2
+A2,China: Shanghai/Shaoguan,-0.328941,69.0,2
+A2,China: Shanghai/Shaoxing,-0.681449,69.0,2
+A2,China: Shanghai/Shaoyang,-0.632823,69.0,2
+A2,China: Shanghai/Shengzhou,-1.152179,69.0,2
+A2,China: Shanghai/Shenmu,-0.746768,69.0,2
+A2,China: Shanghai/Shenyang,0.122155,69.0,2
+A2,China: Shanghai/Shenzhen,-2.375149,69.0,2
+A2,China: Shanghai/Shihezi,-0.701435,69.0,2
+A2,China: Shanghai/Shijiazhuang,-0.34613,69.0,2
+A2,China: Shanghai/Shishi,-1.245241,69.0,2
+A2,China: Shanghai/Shiyan,-0.404308,69.0,2
+A2,China: Shanghai/Shizuishan,0.049275,69.0,2
+A2,China: Shanghai/Shouguang,-1.284661,69.0,2
+A2,China: Shanghai/Shuangyashan,-0.43746,69.0,2
+A2,China: Shanghai/Shuozhou,-1.183579,69.0,2
+A2,China: Shanghai/Sihui,-1.148627,69.0,2
+A2,China: Shanghai/Siping,-0.061749,69.0,2
+A2,China: Shanghai/Songyuan,-0.977819,69.0,2
+A2,China: Shanghai/Songzi,-1.051348,69.0,2
+A2,China: Shanghai/Suihua,0.192088,69.0,2
+A2,"China: Shanghai/Suining, Sichuan",-0.524503,69.0,2
+A2,China: Shanghai/Suizhou,0.178751,69.0,2
+A2,China: Shanghai/Suqian,-1.906943,69.0,2
+A2,"China: Shanghai/Suzhou, Anhui",-0.383398,69.0,2
+A2,"China: Shanghai/Suzhou, Jiangsu",-0.265253,69.0,2
+A2,"China: Shanghai/Taian, Shandong",-1.536109,69.0,2
+A2,China: Shanghai/Taicang,-1.199921,69.0,2
+A2,China: Shanghai/Taishan,-0.578259,69.0,2
+A2,China: Shanghai/Taixing,-1.054101,69.0,2
+A2,"China: Shanghai/Taiyuan, Shanxi",-0.503284,69.0,2
+A2,"China: Shanghai/Taizhou, Jiangsu",-1.101631,69.0,2
+A2,"China: Shanghai/Taizhou, Zhejiang",-0.720605,69.0,2
+A2,"China: Shanghai/Tangshan, Hebei",-0.070958,69.0,2
+A2,China: Shanghai/Tengzhou,-1.461291,69.0,2
+A2,China: Shanghai/Tianjin,-0.012284,69.0,2
+A2,China: Shanghai/Tianmen,-0.512746,69.0,2
+A2,China: Shanghai/Tianshui,-0.33797,69.0,2
+A2,China: Shanghai/Tieling,-0.563444,69.0,2
+A2,China: Shanghai/Tongcheng,-1.050843,69.0,2
+A2,China: Shanghai/Tongchuan,-0.046002,69.0,2
+A2,China: Shanghai/Tonghua,0.068051,69.0,2
+A2,China: Shanghai/Tongliao,-0.430715,69.0,2
+A2,China: Shanghai/Tongling,-0.221523,69.0,2
+A2,China: Shanghai/Tongxiang,-0.976787,69.0,2
+A2,China: Shanghai/Wafangdian ,0.006103,69.0,2
+A2,China: Shanghai/Wanning,-0.989053,69.0,2
+A2,China: Shanghai/Weifang,-0.423444,69.0,2
+A2,China: Shanghai/Weihai,-0.576189,69.0,2
+A2,China: Shanghai/Weinan,-0.935371,69.0,2
+A2,China: Shanghai/Wenchang,-1.047051,69.0,2
+A2,China: Shanghai/Wenling,-1.367826,69.0,2
+A2,China: Shanghai/Wenzhou,-0.41148,69.0,2
+A2,China: Shanghai/Wuchuan ,-1.094772,69.0,2
+A2,China: Shanghai/Wuhai,-0.464583,69.0,2
+A2,China: Shanghai/Wuhan,-0.171934,69.0,2
+A2,"China: Shanghai/Wuhu, Anhui",-0.179876,69.0,2
+A2,China: Shanghai/Wulanhaote,-0.15572,69.0,2
+A2,China: Shanghai/Wuwei,-0.896613,69.0,2
+A2,"China: Shanghai/Wuxi, Jiangsu",-0.210252,69.0,2
+A2,China: Shanghai/Wuzhou,-0.094682,69.0,2
+A2,"China: Shanghai/Xi'an, Shaanxi",-0.308253,69.0,2
+A2,China: Shanghai/Xiamen,-0.370621,69.0,2
+A2,"China: Shanghai/Xiangtan, Hunan",-0.118304,69.0,2
+A2,China: Shanghai/Xiangyang,-0.617855,69.0,2
+A2,China: Shanghai/Xianning,-0.799337,69.0,2
+A2,China: Shanghai/Xiantao,-0.547124,69.0,2
+A2,"China: Shanghai/Xianyang, Shaanxi",-0.115938,69.0,2
+A2,China: Shanghai/Xiaogan,-0.981888,69.0,2
+A2,China: Shanghai/Xinghua,-1.334096,69.0,2
+A2,China: Shanghai/Xingning,-1.019547,69.0,2
+A2,China: Shanghai/Xingping,-0.172536,69.0,2
+A2,China: Shanghai/Xingtai,-0.022286,69.0,2
+A2,China: Shanghai/Xingyang,-1.045274,69.0,2
+A2,"China: Shanghai/Xingyi, Guizhou",-1.144249,69.0,2
+A2,China: Shanghai/Xining,-0.416176,69.0,2
+A2,China: Shanghai/Xinmi,-1.12131,69.0,2
+A2,China: Shanghai/Xintai,-0.2068,69.0,2
+A2,China: Shanghai/Xinxiang,-0.153196,69.0,2
+A2,China: Shanghai/Xinyang,-0.249784,69.0,2
+A2,China: Shanghai/Xinyi,-1.193129,69.0,2
+A2,China: Shanghai/Xinyu,-0.910587,69.0,2
+A2,China: Shanghai/Xinzheng,-1.110202,69.0,2
+A2,China: Shanghai/Xinzhou,-0.390425,69.0,2
+A2,China: Shanghai/Xiongan,-0.350147,69.0,2
+A2,China: Shanghai/Xuancheng,-0.373645,69.0,2
+A2,China: Shanghai/Xuanwei,-1.011602,69.0,2
+A2,China: Shanghai/Xuchang,-0.314482,69.0,2
+A2,China: Shanghai/Xuzhou,-0.078755,69.0,2
+A2,China: Shanghai/Yaan,-0.412837,69.0,2
+A2,China: Shanghai/Yan'an,-0.798506,69.0,2
+A2,"China: Shanghai/Yancheng, Jiangsu",-0.964289,69.0,2
+A2,China: Shanghai/Yangchun,-1.122182,69.0,2
+A2,China: Shanghai/Yangjiang,-0.005355,69.0,2
+A2,China: Shanghai/Yangquan,0.109866,69.0,2
+A2,China: Shanghai/Yangzhou,-0.321941,69.0,2
+A2,China: Shanghai/Yanji,-0.233931,69.0,2
+A2,China: Shanghai/Yanshi,-1.06427,69.0,2
+A2,China: Shanghai/Yantai,-0.453349,69.0,2
+A2,China: Shanghai/Yibin,-1.105474,69.0,2
+A2,China: Shanghai/Yichang,-0.527137,69.0,2
+A2,"China: Shanghai/Yichun, Heilongjiang",0.16419,69.0,2
+A2,"China: Shanghai/Yichun, Jiangxi",-0.54273,69.0,2
+A2,China: Shanghai/Yinchuan,-0.462695,69.0,2
+A2,China: Shanghai/Yingde,-1.039691,69.0,2
+A2,China: Shanghai/Yingkou,-0.233726,69.0,2
+A2,China: Shanghai/Yining,-0.225742,69.0,2
+A2,China: Shanghai/Yiwu,-1.4594,69.0,2
+A2,China: Shanghai/Yixing,-0.196792,69.0,2
+A2,"China: Shanghai/Yiyang, Hunan",-0.088503,69.0,2
+A2,China: Shanghai/Yongcheng,-1.123969,69.0,2
+A2,China: Shanghai/Yongkang,-1.184197,69.0,2
+A2,China: Shanghai/Yongzhou,-1.110329,69.0,2
+A2,China: Shanghai/Yuanjiang,-1.098235,69.0,2
+A2,China: Shanghai/Yueqing,-0.789526,69.0,2
+A2,China: Shanghai/Yueyang,-0.977344,69.0,2
+A2,China: Shanghai/Yuhuan,-0.63286,69.0,2
+A2,"China: Shanghai/Yulin, Guangxi",-0.593812,69.0,2
+A2,"China: Shanghai/Yulin, Shaanxi",-1.2398,69.0,2
+A2,China: Shanghai/Yuncheng,-0.56213,69.0,2
+A2,China: Shanghai/Yunfu,-1.126701,69.0,2
+A2,China: Shanghai/Yushu,-0.342639,69.0,2
+A2,China: Shanghai/Yuxi,-1.174588,69.0,2
+A2,China: Shanghai/Yuyao,-1.047994,69.0,2
+A2,China: Shanghai/Zaoyang,-0.5934,69.0,2
+A2,China: Shanghai/Zaozhuang,-0.23596,69.0,2
+A2,China: Shanghai/Zhangjiagang,-1.200406,69.0,2
+A2,China: Shanghai/Zhangjiakou,-0.125337,69.0,2
+A2,China: Shanghai/Zhangshu,-0.375847,69.0,2
+A2,China: Shanghai/Zhangye,-1.385293,69.0,2
+A2,China: Shanghai/Zhangzhou,-0.24144,69.0,2
+A2,China: Shanghai/Zhanjiang,-0.206566,69.0,2
+A2,China: Shanghai/Zhaodong,0.033439,69.0,2
+A2,China: Shanghai/Zhaoqing,-0.72357,69.0,2
+A2,China: Shanghai/Zhaotong,-0.594075,69.0,2
+A2,China: Shanghai/Zhaoyuan,-0.908741,69.0,2
+A2,China: Shanghai/Zhengzhou,-0.53248,69.0,2
+A2,"China: Shanghai/Zhenjiang, Jiangsu",-0.089979,69.0,2
+A2,China: Shanghai/Zhongshan,-0.805828,69.0,2
+A2,China: Shanghai/Zhongxiang,-1.254101,69.0,2
+A2,China: Shanghai/Zhoukou,-0.110527,69.0,2
+A2,China: Shanghai/Zhoushan,-0.911354,69.0,2
+A2,China: Shanghai/Zhuanghe,-0.133968,69.0,2
+A2,China: Shanghai/Zhucheng,-1.32374,69.0,2
+A2,China: Shanghai/Zhuhai,-1.671416,69.0,2
+A2,China: Shanghai/Zhuji,-1.353473,69.0,2
+A2,China: Shanghai/Zhumadian,-0.497363,69.0,2
+A2,China: Shanghai/Zhuozhou,-0.602515,69.0,2
+A2,China: Shanghai/Zhuzhou,-0.291315,69.0,2
+A2,China: Shanghai/Zibo,-0.447731,69.0,2
+A2,China: Shanghai/Zigong,0.013861,69.0,2
+A2,China: Shanghai/Zixing,-0.131849,69.0,2
+A2,China: Shanghai/Ziyang,-1.423042,69.0,2
+A2,China: Shanghai/Zunyi,-0.387664,69.0,2
+A2,China: Shanghai/Ürümqi (Wulumqi),-0.587857,69.0,2
+A2,"China, Taiwan Province of China: Taibei/Gaoxiong",-0.03868,69.0,2
+A2,"China, Taiwan Province of China: Taibei/Jilong",0.270808,69.0,2
+A2,"China, Taiwan Province of China: Taibei/Tainan",-0.461388,69.0,2
+A2,"China, Taiwan Province of China: Taibei/Taizhong",0.012638,69.0,2
+A2,"China, Taiwan Province of China: Taibei/Taoyuan",-0.724928,69.0,2
+A2,"China, Taiwan Province of China: Taibei/Xinbei",-0.161682,69.0,2
+A2,"China, Taiwan Province of China: Taibei/Xinzhu",-0.19427,69.0,2
+A2,Colombia: Bogotá/Armenia,0.344792,69.0,2
+A2,Colombia: Bogotá/Barranquilla,0.225129,69.0,2
+A2,Colombia: Bogotá/Bucaramanga,0.083387,69.0,2
+A2,Colombia: Bogotá/Buenaventura,0.082375,69.0,2
+A2,Colombia: Bogotá/Cali,0.097051,69.0,2
+A2,Colombia: Bogotá/Cartagena,0.124619,69.0,2
+A2,Colombia: Bogotá/Cúcuta,0.02506,69.0,2
+A2,Colombia: Bogotá/Ibagué,0.100751,69.0,2
+A2,Colombia: Bogotá/Manizales,0.366541,69.0,2
+A2,Colombia: Bogotá/Medellín,0.136321,69.0,2
+A2,Colombia: Bogotá/Monteria,-0.020637,69.0,2
+A2,Colombia: Bogotá/Neiva,0.074182,69.0,2
+A2,Colombia: Bogotá/Pasto,0.159216,69.0,2
+A2,Colombia: Bogotá/Pereira,0.154382,69.0,2
+A2,Colombia: Bogotá/Santa Marta,0.029789,69.0,2
+A2,Colombia: Bogotá/Valledupar,-0.362786,69.0,2
+A2,Colombia: Bogotá/Villavicencio,-0.240863,69.0,2
+A2,Congo: Brazzaville/Pointe-Noire,-0.17202,69.0,2
+A2,Costa Rica: San José/Alajuela,-0.203107,69.0,2
+A2,Costa Rica: San José/Heredia,-0.259773,69.0,2
+A2,Cuba: La Habana (Havana)/Camaguey,-0.161436,69.0,2
+A2,Cuba: La Habana (Havana)/Santiago de Cuba,-0.14977,69.0,2
+A2,Czechia: Praha (Prague)/Brno,-0.002829,69.0,2
+A2,Côte d'Ivoire: Abidjan/Bouake,0.359358,69.0,2
+A2,Dem. People's Republic of Korea: P'yongyang/Chongjin,0.133629,69.0,2
+A2,Dem. People's Republic of Korea: P'yongyang/Hamhung,0.219262,69.0,2
+A2,Dem. People's Republic of Korea: P'yongyang/Sinuiju,0.324407,69.0,2
+A2,Dem. People's Republic of Korea: P'yongyang/Wonsan,0.380113,69.0,2
+A2,Democratic Republic of the Congo: Kinshasa/Bukavu,0.155834,69.0,2
+A2,Democratic Republic of the Congo: Kinshasa/Bunia,-0.022898,69.0,2
+A2,Democratic Republic of the Congo: Kinshasa/Goma,-0.048836,69.0,2
+A2,Democratic Republic of the Congo: Kinshasa/Kabinda,-0.340396,69.0,2
+A2,Democratic Republic of the Congo: Kinshasa/Kananga,0.171628,69.0,2
+A2,Democratic Republic of the Congo: Kinshasa/Kikwit,-0.001318,69.0,2
+A2,Democratic Republic of the Congo: Kinshasa/Kisangani,0.346483,69.0,2
+A2,Democratic Republic of the Congo: Kinshasa/Kolwezi,0.268832,69.0,2
+A2,Democratic Republic of the Congo: Kinshasa/Likasi,0.577009,69.0,2
+A2,Democratic Republic of the Congo: Kinshasa/Lubumbashi,0.388166,69.0,2
+A2,Democratic Republic of the Congo: Kinshasa/Matadi,0.776003,69.0,2
+A2,Democratic Republic of the Congo: Kinshasa/Mbandaka,0.397486,69.0,2
+A2,Democratic Republic of the Congo: Kinshasa/Mbuji-Mayi,0.260399,69.0,2
+A2,Democratic Republic of the Congo: Kinshasa/Tshikapa,-0.102142,69.0,2
+A2,Democratic Republic of the Congo: Kinshasa/Uvira,-0.480306,69.0,2
+A2,Dominican Republic: Santo Domingo/Santiago,0.261382,69.0,2
+A2,Ecuador: Guayaquil/Cuenca,0.018695,69.0,2
+A2,Ecuador: Guayaquil/Quito,0.054236,69.0,2
+A2,Ecuador: Guayaquil/Santo Domingo,-0.765893,69.0,2
+A2,Egypt: Al-Qahirah (Cairo)/Al-Fayyum,0.096686,69.0,2
+A2,Egypt: Al-Qahirah (Cairo)/Al-Iskandariyah (Alexandria),0.171959,69.0,2
+A2,Egypt: Al-Qahirah (Cairo)/Al-Ismailiyah,0.192384,69.0,2
+A2,Egypt: Al-Qahirah (Cairo)/Al-Mahallah al-Kubra,0.208593,69.0,2
+A2,Egypt: Al-Qahirah (Cairo)/Al-Mansurah,0.155865,69.0,2
+A2,Egypt: Al-Qahirah (Cairo)/As-Suways,0.19484,69.0,2
+A2,Egypt: Al-Qahirah (Cairo)/Aswan,-0.045519,69.0,2
+A2,Egypt: Al-Qahirah (Cairo)/Asyut,0.142696,69.0,2
+A2,Egypt: Al-Qahirah (Cairo)/Az-Zaqazig,0.216784,69.0,2
+A2,Egypt: Al-Qahirah (Cairo)/Bur Sa'id,0.256708,69.0,2
+A2,Egypt: Al-Qahirah (Cairo)/Kafr-ad-Dawwar,-0.201809,69.0,2
+A2,Egypt: Al-Qahirah (Cairo)/Tanta,0.266721,69.0,2
+A2,Ethiopia: Addis Ababa/Dire Dawa,-0.18104,69.0,2
+A2,Ethiopia: Addis Ababa/Gondar,0.035349,69.0,2
+A2,Ethiopia: Addis Ababa/Mekele,-0.244903,69.0,2
+A2,Ethiopia: Addis Ababa/Nazret,-0.226491,69.0,2
+A2,Finland: Helsinki/Tampere,0.028426,69.0,2
+A2,France: Paris/Avignon,-0.340623,69.0,2
+A2,France: Paris/Bordeaux,-0.069534,69.0,2
+A2,France: Paris/Béthune,-0.249994,69.0,2
+A2,France: Paris/Douai-Lens,0.18312,69.0,2
+A2,France: Paris/Grenoble,-0.228265,69.0,2
+A2,France: Paris/Lille,0.053126,69.0,2
+A2,France: Paris/Lyon,-0.098372,69.0,2
+A2,France: Paris/Marseille-Aix-en-Provence,-0.086072,69.0,2
+A2,France: Paris/Montpellier,-0.338349,69.0,2
+A2,France: Paris/Nantes,-0.094469,69.0,2
+A2,France: Paris/Nice-Cannes,-0.135261,69.0,2
+A2,France: Paris/Rennes,-0.138026,69.0,2
+A2,France: Paris/Rouen,0.025052,69.0,2
+A2,France: Paris/Saint-Étienne,0.144589,69.0,2
+A2,France: Paris/Strasbourg,-0.022455,69.0,2
+A2,France: Paris/Toulon,-0.139481,69.0,2
+A2,France: Paris/Toulouse,-0.245447,69.0,2
+A2,France: Paris/Tours,-0.201523,69.0,2
+A2,France: Paris/Valenciennes,0.121258,69.0,2
+A2,Germany: Berlin/Bielefeld,-0.036077,69.0,2
+A2,Germany: Berlin/Bochum,-0.004999,69.0,2
+A2,Germany: Berlin/Bonn,-0.102584,69.0,2
+A2,Germany: Berlin/Bremen,-0.023694,69.0,2
+A2,Germany: Berlin/Dortmund,-0.000362,69.0,2
+A2,Germany: Berlin/Dresden,0.008356,69.0,2
+A2,Germany: Berlin/Duesseldorf,0.016181,69.0,2
+A2,Germany: Berlin/Duisburg,-0.039375,69.0,2
+A2,Germany: Berlin/Essen,0.060127,69.0,2
+A2,Germany: Berlin/Frankfurt am Main,-0.031689,69.0,2
+A2,Germany: Berlin/Hamburg,0.010375,69.0,2
+A2,Germany: Berlin/Hannover,0.003053,69.0,2
+A2,Germany: Berlin/Karlsruhe,-0.097913,69.0,2
+A2,Germany: Berlin/Köln (Cologne),-0.136823,69.0,2
+A2,Germany: Berlin/Leipzig,0.072101,69.0,2
+A2,Germany: Berlin/Mannheim,-0.026992,69.0,2
+A2,Germany: Berlin/Muenster (Westfalen),-0.041139,69.0,2
+A2,Germany: Berlin/München (Munich),-0.11581,69.0,2
+A2,Germany: Berlin/Nurenberg,-0.069471,69.0,2
+A2,Germany: Berlin/Stuttgart,-0.01195,69.0,2
+A2,Germany: Berlin/Wuppertal,0.045065,69.0,2
+A2,Ghana: Accra/Kumasi,-0.158446,69.0,2
+A2,Ghana: Accra/Sekondi Takoradi,0.063524,69.0,2
+A2,Ghana: Accra/Tamale,-0.144238,69.0,2
+A2,Greece: Athínai (Athens)/Thessaloniki,-0.070922,69.0,2
+A2,Honduras: Tegucigalpa/San Pedro Sula,-0.20717,69.0,2
+A2,India: Kolkata (Calcutta)/Agartala,-0.389442,69.0,2
+A2,India: Kolkata (Calcutta)/Agra,-0.122719,69.0,2
+A2,India: Kolkata (Calcutta)/Ahmadabad,-0.300325,69.0,2
+A2,India: Kolkata (Calcutta)/Ahmadnagar,-0.069444,69.0,2
+A2,India: Kolkata (Calcutta)/Aizawl,-0.932596,69.0,2
+A2,India: Kolkata (Calcutta)/Ajmer,0.017368,69.0,2
+A2,India: Kolkata (Calcutta)/Akola,-0.178882,69.0,2
+A2,India: Kolkata (Calcutta)/Aligarh,-0.247983,69.0,2
+A2,India: Kolkata (Calcutta)/Allahabad,-0.059896,69.0,2
+A2,India: Kolkata (Calcutta)/Alwar,-0.240043,69.0,2
+A2,India: Kolkata (Calcutta)/Amravati,-0.263397,69.0,2
+A2,India: Kolkata (Calcutta)/Amritsar,-0.048848,69.0,2
+A2,India: Kolkata (Calcutta)/Anand,-0.451056,69.0,2
+A2,India: Kolkata (Calcutta)/Anantapur,-0.411688,69.0,2
+A2,India: Kolkata (Calcutta)/Arrah,-0.099711,69.0,2
+A2,India: Kolkata (Calcutta)/Asansol,-0.288828,69.0,2
+A2,India: Kolkata (Calcutta)/Aurangabad,-0.638506,69.0,2
+A2,India: Kolkata (Calcutta)/Baharampur,-0.176053,69.0,2
+A2,India: Kolkata (Calcutta)/Bangalore,-0.427678,69.0,2
+A2,India: Kolkata (Calcutta)/Barddhaman,-0.128427,69.0,2
+A2,India: Kolkata (Calcutta)/Bareilly,-0.146631,69.0,2
+A2,India: Kolkata (Calcutta)/Bathinda,-0.340035,69.0,2
+A2,India: Kolkata (Calcutta)/Begusarai,-0.495511,69.0,2
+A2,India: Kolkata (Calcutta)/Belgaum,-0.199368,69.0,2
+A2,India: Kolkata (Calcutta)/Bellary,-0.241193,69.0,2
+A2,India: Kolkata (Calcutta)/Bhagalpur,-0.051921,69.0,2
+A2,India: Kolkata (Calcutta)/Bhavnagar,-0.133297,69.0,2
+A2,India: Kolkata (Calcutta)/Bhilwara,-0.440447,69.0,2
+A2,India: Kolkata (Calcutta)/Bhiwandi,-0.789074,69.0,2
+A2,India: Kolkata (Calcutta)/Bhopal,-0.592458,69.0,2
+A2,India: Kolkata (Calcutta)/Bhubaneswar,-0.987869,69.0,2
+A2,India: Kolkata (Calcutta)/Bihar Sharif,-0.162793,69.0,2
+A2,India: Kolkata (Calcutta)/Bijapur,-0.178008,69.0,2
+A2,India: Kolkata (Calcutta)/Bikaner,-0.173983,69.0,2
+A2,India: Kolkata (Calcutta)/Bilaspur,-0.390079,69.0,2
+A2,India: Kolkata (Calcutta)/Bokaro Steel City,-1.163535,69.0,2
+A2,India: Kolkata (Calcutta)/Brahmapur,-0.233104,69.0,2
+A2,India: Kolkata (Calcutta)/Chandigarh,-0.674232,69.0,2
+A2,India: Kolkata (Calcutta)/Chandrapur,-0.374548,69.0,2
+A2,India: Kolkata (Calcutta)/Chennai (Madras),-0.218522,69.0,2
+A2,India: Kolkata (Calcutta)/Cherthala,-0.946816,69.0,2
+A2,India: Kolkata (Calcutta)/Coimbatore,-0.273117,69.0,2
+A2,India: Kolkata (Calcutta)/Cuttack,-0.273978,69.0,2
+A2,India: Kolkata (Calcutta)/Darbhanga,-0.071846,69.0,2
+A2,India: Kolkata (Calcutta)/Davanagere,-0.345284,69.0,2
+A2,India: Kolkata (Calcutta)/Dehradun,-0.178047,69.0,2
+A2,India: Kolkata (Calcutta)/Delhi,-0.549457,69.0,2
+A2,India: Kolkata (Calcutta)/Deoghar,-0.288101,69.0,2
+A2,India: Kolkata (Calcutta)/Dewas,-0.463032,69.0,2
+A2,India: Kolkata (Calcutta)/Dhanbad,-0.507987,69.0,2
+A2,India: Kolkata (Calcutta)/Dhule,-0.189773,69.0,2
+A2,India: Kolkata (Calcutta)/Dhulian,-0.522025,69.0,2
+A2,India: Kolkata (Calcutta)/Dindigul,-0.064238,69.0,2
+A2,India: Kolkata (Calcutta)/Durg-Bhilainagar,-0.843119,69.0,2
+A2,India: Kolkata (Calcutta)/Durgapur,-0.989095,69.0,2
+A2,India: Kolkata (Calcutta)/English Bazar,-0.370038,69.0,2
+A2,India: Kolkata (Calcutta)/Erode,-0.331818,69.0,2
+A2,India: Kolkata (Calcutta)/Farrukhabad,-0.077806,69.0,2
+A2,India: Kolkata (Calcutta)/Firozabad,-0.357628,69.0,2
+A2,India: Kolkata (Calcutta)/Gandhidham,-0.792835,69.0,2
+A2,India: Kolkata (Calcutta)/Gaya,-0.063203,69.0,2
+A2,India: Kolkata (Calcutta)/Gorakhpur,-0.203761,69.0,2
+A2,India: Kolkata (Calcutta)/Gulbarga,-0.306346,69.0,2
+A2,India: Kolkata (Calcutta)/Guntur,-0.180762,69.0,2
+A2,India: Kolkata (Calcutta)/Guwahati (Gauhati),-0.615966,69.0,2
+A2,India: Kolkata (Calcutta)/Gwalior,-0.144822,69.0,2
+A2,India: Kolkata (Calcutta)/Habra,-0.275438,69.0,2
+A2,India: Kolkata (Calcutta)/Haldwani-cum-kathgodam,-0.353445,69.0,2
+A2,India: Kolkata (Calcutta)/Hapur,-0.215664,69.0,2
+A2,India: Kolkata (Calcutta)/Hardwar,-0.232725,69.0,2
+A2,India: Kolkata (Calcutta)/Hisar,-0.345906,69.0,2
+A2,India: Kolkata (Calcutta)/Hosur,-0.685909,69.0,2
+A2,India: Kolkata (Calcutta)/Hubli-Dharwad,-0.170251,69.0,2
+A2,India: Kolkata (Calcutta)/Hyderabad,-0.308655,69.0,2
+A2,India: Kolkata (Calcutta)/Ichalkaranji,-0.477063,69.0,2
+A2,India: Kolkata (Calcutta)/Imphal,-0.244937,69.0,2
+A2,India: Kolkata (Calcutta)/Indore,-0.283917,69.0,2
+A2,India: Kolkata (Calcutta)/Jabalpur,-0.165525,69.0,2
+A2,India: Kolkata (Calcutta)/Jaipur,-0.42141,69.0,2
+A2,India: Kolkata (Calcutta)/Jalandhar,-0.178787,69.0,2
+A2,India: Kolkata (Calcutta)/Jalgaon,-0.291939,69.0,2
+A2,India: Kolkata (Calcutta)/Jalna,-0.18347,69.0,2
+A2,India: Kolkata (Calcutta)/Jammu,-0.35615,69.0,2
+A2,India: Kolkata (Calcutta)/Jamnagar,-0.211413,69.0,2
+A2,India: Kolkata (Calcutta)/Jamshedpur,-0.230723,69.0,2
+A2,India: Kolkata (Calcutta)/Jhansi,-0.116108,69.0,2
+A2,India: Kolkata (Calcutta)/Jodhpur,-0.265154,69.0,2
+A2,India: Kolkata (Calcutta)/Junagadh,-0.176219,69.0,2
+A2,India: Kolkata (Calcutta)/Kadapa,-0.411346,69.0,2
+A2,India: Kolkata (Calcutta)/Kakinada,-0.151163,69.0,2
+A2,India: Kolkata (Calcutta)/Kanhangad,-0.442553,69.0,2
+A2,India: Kolkata (Calcutta)/Kannur,-0.628976,69.0,2
+A2,India: Kolkata (Calcutta)/Kanpur,-0.104688,69.0,2
+A2,India: Kolkata (Calcutta)/Karimnagar,-0.511263,69.0,2
+A2,India: Kolkata (Calcutta)/Karnal,-0.178989,69.0,2
+A2,India: Kolkata (Calcutta)/Karur,-0.19492,69.0,2
+A2,India: Kolkata (Calcutta)/Kayamkulam,-0.293623,69.0,2
+A2,India: Kolkata (Calcutta)/Khammam,-0.413728,69.0,2
+A2,India: Kolkata (Calcutta)/Kharagpur,0.069439,69.0,2
+A2,India: Kolkata (Calcutta)/Kochi (Cochin),-0.358107,69.0,2
+A2,India: Kolkata (Calcutta)/Kolhapur,-0.100676,69.0,2
+A2,India: Kolkata (Calcutta)/Kollam,-0.564707,69.0,2
+A2,India: Kolkata (Calcutta)/Korba,-1.114113,69.0,2
+A2,India: Kolkata (Calcutta)/Kota,-0.537391,69.0,2
+A2,India: Kolkata (Calcutta)/Kottayam,-0.226314,69.0,2
+A2,India: Kolkata (Calcutta)/Kozhikode (Calicut),-0.314755,69.0,2
+A2,India: Kolkata (Calcutta)/Kurnool,-0.302992,69.0,2
+A2,India: Kolkata (Calcutta)/Latur,-0.481189,69.0,2
+A2,India: Kolkata (Calcutta)/Lucknow,-0.218823,69.0,2
+A2,India: Kolkata (Calcutta)/Ludhiana,-0.439601,69.0,2
+A2,India: Kolkata (Calcutta)/Madurai,-0.089339,69.0,2
+A2,India: Kolkata (Calcutta)/Malappuram,-0.87502,69.0,2
+A2,India: Kolkata (Calcutta)/Malegaon,-0.365681,69.0,2
+A2,India: Kolkata (Calcutta)/Mangalore,-0.187581,69.0,2
+A2,India: Kolkata (Calcutta)/Mathura,-0.106756,69.0,2
+A2,India: Kolkata (Calcutta)/Maunath Bhanjan,-0.320957,69.0,2
+A2,India: Kolkata (Calcutta)/Meerut,-0.261234,69.0,2
+A2,India: Kolkata (Calcutta)/Moradabad,-0.195375,69.0,2
+A2,India: Kolkata (Calcutta)/Morvi,-0.230534,69.0,2
+A2,India: Kolkata (Calcutta)/Mumbai (Bombay),-0.227795,69.0,2
+A2,India: Kolkata (Calcutta)/Muzaffarnagar,-0.307285,69.0,2
+A2,India: Kolkata (Calcutta)/Muzaffarpur,-0.178347,69.0,2
+A2,India: Kolkata (Calcutta)/Mysore,-0.131373,69.0,2
+A2,India: Kolkata (Calcutta)/Nagpur,-0.178036,69.0,2
+A2,India: Kolkata (Calcutta)/Nanded Waghala,-0.378513,69.0,2
+A2,India: Kolkata (Calcutta)/Nashik,-0.410774,69.0,2
+A2,India: Kolkata (Calcutta)/Navsari,-0.263305,69.0,2
+A2,India: Kolkata (Calcutta)/Nellore,-0.288601,69.0,2
+A2,India: Kolkata (Calcutta)/Nizamabad,-0.233806,69.0,2
+A2,India: Kolkata (Calcutta)/Ottappalam,-0.275948,69.0,2
+A2,India: Kolkata (Calcutta)/Palakkad,-0.125004,69.0,2
+A2,India: Kolkata (Calcutta)/Panipat,-0.34611,69.0,2
+A2,India: Kolkata (Calcutta)/Parbhani,-0.448313,69.0,2
+A2,India: Kolkata (Calcutta)/Patiala,-0.124749,69.0,2
+A2,India: Kolkata (Calcutta)/Patna,-0.24542,69.0,2
+A2,India: Kolkata (Calcutta)/Puducherry,-0.823714,69.0,2
+A2,India: Kolkata (Calcutta)/Pune (Poona),-0.352192,69.0,2
+A2,India: Kolkata (Calcutta)/Purnia,-0.406485,69.0,2
+A2,India: Kolkata (Calcutta)/Raipur,-0.460989,69.0,2
+A2,India: Kolkata (Calcutta)/Rajahmundry,-0.121776,69.0,2
+A2,India: Kolkata (Calcutta)/Rajkot,-0.416963,69.0,2
+A2,India: Kolkata (Calcutta)/Rampur,0.034545,69.0,2
+A2,India: Kolkata (Calcutta)/Ranchi,-0.458987,69.0,2
+A2,India: Kolkata (Calcutta)/Raniganj,-0.324117,69.0,2
+A2,India: Kolkata (Calcutta)/Ranipet,-0.083284,69.0,2
+A2,India: Kolkata (Calcutta)/Ratlam,-0.117769,69.0,2
+A2,India: Kolkata (Calcutta)/Raurkela,-0.464809,69.0,2
+A2,India: Kolkata (Calcutta)/Rohtak,-0.188925,69.0,2
+A2,India: Kolkata (Calcutta)/Roorkee,-0.261724,69.0,2
+A2,India: Kolkata (Calcutta)/Sagar,-0.149131,69.0,2
+A2,India: Kolkata (Calcutta)/Saharanpur,-0.130796,69.0,2
+A2,India: Kolkata (Calcutta)/Salem,-0.124393,69.0,2
+A2,India: Kolkata (Calcutta)/Sangli,-0.221788,69.0,2
+A2,India: Kolkata (Calcutta)/Santipur,-0.268113,69.0,2
+A2,India: Kolkata (Calcutta)/Satna,-0.510912,69.0,2
+A2,India: Kolkata (Calcutta)/Shahjahanpur,-0.05959,69.0,2
+A2,India: Kolkata (Calcutta)/Shillong,-0.196489,69.0,2
+A2,India: Kolkata (Calcutta)/Shimoga,-0.293493,69.0,2
+A2,India: Kolkata (Calcutta)/Siliguri,-0.667298,69.0,2
+A2,India: Kolkata (Calcutta)/Solapur,-0.046433,69.0,2
+A2,India: Kolkata (Calcutta)/Srinagar,-0.18335,69.0,2
+A2,India: Kolkata (Calcutta)/Surat,-0.638731,69.0,2
+A2,India: Kolkata (Calcutta)/Thanjavur,0.004399,69.0,2
+A2,India: Kolkata (Calcutta)/Thiruvananthapuram,-0.271994,69.0,2
+A2,India: Kolkata (Calcutta)/Thoothukkudi (Tuticorin),-0.09486,69.0,2
+A2,India: Kolkata (Calcutta)/Thrissur,-0.546068,69.0,2
+A2,India: Kolkata (Calcutta)/Tiruchirappalli,-0.053018,69.0,2
+A2,India: Kolkata (Calcutta)/Tirunelveli,-0.011461,69.0,2
+A2,India: Kolkata (Calcutta)/Tirupati,-0.623617,69.0,2
+A2,India: Kolkata (Calcutta)/Tiruppur,-0.520005,69.0,2
+A2,India: Kolkata (Calcutta)/Tumkur,-0.375202,69.0,2
+A2,India: Kolkata (Calcutta)/Udaipur,-0.20813,69.0,2
+A2,India: Kolkata (Calcutta)/Ujjain,-0.119219,69.0,2
+A2,India: Kolkata (Calcutta)/Vadodara,-0.370034,69.0,2
+A2,India: Kolkata (Calcutta)/Varanasi (Benares),-0.07639,69.0,2
+A2,India: Kolkata (Calcutta)/Vellore,-0.142888,69.0,2
+A2,India: Kolkata (Calcutta)/Vijayawada,-0.380097,69.0,2
+A2,India: Kolkata (Calcutta)/Visakhapatnam,-0.560025,69.0,2
+A2,India: Kolkata (Calcutta)/Warangal,-0.239712,69.0,2
+A2,India: Kolkata (Calcutta)/Yamunanagar,-0.347195,69.0,2
+A2,Indonesia: Jakarta/Ambon,-0.122444,69.0,2
+A2,Indonesia: Jakarta/Balikpapan,-0.138536,69.0,2
+A2,Indonesia: Jakarta/Bandar Lampung,-0.547122,69.0,2
+A2,Indonesia: Jakarta/Bandung,0.132551,69.0,2
+A2,Indonesia: Jakarta/Banjarmasin,0.098238,69.0,2
+A2,Indonesia: Jakarta/Batam,-0.29349,69.0,2
+A2,Indonesia: Jakarta/Bekasi,-1.132165,69.0,2
+A2,Indonesia: Jakarta/Bengkulu,-0.383055,69.0,2
+A2,Indonesia: Jakarta/Bogor,-0.1322,69.0,2
+A2,Indonesia: Jakarta/Cirebon,0.295711,69.0,2
+A2,Indonesia: Jakarta/Denpasar,-0.4135,69.0,2
+A2,Indonesia: Jakarta/Depok,-0.444422,69.0,2
+A2,Indonesia: Jakarta/Jambi,-0.084314,69.0,2
+A2,Indonesia: Jakarta/Jayapura,-0.540891,69.0,2
+A2,Indonesia: Jakarta/Makassar (Ujung Pandang),0.03472,69.0,2
+A2,Indonesia: Jakarta/Malang,0.172169,69.0,2
+A2,Indonesia: Jakarta/Manado,0.058044,69.0,2
+A2,Indonesia: Jakarta/Mataram,-0.049674,69.0,2
+A2,Indonesia: Jakarta/Medan,-0.085798,69.0,2
+A2,Indonesia: Jakarta/Padang,-0.155934,69.0,2
+A2,Indonesia: Jakarta/Palembang,0.054118,69.0,2
+A2,Indonesia: Jakarta/Pekalongan,0.208781,69.0,2
+A2,Indonesia: Jakarta/Pekan Baru,-0.451169,69.0,2
+A2,Indonesia: Jakarta/Pontianak,0.027743,69.0,2
+A2,Indonesia: Jakarta/Samarinda,-0.41211,69.0,2
+A2,Indonesia: Jakarta/Semarang,0.105652,69.0,2
+A2,Indonesia: Jakarta/Sukabumi,0.047735,69.0,2
+A2,Indonesia: Jakarta/Surabaya,0.135347,69.0,2
+A2,Indonesia: Jakarta/Surakarta,0.425696,69.0,2
+A2,Indonesia: Jakarta/Tangerang,-0.15925,69.0,2
+A2,Indonesia: Jakarta/Tasikmalaya,-0.001836,69.0,2
+A2,Indonesia: Jakarta/Yogyakarta,0.4452,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Ahvaz,-0.182128,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Arak,-0.13963,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Ardabil,-0.081286,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Bandar Abbas,-0.578619,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Esfahan,-0.069146,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Eslamshahr,-1.357005,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Gorgan,-0.280972,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Hamadan,0.053106,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Karaj,-1.175431,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Kashan,0.005029,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Kerman,-0.141488,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Kermanshah,-0.082492,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Khorramabad,-0.192284,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Mashhad,-0.26388,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Orumiyeh,-0.186559,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Qazvin,-7.7e-05,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Qods,-0.892016,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Qom,-0.244882,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Rasht,0.039453,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Sanandaj,-0.176588,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Sari,-0.244377,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Shahriyar,-0.739564,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Shiraz,-0.147145,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Tabriz,0.041157,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Yazd,-0.086041,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Zahedan,-0.716833,69.0,2
+A2,Iran (Islamic Republic of): Tehran/Zanjan,-0.134984,69.0,2
+A2,Iraq: Baghdad/Al-Basrah (Basra),0.094148,69.0,2
+A2,Iraq: Baghdad/Al-Mawsil (Mosul),0.033415,69.0,2
+A2,Iraq: Baghdad/Amara,-0.024192,69.0,2
+A2,Iraq: Baghdad/Baaqoobah,-0.280324,69.0,2
+A2,Iraq: Baghdad/Diwaniyah,-0.151963,69.0,2
+A2,Iraq: Baghdad/Faloojah,-0.195241,69.0,2
+A2,Iraq: Baghdad/Hillah,-0.004111,69.0,2
+A2,Iraq: Baghdad/Irbil (Erbil),-0.383105,69.0,2
+A2,Iraq: Baghdad/Karbala,-0.055837,69.0,2
+A2,Iraq: Baghdad/Kirkuk,0.101443,69.0,2
+A2,Iraq: Baghdad/Kut,-0.22084,69.0,2
+A2,Iraq: Baghdad/Najaf,0.072427,69.0,2
+A2,Iraq: Baghdad/Nasiriyah,-0.21242,69.0,2
+A2,Iraq: Baghdad/Ramadi,-0.337723,69.0,2
+A2,Iraq: Baghdad/Samarra,-0.106173,69.0,2
+A2,Iraq: Baghdad/Sulaimaniya,-0.214384,69.0,2
+A2,Israel: Tel Aviv-Yafo (Tel Aviv-Jaffa)/Be'er Sheva,-0.232288,69.0,2
+A2,Israel: Tel Aviv-Yafo (Tel Aviv-Jaffa)/Hefa (Haifa),0.090946,69.0,2
+A2,Israel: Tel Aviv-Yafo (Tel Aviv-Jaffa)/Jerusalem,0.017409,69.0,2
+A2,Italy: Roma (Rome)/Bari,0.121125,69.0,2
+A2,Italy: Roma (Rome)/Barletta,0.16155,69.0,2
+A2,Italy: Roma (Rome)/Bergamo,0.044479,69.0,2
+A2,Italy: Roma (Rome)/Bologna,0.152187,69.0,2
+A2,Italy: Roma (Rome)/Brescia,0.067952,69.0,2
+A2,Italy: Roma (Rome)/Busto Arsizio,0.045252,69.0,2
+A2,Italy: Roma (Rome)/Cagliari,0.003493,69.0,2
+A2,Italy: Roma (Rome)/Caserta,0.081572,69.0,2
+A2,Italy: Roma (Rome)/Catania,0.08786,69.0,2
+A2,Italy: Roma (Rome)/Como,0.058345,69.0,2
+A2,Italy: Roma (Rome)/Firenze (Florence),0.171613,69.0,2
+A2,Italy: Roma (Rome)/Genova (Genoa),0.286584,69.0,2
+A2,Italy: Roma (Rome)/Latina,-0.102415,69.0,2
+A2,Italy: Roma (Rome)/Lecco,0.089258,69.0,2
+A2,Italy: Roma (Rome)/Milano (Milan),0.089323,69.0,2
+A2,Italy: Roma (Rome)/Modena,0.08664,69.0,2
+A2,Italy: Roma (Rome)/Napoli (Naples),0.108672,69.0,2
+A2,Italy: Roma (Rome)/Nola,0.056122,69.0,2
+A2,Italy: Roma (Rome)/Padova,0.096727,69.0,2
+A2,Italy: Roma (Rome)/Palermo,0.118043,69.0,2
+A2,Italy: Roma (Rome)/Parma,0.165279,69.0,2
+A2,Italy: Roma (Rome)/Pescara,0.055677,69.0,2
+A2,Italy: Roma (Rome)/Reggio Emilia,0.097698,69.0,2
+A2,Italy: Roma (Rome)/Salerno,0.060685,69.0,2
+A2,Italy: Roma (Rome)/Seregno,-0.007727,69.0,2
+A2,Italy: Roma (Rome)/Taranto,0.109738,69.0,2
+A2,Italy: Roma (Rome)/Torino (Turin),0.073601,69.0,2
+A2,Italy: Roma (Rome)/Treviso,0.083133,69.0,2
+A2,Italy: Roma (Rome)/Venezia,0.179164,69.0,2
+A2,Italy: Roma (Rome)/Verona,0.074176,69.0,2
+A2,Italy: Roma (Rome)/Vicenza,0.067052,69.0,2
+A2,Japan: Tokyo/Akita,-0.029561,69.0,2
+A2,Japan: Tokyo/Asahikawa,-0.042557,69.0,2
+A2,Japan: Tokyo/Chukyo M.M.A. (Nagoya),-0.039731,69.0,2
+A2,Japan: Tokyo/Fukuyama,-0.33806,69.0,2
+A2,Japan: Tokyo/Hiroshima,-0.08473,69.0,2
+A2,Japan: Tokyo/Iwaki,-0.067392,69.0,2
+A2,Japan: Tokyo/Kagoshima,-0.045667,69.0,2
+A2,Japan: Tokyo/Kanazawa,0.051959,69.0,2
+A2,Japan: Tokyo/Kinki M.M.A. (Osaka),0.06674,69.0,2
+A2,Japan: Tokyo/Kitakyushu-Fukuoka M.M.A.,-0.03073,69.0,2
+A2,Japan: Tokyo/Kochi,-0.018701,69.0,2
+A2,Japan: Tokyo/Koriyama,-0.196709,69.0,2
+A2,Japan: Tokyo/Kumamoto,-0.062011,69.0,2
+A2,Japan: Tokyo/Kurashiki,-0.225822,69.0,2
+A2,Japan: Tokyo/Kurume,-0.046891,69.0,2
+A2,Japan: Tokyo/Maebashi,-0.094296,69.0,2
+A2,Japan: Tokyo/Matsuyama,-0.157593,69.0,2
+A2,Japan: Tokyo/Miyazaki,-0.219735,69.0,2
+A2,Japan: Tokyo/Nagano,-0.09473,69.0,2
+A2,Japan: Tokyo/Nagasaki,0.070692,69.0,2
+A2,Japan: Tokyo/Naha,-0.014331,69.0,2
+A2,Japan: Tokyo/Niigata,-0.174979,69.0,2
+A2,Japan: Tokyo/Oita,-0.256024,69.0,2
+A2,Japan: Tokyo/Okayama,-0.244961,69.0,2
+A2,Japan: Tokyo/Sapporo,-0.042546,69.0,2
+A2,Japan: Tokyo/Sendai,-0.099201,69.0,2
+A2,Japan: Tokyo/Shizuoka-Hamamatsu M.M.A.,-0.181881,69.0,2
+A2,Japan: Tokyo/Takamatsu,-0.174693,69.0,2
+A2,Japan: Tokyo/Takasaki,-0.399152,69.0,2
+A2,Japan: Tokyo/Toyama,-0.113385,69.0,2
+A2,Japan: Tokyo/Toyohashi,-0.114169,69.0,2
+A2,Japan: Tokyo/Utsunomiya,-0.166137,69.0,2
+A2,Jordan: Amman/Al-Quwaysimah,-0.514335,69.0,2
+A2,Jordan: Amman/Ar-Rusayfah,-0.856067,69.0,2
+A2,Jordan: Amman/Irbid,-0.06791,69.0,2
+A2,Jordan: Amman/Tila al-Ali,-0.747846,69.0,2
+A2,Jordan: Amman/Zarqa,-0.05209,69.0,2
+A2,Kazakhstan: Almaty/Aktyubinsk,-0.071486,69.0,2
+A2,Kazakhstan: Almaty/Astana,-0.283793,69.0,2
+A2,Kazakhstan: Almaty/Karaganda,0.315454,69.0,2
+A2,Kazakhstan: Almaty/Pavlodar,-0.133466,69.0,2
+A2,Kazakhstan: Almaty/Semipalatinsk,0.173385,69.0,2
+A2,Kazakhstan: Almaty/Shimkent,-0.120182,69.0,2
+A2,Kazakhstan: Almaty/Taraz,-0.018096,69.0,2
+A2,Kazakhstan: Almaty/Ust-Kamenogorsk,0.001683,69.0,2
+A2,Kenya: Nairobi/Eldoret,-0.121338,69.0,2
+A2,Kenya: Nairobi/Kisumu,-0.086686,69.0,2
+A2,Kenya: Nairobi/Mombasa,0.28231,69.0,2
+A2,Kenya: Nairobi/Nakuru,0.102038,69.0,2
+A2,Kenya: Nairobi/Ruiru,-0.966966,69.0,2
+A2,Libya: Tarabulus (Tripoli)/Banghazi,-0.030428,69.0,2
+A2,Libya: Tarabulus (Tripoli)/Misratah,-0.335749,69.0,2
+A2,Madagascar: Antananarivo/Antsirabe,-0.191149,69.0,2
+A2,Madagascar: Antananarivo/Toamasina,0.17218,69.0,2
+A2,Malawi: Blantyre-Limbe/Lilongwe,-0.56955,69.0,2
+A2,Malaysia: Kuala Lumpur/Alor Star,0.477856,69.0,2
+A2,Malaysia: Kuala Lumpur/Ipoh,0.447271,69.0,2
+A2,Malaysia: Kuala Lumpur/Johor Bahru,0.146988,69.0,2
+A2,Malaysia: Kuala Lumpur/Kota Bharu,0.265856,69.0,2
+A2,Malaysia: Kuala Lumpur/Kota Kinabalu,-0.035801,69.0,2
+A2,Malaysia: Kuala Lumpur/Kuala Terengganu,0.159773,69.0,2
+A2,Malaysia: Kuala Lumpur/Kuantan,0.354368,69.0,2
+A2,Malaysia: Kuala Lumpur/Kuching,0.488383,69.0,2
+A2,Malaysia: Kuala Lumpur/Sandakan,0.306737,69.0,2
+A2,Malaysia: Kuala Lumpur/Seremban,0.419723,69.0,2
+A2,Mali: Bamako/Sikasso,0.090776,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Acapulco de Juárez,-0.624666,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Aguascalientes,-0.212639,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Cancún,-3.806333,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Celaya,-0.403547,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Chihuahua,-0.117529,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Ciudad Juárez,-0.171203,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Ciudad Obregón,-0.122944,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Ciudad Victoria,-0.170757,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Coatzacoalcos,-0.373612,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Colima,-0.221879,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Cuautla Morelos,-0.602253,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Cuernavaca,-0.582955,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Culiacán,-0.295413,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Córdoba,-0.150172,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Durango,-0.134189,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Ensenada,-0.274524,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Guadalajara,-0.170278,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Hermosillo,-0.307274,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Irapuato,-0.079433,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/La Laguna,0.037815,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/León de los Aldamas,-0.136489,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Los Mochis,-0.233376,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Matamoros,-0.165962,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Mazatlán,-0.138216,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Mexicali,-0.225245,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Minatitlán,-0.400235,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Monclova,-0.350691,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Monterrey,-0.173184,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Morelia,-0.297594,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Mérida,-0.060457,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Nuevo Laredo,-0.007845,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Oaxaca de Juárez,-0.285912,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Orizaba,0.092324,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Pachuca de Soto,-0.180751,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Poza Rica de Hidalgo,-0.297445,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Puebla,-0.192457,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Puerto Vallarta,-0.945057,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Querétaro,-0.514418,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Reynosa,-0.39409,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Saltillo,-0.265115,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/San Luis Potosí,-0.049495,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Tampico,0.026141,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Tehuacán,-0.302302,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Tepic,-0.346433,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Tijuana,-0.487668,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Tlaxcala,-0.375421,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Toluca de Lerdo,-0.581582,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Tuxtla Gutierrez,-0.541477,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Uruapán,-0.146093,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Veracruz,-0.086964,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Villahermosa,-0.499481,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Xalapa,-0.177453,69.0,2
+A2,Mexico: Ciudad de México (Mexico City)/Zacatecas,-0.22991,69.0,2
+A2,Morocco: Dar-el-Beida (Casablanca)/Agadir,-0.99267,69.0,2
+A2,Morocco: Dar-el-Beida (Casablanca)/Fès,-0.020266,69.0,2
+A2,Morocco: Dar-el-Beida (Casablanca)/Kénitra,-0.048494,69.0,2
+A2,Morocco: Dar-el-Beida (Casablanca)/Marrakech,0.069102,69.0,2
+A2,Morocco: Dar-el-Beida (Casablanca)/Meknès,0.160221,69.0,2
+A2,Morocco: Dar-el-Beida (Casablanca)/Oujda,-0.004827,69.0,2
+A2,Morocco: Dar-el-Beida (Casablanca)/Rabat,-0.282765,69.0,2
+A2,Morocco: Dar-el-Beida (Casablanca)/Safi,-0.019748,69.0,2
+A2,Morocco: Dar-el-Beida (Casablanca)/Tanger,-0.134739,69.0,2
+A2,Morocco: Dar-el-Beida (Casablanca)/Tétouan,0.051082,69.0,2
+A2,Mozambique: Maputo/Beira,-0.049808,69.0,2
+A2,Mozambique: Maputo/Chimoio,0.028942,69.0,2
+A2,Mozambique: Maputo/Matola,-0.856346,69.0,2
+A2,Mozambique: Maputo/Nampula,0.209123,69.0,2
+A2,Mozambique: Maputo/Quelimane,0.364875,69.0,2
+A2,Mozambique: Maputo/Tete,0.221539,69.0,2
+A2,Myanmar: Yangon/Mandalay,-0.215166,69.0,2
+A2,Myanmar: Yangon/Nay Pyi Taw,-0.582598,69.0,2
+A2,Nepal: Kathmandu/Pokhara,-0.581009,69.0,2
+A2,Netherlands: Amsterdam/Eindhoven,-0.151664,69.0,2
+A2,Netherlands: Amsterdam/Rotterdam,0.003993,69.0,2
+A2,Netherlands: Amsterdam/Utrecht,-0.145022,69.0,2
+A2,Netherlands: Amsterdam/s-Gravenhage (The Hague),0.129155,69.0,2
+A2,New Zealand: Auckland/Christchurch,0.218669,69.0,2
+A2,New Zealand: Auckland/Wellington,0.065858,69.0,2
+A2,Niger: Niamey/Zinder,0.134943,69.0,2
+A2,Nigeria: Ibadan/Aba,-0.288809,69.0,2
+A2,Nigeria: Ibadan/Abakaliki,-0.46186,69.0,2
+A2,Nigeria: Ibadan/Abeokuta,0.085759,69.0,2
+A2,Nigeria: Ibadan/Abuja,-0.968185,69.0,2
+A2,Nigeria: Ibadan/Ado-Ekiti,-0.225053,69.0,2
+A2,Nigeria: Ibadan/Akure,-0.21666,69.0,2
+A2,Nigeria: Ibadan/Bauchi,-0.353842,69.0,2
+A2,Nigeria: Ibadan/Benin City,-0.508017,69.0,2
+A2,Nigeria: Ibadan/Birnin Kebbi,-0.397723,69.0,2
+A2,Nigeria: Ibadan/Calabar,-0.053887,69.0,2
+A2,Nigeria: Ibadan/Effon Alaiye,0.032754,69.0,2
+A2,Nigeria: Ibadan/Enugu,-0.144607,69.0,2
+A2,Nigeria: Ibadan/Gboko,-0.704186,69.0,2
+A2,Nigeria: Ibadan/Gombe,-0.211377,69.0,2
+A2,Nigeria: Ibadan/Gwagwalada,-0.624854,69.0,2
+A2,Nigeria: Ibadan/Ife,0.303478,69.0,2
+A2,Nigeria: Ibadan/Igbidu,0.189295,69.0,2
+A2,Nigeria: Ibadan/Ijebu-Ode,-0.034102,69.0,2
+A2,Nigeria: Ibadan/Ikorodu,-0.545942,69.0,2
+A2,Nigeria: Ibadan/Ikot Ekpene,-0.165789,69.0,2
+A2,Nigeria: Ibadan/Ilesha,0.277444,69.0,2
+A2,Nigeria: Ibadan/Ilorin,0.009425,69.0,2
+A2,Nigeria: Ibadan/Jos,-0.422965,69.0,2
+A2,Nigeria: Ibadan/Kaduna,-0.480949,69.0,2
+A2,Nigeria: Ibadan/Kano,-0.51742,69.0,2
+A2,Nigeria: Ibadan/Katsina,0.001268,69.0,2
+A2,Nigeria: Ibadan/Lafia,-0.333526,69.0,2
+A2,Nigeria: Ibadan/Lagos,-0.502854,69.0,2
+A2,Nigeria: Ibadan/Lokoja,-0.442021,69.0,2
+A2,Nigeria: Ibadan/Maiduguri,-0.260864,69.0,2
+A2,Nigeria: Ibadan/Makurdi,-0.07538,69.0,2
+A2,Nigeria: Ibadan/Minna,-0.142894,69.0,2
+A2,Nigeria: Ibadan/Nnewi,-1.097817,69.0,2
+A2,Nigeria: Ibadan/Ogbomosho,0.350759,69.0,2
+A2,Nigeria: Ibadan/Okene,-0.132642,69.0,2
+A2,Nigeria: Ibadan/Okpogho,-0.3528,69.0,2
+A2,Nigeria: Ibadan/Ondo,-0.119525,69.0,2
+A2,Nigeria: Ibadan/Onitsha,-0.136111,69.0,2
+A2,Nigeria: Ibadan/Oshogbo,0.110871,69.0,2
+A2,Nigeria: Ibadan/Owerri,-0.689104,69.0,2
+A2,Nigeria: Ibadan/Oyo,0.130495,69.0,2
+A2,Nigeria: Ibadan/Port Harcourt,-0.456664,69.0,2
+A2,Nigeria: Ibadan/Potiskum,-0.224179,69.0,2
+A2,Nigeria: Ibadan/Saki,-0.133275,69.0,2
+A2,Nigeria: Ibadan/Sokoto,-0.167153,69.0,2
+A2,Nigeria: Ibadan/Umuahia,-0.512831,69.0,2
+A2,Nigeria: Ibadan/Uyo,-0.941266,69.0,2
+A2,Nigeria: Ibadan/Warri,-0.481391,69.0,2
+A2,Nigeria: Ibadan/Zaria,-0.236521,69.0,2
+A2,Oman: Masqat (Muscat)/Salahah (Salalah),-0.317589,69.0,2
+A2,Pakistan: Karachi/Bahawalpur,-0.050039,69.0,2
+A2,Pakistan: Karachi/Dera Ghazikhan,0.091644,69.0,2
+A2,Pakistan: Karachi/Faisalabad,-0.056371,69.0,2
+A2,Pakistan: Karachi/Gujranwala,-0.075581,69.0,2
+A2,Pakistan: Karachi/Gujrat,0.12529,69.0,2
+A2,Pakistan: Karachi/Hyderabad,0.239655,69.0,2
+A2,Pakistan: Karachi/Islamabad,-0.304397,69.0,2
+A2,Pakistan: Karachi/Jhang,0.25921,69.0,2
+A2,Pakistan: Karachi/Kasur,0.25122,69.0,2
+A2,Pakistan: Karachi/Lahore,0.058893,69.0,2
+A2,Pakistan: Karachi/Larkana,-0.037893,69.0,2
+A2,Pakistan: Karachi/Mardan,0.206013,69.0,2
+A2,Pakistan: Karachi/Multan,0.132818,69.0,2
+A2,Pakistan: Karachi/Okara,0.148929,69.0,2
+A2,Pakistan: Karachi/Peshawar,0.018487,69.0,2
+A2,Pakistan: Karachi/Quetta,0.01386,69.0,2
+A2,Pakistan: Karachi/Rahim Yar Khan,-0.175014,69.0,2
+A2,Pakistan: Karachi/Rawalpindi,0.120454,69.0,2
+A2,Pakistan: Karachi/Sahiwal,0.219353,69.0,2
+A2,Pakistan: Karachi/Sargodha,0.147897,69.0,2
+A2,Pakistan: Karachi/Sheikhupura,-0.087523,69.0,2
+A2,Pakistan: Karachi/Sialkot,0.360788,69.0,2
+A2,Pakistan: Karachi/Sukkur,0.236086,69.0,2
+A2,Pakistan: Karachi/Wah,0.032855,69.0,2
+A2,Paraguay: Asunción/Ciudad del Este,-1.853078,69.0,2
+A2,Peru: Lima/Arequipa,0.055212,69.0,2
+A2,Peru: Lima/Chiclayo,-0.080878,69.0,2
+A2,Peru: Lima/Chimbote,-0.260084,69.0,2
+A2,Peru: Lima/Cusco,0.073154,69.0,2
+A2,Peru: Lima/Huancayo,-0.017223,69.0,2
+A2,Peru: Lima/Iquitos,-0.082703,69.0,2
+A2,Peru: Lima/Piura,-0.043314,69.0,2
+A2,Peru: Lima/Tacna,-0.244076,69.0,2
+A2,Peru: Lima/Trujillo,-0.142044,69.0,2
+A2,Philippines: Manila/Angeles City,0.030412,69.0,2
+A2,Philippines: Manila/Antipolo,-0.615686,69.0,2
+A2,Philippines: Manila/Bacolod,0.131208,69.0,2
+A2,Philippines: Manila/Bacoor,-0.455457,69.0,2
+A2,Philippines: Manila/Baguio City,-0.058274,69.0,2
+A2,Philippines: Manila/Basilan City (including City of Isabela),0.298996,69.0,2
+A2,Philippines: Manila/Batangas City,0.179323,69.0,2
+A2,Philippines: Manila/Binan,-0.174397,69.0,2
+A2,Philippines: Manila/Butuan,0.029424,69.0,2
+A2,Philippines: Manila/Cabuyao,-0.19607,69.0,2
+A2,Philippines: Manila/Cagayan de Oro City,-0.155813,69.0,2
+A2,Philippines: Manila/Calamba,-0.045934,69.0,2
+A2,Philippines: Manila/Cebu City,0.17968,69.0,2
+A2,Philippines: Manila/Cotabato,-0.197076,69.0,2
+A2,Philippines: Manila/Dasmarinas,-0.810468,69.0,2
+A2,Philippines: Manila/Davao City,-0.10494,69.0,2
+A2,Philippines: Manila/General Santos City,-0.245166,69.0,2
+A2,Philippines: Manila/General Trias,-0.135153,69.0,2
+A2,Philippines: Manila/Iligan,-0.07501,69.0,2
+A2,Philippines: Manila/Iloilo City,0.276122,69.0,2
+A2,Philippines: Manila/Imus,-0.163611,69.0,2
+A2,Philippines: Manila/Lapu-Lapu City,0.036161,69.0,2
+A2,Philippines: Manila/Lipa City,0.155929,69.0,2
+A2,Philippines: Manila/Mandaue City,-0.154753,69.0,2
+A2,Philippines: Manila/San Fernando,0.051329,69.0,2
+A2,Philippines: Manila/San Jose del Monte,-0.102711,69.0,2
+A2,Philippines: Manila/San Pedro,-0.607623,69.0,2
+A2,Philippines: Manila/Santa Rosa,-0.220966,69.0,2
+A2,Philippines: Manila/Tarlac,0.221378,69.0,2
+A2,Philippines: Manila/Zamboanga City,0.006522,69.0,2
+A2,Poland: Warszawa (Warsaw)/Bydgoszcz,-0.026815,69.0,2
+A2,Poland: Warszawa (Warsaw)/Gdańsk,-0.039641,69.0,2
+A2,Poland: Warszawa (Warsaw)/Kraków (Cracow),-0.017709,69.0,2
+A2,Poland: Warszawa (Warsaw)/Lublin,-0.121225,69.0,2
+A2,Poland: Warszawa (Warsaw)/Poznań,0.054052,69.0,2
+A2,Poland: Warszawa (Warsaw)/Szczecin,-0.020899,69.0,2
+A2,Poland: Warszawa (Warsaw)/Wrocław,0.006058,69.0,2
+A2,Poland: Warszawa (Warsaw)/Łódź,0.177181,69.0,2
+A2,Portugal: Lisboa (Lisbon)/Porto,0.079096,69.0,2
+A2,Puerto Rico: San Juan/Aguadilla-Isabela-San Sebastian,0.390488,69.0,2
+A2,Qatar: Ad-Dawhah (Doha)/Ar-Rayyan,-0.643465,69.0,2
+A2,Qatar: Ad-Dawhah (Doha)/Doha Industrial Area,-1.722905,69.0,2
+A2,Republic of Korea: Seoul/Ansan,-0.68566,69.0,2
+A2,Republic of Korea: Seoul/Anyang,-0.848046,69.0,2
+A2,Republic of Korea: Seoul/Bucheon,-0.465917,69.0,2
+A2,Republic of Korea: Seoul/Busan,0.245674,69.0,2
+A2,Republic of Korea: Seoul/Changwon,-0.174649,69.0,2
+A2,Republic of Korea: Seoul/Cheonan,-0.353467,69.0,2
+A2,Republic of Korea: Seoul/Cheongju,-0.064925,69.0,2
+A2,Republic of Korea: Seoul/Daegu,0.121291,69.0,2
+A2,Republic of Korea: Seoul/Daejon,-0.087074,69.0,2
+A2,Republic of Korea: Seoul/Gimhae,-0.173546,69.0,2
+A2,Republic of Korea: Seoul/Goyang,-0.307104,69.0,2
+A2,Republic of Korea: Seoul/Gumi,-0.349542,69.0,2
+A2,Republic of Korea: Seoul/Gwangju,0.030585,69.0,2
+A2,Republic of Korea: Seoul/Gwangmyeong,-0.055344,69.0,2
+A2,Republic of Korea: Seoul/Incheon,-0.061485,69.0,2
+A2,Republic of Korea: Seoul/Jeju,0.106124,69.0,2
+A2,Republic of Korea: Seoul/Jeonju,0.09701,69.0,2
+A2,Republic of Korea: Seoul/Pohang,-0.314146,69.0,2
+A2,Republic of Korea: Seoul/Seongnam,-0.246082,69.0,2
+A2,Republic of Korea: Seoul/Siheung,-1.142324,69.0,2
+A2,Republic of Korea: Seoul/Suweon,-0.229639,69.0,2
+A2,Republic of Korea: Seoul/Uijeongbu,-0.03225,69.0,2
+A2,Republic of Korea: Seoul/Ulsan,-0.440099,69.0,2
+A2,Republic of Korea: Seoul/Yongin,-0.124795,69.0,2
+A2,Romania: Bucuresti (Bucharest)/Cluj-Napoca,0.042492,69.0,2
+A2,Romania: Bucuresti (Bucharest)/Iasi,-0.089213,69.0,2
+A2,Romania: Bucuresti (Bucharest)/Timisoara,0.00832,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Arkhangelsk,0.070434,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Astrakhan,-0.016234,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Balashikha,-0.262901,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Barnaul,-0.077756,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Belgorod,-0.478833,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Bryansk,-0.095806,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Cheboksary,-0.431837,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Chelyabinsk,0.017966,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Cherepovets,-0.334299,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Chita,-0.066262,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Irkutsk,0.017182,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Ivanovo,0.118897,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Izhevsk,-0.124641,69.0,2
+A2,"Russian Federation: Moskva (Moscow)/Kaliningrad, Kaliningrad Oblast",-0.102852,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Kaluga,-0.169046,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Kazan,-0.016395,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Kemerovo,-0.057897,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Khabarovsk,-0.035984,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Kirov,-0.040219,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Krasnodar,-0.131506,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Krasnoyarsk,-0.149639,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Kurgan,-0.156728,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Kursk,-0.088861,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Lipetsk,-0.292644,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Magnitogorsk,0.105013,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Makhachkala,-0.367211,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Naberezhnye Tchelny,-1.287526,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Nizhniy Novgorod,0.086616,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Nizhny Tagil,0.18186,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Novokuznetsk,0.054064,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Novosibirsk,0.008456,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Omsk,-0.071837,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Orel,-0.122583,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Orenburg,-0.0792,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Penza,-0.090954,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Perm,0.012465,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Podolsk,-0.107381,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Rostov-na-Donu (Rostov-on-Don),-0.022739,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Ryazan,-0.175048,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Samara,0.060148,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Sankt Peterburg (Saint Petersburg),0.065543,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Saransk,-0.331881,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Saratov,0.054237,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Smolensk,-0.124313,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Sochi,-0.231922,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Stavropol,-0.188317,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Surgut,-1.500321,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Tolyatti,-0.819068,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Tomsk,-0.087049,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Tula,0.019401,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Tver,0.021318,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Tyumen,-0.35796,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Ufa,-0.067878,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Ulan-Ude,-0.114651,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Ulyanovsk,-0.266196,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Vladikavkaz,-0.051815,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Vladimir,-0.090694,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Vladivostok,-0.099724,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Volgograd,-0.007948,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Vologda,-0.092125,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Volzhsky,-0.456443,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Voronezh,-0.105339,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Yakutsk,-0.271638,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Yaroslavl,0.053533,69.0,2
+A2,Russian Federation: Moskva (Moscow)/Yekaterinburg,-0.011074,69.0,2
+A2,Saudi Arabia: Makkah (Mecca)/Ad-Dammam,-0.468009,69.0,2
+A2,Saudi Arabia: Makkah (Mecca)/Al-Madinah (Medina),-0.264372,69.0,2
+A2,Saudi Arabia: Makkah (Mecca)/Ar-Riyadh (Riyadh),-0.523745,69.0,2
+A2,Saudi Arabia: Makkah (Mecca)/Buraydah,-0.165117,69.0,2
+A2,Saudi Arabia: Makkah (Mecca)/Ha'il,-0.307563,69.0,2
+A2,Saudi Arabia: Makkah (Mecca)/Hafar al-Batin,-0.500666,69.0,2
+A2,Saudi Arabia: Makkah (Mecca)/Hufuf-Mubarraz,0.120073,69.0,2
+A2,Saudi Arabia: Makkah (Mecca)/Jiddah,-0.37899,69.0,2
+A2,Saudi Arabia: Makkah (Mecca)/Jubayl,-0.523994,69.0,2
+A2,Saudi Arabia: Makkah (Mecca)/Khamis Mushayt,-0.507304,69.0,2
+A2,Saudi Arabia: Makkah (Mecca)/Khubar,-0.444742,69.0,2
+A2,Saudi Arabia: Makkah (Mecca)/Najran,-0.523858,69.0,2
+A2,Saudi Arabia: Makkah (Mecca)/Tabuk,-0.410289,69.0,2
+A2,Saudi Arabia: Makkah (Mecca)/Taif,-0.110883,69.0,2
+A2,Saudi Arabia: Makkah (Mecca)/Thuqbah,-0.483261,69.0,2
+A2,Saudi Arabia: Makkah (Mecca)/Yanbu' al-Bahr,-0.467257,69.0,2
+A2,Senegal: Dakar/Rufisque,0.156709,69.0,2
+A2,Senegal: Dakar/Thies,0.100122,69.0,2
+A2,Somalia: Muqdisho (Mogadishu)/Berbera,0.054933,69.0,2
+A2,Somalia: Muqdisho (Mogadishu)/Hargeysa,0.203546,69.0,2
+A2,Somalia: Muqdisho (Mogadishu)/Kismaayo,-0.321164,69.0,2
+A2,Somalia: Muqdisho (Mogadishu)/Merca,0.340992,69.0,2
+A2,South Africa: Johannesburg/Bloemfontein,0.013547,69.0,2
+A2,South Africa: Johannesburg/Cape Town,-0.117848,69.0,2
+A2,South Africa: Johannesburg/Durban (Ethekwini),-0.128019,69.0,2
+A2,South Africa: Johannesburg/East London (Buffalo City),-0.193919,69.0,2
+A2,South Africa: Johannesburg/Ekurhuleni,-0.084184,69.0,2
+A2,South Africa: Johannesburg/Pietermaritzburg (The Msunduzi),-0.053426,69.0,2
+A2,South Africa: Johannesburg/Polokwane,-0.497838,69.0,2
+A2,South Africa: Johannesburg/Port Elizabeth (Nelson Mandela Bay),-0.101435,69.0,2
+A2,South Africa: Johannesburg/Pretoria,-0.07728,69.0,2
+A2,South Africa: Johannesburg/Rustenburg,-0.501545,69.0,2
+A2,South Africa: Johannesburg/Soshanguve,-0.682991,69.0,2
+A2,South Africa: Johannesburg/Vereeniging,-0.120999,69.0,2
+A2,South Africa: Johannesburg/West Rand,0.09406,69.0,2
+A2,South Africa: Johannesburg/Witbank,-0.51876,69.0,2
+A2,Spain: Barcelona/Alicante,-0.088644,69.0,2
+A2,Spain: Barcelona/Bilbao,0.190166,69.0,2
+A2,Spain: Barcelona/Cordoba,0.082796,69.0,2
+A2,Spain: Barcelona/Las Palmas Gran Canaria,0.004421,69.0,2
+A2,Spain: Barcelona/Madrid,-0.074561,69.0,2
+A2,Spain: Barcelona/Malaga,0.054166,69.0,2
+A2,Spain: Barcelona/Murcia,0.094599,69.0,2
+A2,Spain: Barcelona/Palma,-0.049563,69.0,2
+A2,Spain: Barcelona/Sevilla,0.098007,69.0,2
+A2,Spain: Barcelona/Valencia,0.145927,69.0,2
+A2,Spain: Barcelona/Valladolid,-0.026985,69.0,2
+A2,Spain: Barcelona/Vigo,0.027391,69.0,2
+A2,Spain: Barcelona/Zaragoza,-0.005938,69.0,2
+A2,Sudan: Al-Khartum (Khartoum)/Al Gadarif,0.014559,69.0,2
+A2,Sudan: Al-Khartum (Khartoum)/Al Obeid (Al Ubayyid),0.368992,69.0,2
+A2,Sudan: Al-Khartum (Khartoum)/Kassala,0.310822,69.0,2
+A2,Sudan: Al-Khartum (Khartoum)/Nyala,-0.333503,69.0,2
+A2,Sudan: Al-Khartum (Khartoum)/Port Sudan (Bur Sudan),0.315044,69.0,2
+A2,Sudan: Al-Khartum (Khartoum)/Wad Medani,0.414418,69.0,2
+A2,Sweden: Stockholm/Göteborg,0.065723,69.0,2
+A2,Sweden: Stockholm/Malmö,0.101452,69.0,2
+A2,Switzerland: Zürich (Zurich)/Basel,0.094302,69.0,2
+A2,Switzerland: Zürich (Zurich)/Bern,0.094889,69.0,2
+A2,Switzerland: Zürich (Zurich)/Genève,-0.009604,69.0,2
+A2,Switzerland: Zürich (Zurich)/Lausanne,-0.00533,69.0,2
+A2,Syrian Arab Republic: Dimashq (Damascus)/Al-Hasakah,-0.549562,69.0,2
+A2,Syrian Arab Republic: Dimashq (Damascus)/Al-Raqqa,-0.846699,69.0,2
+A2,Syrian Arab Republic: Dimashq (Damascus)/Deir El-Zor(Deir ez-Zor),-0.1821,69.0,2
+A2,Syrian Arab Republic: Dimashq (Damascus)/Halab (Aleppo),-0.003865,69.0,2
+A2,Syrian Arab Republic: Dimashq (Damascus)/Hamah,-0.076224,69.0,2
+A2,Syrian Arab Republic: Dimashq (Damascus)/Hims (Homs),-0.232789,69.0,2
+A2,Syrian Arab Republic: Dimashq (Damascus)/Lattakia,-0.257328,69.0,2
+A2,Syrian Arab Republic: Dimashq (Damascus)/Tartus,-0.679109,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Buri Ram,-0.631726,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Chanthaburi,-0.585116,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Chiang Mai,-0.275471,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Chiang Rai,-0.704588,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Chon Buri,-0.649616,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Kalasin,-0.697447,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Khon-Kaen,-0.580272,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Lampang,-0.202412,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Lamphun,-0.441771,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Lop Buri,-0.242846,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Nakhon Pathom,-0.313114,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Nakhon Ratchasima,-0.512534,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Nonthaburi,-1.233542,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Pathum Thani,-1.605316,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Phra Nakhon Si Ayutthaya,-0.4325,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Phuket,-0.183918,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Ratchaburi,-0.484717,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Rayong,-0.802233,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Roi Et,-0.610939,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Sakon Nakhon,-0.410347,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Samut Prakan,-0.9159,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Samut Sakhon,-0.359772,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Songkhla,-0.580443,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Suphan Buri,-0.451217,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Surat Thani,-0.523098,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Ubon Ratchathani,-0.423572,69.0,2
+A2,Thailand: Krung Thep (Bangkok)/Udon Thani,-0.542396,69.0,2
+A2,Tunisia: Tunis/Safaqis,-0.113771,69.0,2
+A2,Turkey: Istanbul/Adana,0.095892,69.0,2
+A2,Turkey: Istanbul/Ankara,0.0091,69.0,2
+A2,Turkey: Istanbul/Antalya,-0.326533,69.0,2
+A2,Turkey: Istanbul/Balikesir,0.154653,69.0,2
+A2,Turkey: Istanbul/Batman,-0.209497,69.0,2
+A2,Turkey: Istanbul/Bursa,0.063644,69.0,2
+A2,Turkey: Istanbul/Denizli,-0.125473,69.0,2
+A2,Turkey: Istanbul/Diyarbakir,0.085768,69.0,2
+A2,Turkey: Istanbul/Elazig,0.244739,69.0,2
+A2,Turkey: Istanbul/Erzurum,0.175705,69.0,2
+A2,Turkey: Istanbul/Eskisehir,0.367393,69.0,2
+A2,Turkey: Istanbul/Gaziantep,0.048066,69.0,2
+A2,Turkey: Istanbul/Gebze,-0.808721,69.0,2
+A2,Turkey: Istanbul/Izmir,0.017886,69.0,2
+A2,Turkey: Istanbul/Izmit,0.354006,69.0,2
+A2,Turkey: Istanbul/Kahramanmaras,0.02386,69.0,2
+A2,Turkey: Istanbul/Kayseri,0.017944,69.0,2
+A2,Turkey: Istanbul/Konya,0.121902,69.0,2
+A2,Turkey: Istanbul/Malatya,0.149682,69.0,2
+A2,Turkey: Istanbul/Manisa,-0.093141,69.0,2
+A2,Turkey: Istanbul/Mersin,-0.02663,69.0,2
+A2,Turkey: Istanbul/Sakarya,0.08544,69.0,2
+A2,Turkey: Istanbul/Samsun,0.222215,69.0,2
+A2,Turkey: Istanbul/Sanliurfa,0.14434,69.0,2
+A2,Turkey: Istanbul/Sivas,0.317239,69.0,2
+A2,Turkey: Istanbul/Van,-0.281366,69.0,2
+A2,Ukraine: Kyiv (Kiev)/Dnipro,0.189923,69.0,2
+A2,Ukraine: Kyiv (Kiev)/Donetsk,0.239225,69.0,2
+A2,Ukraine: Kyiv (Kiev)/Kharkiv,0.191901,69.0,2
+A2,Ukraine: Kyiv (Kiev)/Kryvyi Rih,0.144917,69.0,2
+A2,Ukraine: Kyiv (Kiev)/Luhansk,0.171671,69.0,2
+A2,Ukraine: Kyiv (Kiev)/Lviv,0.163603,69.0,2
+A2,Ukraine: Kyiv (Kiev)/Makiivka,0.375777,69.0,2
+A2,Ukraine: Kyiv (Kiev)/Mariupol,0.14143,69.0,2
+A2,Ukraine: Kyiv (Kiev)/Mykolaiv,0.041899,69.0,2
+A2,Ukraine: Kyiv (Kiev)/Odesa,0.200794,69.0,2
+A2,Ukraine: Kyiv (Kiev)/Sevastopol,0.00289,69.0,2
+A2,Ukraine: Kyiv (Kiev)/Simferopol,0.129484,69.0,2
+A2,Ukraine: Kyiv (Kiev)/Vinnitsa,-0.100714,69.0,2
+A2,Ukraine: Kyiv (Kiev)/Zaporizhzhya,0.115192,69.0,2
+A2,United Arab Emirates: Dubayy (Dubai)/Abu Zaby (Abu Dhabi),-0.215518,69.0,2
+A2,United Arab Emirates: Dubayy (Dubai)/Ajman,-0.804893,69.0,2
+A2,United Arab Emirates: Dubayy (Dubai)/Al-Ain,-0.376436,69.0,2
+A2,United Arab Emirates: Dubayy (Dubai)/Ash-Shariqah (Sharjah),-0.481707,69.0,2
+A2,United Kingdom: London/Belfast,-0.143766,69.0,2
+A2,United Kingdom: London/Birkenhead,-0.041245,69.0,2
+A2,United Kingdom: London/Birmingham (West Midlands),-0.047672,69.0,2
+A2,United Kingdom: London/Bournemouth/Poole,-0.150863,69.0,2
+A2,United Kingdom: London/Brighton-Worthing-Littlehampton,-0.083842,69.0,2
+A2,United Kingdom: London/Bristol,-0.039962,69.0,2
+A2,United Kingdom: London/Cardiff,-0.149376,69.0,2
+A2,United Kingdom: London/Coventry-Bedworth,-0.062238,69.0,2
+A2,United Kingdom: London/Edinburgh,-0.035221,69.0,2
+A2,United Kingdom: London/Glasgow,0.004955,69.0,2
+A2,United Kingdom: London/Kingston upon Hull,0.03118,69.0,2
+A2,United Kingdom: London/Leicester,-0.100924,69.0,2
+A2,United Kingdom: London/Liverpool,0.15823,69.0,2
+A2,United Kingdom: London/Manchester,-0.034937,69.0,2
+A2,United Kingdom: London/Newcastle upon Tyne,0.046424,69.0,2
+A2,United Kingdom: London/Newport,-0.391709,69.0,2
+A2,United Kingdom: London/Nottingham,-0.046949,69.0,2
+A2,United Kingdom: London/Preston,-0.094162,69.0,2
+A2,United Kingdom: London/Reading-Wokingham,-0.234361,69.0,2
+A2,United Kingdom: London/Sheffield,-0.037481,69.0,2
+A2,United Kingdom: London/Southampton/Portsmouth (South Hampshire),-0.079609,69.0,2
+A2,United Kingdom: London/Southend-On-Sea,-0.049687,69.0,2
+A2,United Kingdom: London/Stoke-on-Trent (The Potteries),0.006856,69.0,2
+A2,United Kingdom: London/Sunderland,-0.204554,69.0,2
+A2,United Kingdom: London/Swansea,-0.046076,69.0,2
+A2,United Kingdom: London/Teeside (Middlesbrough),-0.006991,69.0,2
+A2,United Kingdom: London/West Yorkshire,-0.030008,69.0,2
+A2,United Republic of Tanzania: Dar es Salaam/Arusha,-0.08629,69.0,2
+A2,United Republic of Tanzania: Dar es Salaam/Mbeya,-0.273829,69.0,2
+A2,United Republic of Tanzania: Dar es Salaam/Morogoro,0.13342,69.0,2
+A2,United Republic of Tanzania: Dar es Salaam/Mwanza,-0.016238,69.0,2
+A2,United Republic of Tanzania: Dar es Salaam/Songea,-0.570006,69.0,2
+A2,United Republic of Tanzania: Dar es Salaam/Zanzibar,0.596977,69.0,2
+A2,United States of America: New York-Newark/Akron,-0.003937,69.0,2
+A2,United States of America: New York-Newark/Albany,0.007657,69.0,2
+A2,United States of America: New York-Newark/Albuquerque,-0.335425,69.0,2
+A2,United States of America: New York-Newark/Allentown-Bethlehem,-0.23842,69.0,2
+A2,United States of America: New York-Newark/Ann Arbor,-0.288124,69.0,2
+A2,United States of America: New York-Newark/Antioch,-1.351064,69.0,2
+A2,United States of America: New York-Newark/Asheville,-0.401942,69.0,2
+A2,United States of America: New York-Newark/Atlanta,-0.6016,69.0,2
+A2,United States of America: New York-Newark/Augusta-Richmond County,-0.385323,69.0,2
+A2,United States of America: New York-Newark/Austin,-0.651537,69.0,2
+A2,United States of America: New York-Newark/Bakersfield,-0.398725,69.0,2
+A2,United States of America: New York-Newark/Baltimore,-0.083392,69.0,2
+A2,United States of America: New York-Newark/Baton Rouge,-0.351988,69.0,2
+A2,United States of America: New York-Newark/Birmingham,-0.039895,69.0,2
+A2,United States of America: New York-Newark/Boise City,-0.691428,69.0,2
+A2,United States of America: New York-Newark/Bonita Springs-Naples,-2.018669,69.0,2
+A2,United States of America: New York-Newark/Boston,-0.042656,69.0,2
+A2,United States of America: New York-Newark/Bridgeport-Stamford,-0.10067,69.0,2
+A2,United States of America: New York-Newark/Buffalo,0.130324,69.0,2
+A2,United States of America: New York-Newark/Cape Coral,-1.032378,69.0,2
+A2,United States of America: New York-Newark/Charleston-North Charleston,-0.394004,69.0,2
+A2,United States of America: New York-Newark/Charlotte,-0.571493,69.0,2
+A2,United States of America: New York-Newark/Chattanooga,-0.151897,69.0,2
+A2,United States of America: New York-Newark/Chicago,-0.043118,69.0,2
+A2,United States of America: New York-Newark/Cincinnati,-0.06658,69.0,2
+A2,United States of America: New York-Newark/Cleveland,0.075771,69.0,2
+A2,United States of America: New York-Newark/Colorado Springs,-0.647114,69.0,2
+A2,"United States of America: New York-Newark/Columbia, South Carolina",-0.372975,69.0,2
+A2,"United States of America: New York-Newark/Columbus, Ohio",-0.227606,69.0,2
+A2,United States of America: New York-Newark/Concord,-0.294473,69.0,2
+A2,United States of America: New York-Newark/Corpus Christi,-0.174157,69.0,2
+A2,United States of America: New York-Newark/Dallas-Fort Worth,-0.444784,69.0,2
+A2,United States of America: New York-Newark/Dayton,-0.07887,69.0,2
+A2,United States of America: New York-Newark/Daytona Beach-Port Orange,-0.51124,69.0,2
+A2,United States of America: New York-Newark/Denton-Lewisville,-1.461146,69.0,2
+A2,United States of America: New York-Newark/Denver-Aurora,-0.367806,69.0,2
+A2,United States of America: New York-Newark/Des Moines,-0.127187,69.0,2
+A2,United States of America: New York-Newark/Detroit,0.046822,69.0,2
+A2,United States of America: New York-Newark/Durham,-0.432899,69.0,2
+A2,United States of America: New York-Newark/El Paso,-0.416346,69.0,2
+A2,United States of America: New York-Newark/Fayetteville,-0.650594,69.0,2
+A2,United States of America: New York-Newark/Fayetteville-Springdale,-0.584314,69.0,2
+A2,United States of America: New York-Newark/Flint,-0.041463,69.0,2
+A2,United States of America: New York-Newark/Fort Collins,-0.588007,69.0,2
+A2,United States of America: New York-Newark/Fort Wayne,-0.129042,69.0,2
+A2,United States of America: New York-Newark/Fresno,-0.393019,69.0,2
+A2,United States of America: New York-Newark/Grand Rapids,-0.173461,69.0,2
+A2,United States of America: New York-Newark/Greensboro,-0.285851,69.0,2
+A2,United States of America: New York-Newark/Greenville,-0.318875,69.0,2
+A2,United States of America: New York-Newark/Harrisburg,-0.183966,69.0,2
+A2,United States of America: New York-Newark/Hartford,-0.147106,69.0,2
+A2,United States of America: New York-Newark/Honolulu,-0.260178,69.0,2
+A2,United States of America: New York-Newark/Houston,-0.512286,69.0,2
+A2,United States of America: New York-Newark/Huntsville,-0.448868,69.0,2
+A2,United States of America: New York-Newark/Indianapolis,-0.216134,69.0,2
+A2,United States of America: New York-Newark/Indio-Cathedral City-Palm Springs,-1.258251,69.0,2
+A2,"United States of America: New York-Newark/Jackson, Mississippi",-0.285018,69.0,2
+A2,"United States of America: New York-Newark/Jacksonville, Florida",-0.345272,69.0,2
+A2,United States of America: New York-Newark/Kansas City,-0.112597,69.0,2
+A2,United States of America: New York-Newark/Kissimmee,-1.500982,69.0,2
+A2,United States of America: New York-Newark/Knoxville,-0.32933,69.0,2
+A2,United States of America: New York-Newark/Lafayette,-0.504391,69.0,2
+A2,United States of America: New York-Newark/Lakeland,-0.412388,69.0,2
+A2,United States of America: New York-Newark/Lancaster,-0.440827,69.0,2
+A2,United States of America: New York-Newark/Lancaster-Palmdale,-0.964451,69.0,2
+A2,United States of America: New York-Newark/Lansing,-0.156587,69.0,2
+A2,United States of America: New York-Newark/Laredo,-0.393932,69.0,2
+A2,United States of America: New York-Newark/Las Vegas,-1.190826,69.0,2
+A2,United States of America: New York-Newark/Lexington-Fayette,-0.285835,69.0,2
+A2,United States of America: New York-Newark/Little Rock,-0.225545,69.0,2
+A2,United States of America: New York-Newark/Los Angeles-Long Beach-Santa Ana,-0.217673,69.0,2
+A2,United States of America: New York-Newark/Louisville,-0.092448,69.0,2
+A2,United States of America: New York-Newark/Madison,-0.274984,69.0,2
+A2,United States of America: New York-Newark/McAllen,-1.284441,69.0,2
+A2,United States of America: New York-Newark/Memphis,-0.183643,69.0,2
+A2,United States of America: New York-Newark/Miami,-0.571064,69.0,2
+A2,United States of America: New York-Newark/Milwaukee,-0.006216,69.0,2
+A2,United States of America: New York-Newark/Minneapolis-St. Paul,-0.183651,69.0,2
+A2,United States of America: New York-Newark/Mission Viejo,-0.331005,69.0,2
+A2,United States of America: New York-Newark/Mobile,-0.034693,69.0,2
+A2,United States of America: New York-Newark/Modesto,-0.88682,69.0,2
+A2,United States of America: New York-Newark/Montgomery,-0.152896,69.0,2
+A2,United States of America: New York-Newark/Myrtle Beach,-0.999227,69.0,2
+A2,United States of America: New York-Newark/Nashville-Davidson,-0.296563,69.0,2
+A2,United States of America: New York-Newark/New Haven,-0.166359,69.0,2
+A2,United States of America: New York-Newark/New Orleans,0.019349,69.0,2
+A2,United States of America: New York-Newark/Ogden-Layton,-0.49028,69.0,2
+A2,United States of America: New York-Newark/Oklahoma City,-0.226752,69.0,2
+A2,United States of America: New York-Newark/Omaha,-0.143013,69.0,2
+A2,United States of America: New York-Newark/Orlando,-0.841261,69.0,2
+A2,United States of America: New York-Newark/Oxnard,-0.824975,69.0,2
+A2,United States of America: New York-Newark/Palm Bay-Melbourne,-0.321167,69.0,2
+A2,United States of America: New York-Newark/Pensacola,-0.336064,69.0,2
+A2,United States of America: New York-Newark/Philadelphia,-0.045127,69.0,2
+A2,United States of America: New York-Newark/Phoenix-Mesa,-0.766979,69.0,2
+A2,United States of America: New York-Newark/Pittsburgh,0.102613,69.0,2
+A2,United States of America: New York-Newark/Port St. Lucie,-2.970248,69.0,2
+A2,United States of America: New York-Newark/Portland,-0.304972,69.0,2
+A2,United States of America: New York-Newark/Poughkeepsie-Newburgh,-0.414813,69.0,2
+A2,United States of America: New York-Newark/Providence,-0.059445,69.0,2
+A2,United States of America: New York-Newark/Provo-Orem,-0.679659,69.0,2
+A2,United States of America: New York-Newark/Raleigh,-0.730956,69.0,2
+A2,United States of America: New York-Newark/Reno,-0.584522,69.0,2
+A2,United States of America: New York-Newark/Richmond,-0.315457,69.0,2
+A2,United States of America: New York-Newark/Riverside-San Bernardino,-0.682357,69.0,2
+A2,United States of America: New York-Newark/Rochester,-0.054383,69.0,2
+A2,United States of America: New York-Newark/Rockford,-0.133557,69.0,2
+A2,United States of America: New York-Newark/Round Lake Beach-McHenry-Grayslake,-1.154518,69.0,2
+A2,United States of America: New York-Newark/Sacramento,-0.521139,69.0,2
+A2,United States of America: New York-Newark/Salt Lake City,-0.371794,69.0,2
+A2,United States of America: New York-Newark/San Antonio,-0.309054,69.0,2
+A2,United States of America: New York-Newark/San Diego,-0.49626,69.0,2
+A2,United States of America: New York-Newark/San Francisco-Oakland,-0.067809,69.0,2
+A2,United States of America: New York-Newark/San Jose,-0.507371,69.0,2
+A2,United States of America: New York-Newark/Santa Clarita,-1.221424,69.0,2
+A2,United States of America: New York-Newark/Santa Rosa,-0.768837,69.0,2
+A2,United States of America: New York-Newark/Sarasota-Bradenton,-0.746499,69.0,2
+A2,United States of America: New York-Newark/Savannah,-0.082424,69.0,2
+A2,United States of America: New York-Newark/Scranton,0.202207,69.0,2
+A2,United States of America: New York-Newark/Seattle,-0.325221,69.0,2
+A2,United States of America: New York-Newark/Shreveport,-0.076364,69.0,2
+A2,United States of America: New York-Newark/Spokane,-0.118895,69.0,2
+A2,"United States of America: New York-Newark/Springfield, Massachusett, Connecticut",-0.039333,69.0,2
+A2,"United States of America: New York-Newark/Springfield, Missouri",-0.291419,69.0,2
+A2,United States of America: New York-Newark/St. Louis,-0.007296,69.0,2
+A2,United States of America: New York-Newark/Stockton,-0.279876,69.0,2
+A2,United States of America: New York-Newark/Syracuse,-0.005742,69.0,2
+A2,United States of America: New York-Newark/Tampa-St. Petersburg,-0.544794,69.0,2
+A2,United States of America: New York-Newark/Temecula-Murrieta,-1.184551,69.0,2
+A2,United States of America: New York-Newark/The Woodlands,-1.149683,69.0,2
+A2,United States of America: New York-Newark/Toledo,0.026756,69.0,2
+A2,United States of America: New York-Newark/Trenton,0.009031,69.0,2
+A2,United States of America: New York-Newark/Tucson,-0.595498,69.0,2
+A2,United States of America: New York-Newark/Tulsa,-0.237302,69.0,2
+A2,United States of America: New York-Newark/Victorville-Hesperia-Apple Valley,-1.283589,69.0,2
+A2,United States of America: New York-Newark/Virginia Beach,-0.272744,69.0,2
+A2,United States of America: New York-Newark/Visalia,-0.652174,69.0,2
+A2,"United States of America: New York-Newark/Washington, D.C.",-0.286528,69.0,2
+A2,United States of America: New York-Newark/Wichita,-0.125587,69.0,2
+A2,United States of America: New York-Newark/Winston-Salem,-0.325185,69.0,2
+A2,United States of America: New York-Newark/Worcester,-0.157367,69.0,2
+A2,United States of America: New York-Newark/Youngstown,0.046337,69.0,2
+A2,Uzbekistan: Tashkent/Andizhan,-0.049152,69.0,2
+A2,Uzbekistan: Tashkent/Namangan,-0.127243,69.0,2
+A2,Uzbekistan: Tashkent/Nukus,-0.434735,69.0,2
+A2,Uzbekistan: Tashkent/Samarkand,0.04495,69.0,2
+A2,Venezuela (Bolivarian Republic of): Caracas/Acarigua-Aruare,-0.412305,69.0,2
+A2,Venezuela (Bolivarian Republic of): Caracas/Barcelona-Puerto La Cruz,-0.353184,69.0,2
+A2,Venezuela (Bolivarian Republic of): Caracas/Barinas,-0.709159,69.0,2
+A2,Venezuela (Bolivarian Republic of): Caracas/Barquisimeto,-0.258721,69.0,2
+A2,Venezuela (Bolivarian Republic of): Caracas/Cabimas,-0.214179,69.0,2
+A2,Venezuela (Bolivarian Republic of): Caracas/Ciudad Bolivar,-0.331489,69.0,2
+A2,Venezuela (Bolivarian Republic of): Caracas/Ciudad Guayana,-1.160542,69.0,2
+A2,Venezuela (Bolivarian Republic of): Caracas/Cumana,-0.216919,69.0,2
+A2,Venezuela (Bolivarian Republic of): Caracas/Guarenas-Guatire,-0.805598,69.0,2
+A2,Venezuela (Bolivarian Republic of): Caracas/Maracaibo,-0.171839,69.0,2
+A2,Venezuela (Bolivarian Republic of): Caracas/Maracay,-0.568792,69.0,2
+A2,Venezuela (Bolivarian Republic of): Caracas/Maturin,-0.515512,69.0,2
+A2,Venezuela (Bolivarian Republic of): Caracas/Merida,-0.36263,69.0,2
+A2,Venezuela (Bolivarian Republic of): Caracas/San Cristóbal,-0.144926,69.0,2
+A2,Venezuela (Bolivarian Republic of): Caracas/Valencia,-0.440212,69.0,2
+A2,Viet Nam: Thành Pho Ho Chí Minh (Ho Chi Minh City)/Bien Hoa,-0.596638,69.0,2
+A2,Viet Nam: Thành Pho Ho Chí Minh (Ho Chi Minh City)/Can Tho,-0.418543,69.0,2
+A2,Viet Nam: Thành Pho Ho Chí Minh (Ho Chi Minh City)/Da Nang,-0.293857,69.0,2
+A2,Viet Nam: Thành Pho Ho Chí Minh (Ho Chi Minh City)/Hai Phòng,-0.097055,69.0,2
+A2,Viet Nam: Thành Pho Ho Chí Minh (Ho Chi Minh City)/Hue,0.133587,69.0,2
+A2,Viet Nam: Thành Pho Ho Chí Minh (Ho Chi Minh City)/Hà Noi,-0.210111,69.0,2
+A2,Viet Nam: Thành Pho Ho Chí Minh (Ho Chi Minh City)/Long Xuyen,0.147111,69.0,2
+A2,Viet Nam: Thành Pho Ho Chí Minh (Ho Chi Minh City)/Nha Trang,-0.182773,69.0,2
+A2,Viet Nam: Thành Pho Ho Chí Minh (Ho Chi Minh City)/Thu Dau Mot,-0.904201,69.0,2
+A2,Viet Nam: Thành Pho Ho Chí Minh (Ho Chi Minh City)/Vungtau,-0.307313,69.0,2
+A2,Yemen: Adan (Aden)/Al-Hudaydah,0.013317,69.0,2
+A2,Yemen: Adan (Aden)/Al-Mukalla,0.00053,69.0,2
+A2,Yemen: Adan (Aden)/Dhamar,-0.319031,69.0,2
+A2,Yemen: Adan (Aden)/Ibb,-0.841575,69.0,2
+A2,Yemen: Adan (Aden)/Sana'a',-0.608935,69.0,2
+A2,Yemen: Adan (Aden)/Ta'izz,-0.435615,69.0,2
+A2,Zambia: Kitwe/Lusaka,-0.550482,69.0,2
+A2,Zambia: Kitwe/Ndola,-0.120306,69.0,2
+A2,Zimbabwe: Harare/Bulawayo,0.068674,69.0,2
+A2,Zimbabwe: Harare/Chitungwiza,0.032843,69.0,2
+B-comercio,Former USSR/Afghanistan,0.338441,64.0,3
+B-comercio,France/Algeria,-0.156999,57.0,3
+B-comercio,United States/Angola,-0.314345,44.0,3
+B-comercio,United Kingdom/Argentina,0.10566,119.0,3
+B-comercio,United Kingdom/Australia,-0.054321,99.0,3
+B-comercio,Hungary/Austria,-0.178213,93.0,3
+B-comercio,United States/Bangladesh,-0.193624,47.0,3
+B-comercio,United Kingdom/Belgium,-0.094196,119.0,3
+B-comercio,Germany/Bolivia,0.317681,119.0,3
+B-comercio,United Kingdom/Botswana,-0.640288,50.0,3
+B-comercio,United States/Brazil,-0.304676,119.0,3
+B-comercio,Belgium/Bulgaria,-0.126793,97.0,3
+B-comercio,France/Cambodia,0.106282,64.0,3
+B-comercio,France/Cameroon,0.160899,59.0,3
+B-comercio,United States/Canada,-0.104081,99.0,3
+B-comercio,United Kingdom/Chile,0.024692,119.0,3
+B-comercio,United States/China,-0.131725,82.0,3
+B-comercio,United States/Colombia,-0.174531,119.0,3
+B-comercio,United Kingdom/Costa Rica,-0.017021,99.0,3
+B-comercio,Italy/Croatia,-0.2369,26.0,3
+B-comercio,United States/Cuba,0.213618,117.0,3
+B-comercio,United Kingdom/Cyprus,-0.3482,59.0,3
+B-comercio,Germany/Czechia,-0.118641,26.0,3
+B-comercio,United Kingdom/Denmark,-0.187074,119.0,3
+B-comercio,United States/Dominican Republic,-0.192286,69.0,3
+B-comercio,United Kingdom/Ecuador,-0.166473,119.0,3
+B-comercio,United Kingdom/Egypt,-0.274018,69.0,3
+B-comercio,United States/El Salvador,0.049603,99.0,3
+B-comercio,United States/Ethiopia,0.237744,69.0,3
+B-comercio,United Kingdom/Finland,-0.312432,100.0,3
+B-comercio,United Kingdom/France,-0.191958,119.0,3
+B-comercio,Netherlands/Germany,-0.04746,119.0,3
+B-comercio,United States/Ghana,0.282591,62.0,3
+B-comercio,United Kingdom/Greece,-0.273467,119.0,3
+B-comercio,United States/Guatemala,0.186157,99.0,3
+B-comercio,United States/Honduras,0.295998,99.0,3
+B-comercio,Austria/Hungary,0.178213,93.0,3
+B-comercio,United States/Iceland,-0.118858,69.0,3
+B-comercio,United Kingdom/India,-0.072394,72.0,3
+B-comercio,United States/Indonesia,-0.225185,70.0,3
+B-comercio,United Kingdom/Iran,-0.192177,70.0,3
+B-comercio,France/Iraq,0.232725,69.0,3
+B-comercio,United Kingdom/Ireland,-0.273382,97.0,3
+B-comercio,United Kingdom/Israel,-0.215008,69.0,3
+B-comercio,Germany/Italy,-0.078349,119.0,3
+B-comercio,United States/Japan,-0.372418,119.0,3
+B-comercio,Syria/Jordan,-0.340918,66.0,3
+B-comercio,United Kingdom/Kenya,0.060294,56.0,3
+B-comercio,Myanmar/Laos,-0.091009,64.0,3
+B-comercio,Netherlands/Lebanon,0.311252,69.0,3
+B-comercio,United Kingdom/Libya,-0.463806,64.0,3
+B-comercio,Netherlands/Luxembourg,-0.005072,69.0,3
+B-comercio,Japan/Malaysia,-0.208249,58.0,3
+B-comercio,United Kingdom/Malta,-0.501451,55.0,3
+B-comercio,United States/Mexico,-0.09327,119.0,3
+B-comercio,United States/Mongolia,-0.349048,61.0,3
+B-comercio,France/Morocco,0.011977,63.0,3
+B-comercio,United States/Mozambique,0.497605,44.0,3
+B-comercio,India/Myanmar,-0.035968,69.0,3
+B-comercio,India/Nepal,0.187969,55.0,3
+B-comercio,United Kingdom/Netherlands,-0.14722,119.0,3
+B-comercio,United Kingdom/New Zealand,0.04589,99.0,3
+B-comercio,United States/Nicaragua,0.326727,99.0,3
+B-comercio,United Kingdom/Nigeria,-0.033115,59.0,3
+B-comercio,United Kingdom/Norway,-0.418899,114.0,3
+B-comercio,Japan/Pakistan,-0.138852,47.0,3
+B-comercio,United States/Panama,-0.035264,99.0,3
+B-comercio,United Kingdom/Paraguay,0.051081,80.0,3
+B-comercio,United Kingdom/Peru,-0.111052,119.0,3
+B-comercio,United States/Philippines,0.008338,73.0,3
+B-comercio,Germany/Poland,0.074572,82.0,3
+B-comercio,United Kingdom/Portugal,-0.342474,119.0,3
+B-comercio,Belgium/Romania,-0.409027,114.0,3
+B-comercio,Germany/Russia,-0.222444,27.0,3
+B-comercio,Italy/Saudi Arabia,-0.167041,69.0,3
+B-comercio,France/Senegal,0.402426,59.0,3
+B-comercio,United States/Singapore,-0.588578,54.0,3
+B-comercio,Germany/Slovakia,-0.138536,26.0,3
+B-comercio,Germany/Slovenia,-0.008814,26.0,3
+B-comercio,United Kingdom/South Africa,-0.004479,95.0,3
+B-comercio,United States/South Korea,-0.793664,70.0,3
+B-comercio,United Kingdom/Spain,-0.256878,119.0,3
+B-comercio,United Kingdom/Sri Lanka,-0.084607,71.0,3
+B-comercio,United Kingdom/Sudan,0.154665,63.0,3
+B-comercio,United Kingdom/Sweden,-0.299188,119.0,3
+B-comercio,United Kingdom/Switzerland,-0.15222,119.0,3
+B-comercio,Lebanon/Syria,0.056924,69.0,3
+B-comercio,Japan/Taiwan,-0.340479,67.0,3
+B-comercio,United Kingdom/Tanzania,0.024928,58.0,3
+B-comercio,Japan/Thailand,0.030509,72.0,3
+B-comercio,France/Tunisia,-0.147055,63.0,3
+B-comercio,United Kingdom/Turkey,-0.343381,98.0,3
+B-comercio,United States/Uganda,0.247944,57.0,3
+B-comercio,Russia/Ukraine,0.196108,27.0,3
+B-comercio,United States/United Kingdom,0.064019,119.0,3
+B-comercio,United Kingdom/United States,-0.064019,119.0,3
+B-comercio,Brazil/Uruguay,0.421546,119.0,3
+B-comercio,United States/Venezuela,-0.28585,119.0,3
+B-comercio,Japan/Vietnam,-0.303576,43.0,3
+B-comercio,China/Yemen,0.549653,29.0,3
+B-comercio,United Kingdom/Zambia,0.179769,55.0,3
+B-comercio,Zambia/Zimbabwe,0.151221,54.0,3
+A,A_001,0.0723,7.0,2
+A,A_002,0.0476,7.0,2
+A,A_003,0.2384,6.0,2
+A,A_004,-0.0304,15.0,2
+B,B001,-0.192,119.0,3
+B,B002,0.1947,119.0,3
+B,B003,0.1472,119.0,3
+B,B004,0.0942,119.0,3
+B,B005,0.1522,119.0,3
+B,B006,0.2022,119.0,3
+B,B007,0.273,119.0,3
+B,B008,0.2569,119.0,3
+B,B009,-0.3425,119.0,3
+B,B010,0.2628,99.0,3
+B,B011,0.1071,69.0,3
+B,B012,0.0027,119.0,3
+B,B013,-0.0447,119.0,3
+B,B014,-0.0978,119.0,3
+B,B015,-0.0397,119.0,3
+B,B016,0.0102,119.0,3
+B,B017,0.0811,119.0,3
+B,B018,0.0649,119.0,3
+B,B019,-0.1505,119.0,3
+B,B020,0.1149,99.0,3
+B,B021,0.0092,69.0,3
+B,B022,0.0475,119.0,3
+B,B023,-0.1005,119.0,3
+B,B024,-0.0425,119.0,3
+B,B025,0.0075,119.0,3
+B,B026,-0.0783,119.0,3
+B,B027,-0.0622,119.0,3
+B,B028,-0.1478,119.0,3
+B,B029,0.0814,99.0,3
+B,B030,-0.0651,69.0,3
+B,B031,-0.053,119.0,3
+B,B032,0.005,119.0,3
+B,B033,0.055,119.0,3
+B,B034,-0.1258,119.0,3
+B,B035,0.1097,119.0,3
+B,B036,-0.1953,119.0,3
+B,B037,0.1647,99.0,3
+B,B038,0.0051,69.0,3
+B,B039,0.058,119.0,3
+B,B040,0.108,119.0,3
+B,B041,-0.1788,119.0,3
+B,B042,-0.1627,119.0,3
+B,B043,-0.2483,119.0,3
+B,B044,0.1844,99.0,3
+B,B045,0.0004,69.0,3
+B,B046,-0.05,119.0,3
+B,B047,-0.1208,119.0,3
+B,B048,-0.1047,119.0,3
+B,B049,-0.1903,119.0,3
+B,B050,0.1278,99.0,3
+B,B051,0.0029,69.0,3
+B,B052,-0.0708,119.0,3
+B,B053,-0.0547,119.0,3
+B,B054,-0.1403,119.0,3
+B,B055,0.0275,99.0,3
+B,B056,-0.1147,69.0,3
+B,B057,-0.0162,119.0,3
+B,B058,-0.0694,119.0,3
+B,B059,0.0005,99.0,3
+B,B060,-0.0855,69.0,3
+B,B061,-0.0856,119.0,3
+B,B062,0.0056,99.0,3
+B,B063,-0.2223,69.0,3
+B,B064,-0.0774,99.0,3
+B,B065,-0.1991,69.0,3
+B,B066,-0.2421,69.0,3
+B,B067,0.1347,119.0,3
+B,B068,-0.1121,119.0,3
+B,B069,0.0767,119.0,3
+B,B070,0.0834,69.0,3
+B,B071,0.2468,119.0,3
+B,B072,0.058,119.0,3
+B,B073,-0.1949,69.0,3
+B,B074,-0.1888,119.0,3
+B,B075,0.0556,69.0,3
+B,B076,-0.0412,69.0,3
+B,B077,0.0201,49.0,3
+B,B078,-0.0428,85.0,3
+B,B079,0.4294,85.0,3
+B,B080,0.0645,83.0,3
+B,B081,-0.0597,59.0,3
+B,B082,-0.3648,40.0,3
+B,B083,-0.1119,34.0,3
+B,B084,0.0815,67.0,3
+B,B085,-0.0155,67.0,3
+B,B086,0.0938,67.0,3
+B,B087,0.0455,49.0,3
+B,B088,-0.1326,49.0,3
+B,B089,0.1785,49.0,3
+B,B090,0.1287,49.0,3
+B,B091,0.3258,40.0,3
+B,B092,0.0225,34.0,3
+B,B093,0.143,49.0,3
+B,B094,0.2658,49.0,3
+B,B095,-0.1645,49.0,3
+B,B096,-0.4798,96.0,3
+B,B097,-0.1383,92.0,3
+B,B098,-0.0178,59.0,3
+B,B099,0.3036,40.0,3
+B,B100,-0.0331,34.0,3
+B,B101,0.1026,67.0,3
+B,B102,-0.0056,67.0,3
+B,B103,0.1149,67.0,3
+B,B104,-0.3366,98.0,3
+B,B105,-0.3336,59.0,3
+B,B106,-0.4408,40.0,3
+B,B107,-0.1618,34.0,3
+B,B108,-0.2735,67.0,3
+B,B109,-0.3705,67.0,3
+B,B110,-0.2611,67.0,3
+B,B111,0.0552,59.0,3
+B,B112,-0.1682,40.0,3
+B,B113,0.0858,34.0,3
+B,B114,0.1153,67.0,3
+B,B115,0.0183,67.0,3
+B,B116,0.1276,67.0,3
+B,B117,0.2199,40.0,3
+B,B118,0.0288,34.0,3
+B,B119,-0.0257,59.0,3
+B,B120,0.0924,59.0,3
+B,B121,0.0239,59.0,3
+B,B122,0.2701,34.0,3
+B,B123,0.1611,40.0,3
+B,B124,-0.0359,40.0,3
+B,B125,0.1311,40.0,3
+B,B126,0.1029,34.0,3
+B,B127,0.2054,34.0,3
+B,B128,-0.1454,34.0,3
+B,B129,0.097,67.0,3
+B,B130,0.0124,67.0,3
+B,B131,0.1094,67.0,3
+B,B132,0.0004,119.0,3
+B,B133,0.073,98.0,3
+B,B134,0.1828,69.0,3
+B,B135,0.391,69.0,3
+B,B136,0.0166,119.0,3
+B,B137,-0.0684,98.0,3
+B,B138,0.046,69.0,3
+B,B139,0.2542,69.0,3
+B,B140,-0.069,119.0,3
+B,B141,-0.0126,98.0,3
+B,B142,0.0693,69.0,3
+B,B143,0.2775,69.0,3
+B,B144,-0.0854,98.0,3
+B,B145,0.09,69.0,3
+B,B146,0.2982,69.0,3
+B,B147,0.109,69.0,3
+B,B148,0.3172,69.0,3
+B,B149,-0.2082,69.0,3
+B,B150,0.1064,119.0,3
+B,B151,-0.0933,119.0,3
+B,B152,0.0132,119.0,3
+B,B153,-0.2729,99.0,3
+B,B154,0.3827,99.0,3
+B,B155,-0.1045,99.0,3
+B,B156,-0.1223,113.0,3
+B,B157,-0.3085,117.0,3
+B,B158,-0.1363,99.0,3
+B,B159,-0.4135,99.0,3
+B,B160,0.1205,69.0,3
+B,B161,0.1098,99.0,3
+B,B162,0.1684,99.0,3
+B,B163,0.2214,99.0,3
+B,B164,0.0322,99.0,3
+B,B165,-0.1366,99.0,3
+B,B166,0.1406,99.0,3
+B,B167,0.3464,69.0,3
+B,B168,0.2782,99.0,3
+B,B169,0.3313,99.0,3
+B,B170,0.0776,99.0,3
+B,B171,0.2464,99.0,3
+B,B172,-0.0307,99.0,3
+B,B173,0.3454,69.0,3
+B,B174,-0.053,99.0,3
+B,B175,0.2006,99.0,3
+B,B176,0.0318,99.0,3
+B,B177,0.309,99.0,3
+B,B178,-0.1744,69.0,3
+B,B179,0.1925,113.0,3
+B,B180,0.0849,99.0,3
+B,B181,0.362,99.0,3
+B,B182,0.0006,69.0,3
+B,B183,0.1688,99.0,3
+B,B184,0.1084,99.0,3
+B,B185,0.3336,69.0,3
+B,B186,0.2771,99.0,3
+B,B187,0.2657,69.0,3
+B,B188,0.5657,69.0,3
+B,B189,-0.4744,119.0,3
+B,B190,-0.3934,119.0,3
+B,B191,-0.4215,119.0,3
+B,B192,-0.348,80.0,3
+B,B193,0.4917,119.0,3
+B,B194,0.2576,119.0,3
+B,B195,-0.1301,119.0,3
+B,B196,-0.0188,119.0,3
+B,B197,-0.2022,119.0,3
+B,B198,-0.081,119.0,3
+B,B199,-0.0528,119.0,3
+B,B200,-0.0598,80.0,3
+B,B201,0.0173,119.0,3
+B,B202,-0.2167,119.0,3
+B,B203,-0.3442,119.0,3
+B,B204,-0.4555,119.0,3
+B,B205,-0.2721,119.0,3
+B,B206,-0.0282,119.0,3
+B,B207,0.0475,80.0,3
+B,B208,0.0983,119.0,3
+B,B209,-0.1357,119.0,3
+B,B210,-0.2632,119.0,3
+B,B211,0.3746,119.0,3
+B,B212,-0.1912,119.0,3
+B,B213,-0.0145,80.0,3
+B,B214,0.0702,119.0,3
+B,B215,-0.1639,119.0,3
+B,B216,-0.2914,119.0,3
+B,B217,-0.4027,119.0,3
+B,B218,-0.2193,119.0,3
+B,B219,0.1585,80.0,3
+B,B220,0.0248,80.0,3
+B,B221,-0.0899,80.0,3
+B,B222,0.0163,80.0,3
+B,B223,-0.1335,80.0,3
+B,B224,-0.2341,119.0,3
+B,B225,0.3616,119.0,3
+B,B226,0.4729,119.0,3
+B,B227,0.2895,119.0,3
+B,B228,0.1275,119.0,3
+B,B229,0.2388,119.0,3
+B,B230,0.0554,119.0,3
+B,B231,0.1113,119.0,3
+B,B232,-0.0721,119.0,3
+B,B233,0.1834,119.0,3
+B,B234,0.2344,82.0,3
+B,B235,-0.0593,106.0,3
+B,B236,-0.0796,109.0,3
+B,B237,0.0575,69.0,3
+B,B238,0.3968,81.0,3
+B,B239,0.3717,81.0,3
+B,B240,-0.0047,69.0,3
+B,B241,0.0238,99.0,3
+B,B242,0.4545,69.0,3
+B,B243,0.3709,69.0,3
+B,B244,0.104,109.0,3
+B,B245,0.2535,72.0,3
+B,B246,0.4364,109.0,3
+B,B247,0.5528,107.0,3
+B,B248,0.6638,70.0,3
+B,B249,0.7069,69.0,3
+B,B250,0.7403,79.0,3
+B,B251,0.4874,69.0,3
+B,B252,0.0663,72.0,3
+B,B253,0.3271,112.0,3
+B,B254,0.412,111.0,3
+B,B255,0.3562,70.0,3
+B,B256,0.3972,69.0,3
+B,B257,0.4957,79.0,3
+B,B258,0.1778,69.0,3
+B,B259,0.2186,72.0,3
+B,B260,0.4763,72.0,3
+B,B261,0.3931,70.0,3
+B,B262,0.4639,69.0,3
+B,B263,0.3577,71.0,3
+B,B264,0.2445,69.0,3
+B,B265,-0.1027,109.0,3
+B,B266,-0.1999,70.0,3
+B,B267,0.2737,69.0,3
+B,B268,0.2514,79.0,3
+B,B269,0.0543,69.0,3
+B,B270,-0.0664,70.0,3
+B,B271,-0.0063,69.0,3
+B,B272,0.0208,78.0,3
+B,B273,-0.2257,69.0,3
+B,B274,0.0788,69.0,3
+B,B275,-0.0616,70.0,3
+B,B276,-0.1406,69.0,3
+B,B277,0.161,69.0,3
+B,B278,0.2194,69.0,3
+B,B279,0.0584,69.0,3
+B,B280,0.0446,69.0,3
+B,B281,0.1545,69.0,3
+B,B282,0.0173,119.0,3
+B,B283,0.1811,70.0,3
+B,B284,0.5213,69.0,3
+B,B285,0.1991,69.0,3
+B,B286,-0.0387,69.0,3
+B,B287,0.228,69.0,3
+B,B288,0.5659,69.0,3
+B,B289,0.1604,69.0,3
+B,B290,0.0288,69.0,3
+B,B291,0.3668,69.0,3
+B,B292,0.1898,70.0,3
+B,B293,0.5272,69.0,3
+B,B294,0.3379,69.0,3
+B,B295,-0.0515,69.0,3
+B,B296,0.0483,69.0,3
+B,B297,0.3498,69.0,3
+B,B298,0.1447,69.0,3
+B,B299,-0.059,69.0,3
+B,B300,0.165,69.0,3
+B,B301,0.4242,69.0,3
+B,B302,0.4812,69.0,3
+B,B303,0.2189,69.0,3
+B,B304,-0.0834,70.0,3
+B,B305,0.3799,70.0,3
+B,B306,0.1534,70.0,3
+B,B307,0.0333,70.0,3
+B,B308,-0.2112,70.0,3
+B,B309,-0.4608,70.0,3
+B,B310,-0.515,70.0,3
+B,B311,0.2704,69.0,3
+B,B312,0.2965,70.0,3
+B,B313,0.2368,70.0,3
+B,B314,-0.0501,70.0,3
+B,B315,0.1278,70.0,3
+B,B316,0.3775,70.0,3
+B,B317,0.4316,70.0,3
+B,B318,0.1706,69.0,3
+B,B319,0.5333,70.0,3
+B,B320,-0.3466,70.0,3
+B,B321,0.1688,70.0,3
+B,B322,-0.0809,70.0,3
+B,B323,-0.135,70.0,3
+B,B324,-0.1309,69.0,3
+B,B325,0.1867,70.0,3
+B,B326,0.3646,70.0,3
+B,B327,0.6142,70.0,3
+B,B328,0.6684,70.0,3
+B,B329,0.3636,69.0,3
+B,B330,-0.1779,70.0,3
+B,B331,-0.4276,70.0,3
+B,B332,-0.4817,70.0,3
+B,B333,0.2779,69.0,3
+B,B334,-0.2497,70.0,3
+B,B335,-0.3038,70.0,3
+B,B336,0.0539,69.0,3
+B,B337,0.0541,70.0,3
+B,B338,-0.2053,69.0,3
+B,B339,-0.2622,69.0,3
+B,B340,0.2342,70.0,3
+B,B341,-0.1119,70.0,3
+B,B342,-0.0477,70.0,3
+B,B343,0.4554,69.0,3
+B,B344,0.3334,69.0,3
+B,B345,0.1223,70.0,3
+B,B346,0.1865,70.0,3
+B,B347,0.1728,69.0,3
+B,B348,0.616,69.0,3
+B,B349,-0.0643,70.0,3
+B,B350,0.3214,69.0,3
+B,B351,0.4674,69.0,3
+B,B352,0.3805,69.0,3
+B,B353,0.4083,69.0,3
+B,B354,0.7888,69.0,3
+B,B355,-0.0819,69.0,3
+B,B356,-0.0048,69.0,3
+B,B357,0.1791,69.0,3
+B,B358,0.1596,69.0,3
+B,B359,0.0833,69.0,3
+B,B360,-0.0223,69.0,3
+B,B361,0.1837,69.0,3
+B,B362,0.4959,69.0,3
+B,B363,0.9003,69.0,3
+B,B364,0.1164,69.0,3
+B,B365,0.0202,69.0,3
+B,B366,0.2956,69.0,3
+B,B367,0.0309,69.0,3
+B,B368,0.0771,69.0,3
+B,B369,0.261,69.0,3
+B,B370,0.2415,69.0,3
+B,B371,0.1652,69.0,3
+B,B372,0.0595,69.0,3
+B,B373,0.2656,69.0,3
+B,B374,0.5777,69.0,3
+B,B375,0.8184,69.0,3
+B,B376,0.1983,69.0,3
+B,B377,0.102,69.0,3
+B,B378,0.3774,69.0,3
+B,B379,-0.1127,69.0,3
+B,B380,-0.1838,69.0,3
+B,B381,-0.1644,69.0,3
+B,B382,0.0881,69.0,3
+B,B383,-0.0176,69.0,3
+B,B384,0.1885,69.0,3
+B,B385,0.5006,69.0,3
+B,B386,0.8955,69.0,3
+B,B387,0.1212,69.0,3
+B,B388,-0.0249,69.0,3
+B,B389,-0.3003,69.0,3
+B,B390,-0.0356,69.0,3
+B,B391,-0.0195,69.0,3
+B,B392,-0.0957,69.0,3
+B,B393,-0.2014,69.0,3
+B,B394,0.0046,69.0,3
+B,B395,0.3168,69.0,3
+B,B396,1.0793,69.0,3
+B,B397,-0.0626,69.0,3
+B,B398,-0.1589,69.0,3
+B,B399,0.1165,69.0,3
+B,B400,0.1482,69.0,3
+B,B401,-0.0763,69.0,3
+B,B402,-0.182,69.0,3
+B,B403,0.0241,69.0,3
+B,B404,0.3362,69.0,3
+B,B405,1.0599,69.0,3
+B,B406,-0.0432,69.0,3
+B,B407,0.1395,69.0,3
+B,B408,-0.1359,69.0,3
+B,B409,0.1288,69.0,3
+B,B410,-0.1057,69.0,3
+B,B411,0.1004,69.0,3
+B,B412,0.4125,69.0,3
+B,B413,0.9836,69.0,3
+B,B414,0.0331,69.0,3
+B,B415,0.0632,69.0,3
+B,B416,-0.2122,69.0,3
+B,B417,0.0525,69.0,3
+B,B418,-0.206,69.0,3
+B,B419,-0.5182,69.0,3
+B,B420,0.8779,69.0,3
+B,B421,0.1388,69.0,3
+B,B422,-0.0425,69.0,3
+B,B423,-0.3179,69.0,3
+B,B424,-0.0532,69.0,3
+B,B425,-0.3122,69.0,3
+B,B426,1.084,69.0,3
+B,B427,-0.0673,69.0,3
+B,B428,0.1635,69.0,3
+B,B429,-0.1119,69.0,3
+B,B430,0.1528,69.0,3
+B,B431,1.3961,69.0,3
+B,B432,-0.3794,69.0,3
+B,B433,0.4757,69.0,3
+B,B434,0.2003,69.0,3
+B,B435,0.465,69.0,3
+B,B436,1.0167,69.0,3
+B,B437,0.9204,69.0,3
+B,B438,1.1958,69.0,3
+B,B439,0.9311,69.0,3
+B,B440,0.0963,69.0,3
+B,B441,-0.1791,69.0,3
+B,B442,0.0856,69.0,3
+B,B443,-0.2754,69.0,3
+B,B444,-0.0107,69.0,3
+B,B445,0.2647,69.0,3
+B,B446,-0.1096,119.0,3
+C,C_001,-0.4732,32.0,3
+C,C_002,-0.2489,126.0,3
+C,C_003,-0.2027,126.0,3
+C,C_004,0.354,126.0,3
+C,C_005,-0.1766,126.0,3
+C,C_006,-0.1357,126.0,3
+C,C_007,0.103,126.0,3
+C,C_008,0.3138,126.0,3
+C,C_009,-0.0481,126.0,3
+C,C_010,0.2597,126.0,3
+C,C_011,-0.0141,126.0,3
+C,C_012,-0.0163,126.0,3
+C,C_013,0.0954,126.0,3
+C,C_014,0.739,126.0,3
+C,C_015,0.8914,126.0,3
+C,C_016,-0.1308,126.0,3
+C,C_017,0.0484,126.0,3
+C,C_018,0.0636,126.0,3
+C,C_019,0.111,126.0,3
+C,C_020,0.3336,126.0,3
+C,C_021,0.1564,126.0,3
+C,C_022,-0.04,126.0,3
+C,C_023,0.0552,126.0,3
+C,C_024,0.1362,126.0,3
+D,D_01,-1.6398,4771.0,1
+D,D_02,-1.5205,669.0,1
+D,D_03,-0.9311,270.0,1
+E1,E1_001,1.142,120.0,0
+E1,E1_002,2.724,80.0,0
+E1,E1_003,3.8202,80.0,0
+E1,E1_004,3.8795,80.0,0
+E2,E2_01,0.5483,21.0,3
+E2,E2_02,-0.2592,30.0,3
+E3,E3_001,1.2393,60.0,0
+E3,E3_002,0.5681,60.0,0
+E3,E3_003,1.2758,60.0,0
+E3,E3_004,1.1312,60.0,0
+E3,E3_005,0.5883,60.0,0
+E3,E3_006,0.7762,60.0,0
+E3,E3_007,0.0036,60.0,0
+E3,E3_008,0.0953,60.0,0
+E3,E3_009,1.3649,60.0,0
+E3,E3_010,0.9725,60.0,0
+E3,E3_011,0.0039,60.0,0
+E3,E3_012,1.1501,60.0,0
+E3,E3_013,1.1413,60.0,0
+E3,E3_014,1.0212,60.0,0
+E3,E3_015,0.1254,60.0,0
+E3,E3_016,0.9974,60.0,0
+E3,E3_017,1.4945,60.0,0
+E3,E3_018,0.1984,60.0,0
+E3,E3_019,1.5232,60.0,0
+E3,E3_020,1.8094,60.0,0
+E3,E3_021,0.8709,60.0,0
+E3,E3_022,0.7914,60.0,0
+E3,E3_023,0.0912,60.0,0
+E3,E3_024,0.3573,60.0,0
+E3,E3_025,1.2984,60.0,0
+E3,E3_026,0.0799,60.0,0
+E3,E3_027,0.9852,60.0,0
+E3,E3_028,0.7912,60.0,0
+E3,E3_029,1.7736,60.0,0
+E3,E3_030,0.1081,60.0,0
+E3,E3_031,0.0487,60.0,0
+E3,E3_032,0.8191,60.0,0
+E3,E3_033,0.4323,60.0,0
+E3,E3_034,0.3859,60.0,0
+E3,E3_035,0.0592,60.0,0
+E3,E3_036,0.7181,60.0,0
+E3,E3_037,2.0542,60.0,0
+E3,E3_038,0.5935,60.0,0
+E3,E3_039,0.1688,60.0,0
+E3,E3_040,1.1269,60.0,0
+E3,E3_041,0.6811,60.0,0
+E3,E3_042,1.3473,60.0,0
+E3,E3_043,2.2811,60.0,0
+E3,E3_044,1.352,60.0,0
+E3,E3_045,0.3499,60.0,0
+E3,E3_046,0.5581,60.0,0
+E3,E3_047,1.276,60.0,0
+E3,E3_048,0.665,60.0,0
+E3,E3_049,0.8581,60.0,0
+E3,E3_050,0.8025,60.0,0
+E3,E3_051,0.9881,60.0,0
+E3,E3_052,0.686,60.0,0
+E3,E3_053,0.5461,60.0,0
+E3,E3_054,1.2775,60.0,0
+E3,E3_055,0.919,60.0,0
+E3,E3_056,0.9051,60.0,0
+E3,E3_057,0.8701,60.0,0
+E3,E3_058,0.0931,60.0,0
+E3,E3_059,1.0606,60.0,0
+E3,E3_060,0.6875,60.0,0
+E3,E3_061,1.4428,60.0,0
+E3,E3_062,1.4308,60.0,0
+E3,E3_063,1.0826,60.0,0
+E3,E3_064,0.7653,60.0,0
+E3,E3_065,0.2332,60.0,0
+E3,E3_066,1.295,60.0,0
+E3,E3_067,0.5811,60.0,0
+E3,E3_068,0.9955,60.0,0
+E3,E3_069,3.0186,60.0,0
+E3,E3_070,0.0665,60.0,0
+E3,E3_071,0.197,60.0,0
+E3,E3_072,0.9911,60.0,0
+E3,E3_073,1.2887,60.0,0
+E3,E3_074,1.0984,60.0,0
+E3,E3_075,0.8174,60.0,0
+E3,E3_076,0.8961,60.0,0
+E3,E3_077,1.2451,60.0,0
+E3,E3_078,1.2348,60.0,0
+E3,E3_079,0.528,60.0,0
+E3,E3_080,2.4692,60.0,0
+E3,E3_081,1.3155,60.0,0
+E3,E3_082,0.1215,60.0,0
+E3,E3_083,0.6612,60.0,0
+E3,E3_084,0.4746,60.0,0
+E3,E3_085,0.0864,60.0,0
+E3,E3_086,0.0634,60.0,0
+E3,E3_087,0.0783,60.0,0
+E3,E3_088,1.2113,60.0,0
+E3,E3_089,0.2155,60.0,0
+E3,E3_090,1.1928,60.0,0
+E3,E3_091,0.5964,60.0,0
+E3,E3_092,0.2672,60.0,0
+E3,E3_093,1.3519,60.0,0
+E3,E3_094,2.7157,60.0,0
+E3,E3_095,0.9051,60.0,0
+E3,E3_096,1.1372,60.0,0
+E3,E3_097,0.7585,60.0,0
+E3,E3_098,2.1582,60.0,0
+E3,E3_099,1.602,60.0,0
+E3,E3_100,1.6599,60.0,0
+E3,E3_101,1.0864,60.0,0
+E3,E3_102,1.2588,60.0,0
+E3,E3_103,0.3471,60.0,0
+E3,E3_104,1.564,60.0,0
+E3,E3_105,1.8064,60.0,0
+E3,E3_106,0.4408,60.0,0
+E3,E3_107,1.3289,60.0,0
+E3,E3_108,0.2307,60.0,0
+E3,E3_109,0.2676,60.0,0
+E3,E3_110,1.127,60.0,0
+E3,E3_111,0.7876,60.0,0
+E3,E3_112,0.6765,60.0,0
+E3,E3_113,0.6991,60.0,0
+E3,E3_114,1.3755,60.0,0
+E3,E3_115,0.7538,60.0,0
+E3,E3_116,0.6085,60.0,0
+E3,E3_117,0.649,60.0,0
+E3,E3_118,0.4227,60.0,0
+E3,E3_119,0.6161,60.0,0
+E3,E3_120,0.4311,60.0,0
+E3,E3_121,0.9284,60.0,0
+E3,E3_122,0.1431,60.0,0
+E3,E3_123,0.5837,60.0,0
+E3,E3_124,1.4308,60.0,0
+E3,E3_125,1.8158,60.0,0
+E3,E3_126,0.4424,60.0,0
+E3,E3_127,0.6457,60.0,0
+E3,E3_128,0.8265,60.0,0
+E3,E3_129,1.1041,60.0,0
+E3,E3_130,0.8148,60.0,0
+E3,E3_131,0.8665,60.0,0
+E3,E3_132,0.573,60.0,0
+E3,E3_133,0.8703,60.0,0
+E3,E3_134,0.1087,60.0,0
+E3,E3_135,1.1544,60.0,0
+E3,E3_136,0.3923,60.0,0
+E3,E3_137,0.8506,60.0,0
+E3,E3_138,1.74,60.0,0
+E3,E3_139,1.202,60.0,0
+E3,E3_140,1.1221,60.0,0
+E3,E3_141,0.2505,60.0,0
+E3,E3_142,0.1836,60.0,0
+E3,E3_143,0.8603,60.0,0
+E3,E3_144,0.1399,60.0,0
+E3,E3_145,1.0127,60.0,0
+E3,E3_146,0.7523,60.0,0
+E3,E3_147,0.2721,60.0,0
+E3,E3_148,1.1794,60.0,0
+E3,E3_149,0.7872,60.0,0
+E3,E3_150,1.7131,60.0,0
+E3,E3_151,1.6906,60.0,0
+E3,E3_152,0.0222,60.0,0
+E3,E3_153,0.2798,60.0,0
+E3,E3_154,0.7154,60.0,0
+E3,E3_155,0.5771,60.0,0
+E3,E3_156,1.3288,60.0,0
+E3,E3_157,0.6349,60.0,0
+E3,E3_158,0.9058,60.0,0
+E3,E3_159,0.0692,60.0,0
+E3,E3_160,1.2447,60.0,0
+E3,E3_161,1.2628,60.0,0
+E3,E3_162,1.4182,60.0,0
+E3,E3_163,1.2169,60.0,0
+E3,E3_164,0.3592,60.0,0
+E3,E3_165,1.3874,60.0,0
+E3,E3_166,0.3703,60.0,0
+E3,E3_167,0.7415,60.0,0
+E3,E3_168,1.9399,60.0,0
+E3,E3_169,1.6119,60.0,0
+E3,E3_170,1.7237,60.0,0
+E3,E3_171,1.5254,60.0,0
+E3,E3_172,0.4911,60.0,0
+E3,E3_173,1.366,60.0,0
+E3,E3_174,0.3451,60.0,0
+E3,E3_175,1.6656,60.0,0
+E3,E3_176,2.3362,60.0,0
+E3,E3_177,0.4359,60.0,0
+E3,E3_178,0.2041,60.0,0
+E3,E3_179,0.851,60.0,0
+E3,E3_180,0.4479,60.0,0
+E3,E3_181,0.3604,60.0,0
+E3,E3_182,0.4518,60.0,0
+E3,E3_183,0.7739,60.0,0
+E3,E3_184,0.9326,60.0,0
+E3,E3_185,1.2938,60.0,0
+E3,E3_186,0.4649,60.0,0
+E3,E3_187,0.47,60.0,0
+E3,E3_188,1.9204,60.0,0
+E3,E3_189,0.9664,60.0,0
+E3,E3_190,1.4613,60.0,0
+E3,E3_191,0.0897,60.0,0
+E3,E3_192,0.7468,60.0,0
+E3,E3_193,1.4124,60.0,0
+E3,E3_194,0.5529,60.0,0
+E3,E3_195,0.7816,60.0,0
+E3,E3_196,0.6303,60.0,0
+E3,E3_197,1.184,60.0,0
+E3,E3_198,0.9719,60.0,0
+E3,E3_199,1.1976,60.0,0
+E3,E3_200,0.9453,60.0,0
+E3,E3_201,1.0135,60.0,0
+E3,E3_202,2.6125,60.0,0
+E3,E3_203,0.7847,60.0,0
+E3,E3_204,1.2579,60.0,0
+E3,E3_205,0.7717,60.0,0
+E3,E3_206,1.6018,60.0,0
+E3,E3_207,1.5298,60.0,0
+E3,E3_208,0.5148,60.0,0
+E3,E3_209,0.8202,60.0,0
+E3,E3_210,0.409,60.0,0
+E3,E3_211,1.109,60.0,0
+E3,E3_212,0.5559,60.0,0
+E3,E3_213,1.446,60.0,0
+E3,E3_214,0.0493,60.0,0
+E3,E3_215,0.4479,60.0,0
+E3,E3_216,1.7368,60.0,0
+E3,E3_217,0.6508,60.0,0
+E3,E3_218,0.8946,60.0,0
+E3,E3_219,0.5476,60.0,0
+E3,E3_220,1.6867,60.0,0
+E3,E3_221,1.718,60.0,0
+E3,E3_222,2.1415,60.0,0
+E3,E3_223,2.7497,60.0,0
+E3,E3_224,0.7359,60.0,0
+E3,E3_225,2.2696,60.0,0
+E3,E3_226,0.3345,60.0,0
+E3,E3_227,0.9218,60.0,0
+E3,E3_228,1.1874,60.0,0
+E3,E3_229,0.5644,60.0,0
+E3,E3_230,0.1791,60.0,0
+E3,E3_231,0.3114,60.0,0
+E3,E3_232,0.8417,60.0,0
+E3,E3_233,0.8885,60.0,0
+E3,E3_234,0.7284,60.0,0

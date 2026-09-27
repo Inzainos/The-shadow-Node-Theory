@@ -1,4 +1,4 @@
-# Shadow Node Theory v2.5.2
+# Shadow Node Theory v2.6.0
 
 **Elan Zainos Corona** | Fractal Core Research, Tlaxcala, Mexico
 
@@ -67,12 +67,20 @@ Use the badge at the top of this README to view CI status for the default branch
 > values and an r2 column with impossible values (down to -7.332).
 > Those files are preserved in `archive/` as historical record but
 > **must not be cited in academic publications**.
-> The active version is v2.5.2 (721-case corpus + coupled collapse layer + Domain G with first real series + marco teórico v34).
+> The active version is v2.6.0 (721-case corpus + coupled collapse layer + Domain G with first real series + audit v32, Domain B discriminant test and pre-registered tests of 2026-09-27; conceptual framework: marco teórico v34).
 
 ---
 
 > **Versioning note**
-> Repository release: **v2.5.2**. Active empirical corpus: **721 real cases**
+> Repository release: **v2.6.0** (2026-09-27; previous: v2.5.2, 2026-09-10).
+> What v2.6.0 adds: the integral audit v32 findings, the Domain B edition
+> (MPD2020, byte-exact) and discriminant test with bilateral trade, the Domain
+> B reconstruction with trade-emergent hubs, the SSRN preprint revision r31,
+> and five **pre-registered tests** (time-varying hub, friction with new
+> domains, raw COVID series, blind-coded triggers, larger ACO-A cohorts) —
+> see `reconstruction_real/audits/RESULTADOS_PREREGISTRO_2026-09-27.md`. The
+> 721-case corpus itself is **unchanged** since v2.5.2.
+> Active empirical corpus: **721 real cases**
 > (`reconstruction_real/data/snt_corpus_REAL_v5.csv`). Active conceptual
 > framework: **marco teórico v34** (`papers/marco_teorico.md`; v33 archived in
 > `archive/`). The framework and the corpus are numbered **independently**:
@@ -92,7 +100,26 @@ Use the badge at the top of this README to view CI status for the default branch
 > treating 714 non-independent cases as independent. Several headline figures
 > are not reproducible from the repository. Details and the corrected figures:
 > [Audit v32 — inference status](#audit-v32--inference-status).
-> Audit re-run and re-verified on 2026-09-26.
+> Audit re-run and re-verified on 2026-09-26; five pre-registered tests run on
+> 2026-09-27 (box below).
+
+---
+
+> **NEW in v2.6.0 -- pre-registered tests (2026-09-27)**
+> Hypotheses, data rules and decision criteria were committed **before** any
+> new data were downloaded (`reconstruction_real/preregistro/`). Results
+> (`reconstruction_real/audits/RESULTADOS_PREREGISTRO_2026-09-27.md`, Figs. 1–5):
+> - **Supported:** abrupt decree triggers speed up satellization (8/8 capital
+>   relocations and 1980 SEZs beat same-ratio cities, p = 0.004); orthogonality
+>   b ⊥ Δ (242 crypto pairs, ρ = −0.12, inside the ±0.3 equivalence band);
+>   positive hazard h(τ) > 0 in 663 crypto pairs and 27,771 FDIC banks; E3
+>   rebuilt from raw OWID series stays significant after the autocorrelation
+>   correction (233/234).
+> - **Not supported:** hub-node coupling with the current trade hub in country
+>   pairs (contrary at 30 years: countries converge toward their main partner);
+>   friction as a general ordering of b across new non-COVID domains
+>   (ρ = −0.13, p = 0.39); a hazard that rises with age in banks (bathtub).
+> - **Not reproducible:** Domain E1 (4 cases).
 
 ---
 
@@ -129,7 +156,7 @@ b >= 1    --> superlinear satellization -- Roche Radius
 
 ---
 
-## Corpus activo v2.5.2 -- 721 cases, 100% real data
+## Corpus activo v2.6.0 -- 721 cases, 100% real data (unchanged since v2.5.2)
 
 | Domain | Friction | Cases | Sig. | b mean | Source |
 |--------|----------|-------|------|--------|--------|
@@ -150,6 +177,9 @@ correction). After the audit v32 AR(1) correction, Domain B has **156/446
 estimable cases** (`n_eff ≥ 3`) and **290/446 not estimable**; among the
 estimable ones, significant cases fall to **33–112 (21.2%–71.8%)** depending on
 the analytical variant. See [Audit v32](#audit-v32--inference-status).
+Domain E3 was rebuilt from the raw OWID series on 2026-09-27 (233/234 cases
+reproduced): with Newey-West errors **233/234** stay significant (AR(1)
+bracket among the 198 estimable: 176–196).
 
 **Composition note.** The two friction-free domains (E1 + E3 = 238 cases) are
 both built from **OWID COVID-19 data** (spatial spread and per-country curves).
@@ -166,23 +196,55 @@ values; SHA-256 checksums of the corpus files are pinned in `data/FUENTES.md`
 regenerates all 446 cases **byte for byte** (SHA-256 identical to the published
 `by_domain/dominio_B_real.csv`). The later OWID edition (`data/owid-maddison.csv`)
 only reproduces it approximately (441 vs 446 cases, corr(b) = 0.979), because
-Maddison revises historical GDP between editions. **Reproducibility is still
-partial overall:** the raw COVID-19 series behind E1/E3 are **not** in the
-repo, only their fitted summaries. Per-case p-values were rounded to 6 decimals, so 557/721 read
+Maddison revises historical GDP between editions. **E3 also reproduces**
+(2026-09-27): 233/234 cases from the raw OWID series (versioned subset
+`data/owid_covid_casos_totales.csv.gz`; recipe: cumulative cases, 60 days from
+the first day with ≥ 100 cases). **Still partial:** E1 (4 cases) is not
+reproducible from the raw data with any natural construction, and the
+HackerEarth data are proprietary. Per-case p-values were rounded to 6 decimals, so 557/721 read
 exactly `0.0`.
 
 ---
 
 ## Visualizaciones del corpus
 
-![Distribución del corpus y significancia estadística](figures/snt_fig1_final.png)
-*Fig. 1 — Distribución del exponente b por dominio y porcentaje de casos significativos (p < 0.05).*
+Generated by `reconstruction_real/code/generate_readme_figures.py` from the
+committed CSVs (release v2.6.0; light and dark versions).
 
-![Exponente b por dominio](figures/snt_fig2_final.png)
-*Fig. 2 — Exponente b medio por dominio: de convergencia (b < 0) a satelización (b > 0), con fricción institucional anotada.*
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="figures/snt_v260_fig1_distribucion_dark.png">
+  <img alt="Distribución de b por dominio y significancia nominal vs corregida" src="figures/snt_v260_fig1_distribucion_light.png">
+</picture>
 
-![Bondad de ajuste R² por dominio](figures/snt_fig3_final.png)
-*Fig. 3 — R² medio por dominio. R² ∈ [0,1] verificado, cero valores corruptos.*
+*Fig. 1 — Exponente b por dominio (color = fricción a priori) y significancia: nominal frente a corregida por autocorrelación (B: cotas AR(1) de la auditoría v32; E3: Newey-West sobre series crudas OWID).*
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="figures/snt_v260_fig2_friccion_dark.png">
+  <img alt="b medio por dominio y fricción, con dominios nuevos del pre-registro" src="figures/snt_v260_fig2_friccion_light.png">
+</picture>
+
+*Fig. 2 — b medio por dominio con fricción a priori, incluidos los dominios nuevos del pre-registro (rayados). La prueba pre-registrada sin COVID no respalda un orden por fricción (ρ = −0.131, p = 0.39).*
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="figures/snt_v260_fig3_r2_dark.png">
+  <img alt="R² medio por dominio" src="figures/snt_v260_fig3_r2_light.png">
+</picture>
+
+*Fig. 3 — R² medio por dominio (R² ∈ [0, 1] en todos; definiciones mezcladas: B en escala log, resto en escala original).*
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="figures/snt_v260_fig4_disparadores_dark.png">
+  <img alt="Disparadores abruptos: ciudad del decreto vs controles" src="figures/snt_v260_fig4_disparadores_light.png">
+</picture>
+
+*Fig. 4 — Prueba pre-registrada de disparadores abruptos: la ciudad del decreto supera a sus controles en 8/8 casos (p = 0.004).*
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="figures/snt_v260_fig5_hazard_dark.png">
+  <img alt="Hazard por edad en cripto y bancos" src="figures/snt_v260_fig5_hazard_light.png">
+</picture>
+
+*Fig. 5 — Hazard h(τ) por edad: positivo en todas las edades en cripto (Binance) y bancos (FDIC); creciente solo en cripto.*
 
 ---
 
@@ -190,7 +252,10 @@ exactly `0.0`.
 
 ## Central Finding
 
-Institutional friction predicts the satellization exponent:
+**As published (v30):** institutional friction predicts the satellization
+exponent. **Status in v2.6.0:** the direction holds in the corpus, but the
+finding is not significant at the domain level and a pre-registered test with
+new non-COVID domains does not support it (details below).
 
 **Spearman rho = -0.68, p = 2.5x10^-97** (social/biological domains, n=714)
 
@@ -207,7 +272,7 @@ autocorrelated. Re-computed from the committed data:
 |---|---:|---:|---:|
 | Per row (published) | −0.678 | 2.5×10⁻⁹⁷ | 714 |
 | Per cluster (domain means, `spearman_cluster`) | −0.556 | 0.25 | 6 domains |
-| Cluster bootstrap (resampling domains) | ≈ −0.44 | IC95 [−0.722, −0.006] | 6 domains |
+| Cluster bootstrap (resampling domains) | −0.434 | IC95 [−0.722, −0.006] | 6 domains |
 | Without E3 | −0.116 | 0.011 | 480 |
 | Without E3 and B | −0.426 | 0.012 | 34 |
 
@@ -218,14 +283,26 @@ survives every variant, but the significance collapses at the cluster level
 of the contrast (E1 + E3) is entirely COVID-19 data. Re-computed 2026-09-26
 with `code/snt_utils_v32.py` from the committed corpus.
 
+**Two further results (2026-09-27).** (i) The published n = 714 **excludes
+Domain D** (3 HackerEarth cases that measure activity-distribution exponents,
+not R(t) trajectories): without E3 and B, ρ = −0.426 (p = 0.012, n = 34)
+without D but ρ = −0.145 (p = 0.39, n = 37) with D. (ii) **Pre-registered test
+with new non-COVID domains** (mpox 2022, StatCounter shares, UN WUP city pairs,
+trade-hub country pairs; friction coded before seeing the data): domain-level
+ρ = −0.131, exact permutation p = 0.39 — **not supported**. The friction-free
+pole is real (E3 rebuilt from raw OWID series stays significant after the
+autocorrelation correction, and mpox also gives a high b̄ = +0.43), but outside
+epidemics there is no ordering by friction. See Fig. 2 and
+`reconstruction_real/audits/RESULTADOS_PREREGISTRO_2026-09-27.md`.
+
 ---
 
-## Three Core Statistical Findings (v30)
+## Three Core Statistical Findings (v30, with v2.6.0 status)
 
 | Finding | Result | Test | Status (audit v32) |
 |---------|--------|------|--------------------|
-| Abrupt triggers faster than gradual | Published: ratio 5.9x. **Recalculated 2026-09-27:** the 5.9x originates in the v1.0 table of **2 abrupt vs 2 gradual cases** (0.717 / 0.122 = 5.87x, Mann-Whitney p = 0.33, the smallest p a 2-vs-2 test can give). The historical 57-case corpus (v2.0) gives ratio 6.3, p = 0.053 two-sided, but predates v2.4.0 (7 cases with impossible R² < 0) and is not citable | Published: Mann-Whitney U=24,802, p=1.91x10^-5, n=486 — n=486 matches no dataset in the repo, and the claimed stability "57 → 114 → 721" cannot hold for 721 (no trigger variable) | **UNTESTABLE on the active corpus — published evidence not reproducible.** The 721-case corpus has no usable trigger variable (`trigger` fixed to `'gradual'` in B). The 18 ACO cases carry a trigger label but measure a **different exponent** (absorption, R = absorber mass / collapsing-hub peak), so they test RC-ACO-2, not this claim: there gradual ≥ abrupt (0.47×, p = 0.10, n.s.; trigger confounded with domain). Script: `reconstruction_real/code/recalculo_trigger_abrupto_gradual.py`. |
-| Institutional friction is dominant predictor of b | Friction-free: b~+0.95 / High friction: b~+0.09 | Spearman rho=-0.68, p=2.5x10^-97, n=714 | **Direction holds, p inflated**: cluster-level rho=−0.556, p=0.25 (n=6 domains). See [Central Finding](#central-finding). |
+| Abrupt triggers faster than gradual | **Current status: supported by a pre-registered test on a new corpus (2026-09-27; see the end of this cell).** Published: ratio 5.9x. **Recalculated 2026-09-27:** the 5.9x originates in the v1.0 table of **2 abrupt vs 2 gradual cases** (0.717 / 0.122 = 5.87x, Mann-Whitney p = 0.33, the smallest p a 2-vs-2 test can give). The historical 57-case corpus (v2.0) gives ratio 6.3, p = 0.053 two-sided, but predates v2.4.0 (7 cases with impossible R² < 0) and is not citable | Published: Mann-Whitney U=24,802, p=1.91x10^-5, n=486 — n=486 matches no dataset in the repo, and the claimed stability "57 → 114 → 721" cannot hold for 721 (no trigger variable) | **Published evidence not reproducible; untestable on the 721-case corpus.** The 721-case corpus has no usable trigger variable (`trigger` fixed to `'gradual'` in B). The 18 ACO cases carry a trigger label but measure a **different exponent** (absorption, R = absorber mass / collapsing-hub peak), so they test RC-ACO-2, not this claim: there gradual ≥ abrupt (0.47×, p = 0.10, n.s.; trigger confounded with domain). Script: `reconstruction_real/code/recalculo_trigger_abrupto_gradual.py`. **Pre-registered test 2026-09-27 (new corpus, cities):** decree-driven challengers (capital relocations, 1980 SEZs) beat same-country cities with the same initial ratio in 8/8 cases (one-sided Wilcoxon p = 0.0039; capitals 4/4, b ratio 5.1×) — **supported**, with a survivor-filter caveat (UN WUP lists only cities ≥ 300k in 2018). |
+| Institutional friction is dominant predictor of b | Friction-free: b~+0.95 / High friction: b~+0.09 | Spearman rho=-0.68, p=2.5x10^-97, n=714 | **Direction holds, p inflated**: cluster-level rho=−0.556, p=0.25 (n=6 domains). See [Central Finding](#central-finding). **Pre-registered test 2026-09-27 with new non-COVID domains** (mpox, StatCounter shares, UN WUP city pairs, trade-hub country pairs): domain-level ρ = −0.131, exact permutation p = 0.39 — **not supported**; the epidemic pole replicates (mpox b̄ +0.43) but there is no ordering among low/medium/high friction. Note: the published n = 714 excludes Domain D (distribution exponents); with D, without E3 and B, ρ = −0.145 (p = 0.39, n = 37). |
 | Sovereignty = interdependence as brake | Country pairs (B, n=446, b~+0.09) vs predator-prey (E2, b~+0.15) statistically indistinguishable | Regime split MW p=2.4x10^-74 | **Rests on Domain B**, which the discriminant test leaves **inconclusive**: `b` in B is supported neither as SNT hub-satellite coupling nor as β-convergence (85% of hubs also appear as satellites; the observed statistic falls inside the calibrated null). Block 2 (bilateral trade, 2026-09-27) finds no coupling signal and a robust **negative** association between initial trade integration and b. Rebuilt with trade-emergent hubs (2026-09-27), the hub diverges no more than a same-gap non-partner (p = 0.78) and 62/95 nodes converge toward it. |
 
 ---
@@ -273,8 +350,9 @@ pytest reconstruction_real/tests                                 # fixes 156 / 2
    script behind it; tested by AIC on the 18 raw ACO series: power law wins
    13/18, exponential 4/18, linear 1/18. The 4 exponential winners have mean
    **b = +1.54**: the higher b, the worse the power law fits. The 14.1% of the
-   corpus (102/721) labelled superlinear therefore needs re-testing, which
-   requires the raw series of the other domains (not in the repo).
+   corpus (102/721) labelled superlinear therefore needs re-testing; since
+   2026-09-27 the raw E3 series (94 of those 102 cases are E1 + E3) are in the
+   repo, so the test is now feasible for E3 (still pending).
 3. **Central finding: direction holds, p does not** — double inflation
    (autocorrelation + 714 non-independent cases). See
    [Central Finding](#central-finding).
@@ -367,7 +445,7 @@ trajectory), and R(t) is fitted exactly as in Domain B.
   controlling partner size, sign p = 0.10 — **not conclusive**.
 - **Verdict:** the reconstruction does **not** rescue the coupling reading of
   Domain B. The published domain is unchanged (it stays the reproducible corpus
-  of release 2.5.2); whether to replace or retire it is an author decision.
+  of the release, unchanged since v2.5.2); whether to replace or retire it is an author decision.
 
 ### Reproducibility status
 
@@ -382,8 +460,11 @@ trajectory), and R(t) is fitted exactly as in Domain B.
   MPD2020). With it B reproduces only approximately (441
   vs 446 cases, corr(b) = 0.979, 12/408 identical b). `expand_dominio_B.py` is
   an earlier script (254 cases) and does not reproduce the published domain.
-- Raw COVID-19 series for **E1/E3** — **absent** (only fitted summaries). This
-  blocks the AR(1) correction of E3.
+- Raw COVID-19 series — **obtained** (2026-09-27): OWID `owid-covid-data.csv`
+  (SHA-256 in `data/FUENTES.md`), versioned subset
+  `data/owid_covid_casos_totales.csv.gz`. E3 reproduces 233/234 and its AR(1) /
+  Newey-West correction is done (`covid_E3_series_crudas.py`); E1 is not
+  reproducible.
 - Bilateral trade — **obtained**: Correlates of War Trade v4.0
   (`data/COW_Trade_4.0.zip`, SHA-256 pinned in `data/FUENTES.md`), rebuilt into
   `data/comercio_bilateral.csv` by `build_comercio_bilateral_cow.py`; used by
@@ -402,12 +483,15 @@ trajectory), and R(t) is fitted exactly as in Domain B.
    SSRN form text `papers/SSRN_revision_v31.md` added the same day. **Uploading
    it to SSRN is pending (author action).** PLOS is deferred until the theory is
    resubmitted once refined.
-3. Test b ≥ 1 on the other domains' raw series.
+3. Test b ≥ 1 on the other domains' raw series (now feasible for E3, whose raw
+   series are in the repo since 2026-09-27).
 4. Report exact p-values and split `r2_log` / `r2_raw` in the consolidated corpus.
 5. ~~Decide on the 5.9× figure~~ — recalculated 2026-09-27: not reproducible and
    untestable on the active corpus; RC3 changed to UNTESTABLE (see the findings
    table and `reconstruction_real/data/trigger_abrupto_gradual_recalculo.csv`).
    The SSRN v30 EN abstract states this figure; SSRN r31 withdraws it (item 2).
+   Later on 2026-09-27 a pre-registered test on a new city corpus supported the
+   abrupt-trigger prediction (item 11; RC3 now NOT REFUTED).
 6. ~~Mark `soberania` as derived from ASI~~ — done (`data/snt_asi_scores_README.md`).
 7. ~~Pin the Maddison edition of Domain B and re-run the discriminant test with
    it~~ — done 2026-09-27 (MPD2020: exact reproduction; test still inconclusive,
@@ -418,9 +502,18 @@ trajectory), and R(t) is fitted exactly as in Domain B.
 9. ~~Rebuild Domain B with a hub that emerges from the trade network~~ — done
    2026-09-27: coupling not recovered (trade hub diverges no more than a
    same-gap non-partner; 62/95 nodes converge toward their hub).
-10. Time-varying hub definition before any further use of country pairs as
-    satellization evidence (the main export destination changes for 77/102
-    countries).
+10. ~~Time-varying hub definition~~ — done 2026-09-27 (pre-registered point 1):
+    no coupling with the current trade hub either (H = 20 not supported;
+    H = 30 contrary). See
+    `reconstruction_real/audits/RESULTADOS_PREREGISTRO_2026-09-27.md`.
+11. Pre-registered tests 2026-09-27 (six points requested by the author): see
+    the results report above — friction across new non-COVID domains not
+    supported; E3 recovered from raw data and robust to autocorrelation; E1 not
+    reproducible; abrupt decree triggers supported on cities; b ⊥ Δ supported
+    (n = 242); h > 0 supported in crypto and banks, rising hazard only in crypto.
+12. Open after the pre-registration: age-period-cohort separation of the crypto
+    hazard; friction → Δ with a larger cohort (no public absorption series yet);
+    a trigger corpus without the UN WUP ≥ 300k survivor filter.
 
 ---
 
@@ -429,7 +522,7 @@ trajectory), and R(t) is fitted exactly as in Domain B.
 | Target | Status | Notes |
 |--------|--------|-------|
 | **SSRN** (abstract 6418778) | REVISION SUBMITTED · r31 READY | **v30 revision submitted 28 Jun 2026** (`papers/snt_ssrn_v30_EN`); supersedes v2.3.1/502. **r31 prepared 27 Sep 2026** (`papers/snt_ssrn_v31_EN`, Spanish `snt_ssrn_v31`, form text `SSRN_revision_v31.md`): audit v32 corrections (5.9× withdrawn, ROC-AUC 0.715, ASI precision withdrawn, friction caveats, Domain B discriminant test and trade-hub reconstruction); upload pending (author) |
-| **Zenodo** (DOI 10.5281/zenodo.19446521) | PUBLISHED | 721-case corpus archive record (v2.5.0 snapshot; active repo release: v2.5.2) |
+| **Zenodo** (DOI 10.5281/zenodo.19446521) | PUBLISHED | 721-case corpus archive record (v2.5.0 snapshot; active repo release: v2.6.0) |
 | **PLOS Complex Systems** (PCSY-D-26-00059) | REVISION SUBMITTED | v30 revision package submitted (`snt_plos_v30` + `plos_response_to_reviewers_v30`); addresses both reviewers; awaiting decision |
 | **J. Complex Networks** (COMNET-2026-214) | REJECTED | No external review |
 | **MIT GCFP Conference** | SUBMITTED | 13th Annual Conf, Oct 29-30 2026; paper + abstract submitted (`papers/mit_gcfp_2026_*`) |
@@ -478,12 +571,20 @@ Reproduced via `reconstruction_real/code/build_aco_v29.py`.
 
 ## Orbital Collapse Architecture (Coupled, v2.5.0)
 
-Introduced in v2.5.0 and retained in the active v2.5.2 release, this layer
+Introduced in v2.5.0 and retained in the active v2.6.0 release, this layer
 reformulates collapse as a **universal, transversal axis** of SNT. A
 system has two orthogonal coordinates **(b, Delta)**: satellization (b) and the
 collapse/absorption exponent (Delta), fit on its own clock tau from functional
 extinction. A third layer, the hazard **h(tau) > 0**, states the falsifiable
 "no system is eternal".
+
+**Pre-registered hazard test (2026-09-27):** h(τ) > 0 holds in two large,
+independent cohorts — 663 Binance crypto pairs (124 functional extinctions,
+ends in all 8 age bands with ≥ 30 at risk) and 27,771 FDIC-insured banks
+(23,505 ends, all 39 five-year age bands from 0 to 195 years). The v30 claim
+that the hazard **rises with age** holds only in crypto (ρ = +0.88, p = 0.002),
+where age is confounded with the 2022–2025 bear market; banks show a bathtub
+shape (not rising). Details: `reconstruction_real/audits/RESULTADOS_PREREGISTRO_2026-09-27.md`.
 
 **The collapse mode is governed by friction x trigger x (floor/ceiling):**
 
@@ -539,7 +640,7 @@ construction (see `data/snt_asi_scores_README.md`).
 ```
 The-shadow-Node-Theory/
 |
-|-- README.md                          <-- this file (release v2.5.2, marco teórico v34)
+|-- README.md                          <-- this file (release v2.6.0, marco teórico v34)
 |-- CHANGELOG.md                       <-- Version history (es)
 |-- AGENTS.md / CLAUDE.md              <-- Operating guide for AI agents (branch -> PR -> merge, real data first)
 |-- CONTRIBUTING.md                    <-- Contribution guide (es)
@@ -555,7 +656,7 @@ The-shadow-Node-Theory/
 |   |-- python-package-conda.yml       <-- CI: flake8 -> compileall -> ACO smoke test
 |   +-- build-manuscript-docx.yml      <-- Manual workflow: Markdown manuscript -> DOCX
 |
-|-- reconstruction_real/               <-- REAL CORPUS (active, release v2.5.2)
+|-- reconstruction_real/               <-- REAL CORPUS (active, release v2.6.0; corpus unchanged since v2.5.2)
 |   |-- README.md                      <-- Methodology and sources
 |   |-- snt_phi_hypothesis.md          <-- H-phi REFUTED (4 rounds + placebo)
 |   |-- audits/                        <-- Statistical audits of the corpus
@@ -656,7 +757,7 @@ The-shadow-Node-Theory/
 |   |-- phi_validation_bio_primary.csv <-- H-phi validation round 2
 |   +-- dataset_completo_v2.csv / snt_corpus_50_resultados_v2.csv / shadow_node_maddison_resumen.csv <-- Historical (v2.0)
 |
-|-- genomic_agent/                     <-- SNT Genomic Topologic Analyzer (active in v2.5.2)
+|-- genomic_agent/                     <-- SNT Genomic Topologic Analyzer (active in v2.6.0)
 |   |-- agent_core/                    <-- Analysis engine (agent_logic.py) + Streamlit UI (app.py)
 |   |-- genomic_database/             <-- DB builders: db_builder.py (active oracle) + hpa_db_builder.py (HPA/UniProt alt)
 |   |-- mock_services/                <-- Jira/Slack/Email mock integrations
@@ -684,7 +785,7 @@ The-shadow-Node-Theory/
 |   +-- README_DEPLOY.md               <-- Deployment guide
 |
 |-- figures/                           <-- Publication figures
-|   |-- snt_fig1_final.png / snt_fig2_final.png / snt_fig3_final.png <-- README corpus figures
+|   |-- snt_v260_fig{1..5}_*_{light,dark}.png <-- README figures (v2.6.0; generate_readme_figures.py)
 |   |-- fig*_v29_*.png / .svg          <-- v29 PLOS figures (captions: figure_captions_v29.txt)
 |   |-- fig_aco_v29_absorption.*       <-- ACO absorption
 |   |-- fig_paisajes_colapso.*         <-- Collapse stability landscapes (v2.5.0)
@@ -809,13 +910,13 @@ finding.
 |----|---------------------|------------|----------------------------------------|
 | RC1 | Power law fits no better than linear/exponential across all domains | NOT REFUTED | First actual test (AIC, 18 raw ACO series): power 13/18, exponential 4/18, linear 1/18. Holds in majority; exponential winners concentrate at b ≥ 1. Other domains untested (raw series absent). |
 | RC2 | b is not reproducible from primary series | NOT REFUTED | Domain B (62% of the corpus) **reproduces byte for byte** from the Maddison Project Database 2020 (`data/mpd2020.xlsx`, verified 2026-09-27). Still partial overall: E1/E3 raw series absent. |
-| RC3 | Abrupt triggers produce same b as gradual | **UNTESTABLE** (changed 2026-09-27; was NOT REFUTED) | The published test (5.9×, U=24,802, n=486) is not reproducible: the active satellization corpus has no trigger variable, the ratio originates in 2 vs 2 cases (v1.0, p = 0.33) and the 57-case v2.0 corpus is not citable. **Not to be confused with RC-ACO-2** (ACO absorption exponent, a different quantity): on ACO, abrupt vs gradual p = 0.10 (n = 18, gradual ≥ abrupt; within-domain exact permutation p = 0.94) — RC-ACO-2 remains undecided with this n. |
-| RC4 | Friction index is not correlated with b | NOT REFUTED | Direction holds in every variant; cluster-level p = 0.25 (n = 6 domains). |
+| RC3 | Abrupt triggers produce same b as gradual | **NOT REFUTED — the SNT prediction passed a pre-registered test** (2026-09-27; was UNTESTABLE earlier that day) — see `reconstruction_real/audits/RESULTADOS_PREREGISTRO_2026-09-27.md`: 8/8 decree-driven cities (capital relocations, 1980 SEZs) gained on their incumbent faster than same-country cities with the same initial ratio (one-sided Wilcoxon p = 0.0039; capitals only 4/4, b ratio 5.1×). Caveat: the UN WUP file lists only cities ≥ 300k in 2018 (survivor filter). Earlier status: | The published test (5.9×, U=24,802, n=486) is not reproducible: the active satellization corpus has no trigger variable, the ratio originates in 2 vs 2 cases (v1.0, p = 0.33) and the 57-case v2.0 corpus is not citable. **Not to be confused with RC-ACO-2** (ACO absorption exponent, a different quantity): on ACO, abrupt vs gradual p = 0.10 (n = 18, gradual ≥ abrupt; within-domain exact permutation p = 0.94) — RC-ACO-2 remains undecided with this n. |
+| RC4 | Friction index is not correlated with b | NOT REFUTED (weak) | Direction holds in every variant of the corpus; cluster-level p = 0.25 (n = 6 domains). **Pre-registered test 2026-09-27 with new non-COVID domains: ρ = −0.131, p = 0.39 — not supported**; only the epidemic (friction-free) pole separates. The condition "not correlated" is not met in the corpus, but outside epidemics the evidence does not distinguish the prediction from zero. |
 | RC5 | N-body matrix does not change satellization estimates | NOT REFUTED | Fit replicates; lognormal comparison pending. |
 | RC6 | Shadow node reverses satellization without exogenous trigger | NOT REFUTED | Not covered by the audit. |
 | RC7 | ASI does not predict outcomes better than chance | NOT REFUTED | ROC-AUC 0.715 not reproducible from the repo (target absent). |
 | RC8 | Mutual interdependence does not brake satellization | NOT REFUTED | Rests on Domain B, whose discriminant test is inconclusive. Block 2 (2026-09-27): initial trade integration with the hub goes with **lower** b (ρ = −0.185, within-region permutation p = 0.026) — a direction consistent with "interdependence as brake", but it is a correlation on the assigned-hub construct and it contradicts the coupling reading of Domain B. With trade-emergent hubs (2026-09-27) no coupling appears either; the brake stays a hypothesis without support in this domain. |
-| RC9 | Collapse axis is not orthogonal to satellization: corr(b, Delta) >> 0 | NOT REFUTED (first test: crypto n=11, Spearman rho=+0.009, p=0.98 -- consistent with orthogonality; cross-domain still untested) | Replicates exactly from `orthogonality_crypto_v25.csv`. |
+| RC9 | Collapse axis is not orthogonal to satellization: corr(b, Delta) >> 0 | NOT REFUTED (first test: crypto n=11, Spearman rho=+0.009, p=0.98 -- consistent with orthogonality; cross-domain still untested) | Replicates exactly from `orthogonality_crypto_v25.csv`. **Pre-registered test 2026-09-27 (Binance archive, n = 242):** ρ = −0.119, 95% CI [−0.241, +0.007] inside the ±0.3 equivalence band → orthogonality **supported**; 153/242 peaks fall in 2021 (one market cycle). |
 | RC10 | A realized collapse takes a higher-friction path when a lower one exists | NOT REFUTED | Not covered by the audit. |
 | RC11 | Absorber mass does not grow post-absorption (R does not increase) | NOT REFUTED | Not covered by the audit. |
 
@@ -848,7 +949,8 @@ pytest reconstruction_real/tests
 **Primary sources** (all public except HackerEarth; editions, download dates
 and SHA-256 checksums in [`data/FUENTES.md`](data/FUENTES.md)):
 - [Maddison Project Database 2020](https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020) (Bolt & van Zanden 2020) -- committed as `data/mpd2020.xlsx` (Domain B, exact); the later [OWID edition](https://ourworldindata.org/grapher/gdp-per-capita-maddison) is committed as `data/owid-maddison.csv`
-- [OWID COVID-19 dataset](https://github.com/owid/covid-19-data) (JHU CSSE) -- Domains E1/E3; raw series **not** committed
+- [OWID COVID-19 dataset](https://github.com/owid/covid-19-data) (JHU CSSE) -- Domains E1/E3; versioned subset `data/owid_covid_casos_totales.csv.gz` (E3 reproduced 233/234; E1 not reproducible)
+- Pre-registered tests 2026-09-27: OWID mpox, StatCounter, UN WUP 2018, Binance public archive, FDIC BankFind -- see `data/FUENTES.md`
 - [UN Demographic Yearbook](https://unstats.un.org/unsd/demographic-social/products/dyb/) -- Domain A
 - [US Census Bureau](https://www.census.gov/) + [INEGI 2022](https://www.inegi.org.mx/temas/pib/) -- Domain C
 - MacLulich 1937 / Elton & Nicholson 1942 -- Domain E2
@@ -863,7 +965,7 @@ and SHA-256 checksums in [`data/FUENTES.md`](data/FUENTES.md)):
 ```bibtex
 @misc{zainoscorona2026snt,
   author       = {Zainos Corona, El{'a}n},
-  title        = {Shadow Node Theory v2.5.2: Scale-Invariant Satellization and
+  title        = {Shadow Node Theory v2.6.0: Scale-Invariant Satellization and
                   Coupled Orbital Collapse Across Empirical Domains},
   year         = {2026},
   publisher    = {Zenodo},
@@ -898,4 +1000,4 @@ GitHub: [Inzainos](https://github.com/Inzainos)
 
 *Fractal Core Research -- Tlaxcala, Mexico*
 *"Technical truth above numerical impression."*
-*v2.5.2 | September 2026*
+*v2.6.0 | September 2026*
