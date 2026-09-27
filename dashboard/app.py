@@ -132,7 +132,7 @@ if page == "Overview":
             showlegend=False, xaxis_title="", yaxis_title="Exponent b",
             height=450,
         )
-        st.plotly_chart(fig_box, use_container_width=True)
+        st.plotly_chart(fig_box, width="stretch")
 
     with col_right:
         st.subheader("Cases per Domain")
@@ -148,7 +148,7 @@ if page == "Overview":
             showlegend=False, xaxis_title="Number of Cases",
             yaxis_title="", height=450,
         )
-        st.plotly_chart(fig_bar, use_container_width=True)
+        st.plotly_chart(fig_bar, width="stretch")
 
     st.markdown("---")
     st.subheader("Summary Table")
@@ -166,7 +166,7 @@ if page == "Overview":
     summary["R2_mean"] = summary["R2_mean"].map("{:.3f}".format)
     summary["Significant_pct"] = (summary["Significant_pct"] * 100).map(
         "{:.0f}%".format)
-    st.dataframe(summary, use_container_width=True, hide_index=True)
+    st.dataframe(summary, width="stretch", hide_index=True)
 
     st.markdown("---")
     st.subheader("Central Finding")
@@ -226,7 +226,7 @@ elif page == "Corpus Explorer":
         xaxis_title="R²", yaxis_title="Exponent b",
         height=550, legend_title="Domain",
     )
-    st.plotly_chart(fig_scatter, use_container_width=True)
+    st.plotly_chart(fig_scatter, width="stretch")
 
     st.subheader("Distribution of b")
     fig_hist = px.histogram(
@@ -236,10 +236,10 @@ elif page == "Corpus Explorer":
     fig_hist.update_layout(
         xaxis_title="Exponent b", yaxis_title="Count", height=400,
     )
-    st.plotly_chart(fig_hist, use_container_width=True)
+    st.plotly_chart(fig_hist, width="stretch")
 
     with st.expander("Raw data"):
-        st.dataframe(df_filt, use_container_width=True, hide_index=True)
+        st.dataframe(df_filt, width="stretch", hide_index=True)
 
 # ── Page: Friction vs b ──────────────────────────────────────────────────────
 
@@ -272,7 +272,7 @@ elif page == "Friction vs b":
             showlegend=False, xaxis_title="Friction Level",
             yaxis_title="Exponent b", height=450,
         )
-        st.plotly_chart(fig_fric, use_container_width=True)
+        st.plotly_chart(fig_fric, width="stretch")
 
     with col2:
         st.subheader("Friction-free vs High Friction")
@@ -287,7 +287,7 @@ elif page == "Friction vs b":
             showlegend=False,
             xaxis_title="", yaxis_title="Exponent b", height=450,
         )
-        st.plotly_chart(fig_vio, use_container_width=True)
+        st.plotly_chart(fig_vio, width="stretch")
 
     st.markdown("---")
     st.subheader("Case-Level Spearman Scatter")
@@ -304,7 +304,7 @@ elif page == "Friction vs b":
         ),
         yaxis_title="Exponent b", height=500,
     )
-    st.plotly_chart(fig_spear, use_container_width=True)
+    st.plotly_chart(fig_spear, width="stretch")
 
     st.success(
         "**Spearman rho = -0.68**, p = 2.5×10⁻⁹⁷ (n=714)  \n"
@@ -358,7 +358,7 @@ elif page == "ACO Module":
                 showlegend=False, xaxis_title="",
                 yaxis_title="Exponent b", height=400,
             )
-            st.plotly_chart(fig_aco_box, use_container_width=True)
+            st.plotly_chart(fig_aco_box, width="stretch")
 
         with col_right:
             st.subheader("Abrupt vs Gradual Triggers")
@@ -372,7 +372,13 @@ elif page == "ACO Module":
                 showlegend=False, xaxis_title="",
                 yaxis_title="Exponent b", height=400,
             )
-            st.plotly_chart(fig_trig, use_container_width=True)
+            st.plotly_chart(fig_trig, width="stretch")
+            st.caption(
+                "*Recalculated 2026-09-27: abrupt b̄ = +0.40 vs gradual "
+                "b̄ = +0.85 (ratio 0.47), Mann-Whitney p = 0.10 (n = 18); "
+                "trigger is confounded with domain. The published 5.9x "
+                "comes from 2 vs 2 cases in v1.0.*"
+            )
 
         st.subheader("ACO Ranking — Absorption Speed")
         df_rank = df_aco_plot.sort_values("b", ascending=True)
@@ -390,12 +396,12 @@ elif page == "ACO Module":
             xaxis_title="Exponent b", yaxis_title="",
             height=500, legend_title="Domain",
         )
-        st.plotly_chart(fig_rank, use_container_width=True)
+        st.plotly_chart(fig_rank, width="stretch")
 
         st.markdown("(*) = calibrated estimates from secondary sources")
 
         with st.expander("ACO raw data"):
-            st.dataframe(df_aco, use_container_width=True, hide_index=True)
+            st.dataframe(df_aco, width="stretch", hide_index=True)
     else:
         st.warning("ACO data not found.")
 
@@ -427,17 +433,17 @@ elif page == "Domain Deep Dive":
     fig_dom.update_layout(
         xaxis_title="R²", yaxis_title="Exponent b", height=500,
     )
-    st.plotly_chart(fig_dom, use_container_width=True)
+    st.plotly_chart(fig_dom, width="stretch")
 
     fig_hist_d = px.histogram(df_dom, x="b", nbins=30,
                               color_discrete_sequence=[OKABE_ITO[1]])
     fig_hist_d.update_layout(
         xaxis_title="Exponent b", yaxis_title="Count", height=350,
     )
-    st.plotly_chart(fig_hist_d, use_container_width=True)
+    st.plotly_chart(fig_hist_d, width="stretch")
 
     with st.expander("Domain data"):
-        st.dataframe(df_dom, use_container_width=True, hide_index=True)
+        st.dataframe(df_dom, width="stretch", hide_index=True)
 
 # ── Page: About ──────────────────────────────────────────────────────────────
 
@@ -473,6 +479,11 @@ b >= 1    → superlinear satellization — Roche Radius
 | RC6 | Shadow node reverses without trigger | NOT REFUTED |
 | RC7 | ASI does not predict better than chance | NOT REFUTED |
 | RC8 | Mutual interdependence does not brake | NOT REFUTED |
+
+*Audit notes (see the repository README): RC3 prediction not supported by
+the active data (ACO n = 18: abrupt vs gradual p = 0.10, direction
+reversed); RC4 direction holds but cluster-level p = 0.25 (n = 6 domains);
+RC7 ROC-AUC not reproducible from the repository.*
 
 ### Citation
 
