@@ -1,34 +1,31 @@
 cff-version: 1.2.0
 message: "If you use this software or data, please cite it as below."
 type: software
-title: "Shadow Node Theory v2.5.2: Scale-Invariant Satellization and Coupled Orbital Collapse Across Empirical Domains"
+title: "Shadow Node Theory v2.6.0: Scale-Invariant Satellization and Coupled Orbital Collapse Across Empirical Domains"
 abstract: >
-  Replication package for Shadow Node Theory v2.5.2 (SNT v2.5.2),
-  a formal model of node satellization verified across 721 empirical cases
-  reconstructed entirely from verifiable primary sources. The corpus spans
-  11 domains and 30 orders of magnitude of temporal scale -- from digital
-  platform behavioral cycles (hours) to galactic merger timescales
-  (billions of years). The central finding is that institutional friction
-  is the dominant predictor of the satellization exponent b
-  (Spearman rho = -0.68, p = 2.5e-97, n=714). The active v2.5.2 release
-  retains the coupled Orbital Collapse layer (ACO-A) introduced in v2.5.0:
-  an orthogonal collapse axis (Delta), a
-  hazard layer h(tau), a three-factor taxonomy of collapse modes
-  (friction x trigger x floor/ceiling), and a Principle of Least Friction
-  unifying them, with collapse evidence in five domains (finance, history,
-  crypto, biology, astronomy) from real data. Version 2.5.2 also adds the
-  Domain G bridge. The active conceptual framework is marco teórico v34
+  Replication package for Shadow Node Theory v2.6.0 (SNT v2.6.0), a formal
+  model of node satellization with a corpus of 721 empirical cases
+  reconstructed from verifiable primary sources (unchanged since v2.5.2) and
+  a coupled Orbital Collapse layer (ACO-A). Version 2.6.0 integrates an
+  internal integral audit (v32) and five pre-registered tests (2026-09-27).
+  The published arithmetic replicates; the inference does not always. The
+  friction finding keeps its direction (per case rho = -0.68, n = 714) but is
+  not significant at the domain level (rho = -0.56, p = 0.25) and is not
+  supported by a pre-registered test with new non-COVID domains
+  (rho = -0.13, p = 0.39); the friction-free (epidemic) pole is real and
+  robust to autocorrelation when rebuilt from raw OWID series. Domain B
+  (country pairs) reproduces byte for byte from the Maddison Project
+  Database 2020 but does not measure hub-node coupling: a discriminant test
+  with bilateral trade and reconstructions with trade-emergent hubs (fixed
+  and time-varying) show convergence rather than satellization. A
+  pre-registered test on blind-coded abrupt triggers (capital relocations
+  and 1980 Special Economic Zones) supports faster satellization after
+  abrupt decrees (8/8 cases, p = 0.004). In the collapse layer,
+  orthogonality of satellization and collapse holds with 242 crypto pairs,
+  and a positive hazard ("no system is eternal") holds in 663 crypto pairs
+  and 27,771 FDIC banks; a hazard rising with age holds only in crypto.
+  The active conceptual framework is marco teórico v34
   (papers/marco_teorico.md), numbered independently from the corpus.
-  An internal integral audit (v32) confirms that the published arithmetic
-  replicates and that the direction of the friction finding holds, but that
-  its per-case significance is inflated by serial autocorrelation (Domain B)
-  and by treating 714 clustered cases as independent (cluster-level
-  rho = -0.56, p = 0.25, n = 6 domains); see the README "Audit v32" section.
-  The v2.4.0 corpus replaced the v2.3.1 corpus (502 cases)
-  which contained synthetic values.
-  Domain B reproduces byte for byte from the committed Maddison Project
-  Database 2020 (data/mpd2020.xlsx); the raw
-  COVID-19 series behind Domains E1/E3 are public but not committed.
 authors:
   - family-names: "Zainos Corona"
     given-names: "Elan"
@@ -38,8 +35,8 @@ authors:
     email: "elan.zainos.corona@gmail.com"
     city: "Tlaxcala"
     country: MX
-version: "2.5.2"
-date-released: "2026-09-10"
+version: "2.6.0"
+date-released: "2026-09-27"
 url: "https://github.com/Inzainos/The-shadow-Node-Theory"
 repository-code: "https://github.com/Inzainos/The-shadow-Node-Theory"
 license: "MIT"

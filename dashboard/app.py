@@ -1,5 +1,5 @@
 """
-Shadow Node Theory v2.5.2 — Interactive Dashboard
+Shadow Node Theory v2.6.0 — Interactive Dashboard
 Fractal Core Research | Tlaxcala, Mexico | 2026
 
 721 empirical cases across 10 domains and 30 orders of magnitude.
@@ -14,7 +14,7 @@ import plotly.graph_objects as go
 from pathlib import Path
 
 st.set_page_config(
-    page_title="Shadow Node Theory v2.5.2",
+    page_title="Shadow Node Theory v2.6.0",
     page_icon="🔬",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -76,7 +76,7 @@ df_aco = load_aco()
 # ── Sidebar ──────────────────────────────────────────────────────────────────
 
 st.sidebar.title("🔬 Shadow Node Theory")
-st.sidebar.markdown("**v2.5.2** | 721 cases | 10 domains")
+st.sidebar.markdown("**v2.6.0** | 721 cases | 10 domains")
 st.sidebar.markdown("---")
 
 page = st.sidebar.radio(
@@ -97,7 +97,7 @@ st.sidebar.markdown(
 # ── Page: Overview ───────────────────────────────────────────────────────────
 
 if page == "Overview":
-    st.title("Shadow Node Theory v2.5.2")
+    st.title("Shadow Node Theory v2.6.0")
     st.markdown(
         "*Scale-Invariant Satellization Across 721 Empirical Cases*  \n"
         "**Elan Zainos Corona** — Fractal Core Research, Tlaxcala, Mexico"
@@ -488,7 +488,7 @@ has no trigger variable; RC4 direction holds but cluster-level p = 0.25
 ### Citation
 
 ```
-Zainos Corona, E. (2026). Shadow Node Theory v2.5.2:
+Zainos Corona, E. (2026). Shadow Node Theory v2.6.0:
 Scale-Invariant Satellization and Coupled Orbital Collapse Across Empirical Domains.
 Zenodo. doi:10.5281/zenodo.19446521
 ```

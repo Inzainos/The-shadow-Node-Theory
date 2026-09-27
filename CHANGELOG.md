@@ -46,7 +46,20 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 - Campo de fricción `φ` postulado, no medido.
 - El piso sigue siendo factor y no variable, lo que acota la cimática del colapso al eje acelera / no acelera.
 
-## [No publicado] — 2026-07
+## [2.6.0] — 2026-09-27
+
+Auditoría, prueba discriminante y reconstrucción del dominio B, revisión r31 del
+preprint de SSRN y **pre-registro con cinco pruebas** de la teoría. El corpus de 721
+casos no cambia. PR [#42](https://github.com/Inzainos/The-shadow-Node-Theory/pull/42)
+a [#46](https://github.com/Inzainos/The-shadow-Node-Theory/pull/46).
+
+> **Nota de trazabilidad.** Las entradas fechadas en julio de 2026 (auditoría
+> integral v32 y su runner, prueba discriminante inicial del dominio B y
+> `owid-maddison.csv`, parche v31 del marco, validaciones del agente genómico,
+> Delta, `.flake8`, `SECURITY.md`, `AGENTS.md`/`CLAUDE.md`) ya estaban en el
+> código de la etiqueta 2.5.2, pero su entrada no las listaba; se conservan aquí
+> como registro. Lo nuevo de 2.6.0 son las entradas del 26 y 27 de septiembre de
+> 2026.
 
 ### Documentación
 - **Marco v34, nota de auditoría en el Axioma 5** (2026-09-27, a pedido del
