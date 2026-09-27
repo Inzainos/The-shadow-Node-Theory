@@ -146,8 +146,9 @@ reenvío de la teoría una vez afinada). Hechos el 2026-09-27: ~~fijar la edici�
 exacta de Maddison~~ (MPD2020, reproducción byte a byte), ~~re-correr la prueba
 discriminante con MPD2020~~ (sigue inconclusa), ~~bloque 2 con comercio
 bilateral~~ (acoplamiento no respaldado), ~~actualizar el preprint de SSRN~~
-(revisión r31 en inglés y español, `papers/snt_ssrn_v31*`; la subida la hace el
-autor) y ~~reconstruir el dominio B con hub emergente del comercio~~ (no rescata
+(revisión r31 en inglés y español, `papers/snt_ssrn_v31*`, sustituida antes de
+subirse por la r32, `papers/snt_ssrn_v32*`, que agrega el pre-registro; la subida la
+hace el autor) y ~~reconstruir el dominio B con hub emergente del comercio~~ (no rescata
 el acoplamiento).
 
 ## Pre-registro 2026-09-27 — seis puntos pedidos por el autor

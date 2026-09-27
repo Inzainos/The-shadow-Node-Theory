@@ -48,6 +48,24 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 
 ## [No publicado]
 
+### Añadido
+- **Preprint SSRN, revisión r32** (2026-09-27, a pedido del autor, que ahora pide
+  subir a SSRN todo lo nuevo): `papers/snt_ssrn_v32_EN.md` (+ `.pdf`, `.docx`),
+  versión en español `papers/snt_ssrn_v32.md` (+ `.pdf`, `.docx`) y el texto del
+  formulario `papers/SSRN_revision_v32.md` (título, resumen de 2,007 caracteres,
+  palabras clave, JEL, comentarios). Parte de la r31 (que no se subió) y agrega los
+  resultados del pre-registro del 2026-09-27: disparadores a ciegas respaldada
+  (§5, nueva tabla de 8 casos; Hallazgo 3), prueba de fricción con dominios nuevos
+  no respaldada (Hallazgo 1, nueva tabla de 7 dominios), E3 reproducido desde las
+  series crudas con la cota AR(1) conservadora 176/198 y E1 no reproducible (§3.3,
+  Hallazgo 2, §9), hub comercial variable en el tiempo no respaldada (Hallazgo 4
+  (d)), cohortes ampliadas de ACO-A (§13.1–13.2, RC-Δ1/RC-Δ3), exclusión del
+  dominio D del n = 714, límites de las pruebas pre-registradas (§9), líneas
+  futuras resueltas y abiertas (§15.3) y referencias de las fuentes nuevas (WUP
+  2018, OWID, StatCounter, FDIC, Binance). Título y pie pasan a v2.6.0. La r31 y su
+  formulario quedan como registro (`SSRN_revision_v31.md` marcado como sustituido,
+  nunca subido); la v30 queda intacta.
+
 ### Corregido
 - **Cifra corregida de E3 y valor puntual de B** (2026-09-27, revisión posterior a
   2.6.0). El runner de la auditoría (`snt_auditoria_integral_v32.py`) ya no marca como
@@ -71,6 +89,10 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   pre-registradas de ortogonalidad (n = 242) y hazard (cripto 663, bancos 27,771);
   `sources.md` actualiza E1/E3; la auditoría v32 lleva un seguimiento con fecha. El
   preprint r31 no se modifica (decisión del autor).
+- **README y fuentes tras la r32** (2026-09-27): el pendiente 1 del README ("corregir
+  E3 por AR(1)") se marca hecho; la tabla de envíos, el árbol de `papers/` y el índice
+  de auditorías apuntan a la r32; `data/FUENTES.md` marca hecha la recuperación de
+  las series crudas de E3.
 - **Versión 2.5.3 retroactiva** (2026-09-27, a pedido del autor): lo integrado en los
   PR #42 a #45 (auditoría, dominio B, SSRN r31) pasa de la entrada [2.6.0] a una
   entrada [2.5.3] propia, que corresponde a la etiqueta `2.5.3` sobre `28eabb1`.

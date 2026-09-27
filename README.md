@@ -475,7 +475,10 @@ trajectory), and R(t) is fitted exactly as in Domain B.
 
 ### Pending (order suggested by the audit)
 
-1. AR(1)-correct E3 and the other domains (needs their raw series).
+1. ~~AR(1)-correct E3~~ — done 2026-09-27 from the raw OWID series (pre-registration,
+   point 3): conservative AR(1) bound, 176 of 198 estimable cases significant. The
+   other domains still need their raw series; Domain B's point value needs GLS or a
+   block bootstrap (standard Newey-West under-corrects).
 2. ~~Update the SSRN v30 EN preprint~~ — revised manuscript **r31** prepared
    2026-09-27 (`papers/snt_ssrn_v31_EN.md` / `.pdf` / `.docx`; v30 kept
    unchanged as the submitted record). It withdraws the 5.9× claim, corrects the
@@ -483,8 +486,11 @@ trajectory), and R(t) is fitted exactly as in Domain B.
    ASI "precision = 1.0", adds the clustering/autocorrelation caveats to the
    friction finding, and reports the discriminant test and the trade-hub
    reconstruction of Domain B. Spanish version `papers/snt_ssrn_v31.*` and the
-   SSRN form text `papers/SSRN_revision_v31.md` added the same day. **Uploading
-   it to SSRN is pending (author action).** PLOS is deferred until the theory is
+   SSRN form text `papers/SSRN_revision_v31.md` added the same day. r31 was never
+   uploaded: it is superseded by **r32** (2026-09-27, `papers/snt_ssrn_v32_EN.*`,
+   Spanish `snt_ssrn_v32.*`, form text `papers/SSRN_revision_v32.md`), which adds
+   the five pre-registered tests and the E3 raw-series correction. **Uploading r32
+   to SSRN is pending (author action).** PLOS is deferred until the theory is
    resubmitted once refined.
 3. Test b ≥ 1 on the other domains' raw series (now feasible for E3, whose raw
    series are in the repo since 2026-09-27).
@@ -492,7 +498,7 @@ trajectory), and R(t) is fitted exactly as in Domain B.
 5. ~~Decide on the 5.9× figure~~ — recalculated 2026-09-27: not reproducible and
    untestable on the active corpus; RC3 changed to UNTESTABLE (see the findings
    table and `reconstruction_real/data/trigger_abrupto_gradual_recalculo.csv`).
-   The SSRN v30 EN abstract states this figure; SSRN r31 withdraws it (item 2).
+   The SSRN v30 EN abstract states this figure; SSRN r31/r32 withdraw it (item 2).
    Later on 2026-09-27 a pre-registered test on a new city corpus supported the
    abrupt-trigger prediction (item 11; RC3 now NOT REFUTED).
 6. ~~Mark `soberania` as derived from ASI~~ — done (`data/snt_asi_scores_README.md`).
@@ -524,7 +530,7 @@ trajectory), and R(t) is fitted exactly as in Domain B.
 
 | Target | Status | Notes |
 |--------|--------|-------|
-| **SSRN** (abstract 6418778) | REVISION SUBMITTED · r31 READY | **v30 revision submitted 28 Jun 2026** (`papers/snt_ssrn_v30_EN`); supersedes v2.3.1/502. **r31 prepared 27 Sep 2026** (`papers/snt_ssrn_v31_EN`, Spanish `snt_ssrn_v31`, form text `SSRN_revision_v31.md`): audit v32 corrections (5.9× withdrawn, ROC-AUC 0.715, ASI precision withdrawn, friction caveats, Domain B discriminant test and trade-hub reconstruction); upload pending (author) |
+| **SSRN** (abstract 6418778) | REVISION SUBMITTED · r32 READY | **v30 revision submitted 28 Jun 2026** (`papers/snt_ssrn_v30_EN`); supersedes v2.3.1/502. **r32 prepared 27 Sep 2026** (`papers/snt_ssrn_v32_EN`, Spanish `snt_ssrn_v32`, form text `SSRN_revision_v32.md`): audit v32 corrections (5.9× withdrawn, ROC-AUC 0.715, ASI precision withdrawn, friction caveats, Domain B discriminant test and trade-hub reconstructions) plus the five pre-registered tests; upload pending (author). r31 (same day) was superseded before upload |
 | **Zenodo** (DOI 10.5281/zenodo.19446521) | PUBLISHED | 721-case corpus archive record (v2.5.0 snapshot; active repo release: v2.6.0) |
 | **PLOS Complex Systems** (PCSY-D-26-00059) | REVISION SUBMITTED | v30 revision package submitted (`snt_plos_v30` + `plos_response_to_reviewers_v30`); addresses both reviewers; awaiting decision |
 | **J. Complex Networks** (COMNET-2026-214) | REJECTED | No external review |
@@ -721,9 +727,12 @@ The-shadow-Node-Theory/
 |   |-- snt_plos_v30.md / .pdf / .docx <-- PLOS revised manuscript v30 (721 cases; addresses reviewers) [CURRENT]
 |   |-- plos_response_to_reviewers_v30.md / .pdf / .docx <-- PLOS point-by-point response letter
 |   |-- snt_plos_721cases_v29_DRAFT.docx <-- PLOS revision draft (721 cases, v29)
-|   |-- snt_ssrn_v31_EN.md / .pdf / .docx <-- SSRN preprint r31 ENGLISH (audit v32 corrections) [CURRENT, upload pending]
-|   |-- snt_ssrn_v31.md / .pdf / .docx <-- SSRN preprint r31 Spanish (translation of the EN r31)
-|   |-- SSRN_revision_v31.md           <-- SSRN form text for r31 (title, abstract, keywords, JEL, revision comments)
+|   |-- snt_ssrn_v32_EN.md / .pdf / .docx <-- SSRN preprint r32 ENGLISH (audit v32 corrections + pre-registered tests) [CURRENT, upload pending]
+|   |-- snt_ssrn_v32.md / .pdf / .docx <-- SSRN preprint r32 Spanish (translation of the EN r32)
+|   |-- SSRN_revision_v32.md           <-- SSRN form text for r32 (title, abstract, keywords, JEL, revision comments)
+|   |-- snt_ssrn_v31_EN.md / .pdf / .docx <-- SSRN preprint r31 ENGLISH (superseded by r32 before upload; record, = tag 2.5.3)
+|   |-- snt_ssrn_v31.md / .pdf / .docx <-- SSRN preprint r31 Spanish (record)
+|   |-- SSRN_revision_v31.md           <-- SSRN form text for r31 (record; never uploaded)
 |   |-- snt_ssrn_v30_EN.md / .pdf / .docx <-- SSRN preprint v30 ENGLISH (submitted 28 Jun 2026; record)
 |   |-- snt_ssrn_v30.md / .pdf / .docx <-- SSRN preprint v30 Spanish (721 real cases + collapse layer ACO-A)
 |   |-- SSRN_revision_v30.md           <-- SSRN revision notes
