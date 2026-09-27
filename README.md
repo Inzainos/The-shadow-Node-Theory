@@ -425,7 +425,11 @@ trajectory), and R(t) is fitted exactly as in Domain B.
 11. Pre-registered tests 2026-09-27 (six points requested by the author): see
     the results report above — friction across new non-COVID domains not
     supported; E3 recovered from raw data and robust to autocorrelation; E1 not
-    reproducible; abrupt decree triggers supported on cities.
+    reproducible; abrupt decree triggers supported on cities; b ⊥ Δ supported
+    (n = 242); h > 0 supported in crypto and banks, rising hazard only in crypto.
+12. Open after the pre-registration: age-period-cohort separation of the crypto
+    hazard; friction → Δ with a larger cohort (no public absorption series yet);
+    a trigger corpus without the UN WUP ≥ 300k survivor filter.
 
 ---
 
@@ -489,6 +493,14 @@ system has two orthogonal coordinates **(b, Delta)**: satellization (b) and the
 collapse/absorption exponent (Delta), fit on its own clock tau from functional
 extinction. A third layer, the hazard **h(tau) > 0**, states the falsifiable
 "no system is eternal".
+
+**Pre-registered hazard test (2026-09-27):** h(τ) > 0 holds in two large,
+independent cohorts — 663 Binance crypto pairs (124 functional extinctions,
+ends in all 8 age bands with ≥ 30 at risk) and 27,771 FDIC-insured banks
+(23,505 ends, all 39 five-year age bands from 0 to 195 years). The v30 claim
+that the hazard **rises with age** holds only in crypto (ρ = +0.88, p = 0.002),
+where age is confounded with the 2022–2025 bear market; banks show a bathtub
+shape (not rising). Details: `reconstruction_real/audits/RESULTADOS_PREREGISTRO_2026-09-27.md`.
 
 **The collapse mode is governed by friction x trigger x (floor/ceiling):**
 
@@ -820,7 +832,7 @@ finding.
 | RC6 | Shadow node reverses satellization without exogenous trigger | NOT REFUTED | Not covered by the audit. |
 | RC7 | ASI does not predict outcomes better than chance | NOT REFUTED | ROC-AUC 0.715 not reproducible from the repo (target absent). |
 | RC8 | Mutual interdependence does not brake satellization | NOT REFUTED | Rests on Domain B, whose discriminant test is inconclusive. Block 2 (2026-09-27): initial trade integration with the hub goes with **lower** b (ρ = −0.185, within-region permutation p = 0.026) — a direction consistent with "interdependence as brake", but it is a correlation on the assigned-hub construct and it contradicts the coupling reading of Domain B. With trade-emergent hubs (2026-09-27) no coupling appears either; the brake stays a hypothesis without support in this domain. |
-| RC9 | Collapse axis is not orthogonal to satellization: corr(b, Delta) >> 0 | NOT REFUTED (first test: crypto n=11, Spearman rho=+0.009, p=0.98 -- consistent with orthogonality; cross-domain still untested) | Replicates exactly from `orthogonality_crypto_v25.csv`. |
+| RC9 | Collapse axis is not orthogonal to satellization: corr(b, Delta) >> 0 | NOT REFUTED (first test: crypto n=11, Spearman rho=+0.009, p=0.98 -- consistent with orthogonality; cross-domain still untested) | Replicates exactly from `orthogonality_crypto_v25.csv`. **Pre-registered test 2026-09-27 (Binance archive, n = 242):** ρ = −0.119, 95% CI [−0.241, +0.007] inside the ±0.3 equivalence band → orthogonality **supported**; 153/242 peaks fall in 2021 (one market cycle). |
 | RC10 | A realized collapse takes a higher-friction path when a lower one exists | NOT REFUTED | Not covered by the audit. |
 | RC11 | Absorber mass does not grow post-absorption (R does not increase) | NOT REFUTED | Not covered by the audit. |
 

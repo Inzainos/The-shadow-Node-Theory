@@ -24,6 +24,7 @@ import logging
 import re
 import sys
 import time
+import urllib.parse
 import urllib.request
 import zipfile
 from concurrent.futures import ThreadPoolExecutor
@@ -63,7 +64,9 @@ log = logging.getLogger("BINANCE")
 
 
 def abrir(url):
-    """urlopen con hasta 4 reintentos y espera exponencial (2, 4, 8, 16 s)."""
+    """urlopen con hasta 4 reintentos y espera exponencial (2, 4, 8, 16 s).
+    La URL se codifica (hay pares con nombres no ASCII)."""
+    url = urllib.parse.quote(url, safe=":/?&=%")
     for intento in range(5):
         try:
             with urllib.request.urlopen(url, timeout=120) as r:

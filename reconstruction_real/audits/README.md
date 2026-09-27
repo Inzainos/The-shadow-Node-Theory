@@ -158,5 +158,5 @@ el acoplamiento).
 | 2. Fricción con dominios nuevos sin COVID | `code/prueba_friccion_dominios_nuevos.py` | **No respaldada** (7 dominios, ρ = −0.131, permutación exacta p = 0.39) |
 | 3. Series crudas COVID | `code/covid_E3_series_crudas.py` | E3 reproducido 233/234 y **robusto** a la autocorrelación (Newey-West 233/234); E1 no reproducible |
 | 4. Disparadores codificados a ciegas | `code/prueba_disparadores_ciudades.py` | **Respaldada** (8/8, Wilcoxon p = 0.0039; salvedad de supervivencia de WUP) |
-| 5. Cohortes ACO-A | `code/descargar_binance_klines.py`, `code/aco_cohortes_ampliadas.py` | ver informe |
+| 5. Cohortes ACO-A | `code/descargar_binance_klines.py`, `code/aco_cohortes_ampliadas.py` | 5a ortogonalidad **respaldada** (242 pares, ρ = −0.119, IC [−0.241, +0.007]); 5b h > 0 **respaldada** en cripto (663) y bancos (27,771); h creciente solo en cripto (confundida con el calendario), bancos en bañera; 5c no ampliable |
 | 6. Pre-registro | — | hecho antes de todo lo anterior |

@@ -173,6 +173,30 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   datos reales (`data_adapters.py`, `run_real_delta.py`).
 
 ### Añadido
+- **Pre-registro y cinco pruebas de la SNT** (2026-09-27, seis puntos pedidos por el
+  autor). Pre-registro `reconstruction_real/preregistro/PREREGISTRO_2026-09-27.md`
+  subido (commit `c319fac`) antes de descargar datos o correr pruebas; informe
+  `reconstruction_real/audits/RESULTADOS_PREREGISTRO_2026-09-27.md` con desviaciones.
+  - **Punto 1, hub variable en el tiempo** (`prueba_hub_temporal.py`): no
+    respaldada (H = 20: d mediana −0.009, p = 0.95); H = 30 contraria (p = 0.0002).
+    Funciones COW/Maddison compartidas en `comercio_maddison.py` (la reconstrucción
+    estática reproduce salidas y log idénticos).
+  - **Punto 2, fricción con dominios nuevos sin COVID**
+    (`prueba_friccion_dominios_nuevos.py`; E4 mpox, D2 StatCounter, A2 ciudades
+    WUP, B-comercio): no respaldada (ρ = −0.131, permutación exacta p = 0.39).
+  - **Punto 3, series crudas de COVID** (`covid_E3_series_crudas.py`): receta de E3
+    identificada (233/234); Newey-West p < 0.05 en 233/234; E1 no reproducible.
+  - **Punto 4, disparadores a ciegas** (`prueba_disparadores_ciudades.py`):
+    respaldada (8/8, Wilcoxon p = 0.0039; capitales 5.1×; salvedad de
+    supervivencia de WUP).
+  - **Punto 5, cohortes ACO-A** (`descargar_binance_klines.py` con reintentos,
+    `aco_cohortes_ampliadas.py`): ortogonalidad respaldada por equivalencia (242
+    pares, ρ = −0.119); h > 0 respaldada en cripto (663) y bancos FDIC (27,771);
+    hazard creciente solo en cripto (confundido con el calendario), bancos en
+    bañera; fricción → Δ no ampliable.
+  - Subconjuntos versionados de cada fuente nueva y SHA-256 en `data/FUENTES.md`;
+    README (RC3 no refutado por prueba pre-registrada; fila de fricción; RC9; hazard)
+    e índice de auditorías actualizados.
 - **Reconstrucción del dominio B con hub emergente del comercio** (2026-09-27;
   pendiente 9 de la auditoría). Nuevo
   `reconstruction_real/code/reconstruccion_B_hub_comercio.py` (con log) →

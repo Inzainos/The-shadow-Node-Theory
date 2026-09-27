@@ -16,7 +16,10 @@ en `reconstruction_real/data/`. Las fuentes nuevas y sus SHA-256 están en
 | 2. Fricción con dominios nuevos | ρ(fricción, b̄ del dominio) < 0 sin COVID | ρ = −0.131 en 7 dominios; permutación exacta p = 0.39 | **NO RESPALDADA** (y en todas las variantes) |
 | 3. Series crudas COVID | Sin dirección (corrección de reporte) | E3 reproducido 233/234; Newey-West p < 0.05 en 233/234 | E3 **sobrevive** la corrección; E1 **no reproducible** |
 | 4. Disparadores a ciegas | El retador abrupto gana terreno más rápido que ciudades con la misma razón inicial (d > 0) | d > 0 en 8/8; Wilcoxon 1 cola p = 0.0039 | **RESPALDADA** (también con el año de decisión) |
-| 5. Cohortes ACO-A | 5a ortogonalidad; 5b-i h > 0; 5b-ii h crece con la edad | _(ver §5)_ | _(ver §5)_ |
+| 5a. Ortogonalidad b ⊥ Δ | IC 95% de ρ(b_subida, Δ_caída) dentro de [−0.3, 0.3] | 242 pares Binance: ρ = −0.119, IC [−0.241, +0.007] | **RESPALDADA** (equivalencia) |
+| 5b-i. Hazard positivo | Toda banda de edad con ≥ 30 en riesgo tiene fines | Cripto 8/8 bandas; bancos (cualquier fin) 39/39 | **RESPALDADA** en ambas cohortes; solo quiebras bancarias: sin evidencia en 4 bandas de ≥ 155 años |
+| 5b-ii. Hazard crece con la edad | Spearman(edad, h) > 0 | Cripto ρ = +0.881, p = 0.002; bancos (entrada 1970) ρ = +0.050, p = 0.38 | **Respaldada en cripto** (confundida con el calendario); **no respaldada en bancos** (forma de bañera) |
+| 5c. Fricción → Δ | — | No se amplía (sin datos públicos comparables) | Declarado |
 
 ---
 
@@ -140,7 +143,76 @@ la salvedad de supervivencia.
 
 ## 5. Cohortes ampliadas de ACO-A
 
-_(pendiente: corriendo la descarga del archivo de Binance)_
+Scripts: `code/descargar_binance_klines.py` (archivo público de Binance; 664 pares spot contra
+USDT tras excluir 23 estables/fiat y 48 apalancados; 663 con velas diarias, 780,348 cierres,
+2017-08-17 a 2026-08-31) y `code/aco_cohortes_ampliadas.py` → `data/aco_ortogonalidad_binance.csv`,
+`data/aco_hazard_bandas.csv`. Bancos: FDIC BankFind (27,834 instituciones, 4,117 quiebras).
+
+### 5a. Ortogonalidad b ⊥ Δ
+
+| | Antes (Yahoo, v25) | Ahora (Binance) |
+|---|---:|---:|
+| Pares que cumplen las reglas | 11 | **242** |
+| Spearman ρ(b_subida, Δ_caída) | +0.009 (p = 0.98) | **−0.119** (p = 0.065) |
+| IC 95% (Fisher) | — | [−0.241, +0.007] |
+| Pearson r | — | −0.103 (p = 0.11) |
+
+**Decisión: RESPALDADA por equivalencia** — el IC cae dentro de [−0.3, +0.3]. La asociación, si
+existe, es débil y negativa (mayor subida, caída algo más pronunciada), no significativa. Salvedades:
+153 de los 242 máximos ocurrieron en 2021 (un solo ciclo de mercado), y el "nacimiento" es el
+listado en Binance, no el origen de la moneda.
+
+### 5b. Hazard h(τ)
+
+**Cripto** (663 pares; 124 extinciones funcionales ACO; 185 pares retirados; 252 con extinción
+o retiro):
+
+| Edad (años) | En riesgo | Extinciones ACO | h (por año) | h con retiro |
+|---|---:|---:|---:|---:|
+| 0–1 | 663 | 4 | 0.007 | 0.033 |
+| 1–2 | 516 | 7 | 0.015 | 0.090 |
+| 2–3 | 392 | 17 | 0.048 | 0.104 |
+| 3–4 | 321 | 22 | 0.077 | 0.169 |
+| 4–5 | 244 | 37 | 0.182 | 0.271 |
+| 5–6 | 159 | 24 | 0.199 | 0.299 |
+| 6–7 | 83 | 9 | 0.161 | 0.215 |
+| 7–8 | 37 | 4 | 0.183 | 0.183 |
+
+- **Positividad:** las 8 bandas con ≥ 30 en riesgo tienen extinciones → **respaldada**.
+- **Forma:** el hazard crece con la edad (ρ = +0.881, p 1 cola = 0.002; con retiro, ρ = +0.786,
+  p = 0.010) → **respaldada**, pero **confundida con el calendario**: los pares listados en
+  2017–2020 llegan a 4–6 años durante el mercado bajista de 2022–2025, que es cuando se concentran
+  las extinciones. Separar edad de periodo requiere un modelo edad-periodo-cohorte (pendiente).
+
+**Bancos FDIC** (27,771 instituciones tras excluir 41 fechas de fundación de relleno y 22
+inactivas sin fecha de cierre; 23,505 fines por cualquier causa, 3,565 quiebras emparejadas por
+CERT):
+
+| Especificación | Positividad (bandas de 5 años, ≥ 30 en riesgo) | Forma: ρ(edad, h) | Decisión forma |
+|---|---|---:|---|
+| Cualquier fin, entrada pre-registrada 1934 (**sesgada**) | 39/39 con fines | +0.623 (p < 0.001) | respaldada (artefacto) |
+| **Cualquier fin, entrada corregida 1970** | **39/39 con fines** | **+0.050 (p = 0.38)** | **no respaldada** |
+| Solo quiebras, entrada 1934 (sesgada) | sin fines en 4 bandas (≥ 155 años) | −0.453 | no respaldada |
+| Solo quiebras, entrada 1970 | sin fines en 4 bandas (≥ 155 años; n = 43–361) | −0.764 | no respaldada |
+
+- Con la entrada corregida, el hazard de "cualquier fin" es de **bañera**: 0.04–0.06 por año en
+  los primeros 35 años, ~0.02–0.03 entre los 35 y los 125, y vuelve a subir en edades muy altas.
+  No crece de forma monótona.
+- Las quiebras (sin fusiones) bajan con la edad: 0.007–0.014 por año en los primeros 35 años y
+  cerca de 0.001–0.003 después; en 4 bandas de más de 155 años no hay ninguna (la cota superior
+  3/n va de 0.008 a 0.070).
+- La especificación pre-registrada (entrada en 1934) da "respaldada" en la forma solo porque la
+  base no registra cierres antes de 1970 (ver Desviaciones): no debe usarse.
+
+**Lectura:** "ningún sistema es eterno" (h > 0) se sostiene en dos cohortes grandes e
+independientes, con fines en todas las edades. La afirmación de la v30 de que el hazard **crece**
+con la edad solo aparece en cripto, donde está confundida con el calendario; en bancos no se
+cumple. La forma del hazard depende del dominio.
+
+### 5c. Fricción → Δ
+
+No se amplía: no hay series públicas de absorción post-quiebra comparables a las de la cohorte
+2008 (n = 6). Sigue pendiente.
 
 ## Desviaciones respecto al pre-registro
 
@@ -151,3 +223,13 @@ _(pendiente: corriendo la descarga del archivo de Binance)_
    esos meses antes de tomar los "primeros 12 meses". Mobile vendor solo existe para móvil.
 3. **Punto 4:** el archivo anual de WUP 2018 es el F22 (el F12 es quinquenal); el
    pre-registro decía "archivo anual".
+4. **Punto 5 (bancos):** la base de la FDIC no registra ningún cierre antes de 1970 (0 en
+   1934–1969; 1,653 en 1970–1979). Con la entrada pre-registrada (edad en 1934), el hazard de esas
+   décadas sale en cero por construcción. Se reportan ambas especificaciones y la decisión se basa
+   en la corregida (entrada en 1970). Se excluyeron además 41 fechas de fundación de relleno
+   (01/01/1800) y 22 instituciones inactivas sin fecha de cierre (12/31/9999).
+5. **Punto 5 (cripto):** el umbral de "par retirado" (última vela más de 31 días antes del final
+   del archivo) no estaba fijado. Un par (USDSOLDUSDT) no tiene velas diarias; uno con nombre no
+   ASCII (币安人生USDT) requirió codificar la URL.
+6. **Punto 3:** no se usó la serie de Johns Hopkins; la receta se identificó con OWID, como decía el
+   pre-registro.
