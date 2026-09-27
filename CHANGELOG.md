@@ -263,13 +263,30 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   caso a caso: `expand_B_massive.py` → 441 vs 446 casos, corr(b) = 0.979,
   12/408 b idénticos (`PARCIAL`); `expand_dominio_B.py` → 254 casos
   (`PARCIAL`). La fila de RC9 (fija en `NO_REPRODUCIBLE`) ahora se calcula desde
-  `orthogonality_crypto_v25.csv` (ρ = +0.009 → `REPLICA`).
+  `orthogonality_crypto_v25.csv` (ρ = +0.009 → `REPLICA`). *(Esa medición usó la
+  edición OWID posterior; con la edición del corpus, MPD2020, la reproducción
+  es exacta — ver "Dominio B: edición de Maddison identificada" abajo.)*
 - **Script regenerador del dominio B mal atribuido.** README,
   `reconstruction_real/README.md`, `DOMINIO_B_METODOLOGIA.md` y
   `data/FUENTES.md` decían que `expand_dominio_B.py` reproduce los 446 casos;
-  produce 254. El que regenera el dominio es `expand_B_massive.py`, y de forma
-  aproximada (la edición de Maddison original no se fijó). El `trigger` fijo en
-  `'gradual'` está en ambos scripts.
+  produce 254. El que genera el dominio es `expand_B_massive.py`. El `trigger`
+  fijo en `'gradual'` está en ambos scripts.
+- **Dominio B: edición de Maddison identificada y fijada; reproducción exacta**
+  (2026-09-27). La edición del corpus nunca se había fijado: era el **Maddison
+  Project Database 2020** (cobertura 1–2018), no la 2023 que citaban README,
+  `sources.md` y `CITATION.cff`. Se buscó en Google Drive del autor (solo estaba
+  `mpd2023_web.xlsx`) y se descargó la 2020 de la GGDC. Nuevo
+  `data/mpd2020.xlsx` (SHA-256 `d20853c2…`) y
+  `reconstruction_real/code/build_maddison_mpd2020_csv.py` →
+  `data/maddison_mpd2020.csv` (nombres OWID por ISO3; "Sudan (Former)" →
+  "Sudan"). Con ella `expand_B_massive.py` reproduce los 446 casos **byte a
+  byte** (SHA-256 idéntico, 19 columnas iguales). `expand_B_massive.py` acepta
+  `--maddison`/`--salida` y por defecto lee la edición fijada; el runner de la
+  auditoría verifica la reproducción exacta (`REPLICA`) y mide la sensibilidad
+  a la edición OWID posterior (`PARCIAL`, 441 vs 446). Citas corregidas de 2023
+  a 2020 en README, `reconstruction_real/README.md`, `sources.md`,
+  `DOMINIO_B_METODOLOGIA.md`, `data/FUENTES.md` y `CITATION.cff`. No fue
+  necesario re-publicar B.
 - **Dashboard:** las 16 llamadas con `use_container_width=True` (deprecado)
   pasan a `width="stretch"`; verificado con Streamlit 1.58.0 (versión del
   despliegue en Hugging Face) y 1.64.0: 6/6 páginas, 0 excepciones, 0 avisos.

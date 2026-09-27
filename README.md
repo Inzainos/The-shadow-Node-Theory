@@ -134,7 +134,7 @@ b >= 1    --> superlinear satellization -- Roche Radius
 | Domain | Friction | Cases | Sig. | b mean | Source |
 |--------|----------|-------|------|--------|--------|
 | A -- Cities | medium | 4 | 0% | +0.08 | UN Demographic Yearbook |
-| B -- Countries | high | 446 | 84%† | +0.09 | Maddison Project 2023 (via OWID) |
+| B -- Countries | high | 446 | 84%† | +0.09 | Maddison Project Database 2020 |
 | C -- Regions | high | 24 | 100% | +0.09 | US Census historical (23) + INEGI 2022 (1) |
 | D -- Digital | low | 3 | 100% | -1.36 | HackerEarth 2026 |
 | E1 -- Invasion (territorial spread) | none | 4 | 100% | +2.89 | OWID COVID-19 (spatial spread, 2020) |
@@ -159,14 +159,16 @@ not available).
 
 **Integrity verified:** R² in [0,1] for all cases, p in [0,1], zero corrupt
 values; SHA-256 checksums of the corpus files are pinned in `data/FUENTES.md`
-(re-verified 2026-09-26). **Reproducibility is partial:** Domain B
-regenerates only **approximately** from `data/owid-maddison.csv` —
-`expand_B_massive.py` yields 441 cases vs 446 published (408 common pairs,
-corr(b) = 0.979, sign agrees 396/408, only 12/408 identical b; aggregates hold:
-b̄ +0.088 vs +0.092, 83.7% vs 83.9% nominal significant), because the Maddison
-edition used originally was not pinned and Maddison revises historical GDP
-between editions. The raw COVID-19 series behind E1/E3 are **not** in the repo,
-only their fitted summaries. Per-case p-values were rounded to 6 decimals, so 557/721 read
+(re-verified 2026-09-26). **Domain B reproduces exactly** (verified
+2026-09-27): it was built from the **Maddison Project Database 2020**
+(coverage 1–2018), now committed as `data/mpd2020.xlsx` and converted by
+`reconstruction_real/code/build_maddison_mpd2020_csv.py`; `expand_B_massive.py`
+regenerates all 446 cases **byte for byte** (SHA-256 identical to the published
+`by_domain/dominio_B_real.csv`). The later OWID edition (`data/owid-maddison.csv`)
+only reproduces it approximately (441 vs 446 cases, corr(b) = 0.979), because
+Maddison revises historical GDP between editions. **Reproducibility is still
+partial overall:** the raw COVID-19 series behind E1/E3 are **not** in the
+repo, only their fitted summaries. Per-case p-values were rounded to 6 decimals, so 557/721 read
 exactly `0.0`.
 
 ---
@@ -306,7 +308,9 @@ Question: does `b` in Domain B measure SNT hub–satellite coupling or
 - **Block 0 (firm, no assumptions):** the "hub" role is a property of the pair,
   not of the country — **77/91 countries (85% of hubs) also appear as
   satellites**.
-- **Block 1 (run with the real Maddison file): INCONCLUSIVE (confounded).** The
+- **Block 1 (run with the real Maddison file — the later OWID edition, not the
+  corpus edition MPD2020; re-running it with MPD2020 is pending): INCONCLUSIVE
+  (confounded).** The
   observed ρ (−0.4725 full, −0.3676 split) falls **inside** the null calibrated
   to real Maddison data; gap and `b` come from the same fit and the hub is
   assigned by mean GDP, which anticorrelates them by construction.
@@ -315,12 +319,16 @@ Question: does `b` in Domain B measure SNT hub–satellite coupling or
 
 ### Reproducibility status
 
-- `data/owid-maddison.csv` — **present** (OWID/Maddison, downloaded 2026-07-25,
-  SHA-256 pinned in `data/FUENTES.md`). Domain B regenerates **approximately**,
-  not exactly (measured 2026-09-27 by the audit runner, which now regenerates B
-  in a temporary directory instead of a fixed row): `expand_B_massive.py` gives
-  441 vs 446 cases, corr(b) = 0.979, 12/408 identical b. `expand_dominio_B.py`
-  produces only 254 cases and does not reproduce the published domain.
+- **Domain B — exact.** The corpus edition is the **Maddison Project Database
+  2020** (`data/mpd2020.xlsx`, SHA-256 pinned in `data/FUENTES.md`), located
+  and verified on 2026-09-27. `build_maddison_mpd2020_csv.py` converts it to
+  `data/maddison_mpd2020.csv` and `expand_B_massive.py` regenerates all 446
+  cases byte for byte. The audit runner re-checks this on every run (it now
+  regenerates B in a temporary directory instead of carrying a fixed row).
+- `data/owid-maddison.csv` — later OWID edition (downloaded 2026-07-25), used by
+  the Domain B discriminant test. With it B reproduces only approximately (441
+  vs 446 cases, corr(b) = 0.979, 12/408 identical b). `expand_dominio_B.py` is
+  an earlier script (254 cases) and does not reproduce the published domain.
 - Raw COVID-19 series for **E1/E3** — **absent** (only fitted summaries). This
   blocks the AR(1) correction of E3.
 - Bilateral trade matrix (IMF DOTS / CEPII BACI / UN Comtrade) — needed for
@@ -481,7 +489,8 @@ The-shadow-Node-Theory/
 |   |   |-- AUDITORIA_INTEGRAL_v32.md  <-- Full audit v32 (inference layer)
 |   |   +-- DISCRIMINANTE_DOMINIO_B.md <-- Domain B: coupling vs convergence (inconclusive)
 |   |-- code/
-|   |   |-- expand_B_massive.py        <-- Regenerates Domain B (all viable regional pairs; approximate with the current Maddison edition: 441 vs 446)
+|   |   |-- expand_B_massive.py        <-- Builds Domain B (446 cases); byte-identical reproduction from data/maddison_mpd2020.csv
+|   |   |-- build_maddison_mpd2020_csv.py <-- data/mpd2020.xlsx -> data/maddison_mpd2020.csv (SHA-256 checked)
 |   |   |-- expand_dominio_B.py        <-- Earlier regional expansion (254 cases; does NOT reproduce the 446)
 |   |   |-- build_dominio_B.py         <-- Original Domain B builder
 |   |   |-- recalculo_trigger_abrupto_gradual.py <-- Recalculation of the abrupt-vs-gradual claim (5.9x)
@@ -553,7 +562,9 @@ The-shadow-Node-Theory/
 |
 |-- data/                              <-- Source data + provenance
 |   |-- FUENTES.md                     <-- Provenance: URLs, editions, SHA-256 checksums
-|   |-- owid-maddison.csv              <-- Maddison Project via OWID (feeds Domain B)
+|   |-- mpd2020.xlsx                   <-- Maddison Project Database 2020 (primary source of Domain B)
+|   |-- maddison_mpd2020.csv           <-- MPD2020 with OWID country names (input of expand_B_massive.py)
+|   |-- owid-maddison.csv              <-- Later OWID/Maddison edition (discriminant test; B only approximate)
 |   |-- snt_asi_scores.csv             <-- ASI scores HackerEarth (aggregate)
 |   |-- snt_asi_scores_README.md       <-- ASI columns; `soberania` = ASI threshold (circular as target)
 |   |-- matriz_mexico_32.csv           <-- 32 states INEGI
@@ -714,7 +725,7 @@ finding.
 | RC | Refutation Condition | v30 Status | Audit v32 note (re-verified 2026-09-26) |
 |----|---------------------|------------|----------------------------------------|
 | RC1 | Power law fits no better than linear/exponential across all domains | NOT REFUTED | First actual test (AIC, 18 raw ACO series): power 13/18, exponential 4/18, linear 1/18. Holds in majority; exponential winners concentrate at b ≥ 1. Other domains untested (raw series absent). |
-| RC2 | b is not reproducible from primary series | NOT REFUTED | Partial: B regenerates **approximately** from `data/owid-maddison.csv` (`expand_B_massive.py`: 441 vs 446 cases, corr(b) = 0.979, sign agrees 396/408, only 12/408 identical b — the Maddison edition used originally was not pinned); E1/E3 raw series absent. |
+| RC2 | b is not reproducible from primary series | NOT REFUTED | Domain B (62% of the corpus) **reproduces byte for byte** from the Maddison Project Database 2020 (`data/mpd2020.xlsx`, verified 2026-09-27). Still partial overall: E1/E3 raw series absent. |
 | RC3 | Abrupt triggers produce same b as gradual | **UNTESTABLE** (changed 2026-09-27; was NOT REFUTED) | The published test (5.9×, U=24,802, n=486) is not reproducible: the active satellization corpus has no trigger variable, the ratio originates in 2 vs 2 cases (v1.0, p = 0.33) and the 57-case v2.0 corpus is not citable. **Not to be confused with RC-ACO-2** (ACO absorption exponent, a different quantity): on ACO, abrupt vs gradual p = 0.10 (n = 18, gradual ≥ abrupt; within-domain exact permutation p = 0.94) — RC-ACO-2 remains undecided with this n. |
 | RC4 | Friction index is not correlated with b | NOT REFUTED | Direction holds in every variant; cluster-level p = 0.25 (n = 6 domains). |
 | RC5 | N-body matrix does not change satellization estimates | NOT REFUTED | Fit replicates; lognormal comparison pending. |
@@ -735,7 +746,8 @@ git clone https://github.com/Inzainos/The-shadow-Node-Theory.git
 cd The-shadow-Node-Theory
 
 # Regenerate domain B -- writes data/dominio_B_real.csv (run from the repo root).
-# Approximate with the committed Maddison edition: 441 vs 446 cases, corr(b)=0.979
+# Exact (byte-identical to by_domain/dominio_B_real.csv) from Maddison 2020:
+python3 reconstruction_real/code/build_maddison_mpd2020_csv.py   # data/mpd2020.xlsx -> data/maddison_mpd2020.csv
 python3 reconstruction_real/code/expand_B_massive.py
 
 # ACO smoke test (what CI runs)
@@ -752,7 +764,7 @@ pytest reconstruction_real/tests
 
 **Primary sources** (all public except HackerEarth; editions, download dates
 and SHA-256 checksums in [`data/FUENTES.md`](data/FUENTES.md)):
-- [Maddison Project Database 2023](https://www.rug.nl/ggdc/historicaldevelopment/maddison/), via [OWID](https://ourworldindata.org/grapher/gdp-per-capita-maddison) -- committed as `data/owid-maddison.csv` (Domain B)
+- [Maddison Project Database 2020](https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020) (Bolt & van Zanden 2020) -- committed as `data/mpd2020.xlsx` (Domain B, exact); the later [OWID edition](https://ourworldindata.org/grapher/gdp-per-capita-maddison) is committed as `data/owid-maddison.csv`
 - [OWID COVID-19 dataset](https://github.com/owid/covid-19-data) (JHU CSSE) -- Domains E1/E3; raw series **not** committed
 - [UN Demographic Yearbook](https://unstats.un.org/unsd/demographic-social/products/dyb/) -- Domain A
 - [US Census Bureau](https://www.census.gov/) + [INEGI 2022](https://www.inegi.org.mx/temas/pib/) -- Domain C

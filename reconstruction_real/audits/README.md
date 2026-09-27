@@ -114,12 +114,14 @@ recálculo independiente de las cifras que el runner no emite:
 | Punto | Resultado |
 |---|---|
 | **Recálculo abrupto vs gradual** (hallazgo 1 del README; RC3, RC-ACO-2) | Nuevo script `code/recalculo_trigger_abrupto_gradual.py` → `data/trigger_abrupto_gradual_recalculo.csv` (+ log en `reconstruction_real/logs/`). **Origen del 5.9×:** tabla v1.0 de **2 abruptos vs 2 graduales** (`data/shadow_node_maddison_resumen.csv`): 0.717 / 0.122 = **5.87×**, Mann-Whitney p = 0.33. **Histórico v2.0** (57 casos, sin 13 híbridos): razón 6.3, p = 0.053, pero 7 casos tienen R² < 0 (era obsoleta, no citable). n = 486 no corresponde a ningún conjunto del repo. El corpus de satelización activo no tiene variable de disparador. **ACO (n = 18: 10 abruptos, 8 graduales)** sí la tiene, pero su b es un **exponente de absorción** (R = masa absorbente / masa pico del hub): prueba RC-ACO-2, no el RC3. Ahí gradual ≥ abrupto: b̄ +0.85 vs +0.40, razón 0.47, Mann-Whitney p = 0.10 (dos colas); solo verificados (n = 14): razón 0.37, p = 0.14; intra-dominio (permutación exacta estratificada, H y T, 16 permutaciones) p = 0.94; disparador confundido con el dominio (F todo abrupto, I todo gradual). **Veredicto: RC3 pasa a UNTESTABLE** (prueba publicada no reproducible, corpus activo sin variable de disparador); RC-ACO-2 queda indeciso con n = 18. |
-| **Fila `dominio_B_regenerable`** (fija en `NO`) | **Causa:** era un literal escrito cuando faltaba `owid-maddison.csv`; nunca comprobaba nada. **Corregido:** el runner ahora regenera B en un directorio temporal con cada script constructor y lo compara contra `by_domain/dominio_B_real.csv`. Resultado: `expand_B_massive.py` → 441 casos vs 446 (408 pares comunes, corr(b) = 0.979, signo 396/408, **12/408 b idénticos**) → `PARCIAL`; `expand_dominio_B.py` → 254 casos (no reproduce el dominio) → `PARCIAL`. La edición de Maddison usada originalmente no se fijó. |
+| **Fila `dominio_B_regenerable`** (fija en `NO`) | **Causa:** era un literal escrito cuando faltaba `owid-maddison.csv`; nunca comprobaba nada. **Corregido:** el runner regenera B en un directorio temporal y lo compara caso a caso y por SHA-256 contra `by_domain/dominio_B_real.csv`. **Edición del corpus identificada:** Maddison Project Database 2020 (`data/mpd2020.xlsx`, descargado de la GGDC; en Google Drive solo estaba la edición 2023). Con ella `expand_B_massive.py` reproduce los 446 casos **byte a byte** (SHA-256 idéntico, 19 columnas iguales) → `REPLICA`. Con la edición OWID posterior: 441 vs 446, corr(b) = 0.979, 12/408 b idénticos → `PARCIAL` (sensibilidad a la edición). `expand_dominio_B.py` (script previo): 254 casos → `PARCIAL`. |
 | **Fila RC9** (fija en `NO_REPRODUCIBLE`) | Mismo defecto. Ahora se calcula desde `orthogonality_crypto_v25.csv`: ρ = +0.009, p = 0.98, n = 11 → `REPLICA`. |
-| **Runner v32** | 50 filas: 27 REPLICA, 1 REPLICA_SIGNO, 1 RANGO, 1 OK, 2 PARCIAL, 3 NO_REPRODUCIBLE, 2 BLOQUEADO, 1 CIRCULAR, 12 INFO (4 de ellas, el recálculo del disparador). Ninguna discrepancia. |
+| **Runner v32** | 51 filas: 28 REPLICA, 1 REPLICA_SIGNO, 1 RANGO, 2 OK, 2 PARCIAL (sensibilidad a la edición y script previo), 3 NO_REPRODUCIBLE, 2 BLOQUEADO, 1 CIRCULAR, 11 INFO. Ninguna discrepancia. |
 
 Pendientes que siguen abiertos: series crudas de E3 (corrección AR(1) de E3),
 prueba de b ≥ 1 en otros dominios, p sin truncar + `r2_log`/`r2_raw`
-separados en el corpus consolidado, fijar la edición exacta de Maddison que
-reproduzca B (o re-publicar B con la edición versionada), nota al editor de
-PLOS, y bloque 2 de la prueba discriminante (comercio bilateral).
+separados en el corpus consolidado, nota al editor de PLOS (y a SSRN: el
+resumen del preprint v30 EN afirma la cifra 5.9×), re-correr la prueba
+discriminante del dominio B con la edición del corpus (MPD2020; hoy usa la
+edición OWID posterior) y su bloque 2 (comercio bilateral). ~~Fijar la edición
+exacta de Maddison~~: hecho 2026-09-27 (MPD2020, reproducción byte a byte).

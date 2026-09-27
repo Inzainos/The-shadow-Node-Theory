@@ -38,10 +38,10 @@ All data used in the active SNT v2.5.2 repository release (721 real cases) are e
 
 ## Domain B — Country Pairs (active n=446)
 
-**Active corpus (446 cases):** Maddison Project Database via Our World in Data, committed as `data/owid-maddison.csv` (downloaded 2026-07-25; SHA-256 in `data/FUENTES.md`).
+**Active corpus (446 cases):** Maddison Project Database **2020**, committed as `data/mpd2020.xlsx` (converted to `data/maddison_mpd2020.csv` with OWID country names). Verified 2026-09-27: `expand_B_massive.py` reproduces all 446 cases byte for byte from it. The later OWID edition in `data/owid-maddison.csv` only reproduces the domain approximately. SHA-256 of both in `data/FUENTES.md`.
 
 **Primary source:**
-- Bolt, J. & van Zanden, J.L. (2024). *Maddison Project Database 2023*. Groningen Growth and Development Centre, University of Groningen. GDP per capita 1–2018 AD, 169 countries. [https://www.rug.nl/ggdc/historicaldevelopment/maddison/](https://www.rug.nl/ggdc/historicaldevelopment/maddison/) — License: CC BY 4.0
+- Bolt, J. & van Zanden, J.L. (2020). *Maddison style estimates of the evolution of the world economy. A new 2020 update.* Maddison Project Working Paper WP-15, University of Groningen. Maddison Project Database 2020: GDP per capita 1–2018 AD, 169 countries. [https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020](https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020) — License: CC BY 4.0. *(This entry previously read "Maddison Project Database 2023 (2024)", but the coverage it described, 1–2018 and 169 countries, is that of the 2020 edition — the one the corpus was built with.)*
 
 **Secondary sources:**
 - **Portugal–NW Europe:** Costa, L.F., Palma, N. & Reis, J. (2015). The great escape? *European Review of Economic History* 19(1), 1–22. Allen, R.C. (2001). The Great Divergence in European wages. *Explorations in Economic History* 38(4), 411–447.

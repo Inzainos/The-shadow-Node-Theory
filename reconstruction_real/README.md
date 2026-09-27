@@ -5,7 +5,7 @@
 | Dominio | Casos | Sig. | b mean | R2 mean | Fuente |
 |---------|-------|------|--------|---------|--------|
 | A -- Ciudades | 4 | 0% | +0.08 | 0.18 | UN Demographic Yearbook |
-| B -- Paises | 446 | 84%† | +0.09 | 0.35 | Maddison Project 2023 (via OWID) |
+| B -- Paises | 446 | 84%† | +0.09 | 0.35 | Maddison Project Database 2020 |
 | C -- Regiones | 24 | 100% | +0.09 | 0.53 | US Census historico (23) + INEGI 2022 (1) |
 | D -- Digital | 3 | 100% | -1.36 | 0.87 | HackerEarth 2026 |
 | E1 -- Invasion (expansion territorial) | 4 | 100% | +2.89 | 0.81 | OWID COVID-19 (spatial spread, 2020) |
@@ -65,15 +65,17 @@ respaldado ni como acoplamiento SNT ni como beta-convergencia.
   (re-verificados 2026-09-26)
 
 ## Reproducibilidad
-- **Dominio B:** se regenera **de forma aproximada, no exacta**, desde
-  `../data/owid-maddison.csv` (en el repo, descargado 2026-07-25). Medido el
-  2026-09-27: `code/expand_B_massive.py` da 441 casos vs 446 publicados (408
-  pares comunes, corr(b) = 0.979, signo coincide 396/408, solo 12/408 b
-  identicos; agregados casi iguales: b medio +0.088 vs +0.092, 83.7% vs 83.9%
-  significativos nominales). La edicion de Maddison usada originalmente no se
-  fijo y Maddison revisa el PIB historico entre ediciones; ademas, el hub se
-  asigna por PIB medio y la revision puede invertir pares.
-  `code/expand_dominio_B.py` produce solo 254 casos: **no** reproduce el dominio.
+- **Dominio B: reproduccion exacta** (verificada 2026-09-27). El dominio se
+  construyo con el **Maddison Project Database 2020** (cobertura 1-2018), ahora
+  en el repo como `../data/mpd2020.xlsx`. `code/build_maddison_mpd2020_csv.py`
+  lo convierte a `../data/maddison_mpd2020.csv` y `code/expand_B_massive.py`
+  regenera los 446 casos **byte a byte** (SHA-256 identico al de
+  `data/by_domain/dominio_B_real.csv`).
+- Con la edicion OWID posterior (`../data/owid-maddison.csv`, 2026-07-25) B solo
+  se reproduce aproximado: 441 vs 446 casos, corr(b) = 0.979, 12/408 b
+  identicos (Maddison revisa el PIB historico entre ediciones y el hub se asigna
+  por PIB medio). `code/expand_dominio_B.py` es una expansion anterior (254
+  casos) y **no** reproduce el dominio.
 - **Dominios E1/E3 (COVID-19):** solo estan los resumenes ajustados; las series
   crudas **no** estan en el repo. Esto bloquea la correccion AR(1) de E3.
 - **Auditoria completa:** `python reconstruction_real/code/snt_auditoria_integral_v32.py`
@@ -101,7 +103,7 @@ respaldado ni como acoplamiento SNT ni como beta-convergencia.
 
 ## Fuentes (publicas y verificables, salvo HackerEarth)
 - UN Demographic Yearbook (A)
-- Maddison Project Database 2023 (Bolt & van Zanden), via OWID (B)
+- Maddison Project Database 2020 (Bolt & van Zanden 2020) (B)
 - US Census Bureau (estados) + INEGI 2022 (Mexico) (C)
 - HackerEarth 2026 (D; propietario, solo resultados agregados)
 - OWID COVID-19 dataset, JHU CSSE (E1, E3)
@@ -117,7 +119,8 @@ respaldado ni como acoplamiento SNT ni como beta-convergencia.
 - `data/snt_corpus_dominio_G*.csv` + `data/snt_corpus_dominio_G_fuentes.md` -- Dominio G (v2.5.2)
 - `data/auditoria_integral_v32_resultados.csv` -- salida de la auditoria v32
 - `data/dominio_B_corregido_ar1_v32.csv` -- dominio B con correccion AR(1) por caso
-- `code/expand_B_massive.py` -- regenera el dominio B de forma aproximada (441 vs 446; lee `../data/owid-maddison.csv`)
+- `code/build_maddison_mpd2020_csv.py` -- convierte `../data/mpd2020.xlsx` en `../data/maddison_mpd2020.csv` (verifica SHA-256)
+- `code/expand_B_massive.py` -- construye el dominio B (446 casos; reproduccion byte a byte desde `../data/maddison_mpd2020.csv`)
 - `code/expand_dominio_B.py` -- expansion regional previa (254 casos; no reproduce los 446)
 - `code/build_dominio_B.py` -- construye dominio B
 - `code/build_aco_v29.py` -- ACO, 18 casos (smoke test del CI)

@@ -12,14 +12,43 @@ script en fechas distintas podían obtener cifras distintas sin saberlo.
 
 ---
 
-## 1. Fuentes externas (estado por fuente: una está versionada, otra no)
+## 1. Fuentes externas (estado por fuente)
+
+### `data/mpd2020.xlsx` — **edición del dominio B, presente en el repo** (descargada 2026-09-27)
+
+- **Qué es:** Maddison Project Database 2020, archivo original de la GGDC (hoja
+  "Full data": `countrycode, country, year, gdppc, pop`; 169 países; años
+  1–2018; PIB per cápita en dólares internacionales de 2011).
+- **Por qué esta edición:** es la que produjo el dominio B publicado. Se
+  identificó el 2026-09-27 probándola contra `by_domain/dominio_B_real.csv`: con
+  ella, `expand_B_massive.py` regenera los 446 casos **byte a byte** (mismo
+  SHA-256, `e0c7738a…`). La edición no estaba fijada en el repo; en Google
+  Drive del autor solo había `mpd2023_web.xlsx` (edición 2023, distinta).
+- **Quién la usa:** `reconstruction_real/code/build_maddison_mpd2020_csv.py`
+  → `data/maddison_mpd2020.csv` (mismos datos con los nombres de país de OWID,
+  traducidos por ISO3; "Sudan (Former)" → "Sudan") → `expand_B_massive.py`.
+- **Peso:** dominio B = **446 casos = 62% del corpus**.
+- **Cita:** Bolt, J. & van Zanden, J. L. (2020). *Maddison style estimates of
+  the evolution of the world economy. A new 2020 update.* Maddison Project
+  Working Paper WP-15, University of Groningen.
+
+| Campo | Valor |
+|---|---|
+| URL de descarga | <https://www.rug.nl/ggdc/historicaldevelopment/maddison/data/mpd2020.xlsx> |
+| Fecha de descarga | 2026-09-27 |
+| Tamaño | 1,764,793 bytes |
+| Licencia | CC BY 4.0 (citar según la política de citas de la hoja "Notes") |
+| SHA-256 `mpd2020.xlsx` | `d20853c2e0930d6855fb6d8138da11f24fcf313d234e2db9773ea1f551adfec3` |
+| SHA-256 `maddison_mpd2020.csv` | `1c0b15ae4b78d54134d3c781e361784ee06c8519762ca6ceb45ef65fc31d54c0` |
 
 ### `data/owid-maddison.csv` — **presente en el repo** (descargado 2026-07-25)
 
-- **Quién la usa:** `reconstruction_real/code/expand_B_massive.py` (regenera el
-  dominio B), `reconstruction_real/code/expand_dominio_B.py` (línea 11) y
-  `reconstruction_real/code/prueba_discriminante_dominio_B.py` (bloque 1).
-- **Peso:** dominio B = **446 casos = 62% del corpus**.
+- **No es la edición del corpus.** Es una edición OWID posterior; con ella el
+  dominio B solo se reproduce de forma aproximada (ver la medición abajo).
+- **Quién la usa:** `reconstruction_real/code/prueba_discriminante_dominio_B.py`
+  (bloque 1), `reconstruction_real/code/expand_dominio_B.py` (línea 11), la
+  medición de sensibilidad a la edición del runner de la auditoría y, solo
+  como tabla de nombres Code → Entity, `build_maddison_mpd2020_csv.py`.
 - **Fuente primaria:** Maddison Project Database (Bolt & van Zanden), Groningen
   Growth and Development Centre (GGDC), vía Our World in Data.
 - **Cuidado — dato vivo:** el Maddison Project **revisa sus estimaciones
@@ -47,8 +76,10 @@ script en fechas distintas podían obtener cifras distintas sin saberlo.
 > **Medición (2026-09-27):** regenerado con `expand_B_massive.py` sobre esta
 > edición, el dominio B da 441 casos vs 446 publicados; 408 pares comunes,
 > corr(b) = 0.979, signo coincide 396/408 y solo 12/408 b idénticos. La
-> diferencia confirma que la edición original no coincide con esta. El runner
-> `snt_auditoria_integral_v32.py` repite la medición en cada ejecución.
+> diferencia confirma que la edición original no es esta: resultó ser el
+> Maddison Project Database 2020 (sección anterior), con el que la
+> reproducción es exacta. El runner `snt_auditoria_integral_v32.py` repite ambas
+> mediciones en cada ejecución.
 
 ### Fuente de E3 (COVID-19) — series crudas **AUSENTES en el repo**
 
@@ -83,6 +114,8 @@ Sirven para detectar si un archivo cambió sin que se documente. Recalcular con 
 | `reconstruction_real/data/snt_corpus_aco_timeseries_v29.csv` | `68c11e95e3b609008820111e303141b2d9391923960a5f7855c074e44512d31c` |
 | `data/snt_asi_scores.csv` | `57e38ee9f779efc117b747247cb72ce6f869ae433f885aa116a653b766531fb6` |
 | `data/owid-maddison.csv` | `6e905c41324d50f2e4e468bad9d204a1efd44f6f34368c98425e8e0b33d6a4ec` |
+| `data/mpd2020.xlsx` | `d20853c2e0930d6855fb6d8138da11f24fcf313d234e2db9773ea1f551adfec3` |
+| `data/maddison_mpd2020.csv` | `1c0b15ae4b78d54134d3c781e361784ee06c8519762ca6ceb45ef65fc31d54c0` |
 
 > Para regenerar la tabla:
 > ```sh
@@ -90,7 +123,10 @@ Sirven para detectar si un archivo cambió sin que se documente. Recalcular con 
 >          reconstruction_real/data/by_domain/dominio_E3_real.csv \
 >          reconstruction_real/data/snt_corpus_REAL_v5.csv \
 >          reconstruction_real/data/snt_corpus_aco_timeseries_v29.csv \
->          data/snt_asi_scores.csv; do
+>          data/snt_asi_scores.csv \
+         data/owid-maddison.csv \
+         data/mpd2020.xlsx \
+         data/maddison_mpd2020.csv; do
 >   sha256sum "$f"
 > done
 > ```
@@ -101,6 +137,9 @@ Sirven para detectar si un archivo cambió sin que se documente. Recalcular con 
 
 - [x] Descargar `data/owid-maddison.csv`, fijar edición + fecha + SHA-256 arriba.
       **Hecho 2026-07-25** (OWID grapher, cobertura hasta 2022).
+- [x] Identificar y fijar la edición exacta de Maddison que produjo el dominio
+      B. **Hecho 2026-09-27:** Maddison Project Database 2020
+      (`data/mpd2020.xlsx`); reproducción byte a byte de los 446 casos.
 - [ ] Recuperar las series crudas de E3 (OWID COVID snapshot) para desbloquear
       su corrección AR(1).
 - [ ] Conseguir la matriz de comercio bilateral direccional (IMF DOTS / CEPII
