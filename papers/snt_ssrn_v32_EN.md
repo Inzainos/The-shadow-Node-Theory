@@ -1,4 +1,4 @@
-# Shadow Node Theory v2.6.0 (manuscript r32):
+# Shadow Node Theory v2.6.1 (manuscript r32):
 ## Scale Invariance in the Node Satellization Algorithm — and a Universal Coupled Orbital Collapse Layer (ACO-A)
 
 *Empirical Verification Across 721 Real Cases, Five Pre-registered Tests, and Collapse Evidence in Five Domains*
@@ -7,7 +7,7 @@
 Fractal Core Research · Tlaxcala, Mexico · elan.zainos.corona@gmail.com  
 DOI: https://doi.org/10.5281/zenodo.19446521 · SSRN: https://ssrn.com/abstract=6418778  
 GitHub: https://github.com/Inzainos/The-shadow-Node-Theory  
-Pre-print, manuscript revision r32 (2026-09-27; supersedes the v30 posted 2026-06-28 and incorporates r31, an intermediate revision prepared the same day and not posted) — repository release v2.6.0 — not peer reviewed. Data and methodology available for review.
+Pre-print, manuscript revision r32 (2026-09-27; supersedes the v30 posted 2026-06-28 and incorporates r31, an intermediate revision prepared the same day and not posted) — repository release v2.6.1 — not peer reviewed. Data and methodology available for review.
 
 > **Revision note (r32, 2026-09-27).** Five tests were **pre-registered** —
 > hypotheses, friction codings, case lists and decision rules committed to the
@@ -1046,7 +1046,7 @@ Watts, D.J. & Strogatz, S.H. (1998). Collective dynamics of small-world networks
 
 Zainos Corona, E. (2026). Shadow Node Theory — Replication Package v2.5.0
 (721-case real corpus + Coupled Collapse layer ACO-A). Zenodo.
-https://doi.org/10.5281/zenodo.19446521. Current repository (release v2.6.0,
+https://doi.org/10.5281/zenodo.19446521. Current repository (release v2.6.1,
 integral audit v32, discriminant test and reconstruction of Domain B,
 pre-registration of 2026-09-27 and its results):
 https://github.com/Inzainos/The-shadow-Node-Theory
@@ -1075,4 +1075,4 @@ variants); SEC, FDIC, Federal Reserve, SIGTARP (2008 cohort).
 
 ---
 
-*— Fractal Core Research — Pre-print, manuscript revision r32 (2026-09-27), repository release v2.6.0 — Tlaxcala, Mexico — 2026 —*
+*— Fractal Core Research — Pre-print, manuscript revision r32 (2026-09-27), repository release v2.6.1 — Tlaxcala, Mexico — 2026 —*

@@ -14,7 +14,7 @@ Status: **READY — upload pending (author action).**
 
 ## Title
 
-Shadow Node Theory v2.6.0: Scale Invariance in the Node Satellization Algorithm
+Shadow Node Theory v2.6.1: Scale Invariance in the Node Satellization Algorithm
 and a Universal Coupled Orbital Collapse Layer — Empirical Verification Across 721
 Real Cases and Five Pre-registered Tests (Revision r32)
 

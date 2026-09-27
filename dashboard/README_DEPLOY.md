@@ -22,7 +22,7 @@ Copy these files to a new HF Space:
 Add this to the Space README.md header:
 ```yaml
 ---
-title: Shadow Node Theory v2.6.0
+title: Shadow Node Theory v2.6.1
 emoji: 🔬
 colorFrom: blue
 colorTo: indigo

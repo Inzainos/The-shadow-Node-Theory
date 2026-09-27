@@ -46,7 +46,13 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 - Campo de fricción `φ` postulado, no medido.
 - El piso sigue siendo factor y no variable, lo que acota la cimática del colapso al eje acelera / no acelera.
 
-## [No publicado]
+## [2.6.1] — 2026-09-27
+
+Parche, sin análisis nuevos: cifra corregida de E3, runner de la auditoría con las
+filas antes bloqueadas, entrada retroactiva [2.5.3] y preprint de SSRN **r32** con
+los resultados del pre-registro. El corpus de 721 casos no cambia. PR
+[#47](https://github.com/Inzainos/The-shadow-Node-Theory/pull/47) a
+[#49](https://github.com/Inzainos/The-shadow-Node-Theory/pull/49).
 
 ### Añadido
 - **Preprint SSRN, revisión r32** (2026-09-27, a pedido del autor, que ahora pide
@@ -62,7 +68,7 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   (d)), cohortes ampliadas de ACO-A (§13.1–13.2, RC-Δ1/RC-Δ3), exclusión del
   dominio D del n = 714, límites de las pruebas pre-registradas (§9), líneas
   futuras resueltas y abiertas (§15.3) y referencias de las fuentes nuevas (WUP
-  2018, OWID, StatCounter, FDIC, Binance). Título y pie pasan a v2.6.0. La r31 y su
+  2018, OWID, StatCounter, FDIC, Binance). Título y pie pasan a v2.6.1. La r31 y su
   formulario quedan como registro (`SSRN_revision_v31.md` marcado como sustituido,
   nunca subido); la v30 queda intacta.
 
@@ -89,6 +95,11 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   pre-registradas de ortogonalidad (n = 242) y hazard (cripto 663, bancos 27,771);
   `sources.md` actualiza E1/E3; la auditoría v32 lleva un seguimiento con fecha. El
   preprint r31 no se modifica (decisión del autor).
+- **Versión 2.6.1** (2026-09-27, a pedido del autor): README (título, nota de
+  versiones con lo que agrega 2.6.1, pie, BibTeX, árbol), `CITATION.cff` (versión y
+  resumen), `sources.md`, dashboard (`app.py`, `README_DEPLOY.md`), `CONTRIBUTING.md`,
+  README del corpus y el preprint r32 con su formulario pasan a v2.6.1; las
+  menciones de lo que agregó 2.6.0 (recuadro, figuras) se conservan.
 - **README y fuentes tras la r32** (2026-09-27): el pendiente 1 del README ("corregir
   E3 por AR(1)") se marca hecho; la tabla de envíos, el árbol de `papers/` y el índice
   de auditorías apuntan a la r32; `data/FUENTES.md` marca hecha la recuperación de

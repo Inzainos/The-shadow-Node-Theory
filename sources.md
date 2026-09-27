@@ -1,9 +1,9 @@
-# Data Sources — Shadow Node Theory v2.6.0
+# Data Sources — Shadow Node Theory v2.6.1
 
 **Fractal Core Research · Elan Zainos Corona · Tlaxcala, Mexico · 2026**
-All data used in the active SNT v2.6.0 repository release (721 real cases) are either publicly available or clearly marked as proprietary with aggregate results only.
+All data used in the active SNT v2.6.1 repository release (721 real cases) are either publicly available or clearly marked as proprietary with aggregate results only.
 
-> **Note:** This file serves the active v2.6.0 repository release (new sources
+> **Note:** This file serves the active v2.6.1 repository release (new sources
 > of the pre-registered tests of 2026-09-27 — OWID COVID/mpox, StatCounter, UN
 > WUP 2018, Binance, FDIC — are anchored in `data/FUENTES.md`), built on the
 > 721-case real corpus introduced in v2.4.0
@@ -216,4 +216,4 @@ All scripts, processed data files, and figures are available at:
 - **Zenodo archive (721-case corpus / v2.5.0 snapshot):** [https://doi.org/10.5281/zenodo.19446521](https://doi.org/10.5281/zenodo.19446521)
 - **Zenodo v2.0:** [https://doi.org/10.5281/zenodo.19131327](https://doi.org/10.5281/zenodo.19131327)
 
-*Last updated: September 2026 (v2.6.0)*
+*Last updated: September 2026 (v2.6.1)*

@@ -1,4 +1,4 @@
-# Shadow Node Theory v2.6.0
+# Shadow Node Theory v2.6.1
 
 **Elan Zainos Corona** | Fractal Core Research, Tlaxcala, Mexico
 
@@ -67,20 +67,25 @@ Use the badge at the top of this README to view CI status for the default branch
 > values and an r2 column with impossible values (down to -7.332).
 > Those files are preserved in `archive/` as historical record but
 > **must not be cited in academic publications**.
-> The active version is v2.6.0 (721-case corpus + coupled collapse layer + Domain G with first real series + audit v32, Domain B discriminant test and pre-registered tests of 2026-09-27; conceptual framework: marco teórico v34).
+> The active version is v2.6.1 (721-case corpus + coupled collapse layer + Domain G with first real series + audit v32, Domain B discriminant test and pre-registered tests of 2026-09-27; conceptual framework: marco teórico v34).
 
 ---
 
 > **Versioning note**
-> Repository release: **v2.6.0** (2026-09-27; previous: v2.5.3, 2026-09-26, tagged
-> retroactively on the state that matches SSRN r31; before that v2.5.2, 2026-09-10).
+> Repository release: **v2.6.1** (2026-09-27, patch; previous: v2.6.0, 2026-09-27;
+> v2.5.3, 2026-09-26, tagged retroactively on the state that matches SSRN r31;
+> before that v2.5.2, 2026-09-10).
 > What v2.5.3 adds: the integral audit v32 findings, the Domain B edition
 > (MPD2020, byte-exact) and discriminant test with bilateral trade, the Domain
 > B reconstruction with trade-emergent hubs and the SSRN preprint revision r31.
 > What v2.6.0 adds on top: five **pre-registered tests** (time-varying hub, friction with new
 > domains, raw COVID series, blind-coded triggers, larger ACO-A cohorts) —
-> see `reconstruction_real/audits/RESULTADOS_PREREGISTRO_2026-09-27.md`. The
-> 721-case corpus itself is **unchanged** since v2.5.2.
+> see `reconstruction_real/audits/RESULTADOS_PREREGISTRO_2026-09-27.md`.
+> What v2.6.1 adds (patch, no new analysis): the corrected E3 figure (conservative
+> AR(1) bound, 176 of 198 estimable, instead of Newey-West 233/234), the audit
+> runner computing the formerly blocked B and E3 rows, and the SSRN preprint
+> revision **r32** with the pre-registered results. The 721-case corpus itself is
+> **unchanged** since v2.5.2.
 > Active empirical corpus: **721 real cases**
 > (`reconstruction_real/data/snt_corpus_REAL_v5.csv`). Active conceptual
 > framework: **marco teórico v34** (`papers/marco_teorico.md`; v33 archived in
@@ -157,7 +162,7 @@ b >= 1    --> superlinear satellization -- Roche Radius
 
 ---
 
-## Corpus activo v2.6.0 -- 721 cases, 100% real data (unchanged since v2.5.2)
+## Corpus activo v2.6.1 -- 721 cases, 100% real data (unchanged since v2.5.2)
 
 | Domain | Friction | Cases | Sig. | b mean | Source |
 |--------|----------|-------|------|--------|--------|
@@ -531,7 +536,7 @@ trajectory), and R(t) is fitted exactly as in Domain B.
 | Target | Status | Notes |
 |--------|--------|-------|
 | **SSRN** (abstract 6418778) | REVISION SUBMITTED · r32 READY | **v30 revision submitted 28 Jun 2026** (`papers/snt_ssrn_v30_EN`); supersedes v2.3.1/502. **r32 prepared 27 Sep 2026** (`papers/snt_ssrn_v32_EN`, Spanish `snt_ssrn_v32`, form text `SSRN_revision_v32.md`): audit v32 corrections (5.9× withdrawn, ROC-AUC 0.715, ASI precision withdrawn, friction caveats, Domain B discriminant test and trade-hub reconstructions) plus the five pre-registered tests; upload pending (author). r31 (same day) was superseded before upload |
-| **Zenodo** (DOI 10.5281/zenodo.19446521) | PUBLISHED | 721-case corpus archive record (v2.5.0 snapshot; active repo release: v2.6.0) |
+| **Zenodo** (DOI 10.5281/zenodo.19446521) | PUBLISHED | 721-case corpus archive record (v2.5.0 snapshot; active repo release: v2.6.1) |
 | **PLOS Complex Systems** (PCSY-D-26-00059) | REVISION SUBMITTED | v30 revision package submitted (`snt_plos_v30` + `plos_response_to_reviewers_v30`); addresses both reviewers; awaiting decision |
 | **J. Complex Networks** (COMNET-2026-214) | REJECTED | No external review |
 | **MIT GCFP Conference** | SUBMITTED | 13th Annual Conf, Oct 29-30 2026; paper + abstract submitted (`papers/mit_gcfp_2026_*`) |
@@ -580,7 +585,7 @@ Reproduced via `reconstruction_real/code/build_aco_v29.py`.
 
 ## Orbital Collapse Architecture (Coupled, v2.5.0)
 
-Introduced in v2.5.0 and retained in the active v2.6.0 release, this layer
+Introduced in v2.5.0 and retained in the active v2.6.1 release, this layer
 reformulates collapse as a **universal, transversal axis** of SNT. A
 system has two orthogonal coordinates **(b, Delta)**: satellization (b) and the
 collapse/absorption exponent (Delta), fit on its own clock tau from functional
@@ -649,7 +654,7 @@ construction (see `data/snt_asi_scores_README.md`).
 ```
 The-shadow-Node-Theory/
 |
-|-- README.md                          <-- this file (release v2.6.0, marco teórico v34)
+|-- README.md                          <-- this file (release v2.6.1, marco teórico v34)
 |-- CHANGELOG.md                       <-- Version history (es)
 |-- AGENTS.md / CLAUDE.md              <-- Operating guide for AI agents (branch -> PR -> merge, real data first)
 |-- CONTRIBUTING.md                    <-- Contribution guide (es)
@@ -665,7 +670,7 @@ The-shadow-Node-Theory/
 |   |-- python-package-conda.yml       <-- CI: flake8 -> compileall -> ACO smoke test
 |   +-- build-manuscript-docx.yml      <-- Manual workflow: Markdown manuscript -> DOCX
 |
-|-- reconstruction_real/               <-- REAL CORPUS (active, release v2.6.0; corpus unchanged since v2.5.2)
+|-- reconstruction_real/               <-- REAL CORPUS (active, release v2.6.1; corpus unchanged since v2.5.2)
 |   |-- README.md                      <-- Methodology and sources
 |   |-- snt_phi_hypothesis.md          <-- H-phi REFUTED (4 rounds + placebo)
 |   |-- audits/                        <-- Statistical audits of the corpus
@@ -769,7 +774,7 @@ The-shadow-Node-Theory/
 |   |-- phi_validation_bio_primary.csv <-- H-phi validation round 2
 |   +-- dataset_completo_v2.csv / snt_corpus_50_resultados_v2.csv / shadow_node_maddison_resumen.csv <-- Historical (v2.0)
 |
-|-- genomic_agent/                     <-- SNT Genomic Topologic Analyzer (active in v2.6.0)
+|-- genomic_agent/                     <-- SNT Genomic Topologic Analyzer (active in v2.6.1)
 |   |-- agent_core/                    <-- Analysis engine (agent_logic.py) + Streamlit UI (app.py)
 |   |-- genomic_database/             <-- DB builders: db_builder.py (active oracle) + hpa_db_builder.py (HPA/UniProt alt)
 |   |-- mock_services/                <-- Jira/Slack/Email mock integrations
@@ -977,7 +982,7 @@ and SHA-256 checksums in [`data/FUENTES.md`](data/FUENTES.md)):
 ```bibtex
 @misc{zainoscorona2026snt,
   author       = {Zainos Corona, El{'a}n},
-  title        = {Shadow Node Theory v2.6.0: Scale-Invariant Satellization and
+  title        = {Shadow Node Theory v2.6.1: Scale-Invariant Satellization and
                   Coupled Orbital Collapse Across Empirical Domains},
   year         = {2026},
   publisher    = {Zenodo},
@@ -1012,4 +1017,4 @@ GitHub: [Inzainos](https://github.com/Inzainos)
 
 *Fractal Core Research -- Tlaxcala, Mexico*
 *"Technical truth above numerical impression."*
-*v2.6.0 | September 2026*
+*v2.6.1 | September 2026*

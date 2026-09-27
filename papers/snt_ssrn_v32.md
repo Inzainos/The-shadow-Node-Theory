@@ -1,4 +1,4 @@
-# Shadow Node Theory v2.6.0 (manuscrito r32):
+# Shadow Node Theory v2.6.1 (manuscrito r32):
 ## Invarianza de escala en el algoritmo de satelización de nodos — y una Capa Universal de Colapso Orbital Acoplado (ACO-A)
 
 *Verificación empírica en 721 casos reales, cinco pruebas pre-registradas y evidencia de colapso en cinco dominios*
@@ -7,7 +7,7 @@
 Fractal Core Research · Tlaxcala, México · elan.zainos.corona@gmail.com  
 DOI: https://doi.org/10.5281/zenodo.19446521 · SSRN: https://ssrn.com/abstract=6418778  
 GitHub: https://github.com/Inzainos/The-shadow-Node-Theory  
-Pre-print, revisión del manuscrito r32 (2026-09-27; sustituye a la v30 publicada el 2026-06-28 e incorpora la r31, una revisión intermedia preparada el mismo día y no publicada) — release del repositorio v2.6.0 — no arbitrado. Datos y metodología disponibles para revisión. Versión en español de `snt_ssrn_v32_EN.md`; ante cualquier discrepancia rige la versión en inglés enviada a SSRN.
+Pre-print, revisión del manuscrito r32 (2026-09-27; sustituye a la v30 publicada el 2026-06-28 e incorpora la r31, una revisión intermedia preparada el mismo día y no publicada) — release del repositorio v2.6.1 — no arbitrado. Datos y metodología disponibles para revisión. Versión en español de `snt_ssrn_v32_EN.md`; ante cualquier discrepancia rige la versión en inglés enviada a SSRN.
 
 | Campo | Contenido |
 |---|---|
@@ -15,7 +15,7 @@ Pre-print, revisión del manuscrito r32 (2026-09-27; sustituye a la v30 publicad
 | Palabras clave | Shadow Node Theory · invarianza de escala · ley de potencia · satelización · fricción institucional · colapso orbital acoplado (ACO-A) · función de hazard · pre-registro · leapfrog · Índice de Soberanía Atómica |
 | Datos principales | Corpus real de 721 casos (`reconstruction_real/`) · Maddison Project Database 2020 · INEGI y US Census · Correlates of War Trade v4.0 · OWID / JHU CSSE (COVID-19) · Open Exoplanet Catalogue · HackerEarth 2026 (propietario) · Yahoo Finance, NOAA GOES, NASA/ZTF, CoV-Spectrum (capa de colapso) · pruebas pre-registradas: ONU WUP 2018, OWID COVID-19 y mpox, StatCounter, archivo público de Binance, FDIC BankFind |
 | Código | Scripts públicos del repositorio (`reconstruction_real/code/`); auditoría integral v32 y resultados del pre-registro en `reconstruction_real/audits/`; pre-registro en `reconstruction_real/preregistro/` |
-| Zenodo DOI | https://doi.org/10.5281/zenodo.19446521 (paquete v2.5.0; repositorio activo en release v2.6.0) |
+| Zenodo DOI | https://doi.org/10.5281/zenodo.19446521 (paquete v2.5.0; repositorio activo en release v2.6.1) |
 | Conflicto de intereses | El autor es ciudadano de Tlaxcala, nodo sombra del caso mesoamericano analizado. El sesgo potencial se mitiga con el uso exclusivo de fuentes cuantitativas externas verificables. |
 
 > **Nota de revisión (r32, 2026-09-27).** Se **pre-registraron** cinco pruebas —
@@ -1110,7 +1110,7 @@ Watts, D.J. & Strogatz, S.H. (1998). Collective dynamics of small-world networks
 
 Zainos Corona, E. (2026). Shadow Node Theory — Replication Package v2.5.0
 (721-case real corpus + Coupled Collapse layer ACO-A). Zenodo.
-https://doi.org/10.5281/zenodo.19446521. Repositorio actual (release v2.6.0,
+https://doi.org/10.5281/zenodo.19446521. Repositorio actual (release v2.6.1,
 auditoría integral v32, prueba discriminante y reconstrucción del dominio B,
 pre-registro del 2026-09-27 y sus resultados):
 https://github.com/Inzainos/The-shadow-Node-Theory
@@ -1138,4 +1138,4 @@ GOES (rayos X solares); NASA IRSA / ZTF (TDE AT2019qiz); CoV-Spectrum / LAPIS
 
 ---
 
-*— Fractal Core Research — Pre-print, revisión del manuscrito r32 (2026-09-27), release del repositorio v2.6.0 — Tlaxcala, México — 2026 —*
+*— Fractal Core Research — Pre-print, revisión del manuscrito r32 (2026-09-27), release del repositorio v2.6.1 — Tlaxcala, México — 2026 —*
