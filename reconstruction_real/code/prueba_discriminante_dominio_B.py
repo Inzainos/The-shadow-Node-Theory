@@ -27,16 +27,23 @@ evidencia de SNT.
 
 ESTADO
 ------
-Bloque 1 (H-CONVERGENCIA) corre en cuanto exista data/owid-maddison.csv.
+Bloque 1 (H-CONVERGENCIA) corre con la edicion de Maddison del corpus:
+data/maddison_mpd2020.csv (Maddison Project Database 2020; la genera
+build_maddison_mpd2020_csv.py). Con data/owid-maddison.csv (edicion OWID
+posterior) se obtiene la corrida de sensibilidad.
 Bloque 2 (H-ACOPLAMIENTO) requiere ademas una matriz de comercio bilateral.
 Bloque 0 (diagnostico estructural) corre YA, sin datos externos.
 
 USO
 ---
-    python prueba_discriminante_dominio_B.py \
-        --corpus by_domain/dominio_B_real.csv \
-        --maddison data/owid-maddison.csv \
-        --comercio data/comercio_bilateral.csv
+    python reconstruction_real/code/prueba_discriminante_dominio_B.py \
+        --corpus reconstruction_real/data/by_domain/dominio_B_real.csv \
+        --maddison data/maddison_mpd2020.csv \
+        --comercio data/comercio_bilateral.csv \
+        --n-placebo 5000 --omitir-1b
+
+    --omitir-1b salta el Bloque 1b (re-emparejamiento: no es un nulo valido y
+    es el paso mas lento); no cambia 1, 1c, 1d ni el veredicto.
 """
 import argparse
 import itertools
@@ -555,10 +562,12 @@ def main():
         description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--corpus", default="by_domain/dominio_B_real.csv")
-    ap.add_argument("--maddison", default="data/owid-maddison.csv")
+    ap.add_argument("--maddison", default="data/maddison_mpd2020.csv")
     ap.add_argument("--comercio", default="data/comercio_bilateral.csv")
     ap.add_argument("--n-placebo", type=int, default=500,
-                    help="iteraciones del nulo por remuestreo (bloque 1b)")
+                    help="iteraciones de los nulos (bloques 1b y 1d)")
+    ap.add_argument("--omitir-1b", action="store_true",
+                    help="no correr el bloque 1b (no es un nulo valido; lento)")
     a = ap.parse_args()
 
     log.info("Prueba discriminante dominio B — acoplamiento vs convergencia")
@@ -570,7 +579,8 @@ def main():
 
     bloque0_estructura(B)
     D1 = bloque1_convergencia(B, a.maddison)
-    NUL = bloque1b_placebo(B, a.maddison, n_iter=a.n_placebo)
+    NUL = (None if a.omitir_1b
+           else bloque1b_placebo(B, a.maddison, n_iter=a.n_placebo))
     D1c = bloque1c_split(B, a.maddison)
     CAL = bloque1d_nulo_calibrado(B, a.maddison, n_iter=a.n_placebo)
     D2 = bloque2_acoplamiento(B, a.comercio, D1)
@@ -582,6 +592,7 @@ def main():
     log.info("Bloque 1  (convergencia) : %s",
              "corrido" if D1 is not None else "BLOQUEADO (falta Maddison)")
     log.info("Bloque 1b (nulo placebo) : %s",
+             "omitido (--omitir-1b)" if a.omitir_1b else
              "corrido" if NUL is not None else "BLOQUEADO (falta Maddison)")
     log.info("Bloque 1c (split)        : %s",
              "corrido" if D1c is not None else "BLOQUEADO (falta Maddison)")
