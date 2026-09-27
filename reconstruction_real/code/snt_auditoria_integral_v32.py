@@ -23,6 +23,7 @@ No descarga nada ni toca la red. Solo lee ``reconstruction_real/data`` y
 import argparse
 import collections
 import csv
+import hashlib
 import json
 import os
 import shutil
@@ -272,75 +273,95 @@ def bloque_nbody(add):
         "construccion; comparar vs lognormal (Clauset 2009)", "", "INFO")
 
 
-def _regenerar_B(script, maddison):
+def _regenerar_B(script, entrada, argumentos=()):
     """Corre un script de construcción del dominio B en un directorio temporal.
 
-    Los scripts de B leen ``data/owid-maddison.csv`` y escriben
-    ``data/dominio_B_real.csv`` con rutas relativas al directorio de trabajo;
-    correrlos en un directorio temporal evita sobrescribir nada del repo.
-    Devuelve las filas regeneradas o None si el script falla.
+    Los scripts de B leen y escriben en ``data/`` con rutas relativas al
+    directorio de trabajo; correrlos en un directorio temporal evita
+    sobrescribir nada del repo. ``entrada`` se copia a ``data/`` con su mismo
+    nombre. Devuelve (filas, sha256 de la salida) o (None, None) si falla.
     """
     with tempfile.TemporaryDirectory() as tmp:
         os.makedirs(os.path.join(tmp, "data"))
-        shutil.copy(maddison, os.path.join(tmp, "data", "owid-maddison.csv"))
-        proc = subprocess.run([sys.executable, script], cwd=tmp,
-                              capture_output=True, text=True)
+        shutil.copy(entrada, os.path.join(tmp, "data",
+                                          os.path.basename(entrada)))
+        proc = subprocess.run([sys.executable, script] + list(argumentos),
+                              cwd=tmp, capture_output=True, text=True)
         salida = os.path.join(tmp, "data", "dominio_B_real.csv")
         if proc.returncode != 0 or not os.path.exists(salida):
-            return None
-        return _read(salida)
+            return None, None
+        with open(salida, "rb") as fh:
+            digest = hashlib.sha256(fh.read()).hexdigest()
+        return _read(salida), digest
+
+
+def _comparar_B(add, etiqueta, publicado, digest_pub, filas, digest):
+    """Compara un dominio B regenerado contra el publicado, caso por caso."""
+    pub = {(r["hub"], r["nodo"]): r for r in publicado}
+    if filas is None:
+        add("10_reproducibilidad", etiqueta, "%d casos" % len(pub),
+            "el script falló", "NO_REPRODUCIBLE")
+        return
+    new = {(r["hub"], r["nodo"]): r for r in filas}
+    comunes = sorted(set(pub) & set(new))
+    bp = np.array([_f(pub[k]["b"]) for k in comunes])
+    bn = np.array([_f(new[k]["b"]) for k in comunes])
+    identicos = int(np.sum(np.abs(bp - bn) < 5e-5))
+    corr = float(np.corrcoef(bp, bn)[0, 1]) if len(comunes) > 2 else np.nan
+    signo = int(np.sum(np.sign(bp) == np.sign(bn)))
+    byte_a_byte = digest == digest_pub
+    add("10_reproducibilidad", etiqueta,
+        "%d casos (b medio %+.4f)" % (
+            len(pub), np.mean([_f(r["b"]) for r in publicado])),
+        "%d casos (b medio %+.4f); %d pares comunes; b identico %d/%d; "
+        "corr(b)=%.3f; signo coincide %d/%d; SHA-256 %s" % (
+            len(new), np.mean([_f(r["b"]) for r in filas]),
+            len(comunes), identicos, len(comunes), corr, signo,
+            len(comunes), "IDENTICO" if byte_a_byte else "distinto"),
+        "REPLICA" if byte_a_byte else "PARCIAL")
 
 
 def bloque_reproducibilidad(add):
     """10 — Fuentes externas y regenerabilidad del dominio B.
 
-    La regenerabilidad se prueba regenerando B en un directorio temporal con la
-    edición de Maddison/OWID versionada y comparando caso a caso contra
-    ``by_domain/dominio_B_real.csv`` (antes era una fila fija).
+    El dominio B se construyó con el Maddison Project Database 2020
+    (``data/mpd2020.xlsx`` -> ``data/maddison_mpd2020.csv``). La prueba
+    regenera B en un directorio temporal y lo compara caso por caso y por
+    SHA-256 con ``by_domain/dominio_B_real.csv``; también mide la
+    sensibilidad a la edición OWID posterior (``data/owid-maddison.csv``).
     """
-    maddison = os.path.join(DATA_TOP, "owid-maddison.csv")
-    presente = os.path.exists(maddison)
-    add("10_reproducibilidad", "data/owid-maddison.csv",
-        "requerido por los scripts del dominio B",
-        "PRESENTE" if presente else "AUSENTE",
-        "OK" if presente else "NO_REPRODUCIBLE")
-    if not presente:
-        add("10_reproducibilidad", "dominio_B_regenerable",
-            "62% del corpus", "NO sin owid-maddison.csv", "NO_REPRODUCIBLE")
-        return
+    mpd2020 = os.path.join(DATA_TOP, "maddison_mpd2020.csv")
+    owid = os.path.join(DATA_TOP, "owid-maddison.csv")
+    for ruta, uso in ((mpd2020, "edicion del corpus (MPD2020)"),
+                      (owid, "edicion OWID 2026-07-25 (discriminante)")):
+        presente = os.path.exists(ruta)
+        add("10_reproducibilidad", "data/" + os.path.basename(ruta), uso,
+            "PRESENTE" if presente else "AUSENTE",
+            "OK" if presente else "NO_REPRODUCIBLE")
 
-    publicado = _read(os.path.join(DATA, "by_domain", "dominio_B_real.csv"))
-    pub = {(r["hub"], r["nodo"]): r for r in publicado}
+    ruta_pub = os.path.join(DATA, "by_domain", "dominio_B_real.csv")
+    publicado = _read(ruta_pub)
+    with open(ruta_pub, "rb") as fh:
+        digest_pub = hashlib.sha256(fh.read()).hexdigest()
     code = os.path.join(_ROOT, "reconstruction_real", "code")
-    for script in ("expand_B_massive.py", "expand_dominio_B.py"):
-        filas = _regenerar_B(os.path.join(code, script), maddison)
-        if filas is None:
-            add("10_reproducibilidad", "regenerar_B:" + script,
-                "%d casos" % len(pub), "el script falló", "NO_REPRODUCIBLE")
-            continue
-        new = {(r["hub"], r["nodo"]): r for r in filas}
-        comunes = sorted(set(pub) & set(new))
-        bp = np.array([_f(pub[k]["b"]) for k in comunes])
-        bn = np.array([_f(new[k]["b"]) for k in comunes])
-        identicos = int(np.sum(np.abs(bp - bn) < 5e-5))
-        corr = float(np.corrcoef(bp, bn)[0, 1]) if len(comunes) > 2 else np.nan
-        signo = int(np.sum(np.sign(bp) == np.sign(bn)))
-        exacto = (len(new) == len(pub) and len(comunes) == len(pub)
-                  and identicos == len(pub))
-        add("10_reproducibilidad", "regenerar_B:" + script,
-            "%d casos (b medio %+.4f)" % (
-                len(pub), np.mean([_f(r["b"]) for r in publicado])),
-            "%d casos (b medio %+.4f); %d pares comunes; b identico %d/%d; "
-            "corr(b)=%.3f; signo coincide %d/%d" % (
-                len(new), np.mean([_f(r["b"]) for r in filas]),
-                len(comunes), identicos, len(comunes), corr, signo,
-                len(comunes)),
-            "REPLICA" if exacto else "PARCIAL")
-    add("10_reproducibilidad", "dominio_B_regenerable_nota",
-        "edicion de Maddison no fijada al construir el corpus",
-        "Maddison revisa el PIB historico entre ediciones: con la edicion "
-        "versionada (2026-07-25) B se regenera aproximado, no exacto; la "
-        "reasignacion de hub por PIB medio puede invertir pares", "INFO")
+    massive = os.path.join(code, "expand_B_massive.py")
+
+    if os.path.exists(mpd2020):
+        filas, digest = _regenerar_B(
+            massive, mpd2020, ["--maddison", "data/maddison_mpd2020.csv",
+                               "--salida", "data/dominio_B_real.csv"])
+        _comparar_B(add, "regenerar_B:expand_B_massive.py+MPD2020",
+                    publicado, digest_pub, filas, digest)
+    if os.path.exists(owid):
+        filas, digest = _regenerar_B(
+            massive, owid, ["--maddison", "data/owid-maddison.csv",
+                            "--salida", "data/dominio_B_real.csv"])
+        _comparar_B(add, "sensibilidad_edicion:expand_B_massive.py+OWID",
+                    publicado, digest_pub, filas, digest)
+        filas, digest = _regenerar_B(
+            os.path.join(code, "expand_dominio_B.py"), owid)
+        _comparar_B(add, "script_previo:expand_dominio_B.py+OWID",
+                    publicado, digest_pub, filas, digest)
 
 
 def bloque_no_reproducibles(add):
