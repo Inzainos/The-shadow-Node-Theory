@@ -374,10 +374,10 @@ elif page == "ACO Module":
             )
             st.plotly_chart(fig_trig, width="stretch")
             st.caption(
-                "*Recalculated 2026-09-27: abrupt b̄ = +0.40 vs gradual "
-                "b̄ = +0.85 (ratio 0.47), Mann-Whitney p = 0.10 (n = 18); "
-                "trigger is confounded with domain. The published 5.9x "
-                "comes from 2 vs 2 cases in v1.0.*"
+                "*ACO b is an absorption exponent (RC-ACO-2), not the "
+                "satellization b of the 5.9x claim. Here gradual >= abrupt: "
+                "b̄ +0.85 vs +0.40, Mann-Whitney p = 0.10 (n = 18, n.s.); "
+                "trigger is confounded with domain.*"
             )
 
         st.subheader("ACO Ranking — Absorption Speed")
@@ -473,17 +473,17 @@ b >= 1    → superlinear satellization — Roche Radius
 |----|---------------------|------------|
 | RC1 | Power law fits no better than alternatives | NOT REFUTED |
 | RC2 | b is not reproducible from primary series | NOT REFUTED |
-| RC3 | Abrupt triggers produce same b as gradual | NOT REFUTED |
+| RC3 | Abrupt triggers produce same b as gradual | UNTESTABLE |
 | RC4 | Friction index is not correlated with b | NOT REFUTED |
 | RC5 | N-body matrix does not change estimates | NOT REFUTED |
 | RC6 | Shadow node reverses without trigger | NOT REFUTED |
 | RC7 | ASI does not predict better than chance | NOT REFUTED |
 | RC8 | Mutual interdependence does not brake | NOT REFUTED |
 
-*Audit notes (see the repository README): RC3 prediction not supported by
-the active data (ACO n = 18: abrupt vs gradual p = 0.10, direction
-reversed); RC4 direction holds but cluster-level p = 0.25 (n = 6 domains);
-RC7 ROC-AUC not reproducible from the repository.*
+*Audit notes (see the repository README): RC3 is now UNTESTABLE — the
+published 5.9x test is not reproducible and the active satellization corpus
+has no trigger variable; RC4 direction holds but cluster-level p = 0.25
+(n = 6 domains); RC7 ROC-AUC not reproducible from the repository.*
 
 ### Citation
 

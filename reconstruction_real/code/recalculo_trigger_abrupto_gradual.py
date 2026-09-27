@@ -15,10 +15,14 @@ traen etiqueta abrupto/gradual y separa lo activo de lo histórico:
   4. ACTIVO    reconstruction_real/data/by_domain/dominio_B_real.csv
                (446 casos, todos 'gradual' por asignación -> no testeable)
 
-Para el conjunto activo (ACO) el disparador está confundido con el dominio
-(F: todo abrupto; I: todo gradual), así que además de la comparación global
-se reporta una prueba de permutación EXACTA estratificada por dominio, que
-solo usa la variación de disparador dentro de cada dominio.
+Ojo con qué mide cada b: en el corpus de satelización, R = dominancia
+hub/nodo (criterio RC3 del README); en ACO, R = masa del absorbente / masa
+pico del hub que colapsa, un exponente de ABSORCIÓN (criterio RC-ACO-2). Las
+filas ACO NO prueban RC3; se reportan porque son los únicos datos activos
+con etiqueta de disparador. En ACO el disparador está confundido con el
+dominio (F: todo abrupto; I: todo gradual), así que además de la comparación
+global se reporta una prueba de permutación EXACTA estratificada por dominio,
+que solo usa la variación de disparador dentro de cada dominio.
 
 Datos reales, sin imputación: los casos sin b se excluyen y se registran.
 Los conjuntos históricos son anteriores a v2.4.0 y NO son citables (aviso del
@@ -219,6 +223,7 @@ def main():
                  aco.loc[aco.trigger == "gradual", "b"])
     log.info("    Global            : %s", fmt(r))
     filas.append(fila("ACO v29 (18 casos)", "ACTIVO", "global", r,
+                      "b de absorción (RC-ACO-2), no de satelización (RC3); "
                       "trigger confundido con dominio (F todo abrupto, I todo gradual)"))
 
     ver = aco[~aco["estimado"].astype(bool)]

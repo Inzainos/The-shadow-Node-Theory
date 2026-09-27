@@ -1,5 +1,5 @@
 dataset,estatus,analisis,n_abrupto,n_gradual,b_media_abrupto,b_media_gradual,b_mediana_abrupto,b_mediana_gradual,razon_medias,razon_medianas,U,p_dos_colas,p_una_cola_abrupto_mayor,rango_biserial,metodo_mw,nota
-ACO v29 (18 casos),ACTIVO,global,10,8,0.39956,0.854,0.23125,0.4326,0.467869,0.534558,21,0.101102,0.95843,-0.475,exact,"trigger confundido con dominio (F todo abrupto, I todo gradual)"
+ACO v29 (18 casos),ACTIVO,global,10,8,0.39956,0.854,0.23125,0.4326,0.467869,0.534558,21,0.101102,0.95843,-0.475,exact,"b de absorción (RC-ACO-2), no de satelización (RC3); trigger confundido con dominio (F todo abrupto, I todo gradual)"
 ACO v29 (solo verificados),ACTIVO,sensibilidad: excluye casos estimado=True,8,6,0.370912,0.994467,0.1846,0.8031,0.372976,0.229859,12,0.141858,0.946054,-0.5,exact,excluidos 4 estimados
 ACO v29 (intra-dominio),ACTIVO,permutación exacta estratificada por dominio,4,4,,,,,,,,0.9375,0.4375,,permutación exacta (16),"estratos informativos: H,T; estadístico Σ(b̄abr−b̄grad)=+0.9681"
 v1.0 Maddison resumen (4 casos),HISTÓRICO (no citable),global,2,2,0.716718,0.122176,0.716718,0.122176,5.86629,5.86629,4,0.333333,0.166667,1,exact,origen de la razón ~5.9x: 2 abruptos vs 2 graduales

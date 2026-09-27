@@ -115,13 +115,20 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   `reconstruction_real/data/trigger_abrupto_gradual_recalculo.csv` (con log).
   Recalcula la comparación sobre todos los conjuntos del repo con etiqueta de
   disparador. **Origen del 5.9×:** tabla v1.0 de 2 abruptos vs 2 graduales
-  (5.87×, Mann-Whitney p = 0.33). **Corpus activo ACO (n = 18):** b̄ abrupto
-  +0.40 vs gradual +0.85, razón 0.47 (dirección inversa), p = 0.10; permutación
-  exacta estratificada por dominio p = 0.94 (disparador confundido con
-  dominio). Histórico v2.0 (57 casos): razón 6.3, p = 0.053, no citable (7
-  casos con R² < 0). n = 486 no corresponde a ningún conjunto. **La afirmación
-  no está respaldada por los datos activos**; README (hallazgo 1, RC3) y
-  dashboard actualizados.
+  (5.87×, Mann-Whitney p = 0.33). Histórico v2.0 (57 casos): razón 6.3,
+  p = 0.053, no citable (7 casos con R² < 0). n = 486 no corresponde a ningún
+  conjunto. El corpus de satelización activo (721) no tiene variable de
+  disparador. Los 18 casos ACO sí la tienen, pero su b es un **exponente de
+  absorción** (R = masa absorbente / masa pico del hub), así que prueban
+  RC-ACO-2, no esta afirmación: ahí gradual ≥ abrupto (0.47×, p = 0.10, n.s.;
+  permutación intra-dominio p = 0.94; disparador confundido con dominio).
+- **RC3 del README pasa de NOT REFUTED a UNTESTABLE** (2026-09-27, decisión del
+  autor tras la revisión): la prueba publicada no es reproducible y el corpus
+  activo no puede evaluarla. Se agrega una nota de numeración: el RC3 del
+  README (abrupto vs gradual) no es el RC3 del marco v30 / SSRN v30 EN
+  (inextractabilidad cualitativa) ni el del SSRN v30 ES §2.3 (convergencia
+  espontánea). **Pendiente del autor:** el resumen del preprint SSRN v30 EN
+  (en revisión) afirma la cifra 5.9× y su estabilidad "57 → 114 → 721".
 - **Prueba discriminante del dominio B — acoplamiento vs convergencia**
   (`reconstruction_real/code/prueba_discriminante_dominio_B.py`,
   `audits/DISCRIMINANTE_DOMINIO_B.md`). Separa dos hipótesis sobre qué mide el

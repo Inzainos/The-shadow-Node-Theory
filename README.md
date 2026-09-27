@@ -222,7 +222,7 @@ with `code/snt_utils_v32.py` from the committed corpus.
 
 | Finding | Result | Test | Status (audit v32) |
 |---------|--------|------|--------------------|
-| Abrupt triggers faster than gradual | Published: ratio 5.9x. **Recalculated 2026-09-27:** the 5.9x originates in the v1.0 table of **2 abrupt vs 2 gradual cases** (0.717 / 0.122 = 5.87x, Mann-Whitney p = 0.33). On the only active trigger-labeled data (ACO, n = 18: 10 abrupt, 8 gradual) the direction **reverses**: abrupt b̄ = +0.40 vs gradual b̄ = +0.85 (ratio 0.47) | Published: Mann-Whitney U=24,802, p=1.91x10^-5, n=486 — n=486 matches no dataset in the repo. **Active (ACO):** Mann-Whitney two-sided p = 0.10; within-domain exact stratified permutation (H, T) p = 0.94 | **NOT SUPPORTED by the active data.** Trigger is confounded with domain in ACO (finance all abrupt, industry all gradual). The historical 57-case corpus (v2.0) gives ratio 6.3, p = 0.053, but it predates v2.4.0 (7 cases with impossible R² < 0) and is not citable. The 721-case corpus cannot test it (`trigger` fixed to `'gradual'` in B). Script: `reconstruction_real/code/recalculo_trigger_abrupto_gradual.py`. |
+| Abrupt triggers faster than gradual | Published: ratio 5.9x. **Recalculated 2026-09-27:** the 5.9x originates in the v1.0 table of **2 abrupt vs 2 gradual cases** (0.717 / 0.122 = 5.87x, Mann-Whitney p = 0.33, the smallest p a 2-vs-2 test can give). The historical 57-case corpus (v2.0) gives ratio 6.3, p = 0.053 two-sided, but predates v2.4.0 (7 cases with impossible R² < 0) and is not citable | Published: Mann-Whitney U=24,802, p=1.91x10^-5, n=486 — n=486 matches no dataset in the repo, and the claimed stability "57 → 114 → 721" cannot hold for 721 (no trigger variable) | **UNTESTABLE on the active corpus — published evidence not reproducible.** The 721-case corpus has no usable trigger variable (`trigger` fixed to `'gradual'` in B). The 18 ACO cases carry a trigger label but measure a **different exponent** (absorption, R = absorber mass / collapsing-hub peak), so they test RC-ACO-2, not this claim: there gradual ≥ abrupt (0.47×, p = 0.10, n.s.; trigger confounded with domain). Script: `reconstruction_real/code/recalculo_trigger_abrupto_gradual.py`. |
 | Institutional friction is dominant predictor of b | Friction-free: b~+0.95 / High friction: b~+0.09 | Spearman rho=-0.68, p=2.5x10^-97, n=714 | **Direction holds, p inflated**: cluster-level rho=−0.556, p=0.25 (n=6 domains). See [Central Finding](#central-finding). |
 | Sovereignty = interdependence as brake | Country pairs (B, n=446, b~+0.09) vs predator-prey (E2, b~+0.15) statistically indistinguishable | Regime split MW p=2.4x10^-74 | **Rests on Domain B**, which the discriminant test leaves **inconclusive**: `b` in B is supported neither as SNT hub-satellite coupling nor as β-convergence (85% of hubs also appear as satellites; the observed statistic falls inside the calibrated null). |
 
@@ -286,7 +286,7 @@ pytest reconstruction_real/tests                                 # fixes 156 / 2
 
 | Figure | Why |
 |---|---|
-| 5.9× abrupt vs gradual (U=24,802, n=486) | n=486 matches no dataset in the repo; the U/p appear only as fixed text in the v28 script `code/generate_publication_figures.py`. **Recalculated 2026-09-27** on every trigger-labeled dataset: the ratio comes from v1.0 (2 vs 2 cases, 5.87×); the active ACO data give 0.47×, p = 0.10 (see the findings table) |
+| 5.9× abrupt vs gradual (U=24,802, n=486) | n=486 matches no dataset in the repo; the U/p appear only as fixed text in the v28 script `code/generate_publication_figures.py`. **Recalculated 2026-09-27** on every trigger-labeled dataset: the ratio comes from v1.0 (2 vs 2 cases, 5.87×); the active satellization corpus cannot test it; the ACO cases measure a different (absorption) exponent. RC3 is now UNTESTABLE (see the findings table) |
 | ASI ROC-AUC 0.715 | Retention target not in `data/snt_asi_scores.csv` (proprietary source) |
 | N-body refit from raw | Committed file is a one-row summary |
 
@@ -329,12 +329,15 @@ Question: does `b` in Domain B measure SNT hub–satellite coupling or
 ### Pending (order suggested by the audit)
 
 1. AR(1)-correct E3 and the other domains (needs their raw series).
-2. Note to the PLOS editor covering autocorrelation and clustering together.
+2. Note to the PLOS editor covering autocorrelation and clustering together; the
+   same applies to the SSRN v30 EN preprint, whose abstract states the 5.9×
+   figure and its stability "57 → 114 → 721" (not reproducible).
 3. Test b ≥ 1 on the other domains' raw series.
 4. Report exact p-values and split `r2_log` / `r2_raw` in the consolidated corpus.
-5. ~~Decide on the 5.9× figure~~ — recalculated 2026-09-27: not supported by the
-   active data (see the findings table and
-   `reconstruction_real/data/trigger_abrupto_gradual_recalculo.csv`).
+5. ~~Decide on the 5.9× figure~~ — recalculated 2026-09-27: not reproducible and
+   untestable on the active corpus; RC3 changed to UNTESTABLE (see the findings
+   table and `reconstruction_real/data/trigger_abrupto_gradual_recalculo.csv`).
+   The SSRN v30 EN abstract still states this figure (see pending item 2).
 6. ~~Mark `soberania` as derived from ASI~~ — done (`data/snt_asi_scores_README.md`).
 
 ---
@@ -698,13 +701,21 @@ finding.
 
 ---
 
-## Falsifiability Criteria (RC1-RC8)
+## Falsifiability Criteria (RC1-RC11)
+
+> **Numbering note.** This table is the repository's **empirical** checklist.
+> It does not share numbering with the **conceptual** criteria of the framework
+> v30 and the SSRN v30 EN preprint (RC1 Scalar Velocity, RC2 Immune Response,
+> **RC3 Qualitative Inextractability**, RC4 Dual Threshold, RC5 Expansion
+> Sequence, RC6 Irreversibility, RC7 ASI), nor with the RC1–RC4 of the SSRN
+> v30 ES §2.3 (where RC3 is spontaneous convergence). "RC3" below refers only
+> to this table.
 
 | RC | Refutation Condition | v30 Status | Audit v32 note (re-verified 2026-09-26) |
 |----|---------------------|------------|----------------------------------------|
 | RC1 | Power law fits no better than linear/exponential across all domains | NOT REFUTED | First actual test (AIC, 18 raw ACO series): power 13/18, exponential 4/18, linear 1/18. Holds in majority; exponential winners concentrate at b ≥ 1. Other domains untested (raw series absent). |
 | RC2 | b is not reproducible from primary series | NOT REFUTED | Partial: B regenerates **approximately** from `data/owid-maddison.csv` (`expand_B_massive.py`: 441 vs 446 cases, corr(b) = 0.979, sign agrees 396/408, only 12/408 identical b — the Maddison edition used originally was not pinned); E1/E3 raw series absent. |
-| RC3 | Abrupt triggers produce same b as gradual | NOT REFUTED | **Prediction not supported by the active data (recalculated 2026-09-27):** on ACO (n = 18) abrupt and gradual b do not differ significantly (p = 0.10) and the direction is reversed (0.47×); within domains, exact permutation p = 0.94. The 721-case corpus has no usable trigger variable. |
+| RC3 | Abrupt triggers produce same b as gradual | **UNTESTABLE** (changed 2026-09-27; was NOT REFUTED) | The published test (5.9×, U=24,802, n=486) is not reproducible: the active satellization corpus has no trigger variable, the ratio originates in 2 vs 2 cases (v1.0, p = 0.33) and the 57-case v2.0 corpus is not citable. **Not to be confused with RC-ACO-2** (ACO absorption exponent, a different quantity): on ACO, abrupt vs gradual p = 0.10 (n = 18, gradual ≥ abrupt; within-domain exact permutation p = 0.94) — RC-ACO-2 remains undecided with this n. |
 | RC4 | Friction index is not correlated with b | NOT REFUTED | Direction holds in every variant; cluster-level p = 0.25 (n = 6 domains). |
 | RC5 | N-body matrix does not change satellization estimates | NOT REFUTED | Fit replicates; lognormal comparison pending. |
 | RC6 | Shadow node reverses satellization without exogenous trigger | NOT REFUTED | Not covered by the audit. |
