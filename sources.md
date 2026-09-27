@@ -40,6 +40,8 @@ All data used in the active SNT v2.5.2 repository release (721 real cases) are e
 
 **Active corpus (446 cases):** Maddison Project Database **2020**, committed as `data/mpd2020.xlsx` (converted to `data/maddison_mpd2020.csv` with OWID country names). Verified 2026-09-27: `expand_B_massive.py` reproduces all 446 cases byte for byte from it. The later OWID edition in `data/owid-maddison.csv` only reproduces the domain approximately. SHA-256 of both in `data/FUENTES.md`.
 
+**Discriminant test (Block 2) — bilateral trade:** Barbieri, K. & Keshk, O. M. G. (2016). *Correlates of War Project Trade Data Set Codebook, Version 4.0*; Barbieri, K., Keshk, O. M. G. & Pollins, B. (2009). Trading Data: Evaluating our Assumptions and Coding Rules. *Conflict Management and Peace Science* 26(5), 471–491. Committed as `data/COW_Trade_4.0.zip`.
+
 **Primary source:**
 - Bolt, J. & van Zanden, J.L. (2020). *Maddison style estimates of the evolution of the world economy. A new 2020 update.* Maddison Project Working Paper WP-15, University of Groningen. Maddison Project Database 2020: GDP per capita 1–2018 AD, 169 countries. [https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020](https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020) — License: CC BY 4.0. *(This entry previously read "Maddison Project Database 2023 (2024)", but the coverage it described, 1–2018 and 169 countries, is that of the 2020 edition — the one the corpus was built with.)*
 

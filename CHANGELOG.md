@@ -110,6 +110,20 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   datos reales (`data_adapters.py`, `run_real_delta.py`).
 
 ### Añadido
+- **Bloques 2–3 de la prueba discriminante del dominio B (comercio bilateral)**
+  (2026-09-27). Fuente: Correlates of War Trade v4.0 (`data/COW_Trade_4.0.zip`,
+  SHA-256 `c44c4b5c…`). Nuevo `reconstruction_real/code/build_comercio_bilateral_cow.py`
+  → `data/comercio_bilateral.csv` (exportaciones direccionales por espejo,
+  ventana de cada par, reglas de entidad para URSS / Yugoslavia / Vietnam del
+  Norte / Pakistán unificado, fila RESTO_DEL_MUNDO con control exacto de
+  totales; log). 432/446 pares. **Acoplamiento SNT no respaldado:** participación
+  media nodo→hub ρ = −0.043 (permutación intra-región p = 0.72), R² parcial
+  0.0001; participación inicial ρ = −0.185 (cluster por nodo p = 0.022,
+  permutación p = 0.026), **signo opuesto** al predicho. Modelo conjunto R²
+  0.290 (solo brecha 0.286). El Bloque 2 del script ahora descarta los años con
+  exportaciones totales = 0 (share 0/0 indefinido; antes daba `nan`) e informa
+  cluster por nodo y región, permutación intra-región y ρ por región. Salida
+  `discrim_bloque2_acoplamiento.csv`.
 - **Recálculo de "abrupto vs gradual" (cifra 5.9×)** (2026-09-27):
   `reconstruction_real/code/recalculo_trigger_abrupto_gradual.py` →
   `reconstruction_real/data/trigger_abrupto_gradual_recalculo.csv` (con log).

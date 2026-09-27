@@ -226,7 +226,7 @@ with `code/snt_utils_v32.py` from the committed corpus.
 |---------|--------|------|--------------------|
 | Abrupt triggers faster than gradual | Published: ratio 5.9x. **Recalculated 2026-09-27:** the 5.9x originates in the v1.0 table of **2 abrupt vs 2 gradual cases** (0.717 / 0.122 = 5.87x, Mann-Whitney p = 0.33, the smallest p a 2-vs-2 test can give). The historical 57-case corpus (v2.0) gives ratio 6.3, p = 0.053 two-sided, but predates v2.4.0 (7 cases with impossible R² < 0) and is not citable | Published: Mann-Whitney U=24,802, p=1.91x10^-5, n=486 — n=486 matches no dataset in the repo, and the claimed stability "57 → 114 → 721" cannot hold for 721 (no trigger variable) | **UNTESTABLE on the active corpus — published evidence not reproducible.** The 721-case corpus has no usable trigger variable (`trigger` fixed to `'gradual'` in B). The 18 ACO cases carry a trigger label but measure a **different exponent** (absorption, R = absorber mass / collapsing-hub peak), so they test RC-ACO-2, not this claim: there gradual ≥ abrupt (0.47×, p = 0.10, n.s.; trigger confounded with domain). Script: `reconstruction_real/code/recalculo_trigger_abrupto_gradual.py`. |
 | Institutional friction is dominant predictor of b | Friction-free: b~+0.95 / High friction: b~+0.09 | Spearman rho=-0.68, p=2.5x10^-97, n=714 | **Direction holds, p inflated**: cluster-level rho=−0.556, p=0.25 (n=6 domains). See [Central Finding](#central-finding). |
-| Sovereignty = interdependence as brake | Country pairs (B, n=446, b~+0.09) vs predator-prey (E2, b~+0.15) statistically indistinguishable | Regime split MW p=2.4x10^-74 | **Rests on Domain B**, which the discriminant test leaves **inconclusive**: `b` in B is supported neither as SNT hub-satellite coupling nor as β-convergence (85% of hubs also appear as satellites; the observed statistic falls inside the calibrated null). |
+| Sovereignty = interdependence as brake | Country pairs (B, n=446, b~+0.09) vs predator-prey (E2, b~+0.15) statistically indistinguishable | Regime split MW p=2.4x10^-74 | **Rests on Domain B**, which the discriminant test leaves **inconclusive**: `b` in B is supported neither as SNT hub-satellite coupling nor as β-convergence (85% of hubs also appear as satellites; the observed statistic falls inside the calibrated null). Block 2 (bilateral trade, 2026-09-27) finds no coupling signal and a robust **negative** association between initial trade integration and b. |
 
 ---
 
@@ -323,10 +323,26 @@ Question: does `b` in Domain B measure SNT hub–satellite coupling or
   empirical p 0.287 / 0.080). The clean split test (1c) is now **borderline**
   (one-sided p = 0.050, 0.020 from the interval edge): weak, non-conclusive
   evidence of convergence beyond the hub-assignment artefact.
-- **Verdict (pre-registered IC95 criterion): unchanged** — Domain B is
-  supported **neither** as β-convergence **nor** as SNT coupling, though it
-  leans closer to β-convergence with the corpus edition. Blocks 2–3 (bilateral
-  trade) not run.
+- **Block 2 (SNT coupling, run 2026-09-27):** bilateral trade from the
+  Correlates of War Trade v4.0 (1870–2014; `data/COW_Trade_4.0.zip` →
+  `data/comercio_bilateral.csv`), 432 of 446 pairs. SNT predicts b rising with
+  the node's export share to its hub. **Not supported:**
+
+  | Trade regressor | Per row (n = 432) | Cluster by node (88) | Within-region permutation |
+  |---|---:|---:|---:|
+  | Mean export share node→hub | ρ = −0.043 (p = 0.37) | +0.024 (p = 0.83) | p = 0.72 |
+  | Initial export share node→hub | **ρ = −0.185** (p = 1.1×10⁻⁴) | **−0.245 (p = 0.022)** | **p = 0.026** |
+
+  The only robust trade signal has the **opposite sign**: stronger initial trade
+  integration with the hub goes with **lower** b (more convergence).
+- **Block 3 (joint model):** R² = 0.290 with both regressors; gap alone 0.286;
+  **trade share alone 0.0001** — trade adds no explanatory power.
+- **Verdict:** Domain B is **not supported as SNT coupling** (tested directly,
+  with the assigned hub) and **not proven as β-convergence** (Block 1
+  inconclusive against the calibrated null), though both Block 1c and the
+  initial trade share lean toward convergence. Whether coupling appears with a
+  hub that **emerges** from the trade network (instead of being assigned by GDP)
+  remains open and amounts to rebuilding the domain.
 
 ### Reproducibility status
 
@@ -362,7 +378,11 @@ Question: does `b` in Domain B measure SNT hub–satellite coupling or
 7. ~~Pin the Maddison edition of Domain B and re-run the discriminant test with
    it~~ — done 2026-09-27 (MPD2020: exact reproduction; test still inconclusive,
    split test borderline at p = 0.050).
-8. Block 2 of the discriminant test (bilateral trade matrix).
+8. ~~Block 2 of the discriminant test (bilateral trade matrix)~~ — done
+   2026-09-27 with COW Trade v4.0: SNT coupling not supported; initial trade
+   integration goes with lower b.
+9. Rebuild Domain B with a hub that emerges from the trade network (instead of
+   being assigned by mean GDP).
 
 ---
 
@@ -520,7 +540,8 @@ The-shadow-Node-Theory/
 |   |   |-- hazard_crypto.py           <-- Roadmap #4: hazard h(tau) > 0
 |   |   |-- build_dominio_G.py         <-- Domain G: cosmic packages, 5 cases; G03 Bennu n=3 fitted b=-1.37 R²=0.93 p=0.12 (v2.5.2)
 |   |   |-- snt_auditoria_integral_v32.py <-- Audit v32 runner (CSV output)
-|   |   |-- prueba_discriminante_dominio_B.py <-- Domain B discriminant test
+|   |   |-- prueba_discriminante_dominio_B.py <-- Domain B discriminant test (Blocks 0-3)
+|   |   |-- build_comercio_bilateral_cow.py <-- data/COW_Trade_4.0.zip -> data/comercio_bilateral.csv (Block 2 input)
 |   |   +-- md_to_docx.py / md_to_pdf.py <-- Manuscript renderers
 |   |-- data/
 |   |   |-- snt_corpus_REAL_v5.csv     <-- 721 consolidated cases (ACTIVE)
@@ -538,7 +559,7 @@ The-shadow-Node-Theory/
 |   |   |-- auditoria_integral_v32_resultados.csv <-- Audit v32 output (regenerable)
 |   |   |-- dominio_B_corregido_ar1_v32.csv <-- Domain B with per-case AR(1) correction
 |   |   |-- trigger_abrupto_gradual_recalculo.csv <-- Abrupt-vs-gradual recalculation output
-|   |   |-- discrim_bloque1_convergencia.csv / discrim_bloque1c_split.csv <-- Discriminant test outputs
+|   |   |-- discrim_bloque1_convergencia.csv / discrim_bloque1c_split.csv / discrim_bloque2_acoplamiento.csv <-- Discriminant test outputs
 |   |   |-- phi_test_corpus_real_v4.csv <-- H-phi test corpus
 |   |   +-- snt_corpus_REAL_v3.csv / snt_corpus_REAL_v4.csv <-- Previous corpus snapshots
 |   +-- tests/
@@ -580,7 +601,9 @@ The-shadow-Node-Theory/
 |   |-- FUENTES.md                     <-- Provenance: URLs, editions, SHA-256 checksums
 |   |-- mpd2020.xlsx                   <-- Maddison Project Database 2020 (primary source of Domain B)
 |   |-- maddison_mpd2020.csv           <-- MPD2020 with OWID country names (input of expand_B_massive.py)
-|   |-- owid-maddison.csv              <-- Later OWID/Maddison edition (discriminant test; B only approximate)
+|   |-- owid-maddison.csv              <-- Later OWID/Maddison edition (edition-sensitivity runs; B only approximate)
+|   |-- COW_Trade_4.0.zip              <-- Correlates of War Trade v4.0, dyadic 1870-2014 (primary source, Block 2)
+|   |-- comercio_bilateral.csv         <-- Directed node->hub exports + rest of world per country-year (Block 2 input)
 |   |-- snt_asi_scores.csv             <-- ASI scores HackerEarth (aggregate)
 |   |-- snt_asi_scores_README.md       <-- ASI columns; `soberania` = ASI threshold (circular as target)
 |   |-- matriz_mexico_32.csv           <-- 32 states INEGI
@@ -747,7 +770,7 @@ finding.
 | RC5 | N-body matrix does not change satellization estimates | NOT REFUTED | Fit replicates; lognormal comparison pending. |
 | RC6 | Shadow node reverses satellization without exogenous trigger | NOT REFUTED | Not covered by the audit. |
 | RC7 | ASI does not predict outcomes better than chance | NOT REFUTED | ROC-AUC 0.715 not reproducible from the repo (target absent). |
-| RC8 | Mutual interdependence does not brake satellization | NOT REFUTED | Rests on Domain B, which the discriminant test leaves inconclusive. |
+| RC8 | Mutual interdependence does not brake satellization | NOT REFUTED | Rests on Domain B, whose discriminant test is inconclusive. Block 2 (2026-09-27): initial trade integration with the hub goes with **lower** b (ρ = −0.185, within-region permutation p = 0.026) — a direction consistent with "interdependence as brake", but it is a correlation on the assigned-hub construct and it contradicts the coupling reading of Domain B. |
 | RC9 | Collapse axis is not orthogonal to satellization: corr(b, Delta) >> 0 | NOT REFUTED (first test: crypto n=11, Spearman rho=+0.009, p=0.98 -- consistent with orthogonality; cross-domain still untested) | Replicates exactly from `orthogonality_crypto_v25.csv`. |
 | RC10 | A realized collapse takes a higher-friction path when a lower one exists | NOT REFUTED | Not covered by the audit. |
 | RC11 | Absorber mass does not grow post-absorption (R does not increase) | NOT REFUTED | Not covered by the audit. |
@@ -787,6 +810,7 @@ and SHA-256 checksums in [`data/FUENTES.md`](data/FUENTES.md)):
 - MacLulich 1937 / Elton & Nicholson 1942 -- Domain E2
 - [Open Exoplanet Catalogue](https://github.com/OpenExoplanetCatalogue/open_exoplanet_catalogue) + NASA planetary fact sheet -- Domains F1-F3
 - HackerEarth 2026 -- Domain D (proprietary; aggregate results only)
+- [Correlates of War Trade v4.0](https://correlatesofwar.org/data-sets/bilateral-trade/) (Barbieri & Keshk) -- committed as `data/COW_Trade_4.0.zip` (Domain B discriminant test, Block 2)
 
 ---
 
