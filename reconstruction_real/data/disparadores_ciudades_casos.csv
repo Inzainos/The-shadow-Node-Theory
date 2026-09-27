@@ -1,0 +1,19 @@
+pais,retador,incumbente,clase,anio,base_anio,n,g,b,n_controles,controles_externos,controles,b_controles,d,n_pool,percentil_en_pool
+Brazil,Brasília,Rio de Janeiro,capital,1960,efectivo,59,-3.306074,0.740204,5,0,Goiânia (Brazil); Grande São Luís (Brazil); Manaus (Brazil); Natal (Brazil); Grande Vitória (Brazil),0.456061,0.284142,8,1.0
+Pakistan,Islamabad,Karachi,capital,1967,efectivo,52,-3.788816,0.396365,5,0,Sheikhupura (Pakistan); Larkana (Pakistan); Rahim Yar Khan (Pakistan); Dera Ghazikhan (Pakistan); Wah (Pakistan),0.065847,0.330517,5,1.0
+Nigeria,Abuja,Lagos,capital,1991,efectivo,28,-2.533887,0.390793,5,0,Oshogbo (Nigeria); Enugu (Nigeria); Onitsha (Nigeria); Maiduguri (Nigeria); Aba (Nigeria),-0.088953,0.479746,8,1.0
+Kazakhstan,Astana,Almaty,capital,1997,efectivo,22,-1.183423,0.259323,5,0,Taraz (Kazakhstan); Ust-Kamenogorsk (Kazakhstan); Pavlodar (Kazakhstan); Shimkent (Kazakhstan); Karaganda (Kazakhstan),-0.080902,0.340225,5,1.0
+Germany,Berlin,Bonn,capital,1999,efectivo,20,2.407466,-0.005115,0,0,,,,0,
+China,Shenzhen,"Guangzhou, Guangdong",zee,1980,efectivo,39,-3.144842,1.240849,5,0,Jieyang (China); Zixing (China); Sanmenxia (China); Quzhou (China); Heze (China),0.003178,1.237671,76,1.0
+China,Zhuhai,"Guangzhou, Guangdong",zee,1980,efectivo,39,-3.682909,0.665353,5,0,Dujiangyan (China); Jianyang (China); Yuxi (China); Zhangye (China); Meishan (China),0.166629,0.498724,82,1.0
+China,Shantou,"Guangzhou, Guangdong",zee,1980,efectivo,39,-1.493545,0.200001,5,0,"Xining (China); Zhangjiakou (China); Jixi, Heilongjiang (China); Kaifeng (China); Liuzhou (China)",-0.323743,0.523744,36,1.0
+China,Xiamen,"Fuzhou, Fujian",zee,1980,efectivo,39,-0.4576,0.192227,5,0,"Hohhot (China); Changzhou, Jiangsu (China); Hegang (China); Jining, Shandong (China); Ningbo (China)",-0.064081,0.256308,28,0.857143
+Brazil,Brasília,Rio de Janeiro,capital,1956,decisión,63,-3.683355,0.868056,5,0,Aracaju (Brazil); Campina Grande (Brazil); Joinville (Brazil); Campos dos Goytacazes (Brazil); Ribeirão  Preto (Brazil),0.263452,0.604604,13,1.0
+Pakistan,Islamabad,Karachi,capital,1959,decisión,60,-3.720028,0.393968,5,0,Dera Ghazikhan (Pakistan); Larkana (Pakistan); Rahim Yar Khan (Pakistan); Sheikhupura (Pakistan); Wah (Pakistan),0.062174,0.331794,5,1.0
+Nigeria,Abuja,Lagos,capital,1976,decisión,43,-3.090986,0.541761,5,0,Ijebu-Ode (Nigeria); Ikorodu (Nigeria); Warri (Nigeria); Owerri (Nigeria); Effon Alaiye (Nigeria),-0.053334,0.595096,13,1.0
+Kazakhstan,Astana,Almaty,capital,1994,decisión,25,-1.267196,0.279745,5,0,Ust-Kamenogorsk (Kazakhstan); Pavlodar (Kazakhstan); Taraz (Kazakhstan); Semipalatinsk (Kazakhstan); Aktyubinsk (Kazakhstan),-0.104729,0.384475,5,1.0
+Germany,Berlin,Bonn,capital,1991,decisión,28,2.462442,-0.027456,0,0,,,,0,
+China,Shenzhen,"Guangzhou, Guangdong",zee,1979,decisión,40,-3.308169,1.302714,5,0,Hengshui (China); Dali (China); Tengzhou (China); Ankang (China); Huangshan (China),0.061018,1.241696,69,1.0
+China,Zhuhai,"Guangzhou, Guangdong",zee,1979,decisión,40,-3.78113,0.703681,5,0,Rugao (China); Binzhou (China); Danyang (China); Renqiu (China); Rongcheng (China),0.240895,0.462786,75,1.0
+China,Shantou,"Guangzhou, Guangdong",zee,1979,decisión,40,-1.493632,0.199714,5,0,"Kaifeng (China); Jixi, Heilongjiang (China); Xining (China); Zhangjiakou (China); Guilin (China)",-0.363537,0.563252,36,1.0
+China,Xiamen,"Fuzhou, Fujian",zee,1979,decisión,40,-0.431267,0.177059,5,0,"Hegang (China); Hohhot (China); Jining, Shandong (China); Changzhou, Jiangsu (China); Ningbo (China)",-0.070765,0.247824,27,0.851852
