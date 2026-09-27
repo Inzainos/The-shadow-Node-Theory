@@ -62,6 +62,23 @@ a [#46](https://github.com/Inzainos/The-shadow-Node-Theory/pull/46).
 > 2026.
 
 ### Documentación
+- **Figuras del README regeneradas para v2.6.0** (2026-09-27). Nuevo
+  `reconstruction_real/code/generate_readme_figures.py` (con log), que genera desde
+  los CSV del repo cinco figuras en versión clara y oscura
+  (`figures/snt_v260_fig*_{light,dark}.png`, servidas con `<picture>`): (1) b por
+  dominio y significancia nominal vs corregida (B: cotas AR(1); E3: Newey-West);
+  (2) b̄ por dominio y fricción con los dominios nuevos del pre-registro; (3) R² con
+  la advertencia de las definiciones mezcladas; (4) disparadores a ciegas;
+  (5) hazard por edad en cripto y bancos. Paleta de referencia validada (claro y
+  oscuro). Se retiran `figures/snt_fig{1,2,3}_final.png` (rotuladas v2.5.0, sin
+  script generador, solo significancia nominal). Las figuras del paquete PLOS
+  (`fig*_v29`, `Fig*.tif`) no se tocan.
+- **Barrido del README y del dashboard** (2026-09-27): recuadro "NEW in v2.6.0";
+  "Central Finding" marcado como afirmación publicada con su estado actual (n = 714
+  excluye D; prueba pre-registrada no respaldada); series crudas de E3 ya
+  presentes (antes decía "not in the repo"); pendientes y RC3/RC4 actualizados;
+  el dashboard deja de llamar a la fricción "predictor dominante" y marca RC3 como
+  NOT REFUTED por la prueba pre-registrada.
 - **Marco v34, nota de auditoría en el Axioma 5** (2026-09-27, a pedido del
   autor): sin cambiar el texto ni la etiqueta ANCLADO, registra que fricción → b
   no es significativo por dominio (ρ = −0.556, p = 0.25), que el n = 714 excluye
