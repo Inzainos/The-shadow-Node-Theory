@@ -353,27 +353,34 @@ Question: does `b` in Domain B measure SNT hub–satellite coupling or
   cases byte for byte. The audit runner re-checks this on every run (it now
   regenerates B in a temporary directory instead of carrying a fixed row).
 - `data/owid-maddison.csv` — later OWID edition (downloaded 2026-07-25), used by
-  the Domain B discriminant test. With it B reproduces only approximately (441
+  the first runs of the Domain B discriminant test (the test now defaults to
+  MPD2020). With it B reproduces only approximately (441
   vs 446 cases, corr(b) = 0.979, 12/408 identical b). `expand_dominio_B.py` is
   an earlier script (254 cases) and does not reproduce the published domain.
 - Raw COVID-19 series for **E1/E3** — **absent** (only fitted summaries). This
   blocks the AR(1) correction of E3.
-- Bilateral trade matrix (IMF DOTS / CEPII BACI / UN Comtrade) — needed for
-  Block 2 of the discriminant test.
+- Bilateral trade — **obtained**: Correlates of War Trade v4.0
+  (`data/COW_Trade_4.0.zip`, SHA-256 pinned in `data/FUENTES.md`), rebuilt into
+  `data/comercio_bilateral.csv` by `build_comercio_bilateral_cow.py`; used by
+  Block 2 of the discriminant test (432 of 446 pairs).
 
 ### Pending (order suggested by the audit)
 
 1. AR(1)-correct E3 and the other domains (needs their raw series).
-2. Update the SSRN v30 EN preprint: its abstract states the 5.9× figure and its
-   stability "57 → 114 → 721" (not reproducible), and it carries the per-row
-   p-value without the autocorrelation and clustering caveats. PLOS is deferred
-   until the theory is resubmitted once refined.
+2. ~~Update the SSRN v30 EN preprint~~ — revised manuscript **r31** prepared
+   2026-09-27 (`papers/snt_ssrn_v31_EN.md` / `.pdf` / `.docx`; v30 kept
+   unchanged as the submitted record). It withdraws the 5.9× claim, corrects the
+   leaked HackerEarth ROC-AUC (0.9994 → 0.715 ± 0.019), withdraws the tautological
+   ASI "precision = 1.0", adds the clustering/autocorrelation caveats to the
+   friction finding, and reports the discriminant test of Domain B. **Uploading
+   it to SSRN is pending (author action).** PLOS is deferred until the theory is
+   resubmitted once refined.
 3. Test b ≥ 1 on the other domains' raw series.
 4. Report exact p-values and split `r2_log` / `r2_raw` in the consolidated corpus.
 5. ~~Decide on the 5.9× figure~~ — recalculated 2026-09-27: not reproducible and
    untestable on the active corpus; RC3 changed to UNTESTABLE (see the findings
    table and `reconstruction_real/data/trigger_abrupto_gradual_recalculo.csv`).
-   The SSRN v30 EN abstract still states this figure (see pending item 2).
+   The SSRN v30 EN abstract states this figure; SSRN r31 withdraws it (item 2).
 6. ~~Mark `soberania` as derived from ASI~~ — done (`data/snt_asi_scores_README.md`).
 7. ~~Pin the Maddison edition of Domain B and re-run the discriminant test with
    it~~ — done 2026-09-27 (MPD2020: exact reproduction; test still inconclusive,
@@ -390,7 +397,7 @@ Question: does `b` in Domain B measure SNT hub–satellite coupling or
 
 | Target | Status | Notes |
 |--------|--------|-------|
-| **SSRN** (abstract 6418778) | REVISION SUBMITTED | **v30 revision submitted 28 Jun 2026** (`papers/snt_ssrn_v30_EN`); supersedes v2.3.1/502; under SSRN review |
+| **SSRN** (abstract 6418778) | REVISION SUBMITTED · r31 READY | **v30 revision submitted 28 Jun 2026** (`papers/snt_ssrn_v30_EN`); supersedes v2.3.1/502. **r31 prepared 27 Sep 2026** (`papers/snt_ssrn_v31_EN`): audit v32 corrections (5.9× withdrawn, ROC-AUC 0.715, ASI precision withdrawn, friction caveats, Domain B discriminant test); upload pending |
 | **Zenodo** (DOI 10.5281/zenodo.19446521) | PUBLISHED | 721-case corpus archive record (v2.5.0 snapshot; active repo release: v2.5.2) |
 | **PLOS Complex Systems** (PCSY-D-26-00059) | REVISION SUBMITTED | v30 revision package submitted (`snt_plos_v30` + `plos_response_to_reviewers_v30`); addresses both reviewers; awaiting decision |
 | **J. Complex Networks** (COMNET-2026-214) | REJECTED | No external review |
@@ -576,7 +583,8 @@ The-shadow-Node-Theory/
 |   |-- snt_plos_v30.md / .pdf / .docx <-- PLOS revised manuscript v30 (721 cases; addresses reviewers) [CURRENT]
 |   |-- plos_response_to_reviewers_v30.md / .pdf / .docx <-- PLOS point-by-point response letter
 |   |-- snt_plos_721cases_v29_DRAFT.docx <-- PLOS revision draft (721 cases, v29)
-|   |-- snt_ssrn_v30_EN.md / .pdf / .docx <-- SSRN preprint v30 ENGLISH (revise-submit) [CURRENT]
+|   |-- snt_ssrn_v31_EN.md / .pdf / .docx <-- SSRN preprint r31 ENGLISH (audit v32 corrections) [CURRENT, upload pending]
+|   |-- snt_ssrn_v30_EN.md / .pdf / .docx <-- SSRN preprint v30 ENGLISH (submitted 28 Jun 2026; record)
 |   |-- snt_ssrn_v30.md / .pdf / .docx <-- SSRN preprint v30 Spanish (721 real cases + collapse layer ACO-A)
 |   |-- SSRN_revision_v30.md           <-- SSRN revision notes
 |   |-- mit_gcfp_2026_paper.md / .pdf  <-- MIT GCFP paper (friction regularizes collapse; 2008 + 5 domains)

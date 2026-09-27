@@ -49,6 +49,47 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 ## [No publicado] — 2026-07
 
 ### Documentación
+- **Preprint SSRN, revisión r31** (2026-09-27): nuevo
+  `papers/snt_ssrn_v31_EN.md` (+ `.pdf` y `.docx`); `snt_ssrn_v30_EN.*` queda
+  intacto como registro de lo enviado el 2026-06-28. Nota de revisión al inicio
+  y cambios, todos con la cifra verificada contra los archivos del repo:
+  - **Retirado** "abrupto 5.9× más rápido que gradual" (resumen, §1.3, §2.1,
+    §5.1, Hallazgo 3): proviene de 2 vs 2 casos (5.87×, p = 0.33); n = 486 no
+    corresponde a ningún conjunto; el corpus activo no tiene disparador.
+  - **§6.3 HackerEarth:** ROC-AUC 0.9994 (fuga de datos) → **0.715 ± 0.019**
+    (primera sesión, como documenta `code/hackerearth_validation_final.py`).
+  - **ASI "precision = 1.0, cero falsos positivos" retirado** (resumen, §9, §10
+    RC7, §15.1; nueva §6.6): la etiqueta `soberania` es ASI > 1, así que la
+    clasificación es tautológica (verificado: TP 13, FP 0, FN 0 por
+    construcción; 13/4,774 = 0.27 %).
+  - **Hallazgo 1 (fricción):** tabla por caso / por cluster (ρ −0.556,
+    p = 0.25, n = 6) / bootstrap (−0.434, IC95 [−0.722, −0.006]) / sin E3 /
+    sin E3 ni B; se deja de llamar "estadísticamente robusto".
+  - **Hallazgo 2:** el polo sin fricción son 238 casos COVID-19 (E1 ya no se
+    llama "invasión biológica").
+  - **Hallazgo 4 (soberanía como freno):** pasa a hipótesis con los resultados
+    de la prueba discriminante (nulo calibrado + comercio bilateral COW). La
+    frase "b > 1 sin importar el sustrato" pasa a conjetura: 94 de los 102
+    casos con b ≥ 1 son series COVID-19 (E1 + E3).
+  - **Hallazgo 5 / §9:** AIC en las 18 series crudas (potencia 13, exponencial
+    4 con b̄ +1.54, lineal 1); posible mala especificación en b ≥ 1.
+  - **§3.3 / §9:** 89 % de significancia marcado como nominal (B: 156/446
+    estimables, 33–112 significativos tras AR(1)); reproducibilidad parcial
+    (B exacto con MPD2020; E1/E3 crudos ausentes; HackerEarth propietario);
+    p truncados (557/721) y dos definiciones de R².
+  - **§8 / §14 N-cuerpos:** "confirma el apego preferencial" → consistente con,
+    pendiente de comparar contra lognormal (Clauset et al. 2009).
+  - **Referencias:** Maddison 2023/2024 → Bolt & van Zanden (2020), MPD2020;
+    añadidos Barbieri & Keshk (2016), Barbieri, Keshk & Pollins (2009) y
+    Clauset, Shalizi & Newman (2009).
+- **`md_to_pdf.py` / `md_to_docx.py`** (2026-09-27): las líneas consecutivas
+  forman un solo párrafo (antes cada línea del Markdown era un párrafo, lo que
+  dejaba `**` literales en negritas partidas entre líneas), soporte de salto
+  duro (dos espacios finales), citas `>` de varias líneas como un párrafo, y
+  log en `reconstruction_real/logs/`. El PDF usa DejaVu Sans (sistema o la que
+  trae matplotlib): con la Helvetica base-14 el PDF v30 mostraba ρ como "r",
+  b̄ como "bn", ≈ como "»" y 10⁻⁹⁷ como "10nnn". El encabezado de las tablas del
+  PDF ahora es blanco (antes gris sobre fondo negro, ilegible).
 - **Actualización integral de la documentación a la versión actual (release
   2.5.2, marco teórico v34) e integración de los hallazgos de la auditoría v32**
   (2026-09-26). Toda cifra nueva se recalculó desde los datos versionados.
