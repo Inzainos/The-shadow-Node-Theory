@@ -9,6 +9,14 @@
 > (§5, replica ρ = +0.009) y el origen del 5.9× quedó localizado en
 > `code/generate_publication_figures.py` (§8). Detalle en
 > [`README.md` → Seguimiento](README.md#seguimiento--re-verificación-2026-09-26).
+>
+> **Seguimiento (2026-09-27).** El dominio B se reproduce byte a byte desde Maddison
+> 2020 y el dominio E3 desde las series crudas de OWID (233/234), así que el runner
+> ya calcula lo que aquí figura como bloqueado: E3 tiene 198/234 casos estimables y
+> 176–196 significativos entre ellos (cota AR(1)); en B, Newey-West con el rezago
+> estándar da 120/156, **fuera** de la cota superior (subcorrige con ρ ≈ 0.94), así
+> que el valor puntual de B sigue abierto. E1 no es reproducible. Ver
+> [`RESULTADOS_PREREGISTRO_2026-09-27.md`](RESULTADOS_PREREGISTRO_2026-09-27.md).
 
 Se recorrieron 33 cifras publicadas. **14 replican exacto. 19 cambian o no son verificables.**
 

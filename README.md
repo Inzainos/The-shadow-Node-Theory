@@ -114,7 +114,7 @@ Use the badge at the top of this README to view CI status for the default branch
 >   b ⊥ Δ (242 crypto pairs, ρ = −0.12, inside the ±0.3 equivalence band);
 >   positive hazard h(τ) > 0 in 663 crypto pairs and 27,771 FDIC banks; E3
 >   rebuilt from raw OWID series stays significant after the autocorrelation
->   correction (233/234).
+>   correction (conservative AR(1) bound: 176 of 198 estimable cases).
 > - **Not supported:** hub-node coupling with the current trade hub in country
 >   pairs (contrary at 30 years: countries converge toward their main partner);
 >   friction as a general ordering of b across new non-COVID domains
@@ -178,8 +178,10 @@ estimable cases** (`n_eff ≥ 3`) and **290/446 not estimable**; among the
 estimable ones, significant cases fall to **33–112 (21.2%–71.8%)** depending on
 the analytical variant. See [Audit v32](#audit-v32--inference-status).
 Domain E3 was rebuilt from the raw OWID series on 2026-09-27 (233/234 cases
-reproduced): with Newey-West errors **233/234** stay significant (AR(1)
-bracket among the 198 estimable: 176–196).
+reproduced): 198/234 are estimable and **176–196 of those 198** stay
+significant under the AR(1) bracket (the conservative bound, 176, is the figure
+to cite; standard Newey-West gives 233/234 but under-corrects at this
+persistence).
 
 **Composition note.** The two friction-free domains (E1 + E3 = 238 cases) are
 both built from **OWID COVID-19 data** (spatial spread and per-country curves).
@@ -216,7 +218,7 @@ committed CSVs (release v2.6.0; light and dark versions).
   <img alt="Distribución de b por dominio y significancia nominal vs corregida" src="figures/snt_v260_fig1_distribucion_light.png">
 </picture>
 
-*Fig. 1 — Exponente b por dominio (color = fricción a priori) y significancia: nominal frente a corregida por autocorrelación (B: cotas AR(1) de la auditoría v32; E3: Newey-West sobre series crudas OWID).*
+*Fig. 1 — Exponente b por dominio (color = fricción a priori) y significancia: nominal frente a corregida por autocorrelación (cotas AR(1): B desde la auditoría v32; E3 desde las series crudas de OWID).*
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="figures/snt_v260_fig2_friccion_dark.png">
@@ -344,7 +346,7 @@ pytest reconstruction_real/tests                                 # fixes 156 / 2
    | **Not estimable** (`n_eff < 3`) — not "non-significant" | **290 / 446 (65.0%)** |
    | Significant among estimable — lower bound (inflated SE + df) | **33 (21.2%)** |
    | Significant among estimable — upper bound (df only) | 112 (71.8%) |
-   | Point value | pending Newey-West/GLS on raw residuals |
+   | Point value | still open: standard Newey-West (lag 4, computed 2026-09-27 on the Maddison series) gives 120/156, **above** the upper bound — it under-corrects at ρ ≈ 0.94; needs GLS or a block bootstrap |
 
 2. **The superlinear regime b ≥ 1 may be model misspecification.** RC1 had no
    script behind it; tested by AIC on the 18 raw ACO series: power law wins
@@ -462,9 +464,9 @@ trajectory), and R(t) is fitted exactly as in Domain B.
   an earlier script (254 cases) and does not reproduce the published domain.
 - Raw COVID-19 series — **obtained** (2026-09-27): OWID `owid-covid-data.csv`
   (SHA-256 in `data/FUENTES.md`), versioned subset
-  `data/owid_covid_casos_totales.csv.gz`. E3 reproduces 233/234 and its AR(1) /
-  Newey-West correction is done (`covid_E3_series_crudas.py`); E1 is not
-  reproducible.
+  `data/owid_covid_casos_totales.csv.gz`. E3 reproduces 233/234 and its AR(1)
+  correction is done (`covid_E3_series_crudas.py`: 176–196 of 198 estimable
+  stay significant); E1 is not reproducible.
 - Bilateral trade — **obtained**: Correlates of War Trade v4.0
   (`data/COW_Trade_4.0.zip`, SHA-256 pinned in `data/FUENTES.md`), rebuilt into
   `data/comercio_bilateral.csv` by `build_comercio_bilateral_cow.py`; used by

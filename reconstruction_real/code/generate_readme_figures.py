@@ -10,8 +10,9 @@ Figuras
 -------
 1. Distribución de b por dominio (color = fricción a priori) y significancia:
    nominal (MCO sin corrección) frente a corregida por autocorrelación donde
-   hay insumos (B: cotas AR(1) de la auditoría v32; E3: Newey-West sobre las
-   series crudas de OWID).
+   hay insumos (cotas AR(1) de la auditoría v32: B sobre su CSV corregido, E3
+   sobre la reconstrucción desde las series crudas de OWID). Newey-West con el
+   rezago estándar subcorrige con residuos tan persistentes, por eso no se usa.
 2. b̄ por dominio con fricción, incluidos los dominios nuevos del pre-registro
    2026-09-27 (rayados) y el resultado de la prueba por dominio.
 3. R² medio por dominio, con la advertencia de las dos definiciones mezcladas.
@@ -180,17 +181,18 @@ def fig1(C, B, E3, T, modo, salidas):
     iB, iE = orden2.index("B"), orden2.index("E3")
     lo = 100 * B.sig_ar1.sum() / len(B)
     hi = 100 * B.sig_ar1_solo_gl.sum() / len(B)
-    nw = 100 * (E3.p_newey_west < 0.05).mean()
+    e_lo = 100 * (E3.estimable & E3.sig_ar1_cota_inf).sum() / len(E3)
+    e_hi = 100 * (E3.estimable & E3.sig_ar1_cota_sup).sum() / len(E3)
     extra = {"B": f"  → corregido {lo:.0f}–{hi:.0f}%",
-             "E3": f"  → Newey-West {nw:.1f}%"}
+             "E3": f"  → corregido {e_lo:.0f}–{e_hi:.0f}%"}
     for yi, d in zip(y, orden2):
         n = int((C.dominio == d).sum())
         a2.text(nominal[d] + 1.5, yi, f"{nominal[d]:.0f}%  (n={n}){extra.get(d, '')}",
                 va="center", fontsize=8, color=T["text2"])
     a2.plot([lo, hi], [iB, iB], color=T["s2"], linewidth=4, solid_capstyle="butt",
             zorder=3)
-    a2.plot([nw], [iE], marker="D", markersize=6, color=T["s2"],
-            markeredgecolor=T["surface"], zorder=3)
+    a2.plot([e_lo, e_hi], [iE, iE], color=T["s2"], linewidth=4,
+            solid_capstyle="butt", zorder=3)
     a2.set_yticks(y, orden2)
     a2.set_xlim(0, 185)
     a2.set_xticks([0, 25, 50, 75, 100])
@@ -199,7 +201,7 @@ def fig1(C, B, E3, T, modo, salidas):
                  fontsize=10, color=T["text"], loc="left")
     leyenda(a2, T, [Patch(color=T["neutral"], label="nominal (MCO sin corrección)"),
                     Line2D([], [], color=T["s2"], linewidth=4,
-                           label="corregida (B: cotas AR(1) v32; E3: Newey-West)")],
+                           label="corregida: cotas AR(1) (B y E3)")],
             loc="lower right")
     titulos(fig, T, "Shadow Node Theory v2.6.0 — corpus de 721 casos reales",
             "Solo B y E3 tienen insumos para corregir la autocorrelación; en el "

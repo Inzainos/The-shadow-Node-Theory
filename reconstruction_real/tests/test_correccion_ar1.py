@@ -19,7 +19,9 @@ se floorean los grados de libertad para casos no estimables):
       - cota superior (solo gl, df>0)   = 112 / 156  (71.8%)
 
 El valor puntual verdadero vive dentro de ``[33, 112]`` sobre los estimables y
-solo se fija con Newey-West/GLS sobre residuos crudos (ausentes del repo).
+solo se fija con GLS o bootstrap por bloques: desde 2026-09-27 las series de B se
+reconstruyen desde Maddison 2020, pero Newey-West con rezago estándar subcorrige
+(120/156, fuera de la cota superior; ver el runner).
 
 Corre con pytest o directo:
     python reconstruction_real/tests/test_correccion_ar1.py

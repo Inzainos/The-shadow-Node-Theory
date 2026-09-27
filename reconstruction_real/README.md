@@ -29,9 +29,11 @@ variante analitica. Ver `audits/`.
 A nivel de casos individuales en dominios sociales/biologicos (n=714):
 **Spearman rho = -0.68, p = 2.5x10^-97**
 
-La friccion institucional predice la satelizacion: dominios con alta
-friccion (paises, regiones: b~0.09) vs sin friccion (invasion, epidemias:
-b~+0.95). El gradiente es nitido y altamente significativo.
+**Tal como se publico (v30):** la friccion institucional predice la
+satelizacion: dominios con alta friccion (paises, regiones: b~0.09) vs sin
+friccion (epidemias: b~+0.95). **Estado en v2.6.0:** la direccion se mantiene
+en el corpus, pero no es significativa a nivel de dominio y la prueba
+pre-registrada con dominios nuevos no la respalda (ver abajo).
 
 **Mann-Whitney p = 2.4x10^-74**
 
@@ -43,14 +45,25 @@ Recalculado desde el corpus versionado (2026-09-26, `code/snt_utils_v32.py`):
 |---|---:|---:|---:|
 | Por fila (publicado) | -0.678 | 2.5x10^-97 | 714 |
 | Por cluster (medias por dominio) | -0.556 | 0.25 | 6 dominios |
-| Bootstrap por cluster | ~ -0.44 | IC95 [-0.722, -0.006] | 6 dominios |
+| Bootstrap por cluster | -0.434 | IC95 [-0.722, -0.006] | 6 dominios |
 | Sin E3 | -0.116 | 0.011 | 480 |
 | Sin E3 ni B | -0.426 | 0.012 | 34 |
 
 El polo "sin friccion" del contraste (E1 + E3 = 238 casos) es integramente
 dato COVID-19 de OWID/JHU. Ademas, la prueba discriminante del dominio B
 (`audits/DISCRIMINANTE_DOMINIO_B.md`) quedo **inconclusa**: `b` en B no queda
-respaldado ni como acoplamiento SNT ni como beta-convergencia.
+respaldado ni como acoplamiento SNT ni como beta-convergencia, y las
+reconstrucciones con hub de comercio (fijo y variable en el tiempo) muestran
+convergencia, no acoplamiento.
+
+**Pre-registro 2026-09-27** (`preregistro/`, `audits/RESULTADOS_PREREGISTRO_2026-09-27.md`):
+el n = 714 publicado **excluye el dominio D** (exponentes de distribucion; con
+D, sin E3 ni B, rho = -0.145, p = 0.39, n = 37); con 7 dominios nuevos sin
+COVID (mpox, StatCounter, ciudades ONU, hub de comercio) rho(friccion, b media
+del dominio) = -0.131, permutacion exacta p = 0.39 -> **no respaldada**. El
+polo sin friccion si es real: E3 reconstruido desde series crudas sigue
+significativo tras corregir la autocorrelacion, y mpox tambien da b alto
+(+0.43).
 
 ## Integridad
 - Todos los R2 in [0,1] -- verificado
@@ -76,8 +89,15 @@ respaldado ni como acoplamiento SNT ni como beta-convergencia.
   identicos (Maddison revisa el PIB historico entre ediciones y el hub se asigna
   por PIB medio). `code/expand_dominio_B.py` es una expansion anterior (254
   casos) y **no** reproduce el dominio.
-- **Dominios E1/E3 (COVID-19):** solo estan los resumenes ajustados; las series
-  crudas **no** estan en el repo. Esto bloquea la correccion AR(1) de E3.
+- **Dominio E3 (COVID-19): reproduccion verificada** (2026-09-27): 233/234
+  casos desde la serie cruda de OWID (subconjunto versionado
+  `../data/owid_covid_casos_totales.csv.gz`; receta: casos acumulados, 60 dias
+  desde el primer dia con >= 100 casos). Correccion AR(1): 198/234 estimables y
+  176-196 de esos 198 siguen significativos (cota conservadora: 176;
+  `code/covid_E3_series_crudas.py`). Newey-West con rezago estandar da 233/234,
+  pero subcorrige con residuos tan persistentes.
+- **Dominio E1 (4 casos): no reproducible** desde las series crudas con ninguna
+  construccion natural.
 - **Auditoria completa:** `python reconstruction_real/code/snt_auditoria_integral_v32.py`
   (salida en `data/auditoria_integral_v32_resultados.csv`) y
   `pytest reconstruction_real/tests`.
@@ -96,8 +116,9 @@ respaldado ni como acoplamiento SNT ni como beta-convergencia.
 - **Regimen superlineal b >= 1**: por AIC sobre las 18 series crudas ACO, la ley
   de potencia gana 13/18 y la exponencial 4/18; los ganadores exponenciales
   tienen b medio +1.54. El 14.1% del corpus etiquetado como superlineal puede
-  ser mala especificacion de modelo (sin probar en otros dominios: faltan sus
-  series crudas).
+  ser mala especificacion de modelo. Desde 2026-09-27 la serie cruda de E3 esta
+  en el repo (94 de los 102 casos con b >= 1 son E1 + E3), asi que la prueba ya
+  es posible para E3 (pendiente).
 - **Dominios fisicos (F)**: siguen ley de potencia pero su "friccion" es
   fisica (Eddington, resonancia orbital), no institucional.
 
@@ -128,5 +149,15 @@ respaldado ni como acoplamiento SNT ni como beta-convergencia.
 - `code/snt_auditoria_integral_v32.py` -- runner de la auditoria v32
 - `code/prueba_discriminante_dominio_B.py` -- prueba discriminante del dominio B
 - `code/recalculo_trigger_abrupto_gradual.py` -- recalculo de abrupto vs gradual (cifra 5.9x); salida en `data/trigger_abrupto_gradual_recalculo.csv`
-- `audits/` -- informes de auditoria (`AUDITORIA_INTEGRAL_v32.md`, `DISCRIMINANTE_DOMINIO_B.md`)
+- `code/build_comercio_bilateral_cow.py` -- COW Trade v4.0 -> `../data/comercio_bilateral.csv` (bloque 2 de la prueba discriminante)
+- `code/comercio_maddison.py` -- funciones compartidas COW/Maddison (reglas de entidad y mapeo de socios)
+- `code/reconstruccion_B_hub_comercio.py` -- dominio B con hub emergente de comercio (fijo)
+- `code/prueba_hub_temporal.py` -- pre-registro punto 1: hub variable en el tiempo
+- `code/prueba_friccion_dominios_nuevos.py` -- pre-registro punto 2: friccion con dominios nuevos (E4, D2, A2, B-comercio)
+- `code/covid_E3_series_crudas.py` -- pre-registro punto 3: E3 desde series crudas + correccion de autocorrelacion
+- `code/prueba_disparadores_ciudades.py` -- pre-registro punto 4: disparadores codificados a ciegas (ONU WUP 2018)
+- `code/descargar_binance_klines.py` + `code/aco_cohortes_ampliadas.py` -- pre-registro punto 5: ortogonalidad y hazard (Binance, FDIC)
+- `code/generate_readme_figures.py` -- figuras del README (v2.6.0, clara y oscura)
+- `preregistro/PREREGISTRO_2026-09-27.md` -- pre-registro (subido antes de correr las pruebas)
+- `audits/` -- informes: `AUDITORIA_INTEGRAL_v32.md`, `DISCRIMINANTE_DOMINIO_B.md`, `RECONSTRUCCION_DOMINIO_B_HUB_COMERCIO.md`, `RESULTADOS_PREREGISTRO_2026-09-27.md`
 - `tests/test_correccion_ar1.py` -- prueba de regresion (156/290/33/112)

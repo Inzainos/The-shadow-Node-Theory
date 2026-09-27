@@ -8,9 +8,12 @@ committeados, usando ``code/snt_utils_v32.py``. Absorbe lo que hacían
 históricos). Un solo ``run``, salida a CSV.
 
 Cada bloque reporta: la cifra publicada, la recomputada, y si replica. Los
-bloques que necesitan datos que NO están en el repo (fuente cruda de E3, series
-crudas de dominios distintos de ACO, corpus archivado v28/502) se marcan como
-NO_REPRODUCIBLE con el motivo — eso es un hallazgo, no una omisión.
+bloques que necesitan datos que NO están en el repo (series crudas de E1 y de
+dominios distintos de ACO, B y E3; corpus archivado v28/502) se marcan como
+NO_REPRODUCIBLE con el motivo — eso es un hallazgo, no una omisión. Desde
+2026-09-27 el valor puntual Newey-West de B se calcula sobre las series de
+Maddison 2020 (B se reproduce byte a byte) y la corrección de E3 se lee de la
+reconstrucción desde las series crudas de OWID (`covid_E3_series_crudas.py`).
 
 Uso:
     python reconstruction_real/code/snt_auditoria_integral_v32.py
@@ -42,6 +45,7 @@ from snt_utils_v32 import (  # noqa: E402
     comparar_modelos,
     corregir_corpus,
     fdr_bh,
+    fit_powerlaw,
     n_efectivo,
 )
 
@@ -145,10 +149,28 @@ def bloque_correccion_ar1(add):
         "33 (21.2%) - 112 (71.8%)",
         "%d (%.1f%%) - %d (%.1f%%)" % (lo, 100 * lo / est, hi,
                                        100 * hi / est), "RANGO")
-    # (c) valor puntual
-    add("3_correccion_ar1", "B_sig_valor_puntual",
-        "pendiente Newey-West/GLS sobre residuos crudos (ausentes)",
-        "no disponible en el repo", "BLOQUEADO")
+    # (c) valor puntual: Newey-West sobre las series de Maddison 2020
+    nw = _newey_west_B()
+    if nw is None:
+        add("3_correccion_ar1", "B_sig_valor_puntual",
+            "pendiente Newey-West/GLS sobre residuos crudos",
+            "data/maddison_mpd2020.csv ausente", "BLOQUEADO")
+    else:
+        add("3_correccion_ar1", "B_series_reconstruidas",
+            "446 casos (b publicado)",
+            "%d/%d con |b - b_publicado| <= 1e-4" % (nw["coinciden"], nw["n"]),
+            "REPLICA" if nw["coinciden"] == nw["n"] else "PARCIAL")
+        # Con residuos casi de raíz unitaria (ρ AR(1) mediana 0.944) el
+        # rezago automático de Newey-West subcorrige: el resultado puede caer
+        # FUERA de la cota superior AR(1). Se reporta como INFO, no como
+        # valor puntual resuelto.
+        add("3_correccion_ar1", "B_sig_Newey-West_rezago_estandar",
+            "cotas AR(1) 33-112 de 156 estimables",
+            "NW p<0.05: %d/%d estimables; %d/%d todos (rezago %s)%s" % (
+                nw["sig_est"], nw["est"], nw["sig_todos"], nw["n"], nw["lag"],
+                "; FUERA de la cota superior: NW estandar subcorrige con "
+                "rho~0.94, el valor puntual sigue abierto (GLS/bloques)"
+                if nw["sig_est"] > 112 else ""), "INFO")
     add("3_correccion_ar1", "nota_metodo", resumen["metodo"], "", "INFO")
 
 
@@ -273,6 +295,44 @@ def bloque_nbody(add):
         "construccion; comparar vs lognormal (Clauset 2009)", "", "INFO")
 
 
+def _newey_west_B():
+    """Newey-West por caso del dominio B sobre las series de Maddison 2020.
+
+    Reconstruye R(t) = PIBpc_hub / PIBpc_nodo exactamente como `calc()` de
+    `expand_B_massive.py` (años comunes 1900-2018, t = 1..n) y usa
+    `fit_powerlaw` (misma rutina de la auditoría). Devuelve None si falta el
+    CSV de Maddison.
+    """
+    ruta = os.path.join(DATA_TOP, "maddison_mpd2020.csv")
+    if not os.path.exists(ruta):
+        return None
+    serie = collections.defaultdict(dict)
+    for r in _read(ruta):
+        v = _f(r["GDP per capita"])
+        if v == v:
+            serie[r["Entity"]][int(r["Year"])] = v
+    corr = {r["id"]: _truthy(r["estimable"]) for r in
+            _read(os.path.join(DATA, "dominio_B_corregido_ar1_v32.csv"))}
+    B = _read(os.path.join(DATA, "by_domain", "dominio_B_real.csv"))
+    n = coinciden = sig_todos = sig_est = est = 0
+    lag = None
+    for r in B:
+        h, nd = serie[r["hub"]], serie[r["nodo"]]
+        anios = sorted(a for a in h if a in nd and 1900 <= a <= 2018)
+        R = np.array([h[a] / nd[a] for a in anios])
+        f = fit_powerlaw(np.arange(1, len(R) + 1), R)
+        n += 1
+        coinciden += abs(f["b"] - _f(r["b"])) <= 1e-4
+        sig = f["p_ar1"] is not None and f["p_ar1"] < 0.05
+        sig_todos += sig
+        if corr.get(r["id"]):
+            est += 1
+            sig_est += sig
+        lag = f["nw_lag"]
+    return dict(n=n, coinciden=coinciden, sig_todos=sig_todos, est=est,
+                sig_est=sig_est, lag=lag)
+
+
 def _regenerar_B(script, entrada, argumentos=()):
     """Corre un script de construcción del dominio B en un directorio temporal.
 
@@ -389,9 +449,31 @@ def bloque_no_reproducibles(add):
         "rho=%+.3f p=%.2f n=%d (orthogonality_crypto_v25.csv)" % (
             rho, p, len(orto)),
         "REPLICA" if abs(rho - 0.009) < 5e-4 else "CAMBIA")
-    add("11_no_reproducible", "E3 correccion AR(1)", "-",
-        "dominio_E3_real.csv no trae series crudas (solo b,r2,p,n)",
-        "BLOQUEADO")
+    e3 = os.path.join(DATA, "dominio_E3_series_crudas.csv")
+    if os.path.exists(e3):
+        filas = _read(e3)
+        coinc = sum(_truthy(r["coincide"]) for r in filas)
+        add("11_e3_series_crudas", "E3 reproducido desde OWID crudo",
+            "234 casos (b publicado)",
+            "%d/%d dentro de +/-0.01" % (coinc, len(filas)),
+            "REPLICA" if coinc == len(filas) else "PARCIAL")
+        nws = sum(_f(r["p_newey_west"]) < 0.05 for r in filas)
+        est = sum(_truthy(r["estimable"]) for r in filas)
+        inf = sum(_truthy(r["estimable"]) and _truthy(r["sig_ar1_cota_inf"])
+                  for r in filas)
+        sup = sum(_truthy(r["estimable"]) and _truthy(r["sig_ar1_cota_sup"])
+                  for r in filas)
+        add("11_e3_series_crudas", "E3 correccion AR(1) (cotas)", "-",
+            "estimables %d/%d; significativos entre estimables %d-%d" % (
+                est, len(filas), inf, sup), "RANGO")
+        add("11_e3_series_crudas", "E3 Newey-West rezago estandar", "-",
+            "NW p<0.05: %d/%d (subcorrige con rho mediana ~0.78; usar la "
+            "cota AR(1) inferior como cifra conservadora)" % (nws, len(filas)),
+            "INFO")
+    else:
+        add("11_no_reproducible", "E3 correccion AR(1)", "-",
+            "falta dominio_E3_series_crudas.csv (covid_E3_series_crudas.py)",
+            "BLOQUEADO")
 
 
 BLOQUES = [

@@ -46,6 +46,32 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 - Campo de fricción `φ` postulado, no medido.
 - El piso sigue siendo factor y no variable, lo que acota la cimática del colapso al eje acelera / no acelera.
 
+## [No publicado]
+
+### Corregido
+- **Cifra corregida de E3 y valor puntual de B** (2026-09-27, revisión posterior a
+  2.6.0). El runner de la auditoría (`snt_auditoria_integral_v32.py`) ya no marca como
+  BLOQUEADAS dos filas que ahora tienen datos: reconstruye las 446 series de B desde
+  Maddison 2020 (446/446 b idénticos) y lee la reconstrucción cruda de E3. Resultado:
+  Newey-West con el rezago estándar da 120/156 casos de B significativos, **por encima**
+  de la cota superior AR(1) (112): con residuos casi de raíz unitaria (ρ ≈ 0.94) ese
+  rezago subcorrige, así que el valor puntual de B sigue abierto (GLS o bootstrap por
+  bloques). Por la misma razón, la cifra a citar para E3 no es el 233/234 de
+  Newey-West sino la **cota AR(1) conservadora: 176 de 198 estimables**. Corregido en
+  README, figura 1 (ahora cotas AR(1) para B y E3), informe del pre-registro, índice
+  de auditorías, README del corpus, nota del Axioma 5 del marco v34 y docstring de
+  `tests/test_correccion_ar1.py`. El runner pasa a 54 filas (13 INFO, 2 RANGO).
+
+### Documentación
+- **Revisión de documentos desactualizados tras 2.6.0** (2026-09-27): el README del
+  corpus (`reconstruction_real/README.md`) deja de afirmar que "la fricción predice la
+  satelización… gradiente nítido y altamente significativo", corrige el bootstrap
+  (−0.434), añade el pre-registro, E3 reproducido, E1 no reproducible y la lista de
+  scripts nuevos; `papers/SNT_Colapso_Acoplado.md` incorpora las ampliaciones
+  pre-registradas de ortogonalidad (n = 242) y hazard (cripto 663, bancos 27,771);
+  `sources.md` actualiza E1/E3; la auditoría v32 lleva un seguimiento con fecha. El
+  preprint r31 no se modifica (decisión del autor).
+
 ## [2.6.0] — 2026-09-27
 
 Auditoría, prueba discriminante y reconstrucción del dominio B, revisión r31 del
