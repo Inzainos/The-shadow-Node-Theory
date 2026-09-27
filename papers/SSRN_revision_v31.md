@@ -6,7 +6,8 @@ preprint (abstract 6418778). Paper file to upload: `papers/snt_ssrn_v31_EN.pdf`
 v30 revision submitted on 28 Jun 2026 (`papers/SSRN_revision_v30.md`, kept
 unchanged as the record of that submission).
 
-Status: **READY — upload pending (author action).**
+Status: **SUPERSEDED by r32 (2026-09-27) — never uploaded.** Kept as the record of
+r31; the text to paste into the SSRN form is now `papers/SSRN_revision_v32.md`.
 
 ---
 

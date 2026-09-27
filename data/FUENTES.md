@@ -198,8 +198,10 @@ Sirven para detectar si un archivo cambió sin que se documente. Recalcular con 
 - [x] Identificar y fijar la edición exacta de Maddison que produjo el dominio
       B. **Hecho 2026-09-27:** Maddison Project Database 2020
       (`data/mpd2020.xlsx`); reproducción byte a byte de los 446 casos.
-- [ ] Recuperar las series crudas de E3 (OWID COVID snapshot) para desbloquear
-      su corrección AR(1).
+- [x] Recuperar las series crudas de E3 (OWID COVID snapshot) para desbloquear
+      su corrección AR(1). **Hecho 2026-09-27** (pre-registro, punto 3):
+      `owid-covid-data.csv` (SHA arriba); E3 reproducido 233/234; E1 no
+      reproducible.
 - [x] Conseguir la matriz de comercio bilateral direccional para el bloque 2 de
       la prueba discriminante. **Hecho 2026-09-27:** Correlates of War Trade
       v4.0 (`data/COW_Trade_4.0.zip` → `data/comercio_bilateral.csv`).

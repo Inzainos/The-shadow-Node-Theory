@@ -1,13 +1,16 @@
 cff-version: 1.2.0
 message: "If you use this software or data, please cite it as below."
 type: software
-title: "Shadow Node Theory v2.6.0: Scale-Invariant Satellization and Coupled Orbital Collapse Across Empirical Domains"
+title: "Shadow Node Theory v2.6.1: Scale-Invariant Satellization and Coupled Orbital Collapse Across Empirical Domains"
 abstract: >
-  Replication package for Shadow Node Theory v2.6.0 (SNT v2.6.0), a formal
+  Replication package for Shadow Node Theory v2.6.1 (SNT v2.6.1), a formal
   model of node satellization with a corpus of 721 empirical cases
   reconstructed from verifiable primary sources (unchanged since v2.5.2) and
-  a coupled Orbital Collapse layer (ACO-A). Version 2.6.0 integrates an
-  internal integral audit (v32) and five pre-registered tests (2026-09-27).
+  a coupled Orbital Collapse layer (ACO-A). Version 2.6.0 integrated an
+  internal integral audit (v32) and five pre-registered tests (2026-09-27);
+  patch 2.6.1 corrects the cited E3 autocorrelation figure (conservative
+  AR(1) bound, 176 of 198 estimable cases) and adds the SSRN preprint
+  revision r32.
   The published arithmetic replicates; the inference does not always. The
   friction finding keeps its direction (per case rho = -0.68, n = 714) but is
   not significant at the domain level (rho = -0.56, p = 0.25) and is not
@@ -35,7 +38,7 @@ authors:
     email: "elan.zainos.corona@gmail.com"
     city: "Tlaxcala"
     country: MX
-version: "2.6.0"
+version: "2.6.1"
 date-released: "2026-09-27"
 url: "https://github.com/Inzainos/The-shadow-Node-Theory"
 repository-code: "https://github.com/Inzainos/The-shadow-Node-Theory"
