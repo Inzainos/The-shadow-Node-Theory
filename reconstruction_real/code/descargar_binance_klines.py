@@ -23,6 +23,7 @@ import io
 import logging
 import re
 import sys
+import time
 import urllib.request
 import zipfile
 from concurrent.futures import ThreadPoolExecutor
@@ -61,13 +62,25 @@ logging.basicConfig(
 log = logging.getLogger("BINANCE")
 
 
+def abrir(url):
+    """urlopen con hasta 4 reintentos y espera exponencial (2, 4, 8, 16 s)."""
+    for intento in range(5):
+        try:
+            with urllib.request.urlopen(url, timeout=120) as r:
+                return r.read()
+        except Exception:
+            if intento == 4:
+                raise
+            time.sleep(2 ** (intento + 1))
+
+
 def listar(prefijo, patron):
     """Lista claves o prefijos del bucket (paginado)."""
     out, marker = [], ""
     while True:
         u = f"{S3}?delimiter=/&prefix={prefijo}" + (f"&marker={marker}" if marker
                                                       else "")
-        x = urllib.request.urlopen(u, timeout=120).read().decode()
+        x = abrir(u).decode()
         p = re.findall(patron, x)
         out += p
         if "<IsTruncated>true</IsTruncated>" not in x or not p:
@@ -93,6 +106,13 @@ def clasificar(pares):
 
 
 def bajar_par(par):
+    try:
+        return _bajar_par(par)
+    except Exception as e:  # se registra y se sigue con los demás pares
+        return par, f"error: {type(e).__name__}: {e}"
+
+
+def _bajar_par(par):
     destino = KL / f"{par}.csv"
     if destino.exists():
         return par, "cache"
@@ -100,10 +120,9 @@ def bajar_par(par):
                     r"<Key>([^<]+\.zip)</Key>")
     tablas = []
     for k in claves:
-        with urllib.request.urlopen(DESCARGA + k, timeout=120) as r:
-            z = zipfile.ZipFile(io.BytesIO(r.read()))
-            with z.open(z.namelist()[0]) as fh:
-                t = pd.read_csv(fh, header=None, usecols=[0, 4])
+        z = zipfile.ZipFile(io.BytesIO(abrir(DESCARGA + k)))
+        with z.open(z.namelist()[0]) as fh:
+            t = pd.read_csv(fh, header=None, usecols=[0, 4])
         t = t[pd.to_numeric(t[0], errors="coerce").notna()]
         tablas.append(t)
     if not tablas:
@@ -135,8 +154,16 @@ def main():
     with ThreadPoolExecutor(max_workers=24) as ex:
         res = list(ex.map(bajar_par, incl))
     sin = [p for p, e in res if e == "sin archivos"]
-    log.info("Descargados: %d | sin archivos 1d: %d %s", len(res) - len(sin),
-             len(sin), sin)
+    err = [(p, e) for p, e in res if e.startswith("error")]
+    log.info("Descargados: %d | sin archivos 1d: %d %s | con error tras "
+             "reintentos: %d", len(res) - len(sin) - len(err), len(sin), sin,
+             len(err))
+    for p, e in err:
+        log.warning("  %s -> %s", p, e)
+    if err:
+        log.error("Hay pares con error: vuelva a correr el script (usa caché) "
+                  "antes de analizar.")
+        sys.exit(1)
     partes = []
     for p in incl:
         f = KL / f"{p}.csv"
