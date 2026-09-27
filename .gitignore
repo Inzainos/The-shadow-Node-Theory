@@ -88,3 +88,8 @@ hackerearth_first_session_features.csv
 
 # Logs de ejecución de los scripts de reconstruction_real (no se versionan)
 reconstruction_real/logs/
+
+# Descargas crudas grandes (se versiona solo el subconjunto derivado; SHA en data/FUENTES.md)
+data/raw_covid/
+data/raw_binance/
+data/raw_wup/
