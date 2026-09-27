@@ -30,6 +30,10 @@ restaurada en la v30).
   p = 0.39). El polo sin fricción (E3) sí resultó robusto con series crudas. El
   posible cambio de etiqueta queda para la siguiente versión del marco
   (cláusula 9). La fila del Axioma 5 en la tabla de estatus remite a la nota.
+- **2026-09-27 — Ajuste de la nota del Axioma 5.** El punto 4 citaba "Newey-West
+  p < 0.05 en 233 de 234" para E3; se reemplaza por la cota AR(1) conservadora
+  (176 de 198 casos estimables), porque Newey-West con el rezago estándar subcorrige
+  con residuos tan persistentes. La conclusión (el polo sin fricción es real) no cambia.
 
 ## Auditoría de continuidad (junio 2026)
 

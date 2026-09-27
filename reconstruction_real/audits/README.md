@@ -94,13 +94,17 @@ reporta un conteo sobre 446 —eso trata a los casos no estimables como
 | **No estimables** (`n_eff < 3`) | **290 / 446 (65.0%)** |
 | Sig. entre estimables — cota inf. (SE inflado + gl) | **33 (21.2%)** |
 | Sig. entre estimables — cota sup. (solo gl, `df>0`) | 112 (71.8%) |
-| Valor puntual | pendiente Newey-West/GLS |
+| Valor puntual | abierto: Newey-West estándar (2026-09-27) da 120/156, fuera de la cota superior — subcorrige con ρ ≈ 0.94; hace falta GLS o bootstrap por bloques |
 
 La partición **290/446 no estimables** es el hallazgo más limpio: sale directo de
 `n_eff < 3`, sin convenciones ni aproximación de Bartlett. La cota inferior 33 es
 la corrección coherente (**inflar el SE** `√((1+ρ)/(1−ρ))`, mediana 5.9×, *además*
 de recortar gl) y es invariante a la convención de gl. El valor puntual necesita
-**Newey-West/GLS** sobre residuos crudos, ausentes del repo (`owid-maddison.csv`).
+**Newey-West/GLS** sobre residuos crudos. Desde 2026-09-27 las series de B se
+reconstruyen byte a byte desde Maddison 2020 y el runner calcula Newey-West con el
+rezago estándar: 120/156 significativos, **por encima** de la cota superior — con
+residuos casi de raíz unitaria ese rezago subcorrige, así que el valor puntual
+sigue abierto (GLS o bootstrap por bloques).
 `corregir_corpus()` emite la partición y ambas cotas con un warning;
 `tests/test_correccion_ar1.py` fija 156/290/33/112 — **no** 145, que dependía de
 una guarda de implementación. La dirección —una caída fuerte desde 374— no está
@@ -156,7 +160,7 @@ el acoplamiento).
 |---|---|---|
 | 1. Hub variable en el tiempo | `code/prueba_hub_temporal.py` | **No respaldada** (H = 20: d mediana −0.009, p = 0.95); H = 30 **contraria** (p = 0.0002, d < 0) |
 | 2. Fricción con dominios nuevos sin COVID | `code/prueba_friccion_dominios_nuevos.py` | **No respaldada** (7 dominios, ρ = −0.131, permutación exacta p = 0.39) |
-| 3. Series crudas COVID | `code/covid_E3_series_crudas.py` | E3 reproducido 233/234 y **robusto** a la autocorrelación (Newey-West 233/234); E1 no reproducible |
+| 3. Series crudas COVID | `code/covid_E3_series_crudas.py` | E3 reproducido 233/234 y **robusto** a la autocorrelación (cota AR(1) conservadora: 176 de 198 estimables; Newey-West estándar subcorrige); E1 no reproducible |
 | 4. Disparadores codificados a ciegas | `code/prueba_disparadores_ciudades.py` | **Respaldada** (8/8, Wilcoxon p = 0.0039; salvedad de supervivencia de WUP) |
 | 5. Cohortes ACO-A | `code/descargar_binance_klines.py`, `code/aco_cohortes_ampliadas.py` | 5a ortogonalidad **respaldada** (242 pares, ρ = −0.119, IC [−0.241, +0.007]); 5b h > 0 **respaldada** en cripto (663) y bancos (27,771); h creciente solo en cripto (confundida con el calendario), bancos en bañera; 5c no ampliable |
 | 6. Pre-registro | — | hecho antes de todo lo anterior |

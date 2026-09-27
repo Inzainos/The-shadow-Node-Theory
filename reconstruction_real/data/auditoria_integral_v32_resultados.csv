@@ -17,7 +17,8 @@ bloque,cifra,publicado,recomputado,estado
 3_correccion_ar1,B_sig_estimables_cota_inf (SE inflado),33/156,33/156,REPLICA
 3_correccion_ar1,B_sig_estimables_cota_sup (solo gl),112/156,112/156,REPLICA
 3_correccion_ar1,B_sig_estimables_rango,33 (21.2%) - 112 (71.8%),33 (21.2%) - 112 (71.8%),RANGO
-3_correccion_ar1,B_sig_valor_puntual,pendiente Newey-West/GLS sobre residuos crudos (ausentes),no disponible en el repo,BLOQUEADO
+3_correccion_ar1,B_series_reconstruidas,446 casos (b publicado),446/446 con |b - b_publicado| <= 1e-4,REPLICA
+3_correccion_ar1,B_sig_Newey-West_rezago_estandar,cotas AR(1) 33-112 de 156 estimables,"NW p<0.05: 120/156 estimables; 326/446 todos (rezago 4); FUERA de la cota superior: NW estandar subcorrige con rho~0.94, el valor puntual sigue abierto (GLS/bloques)",INFO
 3_correccion_ar1,nota_metodo,"AR(1) analitico. Reportar significancia ENTRE los estimables (n_eff>=3); los no estimables (n_eff<3) son no estimables, no no-significativos. Rango [SE inflado, solo gl]; valor puntual pendiente de Newey-West/GLS.",,INFO
 4_rc1_aic,potencia_gana,13/18,13/18,REPLICA
 4_rc1_aic,exponencial_gana,4/18,4,REPLICA
@@ -49,4 +50,6 @@ bloque,cifra,publicado,recomputado,estado
 11_recalculo_trigger,v2.0 corpus 57 casos,HISTÓRICO (no citable),razon medias=6.32581; p2=0.0533919; p1(abr>grad)=0.026696,INFO
 11_no_reproducible,ROC-AUC 0.715 (ASI),README,target de retencion no está en snt_asi_scores.csv,NO_REPRODUCIBLE
 11_rc9_orthogonalidad,RC9 rho=+0.009 crypto n=11,rho=+0.009 p=0.98 n=11,rho=+0.009 p=0.98 n=11 (orthogonality_crypto_v25.csv),REPLICA
-11_no_reproducible,E3 correccion AR(1),-,"dominio_E3_real.csv no trae series crudas (solo b,r2,p,n)",BLOQUEADO
+11_e3_series_crudas,E3 reproducido desde OWID crudo,234 casos (b publicado),233/234 dentro de +/-0.01,PARCIAL
+11_e3_series_crudas,E3 correccion AR(1) (cotas),-,estimables 198/234; significativos entre estimables 176-196,RANGO
+11_e3_series_crudas,E3 Newey-West rezago estandar,-,NW p<0.05: 233/234 (subcorrige con rho mediana ~0.78; usar la cota AR(1) inferior como cifra conservadora),INFO

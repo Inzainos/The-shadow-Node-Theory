@@ -85,7 +85,7 @@ All data used in the active SNT v2.6.0 repository release (721 real cases) are e
 
 ## Domain E1 — Invasion / Territorial Spread (active n=4; historical corpus n=20)
 
-**Active corpus (4 cases):** OWID COVID-19 spatial spread, 2020 (global, Asia-Pacific, Europe, Americas wavefronts), modeled as territorial expansion — mathematically equivalent to an invasion front, **not** biological species invasions (GBIF species data were not available). The species-invasion bibliography below belongs to the historical corpus.
+**Active corpus (4 cases):** OWID COVID-19 spatial spread, 2020 (global, Asia-Pacific, Europe, Americas wavefronts), modeled as territorial expansion — mathematically equivalent to an invasion front, **not** biological species invasions (GBIF species data were not available). The species-invasion bibliography below belongs to the historical corpus. **Reproducibility:** tested on 2026-09-27 against the raw OWID series with the natural constructions (countries reached over time, thresholds 1/10/100 cases, start at the data origin or at the first regional case) — none reproduces the 4 published values, so E1 is declared **not reproducible**.
 
 - **Rattus norvegicus vs R. rattus (Europe):** He Yu et al. (2022). Introgression, displacement, and collapse. *Nature Communications* 13, 2656. [https://doi.org/10.1038/s41467-022-30080-8](https://doi.org/10.1038/s41467-022-30080-8)
 - **African honeybee vs European honeybee (Brazil):** Kerr, W.E. (1967). The history of the introduction of African bees in Brazil. *South African Bee Journal* 39, 3–5.
@@ -118,7 +118,7 @@ All data used in the active SNT v2.6.0 repository release (721 real cases) are e
 
 ## Domain E3 — Parasite-Host (active n=234)
 
-**Active corpus (234 cases):** OWID COVID-19 per-country curves (JHU CSSE), one case per country. The raw series are **not** committed (only fitted summaries), which blocks the AR(1) correction of E3. The other pathogen references below belong to the historical corpus.
+**Active corpus (234 cases):** OWID COVID-19 per-country curves (JHU CSSE), one case per country. The raw series were recovered on 2026-09-27 (OWID `owid-covid-data.csv`, versioned subset `data/owid_covid_casos_totales.csv.gz`; 233/234 cases reproduced; AR(1)/Newey-West correction done in `reconstruction_real/code/covid_E3_series_crudas.py`). Before that, only fitted summaries were committed, which blocked the AR(1) correction of E3. The other pathogen references below belong to the historical corpus.
 
 - **MRSA vs S. aureus (antibiotic resistance):** CDC. (2019). *Antibiotic Resistance Threats in the United States*. WHO GLASS 2022.
 - **HIV vs CD4+ T cells:** Pantaleo, G. et al. (1993). *NEJM* 328(5), 327–335. Ho, D.D. et al. (1995). *Nature* 373, 123–126.

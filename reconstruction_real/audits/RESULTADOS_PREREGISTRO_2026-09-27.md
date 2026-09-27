@@ -14,7 +14,7 @@ en `reconstruction_real/data/`. Las fuentes nuevas y sus SHA-256 están en
 |---|---|---|---|
 | 1. Hub variable en el tiempo | El país diverge más de su hub comercial vigente que de un país con la misma brecha (d > 0) | d mediana por nodo −0.009; d > 0 en 38/96; Wilcoxon 1 cola p = 0.95 | **NO RESPALDADA** (H = 20); H = 10 no respaldada; **H = 30 CONTRARIA** |
 | 2. Fricción con dominios nuevos | ρ(fricción, b̄ del dominio) < 0 sin COVID | ρ = −0.131 en 7 dominios; permutación exacta p = 0.39 | **NO RESPALDADA** (y en todas las variantes) |
-| 3. Series crudas COVID | Sin dirección (corrección de reporte) | E3 reproducido 233/234; Newey-West p < 0.05 en 233/234 | E3 **sobrevive** la corrección; E1 **no reproducible** |
+| 3. Series crudas COVID | Sin dirección (corrección de reporte) | E3 reproducido 233/234; cota AR(1) conservadora: 176 de 198 estimables significativos | E3 **sobrevive** la corrección; E1 **no reproducible** |
 | 4. Disparadores a ciegas | El retador abrupto gana terreno más rápido que ciudades con la misma razón inicial (d > 0) | d > 0 en 8/8; Wilcoxon 1 cola p = 0.0039 | **RESPALDADA** (también con el año de decisión) |
 | 5a. Ortogonalidad b ⊥ Δ | IC 95% de ρ(b_subida, Δ_caída) dentro de [−0.3, 0.3] | 242 pares Binance: ρ = −0.119, IC [−0.241, +0.007] | **RESPALDADA** (equivalencia) |
 | 5b-i. Hazard positivo | Toda banda de edad con ≥ 30 en riesgo tiene fines | Cripto 8/8 bandas; bancos (cualquier fin) 39/39 | **RESPALDADA** en ambas cohortes; solo quiebras bancarias: sin evidencia en 4 bandas de ≥ 155 años |
@@ -94,15 +94,22 @@ Script: `code/covid_E3_series_crudas.py` → `data/dominio_E3_series_crudas.csv`
 | Durbin-Watson mediana | 0.431 | 0.112 |
 | n efectivo mediano (nominal) | 7.25 (60) | 2.2 (69) |
 | Estimables (n_eff ≥ 3) | 198/234 | 156/446 |
-| Newey-West p < 0.05 | **233/234** | — |
+| Newey-West p < 0.05 (rezago estándar) | 233/234 (subcorrige, ver nota) | 120/156 estimables (fuera de la cota superior; calculado 2026-09-27) |
 | Cota AR(1) entre estimables | 176–196/198 | 33–112/156 |
 
 - **E1** (4 casos): ninguna construcción natural (países alcanzados por fecha, umbrales
   1/10/100, inicio en los datos o en el primer caso) reproduce los valores publicados; se
   declara **no reproducible**.
 
-**Lectura:** a diferencia del dominio B, la significancia de E3 sobrevive la corrección:
-el crecimiento epidémico tipo ley de potencia es una señal real en esos datos.
+**Nota (añadida al revisar el runner, 2026-09-27):** Newey-West con el rezago automático
+(floor(4·(n/100)^(2/9)) = 3–4) **subcorrige** cuando los residuos son tan persistentes
+(ρ AR(1) mediana 0.78 en E3 y 0.94 en B): en B da 120/156 significativos, por encima de la
+cota superior AR(1) (112). Por eso la cifra a citar para E3 es la **cota conservadora
+AR(1): 176 de 198 estimables** (75% de los 234), no el 233/234 de Newey-West.
+
+**Lectura:** a diferencia del dominio B, la significancia de E3 sobrevive la corrección
+incluso con la cota conservadora: el crecimiento epidémico tipo ley de potencia es una
+señal real en esos datos.
 
 ## 4. Disparadores codificados a ciegas (ciudades)
 

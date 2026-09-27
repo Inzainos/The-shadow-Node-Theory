@@ -49,6 +49,15 @@ Resultado: **Spearman ρ(b_subida, Δ_caída) = +0.009 (p = 0.98)** — sin rela
 dominio; b_subida es un exponente de ascenso de precio (análogo de satelización,
 no el b canónico hub/nodo); la ortogonalidad cross-dominio sigue sin testearse.
 
+**Ampliación pre-registrada (2026-09-27, n = 242).** Con el archivo público de
+Binance (663 pares contra USDT) y el mismo método, 242 pares cumplen las reglas:
+**ρ = −0.119 (p = 0.065), IC 95 % [−0.241, +0.007]**, dentro de la banda de
+equivalencia ±0.3 fijada antes de correr → **ortogonalidad respaldada**. La
+asociación, si existe, es débil y negativa. Salvedades: 153 de los 242 máximos
+son de 2021 (un solo ciclo) y el "nacimiento" es el listado en Binance. Script:
+`reconstruction_real/code/aco_cohortes_ampliadas.py`; informe:
+`reconstruction_real/audits/RESULTADOS_PREREGISTRO_2026-09-27.md`.
+
 ---
 
 ## 2. Capa de hazard h(τ): la inevitabilidad, en forma falsable
@@ -79,6 +88,17 @@ supervivencia (solo monedas listadas = sobrevivientes → hazard real *mayor*);
 (2) confound edad/calendario (casi todas nacidas 2017-18; el pico a ~8 años
 refleja en parte el bear market 2022-25); (3) la positividad estricta por-bin
 está limitada por n.
+
+**Ampliación pre-registrada (2026-09-27), dos cohortes grandes.** (a) Cripto,
+663 pares de Binance (incluye retirados): 124 extinciones funcionales, fines en
+las 8 bandas de edad con ≥ 30 en riesgo → **h(τ) > 0 respaldada**; el hazard
+crece con la edad (ρ = +0.88, p = 0.002), pero sigue confundido con el
+calendario. (b) Bancos asegurados por la FDIC, 27,771 instituciones (entrada en
+1970, porque la base no registra cierres antes): 23,505 fines, fines en las 39
+bandas de 5 años de 0 a 195 años → **h(τ) > 0 respaldada**; la forma **no**
+crece con la edad (ρ = +0.05, p = 0.38): es de bañera (alta al inicio, baja en
+la madurez, sube en edades muy altas). La positividad es general; la forma del
+hazard depende del dominio.
 
 ---
 
@@ -268,8 +288,11 @@ SNT con estos marcos.
 2. Más casos por modo (n=3+ cripto; más TDEs; bio sin techo: carga viral
    absoluta, no frecuencia).
 3. Test de ortogonalidad `corr(b, Δ) ≈ 0` — primer resultado (cripto, n=11,
-   ρ=+0.009; ver §1). Falta el test cross-dominio.
-4. Formalizar h(τ) con datos de supervivencia de poblaciones de sistemas.
+   ρ=+0.009) y ampliación pre-registrada (n=242, ρ=−0.119, respaldada por
+   equivalencia; ver §1). Falta el test cross-dominio.
+4. Formalizar h(τ) con datos de supervivencia de poblaciones de sistemas —
+   hecho en dos cohortes (cripto 663, bancos FDIC 27,771; ver §2). Falta
+   separar edad y calendario.
 5. Reestructurar el repo: ACO de módulo paralelo → capa transversal; renombrar
    exponente de absorción a **Δ**.
 
@@ -339,12 +362,15 @@ SNT con estos marcos.
   buscar algún colapso biológico SIN fricción intrínseca (¿extinción abrupta
   por shock externo?) para ver si ahí sí aparece el acantilado.
 - **Test de ortogonalidad** `corr(b, Δ) ≈ 0` — PRIMER RESULTADO (cripto, n=11,
-  ρ=+0.009, p=0.98 → consistente con b⊥Δ). Falta un test cross-dominio con un
-  dataset emparejado (misma entidad con b y Δ).
-- **Formalizar h(τ)** — PRIMER RESULTADO (§2: cripto, n=41, h(τ)>0 en todo el
-  rango de edad). Falta: cohorte más grande sin sesgo de supervivencia (incluir
-  monedas muertas no listadas) y desenredar edad vs calendario; extender a otros
-  dominios (longevidad de empresas, imperios).
+  ρ=+0.009, p=0.98) y AMPLIACIÓN PRE-REGISTRADA (Binance, n=242, ρ=−0.119,
+  IC 95 % [−0.241, +0.007] → respaldada por equivalencia). Falta un test
+  cross-dominio con un dataset emparejado (misma entidad con b y Δ).
+- **Formalizar h(τ)** — PRIMER RESULTADO (§2: cripto, n=41) y AMPLIACIÓN
+  PRE-REGISTRADA con dos cohortes grandes (cripto 663 pares, incluidos los
+  retirados; bancos FDIC 27,771): h(τ)>0 en todas las edades en ambas. El hazard
+  creciente solo aparece en cripto (confundido con el calendario); en bancos es
+  de bañera. Falta: desenredar edad vs calendario (modelo edad-periodo-cohorte)
+  y extender a otros dominios (imperios).
 - **Definir el "piso" con rigor** y decidir si se folda en la fricción o es un
   tercer eje independiente (hoy es factor, no variable medida).
 - **Reestructurar el repo:** ACO de módulo paralelo → capa transversal;
