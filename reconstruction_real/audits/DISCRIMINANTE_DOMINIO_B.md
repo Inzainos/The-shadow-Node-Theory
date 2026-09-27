@@ -156,17 +156,48 @@ pares arbitrarios de la misma región, lo cual apunta —si acaso— en direcci�
 
 Salidas por par: `discrim_bloque1_convergencia.csv`, `discrim_bloque1c_split.csv`.
 
-## Bloques 2–3 — NO se corren todavía (decisión deliberada)
+## Bloques 2–3 — CORRIDOS (2026-09-27) — acoplamiento **no respaldado**
 
-Con el Bloque 1 confundido por el artefacto de asignación, **traer la matriz de
-comercio bilateral es prematuro**. La pregunta ya no es "¿convergencia o
-acoplamiento?" sino "¿existe acoplamiento medible con un hub que **emerja** de la
-red en vez de asignarse?". Es **reconstruir** el dominio, no rescatarlo.
+**Datos:** Correlates of War Trade v4.0 (comercio diádico 1870–2014, millones de
+USD corrientes; `data/COW_Trade_4.0.zip`). `build_comercio_bilateral_cow.py`
+arma las exportaciones direccionales por espejo de importaciones (flow1 =
+importaciones de A desde B; flow2 = de B desde A; −9 = faltante), recorta cada
+par a su ventana `[year_min, year_max]` y aplica reglas de entidad: no asigna al
+corpus los años en que COW agrupa otro Estado (URSS 1917–1991 bajo "Russia",
+Yugoslavia 1918–2005 bajo el código de Serbia, Vietnam del Norte < 1976,
+Pakistán con Pakistán Oriental < 1972; Czechia solo desde 1993). Salida
+`data/comercio_bilateral.csv`: flujos nodo→hub + una fila "RESTO_DEL_MUNDO" por
+país-año, con control exacto de que la suma es el total de exportaciones. Se
+descartan 177 filas de años con exportaciones totales = 0 (share indefinido,
+sobre todo 1941–1945). **432 de 446 pares** tienen comercio nodo→hub.
 
-| Bloque | Prueba | Estado |
-|---|---|---|
-| **2** H-ACOPLAMIENTO | `b` vs comercio bilateral (nodo→hub) | pendiente — requiere matriz direccional (IMF DOTS / CEPII BACI / UN Comtrade) **y** hub emergente de la red |
-| **3** modelo conjunto | R² parcial de cada regresor | requiere 1 (bien especificado) y 2 |
+**Bloque 2 — H-ACOPLAMIENTO** (predicción SNT: ρ(b, share) **positivo**). Share =
+exportaciones nodo→hub / exportaciones totales del nodo; 5000 permutaciones,
+semilla 20260725:
+
+| Regresor | ρ por fila (n = 432) | Cluster por nodo (88) | Cluster por región (14) | Permutación intra-región |
+|---|---:|---:|---:|---:|
+| share media | −0.043 (p = 0.37) | +0.024 (p = 0.83) | −0.147 (p = 0.62) | p = 0.72 |
+| share inicial | **−0.185** (p = 1.1×10⁻⁴) | **−0.245 (p = 0.022)** | −0.222 (p = 0.45) | **p = 0.026** |
+
+- **El acoplamiento SNT no se sostiene.** La participación media del comercio
+  nodo→hub no se relaciona con `b` en ningún nivel.
+- **La única señal robusta tiene el signo OPUESTO al predicho:** cuanto mayor la
+  integración comercial inicial del nodo con el hub, **menor** `b` (más
+  convergencia). Sobrevive a la permutación intra-región y al cluster por nodo;
+  por región no alcanza (14 clusters, baja potencia). Es correlacional y
+  compatible con la literatura de convergencia por integración comercial; no
+  prueba causalidad.
+
+**Bloque 3 — modelo conjunto** (432 pares):
+`b = +0.139 − 0.259·brecha_log + 0.309·share_media`; **R² = 0.290**; solo brecha
+0.286; **solo share 0.0001**. El comercio no añade poder explicativo. La R² de la
+brecha no es evidencia limpia de convergencia: el Bloque 1d muestra que buena
+parte de esa relación es el artefacto de asignación de hub.
+
+**Alcance:** esta prueba usa el hub **asignado por PIB medio** (la definición del
+dominio). La pregunta de fondo — ¿hay acoplamiento con un hub que **emerja** de
+la red de comercio? — sigue abierta y equivale a reconstruir el dominio.
 
 ## Estado del dominio B — cierre
 
@@ -183,9 +214,18 @@ Tres problemas independientes, **ninguno resuelto a favor de la teoría**:
 3. **Artefacto en el estadístico usado para evaluarlo.** La regla `pib_avg` acopla
    mecánicamente la pendiente con la brecha inicial; contra el nulo calibrado, la
    relación observada **no se distingue del artefacto** (Bloque 1d). *Cerrado.*
+   Con la edición del corpus (MPD2020) el test limpio 1c queda en el límite
+   (p empírico 0.050): señal débil de convergencia, no concluyente.
+4. **Acoplamiento medido con comercio bilateral (Bloques 2–3, 2026-09-27).** La
+   participación del comercio nodo→hub **no explica `b`** (R² parcial 0.0001) y
+   la única señal robusta (share inicial) tiene el **signo opuesto** al predicho
+   por SNT. *Cerrado para el hub asignado.*
 
 **Conclusión:** el dominio B —446 de 721 casos, **62% del corpus**— **no queda
-respaldado ni como β-convergencia ni como acoplamiento SNT**. Lo único que
+respaldado como acoplamiento SNT** (el Bloque 2 lo evalúa directamente y no lo
+encuentra; la señal comercial va en sentido contrario) **ni queda probado como
+β-convergencia** (Bloque 1 inconcluso contra el nulo calibrado, aunque tanto el
+1c como el share inicial se inclinan hacia convergencia). Lo único que
 sobrevive sin supuestos, sin nulos y sin parámetros es el **Bloque 0**: el rol de
 hub no es estructural.
 
@@ -197,11 +237,16 @@ hub no es estructural.
 > los países aparecen en ambos roles, por lo que no representa una posición
 > estructural en una red. (iii) Esa misma regla de asignación acopla mecánicamente
 > la pendiente `b` con la brecha inicial de PIB; contra un nulo sintético
-> calibrado sobre los datos reales (deriva +0.0215, volatilidad 0.0647, n=446), la
-> correlación observada (ρ=−0.4725) cae dentro del intervalo del nulo
-> ([−0.5796, −0.2608]), al igual que la versión con muestra partida (ρ=−0.3676 vs
-> nulo [−0.4132, −0.0902]). El dominio B no queda respaldado ni como
-> β-convergencia ni como acoplamiento estructural.
+> calibrado sobre los datos reales (Maddison Project Database 2020; deriva
+> +0.0217, volatilidad 0.0652, n=446, 5000 iteraciones), la correlación observada
+> (ρ=−0.4893) cae dentro del intervalo del nulo ([−0.5765, −0.2418]), al igual
+> que la versión con muestra partida (ρ=−0.3846 vs nulo [−0.4050, −0.0788]; p
+> empírico 0.050, en el límite). (iv) Medido con comercio bilateral (COW Trade
+> 4.0), el acoplamiento hub-nodo no explica `b` (ρ = −0.043 con la participación
+> media; R² parcial 0.0001), y la integración comercial inicial se asocia con
+> **menor** `b` (ρ = −0.185; permutación intra-región p = 0.026), en sentido
+> contrario al predicho por SNT. El dominio B no queda respaldado como
+> acoplamiento estructural ni probado como β-convergencia.
 
 ### Consecuencia para el corpus
 
@@ -221,8 +266,10 @@ python reconstruction_real/code/prueba_discriminante_dominio_B.py \
 
 Bloques 0, 1, 1b, 1c y 1d corren con la edición del corpus (`maddison_mpd2020.csv`,
 ya en el repo). `--maddison data/owid-maddison.csv` reproduce la corrida de
-sensibilidad con la edición OWID posterior. El Bloque 2 requiere además la
-matriz de comercio bilateral. `--n-placebo` controla las iteraciones de los
+sensibilidad con la edición OWID posterior. Los Bloques 2–3 usan
+`data/comercio_bilateral.csv` (en el repo; se regenera con
+`python reconstruction_real/code/build_comercio_bilateral_cow.py` desde
+`data/COW_Trade_4.0.zip`). `--n-placebo` controla las iteraciones de los
 nulos (1b y 1d); `--omitir-1b` salta el 1b (no es un nulo válido y es el paso
 más lento) sin cambiar 1, 1c, 1d ni el veredicto.
 
@@ -231,10 +278,11 @@ más lento) sin cambiar 1, 1c, 1d ni el veredicto.
 1. **Newey-West** sobre los residuos crudos para fijar la cifra puntual de
    significancia AR(1) dentro de [33, 112]. El Maddison ya está en el repo, así
    que está **desbloqueado**.
-2. **Bloque 2 (comercio bilateral)** — sigue teniendo sentido, pero como pregunta
-   distinta: no "¿convergencia o acoplamiento?" sino "¿existe acoplamiento
-   medible, con un hub que emerja de la red en vez de asignarse?". Es reconstruir
-   el dominio, no rescatarlo.
+2. **Hub emergente.** El Bloque 2 ya corrió con el hub asignado (2026-09-27; no
+   respalda acoplamiento). Queda la pregunta distinta: "¿existe acoplamiento
+   medible con un hub que **emerja** de la red de comercio en vez de asignarse
+   por PIB?". Es reconstruir el dominio, no rescatarlo; la matriz de comercio ya
+   está en el repo.
 3. **Composición del corpus** — si el dominio B (62%) no mide lo que la teoría
    dice, la invariancia de escala del v31 se sostiene sobre los dominios
    restantes, más chicos.
@@ -245,3 +293,12 @@ Esto **no reemplaza** la corrección por autocorrelación (dominio B: 290/446 no
 estimables tras AR(1)); es una pregunta distinta y anterior. Son **problemas
 independientes que se acumulan** sobre el mismo 62% del corpus. Ambos apuntan en
 la misma dirección: el dominio B no puede tratarse como evidencia limpia de SNT.
+
+## Seguimiento — reconstrucción con hub emergente del comercio (2026-09-27)
+
+La pregunta que este informe dejó abierta (¿aparece el acoplamiento si el hub
+**emerge** de la red de comercio en lugar de asignarse por PIB?) se contestó en
+[`RECONSTRUCCION_DOMINIO_B_HUB_COMERCIO.md`](RECONSTRUCCION_DOMINIO_B_HUB_COMERCIO.md):
+**no**. Con el mayor destino de exportación de cada país como hub, el hub no se
+separa del nodo más que un país con la misma brecha inicial (d mediana −0.014,
+p = 0.78), y 62 de 95 nodos convergen hacia su hub.

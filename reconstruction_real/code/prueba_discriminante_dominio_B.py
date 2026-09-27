@@ -430,7 +430,33 @@ def bloque1d_nulo_calibrado(B, maddison_path, n_iter=300, seed=20260725):
 
 
 # =============================================================================
-def bloque2_acoplamiento(B, comercio_path, D1=None):
+def _spearman_medias(x, y, grupos):
+    """Spearman sobre medias por grupo (cluster): evita pseudo-replicacion."""
+    df = pd.DataFrame({"x": x, "y": y, "g": grupos}).groupby("g").mean()
+    if len(df) < 3:
+        return np.nan, np.nan, len(df)
+    rho, p = stats.spearmanr(df["x"], df["y"])
+    return float(rho), float(p), len(df)
+
+
+def _permutacion_intra_region(x, y, region, n_iter, seed=20260725):
+    """p empirico de dos colas: permuta x dentro de cada region."""
+    rng = np.random.default_rng(seed)
+    x = np.asarray(x, dtype=float)
+    y = np.asarray(y, dtype=float)
+    region = np.asarray(region)
+    obs = stats.spearmanr(x, y)[0]
+    grupos = [np.where(region == r)[0] for r in np.unique(region)]
+    nulo = np.empty(n_iter)
+    for i in range(n_iter):
+        xp = x.copy()
+        for idx in grupos:
+            xp[idx] = rng.permutation(xp[idx])
+        nulo[i] = stats.spearmanr(xp, y)[0]
+    return float(np.mean(np.abs(nulo) >= abs(obs)))
+
+
+def bloque2_acoplamiento(B, comercio_path, D1=None, n_iter=500):
     """H-ACOPLAMIENTO: b ~ participacion de comercio bilateral.
 
     Espera un CSV largo con columnas: origen, destino, anio, valor.
@@ -455,6 +481,11 @@ def bloque2_acoplamiento(B, comercio_path, D1=None):
 
     tot = T.groupby(["origen", "anio"])["valor"].sum().rename("total")
     T = T.join(tot, on=["origen", "anio"])
+    # share indefinido (0/0) si el origen no registra exportaciones ese anio
+    sin_total = int((T["total"] <= 0).sum())
+    T = T[T["total"] > 0].copy()
+    log.info("filas descartadas por exportaciones totales = 0 (share "
+             "indefinido): %d", sin_total)
     T["share"] = T["valor"] / T["total"]
 
     filas = []
@@ -463,6 +494,7 @@ def bloque2_acoplamiento(B, comercio_path, D1=None):
         if m.empty:
             continue
         filas.append({"id": r["id"], "b": r["b"], "region": r["region"],
+                      "nodo": r["nodo"],
                       "share_media": float(m["share"].mean()),
                       "share_inicial": float(
                           m.sort_values("anio")["share"].iloc[0])})
@@ -474,12 +506,30 @@ def bloque2_acoplamiento(B, comercio_path, D1=None):
 
     for col in ("share_media", "share_inicial"):
         rho, p = stats.spearmanr(D[col], D["b"])
-        log.info("Spearman b vs %-14s: rho = %+.4f   p = %.4g", col, rho, p)
+        log.info("")
+        log.info("Spearman b vs %-14s: rho = %+.4f   p = %.4g   n = %d",
+                 col, rho, p, len(D))
+        for etiqueta, grupos in (("nodo", D["nodo"]), ("region", D["region"])):
+            rc, pc, nc = _spearman_medias(D[col], D["b"], grupos)
+            log.info("   cluster por %-6s: rho = %+.4f   p = %.4g   "
+                     "(%d clusters)", etiqueta, rc, pc, nc)
+        pp = _permutacion_intra_region(D[col], D["b"], D["region"], n_iter)
+        log.info("   permutacion intra-region (%d): p dos colas = %.4f",
+                 n_iter, pp)
+        for reg, g in D.groupby("region"):
+            if len(g) < 8:
+                continue
+            rr, pr = stats.spearmanr(g[col], g["b"])
+            log.info("      %-20s n=%3d  rho=%+.3f  p=%.4f", reg, len(g), rr, pr)
     log.info("")
     log.info("PREDICCION H-ACOPLAMIENTO: rho POSITIVO y significativo")
     rho, p = stats.spearmanr(D["share_media"], D["b"])
+    rho_i, _ = stats.spearmanr(D["share_inicial"], D["b"])
     log.info("VEREDICTO H-ACOPLAMIENTO: %s",
-             "RESPALDADA" if (rho > 0 and p < 0.05) else "NO respaldada")
+             "RESPALDADA" if (rho > 0 and p < 0.05) else
+             "NO respaldada (share_media rho=%+.3f; share_inicial rho=%+.3f"
+             "%s)" % (rho, rho_i, ", signo OPUESTO al predicho"
+                      if rho_i < 0 else ""))
 
     D.to_csv("discrim_bloque2_acoplamiento.csv", index=False)
     return D
@@ -583,7 +633,7 @@ def main():
            else bloque1b_placebo(B, a.maddison, n_iter=a.n_placebo))
     D1c = bloque1c_split(B, a.maddison)
     CAL = bloque1d_nulo_calibrado(B, a.maddison, n_iter=a.n_placebo)
-    D2 = bloque2_acoplamiento(B, a.comercio, D1)
+    D2 = bloque2_acoplamiento(B, a.comercio, D1, n_iter=a.n_placebo)
     bloque3_conjunto(D1, D2)
     veredicto_nulo_calibrado(D1, D1c, CAL)
 

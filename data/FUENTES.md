@@ -84,6 +84,34 @@ script en fechas distintas podían obtener cifras distintas sin saberlo.
 > reproducción es exacta. El runner `snt_auditoria_integral_v32.py` repite ambas
 > mediciones en cada ejecución.
 
+### `data/COW_Trade_4.0.zip` — **comercio bilateral, presente en el repo** (descargado 2026-09-27)
+
+- **Qué es:** Correlates of War (COW) Trade Data Set v4.0 (Barbieri, K. & Keshk,
+  O. M. G.), comercio diádico 1870–2014 y totales nacionales, en millones de USD
+  corrientes. Contiene `Dyadic_COW_4.0.csv`, `National_COW_4.0.csv` y el codebook.
+- **Definiciones verificadas en el codebook:** `flow1` = importaciones del país A
+  (`importer1`) desde B; `flow2` = importaciones de B desde A; `-9` = faltante.
+- **Quién la usa:** `reconstruction_real/code/build_comercio_bilateral_cow.py`
+  → `data/comercio_bilateral.csv` → Bloques 2–3 de
+  `prueba_discriminante_dominio_B.py`.
+- **Reglas de entidad** (no se sustituyen Estados; esos años cuentan en los
+  totales de los socios pero no se asignan al corpus): URSS 1917–1991 bajo
+  "Russia"; Yugoslavia 1918–2005 bajo el código de Serbia; Vietnam del Norte
+  < 1976; Pakistán con Pakistán Oriental < 1972; Czechia solo desde 1993.
+- **Cita:** Barbieri, K. & Keshk, O. M. G. (2016). *Correlates of War Project
+  Trade Data Set Codebook, Version 4.0.* Online: <https://correlatesofwar.org>.
+  Barbieri, K., Keshk, O. M. G. & Pollins, B. (2009). Trading Data: Evaluating
+  our Assumptions and Coding Rules. *Conflict Management and Peace Science*
+  26(5), 471–491.
+
+| Campo | Valor |
+|---|---|
+| URL de descarga | <https://correlatesofwar.org/wp-content/uploads/COW_Trade_4.0.zip> |
+| Fecha de descarga | 2026-09-27 |
+| Tamaño | 12,383,657 bytes |
+| SHA-256 `COW_Trade_4.0.zip` | `c44c4b5ce62e68865368482c428306df4624d3a39edec29adc1aa2c0928f7cc7` |
+| SHA-256 `comercio_bilateral.csv` | `9625f8403800f6834c5ebd03a5ab7c094d9be603c4954561de6be66ce7eea6cb` |
+
 ### Fuente de E3 (COVID-19) — series crudas **AUSENTES en el repo**
 
 - **Quién la usa:** el dominio E3 (234 casos, 32% del corpus). En el repo solo
@@ -119,6 +147,8 @@ Sirven para detectar si un archivo cambió sin que se documente. Recalcular con 
 | `data/owid-maddison.csv` | `6e905c41324d50f2e4e468bad9d204a1efd44f6f34368c98425e8e0b33d6a4ec` |
 | `data/mpd2020.xlsx` | `d20853c2e0930d6855fb6d8138da11f24fcf313d234e2db9773ea1f551adfec3` |
 | `data/maddison_mpd2020.csv` | `1c0b15ae4b78d54134d3c781e361784ee06c8519762ca6ceb45ef65fc31d54c0` |
+| `data/COW_Trade_4.0.zip` | `c44c4b5ce62e68865368482c428306df4624d3a39edec29adc1aa2c0928f7cc7` |
+| `data/comercio_bilateral.csv` | `9625f8403800f6834c5ebd03a5ab7c094d9be603c4954561de6be66ce7eea6cb` |
 
 > Para regenerar la tabla:
 > ```sh
@@ -129,7 +159,9 @@ Sirven para detectar si un archivo cambió sin que se documente. Recalcular con 
 >          data/snt_asi_scores.csv \
          data/owid-maddison.csv \
          data/mpd2020.xlsx \
-         data/maddison_mpd2020.csv; do
+         data/maddison_mpd2020.csv \
+         data/COW_Trade_4.0.zip \
+         data/comercio_bilateral.csv; do
 >   sha256sum "$f"
 > done
 > ```
@@ -145,8 +177,9 @@ Sirven para detectar si un archivo cambió sin que se documente. Recalcular con 
       (`data/mpd2020.xlsx`); reproducción byte a byte de los 446 casos.
 - [ ] Recuperar las series crudas de E3 (OWID COVID snapshot) para desbloquear
       su corrección AR(1).
-- [ ] Conseguir la matriz de comercio bilateral direccional (IMF DOTS / CEPII
-      BACI / UN Comtrade) para desbloquear el bloque 2 de la prueba discriminante.
+- [x] Conseguir la matriz de comercio bilateral direccional para el bloque 2 de
+      la prueba discriminante. **Hecho 2026-09-27:** Correlates of War Trade
+      v4.0 (`data/COW_Trade_4.0.zip` → `data/comercio_bilateral.csv`).
 - [ ] Opcional: `download_sources.sh` que baje ambas fuentes y verifique los
       checksums, para que el corpus sea regenerable de punta a punta.
 

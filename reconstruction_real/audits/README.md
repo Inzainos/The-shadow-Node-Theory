@@ -57,7 +57,13 @@ python reconstruction_real/code/snt_auditoria_integral_v32.py
 - **Veredicto honesto:** el dominio B **no queda respaldado ni como β-convergencia
   ni como acoplamiento SNT**; el constructo de hub es post hoc (Bloque 0) y el
   estadístico está dominado por un artefacto de asignación (Bloque 1d).
-- **Bloques 2–3:** deliberadamente NO corridos aún (traer comercio bilateral es
+- **Bloques 2–3 (corridos 2026-09-27, COW Trade v4.0, 432/446 pares):** el
+  acoplamiento SNT **no se sostiene**: la participación media del comercio
+  nodo→hub no se relaciona con `b` (ρ = −0.043; permutación intra-región
+  p = 0.72) y no añade R² (0.0001). La participación **inicial** se asocia con
+  **menor** `b` (ρ = −0.185; cluster por nodo p = 0.022; permutación p = 0.026),
+  signo opuesto al predicho. Modelo conjunto R² 0.290 (solo brecha 0.286).
+- **Antes (2026-07-25):** Bloques 2–3 deliberadamente NO corridos (traer comercio bilateral es
   reconstruir el dominio con un hub emergente, no rescatarlo).
 
 ### Los cuatro hallazgos que cambian algo
@@ -124,12 +130,18 @@ recálculo independiente de las cifras que el runner no emite:
 | **Fila `dominio_B_regenerable`** (fija en `NO`) | **Causa:** era un literal escrito cuando faltaba `owid-maddison.csv`; nunca comprobaba nada. **Corregido:** el runner regenera B en un directorio temporal y lo compara caso a caso y por SHA-256 contra `by_domain/dominio_B_real.csv`. **Edición del corpus identificada:** Maddison Project Database 2020 (`data/mpd2020.xlsx`, descargado de la GGDC; en Google Drive solo estaba la edición 2023). Con ella `expand_B_massive.py` reproduce los 446 casos **byte a byte** (SHA-256 idéntico, 19 columnas iguales) → `REPLICA`. Con la edición OWID posterior: 441 vs 446, corr(b) = 0.979, 12/408 b idénticos → `PARCIAL` (sensibilidad a la edición). `expand_dominio_B.py` (script previo): 254 casos → `PARCIAL`. |
 | **Fila RC9** (fija en `NO_REPRODUCIBLE`) | Mismo defecto. Ahora se calcula desde `orthogonality_crypto_v25.csv`: ρ = +0.009, p = 0.98, n = 11 → `REPLICA`. |
 | **Prueba discriminante con MPD2020** | Re-corrida con la edición del corpus (446 pares; antes 441 con OWID) y 5000 iteraciones. Bloque 1: −0.4893, DENTRO (p 0.213). Bloque 1c: −0.3846, DENTRO en el límite (p 0.050, margen 0.020). **Veredicto: sigue INCONCLUSO.** El script ahora calcula este veredicto por sí mismo (antes imprimía "RESPALDADA" por la comparación contra cero) y acepta `--omitir-1b`. Salidas `discrim_bloque1*.csv` regeneradas con MPD2020. |
+| **Bloques 2–3 de la prueba discriminante** | Corridos con Correlates of War Trade v4.0 (`data/COW_Trade_4.0.zip` → `build_comercio_bilateral_cow.py` → `data/comercio_bilateral.csv`; reglas de entidad para URSS, Yugoslavia, Vietnam del Norte y Pakistán unificado). 432/446 pares. Participación media nodo→hub: ρ = −0.043 (p = 0.37; permutación intra-región p = 0.72). Participación inicial: ρ = −0.185 (cluster por nodo p = 0.022; permutación p = 0.026), **signo opuesto** al predicho por SNT. Modelo conjunto: R² 0.290; solo comercio 0.0001. **Acoplamiento SNT no respaldado** (con el hub asignado). |
+| **Reconstrucción del dominio B con hub emergente del comercio** | Informe [`RECONSTRUCCION_DOMINIO_B_HUB_COMERCIO.md`](RECONSTRUCCION_DOMINIO_B_HUB_COMERCIO.md); script `code/reconstruccion_B_hub_comercio.py` → `data/dominio_B_hub_comercio.csv` + `data/dominio_B_hub_comercio_intra_nodo.csv` (+ log). Hub = mayor destino de exportación del nodo en su primera década de datos COW (predeterminado), mismo ajuste que B. 102/103 países; 19 hubs (Reino Unido 37, Estados Unidos 27). Solo **9/102** pares hub–nodo comerciales existen en B; el hub cambia para 2005–2014 en 77/102. Con hub más rico, **62/95 convergen** (b < 0). ρ(b, brecha) = −0.153 (p = 0.125) vs −0.489 en B. **Hub vs controles con la misma brecha:** d mediana −0.014, 45/102 > 0, Wilcoxon p = 0.78 (cluster por hub p = 0.62) → **sin acoplamiento**. Hub de ventana completa da d > 0 (p = 5×10⁻¹⁰), pero es causalidad inversa por gravedad (endógeno). Dentro de cada nodo: ρ parcial mediana +0.115 (Wilcoxon p = 0.046; permutación p = 0.15; con control de tamaño, signo p = 0.10) → no concluyente. Calidad: Mongolia y Vietnam con comercio CMEA faltante en COW (excluirlos no cambia nada). **Veredicto: la reconstrucción no rescata el acoplamiento.** |
 | **Runner v32** | 51 filas: 28 REPLICA, 1 REPLICA_SIGNO, 1 RANGO, 2 OK, 2 PARCIAL (sensibilidad a la edición y script previo), 3 NO_REPRODUCIBLE, 2 BLOQUEADO, 1 CIRCULAR, 11 INFO. Ninguna discrepancia. |
 
 Pendientes que siguen abiertos: series crudas de E3 (corrección AR(1) de E3),
 prueba de b ≥ 1 en otros dominios, p sin truncar + `r2_log`/`r2_raw`
-separados en el corpus consolidado, actualizar el preprint de SSRN (su resumen
-afirma la cifra 5.9×; PLOS queda para el reenvío de la teoría una vez afinada) y
-el bloque 2 de la prueba discriminante (comercio bilateral). Hechos el
-2026-09-27: ~~fijar la edición exacta de Maddison~~ (MPD2020, reproducción byte
-a byte) y ~~re-correr la prueba discriminante con MPD2020~~ (sigue inconclusa).
+separados en el corpus consolidado, y una definición de hub variable en el
+tiempo antes de volver a usar pares de países como evidencia (PLOS queda para el
+reenvío de la teoría una vez afinada). Hechos el 2026-09-27: ~~fijar la edición
+exacta de Maddison~~ (MPD2020, reproducción byte a byte), ~~re-correr la prueba
+discriminante con MPD2020~~ (sigue inconclusa), ~~bloque 2 con comercio
+bilateral~~ (acoplamiento no respaldado), ~~actualizar el preprint de SSRN~~
+(revisión r31 en inglés y español, `papers/snt_ssrn_v31*`; la subida la hace el
+autor) y ~~reconstruir el dominio B con hub emergente del comercio~~ (no rescata
+el acoplamiento).

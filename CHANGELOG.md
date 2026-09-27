@@ -49,6 +49,61 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 ## [No publicado] — 2026-07
 
 ### Documentación
+- **Preprint SSRN r31 en español y notas del formulario** (2026-09-27): nuevo
+  `papers/snt_ssrn_v31.md` (+ `.pdf`, `.docx`), traducción completa de la r31 en
+  inglés con la tabla de metadatos en español (JEL, palabras clave, datos,
+  conflicto de interés); `snt_ssrn_v30.*` queda intacto. Nuevo
+  `papers/SSRN_revision_v31.md` con título, resumen (1,877 caracteres), palabras
+  clave, JEL y comentarios de revisión listos para el formulario "Revise my
+  Submission"; `SSRN_revision_v30.md` queda como registro de lo enviado. La r31
+  en inglés incorpora la reconstrucción del dominio B (resumen, §3.5, §9 (iii),
+  Hallazgo 4 (c), §15.2–15.3) y corrige tres detalles de la primera redacción:
+  "89% significant" → nominal en §9, la redacción del 77/91 (son 77 de los 91
+  países que actúan como hub) y §15.1 ("operates across all domains" / "follows a
+  power law" → propuesta con salvedades; rango-tamaño pendiente de lognormal).
+  PLOS y la figura del ASI de `generate_figures_v29.py` (paquete PLOS) no se
+  tocan, por indicación del autor.
+- **Preprint SSRN, revisión r31** (2026-09-27): nuevo
+  `papers/snt_ssrn_v31_EN.md` (+ `.pdf` y `.docx`); `snt_ssrn_v30_EN.*` queda
+  intacto como registro de lo enviado el 2026-06-28. Nota de revisión al inicio
+  y cambios, todos con la cifra verificada contra los archivos del repo:
+  - **Retirado** "abrupto 5.9× más rápido que gradual" (resumen, §1.3, §2.1,
+    §5.1, Hallazgo 3): proviene de 2 vs 2 casos (5.87×, p = 0.33); n = 486 no
+    corresponde a ningún conjunto; el corpus activo no tiene disparador.
+  - **§6.3 HackerEarth:** ROC-AUC 0.9994 (fuga de datos) → **0.715 ± 0.019**
+    (primera sesión, como documenta `code/hackerearth_validation_final.py`).
+  - **ASI "precision = 1.0, cero falsos positivos" retirado** (resumen, §9, §10
+    RC7, §15.1; nueva §6.6): la etiqueta `soberania` es ASI > 1, así que la
+    clasificación es tautológica (verificado: TP 13, FP 0, FN 0 por
+    construcción; 13/4,774 = 0.27 %).
+  - **Hallazgo 1 (fricción):** tabla por caso / por cluster (ρ −0.556,
+    p = 0.25, n = 6) / bootstrap (−0.434, IC95 [−0.722, −0.006]) / sin E3 /
+    sin E3 ni B; se deja de llamar "estadísticamente robusto".
+  - **Hallazgo 2:** el polo sin fricción son 238 casos COVID-19 (E1 ya no se
+    llama "invasión biológica").
+  - **Hallazgo 4 (soberanía como freno):** pasa a hipótesis con los resultados
+    de la prueba discriminante (nulo calibrado + comercio bilateral COW). La
+    frase "b > 1 sin importar el sustrato" pasa a conjetura: 94 de los 102
+    casos con b ≥ 1 son series COVID-19 (E1 + E3).
+  - **Hallazgo 5 / §9:** AIC en las 18 series crudas (potencia 13, exponencial
+    4 con b̄ +1.54, lineal 1); posible mala especificación en b ≥ 1.
+  - **§3.3 / §9:** 89 % de significancia marcado como nominal (B: 156/446
+    estimables, 33–112 significativos tras AR(1)); reproducibilidad parcial
+    (B exacto con MPD2020; E1/E3 crudos ausentes; HackerEarth propietario);
+    p truncados (557/721) y dos definiciones de R².
+  - **§8 / §14 N-cuerpos:** "confirma el apego preferencial" → consistente con,
+    pendiente de comparar contra lognormal (Clauset et al. 2009).
+  - **Referencias:** Maddison 2023/2024 → Bolt & van Zanden (2020), MPD2020;
+    añadidos Barbieri & Keshk (2016), Barbieri, Keshk & Pollins (2009) y
+    Clauset, Shalizi & Newman (2009).
+- **`md_to_pdf.py` / `md_to_docx.py`** (2026-09-27): las líneas consecutivas
+  forman un solo párrafo (antes cada línea del Markdown era un párrafo, lo que
+  dejaba `**` literales en negritas partidas entre líneas), soporte de salto
+  duro (dos espacios finales), citas `>` de varias líneas como un párrafo, y
+  log en `reconstruction_real/logs/`. El PDF usa DejaVu Sans (sistema o la que
+  trae matplotlib): con la Helvetica base-14 el PDF v30 mostraba ρ como "r",
+  b̄ como "bn", ≈ como "»" y 10⁻⁹⁷ como "10nnn". El encabezado de las tablas del
+  PDF ahora es blanco (antes gris sobre fondo negro, ilegible).
 - **Actualización integral de la documentación a la versión actual (release
   2.5.2, marco teórico v34) e integración de los hallazgos de la auditoría v32**
   (2026-09-26). Toda cifra nueva se recalculó desde los datos versionados.
@@ -110,6 +165,35 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   datos reales (`data_adapters.py`, `run_real_delta.py`).
 
 ### Añadido
+- **Reconstrucción del dominio B con hub emergente del comercio** (2026-09-27;
+  pendiente 9 de la auditoría). Nuevo
+  `reconstruction_real/code/reconstruccion_B_hub_comercio.py` (con log) →
+  `reconstruction_real/data/dominio_B_hub_comercio.csv` y
+  `dominio_B_hub_comercio_intra_nodo.csv`; informe
+  `reconstruction_real/audits/RECONSTRUCCION_DOMINIO_B_HUB_COMERCIO.md`. Hub =
+  mayor destino de exportación de cada país (COW v4.0, entidades del mismo
+  territorio en Maddison 2020) en su primera década de datos; mismo ajuste que
+  `expand_B_massive.py`. 102/103 países, 19 hubs; solo 9/102 pares existen en el
+  dominio B; 62/95 nodos convergen hacia su hub; hub vs controles con la misma
+  brecha: d mediana −0.014, Wilcoxon p = 0.78 (cluster por hub p = 0.62) — **sin
+  acoplamiento**; la prueba dentro de cada nodo (ρ parcial mediana +0.115,
+  permutación p = 0.15) no es concluyente. Marca de cobertura CMEA dudosa
+  (Mongolia, Vietnam: comercio con la URSS faltante en COW; verificado). El
+  dominio B del corpus no cambia.
+- **Bloques 2–3 de la prueba discriminante del dominio B (comercio bilateral)**
+  (2026-09-27). Fuente: Correlates of War Trade v4.0 (`data/COW_Trade_4.0.zip`,
+  SHA-256 `c44c4b5c…`). Nuevo `reconstruction_real/code/build_comercio_bilateral_cow.py`
+  → `data/comercio_bilateral.csv` (exportaciones direccionales por espejo,
+  ventana de cada par, reglas de entidad para URSS / Yugoslavia / Vietnam del
+  Norte / Pakistán unificado, fila RESTO_DEL_MUNDO con control exacto de
+  totales; log). 432/446 pares. **Acoplamiento SNT no respaldado:** participación
+  media nodo→hub ρ = −0.043 (permutación intra-región p = 0.72), R² parcial
+  0.0001; participación inicial ρ = −0.185 (cluster por nodo p = 0.022,
+  permutación p = 0.026), **signo opuesto** al predicho. Modelo conjunto R²
+  0.290 (solo brecha 0.286). El Bloque 2 del script ahora descarta los años con
+  exportaciones totales = 0 (share 0/0 indefinido; antes daba `nan`) e informa
+  cluster por nodo y región, permutación intra-región y ρ por región. Salida
+  `discrim_bloque2_acoplamiento.csv`.
 - **Recálculo de "abrupto vs gradual" (cifra 5.9×)** (2026-09-27):
   `reconstruction_real/code/recalculo_trigger_abrupto_gradual.py` →
   `reconstruction_real/data/trigger_abrupto_gradual_recalculo.csv` (con log).
