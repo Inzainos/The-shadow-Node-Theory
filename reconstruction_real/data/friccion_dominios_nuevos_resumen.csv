@@ -1,0 +1,6 @@
+prueba,estadistico,dominios,rho,p_una_cola,p_dos_colas,decision
+PRINCIPAL sin COVID,mean,7,-0.130984,0.392857,0.785714,NO RESPALDADA
+(a) mediana,median,7,-0.430377,0.169048,0.338095,NO RESPALDADA
+(b) con B publicado,mean,7,0.112272,0.607143,0.82381,NO RESPALDADA
+(c) + E1 y E3 (con COVID),mean,9,-0.580527,0.054563,0.109127,NO RESPALDADA
+(d) + D,mean,8,0.049417,0.554167,0.915476,NO RESPALDADA
