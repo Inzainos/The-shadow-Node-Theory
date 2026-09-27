@@ -71,21 +71,16 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   pre-registradas de ortogonalidad (n = 242) y hazard (cripto 663, bancos 27,771);
   `sources.md` actualiza E1/E3; la auditoría v32 lleva un seguimiento con fecha. El
   preprint r31 no se modifica (decisión del autor).
+- **Versión 2.5.3 retroactiva** (2026-09-27, a pedido del autor): lo integrado en los
+  PR #42 a #45 (auditoría, dominio B, SSRN r31) pasa de la entrada [2.6.0] a una
+  entrada [2.5.3] propia, que corresponde a la etiqueta `2.5.3` sobre `28eabb1`.
+  [2.6.0] queda con lo del PR #46 (pre-registro, nota del Axioma 5, figuras).
 
 ## [2.6.0] — 2026-09-27
 
-Auditoría, prueba discriminante y reconstrucción del dominio B, revisión r31 del
-preprint de SSRN y **pre-registro con cinco pruebas** de la teoría. El corpus de 721
-casos no cambia. PR [#42](https://github.com/Inzainos/The-shadow-Node-Theory/pull/42)
-a [#46](https://github.com/Inzainos/The-shadow-Node-Theory/pull/46).
-
-> **Nota de trazabilidad.** Las entradas fechadas en julio de 2026 (auditoría
-> integral v32 y su runner, prueba discriminante inicial del dominio B y
-> `owid-maddison.csv`, parche v31 del marco, validaciones del agente genómico,
-> Delta, `.flake8`, `SECURITY.md`, `AGENTS.md`/`CLAUDE.md`) ya estaban en el
-> código de la etiqueta 2.5.2, pero su entrada no las listaba; se conservan aquí
-> como registro. Lo nuevo de 2.6.0 son las entradas del 26 y 27 de septiembre de
-> 2026.
+**Pre-registro con cinco pruebas** de la teoría, nota de auditoría en el Axioma 5 del
+marco v34 y figuras del README regeneradas. El corpus de 721 casos no cambia. PR
+[#46](https://github.com/Inzainos/The-shadow-Node-Theory/pull/46), sobre 2.5.3.
 
 ### Documentación
 - **Figuras del README regeneradas para v2.6.0** (2026-09-27). Nuevo
@@ -113,6 +108,52 @@ a [#46](https://github.com/Inzainos/The-shadow-Node-Theory/pull/46).
   p = 0.39); el polo sin fricción (E3) sí es robusto con series crudas. La fila
   del Axioma 5 en la tabla de estatus remite a la nota. Registrado en
   `papers/CHANGELOG_marco.md`.
+
+### Añadido
+- **Pre-registro y cinco pruebas de la SNT** (2026-09-27, seis puntos pedidos por el
+  autor). Pre-registro `reconstruction_real/preregistro/PREREGISTRO_2026-09-27.md`
+  subido (commit `c319fac`) antes de descargar datos o correr pruebas; informe
+  `reconstruction_real/audits/RESULTADOS_PREREGISTRO_2026-09-27.md` con desviaciones.
+  - **Punto 1, hub variable en el tiempo** (`prueba_hub_temporal.py`): no
+    respaldada (H = 20: d mediana −0.009, p = 0.95); H = 30 contraria (p = 0.0002).
+    Funciones COW/Maddison compartidas en `comercio_maddison.py` (la reconstrucción
+    estática reproduce salidas y log idénticos).
+  - **Punto 2, fricción con dominios nuevos sin COVID**
+    (`prueba_friccion_dominios_nuevos.py`; E4 mpox, D2 StatCounter, A2 ciudades
+    WUP, B-comercio): no respaldada (ρ = −0.131, permutación exacta p = 0.39).
+  - **Punto 3, series crudas de COVID** (`covid_E3_series_crudas.py`): receta de E3
+    identificada (233/234); Newey-West p < 0.05 en 233/234; E1 no reproducible.
+  - **Punto 4, disparadores a ciegas** (`prueba_disparadores_ciudades.py`):
+    respaldada (8/8, Wilcoxon p = 0.0039; capitales 5.1×; salvedad de
+    supervivencia de WUP).
+  - **Punto 5, cohortes ACO-A** (`descargar_binance_klines.py` con reintentos,
+    `aco_cohortes_ampliadas.py`): ortogonalidad respaldada por equivalencia (242
+    pares, ρ = −0.119); h > 0 respaldada en cripto (663) y bancos FDIC (27,771);
+    hazard creciente solo en cripto (confundido con el calendario), bancos en
+    bañera; fricción → Δ no ampliable.
+  - Subconjuntos versionados de cada fuente nueva y SHA-256 en `data/FUENTES.md`;
+    README (RC3 no refutado por prueba pre-registrada; fila de fricción; RC9; hazard)
+    e índice de auditorías actualizados.
+
+## [2.5.3] — 2026-09-26
+
+Auditoría, prueba discriminante y reconstrucción del dominio B y revisión r31 del
+preprint de SSRN. El corpus de 721 casos no cambia. PR
+[#42](https://github.com/Inzainos/The-shadow-Node-Theory/pull/42) a
+[#45](https://github.com/Inzainos/The-shadow-Node-Theory/pull/45). Etiqueta
+retroactiva (creada el 2026-09-27, después de 2.6.0) sobre el commit `28eabb1`
+(merge del PR #45, 2026-09-26 23:18 hora de México; algunas entradas llevan la fecha
+UTC 2026-09-27): es el estado del repositorio que corresponde al preprint r31.
+Hasta entonces estas entradas figuraban dentro de 2.6.0.
+
+> **Nota de trazabilidad.** Las entradas fechadas en julio de 2026 (auditoría
+> integral v32 y su runner, prueba discriminante inicial del dominio B y
+> `owid-maddison.csv`, parche v31 del marco, validaciones del agente genómico,
+> Delta, `.flake8`, `SECURITY.md`, `AGENTS.md`/`CLAUDE.md`) ya estaban en el
+> código de la etiqueta 2.5.2, pero su entrada no las listaba; se conservan aquí
+> como registro. Lo nuevo de 2.5.3 son las entradas de septiembre de 2026.
+
+### Documentación
 - **Preprint SSRN r31 en español y notas del formulario** (2026-09-27): nuevo
   `papers/snt_ssrn_v31.md` (+ `.pdf`, `.docx`), traducción completa de la r31 en
   inglés con la tabla de metadatos en español (JEL, palabras clave, datos,
@@ -229,30 +270,6 @@ a [#46](https://github.com/Inzainos/The-shadow-Node-Theory/pull/46).
   datos reales (`data_adapters.py`, `run_real_delta.py`).
 
 ### Añadido
-- **Pre-registro y cinco pruebas de la SNT** (2026-09-27, seis puntos pedidos por el
-  autor). Pre-registro `reconstruction_real/preregistro/PREREGISTRO_2026-09-27.md`
-  subido (commit `c319fac`) antes de descargar datos o correr pruebas; informe
-  `reconstruction_real/audits/RESULTADOS_PREREGISTRO_2026-09-27.md` con desviaciones.
-  - **Punto 1, hub variable en el tiempo** (`prueba_hub_temporal.py`): no
-    respaldada (H = 20: d mediana −0.009, p = 0.95); H = 30 contraria (p = 0.0002).
-    Funciones COW/Maddison compartidas en `comercio_maddison.py` (la reconstrucción
-    estática reproduce salidas y log idénticos).
-  - **Punto 2, fricción con dominios nuevos sin COVID**
-    (`prueba_friccion_dominios_nuevos.py`; E4 mpox, D2 StatCounter, A2 ciudades
-    WUP, B-comercio): no respaldada (ρ = −0.131, permutación exacta p = 0.39).
-  - **Punto 3, series crudas de COVID** (`covid_E3_series_crudas.py`): receta de E3
-    identificada (233/234); Newey-West p < 0.05 en 233/234; E1 no reproducible.
-  - **Punto 4, disparadores a ciegas** (`prueba_disparadores_ciudades.py`):
-    respaldada (8/8, Wilcoxon p = 0.0039; capitales 5.1×; salvedad de
-    supervivencia de WUP).
-  - **Punto 5, cohortes ACO-A** (`descargar_binance_klines.py` con reintentos,
-    `aco_cohortes_ampliadas.py`): ortogonalidad respaldada por equivalencia (242
-    pares, ρ = −0.119); h > 0 respaldada en cripto (663) y bancos FDIC (27,771);
-    hazard creciente solo en cripto (confundido con el calendario), bancos en
-    bañera; fricción → Δ no ampliable.
-  - Subconjuntos versionados de cada fuente nueva y SHA-256 en `data/FUENTES.md`;
-    README (RC3 no refutado por prueba pre-registrada; fila de fricción; RC9; hazard)
-    e índice de auditorías actualizados.
 - **Reconstrucción del dominio B con hub emergente del comercio** (2026-09-27;
   pendiente 9 de la auditoría). Nuevo
   `reconstruction_real/code/reconstruccion_B_hub_comercio.py` (con log) →
