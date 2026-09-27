@@ -12,7 +12,7 @@ script en fechas distintas podían obtener cifras distintas sin saberlo.
 
 ---
 
-## 1. Fuentes externas que hay que descargar (NO están en el repo)
+## 1. Fuentes externas (estado por fuente: una está versionada, otra no)
 
 ### `data/owid-maddison.csv` — **presente en el repo** (descargado 2026-07-25)
 
@@ -65,8 +65,8 @@ script en fechas distintas podían obtener cifras distintas sin saberlo.
 
 ## 2. Archivos derivados que SÍ están en el repo (checksums)
 
-Checksums SHA-256 al 2026-07-25. Sirven para detectar si un archivo cambió sin
-que se documente. Recalcular con `sha256sum <archivo>`.
+Checksums SHA-256 al 2026-07-25, **re-verificados el 2026-09-26: los 6 coinciden**.
+Sirven para detectar si un archivo cambió sin que se documente. Recalcular con `sha256sum <archivo>`.
 
 | Archivo | SHA-256 |
 |---|---|
@@ -107,7 +107,7 @@ que se documente. Recalcular con `sha256sum <archivo>`.
 
 Generado por `reconstruction_real/code/build_dominio_G.py` el 2026-09-11. Bloque para pegar en `data/FUENTES.md`.
 
-> Regla del repo (AGENTS.md): **real data first**. Este dominio se entrega con metadatos y citas primarias; las series temporales `t`/`R` están vacías porque ningún caso publicado ofrece hoy ≥3 puntos de señal orgánica vs tiempo de exposición para un mismo cuerpo. NaN, no cero.
+> Regla del repo (AGENTS.md): **real data first**. Este dominio se entrega con metadatos y citas primarias. **Estado (v2.5.2):** G03 Bennu tiene la primera serie real poblada (n = 3, Mojarro et al. 2025, PNAS) y está AJUSTADO; los otros cuatro casos siguen con `t`/`R` vacías porque ningún caso publicado ofrece hoy ≥3 puntos de señal orgánica vs tiempo de exposición para un mismo cuerpo. NaN, no cero.
 
 ### Casos
 

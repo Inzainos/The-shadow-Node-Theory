@@ -1,5 +1,5 @@
 """
-Shadow Node Theory v2.4.0 — Interactive Dashboard
+Shadow Node Theory v2.5.2 — Interactive Dashboard
 Fractal Core Research | Tlaxcala, Mexico | 2026
 
 721 empirical cases across 10 domains and 30 orders of magnitude.
@@ -14,7 +14,7 @@ import plotly.graph_objects as go
 from pathlib import Path
 
 st.set_page_config(
-    page_title="Shadow Node Theory v2.4.0",
+    page_title="Shadow Node Theory v2.5.2",
     page_icon="🔬",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -76,7 +76,7 @@ df_aco = load_aco()
 # ── Sidebar ──────────────────────────────────────────────────────────────────
 
 st.sidebar.title("🔬 Shadow Node Theory")
-st.sidebar.markdown("**v2.4.0** | 721 cases | 10 domains")
+st.sidebar.markdown("**v2.5.2** | 721 cases | 10 domains")
 st.sidebar.markdown("---")
 
 page = st.sidebar.radio(
@@ -97,7 +97,7 @@ st.sidebar.markdown(
 # ── Page: Overview ───────────────────────────────────────────────────────────
 
 if page == "Overview":
-    st.title("Shadow Node Theory v2.4.0")
+    st.title("Shadow Node Theory v2.5.2")
     st.markdown(
         "*Scale-Invariant Satellization Across 721 Empirical Cases*  \n"
         "**Elan Zainos Corona** — Fractal Core Research, Tlaxcala, Mexico"
@@ -175,6 +175,11 @@ if page == "Overview":
         "Spearman rho = **-0.68**, p = 2.5×10⁻⁹⁷ (n=714)  \n"
         "Friction-free systems: b = +0.95 | High friction: b = +0.09  \n"
         "Mann-Whitney p = 2.4×10⁻⁷⁴"
+    )
+    st.caption(
+        "*Audit v32: direction holds, p inflated — cluster-level rho = -0.56, "
+        "p = 0.25 (n = 6 domains); friction-free pole (E1+E3) is COVID-19 data. "
+        "See the repository README, section Audit v32.*"
     )
 
 # ── Page: Corpus Explorer ────────────────────────────────────────────────────
@@ -305,6 +310,11 @@ elif page == "Friction vs b":
         "**Spearman rho = -0.68**, p = 2.5×10⁻⁹⁷ (n=714)  \n"
         "**Mann-Whitney p = 2.4×10⁻⁷⁴** "
         "(friction-free b=+0.95 vs high friction b=+0.09)"
+    )
+    st.caption(
+        "*Audit v32: direction holds, p inflated — cluster-level rho = -0.56, "
+        "p = 0.25 (n = 6 domains); friction-free pole (E1+E3) is COVID-19 data. "
+        "See the repository README, section Audit v32.*"
     )
 
 # ── Page: ACO Module ─────────────────────────────────────────────────────────
@@ -467,8 +477,8 @@ b >= 1    → superlinear satellization — Roche Radius
 ### Citation
 
 ```
-Zainos Corona, E. (2026). Shadow Node Theory v2.4.0:
-Scale-Invariant Satellization Across 721 Empirical Cases.
+Zainos Corona, E. (2026). Shadow Node Theory v2.5.2:
+Scale-Invariant Satellization and Coupled Orbital Collapse Across Empirical Domains.
 Zenodo. doi:10.5281/zenodo.19446521
 ```
 

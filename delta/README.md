@@ -31,6 +31,9 @@ deviation is the tradable **anomaly** — this is the SNT friction thesis
 | `market_mapping.py` | Map crypto/bolsa price series → hub/shadow dominance ratio; market friction |
 | `delta_engine.py` | Full pipeline → `DeltaSignal` (b, regime, anomaly, leapfrog, direction, confidence) |
 | `demo_delta.py` | End-to-end smoke test on synthetic series (crypto + bolsa) |
+| `data_adapters.py` | Real daily closes, no API key (CoinGecko crypto + Yahoo Finance bolsa) |
+| `run_real_delta.py` | Real-data run → `real_delta_signals.json` (BTC vs top-10 alts; S&P 500 + IPC) |
+| `notebooks/` | Jupyter launcher (`delta_launcher.ipynb`) |
 
 ## Run
 
@@ -48,6 +51,11 @@ synthetic demo series.
 - Descriptive/decision-support signal, **not financial advice** and not a
   guarantee — `b` describes the direction and speed of dominance, read alongside
   the friction null. Position sizing / risk management are out of scope here.
+- The friction-expected b per market inherits the SNT friction finding
+  (ρ = −0.68). The v32 audit shows its **direction** holds but its per-case
+  significance is inflated (cluster-level ρ = −0.56, p = 0.25, n = 6 domains);
+  treat the friction null as a working prior, not a calibrated constant. See
+  the root README, section "Audit v32".
 - Independent of the Omega codebase (own data, pipeline, lifecycle); the SNT
   engine logic is ported here rather than imported.
 

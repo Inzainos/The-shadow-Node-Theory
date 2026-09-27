@@ -67,16 +67,32 @@ Use the badge at the top of this README to view CI status for the default branch
 > values and an r2 column with impossible values (down to -7.332).
 > Those files are preserved in `archive/` as historical record but
 > **must not be cited in academic publications**.
-> The active version is v2.5.2 (721-case corpus + coupled collapse layer + Domain G with first real series + marco teórico v33).
+> The active version is v2.5.2 (721-case corpus + coupled collapse layer + Domain G with first real series + marco teórico v34).
 
 ---
 
 > **Versioning note**
 > Repository release: **v2.5.2**. Active empirical corpus: **721 real cases**
 > (`reconstruction_real/data/snt_corpus_REAL_v5.csv`). Active conceptual
-> framework: **marco teórico v33**. References to **v30** in this README refer
-> to manuscript / submission packages, while references to **v2.5.0** mark the
-> release where the 721-case corpus and the coupled ACO-A layer were introduced.
+> framework: **marco teórico v34** (`papers/marco_teorico.md`; v33 archived in
+> `archive/`). The framework and the corpus are numbered **independently**:
+> a framework version can advance without the corpus advancing, and vice versa.
+> References to **v30** in this README refer to manuscript / submission
+> packages. The 721-case real corpus was introduced in **v2.4.0** (2026-06-26)
+> and the coupled ACO-A layer in **v2.5.0** (2026-06-28).
+
+---
+
+> **Inference status — read before citing any p-value below**
+> An internal full audit (v32, `reconstruction_real/audits/`) re-derived every
+> published figure from the committed data. **The arithmetic is clean** (all
+> `MASTER_cifras_v5.json` figures and all 40 cells of `MASTER_resumen_v5.csv`
+> replicate), **the direction of the central finding holds, but its
+> significance is inflated** by serial autocorrelation (Domain B) and by
+> treating 714 non-independent cases as independent. Several headline figures
+> are not reproducible from the repository. Details and the corrected figures:
+> [Audit v32 — inference status](#audit-v32--inference-status).
+> Audit re-run and re-verified on 2026-09-26.
 
 ---
 
@@ -118,18 +134,37 @@ b >= 1    --> superlinear satellization -- Roche Radius
 | Domain | Friction | Cases | Sig. | b mean | Source |
 |--------|----------|-------|------|--------|--------|
 | A -- Cities | medium | 4 | 0% | +0.08 | UN Demographic Yearbook |
-| B -- Countries | high | 446 | 84% | +0.09 | Maddison Project 2023 |
-| C -- Regions | high | 24 | 100% | +0.09 | INEGI + US Census |
+| B -- Countries | high | 446 | 84%† | +0.09 | Maddison Project 2023 (via OWID) |
+| C -- Regions | high | 24 | 100% | +0.09 | US Census historical (23) + INEGI 2022 (1) |
 | D -- Digital | low | 3 | 100% | -1.36 | HackerEarth 2026 |
-| E1 -- Invasion | none | 4 | 100% | +2.89 | Nature Comms / Conservation Biol. |
-| E2 -- Predator-prey | high | 2 | 50% | +0.15 | MacLulich/Elton |
-| E3 -- Parasite-host | none | 234 | 100% | +0.91 | JHU COVID-19 |
-| F1 -- Planetary | medium | 2 | 100% | -1.81 | Open Exoplanet Cat. |
+| E1 -- Invasion (territorial spread) | none | 4 | 100% | +2.89 | OWID COVID-19 (spatial spread, 2020) |
+| E2 -- Predator-prey | high | 2 | 50% | +0.15 | MacLulich 1937 / Elton & Nicholson 1942 |
+| E3 -- Parasite-host | none | 234 | 100% | +0.91 | OWID COVID-19 (JHU CSSE) |
+| F1 -- Planetary | medium | 2 | 100% | -1.81 | Open Exoplanet Cat. + NASA fact sheet |
 | F2 -- Stellar | medium | 1 | 100% | +1.27 | Open Exoplanet Cat. |
 | F3 -- Multiplanet | low | 1 | 100% | +1.26 | Open Exoplanet Cat. |
-| **TOTAL** | | **721** | **89%** | **+0.37** | |
+| **TOTAL** | | **721** | **89%†** | **+0.37** | |
 
-**Integrity verified:** R2 in [0,1] for all cases. Zero corrupt values. All reproducible from public scripts.
+† **Nominal** per-case significance (OLS on log-log, no autocorrelation
+correction). After the audit v32 AR(1) correction, Domain B has **156/446
+estimable cases** (`n_eff ≥ 3`) and **290/446 not estimable**; among the
+estimable ones, significant cases fall to **33–112 (21.2%–71.8%)** depending on
+the analytical variant. See [Audit v32](#audit-v32--inference-status).
+
+**Composition note.** The two friction-free domains (E1 + E3 = 238 cases) are
+both built from **OWID COVID-19 data** (spatial spread and per-country curves).
+E1 is modeled as territorial expansion, mathematically equivalent to an
+invasion front, not as biological species invasion (GBIF species data were
+not available).
+
+**Integrity verified:** R² in [0,1] for all cases, p in [0,1], zero corrupt
+values; SHA-256 checksums of the corpus files are pinned in `data/FUENTES.md`
+(re-verified 2026-09-26). **Reproducibility is partial:** Domain B is
+regenerable from `data/owid-maddison.csv` (in the repo; the current OWID
+edition may differ slightly from the one originally used), but the raw
+COVID-19 series behind E1/E3 are **not** in the repo, only their fitted
+summaries. Per-case p-values were rounded to 6 decimals, so 557/721 read
+exactly `0.0`.
 
 ---
 
@@ -158,15 +193,140 @@ Systems without friction (E1, E3): b mean = +0.95
 Systems with friction (A, B, C): b mean = +0.09
 **Mann-Whitney p = 2.4x10^-74**
 
+**Audit v32 — the direction holds, the p-value does not.** The per-row figure
+replicates exactly, but it treats 714 cases as independent when they are
+clustered in a few domains, and Domain B's per-case fits are themselves
+autocorrelated. Re-computed from the committed data:
+
+| Analysis | Spearman rho | p | n |
+|---|---:|---:|---:|
+| Per row (published) | −0.678 | 2.5×10⁻⁹⁷ | 714 |
+| Per cluster (domain means, `spearman_cluster`) | −0.556 | 0.25 | 6 domains |
+| Cluster bootstrap (resampling domains) | ≈ −0.44 | IC95 [−0.722, −0.006] | 6 domains |
+| Without E3 | −0.116 | 0.011 | 480 |
+| Without E3 and B | −0.426 | 0.012 | 34 |
+
+Friction is the ordinal index of `MASTER_resumen_v5.csv`. The negative sign
+survives every variant, but the significance collapses at the cluster level
+(p = 0.25, n = 6), the bootstrap interval nearly touches zero, and removing E3
+(COVID-19) shrinks the correlation from −0.68 to −0.116. The friction-free pole
+of the contrast (E1 + E3) is entirely COVID-19 data. Re-computed 2026-09-26
+with `code/snt_utils_v32.py` from the committed corpus.
+
 ---
 
 ## Three Core Statistical Findings (v30)
 
-| Finding | Result | Test |
-|---------|--------|------|
-| Abrupt triggers faster than gradual | Ratio 5.9x in historical corpus | Mann-Whitney U=24,802, p=1.91x10^-5, n=486 |
-| Institutional friction is dominant predictor of b | Friction-free: b~+0.95 / High friction: b~+0.09 | Spearman rho=-0.68, p=2.5x10^-97, n=714 |
-| Sovereignty = interdependence as brake | Country pairs (B, n=446, b~+0.09) vs predator-prey (E2, b~+0.15) statistically indistinguishable | Regime split MW p=2.4x10^-74 |
+| Finding | Result | Test | Status (audit v32) |
+|---------|--------|------|--------------------|
+| Abrupt triggers faster than gradual | Ratio 5.9x in historical corpus | Mann-Whitney U=24,802, p=1.91x10^-5, n=486 | **NOT REPRODUCIBLE** from the active corpus: v5 has no usable trigger variable (`trigger` is hardcoded to `'gradual'` for all 446 B cases) and n=486 is not a subset of 721. The figure only appears as fixed text in the historical v28 script `code/generate_publication_figures.py`; it appears inherited from the obsolete 502-case corpus. |
+| Institutional friction is dominant predictor of b | Friction-free: b~+0.95 / High friction: b~+0.09 | Spearman rho=-0.68, p=2.5x10^-97, n=714 | **Direction holds, p inflated**: cluster-level rho=−0.556, p=0.25 (n=6 domains). See [Central Finding](#central-finding). |
+| Sovereignty = interdependence as brake | Country pairs (B, n=446, b~+0.09) vs predator-prey (E2, b~+0.15) statistically indistinguishable | Regime split MW p=2.4x10^-74 | **Rests on Domain B**, which the discriminant test leaves **inconclusive**: `b` in B is supported neither as SNT hub-satellite coupling nor as β-convergence (85% of hubs also appear as satellites; the observed statistic falls inside the calibrated null). |
+
+---
+
+## Audit v32 — inference status
+
+Full report (Spanish): [`reconstruction_real/audits/AUDITORIA_INTEGRAL_v32.md`](reconstruction_real/audits/AUDITORIA_INTEGRAL_v32.md).
+Machinery: `code/snt_utils_v32.py` (backward-compatible extension of
+`code/snt_utils.py`) + `reconstruction_real/code/snt_auditoria_integral_v32.py`
+(single runner, CSV output). Regression test:
+`reconstruction_real/tests/test_correccion_ar1.py`. **Re-run on 2026-09-26: all
+replicable figures replicate.**
+
+```bash
+python reconstruction_real/code/snt_auditoria_integral_v32.py   # -> reconstruction_real/data/auditoria_integral_v32_resultados.csv
+pytest reconstruction_real/tests                                 # fixes 156 / 290 / 33 / 112
+```
+
+### What holds
+
+| Block | Result |
+|---|---|
+| `MASTER_cifras_v5.json` | **8/8 replicate exactly** (n_total, n_sig, pct_sig, b_mean, b_median, pct_b_pos, pct_b_super, r2_sig) |
+| `MASTER_resumen_v5.csv` | **40/40 cells, 0 discrepancies** |
+| N-body Mexico | b = −0.4732, R²_raw = 0.8377 — replicates (see caveat above) |
+| ACO, 18 cases | b̄ = +0.60, 17/18 significant; 0/18 with negative raw R² |
+| H-φ | Consistent with refuted |
+| Direction of the friction–b relation | Negative in every variant (per row, per cluster, bootstrap, without E3, without E3 and B) |
+
+### What changes
+
+1. **Serial autocorrelation in Domain B (62% of the corpus).** Durbin-Watson
+   median 0.112; 445/446 cases with DW < 1; implied AR(1) ρ median 0.944;
+   **effective n median 2.2** (nominal 69). Corrected picture:
+
+   | Step | Figure |
+   |---|---:|
+   | Estimable (`n_eff ≥ 3`) | **156 / 446 (35.0%)** |
+   | **Not estimable** (`n_eff < 3`) — not "non-significant" | **290 / 446 (65.0%)** |
+   | Significant among estimable — lower bound (inflated SE + df) | **33 (21.2%)** |
+   | Significant among estimable — upper bound (df only) | 112 (71.8%) |
+   | Point value | pending Newey-West/GLS on raw residuals |
+
+2. **The superlinear regime b ≥ 1 may be model misspecification.** RC1 had no
+   script behind it; tested by AIC on the 18 raw ACO series: power law wins
+   13/18, exponential 4/18, linear 1/18. The 4 exponential winners have mean
+   **b = +1.54**: the higher b, the worse the power law fits. The 14.1% of the
+   corpus (102/721) labelled superlinear therefore needs re-testing, which
+   requires the raw series of the other domains (not in the repo).
+3. **Central finding: direction holds, p does not** — double inflation
+   (autocorrelation + 714 non-independent cases). See
+   [Central Finding](#central-finding).
+4. **Reporting defects.** 557/721 p-values truncated to `0.0` by `round(p, 6)`;
+   two R² definitions averaged together in `r2_mean` (Domain B uses Pearson r²
+   on log scale, the rest use 1 − SSres/SStot on raw scale); `trigger`
+   hardcoded to `'gradual'` in `expand_dominio_B.py`.
+
+### Not reproducible from the repository
+
+| Figure | Why |
+|---|---|
+| 5.9× abrupt vs gradual (U=24,802, n=486) | No usable trigger variable in v5; n=486 is not a subset of 721; fixed text in the v28 script `code/generate_publication_figures.py` |
+| ASI ROC-AUC 0.715 | Retention target not in `data/snt_asi_scores.csv` (proprietary source) |
+| N-body refit from raw | Committed file is a one-row summary |
+
+**Correction to the audit (re-verified 2026-09-26):** the audit listed RC9
+(ρ = +0.009, crypto, n = 11) as not verifiable. The paired (b_rise, Δ_fall)
+data **are** committed in `reconstruction_real/data/orthogonality_crypto_v25.csv`
+and the statistic replicates exactly (Spearman ρ = +0.009, p = 0.98, n = 11).
+Scope unchanged: within crypto only; re-fitting each coin's exponents needs
+network access (`reconstruction_real/code/orthogonality_test.py`).
+
+### Domain B discriminant test (2026-07-25)
+
+Report: [`reconstruction_real/audits/DISCRIMINANTE_DOMINIO_B.md`](reconstruction_real/audits/DISCRIMINANTE_DOMINIO_B.md).
+Question: does `b` in Domain B measure SNT hub–satellite coupling or
+β-convergence of GDP per capita?
+
+- **Block 0 (firm, no assumptions):** the "hub" role is a property of the pair,
+  not of the country — **77/91 countries (85% of hubs) also appear as
+  satellites**.
+- **Block 1 (run with the real Maddison file): INCONCLUSIVE (confounded).** The
+  observed ρ (−0.4725 full, −0.3676 split) falls **inside** the null calibrated
+  to real Maddison data; gap and `b` come from the same fit and the hub is
+  assigned by mean GDP, which anticorrelates them by construction.
+- **Verdict:** Domain B is supported **neither** as β-convergence **nor** as
+  SNT coupling. Blocks 2–3 (bilateral trade) not run.
+
+### Reproducibility status
+
+- `data/owid-maddison.csv` — **present** (OWID/Maddison, downloaded 2026-07-25,
+  SHA-256 pinned in `data/FUENTES.md`). Domain B is regenerable; the current
+  edition may differ slightly from the one originally used.
+- Raw COVID-19 series for **E1/E3** — **absent** (only fitted summaries). This
+  blocks the AR(1) correction of E3.
+- Bilateral trade matrix (IMF DOTS / CEPII BACI / UN Comtrade) — needed for
+  Block 2 of the discriminant test.
+
+### Pending (order suggested by the audit)
+
+1. AR(1)-correct E3 and the other domains (needs their raw series).
+2. Note to the PLOS editor covering autocorrelation and clustering together.
+3. Test b ≥ 1 on the other domains' raw series.
+4. Report exact p-values and split `r2_log` / `r2_raw` in the consolidated corpus.
+5. Decide on the 5.9× figure: remove from the headline or recompute (origin now located).
+6. ~~Mark `soberania` as derived from ASI~~ — done (`data/snt_asi_scores_README.md`).
 
 ---
 
@@ -194,6 +354,13 @@ distribution of satellization weights (b=-0.473, R2=0.838, p<0.001) consistent
 with preferential attachment predictions. Queretaro (b=-0.155) and Nuevo Leon
 (b=-0.058) document the first confirmed leapfrog cases within the national
 system.
+
+**Audit v32:** the fit replicates exactly (b = −0.4732, R²_raw = 0.8377,
+p = 7.5×10⁻¹⁵). Caveat, not an error: a rank-size fit over 32 ordered entities
+yields a high R² almost by construction, so it is not by itself evidence of
+preferential attachment until it is compared against a lognormal alternative
+(Clauset et al. 2009). The committed file is a one-row summary; the rank-size
+series needed to refit from raw data is not in the repo.
 
 ---
 
@@ -263,6 +430,14 @@ using exclusively first-session features. The 5-Event Wall is the activation
 threshold. The dominant retention predictor is AI agent adoption -- interpreted
 as cognitive leapfrog.
 
+**Audit v32:** the ASI formula replicates exactly from `data/snt_asi_scores.csv`.
+The ROC-AUC 0.715 (the value already corrected for data leakage in v2.3.1) is
+**not reproducible from the repo**: its retention target is not in the
+committed CSV (the source dataset is proprietary). The `soberania` column is a
+**threshold of ASI** (perfect separation at ASI ≈ 1; 13/4,774 = 0.27%
+positives), so using it as a prediction target would be circular by
+construction (see `data/snt_asi_scores_README.md`).
+
 ---
 
 ## Repository Structure
@@ -270,90 +445,108 @@ as cognitive leapfrog.
 ```
 The-shadow-Node-Theory/
 |
-|-- README.md                          <-- this file (active v2.5.2)
+|-- README.md                          <-- this file (release v2.5.2, marco teórico v34)
 |-- CHANGELOG.md                       <-- Version history (es)
+|-- AGENTS.md / CLAUDE.md              <-- Operating guide for AI agents (branch -> PR -> merge, real data first)
 |-- CONTRIBUTING.md                    <-- Contribution guide (es)
+|-- dev-guide.md                       <-- Developer command reference
+|-- SECURITY.md                        <-- Security and sensitive-data policy (PHI, secrets, proprietary data)
 |-- LICENSE                            <-- MIT (code) + CC BY 4.0 (data) + CC BY-NC 4.0 (papers)
-|-- requirements.txt                   <-- Python dependencies
-|-- environment.yml                    <-- Conda runtime environment
-|-- environment-dev.yml                <-- Conda development environment
-|-- sources.md                         <-- Data provenance
 |-- CITATION.cff                       <-- Citation metadata
-|-- .github/workflows/                 <-- CI workflows
-|   +-- python-package-conda.yml       <-- Conda-based Python CI
+|-- sources.md                         <-- Bibliographic sources by domain
+|-- requirements.txt                   <-- Python dependencies
+|-- environment.yml / environment-dev.yml <-- Conda runtime / development environments
+|-- .flake8                            <-- Lint configuration (single source of truth)
+|-- .github/workflows/
+|   |-- python-package-conda.yml       <-- CI: flake8 -> compileall -> ACO smoke test
+|   +-- build-manuscript-docx.yml      <-- Manual workflow: Markdown manuscript -> DOCX
 |
-|-- reconstruction_real/               <-- REAL CORPUS (active v2.5.2)
+|-- reconstruction_real/               <-- REAL CORPUS (active, release v2.5.2)
 |   |-- README.md                      <-- Methodology and sources
-|   |-- data/
-|   |   |-- snt_corpus_REAL_v5.csv     <-- 721 consolidated cases
-|   |   |-- MASTER_cifras_v5.json      <-- All paper figures
-|   |   |-- MASTER_resumen_v5.csv      <-- Summary by domain
-|   |   |-- by_domain/                 <-- Individual CSVs per domain
-|   |   |-- DOMINIO_B_METODOLOGIA.md   <-- Domain B methodology
-|   |   +-- phi_test_corpus_real_v4.csv
+|   |-- snt_phi_hypothesis.md          <-- H-phi REFUTED (4 rounds + placebo)
+|   |-- audits/                        <-- Statistical audits of the corpus
+|   |   |-- README.md                  <-- Audit index + follow-up
+|   |   |-- AUDITORIA_INTEGRAL_v32.md  <-- Full audit v32 (inference layer)
+|   |   +-- DISCRIMINANTE_DOMINIO_B.md <-- Domain B: coupling vs convergence (inconclusive)
 |   |-- code/
-|   |   |-- expand_dominio_B.py        <-- Reproduces 446 cases (Maddison)
-|   |   |-- build_dominio_B.py
-|   |   |-- generate_figures_v29.py    <-- v29 PLOS-compliant figures (SVG+PNG)
-|   |   |-- build_aco_v29.py           <-- ACO 18 cases, 4 domains (v2.4.0)
+|   |   |-- expand_dominio_B.py        <-- Reproduces the 446 B cases (reads data/owid-maddison.csv)
+|   |   |-- build_dominio_B.py         <-- Domain B builder
+|   |   |-- expand_B_massive.py        <-- Domain B massive regional expansion
+|   |   |-- build_aco_v29.py           <-- ACO 18 cases, 4 domains (CI smoke test)
 |   |   |-- collapse_multidomain.py    <-- Collapse repro manifest + fit funcs (v2.5.0)
 |   |   |-- make_collapse_landscapes.py <-- Stability-landscape figures (v2.5.0)
-|   |   +-- build_dominio_G.py         <-- Domain G: cosmic packages, 5 cases; G03 Bennu n=3 fitted b=-1.37 R²=0.93 p=0.12 (v2.5.2)
+|   |   |-- generate_figures_v29.py    <-- v29 PLOS-compliant figures (SVG+PNG)
+|   |   |-- friction_operational.py    <-- Roadmap #1: operationalizing friction (2008 cohort)
+|   |   |-- orthogonality_test.py      <-- Roadmap #2: corr(b, Delta), crypto n=11 (RC9)
+|   |   |-- bio_unbounded_collapse.py  <-- Roadmap #3: biology with unbounded collapse magnitude
+|   |   |-- hazard_crypto.py           <-- Roadmap #4: hazard h(tau) > 0
+|   |   |-- build_dominio_G.py         <-- Domain G: cosmic packages, 5 cases; G03 Bennu n=3 fitted b=-1.37 R²=0.93 p=0.12 (v2.5.2)
+|   |   |-- snt_auditoria_integral_v32.py <-- Audit v32 runner (CSV output)
+|   |   |-- prueba_discriminante_dominio_B.py <-- Domain B discriminant test
+|   |   +-- md_to_docx.py / md_to_pdf.py <-- Manuscript renderers
 |   |-- data/
+|   |   |-- snt_corpus_REAL_v5.csv     <-- 721 consolidated cases (ACTIVE)
+|   |   |-- MASTER_cifras_v5.json      <-- All paper figures (8/8 replicate, audit v32)
+|   |   |-- MASTER_resumen_v5.csv      <-- Summary by domain (40/40 replicate, audit v32)
+|   |   |-- by_domain/                 <-- Individual CSVs per domain (A-F + ACO) with declared sources
+|   |   |-- DOMINIO_B_METODOLOGIA.md   <-- Domain B methodology
+|   |   |-- snt_corpus_aco_v29.csv     <-- ACO 18 cases
+|   |   |-- snt_corpus_aco_timeseries_v29.csv <-- ACO raw series (used by the RC1 AIC test)
 |   |   |-- collapse_multidomain_v29.csv <-- 5-domain collapse table (v2.5.0)
-|   |   |-- snt_corpus_dominio_G.csv   <-- Domain G metadata + provenance + G03 fit (v2.5.2)
-|   |   |-- snt_corpus_dominio_G_ajustes_complementarios.csv <-- G03 sensitivity + ACO-A form (v2.5.2)
-|   |   +-- snt_corpus_dominio_G_fuentes.md <-- Domain G primary sources (v2.5.2)
-|   +-- snt_phi_hypothesis.md          <-- H-phi REFUTED (4 rounds + placebo)
+|   |   |-- orthogonality_crypto_v25.csv <-- RC9 pairs (b_rise, Delta_fall), crypto n=11
+|   |   |-- hazard_crypto_v25.csv      <-- Hazard fits (crypto)
+|   |   |-- snt_corpus_dominio_G*.csv  <-- Domain G metadata, series, complementary fits (v2.5.2)
+|   |   |-- snt_corpus_dominio_G_fuentes.md <-- Domain G primary sources (v2.5.2)
+|   |   |-- auditoria_integral_v32_resultados.csv <-- Audit v32 output (regenerable)
+|   |   |-- dominio_B_corregido_ar1_v32.csv <-- Domain B with per-case AR(1) correction
+|   |   |-- discrim_bloque1_convergencia.csv / discrim_bloque1c_split.csv <-- Discriminant test outputs
+|   |   |-- phi_test_corpus_real_v4.csv <-- H-phi test corpus
+|   |   +-- snt_corpus_REAL_v3.csv / snt_corpus_REAL_v4.csv <-- Previous corpus snapshots
+|   +-- tests/
+|       +-- test_correccion_ar1.py     <-- Regression test: fixes 156 / 290 / 33 / 112
 |
-|-- (hypotheses/ removed — phi hypothesis lives in reconstruction_real/)
-|   +-- snt_phi_hypothesis.md          <-- H-phi REFUTED (4 rounds + placebo)
-|
-|-- papers/                            <-- Academic submissions
+|-- papers/                            <-- Conceptual framework + academic submissions
 |   |-- marco_teorico.md               <-- ACTIVE conceptual framework v34: projection layer (Axioms 0.1/0.2), friction as scalar field, collapse cymatics; additive over v33 (SNT corpus v2.5.2)
+|   |-- CHANGELOG_marco.md             <-- Framework lineage v01 -> v34
 |   |-- marco_teorico_v31_patch.md     <-- v31 patch (Living Landscape principle, Ax-M1–M4)
-|   |-- marco_teorico_v30.md           <-- COMPLETE framework v30 (full v27 body restored + corpus v30 + collapse layer + phi r4)
-|   |-- marco_teorico_v30.pdf          <-- COMPLETE framework v30 (76 pp)
-|   |-- marco_teorico_v30_EN.md        <-- COMPLETE framework v30 (English, full translation)
-|   |-- marco_teorico_v30_EN.pdf       <-- COMPLETE framework v30 (English, 65 pp)
-|   |-- phi_retest.py                  <-- H-phi re-test on current corpus
-|   |-- phi_placebo.py                 <-- H-phi placebo control (band-coverage null)
+|   |-- marco_teorico_v30.md / .pdf / .docx <-- COMPLETE framework v30 (full v27 body restored + corpus v30 + collapse layer + phi r4; 76 pp)
+|   |-- marco_teorico_v30_EN.md / .pdf / .docx <-- COMPLETE framework v30 (English, 65 pp)
+|   |-- marco_teorico_v28.pdf          <-- Unified framework (ES) v28
 |   |-- SNT_Colapso_Acoplado.md        <-- Coupled Collapse theory (v2.5.0)
-|   |-- mit_gcfp_2026_paper.pdf        <-- MIT GCFP paper (friction regularizes collapse; 2008 + 5 domains)
-|   |-- mit_gcfp_2026_paper.md         <-- MIT GCFP paper (source)
-|   |-- mit_gcfp_2026_abstract.pdf     <-- MIT GCFP abstract
-|   |-- mit_gcfp_2026_abstract.md      <-- MIT GCFP abstract (source)
+|   |-- snt_plos_v30.md / .pdf / .docx <-- PLOS revised manuscript v30 (721 cases; addresses reviewers) [CURRENT]
+|   |-- plos_response_to_reviewers_v30.md / .pdf / .docx <-- PLOS point-by-point response letter
+|   |-- snt_plos_721cases_v29_DRAFT.docx <-- PLOS revision draft (721 cases, v29)
+|   |-- snt_ssrn_v30_EN.md / .pdf / .docx <-- SSRN preprint v30 ENGLISH (revise-submit) [CURRENT]
+|   |-- snt_ssrn_v30.md / .pdf / .docx <-- SSRN preprint v30 Spanish (721 real cases + collapse layer ACO-A)
+|   |-- SSRN_revision_v30.md           <-- SSRN revision notes
+|   |-- mit_gcfp_2026_paper.md / .pdf  <-- MIT GCFP paper (friction regularizes collapse; 2008 + 5 domains)
+|   |-- mit_gcfp_2026_abstract.md / .pdf <-- MIT GCFP abstract
+|   |-- snt_paper_theoretical_biology_v30.md <-- J. Theoretical Biology draft (not released)
+|   |-- snt_paper_regional_economics_en.pdf <-- Regional economics paper (EN)
 |   |-- SNT_Project_Report_v29.pdf     <-- Handover document (v29)
 |   |-- SNT_Genomic_Topologic_Analyzer_v3.pdf <-- Genomic agent docs
-|   |-- snt_plos_721cases_v29_DRAFT.docx <-- PLOS revision draft (721 cases, v29)
-|   |-- snt_plos_v30.md                <-- PLOS revised manuscript v30 (721 cases; addresses reviewers) [CURRENT]
-|   |-- snt_plos_v30.pdf / .docx       <-- PLOS revised manuscript v30 (8 pp)
-|   |-- plos_response_to_reviewers_v30.md/.pdf/.docx <-- PLOS point-by-point response letter
-|   |-- marco_teorico_v28.pdf          <-- Unified framework (ES) v28
-|   |-- snt_ssrn_v30_EN.md             <-- SSRN preprint v30 ENGLISH (matches published structure; revise-submit) [CURRENT]
-|   |-- snt_ssrn_v30_EN.pdf            <-- SSRN preprint v30 English (18 pp)
-|   |-- snt_ssrn_v30_EN.docx           <-- SSRN preprint v30 English (Word)
-|   |-- snt_ssrn_v30.md                <-- SSRN preprint v30 Spanish (721 real cases + collapse layer ACO-A)
-|   |-- snt_ssrn_v30.pdf               <-- SSRN preprint v30 Spanish (17 pp)
-|   |-- snt_ssrn_v30.docx              <-- SSRN preprint v30 Spanish (Word)
+|   |-- phi_retest.py / phi_placebo.py <-- H-phi re-test and placebo control
 |   |-- abstracts_marco_teorico.docx   <-- Abstracts & framework
 |   +-- cover_letter_comnet.txt
 |
-|-- code/                              <-- Analysis scripts (v28 -- historical)
+|-- code/                              <-- Shared utilities + historical scripts (v28)
 |   |-- snt_utils.py                   <-- Shared utilities (power-law fitting)
-|   |-- snt_corpus_biological.py       <-- Biological domains (E1-E3)
-|   |-- snt_corpus_astronomical.py     <-- Astronomical domains (F1-F4)
-|   |-- hackerearth_validation_final.py <-- ASI / ROC-AUC validation
-|   |-- generate_publication_figures.py <-- TIFF 300dpi figures
-|   |-- snt_v2_vectorizacion.py        <-- Trajectory vectorization
+|   |-- snt_utils_v32.py               <-- Audit v32 extension (DW, n_eff, AIC, MLE-Clauset, cluster Spearman, FDR)
+|   |-- hackerearth_validation_final.py <-- ASI / ROC-AUC validation (needs the proprietary dataset)
 |   |-- matriz_mexico_ncuerpos.py      <-- N-body matrix Mexico (32 states)
+|   |-- snt_v2_vectorizacion.py        <-- Trajectory vectorization (8 states)
+|   +-- generate_publication_figures.py / snt_corpus_biological.py / snt_corpus_astronomical.py <-- DEPRECATED (502-case / v2.2 corpus)
 |
-|-- data/                              <-- Data files (v28 -- historical)
-|   |-- snt_asi_scores.csv             <-- ASI scores HackerEarth
+|-- data/                              <-- Source data + provenance
+|   |-- FUENTES.md                     <-- Provenance: URLs, editions, SHA-256 checksums
+|   |-- owid-maddison.csv              <-- Maddison Project via OWID (feeds Domain B)
+|   |-- snt_asi_scores.csv             <-- ASI scores HackerEarth (aggregate)
+|   |-- snt_asi_scores_README.md       <-- ASI columns; `soberania` = ASI threshold (circular as target)
 |   |-- matriz_mexico_32.csv           <-- 32 states INEGI
 |   |-- snt_v2_vectores.csv            <-- Trajectory vectors 8 states
 |   |-- phi_validation_crypto.csv      <-- H-phi validation round 1
-|   +-- phi_validation_bio_primary.csv <-- H-phi validation round 2
+|   |-- phi_validation_bio_primary.csv <-- H-phi validation round 2
+|   +-- dataset_completo_v2.csv / snt_corpus_50_resultados_v2.csv / shadow_node_maddison_resumen.csv <-- Historical (v2.0)
 |
 |-- genomic_agent/                     <-- SNT Genomic Topologic Analyzer (active in v2.5.2)
 |   |-- agent_core/                    <-- Analysis engine (agent_logic.py) + Streamlit UI (app.py)
@@ -373,13 +566,24 @@ The-shadow-Node-Theory/
 |   |-- delta_engine.py               <-- Full pipeline → DeltaSignal (b, regime, anomaly, leapfrog, confidence)
 |   |-- demo_delta.py                  <-- End-to-end smoke test on synthetic series (crypto + bolsa)
 |   |-- data_adapters.py               <-- Real market data, no API key (CoinGecko crypto + Yahoo Finance bolsa)
-|   +-- run_real_delta.py              <-- Real-data run → real_delta_signals.json (BTC vs top-10 alts; S&P500 + IPC)
+|   |-- run_real_delta.py              <-- Real-data run → real_delta_signals.json (BTC vs top-10 alts; S&P500 + IPC)
+|   |-- real_delta_signals.json        <-- Latest real run (23 signals, no raw prices)
+|   +-- notebooks/                     <-- Jupyter launcher (delta_launcher.ipynb)
+|
+|-- dashboard/                         <-- Interactive Streamlit dashboard (Hugging Face Spaces)
+|   |-- app.py                         <-- Reads snt_corpus_REAL_v5.csv + snt_corpus_aco_v29.csv
+|   |-- requirements.txt
+|   +-- README_DEPLOY.md               <-- Deployment guide
 |
 |-- figures/                           <-- Publication figures
+|   |-- snt_fig1_final.png / snt_fig2_final.png / snt_fig3_final.png <-- README corpus figures
+|   |-- fig*_v29_*.png / .svg          <-- v29 PLOS figures (captions: figure_captions_v29.txt)
+|   |-- fig_aco_v29_absorption.*       <-- ACO absorption
 |   |-- fig_paisajes_colapso.*         <-- Collapse stability landscapes (v2.5.0)
-|   +-- fig_catastrofe_cuspide.*       <-- Fold catastrophe / friction control (v2.5.0)
+|   |-- fig_catastrofe_cuspide.*       <-- Fold catastrophe / friction control (v2.5.0)
+|   +-- Fig1-4.tif / fig1-4_*.png      <-- Historical figure sets
 |
-+-- archive/                           <-- Superseded versions
++-- archive/                           <-- Superseded versions (do not cite), incl. marco_teorico_v33.md
 ```
 
 ---
@@ -485,19 +689,19 @@ finding.
 
 ## Falsifiability Criteria (RC1-RC8)
 
-| RC | Refutation Condition | v30 Status |
-|----|---------------------|------------|
-| RC1 | Power law fits no better than linear/exponential across all domains | NOT REFUTED |
-| RC2 | b is not reproducible from primary series | NOT REFUTED |
-| RC3 | Abrupt triggers produce same b as gradual | NOT REFUTED |
-| RC4 | Friction index is not correlated with b | NOT REFUTED |
-| RC5 | N-body matrix does not change satellization estimates | NOT REFUTED |
-| RC6 | Shadow node reverses satellization without exogenous trigger | NOT REFUTED |
-| RC7 | ASI does not predict outcomes better than chance | NOT REFUTED |
-| RC8 | Mutual interdependence does not brake satellization | NOT REFUTED |
-| RC9 | Collapse axis is not orthogonal to satellization: corr(b, Delta) >> 0 | NOT REFUTED (first test: crypto n=11, Spearman rho=+0.009, p=0.98 -- consistent with orthogonality; cross-domain still untested) |
-| RC10 | A realized collapse takes a higher-friction path when a lower one exists | NOT REFUTED |
-| RC11 | Absorber mass does not grow post-absorption (R does not increase) | NOT REFUTED |
+| RC | Refutation Condition | v30 Status | Audit v32 note (re-verified 2026-09-26) |
+|----|---------------------|------------|----------------------------------------|
+| RC1 | Power law fits no better than linear/exponential across all domains | NOT REFUTED | First actual test (AIC, 18 raw ACO series): power 13/18, exponential 4/18, linear 1/18. Holds in majority; exponential winners concentrate at b ≥ 1. Other domains untested (raw series absent). |
+| RC2 | b is not reproducible from primary series | NOT REFUTED | Partial: B regenerable from `data/owid-maddison.csv`; E1/E3 raw series absent. |
+| RC3 | Abrupt triggers produce same b as gradual | NOT REFUTED | **Untestable on the active corpus**: no usable trigger variable; the 5.9× figure is not reproducible. |
+| RC4 | Friction index is not correlated with b | NOT REFUTED | Direction holds in every variant; cluster-level p = 0.25 (n = 6 domains). |
+| RC5 | N-body matrix does not change satellization estimates | NOT REFUTED | Fit replicates; lognormal comparison pending. |
+| RC6 | Shadow node reverses satellization without exogenous trigger | NOT REFUTED | Not covered by the audit. |
+| RC7 | ASI does not predict outcomes better than chance | NOT REFUTED | ROC-AUC 0.715 not reproducible from the repo (target absent). |
+| RC8 | Mutual interdependence does not brake satellization | NOT REFUTED | Rests on Domain B, which the discriminant test leaves inconclusive. |
+| RC9 | Collapse axis is not orthogonal to satellization: corr(b, Delta) >> 0 | NOT REFUTED (first test: crypto n=11, Spearman rho=+0.009, p=0.98 -- consistent with orthogonality; cross-domain still untested) | Replicates exactly from `orthogonality_crypto_v25.csv`. |
+| RC10 | A realized collapse takes a higher-friction path when a lower one exists | NOT REFUTED | Not covered by the audit. |
+| RC11 | Absorber mass does not grow post-absorption (R does not increase) | NOT REFUTED | Not covered by the audit. |
 
 ---
 
@@ -506,21 +710,31 @@ finding.
 ```bash
 # Clone and reproduce the full corpus
 git clone https://github.com/Inzainos/The-shadow-Node-Theory.git
-cd The-shadow-Node-Theory/reconstruction_real/code
+cd The-shadow-Node-Theory
 
-# Regenerate domain B (446 cases -- requires owid-maddison.csv)
-python3 expand_dominio_B.py
+# Regenerate domain B (446 cases) -- data/owid-maddison.csv is in the repo
+python3 reconstruction_real/code/expand_dominio_B.py
+
+# ACO smoke test (what CI runs)
+python3 reconstruction_real/code/build_aco_v29.py
+
+# Re-derive every published figure (audit v32) + regression test
+python3 reconstruction_real/code/snt_auditoria_integral_v32.py
+pytest reconstruction_real/tests
 
 # Consolidated corpus
 # reconstruction_real/data/snt_corpus_REAL_v5.csv
 ```
 
-**Required primary sources** (all public):
-- [Maddison Project Database 2020](https://www.rug.nl/ggdc/historicaldevelopment/maddison/)
-- [OWID COVID-19 dataset](https://github.com/owid/covid-19-data)
-- [Open Exoplanet Catalogue](https://github.com/OpenExoplanetCatalogue/open_exoplanet_catalogue)
-- [INEGI 2022](https://www.inegi.org.mx/temas/pib/)
-- [US Census Bureau](https://www.census.gov/)
+**Primary sources** (all public except HackerEarth; editions, download dates
+and SHA-256 checksums in [`data/FUENTES.md`](data/FUENTES.md)):
+- [Maddison Project Database 2023](https://www.rug.nl/ggdc/historicaldevelopment/maddison/), via [OWID](https://ourworldindata.org/grapher/gdp-per-capita-maddison) -- committed as `data/owid-maddison.csv` (Domain B)
+- [OWID COVID-19 dataset](https://github.com/owid/covid-19-data) (JHU CSSE) -- Domains E1/E3; raw series **not** committed
+- [UN Demographic Yearbook](https://unstats.un.org/unsd/demographic-social/products/dyb/) -- Domain A
+- [US Census Bureau](https://www.census.gov/) + [INEGI 2022](https://www.inegi.org.mx/temas/pib/) -- Domain C
+- MacLulich 1937 / Elton & Nicholson 1942 -- Domain E2
+- [Open Exoplanet Catalogue](https://github.com/OpenExoplanetCatalogue/open_exoplanet_catalogue) + NASA planetary fact sheet -- Domains F1-F3
+- HackerEarth 2026 -- Domain D (proprietary; aggregate results only)
 
 ---
 
