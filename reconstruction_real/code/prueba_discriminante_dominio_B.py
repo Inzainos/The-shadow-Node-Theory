@@ -162,8 +162,9 @@ def bloque1_convergencia(B, maddison_path):
     log.info("PREDICCION H-CONVERGENCIA: rho NEGATIVO y significativo")
     log.info("   (brecha grande -> el rezagado alcanza -> el cociente "
              "hub/nodo cae -> b menor)")
-    log.info("VEREDICTO H-CONVERGENCIA: %s",
-             "RESPALDADA" if (rho < 0 and p < 0.05) else "NO respaldada")
+    log.info("vs CERO: %s  <- comparacion INCORRECTA (brecha y b salen del "
+             "mismo ajuste); el veredicto sale del nulo 1d al final",
+             "rho<0 y p<0.05" if (rho < 0 and p < 0.05) else "no significativo")
 
     # dentro de region, para descartar que sea puro efecto de region
     log.info("")
@@ -512,6 +513,43 @@ def bloque3_conjunto(D1, D2):
 
 
 # =============================================================================
+def veredicto_nulo_calibrado(D1, D1c, CAL):
+    """Veredicto del Bloque 1 y 1c: rho observado contra el nulo calibrado 1d.
+
+    DENTRO del IC95 del nulo -> compatible con el puro artefacto de asignacion
+    de hub (inconcluso). FUERA y mas negativo -> senal de convergencia por
+    encima del artefacto. p empirico = fraccion del nulo <= rho observado.
+    """
+    head("VEREDICTO — rho observado vs nulo calibrado (Bloque 1d)")
+    if CAL is None or D1 is None or D1c is None:
+        log.warning("BLOQUEADO: requiere los bloques 1, 1c y 1d.")
+        return None
+    pares = (("Bloque 1 (serie completa)", D1, "brecha_log", "b"),
+             ("Bloque 1c (muestra partida)", D1c, "brecha_1a_mitad",
+              "b_2a_mitad"))
+    salida = {}
+    for etiqueta, D, x, y in pares:
+        obs = float(stats.spearmanr(D[x], D[y])[0])
+        nulo = CAL[etiqueta]
+        lo, hi = nulo["ic95"]
+        dentro = lo <= obs <= hi
+        p_emp = float(np.mean(nulo["dist"] <= obs))
+        margen = min(obs - lo, hi - obs)
+        log.info("%s: rho = %+.4f | nulo media %+.4f IC95 [%+.4f, %+.4f] | "
+                 "%s (margen al borde %.4f) | p empirico (nulo <= obs) = %.4f",
+                 etiqueta, obs, nulo["media"], lo, hi,
+                 "DENTRO" if dentro else "FUERA", margen, p_emp)
+        salida[etiqueta] = {"obs": obs, "dentro": dentro, "p_emp": p_emp}
+    if all(v["dentro"] for v in salida.values()):
+        log.info("VEREDICTO: INCONCLUSO — ambos observados caen dentro del "
+                 "nulo; no hay senal por encima del artefacto de asignacion.")
+    else:
+        log.info("VEREDICTO: al menos un observado cae FUERA del nulo; revisar "
+                 "con mas iteraciones antes de concluir.")
+    return salida
+
+
+# =============================================================================
 def main():
     ap = argparse.ArgumentParser(
         description=__doc__,
@@ -537,6 +575,7 @@ def main():
     CAL = bloque1d_nulo_calibrado(B, a.maddison, n_iter=a.n_placebo)
     D2 = bloque2_acoplamiento(B, a.comercio, D1)
     bloque3_conjunto(D1, D2)
+    veredicto_nulo_calibrado(D1, D1c, CAL)
 
     head("FIN")
     log.info("Bloque 0  (estructura)   : siempre corre")
