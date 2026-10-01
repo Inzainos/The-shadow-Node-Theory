@@ -72,7 +72,8 @@ cluster-level and autocorrelation caveats to the friction finding and reports th
 pre-registered test with new domains does not support it (ρ = −0.131, p = 0.39); (5)
 reports the discriminant test and the fixed and time-varying trade-hub
 reconstructions of Domain B (no coupling); (6) reproduces Domain E3 from raw
-COVID-19 series (233/234; significance survives the AR(1) correction) and declares
+COVID-19 series (233 of 234 cases reproduced; significance survives the AR(1)
+correction, conservative bound 176 of 198 estimable cases) and declares
 E1 not reproducible; (7) enlarges the collapse-layer cohorts (orthogonality
 supported by equivalence on 242 pairs; hazard positive in 663 crypto pairs and
 27,771 banks, bathtub-shaped in banks); (8) fixes references.

@@ -174,7 +174,8 @@ Auditoría, prueba discriminante y reconstrucción del dominio B y revisión r31
 preprint de SSRN. El corpus de 721 casos no cambia. PR
 [#42](https://github.com/Inzainos/The-shadow-Node-Theory/pull/42) a
 [#45](https://github.com/Inzainos/The-shadow-Node-Theory/pull/45). Etiqueta
-retroactiva (creada el 2026-09-27, después de 2.6.0) sobre el commit `28eabb1`
+retroactiva (decidida el 2026-09-27, después de 2.6.0; etiqueta publicada el
+2026-10-01) sobre el commit `28eabb1`
 (merge del PR #45, 2026-09-26 23:18 hora de México; algunas entradas llevan la fecha
 UTC 2026-09-27): es el estado del repositorio que corresponde al preprint r31.
 Hasta entonces estas entradas figuraban dentro de 2.6.0.
