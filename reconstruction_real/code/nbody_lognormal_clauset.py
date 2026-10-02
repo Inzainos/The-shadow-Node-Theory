@@ -46,15 +46,24 @@ N_PODER = 1000
 ALFA = 0.05
 P_DESCARTE = 0.1          # regla de Clauset: p < 0.1 descarta la ley de potencia
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
 log = logging.getLogger("LOGNORMAL")
+
+
+def _configurar_log():
+    """Solo al ejecutarse como programa.
+
+    Si se hiciera al importar, el modulo se aduenaria del logger raiz y
+    cualquier script que reutilice estas funciones escribiria su registro en
+    el archivo de este (basicConfig no hace nada si ya hay manejadores).
+    """
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s | %(levelname)-7s | %(message)s",
+        handlers=[
+            logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
+            logging.StreamHandler(sys.stdout),
+        ],
+    )
 
 
 # ------------------------------------------------------- metodo de Clauset
@@ -301,6 +310,7 @@ def punto3(x, rng, filas):
 
 # ------------------------------------------------------------------ main
 def main():
+    _configurar_log()
     rng = np.random.default_rng(SEMILLA)
     log.info("=" * 78)
     log.info("COMPARACION LOGNORMAL — pre-registro 2026-10-02 (commit 9718808)")
