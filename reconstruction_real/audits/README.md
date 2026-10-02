@@ -4,6 +4,23 @@ Registro de auditorías estadísticas del corpus reconstruido. Cada auditoría
 recorre las cifras publicadas y las vuelve a calcular desde los datos
 committeados.
 
+## Estado canónico de reproducibilidad
+
+- **Reproducible:** el dominio B se reconstruye byte a byte desde MPD2020
+  (`data/mpd2020.xlsx` y `expand_B_massive.py`); E3 se reproduce desde la serie
+  cruda de OWID en 233/234 casos y la corrección AR(1) conserva el hallazgo con
+  la cota conservadora 176/198 estimable.
+- **Parcial:** la edición posterior `data/owid-maddison.csv` solo aproxima B y
+  no reemplaza la fuente activa; el valor puntual de B sigue abierto porque el
+  tamaño efectivo es pequeño y requiere GLS/bootstrap por bloques.
+- **No reproducible:** el dominio E1 (4 casos) no se reproduce con ninguna
+  construcción natural y debe declararse no reproducible; las afirmaciones
+  históricas del 5.9× abrupto-vs-gradual tampoco son evidencia activa del corpus
+  actual.
+- **Bloqueado:** los datos de HackerEarth no se redistribuyen y los hallazgos que
+  dependan de fuentes ausentes quedan marcados como `BLOQUEADO` o
+  `NO_REPRODUCIBLE`, no como evidencia vigente.
+
 ## v32 — auditoría integral (2026-07)
 
 - **Informe:** [`AUDITORIA_INTEGRAL_v32.md`](AUDITORIA_INTEGRAL_v32.md) — 33

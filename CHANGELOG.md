@@ -73,6 +73,12 @@ los resultados del pre-registro. El corpus de 721 casos no cambia. PR
   nunca subido); la v30 queda intacta.
 
 ### Corregido
+- **Estado canónico de reproducibilidad y cierre de referencias no reproducibles**
+  (2026-10-02). Se unifica el estatus en `README.md`, `reconstruction_real/audits/README.md`
+  y `sources.md`: B reproducible desde MPD2020, E3 reproducible desde la serie cruda
+  con la cota AR(1) conservadora, E1 y el 5.9× histórico declarados no reproducibles,
+  y los datos faltantes marcados como bloqueados. La documentación no vuelve a citar
+  esos puntos como evidencia activa del corpus vigente.
 - **Cifra corregida de E3 y valor puntual de B** (2026-09-27, revisión posterior a
   2.6.0). El runner de la auditoría (`snt_auditoria_integral_v32.py`) ya no marca como
   BLOQUEADAS dos filas que ahora tienen datos: reconstruye las 446 series de B desde
