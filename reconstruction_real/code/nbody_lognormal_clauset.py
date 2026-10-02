@@ -45,6 +45,7 @@ N_BOOTSTRAP = 2000
 N_PODER = 1000
 ALFA = 0.05
 P_DESCARTE = 0.1          # regla de Clauset: p < 0.1 descarta la ley de potencia
+MAX_CANDIDATOS = 200      # tope de candidatos a x_min (ver ajustar_potencia)
 
 log = logging.getLogger("LOGNORMAL")
 
@@ -86,17 +87,42 @@ def ks_potencia(x, xmin, alpha):
     return float(np.max(np.abs(emp - teo)))
 
 
-def ajustar_potencia(x):
-    """Elige x_min minimizando KS sobre los valores candidatos de la muestra."""
+def ajustar_potencia(x, max_candidatos=MAX_CANDIDATOS):
+    """Elige x_min minimizando KS (Clauset sec. 3.3).
+
+    El barrido completo cuesta O(n^2): con n = 5,570 son 31 millones de
+    operaciones por ajuste, y el bootstrap lo llama decenas de miles de veces.
+    Por eso, cuando hay mas de max_candidatos valores distintos, se recorre un
+    subconjunto espaciado logaritmicamente de ellos, que es lo que hacen las
+    implementaciones habituales del metodo. Por debajo de ese tope el barrido
+    es exhaustivo y el resultado identico al de la version original.
+    """
     cand = np.unique(x)[:-2]          # deja al menos 3 puntos en la cola
+    if len(cand) > max_candidatos:
+        idx = np.unique(np.geomspace(1, len(cand), max_candidatos).astype(int) - 1)
+        cand = cand[idx]
+
+    orden = np.sort(x)
+    n_total = len(orden)
+    # suma de logaritmos por sufijo, para el MLE de alpha sin recorrer la cola
+    suf_log = np.concatenate([np.cumsum(np.log(orden)[::-1])[::-1], [0.0]])
+
     mejor = (float("inf"), None, None, 0)
     for xmin in cand:
-        a, n = alpha_mle(x, xmin)
-        if not np.isfinite(a) or n < 3:
+        i = int(np.searchsorted(orden, xmin, side="left"))
+        n_cola = n_total - i
+        if n_cola < 3:
             continue
-        d = ks_potencia(x, xmin, a)
+        s = suf_log[i] - n_cola * math.log(xmin)
+        if s <= 0:
+            continue
+        a = 1 + n_cola / s
+        cola = orden[i:]
+        emp = np.arange(1, n_cola + 1) / n_cola
+        teo = 1 - (cola / xmin) ** (1 - a)
+        d = float(np.max(np.abs(emp - teo)))
         if np.isfinite(d) and d < mejor[0]:
-            mejor = (d, xmin, a, n)
+            mejor = (d, float(xmin), a, n_cola)
     return {"ks": mejor[0], "xmin": mejor[1], "alpha": mejor[2], "n_cola": mejor[3]}
 
 
