@@ -65,15 +65,25 @@ EUROSTAT = ("https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/"
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36",
       "Accept-Encoding": "gzip"}
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
 log = logging.getLogger("RANGO-TAMANO")
+
+
+def configurar_log(ruta=LOG_FILE):
+    """Solo al ejecutarse como programa, nunca al importarse.
+
+    Este modulo se importa desde rango_tamano_percapita.py. Si configurara el
+    registro al importarse, abriria LOG_FILE en modo "w" y borraria el log de
+    la corrida principal: es exactamente la falla que ya ocurrio el 2026-10-02
+    con nbody_lognormal_clauset.py.
+    """
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s | %(levelname)-7s | %(message)s",
+        handlers=[
+            logging.FileHandler(ruta, mode="w", encoding="utf-8"),
+            logging.StreamHandler(sys.stdout),
+        ],
+    )
 
 
 def bajar(url, nombre):
@@ -90,6 +100,23 @@ def bajar(url, nombre):
     h = hashlib.sha256(crudo).hexdigest()
     log.info("   %s | %s bytes | SHA-256 %s", nombre, f"{len(crudo):,}", h[:16])
     return json.loads(crudo), h
+
+
+def es_region(codigo):
+    """Falso para los codigos "extra-regio" de Eurostat.
+
+    No estaban previstos en las exclusiones del pre-registro, que solo
+    descartaba agregados y codigos de otra longitud. Pero Eurostat publica,
+    por pais y por nivel, un codigo residual (BEZ/BEZZ/BEZZZ, FRZ/FRZZ/FRZZZ,
+    ...) etiquetado "Extra-Regio": la actividad economica que no puede
+    asignarse a ninguna region (embajadas, plataformas marinas, buques). Son
+    16 en cada nivel NUTS, tienen la longitud correcta y por eso pasaban el
+    filtro, pero NO son unidades territoriales: en la corrida descartada del
+    2026-10-02 15:25 ocupaban toda la cola baja (desde 22.62 MIO_EUR) e
+    inflaban el rango dinamico de la UE a 4.5 ordenes de magnitud, que es
+    justo la cantidad decisiva del metodo de Clauset.
+    """
+    return set(codigo[2:]) != {"Z"}
 
 
 def cargar_niveles():
@@ -115,7 +142,7 @@ def cargar_niveles():
     for largo, etiqueta in ((3, "UE NUTS1"), (4, "UE NUTS2"), (5, "UE NUTS3")):
         v = []
         for codigo, i in indices.items():
-            if len(codigo) != largo:
+            if len(codigo) != largo or not es_region(codigo):
                 continue
             x = valores.get(str(i))
             if x is not None and x > 0:
@@ -132,6 +159,14 @@ def cargar_niveles():
 
 
 # ------------------------------------------------------------------ P1
+def veredicto(d):
+    """Lectura de un dAIC con la convencion fijada en el pre-registro."""
+    if abs(d) < 2:
+        return "indistinguibles"
+    fuerza = " (fuerte)" if abs(d) > 10 else " (moderada)"
+    return ("LOGNORMAL" if d > 0 else "POTENCIA") + fuerza
+
+
 def rango_tamano(v):
     """Ajusta potencia y cuantiles lognormales a la curva rango-tamano."""
     v = np.sort(v)[::-1]
@@ -172,6 +207,7 @@ def poder(v, rng):
 
 # ------------------------------------------------------------------ main
 def main():
+    configurar_log()
     rng = np.random.default_rng(SEMILLA)
     log.info("=" * 78)
     log.info("RANGO-TAMANO INTERNACIONAL — pre-registro 2026-10-02 (5b97328)")
@@ -192,12 +228,7 @@ def main():
         a = rango_tamano(v)
         ajustes[etiqueta] = (a, v, fuente, sha)
         d = a["daic"]
-        if abs(d) < 2:
-            ver = "indistinguibles"
-        elif d > 0:
-            ver = ("LOGNORMAL" + (" (fuerte)" if d > 10 else " (moderada)"))
-        else:
-            ver = ("POTENCIA" + (" (fuerte)" if -d > 10 else " (moderada)"))
+        ver = veredicto(d)
         log.info("%-20s %6d %8.4f %9.4f %9.4f %10.1f  %s", etiqueta, a["n"],
                  a["b"], a["r2_raw_potencia"], a["r2_raw_lognormal"], d, ver)
         filas.append({
