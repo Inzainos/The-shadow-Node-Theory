@@ -38,7 +38,7 @@ import urllib.parse
 import urllib.request
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -279,6 +279,16 @@ def ventanas_18m(desde, hasta):
     return out
 
 
+def ventanas_365(desde, hasta):
+    """Tramos de <= 365 dias: el limite del servicio para consultas en lote."""
+    out, ini = [], desde
+    while ini < hasta:
+        fin = min(ini + timedelta(days=364), hasta)   # 365 dias inclusive
+        out.append((ini.isoformat(), fin.isoformat()))
+        ini = fin + timedelta(days=1)
+    return out
+
+
 def descargar_series(candidatos, corte):
     """Series diarias por paquete.
 
@@ -316,7 +326,19 @@ def descargar_series(candidatos, corte):
         log.info("D. Reanudando: %d tareas ya hechas, %d paquetes con datos",
                  len(hechas), len(series))
 
-    ventanas = ventanas_18m(PISO_DESCARGAS, corte)
+    # Los scoped descargados antes con ventanas de 18 meses son validos (el
+    # limite de 365 dias solo rige para las consultas en lote), asi que se
+    # siembran y no se vuelven a pedir.
+    semilla = RAW / "descargas_scoped_18m.jsonl.gz"
+    sembrados = set()
+    if semilla.exists():
+        with gzip.open(semilla, "rt", encoding="utf-8") as fh:
+            for linea in fh:
+                r = json.loads(linea)
+                series[r["nombre"]].update(r["dias"])
+                sembrados.add(r["nombre"])
+        log.info("D. Semilla: %d paquetes ya descargados", len(sembrados))
+
     nacimiento = {c["nombre"]: c["nacimiento"] for c in candidatos}
 
     def vive_en(nombre, ini, fin):
@@ -327,13 +349,15 @@ def descargar_series(candidatos, corte):
     scoped = [c["nombre"] for c in candidatos if c["nombre"].startswith("@")]
 
     tareas = []
-    for ini, fin in ventanas:
+    for ini, fin in ventanas_365(PISO_DESCARGAS, corte):
         rango = f"{ini}:{fin}"
         vivos = [n for n in planos if vive_en(n, ini, fin)]
         for i in range(0, len(vivos), 128):
             tareas.append((f"{rango}#p{i}", rango, vivos[i:i + 128]))
+    for ini, fin in ventanas_18m(PISO_DESCARGAS, corte):
+        rango = f"{ini}:{fin}"
         for n in scoped:
-            if vive_en(n, ini, fin):
+            if n not in sembrados and vive_en(n, ini, fin):
                 tareas.append((f"{rango}#{n}", rango, [n]))
     pendientes = [t for t in tareas if t[0] not in hechas]
     log.info("D. %d paquetes (%d planos, %d scoped) | %d tareas, %d pendientes",
@@ -354,7 +378,13 @@ def descargar_series(candidatos, corte):
                         d = json.loads(r.read())
                     break
                 except urllib.error.HTTPError as e:
-                    if e.code in (400, 404):
+                    if e.code == 404:
+                        return clave, {}
+                    if e.code == 400:
+                        # Nunca en silencio: un 400 callado dejo 344 lotes sin
+                        # datos en la corrida del 2026-10-02 sin rastro alguno.
+                        cuerpo = e.read()[:120].decode("utf8", "replace")
+                        log.error("   %s: HTTP 400 %s", clave, cuerpo)
                         return clave, {}
                     if e.code == 429:               # limite de peticiones
                         time.sleep(ESPERA_429 * (intento + 1))
