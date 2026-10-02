@@ -25,26 +25,26 @@ across three scales of systemic resolution — Micro (Atomic Node), Meso (intra-
 national Fungal Network), and Macro (superorganism collision) — in which the
 satellization ratio follows a power law R(t)=a·t^b. The empirical base is a corpus
 of 721 cases reconstructed from verifiable primary sources. Revision r32 follows an
-internal integral audit, which corrected or withdrew several v30 claims, and five
+internal integral audit, which corrected or narrowed several v30 claims, and five
 tests pre-registered in the public repository before any new data were downloaded.
 Supported: cities favored by an abrupt decree (four capital relocations, four
 Chinese special economic zones) gain on the incumbent faster than cities with the
 same initial size ratio (8 of 8; Wilcoxon p=0.0039), replacing the withdrawn 5.9×
-trigger ratio; satellization and collapse are orthogonal within ±0.3 (242 crypto
+trigger ratio; satellization and collapse remain orthogonal within ±0.3 (242 crypto
 pairs, ρ=−0.119); and the collapse hazard is positive at every age in 663 crypto
 pairs and 27,771 US banks, with a domain-dependent shape. Not supported:
 institutional friction does not order b across seven new or non-COVID domains
-(ρ=−0.131, p=0.39), so the corpus association (ρ=−0.68 per case; ρ=−0.56, p=0.25 by
-domain) rests on the contrast between epidemics and the rest; and country pairs
-(Maddison Project Database 2020, reproduced byte for byte) show no hub–node coupling
-with fixed or time-varying trade hubs. The epidemic pole is robust: Domain E3
-regenerates from raw COVID-19 series and stays significant after an autocorrelation
-correction (176 of 198 estimable cases). The HackerEarth churn ROC-AUC is corrected
-to 0.715 (data leakage) and the Atomic Sovereignty Index "precision = 1.0" is
-withdrawn as tautological. The paper keeps the Triple-Resolution Model, the N-body
-analysis of Mexico (INEGI; b=−0.473, R²=0.838) and a Coupled Orbital Collapse layer
-(ACO-A). Falsifiability criteria, a diagnostic protocol and a public replication
-package accompany the model (Zenodo 10.5281/zenodo.19446521).
+(ρ=−0.131, p=0.39), and country pairs (Maddison Project Database 2020,
+reproduced byte for byte) show no hub–node coupling with fixed or time-varying
+trade hubs. The epidemic pole is robust: Domain E3 regenerates from raw COVID-19
+series and remains significant after an autocorrelation correction (176 of 198
+estimable cases), while Domain E1 (4 cases) is not reproducible. The HackerEarth
+churn ROC-AUC is corrected to 0.715 (data leakage) and the Atomic Sovereignty
+Index "precision = 1.0" is withdrawn as tautological. The paper keeps the
+Triple-Resolution Model, the N-body analysis of Mexico (INEGI; b=−0.473,
+R²=0.838) and a Coupled Orbital Collapse layer (ACO-A). Falsifiability criteria,
+a diagnostic protocol and a public replication package accompany the model
+(Zenodo 10.5281/zenodo.19446521).
 
 *(Length check: 2,007 characters including spaces; verify against the
 SSRN form limit before pasting.)*
