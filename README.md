@@ -9,6 +9,16 @@ ORCID: [0009-0009-9125-253X](https://orcid.org/0009-0009-9125-253X)
 [![GitHub](https://img.shields.io/badge/GitHub-Inzainos-black)](https://github.com/Inzainos/The-shadow-Node-Theory)
 [![Python CI](https://github.com/Inzainos/The-shadow-Node-Theory/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/Inzainos/The-shadow-Node-Theory/actions/workflows/python-package-conda.yml)
 
+### Publication status (final public version)
+
+Active evidence in the repository is restricted to the data and analyses that reproduce from committed sources:
+
+- **B** reproduces byte-for-byte from MPD2020.
+- **E3** reproduces from raw OWID series and remains significant under the conservative AR(1) bound.
+- **E1** is not reproducible.
+- The historical **5.9× abrupt-vs-gradual** claim is archived as a historical record and is not cited as active evidence for the current 721-case corpus.
+- Proprietary or missing-source inputs (including HackerEarth and other blocked sources) remain outside the active evidence set.
+
 ## Setup
 
 Use Conda to install the project runtime environment:
