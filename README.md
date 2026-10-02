@@ -532,6 +532,35 @@ trajectory), and R(t) is fitted exactly as in Domain B.
 
 ---
 
+## Use Cases — independent applications outside the corpus
+
+Full index, in Spanish: **[`CASOS_DE_USO.md`](CASOS_DE_USO.md)**.
+
+Applications of the theory to data that was **not part of its construction**. They sit
+outside the 721-case corpus on purpose: the corpus is the historical body of evidence,
+with its audit and its versioning; this is the test bench. A use case that comes out
+negative stays documented there **with its number**, because a test bench that only
+publishes the hits is worth nothing.
+
+Every case in that index satisfies the same protocol: pre-registration committed
+**before a single byte of analysis data is downloaded** and cited by its hash, declared
+blindness, all outcomes reported, mandatory log, SHA-256 provenance in
+`data/FUENTES.md`, a Deviations section, and a fixed seed.
+
+| Case | Status | Headline result |
+|---|---|---|
+| **ACO-A layer in the npm ecosystem** (4,446,361-package frame → 450-package cohort) | Completed 2026-10-02 | Orthogonality b ⊥ Δ **supported** (ρ = +0.114, CI [+0.016, +0.209]), so RC9 no longer rests on crypto alone. Hazard positivity **not supported**, and the hazard is significantly **decreasing** (ρ = −0.716, p = 0.013) |
+| **International rank-size replication** (6 territorial levels, 27 to 5,570 units) | Completed 2026-10-02 | The lognormal wins 5 of 6 levels and 4 of 4 per-capita; Clauset's goodness-of-fit test **never reaches usable power** (42.6% false "survives" at n = 5,570); the shape depends on the partition, not on n |
+| Economic satellization of the Mexican ZEE | Blocked | Mexican open-data CDNs return an **origin-side** block (Akamai); international APIs work fine. Unblocks if the file is supplied |
+| Municipal N-body matrix | Blocked | Same block |
+
+What the use cases have done to the theory: three of six checked claims came out
+**negative** (hazard shape, hazard positivity, invariance of the distribution's shape),
+one came out **supported** in a second independent domain (orthogonality), and two are
+unchanged. The table is in `CASOS_DE_USO.md` §4.
+
+---
+
 ## Publication Status
 
 | Target | Status | Notes |
@@ -750,6 +779,7 @@ The-shadow-Node-Theory/
 |
 |-- README.md                          <-- this file (release v2.6.1, marco teórico v34)
 |-- CHANGELOG.md                       <-- Version history (es)
+|-- CASOS_DE_USO.md                    <-- Use cases: independent applications outside the corpus (es)
 |-- AGENTS.md / CLAUDE.md              <-- Operating guide for AI agents (branch -> PR -> merge, real data first)
 |-- CONTRIBUTING.md                    <-- Contribution guide (es)
 |-- dev-guide.md                       <-- Developer command reference

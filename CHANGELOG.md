@@ -84,6 +84,16 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   `nbody_lognormal_resultados.csv` queda idéntico bit por bit.
 
 ### Añadido
+- **Apartado nuevo: `CASOS_DE_USO.md`.** Índice de las aplicaciones de la teoría
+  **fuera del corpus de 721 casos**, con el protocolo común obligatorio (pre-registro
+  antes del primer byte y citado por su hash, ceguera declarada, se reporta todo
+  resultado, log, SHA-256 en `data/FUENTES.md`, sección de desviaciones, semilla
+  fija), los dos casos completados (capa ACO-A en npm; réplica internacional del
+  ajuste rango-tamaño), los dos bloqueados por acceso a datos (ZEE mexicana y
+  N-cuerpos municipal, con la causa técnica verificada: bloqueo del lado del origen
+  en los CDN mexicanos), la tabla de **lo que los casos de uso le han hecho a la
+  teoría** —tres de seis filas negativas— y los cinco criterios para proponer un caso
+  nuevo. Enlazado desde el README y desde el árbol del repositorio.
 - **Réplica internacional del ajuste rango-tamaño de N-cuerpos** (2026-10-02;
   pre-registro `preregistro/PREREGISTRO_RANGO_TAMANO_2026-10-02.md`, commit
   `5b97328`, informe `audits/RESULTADOS_RANGO_TAMANO_2026-10-02.md`). Seis niveles
