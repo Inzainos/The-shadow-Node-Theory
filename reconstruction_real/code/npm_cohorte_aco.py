@@ -125,9 +125,18 @@ def muestrear_nombres():
     # con startkey. La primera fila de cada pagina repite la ultima de la
     # anterior y se descarta. La respuesta no trae saltos de linea, asi que los
     # identificadores se extraen con una expresion regular sobre el bloque.
-    nombres, i = [], 0
+    # Punto de guardado: el recorrido del marco completo son ~445 paginas y un
+    # corte a media etapa obligaria a repetirlo entero.
+    parcial = RAW / "muestra_parcial.json"
+    if parcial.exists():
+        est = json.loads(parcial.read_text(encoding="utf-8"))
+        nombres, i, startkey = est["nombres"], est["i"], est["startkey"]
+        log.info("A. Reanudando desde la fila %d (%d tomadas)", i, len(nombres))
+    else:
+        nombres, i, startkey = [], 0, None
+
     patron = re.compile(rb'\{"id":"((?:[^"\\]|\\.)*)","key":')
-    startkey, pagina = None, 0
+    pagina = 0
     while True:
         url = f"{REPLICA}?limit={PAGINA}"
         if startkey is not None:
@@ -147,12 +156,16 @@ def muestrear_nombres():
             i += 1
         startkey = ids[-1]
         pagina += 1
-        if pagina % 50 == 0:
+        if pagina % 20 == 0:
+            parcial.write_text(json.dumps(
+                {"i": i, "startkey": startkey, "nombres": nombres}),
+                encoding="utf-8")
             log.info("   recorridas %d filas, %d tomadas", i, len(nombres))
 
     destino.write_text(json.dumps(
         {"total_rows": total, "k": k, "offset": offset, "semilla": SEMILLA,
          "nombres": nombres}), encoding="utf-8")
+    parcial.unlink(missing_ok=True)
     log.info("A. Muestra: %d nombres de %d filas recorridas", len(nombres), i)
     return nombres
 
