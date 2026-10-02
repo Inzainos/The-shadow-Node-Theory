@@ -49,6 +49,10 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 ## [No publicado]
 
 ### Corregido
+- **Resumen de SSRN r32 alineado con la auditoría vigente.** Declara que E1 no es
+  reproducible, retira la lectura que atribuía la asociación del corpus a un contraste
+  entre epidemias y el resto, y describe las conclusiones de v30 como correcciones,
+  acotaciones o retiros.
 - **El régimen superlineal `b ≥ 1` queda sin respaldo como régimen físico, y RC1 queda
   cerrado como no decidible por AIC** (2026-10-02; pre-registro
   `preregistro/PREREGISTRO_RC1_SUPERLINEAL_2026-10-02.md`, commit `1a2ac0e`, informe
