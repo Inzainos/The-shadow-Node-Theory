@@ -140,17 +140,36 @@ eje de satelización ni para ACO-A, que esta prueba no toca.
 
 ---
 
-## 3. Casos bloqueados por acceso a datos
+## 3. Casos diferidos
 
-No son casos fallidos: son casos que no se pueden correr desde este entorno.
+No son casos fallidos ni, hoy, casos bloqueados por técnica: están **diferidos por
+decisión del autor** hasta que las fuentes mexicanas de datos abiertos se estabilicen.
 
-| Caso | Qué probaría | Bloqueo |
+| Caso | Qué probaría | Estado |
 |---|---|---|
-| **Satelización económica de la ZEE mexicana** | El eje **b** de la SNT sobre empleo y actividad por municipio, con la Ciudad de México como hub | Los CDN de datos abiertos mexicanos (INEGI, IMSS, `datos.gob.mx`) responden con un bloqueo **del lado del origen** (Akamai, `errors.edgesuite.net`). No es el proxy de la sesión: las APIs internacionales (Eurostat, IBGE, ONS, Banco Mundial) responden sin problema. Se desbloquea si el archivo se aporta a mano |
-| **N-cuerpos municipal** | La matriz de N-cuerpos al nivel municipal mexicano, en vez de las 32 entidades | El mismo bloqueo |
+| **Satelización económica de la ZEE mexicana** | El eje **b** de la SNT sobre empleo y actividad por municipio, con la Ciudad de México como hub | **Diferido por decisión del autor** |
+| **N-cuerpos municipal** | La matriz de N-cuerpos al nivel municipal mexicano, en vez de las 32 entidades | **Diferido por decisión del autor** |
 
-Queda anotado así, con la causa técnica verificada, para que no parezca una omisión
-deliberada ni se repita el diagnóstico.
+### Historia del acceso, medida y fechada
+
+La causa técnica cambió entre mediciones, así que queda el registro de las dos para no
+repetir el diagnóstico ni arrastrar una nota vieja:
+
+| Fecha | Medición |
+|---|---|
+| 2026-10-02, mañana | Los CDN mexicanos (INEGI, IMSS, `datos.gob.mx`) respondían con un bloqueo **del lado del origen**: Akamai, `errors.edgesuite.net`. No era el proxy de la sesión — las APIs internacionales (Eurostat, IBGE, ONS, Banco Mundial) respondían sin problema |
+| 2026-10-02, tarde | **El bloqueo de Akamai ya no aparece.** El servidor de INEGI contesta directo (`Microsoft-IIS/10.0`, 0.76 s). Lo que sigue dando 403 es la API CKAN de `datos.gob.mx` |
+
+**Advertencia de método que vale más que el estado de la red.** INEGI devuelve
+**HTTP 200 con una página de error** para cualquier ruta inexistente: 2,263 bytes de
+HTML con el título "Página no encontrada". Un script que confíe en el código de estado
+registrará descargas exitosas que no contienen datos. Hay que verificar el
+`Content-Type` y el contenido, no el código. Este error ya se cometió una vez en esta
+sesión.
+
+Con el transporte abierto, lo que falta para correr estos dos casos no es red: son
+rutas reales del directorio de INEGI, que exigen exploración y no adivinanza. El autor
+decidió esperar; se desbloquea también si el archivo se aporta a mano.
 
 ---
 

@@ -8,7 +8,7 @@ de la ronda, no solo la señalada.
 
 ## 0. La regla, citada del marco
 
-**Axioma 0.1** (`papers/marco_teorico.md:108`):
+**Axioma 0.1** (`papers/marco_teorico.md:110`):
 
 > *"Esa lectura tiene un precio explícito: obliga a que **cada eje tenga definición
 > operativa por dominio**. Un eje sin definición operativa en un dominio no se grafica,
@@ -17,7 +17,7 @@ de la ronda, no solo la señalada.
 Y en el mismo axioma: *"`m` está definido: es `R` con el **proxy declarado de cada
 dominio**."*
 
-**Axioma 2** (`papers/marco_teorico.md:160`):
+**Axioma 2** (`papers/marco_teorico.md:163`):
 
 > *"Cada sistema recorta el fondo del Axioma 0 como una cavidad... y responde con
 > **modos propios, no con una frecuencia universal idéntica para todo**. ... Schumann

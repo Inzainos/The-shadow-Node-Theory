@@ -565,8 +565,8 @@ blindness, all outcomes reported, mandatory log, SHA-256 provenance in
 |---|---|---|
 | **ACO-A layer in the npm ecosystem** (4,446,361-package frame → 450-package cohort) | Completed 2026-10-02 | Orthogonality b ⊥ Δ **supported** (ρ = +0.114, CI [+0.016, +0.209]), so RC9 no longer rests on crypto alone. Hazard positivity **not supported**, and the hazard is significantly **decreasing** (ρ = −0.716, p = 0.013) |
 | **International rank-size replication** (6 territorial levels, 27 to 5,570 units) | Completed 2026-10-02 | The lognormal wins 5 of 6 levels and 4 of 4 per-capita; Clauset's goodness-of-fit test **never reaches usable power** (42.6% false "survives" at n = 5,570); the shape depends on the partition, not on n |
-| Economic satellization of the Mexican ZEE | Blocked | Mexican open-data CDNs return an **origin-side** block (Akamai); international APIs work fine. Unblocks if the file is supplied |
-| Municipal N-body matrix | Blocked | Same block |
+| Economic satellization of the Mexican ZEE | **Deferred by the author** | The origin-side Akamai block measured on the morning of 2026-10-02 was **gone by that afternoon** — INEGI's server now answers directly (`Microsoft-IIS/10.0`, 0.76 s); `datos.gob.mx`'s CKAN API still returns 403. What is missing is not the network but real INEGI directory paths. Note for anyone scripting it: **INEGI returns HTTP 200 with a "Página no encontrada" page** for any nonexistent route, so check the content type, not the status code |
+| Municipal N-body matrix | **Deferred by the author** | Same situation |
 
 What the use cases have done to the theory: three of six checked claims came out
 **negative** (hazard shape, hazard positivity, invariance of the distribution's shape),
