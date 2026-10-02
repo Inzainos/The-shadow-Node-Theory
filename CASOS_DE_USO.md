@@ -185,6 +185,17 @@ Para que un dominio sirva como caso de uso de la SNT tiene que cumplir las cinco
    produce un "no se descarta" que no significa nada.
 5. **Falsable.** Tiene que existir un resultado posible que contradiga a la teoría, y
    tiene que estar escrito en el pre-registro antes de verlo.
+6. **Por dominio.** El marco establece que **cada dominio tiene sus propios valores, y
+   cada área dentro de un dominio también, y cada una es independiente** — Axioma 0.1
+   (*"cada eje tenga definición operativa por dominio... no entra en ningún ajuste para
+   ese dominio"*) y Axioma 2 (*"modos propios, no una frecuencia universal idéntica
+   para todo"*). Entre dominios **solo** se admiten tres cosas: réplica independiente
+   del mismo procedimiento, refutación de una afirmación universal por contraejemplo, y
+   conteo de resultados independientes sin convertirlos en un estadístico único. **No**
+   se admite ordenar dominios en una escala compartida ni leer la diferencia entre
+   dominios como medición de la variable que los distingue. Ese error ya se cometió dos
+   veces: en la prueba de fricción del 2026-09-27 y en la de deriva del 2026-10-02
+   (auditoría: `reconstruction_real/audits/AUDITORIA_REGLA_POR_DOMINIO_2026-10-02.md`).
 
 El orden de trabajo es siempre el mismo: pre-registro → commit → descarga → análisis
 con log → informe con desviaciones → `FUENTES.md` → `CHANGELOG.md`.

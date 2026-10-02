@@ -54,9 +54,17 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   commit `e9a152c`, informe `audits/RESULTADOS_DERIVA_FORMA_2026-10-02.md`). Tres
   brazos: Dominio B (446 pares, fricción 3, cociente), cripto (571 cocientes
   moneda/BTC, fricción ≈ 0) y npm (450 paquetes, fricción ≈ 0, nivel).
-  - **La predicción diferencial sale al revés:** Dominio B 10.1% − cripto 55.5% =
-    **−45.4 puntos**, IC 95% [−50.5, −40.3]. La deriva aparente está en fricción cero,
-    no en fricción alta.
+  - **El contraste entre dominios se retira por inadmisible** (corregido el mismo día,
+    a señalamiento del autor; auditoría completa en
+    `audits/AUDITORIA_REGLA_POR_DOMINIO_2026-10-02.md`). El estadístico principal
+    —Dominio B 10.1% − cripto 55.5% = −45.4 puntos— compara tres proxies distintos en
+    tres cavidades distintas, y el **Axioma 0.1** no licencia leerlo como medición de
+    la fricción: *"cada eje tenga definición operativa por dominio... no entra en
+    ningún ajuste para ese dominio"*. Se conserva el número por transparencia, no como
+    resultado. Agravante: la nota del **Axioma 5** ya registraba que ese ordenamiento
+    por fricción se probó pre-registrado el 2026-09-27 y **falló en las cinco
+    variantes**, y el dominio digital **ya estaba codificado** en ese eje como "D2
+    cuotas digitales — baja (1)"; la afirmación de que faltaba ubicarlo era falsa.
   - **Y ese único resultado positivo es un artefacto de selección.** En cripto,
     **70.1% de las series tienen su máximo dentro de su primer 10%**, porque un
     exchange lista una moneda cuando está en auge. Partiendo por posición del pico, la
@@ -69,9 +77,24 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
     se vuelve lineal, se pasa de largo hasta −2.3.
   - **Sin firma pre-colapso:** en npm, extinguidos 17.1% contra persistentes 14.7%, y
     los extinguidos con deriva mediana **+0.187**.
-  - **Consecuencia:** `b` se comporta como constante dentro del caso al poder
-    disponible, así que el régimen superlineal **no** es "un caso atrapado temprano en
-    su trayectoria". El pendiente de RC1 se queda donde estaba.
+  - **Consecuencia, leída por dominio:** en el Dominio B `b` se comporta como
+    constante dentro del caso al poder disponible, así que el régimen superlineal **no**
+    es "un caso atrapado temprano en su trayectoria". El pendiente de RC1 se queda
+    donde estaba. En cripto y npm no hay resultado interpretable: uno es artefacto de
+    listado y el otro tiene 6.7% de poder.
+- **Auditoría de la regla por dominio sobre toda la ronda del 2026-10-02**
+  (`audits/AUDITORIA_REGLA_POR_DOMINIO_2026-10-02.md`). Revisa **todas** las
+  afirmaciones de la ronda, no solo la señalada, contra el Axioma 0.1 y el Axioma 2, y
+  fija la distinción que decide cada caso: entre dominios solo se admiten réplica
+  independiente, refutación de un universal por contraejemplo y conteo de resultados
+  independientes; no se admite ordenar dominios en una escala compartida ni leer su
+  diferencia como medición. **Resultado: se retiran 2 afirmaciones, se reformula 1, y
+  los otros tres bloques de la ronda —npm, rango-tamaño internacional y valor puntual
+  del Dominio B— sobreviven íntegros**, porque se construyeron como pruebas
+  independientes por dominio con nulo por dominio. El bloque que falla es el único
+  diseñado como contraste entre cavidades. Se añade la regla como sexto criterio de
+  admisión en `CASOS_DE_USO.md` y se registra la causa de raíz: el pre-registro se
+  escribió antes de leer el marco y los resultados previos del eje.
 
 ### Añadido
 - **Hallazgo de instrumento: el momento de listado de un exchange es un sesgo de

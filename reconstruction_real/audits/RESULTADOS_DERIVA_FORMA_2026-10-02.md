@@ -15,15 +15,60 @@ brazo que parecía respaldarla resultó ser un artefacto de selección.**
 
 ---
 
+## ⚠ CORRECCIÓN DEL 2026-10-02, POSTERIOR A LA PRIMERA VERSIÓN DE ESTE INFORME
+
+**El contraste entre dominios de este diseño es inadmisible y se retira.** Lo detectó
+el autor al señalar que el marco establece que cada dominio tiene sus propios valores,
+y cada área dentro de un dominio también, y cada una es independiente. Auditoría
+completa: [`AUDITORIA_REGLA_POR_DOMINIO_2026-10-02.md`](AUDITORIA_REGLA_POR_DOMINIO_2026-10-02.md).
+
+**Axioma 0.1:** *"obliga a que cada eje tenga definición operativa **por dominio**. Un
+eje sin definición operativa en un dominio no se grafica, no se interpreta y **no entra
+en ningún ajuste para ese dominio**"*, y *"`m` está definido: es `R` con el **proxy
+declarado de cada dominio**"*. **Axioma 2:** cada cavidad *"responde con **modos
+propios, no con una frecuencia universal idéntica para todo**"*.
+
+Tres consecuencias, en orden de gravedad:
+
+1. **El estadístico principal —"Dominio B 10.1% − Cripto 55.5% = −45.4 puntos"— no
+   mide la fricción y se retira.** No está mal calculado: compara tres proxies
+   distintos en tres cavidades distintas, y esa diferencia no es una medición de la
+   variable con la que se las etiquetó. Donde este informe decía "CONTRARIO A LA
+   PREDICCIÓN", lo correcto es **"comparación no admisible"**.
+2. **El papel de npm como "control de fricción cero" se retira**, porque depende de esa
+   misma escala.
+3. **Había evidencia previa en el repositorio que no se citó.** La nota del Axioma 5
+   ya registraba que el ordenamiento de dominios por fricción se probó pre-registrado
+   el 2026-09-27 y **falló en las cinco variantes** (ρ de −0.581 a +0.112, todas NO
+   RESPALDADA). Y el dominio digital **ya estaba codificado** en ese eje como *"D2
+   cuotas digitales — baja (1)"*: la afirmación de que faltaba ubicarlo era falsa, y la
+   ubicación a priori de este pre-registro (≈ 0) contradice la del repositorio (1) sin
+   decirlo.
+
+**Lo que sobrevive, y es la mayor parte de los números de este informe:** cada brazo
+contra **su propio nulo**, que es lo que la regla sí licencia. El resultado del Dominio
+B (`b` constante, con el mejor poder de los tres), el artefacto de listado de Binance
+(propiedad de esa fuente, no afirmación entre dominios) y el nulo simulado por caso
+quedan en pie sin cambio.
+
+**Lea las secciones siguientes con esa corrección aplicada:** son válidas leídas **por
+dominio** e inválidas leídas como contraste entre dominios. El pre-registro **no se
+edita** —es un pre-registro—; el defecto queda declarado aquí y en la sección de
+Desviaciones.
+
+---
+
+---
+
 ## Tabla de decisiones
 
 | Punto | Hipótesis pre-registrada | Resultado | Decisión |
 |---|---|---|---|
-| **Principal** | La deriva es mayor en fricción alta que en fricción ≈ 0 | Dominio B 10.1% − Cripto 55.5% = **−45.4 puntos**, IC 95% [−50.5, −40.3] | **CONTRARIO A LA PREDICCIÓN** |
+| **Principal** | La deriva es mayor en fricción alta que en fricción ≈ 0 | Dominio B 10.1% − Cripto 55.5% = −45.4 puntos, IC 95% [−50.5, −40.3] | **COMPARACIÓN NO ADMISIBLE** — se retira, ver la corrección de arriba |
 | **Post hoc** | — | **70.1%** de las series de cripto tienen su máximo en el **primer 10%** de la serie. Partiendo por posición del pico: 57.5% descendente con pico temprano contra **0.0%** con pico tardío | **La deriva de cripto es un artefacto del momento de listado** |
 | **P1, Dominio B** | Deriva presente | 10.1% descendente contra **11.9% ascendente**; deriva mediana −0.003 | **Sin deriva**, y con el **mejor poder** de los tres (31.7%) |
 | **P1, npm** | Deriva ausente | 14.9% descendente contra 10.4% ascendente; poder 6.7% | **No informativo** |
-| **S1** | "Potencia → lineal" predice cruzar `b = 1` a la baja | **0.0%** en Dominio B, **0.4%** en cripto, 9.6% en npm | **El cruce no ocurre** |
+| **S1** | "Potencia → lineal" predice cruzar `b = 1` a la baja | **0.0%** en Dominio B, **0.4%** en cripto, 9.6% en npm | **Tres enunciados por dominio**, no uno general: el cruce no ocurre en el Dominio B ni en cripto; en npm ocurre en 9.6% y su brazo está contaminado por el crecimiento del ecosistema |
 | **S3** | ¿La deriva es una firma pre-colapso? | Extinguidos 17.1% contra persistentes 14.7%; los extinguidos con deriva mediana **+0.187** (ascendente) | **No hay firma pre-colapso** |
 
 **Veredicto:** con el poder disponible, **`b` se comporta como constante dentro de cada
@@ -49,8 +94,11 @@ cocientes, así que la diferencia aísla la fricción):
 
 > **Dominio B 10.1% − Cripto 55.5% = −45.4 puntos, IC 95% [−50.5, −40.3].**
 
-El intervalo no roza el cero. La deriva no solo no es mayor en fricción alta: es
-**masivamente mayor en fricción cero**, que es exactamente al revés de lo predicho.
+**Este estadístico se retira** (ver la corrección al inicio). El intervalo no roza el
+cero, pero lo que separa a los dos brazos no es la fricción: son tres proxies distintos
+en tres cavidades distintas, y el Axioma 0.1 no licencia leer esa diferencia como la
+medición de la variable con la que se las etiquetó. Se conserva el número por
+transparencia y porque la auditoría lo cita, no como resultado.
 
 ---
 
@@ -165,7 +213,7 @@ mediana **positiva**. **No hay firma de deriva antes del colapso.**
 | Afirmación | Estado anterior | Estado ahora |
 |---|---|---|
 | La forma es una trayectoria dentro del caso (potencia → lineal) | Hipótesis del autor, 2026-10-02 | **No respaldada.** `b` se comporta como constante en los tres dominios al poder disponible |
-| La trayectoria requiere fricción; lo digital no la tiene | Predicción diferencial pre-registrada | **Contraria a los datos** (−45.4 puntos), y el aparente efecto en lo digital es un artefacto de listado |
+| La trayectoria requiere fricción; lo digital no la tiene | Predicción diferencial pre-registrada | **No evaluable con este diseño**: el contraste entre dominios es inadmisible (Axioma 0.1) y se retira. Lo que sí queda medido es que el aparente efecto en cripto es un **artefacto de listado**. La formulación admisible —que el dominio digital tiene transiciones más abruptas **contra su propio nulo**— queda sin probar |
 | El régimen superlineal es "un caso atrapado temprano" | Consecuencia propuesta para RC1 | **Sin respaldo.** El cruce del 1 ocurre en 0.0% del Dominio B y 0.4% de cripto |
 | La deriva como firma pre-colapso | Idea secundaria | **Sin respaldo.** Extinguidos y persistentes indistinguibles |
 | Los cinco modos de colapso | Vigentes | **Sin cambio.** Esta prueba no los toca |
@@ -198,7 +246,15 @@ demostró que `b` sea exactamente constante*.
 
 ## Desviaciones respecto al pre-registro
 
-Tres, todas declaradas:
+**Defecto de diseño, detectado después de correr y declarado antes que cualquier
+desviación menor:** el pre-registro fijó un contraste **entre dominios** que el marco
+teórico no licencia (Axioma 0.1, Axioma 2), y no citó que ese mismo ordenamiento por
+fricción ya se había probado pre-registrado el 2026-09-27 y había fallado en cinco
+variantes. La causa de raíz: el pre-registro se escribió **antes** de leer el marco y
+los resultados previos del eje. Queda como regla de operación — antes de pre-registrar,
+leer el marco y los resultados previos del eje que se va a tocar.
+
+Y tres desviaciones menores, todas declaradas:
 
 1. **Brazo de poder añadido.** El pre-registro fijó el nulo pero no el poder. La
    validación del código mostró que con ruido AR(1) fuerte el poder cae a 14.7%, así
