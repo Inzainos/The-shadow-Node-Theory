@@ -106,7 +106,7 @@ los resultados del pre-registro. El corpus de 721 casos no cambia. PR
   las series crudas de E3.
 - **Versión 2.5.3 retroactiva** (2026-09-27, a pedido del autor): lo integrado en los
   PR #42 a #45 (auditoría, dominio B, SSRN r31) pasa de la entrada [2.6.0] a una
-  entrada [2.5.3] propia, que corresponde a la etiqueta `2.5.3` sobre `28eabb1`.
+  entrada [2.5.3] propia, que corresponde a la etiqueta `2.5.3.0` sobre `28eabb1`.
   [2.6.0] queda con lo del PR #46 (pre-registro, nota del Axioma 5, figuras).
 
 ## [2.6.0] — 2026-09-27
@@ -174,8 +174,9 @@ Auditoría, prueba discriminante y reconstrucción del dominio B y revisión r31
 preprint de SSRN. El corpus de 721 casos no cambia. PR
 [#42](https://github.com/Inzainos/The-shadow-Node-Theory/pull/42) a
 [#45](https://github.com/Inzainos/The-shadow-Node-Theory/pull/45). Etiqueta
-retroactiva (decidida el 2026-09-27, después de 2.6.0; etiqueta publicada el
-2026-10-01) sobre el commit `28eabb1`
+retroactiva (decidida el 2026-09-27, después de 2.6.0; publicada el 2026-10-02 como
+`2.5.3.0`, porque GitHub reserva el nombre `2.5.3` de un release inmutable anterior
+que apuntaba al commit equivocado y fue borrado) sobre el commit `28eabb1`
 (merge del PR #45, 2026-09-26 23:18 hora de México; algunas entradas llevan la fecha
 UTC 2026-09-27): es el estado del repositorio que corresponde al preprint r31.
 Hasta entonces estas entradas figuraban dentro de 2.6.0.

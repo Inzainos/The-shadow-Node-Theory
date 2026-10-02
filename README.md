@@ -73,7 +73,8 @@ Use the badge at the top of this README to view CI status for the default branch
 
 > **Versioning note**
 > Repository release: **v2.6.1** (2026-09-27, patch; previous: v2.6.0, 2026-09-27;
-> v2.5.3, 2026-09-26, tagged retroactively on the state that matches SSRN r31;
+> v2.5.3, 2026-09-26, tagged retroactively (as `2.5.3.0`) on the state that
+> matches SSRN r31;
 > before that v2.5.2, 2026-09-10).
 > What v2.5.3 adds: the integral audit v32 findings, the Domain B edition
 > (MPD2020, byte-exact) and discriminant test with bilateral trade, the Domain
@@ -735,7 +736,7 @@ The-shadow-Node-Theory/
 |   |-- snt_ssrn_v32_EN.md / .pdf / .docx <-- SSRN preprint r32 ENGLISH (audit v32 corrections + pre-registered tests) [CURRENT, upload pending]
 |   |-- snt_ssrn_v32.md / .pdf / .docx <-- SSRN preprint r32 Spanish (translation of the EN r32)
 |   |-- SSRN_revision_v32.md           <-- SSRN form text for r32 (title, abstract, keywords, JEL, revision comments)
-|   |-- snt_ssrn_v31_EN.md / .pdf / .docx <-- SSRN preprint r31 ENGLISH (superseded by r32 before upload; record, = tag 2.5.3)
+|   |-- snt_ssrn_v31_EN.md / .pdf / .docx <-- SSRN preprint r31 ENGLISH (superseded by r32 before upload; record, = tag 2.5.3.0)
 |   |-- snt_ssrn_v31.md / .pdf / .docx <-- SSRN preprint r31 Spanish (record)
 |   |-- SSRN_revision_v31.md           <-- SSRN form text for r31 (record; never uploaded)
 |   |-- snt_ssrn_v30_EN.md / .pdf / .docx <-- SSRN preprint v30 ENGLISH (submitted 28 Jun 2026; record)
