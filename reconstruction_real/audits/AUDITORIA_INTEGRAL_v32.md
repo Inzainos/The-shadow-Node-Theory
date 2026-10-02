@@ -108,10 +108,22 @@ RC1 aguanta en mayoría. Pero al cruzar con b apareció esto:
 | lineal | 1 | +0.453 | — |
 
 ```
-Spearman b vs ΔAIC_potencia:  rho = +0.657   p = 0.0031
+Spearman b vs ΔAIC_potencia:  rho = -0.657   p = 0.0031
 b>=1 x gana ley de potencia:  Fisher OR = 0.056   p = 0.0441
                               (3 de 4 casos superlineales son exponenciales)
 ```
+
+**Corrección de signo (2026-10-02).** La línea de arriba decía `rho = +0.657`. Es un
+error de tecleo en la prosa de este informe, no en el resultado: el runner
+(`code/snt_auditoria_integral_v32.py:209`) siempre registró el valor publicado como
+**−0.657**, el CSV de salida lo marca `REPLICA_SIGNO`, y la tabla y la conclusión de
+esta misma sección siempre apuntaron en la dirección negativa. Recomputado hoy sobre
+las mismas 18 series: **ρ = −0.796, p = 0.0001**, idéntico a lo que el runner reporta.
+Con la convención de `comparar_modelos` —`delta_aic_potencia = AIC_mejor_otro −
+AIC_potencia`, de modo que **positivo significa que gana la potencia**— el signo
+negativo es el que corresponde al hallazgo. Las otras cinco cifras del bloque
+reproducen exactas: 13/4/1 ganadores, b medio +0.324 y +1.541, sus rangos, y
+Fisher OR = 0.056 con p = 0.0441.
 
 **A mayor b, peor ajusta la ley de potencia.** La banda de clasificación de `snt_utils.py`
 —"Satelización rápida sin fricción" (b>1), "Roche Radius"— podría estar etiquetando como
