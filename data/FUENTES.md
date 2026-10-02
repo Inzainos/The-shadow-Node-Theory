@@ -176,6 +176,54 @@ Notas de calidad: WUP incluye solo aglomeraciones con ≥ 300 mil habitantes en
 2018 (filtro de supervivencia); la base de la FDIC no registra cierres antes de
 1970; 41 instituciones tienen fecha de fundación de relleno (01/01/1800).
 
+### Pre-registro rango-tamaño internacional 2026-10-02 (réplica del Módulo de N-cuerpos)
+
+Aplicación independiente, fuera del corpus de 721 casos. Seis niveles territoriales
+de Brasil y la Unión Europea, de 27 a 5,570 unidades, más México como referencia.
+Año **2021** en todas las fuentes. Consultadas el 2026-10-02.
+
+| Fuente | Uso | Unidades utilizadas |
+|---|---|---|
+| `https://apisidra.ibge.gov.br/values/t/5938/n3/all/v/37/p/2021` | PIB por estado, en Mil Reais | 27 |
+| `https://apisidra.ibge.gov.br/values/t/5938/n6/all/v/37/p/2021` | PIB por municipio, en Mil Reais | 5,570 |
+| `https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10r_3gdp?format=JSON&time=2021&unit=MIO_EUR` | PIB regional total | 111 NUTS1, 293 NUTS2, 1,327 NUTS3 |
+| `https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10r_3gdp?format=JSON&time=2021&unit=EUR_HAB` | PIB regional per cápita (secundaria) | 110 NUTS1, 285 NUTS2, 1,300 NUTS3 |
+| `data/matriz_mexico_32.csv` | `pct_pib` (primaria) y `pib_pc` (secundaria) | 32 |
+
+Los crudos quedan en `data/raw_rango_tamano/` (no versionado):
+
+| Archivo crudo | Bytes | SHA-256 |
+|---|---:|---|
+| `ibge_n3_2021.json` | 8,084 | `b60e7b58e17c81a06d12196e37a15539ab27eca1e7fae351c0384b4dbdc88550` |
+| `ibge_n6_2021.json` | 1,577,341 | `619f9caf07f59d4f85fdf128389ce001c593199b2d78076f876122ae66d024e3` |
+| `eurostat_mio_eur_2021.json` | 98,639 | `bb237abf4695e8e353d60cb4561f0c57be86096d70dcba113c1e58e5dacb27a7` |
+| `eurostat_eur_hab_2021.json` | 94,737 | `9f79df345d31300ee828962e4005c2be27f3ce68e402031670e295a981bda251` |
+
+Salidas versionadas:
+
+| Archivo | SHA-256 |
+|---|---|
+| `reconstruction_real/data/rango_tamano_internacional.csv` | `58392810079966d929d9d6d927c1c5fdb2f127b559777c18c81a6326431b47b5` |
+| `reconstruction_real/data/rango_tamano_poder.csv` | `99e424c52328c1b71b0b8ab6a769b925d3f0be5d24a03452a0e5f28fbf4d7c6b` |
+| `reconstruction_real/data/rango_tamano_percapita.csv` | `1ecd50e67afbdc12eee5b7998d26d8f7c031025824e779eebdef9e6b9512af9f` |
+| `reconstruction_real/data/rango_tamano_diagnostico.csv` | `67854656728ac25326b909600dc6464570107a132b36bb9524b464ad9c90c4cd` |
+
+**Nota de calidad, importante.** Eurostat publica, por país y por nivel, un código
+residual etiquetado **"Extra-Regio"** (`BEZ`/`BEZZ`/`BEZZZ`, `FRZ`/`FRZZ`/`FRZZZ`, …)
+con la actividad económica que no puede asignarse a ninguna región: embajadas,
+plataformas marinas, buques. Son **16 por nivel**, tienen la longitud de código
+correcta y por eso pasan cualquier filtro que solo mire la longitud. **No son
+unidades territoriales.** Incluirlos ocupa toda la cola baja de los tres niveles
+NUTS —desde 22.62 MIO_EUR— e infla el rango dinámico europeo de ~3 a 4.5 órdenes de
+magnitud, que es justo la cantidad decisiva del método de Clauset. Se excluyen con
+`es_region()`. Quien reutilice `nama_10r_3gdp` para una distribución de tamaños
+tiene que descartarlos.
+
+Nota de calidad: la tabla 5938 del IBGE **no publica PIB per cápita**, así que Brasil
+no entra en la secundaria. Los datos de Estados Unidos quedan fuera del diseño: la
+API del BLS respondió `REQUEST_NOT_PROCESSED` por umbral diario agotado desde esta
+dirección, y las de BEA y Census exigen clave.
+
 ---
 
 ## 2. Archivos derivados que SÍ están en el repo (checksums)
