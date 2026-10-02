@@ -226,6 +226,26 @@ dirección, y las de BEA y Census exigen clave.
 
 ---
 
+### Valor puntual del Dominio B 2026-10-02 (sin descargas)
+
+No entra ninguna fuente externa nueva. Entradas, ya versionadas y con su SHA-256 más
+arriba en este archivo: `data/maddison_mpd2020.csv` (las 446 series del Dominio B se
+reconstruyen desde ahí, verificado caso por caso contra la `b` publicada) y
+`reconstruction_real/data/by_domain/dominio_B_real.csv`.
+
+| Archivo de salida | SHA-256 |
+|---|---|
+| `reconstruction_real/data/dominio_B_calibracion.csv` | `c2372a096bdba792b8fbb4728ed709575c1b91435103910b9cffa6d2700659d8` |
+| `reconstruction_real/data/dominio_B_valor_puntual.csv` | `0cfb54028790bfb3b38e8a9d13e51031f7c5d7e6ca220e20257ee3dcc0d75c16` |
+
+Nota de calidad: `dominio_B_valor_puntual.csv` trae el p de los doce métodos por caso.
+**Ninguno de ellos es admisible** (ver `audits/RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md`),
+así que esas columnas no deben usarse para contar significativos sin leer antes la
+tabla de calibración: sobre los mismos datos la cuenta va de 33 a 134 de 156 según el
+método elegido.
+
+---
+
 ## 2. Archivos derivados que SÍ están en el repo (checksums)
 
 Checksums SHA-256 al 2026-07-25, **re-verificados el 2026-09-26: los 6 coinciden**.

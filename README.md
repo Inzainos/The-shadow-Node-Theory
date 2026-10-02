@@ -353,7 +353,19 @@ pytest reconstruction_real/tests                                 # fixes 156 / 2
    | **Not estimable** (`n_eff < 3`) — not "non-significant" | **290 / 446 (65.0%)** |
    | Significant among estimable — lower bound (inflated SE + df) | **33 (21.2%)** |
    | Significant among estimable — upper bound (df only) | 112 (71.8%) |
-   | Point value | still open: standard Newey-West (lag 4, computed 2026-09-27 on the Maddison series) gives 120/156, **above** the upper bound — it under-corrects at ρ ≈ 0.94; needs GLS or a block bootstrap |
+   | Point value | **closed 2026-10-02 as undecidable.** Twelve corrections were scored on their *measured* false-positive rate against 2,000 synthetic cases built with b = 0 and each real case's own (n, ρ, σ). None reaches the pre-registered [2.5%, 7.5%] band: the best is the lower-bound AR(1) correction at **11.7%**, then Prais-Winsten GLS at 17.1% and the block bootstrap at 24.1%, up to **67.0% for the naive OLS the corpus was built with**. Power is 74–98% at b = −0.30, so the failure is one of size, not conservatism. On the real data the count ranges from **33 to 134 of 156** depending on method, which is the argument itself. See [`RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md`](reconstruction_real/audits/RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md) |
+
+   Two consequences worth stating plainly. **The 33 is now backed by measurement**:
+   of twelve candidates, the best-calibrated one is exactly the correction the audit
+   had already picked out of caution, and it returns exactly 33. And **the published
+   374/446 is quantified rather than merely suspected** — the OLS procedure behind it
+   rejects the null 67.0% of the time when there is nothing to reject. Domain B's
+   exponents stand as descriptions; what cannot be done with them is count how many
+   are "significant". The domain is **descriptive, not inferential**.
+
+   Newey-West's diagnosis also changed: on **white noise** at n = 69 it already
+   rejects 12.2% (and 25.2% at lag n/4) against a nominal 5%. The HAC estimator is
+   miscalibrated at these sample sizes; ρ ≈ 0.94 worsens it but does not cause it.
 
 2. **The superlinear regime b ≥ 1 may be model misspecification.** RC1 had no
    script behind it; tested by AIC on the 18 raw ACO series: power law wins
@@ -483,8 +495,10 @@ trajectory), and R(t) is fitted exactly as in Domain B.
 
 1. ~~AR(1)-correct E3~~ — done 2026-09-27 from the raw OWID series (pre-registration,
    point 3): conservative AR(1) bound, 176 of 198 estimable cases significant. The
-   other domains still need their raw series; Domain B's point value needs GLS or a
-   block bootstrap (standard Newey-West under-corrects).
+   other domains still need their raw series. ~~Domain B's point value~~ — **closed
+   2026-10-02 as undecidable**: GLS and the block bootstrap were both run, and neither
+   reaches nominal size at ρ ≈ 0.94 (17.1% and 24.1% false positives), so no point
+   value is declared and 33 stands as the conservative figure.
 2. ~~Update the SSRN v30 EN preprint~~ — revised manuscript **r31** prepared
    2026-09-27 (`papers/snt_ssrn_v31_EN.md` / `.pdf` / `.docx`; v30 kept
    unchanged as the submitted record). It withdraws the 5.9× claim, corrects the

@@ -49,6 +49,43 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 ## [No publicado]
 
 ### Corregido
+- **El valor puntual del Dominio B se cierra como INDECIDIBLE** (2026-10-02;
+  pre-registro `preregistro/PREREGISTRO_DOMINIO_B_PUNTUAL_2026-10-02.md`, commit
+  `05bc9ee`, informe `audits/RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md`). Era el
+  último número abierto de la teoría y la respuesta es que **no hay número**.
+  - En vez de elegir una corrección por autoridad —el razonamiento que produjo el
+    120/156 imposible de Newey-West— se midió la de cada una: 2,000 casos sintéticos
+    con `b = 0` y la terna `(n, ρ, σ)` de un caso real, donde todo rechazo es un falso
+    positivo por construcción. **Ninguno de los doce métodos cae en la banda de
+    admisión [2.5%, 7.5%]** fijada por anticipado: cota inferior AR(1) 11.7%,
+    Prais-Winsten GLS 17.1%, bootstrap por bloques 24.1%, Newey-West 52.3%, y el
+    **OLS con el que se construyó el corpus, 67.0%**.
+  - **El fallo es de tamaño, no de conservadurismo:** el poder va del 74% al 98% a
+    `b = −0.30` y del 91% al 100% a `b = −0.60`. Todos los métodos detectan un efecto
+    real sin problema; el problema es que también "detectan" los que no existen.
+  - Sobre los 446 casos reales la cuenta va de **33 a 134 de 156** según el método.
+    Ese abanico, con los mismos datos y la misma hipótesis, es el argumento.
+  - **El 33 queda respaldado por medición:** de los doce candidatos, el mejor
+    calibrado es exactamente la corrección que la auditoría ya había elegido por
+    prudencia, y devuelve exactamente 33. Y el 374/446 publicado queda **cuantificado**
+    en vez de solo sospechado.
+  - **Consecuencia:** el Dominio B pasa a ser **descriptivo, no inferencial**. Las 446
+    `b` siguen siendo descripciones válidas y reproducibles; lo que no se puede hacer
+    con ellas es contar cuántas son "significativas". Ni el exponente ni la dirección
+    de los hallazgos del dominio cambian.
+  - Tres validaciones del propio diseño: 446/446 series reproducen su `b` publicada
+    con |Δ| ≤ 1×10⁻⁴, `nw_auto` devuelve el 120/156 de la auditoría y `ar1_inf`
+    devuelve el 33/156 publicado.
+- **Corregido el diagnóstico de Newey-West.** La auditoría anotaba que subcorrige *por
+  la ρ alta*. Con **ruido blanco puro** (ρ = 0, n = 69, `b` = 0) ya rechaza el 12.2%
+  —y el 25.2% con rezago `n/4`— contra un 5% nominal: el estimador HAC está mal
+  calibrado **a estos tamaños de muestra**. La ρ ≈ 0.94 empeora el cuadro, no lo causa.
+- **La cota superior del Dominio B es 112 o 113, según el redondeo.** Recomputada
+  desde las series crudas da 113. La diferencia es un único caso, `B042`
+  (Belgium→Spain), cuyo p vale 0.0490 con el `dw` sin redondear y 0.0503 con el `dw`
+  redondeado a tres decimales del CSV versionado. Ninguna de las dos está mal; lo que
+  muestra es que la cota superior es frágil en el margen. La cota inferior da 33 por
+  las dos vías.
 - **La lectura de apego preferencial del Módulo de N-cuerpos se retira** (2026-10-02;
   pre-registro `preregistro/PREREGISTRO_LOGNORMAL_2026-10-02.md`, commit `9718808`,
   informe `audits/RESULTADOS_LOGNORMAL_2026-10-02.md`). La comparación contra la
