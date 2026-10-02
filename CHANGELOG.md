@@ -68,8 +68,50 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 - **Discrepancia de R² del módulo explicada:** el 0.8705 de `mexico_nbody_real.csv` y
   el 0.8377 del README son la misma cifra en escala logarítmica y en escala cruda, el
   mismo defecto de reporte que la auditoría v32 documentó para el corpus.
+- **Los códigos "Extra-Regio" de Eurostat contaminaban los niveles NUTS.** Eurostat
+  publica, por país y por nivel, un código residual (`BEZ`/`BEZZ`/`BEZZZ`,
+  `FRZ`/`FRZZ`/`FRZZZ`, …) con la actividad económica que no puede asignarse a ninguna
+  región: embajadas, plataformas marinas, buques. Son 16 por nivel, tienen la longitud
+  de código correcta y pasaban el filtro de exclusiones. **No son unidades
+  territoriales**, ocupaban toda la cola baja de la UE —desde 22.62 MIO_EUR— e
+  inflaban el rango dinámico europeo de ~3 a 4.5 órdenes de magnitud, que es la
+  cantidad decisiva del método de Clauset. Se excluyen con `es_region()`; la corrida
+  que los incluía quedó descartada. Conteos corregidos: 111 NUTS1, 293 NUTS2,
+  1,327 NUTS3. Anotado en `data/FUENTES.md` para quien reutilice `nama_10r_3gdp`.
+- **`nbody_lognormal_clauset.py` configuraba el registro al importarse**, así que al
+  reutilizarlo desde la réplica se adueñaba del logger raíz y sobrescribía el log de
+  México. Corregido en los dos scripts; el log de México se regeneró y
+  `nbody_lognormal_resultados.csv` queda idéntico bit por bit.
 
 ### Añadido
+- **Réplica internacional del ajuste rango-tamaño de N-cuerpos** (2026-10-02;
+  pre-registro `preregistro/PREREGISTRO_RANGO_TAMANO_2026-10-02.md`, commit
+  `5b97328`, informe `audits/RESULTADOS_RANGO_TAMANO_2026-10-02.md`). Seis niveles
+  territoriales de Brasil y la Unión Europea, de 27 a 5,570 unidades, para resolver
+  si el hallazgo de México era general o una peculiaridad de n = 32.
+  - **La lognormal gana en 5 de 6 niveles** (ΔAIC de +41 a +4,868) y en **4 de 4**
+    con cantidades per cápita. La hipótesis pre-registrada de que ganaría en todos
+    **falla**: los 5,570 municipios de Brasil favorecen la ley de potencia
+    (ΔAIC = −914.6, b = −1.394), y así se reporta.
+  - **La prueba de bondad de ajuste de Clauset nunca alcanza poder suficiente.** La
+    tasa de falso "sobrevive" va de 96.8% (n = 27) a **42.6% (n = 5,570)**, siempre
+    por encima del umbral del 20% fijado por anticipado, así que el punto 3 **no se
+    interpretó en ningún nivel**. El 96.4% de México no era una limitación mexicana:
+    es la curva de poder del método.
+  - **El "artefacto de n" queda descartado** por un diagnóstico post hoc
+    (`code/rango_tamano_diagnostico.py`, etiquetado como no pre-registrado): con el
+    rango dinámico de Brasil fijo en 4.66 órdenes, la ley de potencia gana en 93–99%
+    de 200 réplicas a **todos** los tamaños entre n = 27 y n = 2,785. No hay motivo
+    para revisar la retirada del 2026-10-02, que **se refuerza**.
+  - **Pero el rango tampoco explica la diferencia.** Los 1,327 municipios mayores de
+    Brasil y las 1,327 regiones NUTS3 de la UE tienen el mismo n, rango casi igual
+    (3.05 contra 3.11), σ casi igual (1.05 contra 1.12) y b casi igual (−1.057 contra
+    −1.047), y dan **veredictos opuestos y aplastantes** (−2,919 contra +4,868). Es
+    una diferencia de forma entre los dos sistemas cuya causa queda **sin
+    identificar**, y obliga a matizar la afirmación de invariancia para la forma de la
+    distribución de tamaños (no para el eje de satelización ni para ACO-A).
+  - Control de consistencia: México con `pib_pc` reproduce en la tubería nueva el
+    ΔAIC = 65.04, b = −0.4732 y R² 0.8705 / 0.8377 ya publicados.
 - **Capa ACO-A en el ecosistema npm** (2026-10-02; pre-registro
   `preregistro/PREREGISTRO_NPM_2026-10-02.md`, commit `3ff9fca`, informe
   `audits/RESULTADOS_NPM_2026-10-02.md`). Aplicación independiente, fuera del corpus

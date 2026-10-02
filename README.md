@@ -377,7 +377,7 @@ pytest reconstruction_real/tests                                 # fixes 156 / 2
 |---|---|
 | 5.9× abrupt vs gradual (U=24,802, n=486) | n=486 matches no dataset in the repo; the U/p appear only as fixed text in the v28 script `code/generate_publication_figures.py`. **Recalculated 2026-09-27** on every trigger-labeled dataset: the ratio comes from v1.0 (2 vs 2 cases, 5.87×); the active satellization corpus cannot test it; the ACO cases measure a different (absorption) exponent. RC3 is now UNTESTABLE (see the findings table) |
 | ASI ROC-AUC 0.715 | Retention target not in `data/snt_asi_scores.csv` (proprietary source) |
-| N-body refit from raw | Committed file is a one-row summary |
+| ~~N-body refit from raw~~ | **Resolved 2026-10-02.** The rank-size series is committed in `data/matriz_mexico_32.csv`; the published fit regenerates exactly, and the lognormal comparison is done and replicated internationally (see the N-body section) |
 
 **Correction to the audit (re-verified 2026-09-26):** the audit listed RC9
 (ρ = +0.009, crypto, n = 11) as not verifiable. The paired (b_rise, Δ_fall)
@@ -591,6 +591,67 @@ multiplicative process yields, with no rich-get-richer mechanism — fits it bet
 The module's central result is untouched, because it does not depend on the shape of
 the distribution: Tlaxcala's composite gradient (9.3×, 89.2% flowing to CDMX) is a sum
 of pairwise weights, not a power-law fit.
+
+**International replication — done 2026-10-02, six territorial levels.** Mexico's
+n = 32 could not say whether the lognormal result was general. Brazil and the EU
+publish subnational data with thousands of units, so the question is answerable.
+Report:
+[`reconstruction_real/audits/RESULTADOS_RANGO_TAMANO_2026-10-02.md`](reconstruction_real/audits/RESULTADOS_RANGO_TAMANO_2026-10-02.md);
+pre-registered at `reconstruction_real/preregistro/PREREGISTRO_RANGO_TAMANO_2026-10-02.md`
+(commit `5b97328`, before a single byte was downloaded).
+
+| Level | n | orders of magnitude | b | ΔAIC | Verdict |
+|---|---:|---:|---:|---:|---|
+| Brazil, states | 27 | 2.17 | −1.3735 | +51.5 | lognormal (strong) |
+| Mexico, entities | 32 | 1.47 | −0.9240 | +40.9 | lognormal (strong) |
+| EU, NUTS1 | 111 | 2.75 | −1.0933 | +263.5 | lognormal (strong) |
+| EU, NUTS2 | 293 | 3.58 | −1.0244 | +815.0 | lognormal (strong) |
+| EU, NUTS3 | 1,327 | 3.11 | −1.0466 | +4,868.5 | lognormal (strong) |
+| **Brazil, municipalities** | **5,570** | **4.66** | −1.3940 | **−914.6** | **power law (strong)** |
+
+ΔAIC > 0 favours the lognormal. Three results, reported as they came out:
+
+1. **The pre-registered H1 fails.** The lognormal wins five levels out of six, and
+   four out of four on per-capita quantities, but Brazil's 5,570 municipalities
+   favour the power law. That is written here because it was predicted otherwise.
+2. **Clauset's goodness-of-fit test never reaches usable power.** The false
+   "survives" rate falls from 96.8% at n = 27 to **42.6% at n = 5,570** — still twice
+   the 20% threshold fixed in advance, so the distribution test was **not interpreted
+   at any level**. Mexico's 96.4% was never a Mexican limitation; it is the method's
+   power curve.
+3. **It is not an artefact of n, and not of dynamic range either.** With Brazil's
+   range pinned at 4.66 orders, the power law wins 93–99% of 200 replicates at every
+   size from n = 27 to n = 2,785 (post-hoc diagnostic, labelled as such in
+   `reconstruction_real/code/rango_tamano_diagnostico.py`). But Brazil's 1,327 largest
+   municipalities and the EU's 1,327 NUTS3 regions share n, range (3.05 vs 3.11),
+   σ (1.05 vs 1.12) and b (−1.057 vs −1.047) — and return opposite, overwhelming
+   verdicts (−2,919 vs +4,868). The difference is in the curvature of the rank-size
+   curve, and **its cause is not identified**.
+
+**What this does to the withdrawal above: it strengthens it.** If the shape of the
+distribution depends on how the territory is partitioned — the same 5,570
+municipalities give "power law" whole or by their upper tail and "lognormal" for a
+narrow middle block — then the shape cannot be evidence of a generative mechanism,
+in either direction. Brazil's Zipfian municipalities are no more evidence *for*
+preferential attachment than Mexico's entities were, since a Zipf exponent near −1
+is equally consistent with ordinary multiplicative growth under a lower barrier
+(Gabaix 1999), and the test that could separate them is precisely the one with no
+power here.
+
+**Scope, as pre-registered:** this measures the shape of the subnational size
+distribution only. It does not measure satellization, does not test SNT's **b** axis,
+and does not touch the ACO-A layer. The invariance caveat applies to the N-body
+module's distributional claim, not to those.
+
+**Data-quality defect found on the way, worth knowing for anyone reusing
+`nama_10r_3gdp`:** Eurostat publishes a residual per-country, per-level code labelled
+*Extra-Regio* (`BEZ`/`BEZZ`/`BEZZZ`, `FRZ`/`FRZZ`/`FRZZZ`, …) for economic activity
+that cannot be assigned to any region — embassies, offshore platforms, ships. There
+are 16 per NUTS level, they have the correct code length, and they are not territorial
+units. Included, they make up the entire lower tail from 22.62 MIO_EUR and inflate the
+EU dynamic range from ~3 to 4.5 orders of magnitude, which is the quantity that decides
+this very comparison. They are excluded; the run that contained them was discarded.
+See `data/FUENTES.md`.
 
 **Also settled:** `mexico_nbody_real.csv` reports R² = 0.8705 and this README 0.8377.
 They are the same quantity on log and raw scales — the mixed-R² reporting defect the
@@ -962,7 +1023,7 @@ finding.
 | RC2 | b is not reproducible from primary series | NOT REFUTED | Domain B (62% of the corpus) **reproduces byte for byte** from the Maddison Project Database 2020 (`data/mpd2020.xlsx`, verified 2026-09-27). Still partial overall: E1/E3 raw series absent. |
 | RC3 | Abrupt triggers produce same b as gradual | **NOT REFUTED — the SNT prediction passed a pre-registered test** (2026-09-27; was UNTESTABLE earlier that day) — see `reconstruction_real/audits/RESULTADOS_PREREGISTRO_2026-09-27.md`: 8/8 decree-driven cities (capital relocations, 1980 SEZs) gained on their incumbent faster than same-country cities with the same initial ratio (one-sided Wilcoxon p = 0.0039; capitals only 4/4, b ratio 5.1×). Caveat: the UN WUP file lists only cities ≥ 300k in 2018 (survivor filter). Earlier status: | The published test (5.9×, U=24,802, n=486) is not reproducible: the active satellization corpus has no trigger variable, the ratio originates in 2 vs 2 cases (v1.0, p = 0.33) and the 57-case v2.0 corpus is not citable. **Not to be confused with RC-ACO-2** (ACO absorption exponent, a different quantity): on ACO, abrupt vs gradual p = 0.10 (n = 18, gradual ≥ abrupt; within-domain exact permutation p = 0.94) — RC-ACO-2 remains undecided with this n. |
 | RC4 | Friction index is not correlated with b | NOT REFUTED (weak) | Direction holds in every variant of the corpus; cluster-level p = 0.25 (n = 6 domains). **Pre-registered test 2026-09-27 with new non-COVID domains: ρ = −0.131, p = 0.39 — not supported**; only the epidemic (friction-free) pole separates. The condition "not correlated" is not met in the corpus, but outside epidemics the evidence does not distinguish the prediction from zero. |
-| RC5 | N-body matrix does not change satellization estimates | NOT REFUTED | Fit replicates, and the composite gradient does change the estimate (9.3×). **Lognormal comparison done 2026-10-02: the power law loses (ΔAIC = 65 on the rank-size curve), so the preferential-attachment reading is withdrawn.** The criterion itself is about the N-body correction changing estimates, which it does. |
+| RC5 | N-body matrix does not change satellization estimates | NOT REFUTED | Fit replicates, and the composite gradient does change the estimate (9.3×). **Lognormal comparison done 2026-10-02: the power law loses (ΔAIC = 65 on the rank-size curve), so the preferential-attachment reading is withdrawn.** **Replicated internationally the same day over six territorial levels (27 to 5,570 units): the lognormal wins five of six, Clauset's test never reaches usable power (42.6% false "survives" at n = 5,570), and the shape turns out to depend on the partition — which strengthens the withdrawal rather than reopening it.** The criterion itself is about the N-body correction changing estimates, which it does. |
 | RC6 | Shadow node reverses satellization without exogenous trigger | NOT REFUTED | Not covered by the audit. |
 | RC7 | ASI does not predict outcomes better than chance | NOT REFUTED | ROC-AUC 0.715 not reproducible from the repo (target absent). |
 | RC8 | Mutual interdependence does not brake satellization | NOT REFUTED | Rests on Domain B, whose discriminant test is inconclusive. Block 2 (2026-09-27): initial trade integration with the hub goes with **lower** b (ρ = −0.185, within-region permutation p = 0.026) — a direction consistent with "interdependence as brake", but it is a correlation on the assigned-hub construct and it contradicts the coupling reading of Domain B. With trade-emergent hubs (2026-09-27) no coupling appears either; the brake stays a hypothesis without support in this domain. |
