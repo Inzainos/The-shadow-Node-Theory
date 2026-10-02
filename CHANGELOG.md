@@ -49,6 +49,42 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 ## [No publicado]
 
 ### Corregido
+- **La trayectoria de formas (potencia → lineal dentro de un caso) no recibe respaldo**
+  (2026-10-02; pre-registro `preregistro/PREREGISTRO_DERIVA_FORMA_2026-10-02.md`,
+  commit `e9a152c`, informe `audits/RESULTADOS_DERIVA_FORMA_2026-10-02.md`). Tres
+  brazos: Dominio B (446 pares, fricción 3, cociente), cripto (571 cocientes
+  moneda/BTC, fricción ≈ 0) y npm (450 paquetes, fricción ≈ 0, nivel).
+  - **La predicción diferencial sale al revés:** Dominio B 10.1% − cripto 55.5% =
+    **−45.4 puntos**, IC 95% [−50.5, −40.3]. La deriva aparente está en fricción cero,
+    no en fricción alta.
+  - **Y ese único resultado positivo es un artefacto de selección.** En cripto,
+    **70.1% de las series tienen su máximo dentro de su primer 10%**, porque un
+    exchange lista una moneda cuando está en auge. Partiendo por posición del pico, la
+    deriva descendente va de **57.5%** (pico temprano) a **0.0%** (pico tardío).
+    Diagnóstico post hoc, etiquetado como tal.
+  - **El resultado negativo del Dominio B es interpretable**, porque tiene el **mejor
+    poder** de los tres (31.7% contra una deriva de 1.5 → 0.5) y la **menor** detección
+    (10.1%, contra 11.9% ascendente: simétrico, es decir nulo).
+  - **El cruce de `b = 1` no ocurre:** 0.0% en el Dominio B, 0.4% en cripto. Cripto no
+    se vuelve lineal, se pasa de largo hasta −2.3.
+  - **Sin firma pre-colapso:** en npm, extinguidos 17.1% contra persistentes 14.7%, y
+    los extinguidos con deriva mediana **+0.187**.
+  - **Consecuencia:** `b` se comporta como constante dentro del caso al poder
+    disponible, así que el régimen superlineal **no** es "un caso atrapado temprano en
+    su trayectoria". El pendiente de RC1 se queda donde estaba.
+
+### Añadido
+- **Hallazgo de instrumento: el momento de listado de un exchange es un sesgo de
+  selección de primer orden** para análisis temporales en cripto. 70.1% de 571 series
+  de Binance empiezan dentro del 10% de su máximo (mediana de la posición del máximo:
+  0.019). Anotado en `data/FUENTES.md` para quien reutilice esos datos. Es la cuarta
+  vez que este proyecto se topa con esta clase de defecto —tras el filtro de ciudades
+  ≥ 300 mil de la WUP, el ROC-AUC filtrado y la precisión tautológica del ASI— y la
+  primera que se detecta **antes** de publicar.
+- **Herramienta reutilizable: nulo simulado por caso para derivas de exponente.** A
+  ρ = 0.94 con `b` verdaderamente constante mantiene 4.7% de falso positivo contra el
+  5% nominal, en el mismo régimen donde el OLS del Dominio B tiene 67.0%.
+  `code/deriva_forma_friccion.py`, con su tabla de poder por brazo.
 - **El valor puntual del Dominio B se cierra como INDECIDIBLE** (2026-10-02;
   pre-registro `preregistro/PREREGISTRO_DOMINIO_B_PUNTUAL_2026-10-02.md`, commit
   `05bc9ee`, informe `audits/RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md`). Era el

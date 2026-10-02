@@ -246,6 +246,33 @@ método elegido.
 
 ---
 
+### Deriva del exponente contra fricción 2026-10-02 (sin descargas)
+
+Entradas, todas ya en disco o versionadas: `data/maddison_mpd2020.csv` (Dominio B),
+`data/binance_cierres_diarios.csv.gz` (cripto, cocientes moneda/BTC) y
+`data/raw_npm/descargas.jsonl.gz` (npm, no versionado).
+
+| Archivo de salida | SHA-256 |
+|---|---|
+| `reconstruction_real/data/deriva_forma_por_caso.csv` | `56eeb28b82605fb4eb106145b1b342cafb12ba9ce433f133eef4ed6d41c9b299` |
+| `reconstruction_real/data/deriva_forma_resumen.csv` | `848be0936875973c9d5c3e38668ef285aece34117310a79a1fb400742b0070ce` |
+
+**Nota de calidad, de primer orden para cualquiera que use datos de Binance en análisis
+temporales.** El momento en que un exchange lista una moneda es un **sesgo de selección
+fuerte**: en los 571 cocientes moneda/BTC analizados, **el 70.1% tiene su máximo dentro
+del primer 10% de la serie** y el 84.9% dentro del primer 25% (mediana de la posición
+del máximo: 0.019). Una serie que empieza en su máximo tiene que bajar, y eso produce
+por sí solo un exponente local cada vez más negativo. Partiendo los casos por posición
+del pico, la deriva descendente pasa de **57.5%** (pico temprano) a **0.0%** (pico
+tardío). Ver `audits/RESULTADOS_DERIVA_FORMA_2026-10-02.md` §3.
+
+Nota de calidad: el brazo de npm mide un **nivel** de descargas, no un cociente, así
+que arrastra el crecimiento del ecosistema completo — la mediana del exponente en las
+ventanas tardías es 1.858, que es npm creciendo, no el paquete. Por eso entró cripto al
+diseño como brazo de cociente.
+
+---
+
 ## 2. Archivos derivados que SÍ están en el repo (checksums)
 
 Checksums SHA-256 al 2026-07-25, **re-verificados el 2026-09-26: los 6 coinciden**.
