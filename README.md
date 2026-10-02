@@ -551,18 +551,50 @@ trajectory), and R(t) is fitted exactly as in Domain B.
 
 Standard binary models (Tlaxcala vs Puebla) underestimate Tlaxcala's satellization
 gradient by 9.3x because 89.2% of extraction flows toward CDMX, not Puebla.
-The N-body correction (32 federal entities, INEGI 2022) reveals a power-law
-distribution of satellization weights (b=-0.473, R2=0.838, p<0.001) consistent
-with preferential attachment predictions. Queretaro (b=-0.155) and Nuevo Leon
+The N-body correction (32 federal entities, INEGI 2022) fits the distribution of
+satellization weights with a power law (b=-0.473, R2=0.838, p<0.001). **The
+preferential-attachment reading of that fit is withdrawn (2026-10-02):** a lognormal
+describes the same rank-size curve far better (see below). Queretaro (b=-0.155) and Nuevo Leon
 (b=-0.058) document the first confirmed leapfrog cases within the national
 system.
 
 **Audit v32:** the fit replicates exactly (b = −0.4732, R²_raw = 0.8377,
-p = 7.5×10⁻¹⁵). Caveat, not an error: a rank-size fit over 32 ordered entities
-yields a high R² almost by construction, so it is not by itself evidence of
-preferential attachment until it is compared against a lognormal alternative
-(Clauset et al. 2009). The committed file is a one-row summary; the rank-size
-series needed to refit from raw data is not in the repo.
+p = 7.5×10⁻¹⁵). The audit flagged, correctly, that a rank-size fit over 32 ordered
+entities yields a high R² almost by construction, so it is not by itself evidence of
+preferential attachment until compared against a lognormal alternative
+(Clauset et al. 2009), and recorded the comparison as blocked because the rank-size
+series was not in the repo.
+
+**Lognormal comparison — done 2026-10-02, and the power law loses.** The series *was*
+in the repo all along (`data/matriz_mexico_32.csv`, 32 `pib_pc` values; the published
+fit regenerates from it exactly). Report:
+[`reconstruction_real/audits/RESULTADOS_LOGNORMAL_2026-10-02.md`](reconstruction_real/audits/RESULTADOS_LOGNORMAL_2026-10-02.md);
+pre-registered at `reconstruction_real/preregistro/PREREGISTRO_LOGNORMAL_2026-10-02.md`.
+
+| Model on the rank-size curve | R² log | R² raw | AIC |
+|---|---:|---:|---:|
+| Power law (`b = −0.4732`) | 0.8705 | 0.8377 | −115.84 |
+| **Lognormal** (μ = 4.778, σ = 0.434) | **0.9830** | **0.9755** | **−180.88** |
+
+ΔAIC = **65.04**, six times the usual "strong evidence" threshold, with the same
+number of parameters on both sides. Clauset's distribution test cannot decide either
+way (goodness-of-fit p = 0.974; Vuong vs lognormal p = 0.75), and a pre-registered
+power check says why that is worthless here: run on 1,000 samples drawn from a
+lognormal, the procedure fails to rule out a power law **964 times out of 1,000**. The
+data span 0.81 orders of magnitude (43.9 to 285.2) with n = 32 — far under what the
+method needs.
+
+**What changes:** the measurement stands, the interpretation does not. `b = −0.473`
+remains a valid, reproducible description of the Mexican state hierarchy, but it is
+**not evidence of preferential attachment**: a lognormal — what an ordinary
+multiplicative process yields, with no rich-get-richer mechanism — fits it better.
+The module's central result is untouched, because it does not depend on the shape of
+the distribution: Tlaxcala's composite gradient (9.3×, 89.2% flowing to CDMX) is a sum
+of pairwise weights, not a power-law fit.
+
+**Also settled:** `mexico_nbody_real.csv` reports R² = 0.8705 and this README 0.8377.
+They are the same quantity on log and raw scales — the mixed-R² reporting defect the
+audit found in the corpus, present here too.
 
 ---
 
@@ -930,7 +962,7 @@ finding.
 | RC2 | b is not reproducible from primary series | NOT REFUTED | Domain B (62% of the corpus) **reproduces byte for byte** from the Maddison Project Database 2020 (`data/mpd2020.xlsx`, verified 2026-09-27). Still partial overall: E1/E3 raw series absent. |
 | RC3 | Abrupt triggers produce same b as gradual | **NOT REFUTED — the SNT prediction passed a pre-registered test** (2026-09-27; was UNTESTABLE earlier that day) — see `reconstruction_real/audits/RESULTADOS_PREREGISTRO_2026-09-27.md`: 8/8 decree-driven cities (capital relocations, 1980 SEZs) gained on their incumbent faster than same-country cities with the same initial ratio (one-sided Wilcoxon p = 0.0039; capitals only 4/4, b ratio 5.1×). Caveat: the UN WUP file lists only cities ≥ 300k in 2018 (survivor filter). Earlier status: | The published test (5.9×, U=24,802, n=486) is not reproducible: the active satellization corpus has no trigger variable, the ratio originates in 2 vs 2 cases (v1.0, p = 0.33) and the 57-case v2.0 corpus is not citable. **Not to be confused with RC-ACO-2** (ACO absorption exponent, a different quantity): on ACO, abrupt vs gradual p = 0.10 (n = 18, gradual ≥ abrupt; within-domain exact permutation p = 0.94) — RC-ACO-2 remains undecided with this n. |
 | RC4 | Friction index is not correlated with b | NOT REFUTED (weak) | Direction holds in every variant of the corpus; cluster-level p = 0.25 (n = 6 domains). **Pre-registered test 2026-09-27 with new non-COVID domains: ρ = −0.131, p = 0.39 — not supported**; only the epidemic (friction-free) pole separates. The condition "not correlated" is not met in the corpus, but outside epidemics the evidence does not distinguish the prediction from zero. |
-| RC5 | N-body matrix does not change satellization estimates | NOT REFUTED | Fit replicates; lognormal comparison pending. |
+| RC5 | N-body matrix does not change satellization estimates | NOT REFUTED | Fit replicates, and the composite gradient does change the estimate (9.3×). **Lognormal comparison done 2026-10-02: the power law loses (ΔAIC = 65 on the rank-size curve), so the preferential-attachment reading is withdrawn.** The criterion itself is about the N-body correction changing estimates, which it does. |
 | RC6 | Shadow node reverses satellization without exogenous trigger | NOT REFUTED | Not covered by the audit. |
 | RC7 | ASI does not predict outcomes better than chance | NOT REFUTED | ROC-AUC 0.715 not reproducible from the repo (target absent). |
 | RC8 | Mutual interdependence does not brake satellization | NOT REFUTED | Rests on Domain B, whose discriminant test is inconclusive. Block 2 (2026-09-27): initial trade integration with the hub goes with **lower** b (ρ = −0.185, within-region permutation p = 0.026) — a direction consistent with "interdependence as brake", but it is a correlation on the assigned-hub construct and it contradicts the coupling reading of Domain B. With trade-emergent hubs (2026-09-27) no coupling appears either; the brake stays a hypothesis without support in this domain. |

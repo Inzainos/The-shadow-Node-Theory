@@ -46,6 +46,40 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 - Campo de fricción `φ` postulado, no medido.
 - El piso sigue siendo factor y no variable, lo que acota la cimática del colapso al eje acelera / no acelera.
 
+## [No publicado]
+
+### Corregido
+- **La lectura de apego preferencial del Módulo de N-cuerpos se retira** (2026-10-02;
+  pre-registro `preregistro/PREREGISTRO_LOGNORMAL_2026-10-02.md`, commit `9718808`,
+  informe `audits/RESULTADOS_LOGNORMAL_2026-10-02.md`). La comparación contra la
+  lognormal que el README declaraba pendiente desde la auditoría v32 ya está hecha, y
+  **la ley de potencia pierde**: sobre la curva rango-tamaño la lognormal da R² crudo
+  0.9755 contra 0.8377, con ΔAIC = 65.04 e igual número de parámetros. La prueba de
+  distribución de Clauset no puede decidir (p = 0.974; Vuong p = 0.75), y una prueba
+  de poder pre-registrada explica por qué: con n = 32 y 0.81 órdenes de magnitud, el
+  procedimiento no descarta la ley de potencia en **964 de 1,000** muestras que son
+  lognormales por construcción. La medición no cambia (b = −0.4732 replica exacto) ni
+  el gradiente compuesto de Tlaxcala (9.3×), que no depende de la forma de la
+  distribución.
+- **El README decía que la serie rango-tamaño no estaba en el repositorio.** Sí
+  estaba: `data/matriz_mexico_32.csv`, con los 32 valores de `pib_pc`, y el ajuste
+  publicado se regenera exacto desde ahí. La comparación llevaba declarada como
+  bloqueada por un dato falso.
+- **Discrepancia de R² del módulo explicada:** el 0.8705 de `mexico_nbody_real.csv` y
+  el 0.8377 del README son la misma cifra en escala logarítmica y en escala cruda, el
+  mismo defecto de reporte que la auditoría v32 documentó para el corpus.
+
+### Añadido
+- **Capa ACO-A en el ecosistema npm** (2026-10-02; pre-registro
+  `preregistro/PREREGISTRO_NPM_2026-10-02.md`, commit `3ff9fca`, informe
+  `audits/RESULTADOS_NPM_2026-10-02.md`). Aplicación independiente, fuera del corpus
+  de 721 casos: cohorte de 450 paquetes muestreados de un marco de 4,446,361.
+  Ortogonalidad b ⊥ Δ **respaldada** (ρ = +0.114, IC [+0.016, +0.209]), con el signo
+  opuesto al de cripto, así que RC9 deja de depender de un solo dominio y un solo
+  ciclo de mercado. Positividad del hazard **no respaldada** (tres bandas de edad sin
+  fines) y forma **decreciente** (ρ = −0.716, p = 0.013 a dos colas): tercer dominio,
+  tercera forma. Modos de colapso **no evaluable** (la regla selecciona 1 caso).
+
 ## [2.6.1] — 2026-09-27
 
 Parche, sin análisis nuevos: cifra corregida de E3, runner de la auditoría con las
