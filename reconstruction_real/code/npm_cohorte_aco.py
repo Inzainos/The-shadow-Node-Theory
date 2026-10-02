@@ -31,6 +31,7 @@ import logging
 import math
 import re
 import sys
+import threading
 import time
 import urllib.error
 import urllib.parse
@@ -51,6 +52,8 @@ LOG_FILE = LOG_DIR / "npm_cohorte_aco_log.txt"
 SEMILLA = 20261002
 N_MUESTRA = 12000
 PAGINA = 10000                          # maximo de filas por peticion a _all_docs
+WORKERS_DESCARGA = 5                    # el servicio devuelve 429 con mas
+ESPERA_429 = 20                         # segundos de espera base ante un 429
 NACIDO_DESDE = date(2015, 7, 1)
 NACIDO_HASTA = date(2024, 10, 2)
 PISO_DESCARGAS = date(2015, 1, 10)     # primer dia con datos del servicio
@@ -276,11 +279,20 @@ def ventanas_18m(desde, hasta):
     return out
 
 
-def descargar_series(nombres, corte):
-    """Series diarias por paquete. Bulk de 128; los scoped van de uno en uno."""
+def descargar_series(candidatos, corte):
+    """Series diarias por paquete.
+
+    Los paquetes planos van en lotes de 128 (limite del servicio); los scoped
+    (@org/x) no admiten lote y van de uno en uno, lo que domina el costo. Para
+    acotarlo, a cada paquete se le piden solo las ventanas que se solapan con
+    su vida (nacimiento..corte), no las ocho del periodo completo.
+
+    Cada tarea terminada se guarda al vuelo: un corte a media descarga no
+    obliga a repetir lo ya pedido.
+    """
     destino = RAW / "descargas.jsonl.gz"
-    series = defaultdict(dict)
     if destino.exists():
+        series = defaultdict(dict)
         with gzip.open(destino, "rt", encoding="utf-8") as fh:
             for linea in fh:
                 r = json.loads(linea)
@@ -288,51 +300,102 @@ def descargar_series(nombres, corte):
         log.info("D. Series en cache: %d paquetes", len(series))
         return series
 
-    ventanas = ventanas_18m(PISO_DESCARGAS, corte)
-    planos = [n for n in nombres if not n.startswith("@")]
-    scoped = [n for n in nombres if n.startswith("@")]
-    log.info("D. %d paquetes (%d planos en bulk, %d scoped individuales) x %d "
-             "ventanas de 18 meses", len(nombres), len(planos), len(scoped),
-             len(ventanas))
+    parcial = RAW / "descargas_parcial.jsonl"
+    hechas = set()
+    series = defaultdict(dict)
+    if parcial.exists():
+        with parcial.open(encoding="utf-8") as fh:
+            for linea in fh:
+                try:
+                    r = json.loads(linea)
+                except json.JSONDecodeError:
+                    continue            # linea truncada por un corte
+                hechas.add(r["tarea"])
+                for nombre, dias in r["datos"].items():
+                    series[nombre].update(dias)
+        log.info("D. Reanudando: %d tareas ya hechas, %d paquetes con datos",
+                 len(hechas), len(series))
 
-    def pedir(args):
-        rango, lote = args
-        url = DESCARGAS + rango + "/" + ",".join(
-            urllib.parse.quote(n, safe="@/") for n in lote)
-        try:
-            crudo = abrir(url, timeout=180)
-            if crudo is None:
-                return {}
-            d = json.loads(crudo)
-        except Exception as e:
-            log.warning("   fallo %s (%d paquetes): %s", rango, len(lote), e)
-            return {}
-        if "downloads" in d and "package" in d:     # respuesta de un solo paquete
-            d = {d["package"]: d}
-        return d
+    ventanas = ventanas_18m(PISO_DESCARGAS, corte)
+    nacimiento = {c["nombre"]: c["nacimiento"] for c in candidatos}
+
+    def vive_en(nombre, ini, fin):
+        """El paquete existia en algun momento de la ventana."""
+        return nacimiento[nombre] <= date.fromisoformat(fin)
+
+    planos = [c["nombre"] for c in candidatos if not c["nombre"].startswith("@")]
+    scoped = [c["nombre"] for c in candidatos if c["nombre"].startswith("@")]
 
     tareas = []
     for ini, fin in ventanas:
         rango = f"{ini}:{fin}"
-        for i in range(0, len(planos), 128):
-            tareas.append((rango, planos[i:i + 128]))
+        vivos = [n for n in planos if vive_en(n, ini, fin)]
+        for i in range(0, len(vivos), 128):
+            tareas.append((f"{rango}#p{i}", rango, vivos[i:i + 128]))
         for n in scoped:
-            tareas.append((rango, [n]))
+            if vive_en(n, ini, fin):
+                tareas.append((f"{rango}#{n}", rango, [n]))
+    pendientes = [t for t in tareas if t[0] not in hechas]
+    log.info("D. %d paquetes (%d planos, %d scoped) | %d tareas, %d pendientes",
+             len(candidatos), len(planos), len(scoped), len(tareas),
+             len(pendientes))
 
-    with ThreadPoolExecutor(max_workers=12) as ex:
-        for i, res in enumerate(ex.map(pedir, tareas), 1):
-            for nombre, d in (res or {}).items():
-                if not d or not d.get("downloads"):
-                    continue
-                for punto in d["downloads"]:
-                    if punto["downloads"]:
-                        series[nombre][punto["day"]] = punto["downloads"]
-            if i % 200 == 0:
-                log.info("   %d / %d peticiones", i, len(tareas))
+    freno = threading.Semaphore(WORKERS_DESCARGA)
+
+    def pedir(tarea):
+        clave, rango, lote = tarea
+        url = DESCARGAS + rango + "/" + ",".join(
+            urllib.parse.quote(n, safe="@/") for n in lote)
+        with freno:
+            for intento in range(6):
+                try:
+                    req = urllib.request.Request(url)
+                    with urllib.request.urlopen(req, timeout=180) as r:
+                        d = json.loads(r.read())
+                    break
+                except urllib.error.HTTPError as e:
+                    if e.code in (400, 404):
+                        return clave, {}
+                    if e.code == 429:               # limite de peticiones
+                        time.sleep(ESPERA_429 * (intento + 1))
+                        continue
+                    if intento == 5:
+                        log.warning("   %s: HTTP %s", clave, e.code)
+                        return clave, {}
+                    time.sleep(2 ** intento)
+                except Exception as e:
+                    if intento == 5:
+                        log.warning("   %s: %s", clave, type(e).__name__)
+                        return clave, {}
+                    time.sleep(2 ** intento)
+            else:
+                log.warning("   %s: agotados los reintentos (429)", clave)
+                return clave, {}
+        if "downloads" in d and "package" in d:   # respuesta de un solo paquete
+            d = {d["package"]: d}
+        salida = {}
+        for nombre, dd in d.items():
+            if isinstance(dd, dict) and dd.get("downloads"):
+                salida[nombre] = {p["day"]: p["downloads"]
+                                  for p in dd["downloads"] if p["downloads"]}
+        return clave, salida
+
+    if pendientes:
+        with parcial.open("a", encoding="utf-8") as fh, \
+                ThreadPoolExecutor(max_workers=WORKERS_DESCARGA) as ex:
+            for i, (clave, datos) in enumerate(ex.map(pedir, pendientes), 1):
+                fh.write(json.dumps({"tarea": clave, "datos": datos}) + "\n")
+                for nombre, dias in datos.items():
+                    series[nombre].update(dias)
+                if i % 250 == 0:
+                    fh.flush()
+                    log.info("   %d / %d peticiones | %d paquetes con datos",
+                             i, len(pendientes), len(series))
 
     with gzip.open(destino, "wt", encoding="utf-8") as fh:
         for nombre, dias in series.items():
             fh.write(json.dumps({"nombre": nombre, "dias": dias}) + "\n")
+    parcial.unlink(missing_ok=True)
     log.info("D. Series descargadas: %d paquetes con al menos un dia > 0",
              len(series))
     return series
@@ -606,7 +669,7 @@ def main():
     nombres = muestrear_nombres()
     metas = metadatos(nombres)
     candidatos, _ = filtrar_fechas(metas)
-    series = descargar_series([c["nombre"] for c in candidatos], corte)
+    series = descargar_series(candidatos, corte)
     filas, _ = construir(candidatos, series, corte)
     if not filas:
         log.error("Cohorte vacia: no se escribe salida.")
