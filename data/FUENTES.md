@@ -149,6 +149,29 @@ presente.
 | Binance, archivo público de velas diarias spot (<https://data.binance.vision>), todos los pares contra USDT salvo estables/fiat y apalancados | por par en `data/raw_binance/klines_1d/` | `data/binance_cierres_diarios.csv.gz` — `fcb2ad7e34f7b5d0ad3ee4a685f952f3e9391bc9d85212b2eb110428d375915e` (663 pares, 2017-08-17..2026-08-31) | Punto 5 (ortogonalidad y hazard cripto) |
 | FDIC BankFind API — instituciones (índice `institutions_20260925090006`) y quiebras (índice `failures_1787667198788`), <https://api.fdic.gov/banks> | institutions `8d410c2583a59d7b4540046f77f28dd6fa6761beb816ec94a7531d4fb4c0003e`; failures `65e727fff36cc9bf86a772e7cec4dd8d0b8368f2990b945742e40f0ddc90161c` | `data/fdic_instituciones_2026-09-25.csv.gz`, `data/fdic_quiebras_2026-08-25.csv.gz` | Punto 5 (hazard bancos) |
 
+
+### Pre-registro npm 2026-10-02 (capa ACO-A en software libre)
+
+Aplicación independiente, fuera del corpus de 721 casos. Consultadas el 2026-10-02.
+
+| Fuente | Uso |
+|---|---|
+| `https://replicate.npmjs.com/_all_docs` | Marco de muestreo (4,446,361 paquetes). Paginado con `startkey`, máximo 10,000 filas por petición |
+| `https://registry.npmjs.org/{paquete}` | Nacimiento (`time.created`), versiones, `deprecated`, repositorio |
+| `https://api.npmjs.org/downloads/range/{inicio}:{fin}/{paquetes}` | Series diarias. Máximo **128 paquetes** por petición y **365 días** en consulta por lote (18 meses si es un solo paquete) |
+| `https://api.osv.dev/v1/query` | Avisos de vulnerabilidad con fecha y severidad |
+
+Los crudos quedan en `data/raw_npm/` (no versionado). Salidas versionadas:
+
+| Archivo | SHA-256 |
+|---|---|
+| `reconstruction_real/data/npm_cohorte_aco.csv.gz` (450 paquetes) | `c4bfbf0513954911ad1c6d5e445ec01ff8d6bab47453d90bfc89428672a1c58b` |
+| `reconstruction_real/data/npm_hazard_bandas.csv` | `981a0781668a9b9daf68f21e2783e572ffb652dde954e762f97f74f8fa5fe203` |
+
+Nota de calidad: el muestreo aleatorio del registro completo está dominado por la cola
+larga, así que la codificación de fricción a priori resultó degenerada (0 paquetes de
+fundación, 3 corporativos) y no es aprovechable en esta cohorte.
+
 Notas de calidad: WUP incluye solo aglomeraciones con ≥ 300 mil habitantes en
 2018 (filtro de supervivencia); la base de la FDIC no registra cierres antes de
 1970; 41 instituciones tienen fecha de fundación de relleno (01/01/1800).
