@@ -273,6 +273,36 @@ diseño como brazo de cociente.
 
 ---
 
+### RC1, régimen superlineal 2026-10-02 (sin descargas)
+
+Entradas, todas versionadas: `data/owid_covid_casos_totales.csv.gz` (E3, receta
+verificada: acumulados, inicio en el primer día con ≥ 100 casos, 60 días),
+`data/maddison_mpd2020.csv` (B) y
+`reconstruction_real/data/snt_corpus_aco_timeseries_v29.csv` (ACO, control).
+
+| Archivo de salida | SHA-256 |
+|---|---|
+| `reconstruction_real/data/rc1_por_caso.csv` | `066f5fdd9f55018ab553590754ef293a0a110281ebc1e718d543143525e86e82` |
+| `reconstruction_real/data/rc1_calibracion.csv` | `29fa46af16fa0777dca5064255df22dc6d16108dddb0f893b65e427b096b97a5` |
+| `reconstruction_real/data/rc1_resumen.csv` | `a853282f43b7bed971219ca3174bbf6bcb50d8f8fa287dc6279c469c8ad488f7` |
+
+**Nota de calidad, de primer orden para cualquiera que use `comparar_modelos` o
+cualquier AIC sobre residuos crudos.** El criterio supone independencia, y en estos
+dominios los residuos están muy autocorrelados. Calibrado contra series simuladas desde
+una **ley de potencia conocida**, el AIC elige otro modelo en el **80.3%** de las
+réplicas en E3, el **96.8%** en B y el **48.9%** en el ACO, dentro de la banda `b ≥ 1`
+— y el error **crece con `b`**. Las columnas `ganador` y `delta_aic_potencia` de
+`rc1_por_caso.csv` **no deben usarse para contar formas** sin leer antes
+`rc1_calibracion.csv`.
+
+**Segunda nota, independiente del AIC.** Una exponencial verdadera ajustada como ley de
+potencia produce `b ≥ 1` en el **99.9%** de las réplicas en la banda alta de E3 y en el
+**100%** del ACO, contra **0.0%** donde la `b` real es menor que 0.5. Cualquier umbral
+sobre la `b` estimada bajo ley de potencia hereda eso. Ver
+`audits/RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md` §2.
+
+---
+
 ## 2. Archivos derivados que SÍ están en el repo (checksums)
 
 Checksums SHA-256 al 2026-07-25, **re-verificados el 2026-09-26: los 6 coinciden**.

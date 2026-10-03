@@ -367,13 +367,36 @@ pytest reconstruction_real/tests                                 # fixes 156 / 2
    rejects 12.2% (and 25.2% at lag n/4) against a nominal 5%. The HAC estimator is
    miscalibrated at these sample sizes; ρ ≈ 0.94 worsens it but does not cause it.
 
-2. **The superlinear regime b ≥ 1 may be model misspecification.** RC1 had no
-   script behind it; tested by AIC on the 18 raw ACO series: power law wins
-   13/18, exponential 4/18, linear 1/18. The 4 exponential winners have mean
-   **b = +1.54**: the higher b, the worse the power law fits. The 14.1% of the
-   corpus (102/721) labelled superlinear therefore needs re-testing; since
-   2026-09-27 the raw E3 series (94 of those 102 cases are E1 + E3) are in the
-   repo, so the test is now feasible for E3 (still pending).
+2. ~~**The superlinear regime b ≥ 1 may be model misspecification.**~~ — **tested
+   2026-10-02 over three domains, and the answer is sharper than the question**
+   (pre-registration `preregistro/PREREGISTRO_RC1_SUPERLINEAL_2026-10-02.md`, report
+   [`RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md`](reconstruction_real/audits/RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md)).
+
+   **RC1 is not decidable by AIC here.** The comparison runs on raw-scale residuals
+   assuming independence while these residuals are badly autocorrelated, so a
+   pre-registered gate simulated from a *known* power law with each case's own σ and
+   AR(1) ρ: anything the AIC then picks other than the power law is an error by
+   construction. In the `b ≥ 1` band that error is **80.3% in E3, 96.8% in Domain B and
+   48.9% in the ACO set** — all three fail the 20% admission threshold, and the error
+   **grows with b** (E3: 14.1% → 88.6%). So audit v32's finding that the power law fits
+   worse as b grows (ρ = −0.796 over 18 series) is **what this estimator produces even
+   when every case is a pure power law**. It was a property of the procedure, not of
+   the systems.
+
+   **But the label itself does fall, on evidence that does not use the AIC at all.** A
+   truly exponential curve fitted as a power law yields a large apparent b — so
+   "superlinear" risked being a rename of "the power law does not fit here". Simulating
+   from each case's own fitted exponential, the apparent b lands at **b ≥ 1 in 99.9% of
+   replicates in E3's high band and 100% in the ACO's**, against **0.0% where the real b
+   is below 0.5**. The `b > 1` band of `snt_utils.py` ("Satelización rápida sin fricción
+   / Roche Radius") therefore has **no support as a physical regime**: that threshold
+   does not separate fast satellization from a misfit. The 14.1% (102/721) is not a
+   count of a regime.
+
+   Per the per-domain rule (Axioma 0.1), each domain was tested with its own series and
+   its own calibration and the results are never pooled — and they do not agree: ρ runs
+   −0.796 in ACO, −0.250 in E3 and **+0.039, n.s., in Domain B**. E1's 4 superlinear
+   cases, F2's 1 and F3's 1 have no raw series and are reported as untestable.
 3. **Central finding: direction holds, p does not** — double inflation
    (autocorrelation + 714 non-independent cases). See
    [Central Finding](#central-finding).
@@ -1063,7 +1086,7 @@ finding.
 
 | RC | Refutation Condition | v30 Status | Audit v32 note (re-verified 2026-09-26) |
 |----|---------------------|------------|----------------------------------------|
-| RC1 | Power law fits no better than linear/exponential across all domains | NOT REFUTED | First actual test (AIC, 18 raw ACO series): power 13/18, exponential 4/18, linear 1/18. Holds in majority; exponential winners concentrate at b ≥ 1. Other domains untested (raw series absent). |
+| RC1 | Power law fits no better than linear/exponential across all domains | **NOT DECIDABLE BY AIC** (2026-10-02) | Tested per domain over E3 (234 cases, 90 superlinear), Domain B (446) and the ACO set (18, reproducing 13/4/1 exactly). A pre-registered gate simulating from a **known** power law shows the AIC misselects in **80.3% / 96.8% / 48.9%** of replicates in the `b ≥ 1` band, with the error **growing with b** — so the earlier "power law fits worse as b grows" was the estimator, not the systems. Separately, and without using the AIC: a true exponential fitted as a power law yields `b ≥ 1` in **99.9%** of replicates in E3's high band, so the `b > 1` "Roche Radius" band has **no support as a physical regime**. Report: [`RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md`](reconstruction_real/audits/RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md) |
 | RC2 | b is not reproducible from primary series | NOT REFUTED | Domain B (62% of the corpus) **reproduces byte for byte** from the Maddison Project Database 2020 (`data/mpd2020.xlsx`, verified 2026-09-27). Still partial overall: E1/E3 raw series absent. |
 | RC3 | Abrupt triggers produce same b as gradual | **NOT REFUTED — the SNT prediction passed a pre-registered test** (2026-09-27; was UNTESTABLE earlier that day) — see `reconstruction_real/audits/RESULTADOS_PREREGISTRO_2026-09-27.md`: 8/8 decree-driven cities (capital relocations, 1980 SEZs) gained on their incumbent faster than same-country cities with the same initial ratio (one-sided Wilcoxon p = 0.0039; capitals only 4/4, b ratio 5.1×). Caveat: the UN WUP file lists only cities ≥ 300k in 2018 (survivor filter). Earlier status: | The published test (5.9×, U=24,802, n=486) is not reproducible: the active satellization corpus has no trigger variable, the ratio originates in 2 vs 2 cases (v1.0, p = 0.33) and the 57-case v2.0 corpus is not citable. **Not to be confused with RC-ACO-2** (ACO absorption exponent, a different quantity): on ACO, abrupt vs gradual p = 0.10 (n = 18, gradual ≥ abrupt; within-domain exact permutation p = 0.94) — RC-ACO-2 remains undecided with this n. |
 | RC4 | Friction index is not correlated with b | NOT REFUTED (weak) | Direction holds in every variant of the corpus; cluster-level p = 0.25 (n = 6 domains). **Pre-registered test 2026-09-27 with new non-COVID domains: ρ = −0.131, p = 0.39 — not supported**; only the epidemic (friction-free) pole separates. The condition "not correlated" is not met in the corpus, but outside epidemics the evidence does not distinguish the prediction from zero. |

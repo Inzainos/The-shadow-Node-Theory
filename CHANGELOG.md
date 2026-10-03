@@ -49,6 +49,44 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 ## [No publicado]
 
 ### Corregido
+- **El régimen superlineal `b ≥ 1` queda sin respaldo como régimen físico, y RC1 queda
+  cerrado como no decidible por AIC** (2026-10-02; pre-registro
+  `preregistro/PREREGISTRO_RC1_SUPERLINEAL_2026-10-02.md`, commit `1a2ac0e`, informe
+  `audits/RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md`). Tres dominios con serie cruda,
+  cada uno con su proxy y su calibración, sin agrupar ni ordenar (Axioma 0.1): E3 (234
+  casos, 90 superlineales), B (446, 6) y las 18 series del ACO como control.
+  - **Compuerta pre-registrada: los tres dominios resultan NO INTERPRETABLES.**
+    Simulando desde una ley de potencia **conocida** con la σ y la ρ AR(1) de cada
+    caso, el AIC elige otro modelo en el **80.3%** de las réplicas en E3, **96.8%** en B
+    y **48.9%** en el ACO, dentro de la banda `b ≥ 1`. El umbral de admisión era 20%.
+  - **Y el error crece con `b`** (E3: 14.1% → 57.0% → 88.6%). Eso activa el desenlace
+    que el pre-registro declaró como el más informativo: **el hallazgo de la auditoría
+    v32 —"a mayor `b`, peor ajusta la ley de potencia", ρ = −0.796 sobre 18 series—
+    queda explicado como artefacto del estimador.** Es lo que el AIC produce aunque
+    todos los casos sean leyes de potencia puras.
+  - **La etiqueta sí se cae, por una prueba que no usa el AIC.** Una exponencial
+    verdadera ajustada como ley de potencia produce `b ≥ 1` en el **99.9%** de las
+    réplicas en la banda alta de E3 y en el **100%** del ACO, contra **0.0%** donde la
+    `b` real es menor que 0.5. La banda `b > 1` de `snt_utils.py` —*"Satelización
+    rápida sin fricción / Roche Radius"*— **no separa un régimen de un desajuste**, y
+    el 14.1% (102 de 721) no es un conteo de régimen.
+  - **El ρ no replica entre dominios:** −0.796 en el ACO, −0.250 en E3 y **+0.039 sin
+    significancia en B**. Tres dominios, tres valores, uno con el signo contrario — la
+    regla por dominio afirmándose sola.
+  - Reproducción verificada antes de probar nada: E3 **233/234** (±0.01), B
+    **446/446** (±1e-4), ACO **13/4/1 exacto**. E1 (4 casos, los 4 superlineales), F2
+    (1) y F3 (1) no tienen serie cruda y se reportan como no testeables, sin imputar.
+  - **Sexta vez el mismo patrón** —tras el 5.9×, el ROC-AUC filtrado, la precisión del
+    ASI, el apego preferencial de N-cuerpos y la inferencia del Dominio B—: la
+    aritmética estaba bien, la interpretación no.
+- **Corregido el signo de una cifra de la auditoría v32.** La prosa de
+  `audits/AUDITORIA_INTEGRAL_v32.md` tecleaba `rho = +0.657` donde corresponde negativo.
+  El runner (`code/snt_auditoria_integral_v32.py:209`) siempre registró `−0.657`, su CSV
+  de salida marca la fila `REPLICA_SIGNO`, y la tabla y la conclusión de esa sección
+  siempre apuntaron en dirección negativa. Recomputado sobre las mismas 18 series:
+  **ρ = −0.796, p = 0.0001**, idéntico al runner. Las otras cinco cifras del bloque
+  reproducen exactas. Detectado al leer los resultados previos del eje **antes** de
+  pre-registrar RC1.
 - **La trayectoria de formas (potencia → lineal dentro de un caso) no recibe respaldo**
   (2026-10-02; pre-registro `preregistro/PREREGISTRO_DERIVA_FORMA_2026-10-02.md`,
   commit `e9a152c`, informe `audits/RESULTADOS_DERIVA_FORMA_2026-10-02.md`). Tres
