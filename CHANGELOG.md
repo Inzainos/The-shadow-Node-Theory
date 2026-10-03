@@ -164,15 +164,18 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   ρ = 0.94 con `b` verdaderamente constante mantiene 4.7% de falso positivo contra el
   5% nominal, en el mismo régimen donde el OLS del Dominio B tiene 59.5%.
   `code/deriva_forma_friccion.py`, con su tabla de poder por brazo.
-- **El `ρ = −0.657` publicado de la auditoría v32 se conserva junto al recomputado, no
-  se reemplaza.** La revisión del PR #54 propuso sustituir la cifra del bloque de
-  resultados por el **−0.796** recomputado. No se hace: la publicada es el registro de
-  lo que se publicó y lo que otros documentos citan, y borrarla deja esas citas sin
-  referente y oculta que hubo un recómputo. Las dos quedan en el bloque, **las dos
-  etiquetadas** (`(publicado v32)` y `(recomputado 2026-10-02)`), con la nota que ya
-  explicaba la diferencia al dígito justo debajo. Lo que sí se corrigió el 2026-10-02
-  —y sigue corregido— fue el **signo** de la prosa, que decía `+0.657` cuando el runner
-  siempre registró `−0.657`.
+- **El bloque de resultados de la auditoría v32 pasa a mostrar el `ρ = −0.796, p =
+  0.0001` recomputado**, reemplazando el `−0.657, p = 0.0031` publicado (decisión del
+  autor, 2026-10-03, a petición de la revisión del PR #54). El motivo del cambio es el
+  que la revisión dio: el bloque contradecía a la nota que lo sigue, y un lector se
+  topaba con una cifra desnuda refutada cuatro líneas después. **La cifra publicada no
+  se pierde**, y queda en los dos lugares que le corresponden: la nota fechada debajo
+  del bloque, y la **columna de valor esperado del runner**
+  (`code/snt_auditoria_integral_v32.py:209`), donde la auditoría la compara contra el
+  recómputo y marca la fila `REPLICA_SIGNO`. Ese valor esperado **no se toca**: poner
+  ahí el −0.796 haría que la auditoría se comparara contra sí misma y dejara de señalar
+  la discrepancia. Lo que se corrigió el 2026-10-02 —y sigue corregido— fue el **signo**
+  de la prosa, que decía `+0.657` cuando el runner siempre registró `−0.657`.
 - **Y de paso, una afirmación de esa misma sección que RC1 dejó obsoleta.** El informe
   v32 cerraba con *"A mayor b, peor ajusta la ley de potencia"*. RC1 (2026-10-02)
   partió ese enunciado en dos y la sección ahora lo dice: (1) **queda retirado como

@@ -108,19 +108,25 @@ RC1 aguanta en mayoría. Pero al cruzar con b apareció esto:
 | lineal | 1 | +0.453 | — |
 
 ```
-Spearman b vs ΔAIC_potencia:  rho = -0.657   p = 0.0031   (publicado v32)
-                              rho = -0.796   p = 0.0001   (recomputado 2026-10-02)
+Spearman b vs ΔAIC_potencia:  rho = -0.796   p = 0.0001
 b>=1 x gana ley de potencia:  Fisher OR = 0.056   p = 0.0441
                               (3 de 4 casos superlineales son exponenciales)
 ```
 
-El bloque de arriba conserva **la cifra publicada** y la recomputada **juntas, las dos
-etiquetadas**, en vez de reemplazar una por la otra. La publicada es el registro de lo
-que se publicó y se cita en otros documentos; borrarla deja esas citas sin referente y
-oculta que hubo un recómputo. La nota siguiente explica la diferencia al dígito.
+**La cifra de arriba es la recomputada el 2026-10-02 sobre las mismas 18 series**, y es
+la que debe citarse. El bloque decía `rho = -0.657, p = 0.0031`, que era la cifra
+publicada en la v32; se reemplaza a petición de la revisión del PR #54 y por decisión
+del autor, para que el bloque de resultados no contradiga a la nota que lo sigue. **La
+cifra publicada no se pierde**, y queda en los dos lugares que le corresponden: en la
+nota de abajo, con su fecha y la explicación de la diferencia, y en la **columna de
+valor esperado del runner** (`code/snt_auditoria_integral_v32.py:209`), que es donde la
+auditoría la compara contra el recómputo y marca la fila `REPLICA_SIGNO`. Ese valor
+esperado **no se cambia**: si se pusiera ahí el −0.796, la auditoría se compararía
+contra sí misma y dejaría de señalar la discrepancia.
 
-**Corrección de signo (2026-10-02).** La línea de arriba decía `rho = +0.657`. Es un
-error de tecleo en la prosa de este informe, no en el resultado: el runner
+**Corrección de signo (2026-10-02) y reemplazo de la cifra (2026-10-03).** La línea de
+arriba decía `rho = +0.657`. Es un error de tecleo en la prosa de este informe, no en el
+resultado: el runner
 (`code/snt_auditoria_integral_v32.py:209`) siempre registró el valor publicado como
 **−0.657**, el CSV de salida lo marca `REPLICA_SIGNO`, y la tabla y la conclusión de
 esta misma sección siempre apuntaron en la dirección negativa. Recomputado hoy sobre
