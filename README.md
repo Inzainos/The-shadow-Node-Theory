@@ -158,8 +158,15 @@ relative standing against a dominant core.
 b < 0    --> convergence (node gains ground)
 b ~ 0    --> dynamic equilibrium
 0 < b < 1 --> sublinear satellization (gradual)
-b >= 1    --> superlinear satellization -- Roche Radius
+b >= 1    --> exponent reported, regime NOT classified (RC1, 2026-10-02)
 ```
+
+The `b >= 1` band carried the label "superlinear satellization -- Roche Radius"
+until 2026-10-02. It was withdrawn: a truly exponential curve fitted as a power
+law yields `b >= 1` in 99.9% of replicates in E3's high band and 100% in the ACO
+set, against 0.0% where the real `b` is below 0.5, so the threshold does not
+separate fast satellization from a shape misfit. See RC1 in the falsifiability
+table below. The bands under 1 are unaffected.
 
 ---
 
@@ -353,15 +360,64 @@ pytest reconstruction_real/tests                                 # fixes 156 / 2
    | **Not estimable** (`n_eff < 3`) — not "non-significant" | **290 / 446 (65.0%)** |
    | Significant among estimable — lower bound (inflated SE + df) | **33 (21.2%)** |
    | Significant among estimable — upper bound (df only) | 112 (71.8%) |
-   | Point value | still open: standard Newey-West (lag 4, computed 2026-09-27 on the Maddison series) gives 120/156, **above** the upper bound — it under-corrects at ρ ≈ 0.94; needs GLS or a block bootstrap |
+   | Point value | **closed 2026-10-02 (corrected 2026-10-03) at 33 of 156 estimable (21.2%).** Twelve corrections were scored on their *measured* false-positive rate against 2,000 synthetic cases built with b = 0 and each real case's own (n, ρ, σ). **One** reaches the pre-registered [2.5%, 7.5%] band: the lower-bound AR(1) correction, at **7.1%** (Wilson 95% CI [5.5%, 9.2%]). The rest fall outside — Prais-Winsten GLS 11.3%, block bootstrap 15.6%, Newey-West 40.8%, up to **59.5% for the naive OLS the corpus was built with**. The admissible method's power is 84.1% at b = −0.30 and 95.6% at b = −0.60: the least powerful of the twelve, but not blind. On the real data the count ranges from **33 to 134 of 156** depending on method, which is why calibration rather than authority had to decide. See [`RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md`](reconstruction_real/audits/RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md) |
 
-2. **The superlinear regime b ≥ 1 may be model misspecification.** RC1 had no
-   script behind it; tested by AIC on the 18 raw ACO series: power law wins
-   13/18, exponential 4/18, linear 1/18. The 4 exponential winners have mean
-   **b = +1.54**: the higher b, the worse the power law fits. The 14.1% of the
-   corpus (102/721) labelled superlinear therefore needs re-testing; since
-   2026-09-27 the raw E3 series (94 of those 102 cases are E1 + E3) are in the
-   repo, so the test is now feasible for E3 (still pending).
+   Three reserves travel with the number, stated in §6.1 of the report rather than
+   afterwards. **The admission is marginal**: 7.1% sits 0.4 points below the band's
+   ceiling and its Wilson interval crosses it. **The bounds check is tautological for
+   this method**: `ar1_inf` *is* the estimator that produced the published lower bound,
+   so "falls within [33, 112]" is satisfied at the exact edge and by construction, not
+   independently. And because it is **the least powerful of the twelve** (one real
+   moderate effect in six escapes it), the figure reads **"at least 33 of 156"**, not
+   "exactly 33".
+
+   What does stand plainly: **the published 374/446 is quantified rather than merely
+   suspected** — the OLS procedure behind it rejects the null 59.5% of the time when
+   there is nothing to reject. Domain B keeps inferential capacity, **cut by a factor
+   of 11** against what was published. Its exponents stand as descriptions either way.
+
+   The first run of this block concluded the opposite — no admissible method, point
+   value undecidable — because the simulation classified its estimability stratum by
+   the **simulated realization** instead of by the **source real case**: with b = 0, ρ
+   is underestimated in short series, `n_eff` inflates, and 86.9% of simulations landed
+   in a stratum that is 35.0% of the real data, contaminated with high-ρ cases. Every
+   rate came out too pessimistic. The defect was caught in automated review of PR #54;
+   the report carries both tables of numbers and declares the double run.
+
+   Newey-West's diagnosis also changed: on **white noise** at n = 69 it already
+   rejects 12.2% (and 25.2% at lag n/4) against a nominal 5%. The HAC estimator is
+   miscalibrated at these sample sizes; ρ ≈ 0.94 worsens it but does not cause it.
+
+2. ~~**The superlinear regime b ≥ 1 may be model misspecification.**~~ — **tested
+   2026-10-02 over three domains, and the answer is sharper than the question**
+   (pre-registration `preregistro/PREREGISTRO_RC1_SUPERLINEAL_2026-10-02.md`, report
+   [`RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md`](reconstruction_real/audits/RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md)).
+
+   **RC1 is not decidable by AIC here.** The comparison runs on raw-scale residuals
+   assuming independence while these residuals are badly autocorrelated, so a
+   pre-registered gate simulated from a *known* power law with each case's own σ and
+   AR(1) ρ: anything the AIC then picks other than the power law is an error by
+   construction. In the `b ≥ 1` band that error is **80.3% in E3, 96.8% in Domain B and
+   48.9% in the ACO set** — all three fail the 20% admission threshold, and the error
+   **grows with b** (E3: 14.1% → 88.6%). So audit v32's finding that the power law fits
+   worse as b grows (ρ = −0.796 over 18 series) is **what this estimator produces even
+   when every case is a pure power law**. It was a property of the procedure, not of
+   the systems.
+
+   **But the label itself does fall, on evidence that does not use the AIC at all.** A
+   truly exponential curve fitted as a power law yields a large apparent b — so
+   "superlinear" risked being a rename of "the power law does not fit here". Simulating
+   from each case's own fitted exponential, the apparent b lands at **b ≥ 1 in 99.9% of
+   replicates in E3's high band and 100% in the ACO's**, against **0.0% where the real b
+   is below 0.5**. The `b > 1` band of `snt_utils.py` ("Satelización rápida sin fricción
+   / Roche Radius") therefore has **no support as a physical regime**: that threshold
+   does not separate fast satellization from a misfit. The 14.1% (102/721) is not a
+   count of a regime.
+
+   Per the per-domain rule (Axioma 0.1), each domain was tested with its own series and
+   its own calibration and the results are never pooled — and they do not agree: ρ runs
+   −0.796 in ACO, −0.250 in E3 and **+0.039, n.s., in Domain B**. E1's 4 superlinear
+   cases, F2's 1 and F3's 1 have no raw series and are reported as untestable.
 3. **Central finding: direction holds, p does not** — double inflation
    (autocorrelation + 714 non-independent cases). See
    [Central Finding](#central-finding).
@@ -483,8 +539,10 @@ trajectory), and R(t) is fitted exactly as in Domain B.
 
 1. ~~AR(1)-correct E3~~ — done 2026-09-27 from the raw OWID series (pre-registration,
    point 3): conservative AR(1) bound, 176 of 198 estimable cases significant. The
-   other domains still need their raw series; Domain B's point value needs GLS or a
-   block bootstrap (standard Newey-West under-corrects).
+   other domains still need their raw series. ~~Domain B's point value~~ — **closed
+   2026-10-02 as undecidable**: GLS and the block bootstrap were both run, and neither
+   reaches nominal size at ρ ≈ 0.94 (17.1% and 24.1% false positives), so no point
+   value is declared and 33 stands as the conservative figure.
 2. ~~Update the SSRN v30 EN preprint~~ — revised manuscript **r31** prepared
    2026-09-27 (`papers/snt_ssrn_v31_EN.md` / `.pdf` / `.docx`; v30 kept
    unchanged as the submitted record). It withdraws the 5.9× claim, corrects the
@@ -551,8 +609,8 @@ blindness, all outcomes reported, mandatory log, SHA-256 provenance in
 |---|---|---|
 | **ACO-A layer in the npm ecosystem** (4,446,361-package frame → 450-package cohort) | Completed 2026-10-02 | Orthogonality b ⊥ Δ **supported** (ρ = +0.114, CI [+0.016, +0.209]), so RC9 no longer rests on crypto alone. Hazard positivity **not supported**, and the hazard is significantly **decreasing** (ρ = −0.716, p = 0.013) |
 | **International rank-size replication** (6 territorial levels, 27 to 5,570 units) | Completed 2026-10-02 | The lognormal wins 5 of 6 levels and 4 of 4 per-capita; Clauset's goodness-of-fit test **never reaches usable power** (42.6% false "survives" at n = 5,570); the shape depends on the partition, not on n |
-| Economic satellization of the Mexican ZEE | Blocked | Mexican open-data CDNs return an **origin-side** block (Akamai); international APIs work fine. Unblocks if the file is supplied |
-| Municipal N-body matrix | Blocked | Same block |
+| Economic satellization of the Mexican ZEE | **Deferred by the author** | The origin-side Akamai block measured on the morning of 2026-10-02 was **gone by that afternoon** — INEGI's server now answers directly (`Microsoft-IIS/10.0`, 0.76 s); `datos.gob.mx`'s CKAN API still returns 403. What is missing is not the network but real INEGI directory paths. Note for anyone scripting it: **INEGI returns HTTP 200 with a "Página no encontrada" page** for any nonexistent route, so check the content type, not the status code |
+| Municipal N-body matrix | **Deferred by the author** | Same situation |
 
 What the use cases have done to the theory: three of six checked claims came out
 **negative** (hazard shape, hazard positivity, invariance of the distribution's shape),
@@ -1049,7 +1107,7 @@ finding.
 
 | RC | Refutation Condition | v30 Status | Audit v32 note (re-verified 2026-09-26) |
 |----|---------------------|------------|----------------------------------------|
-| RC1 | Power law fits no better than linear/exponential across all domains | NOT REFUTED | First actual test (AIC, 18 raw ACO series): power 13/18, exponential 4/18, linear 1/18. Holds in majority; exponential winners concentrate at b ≥ 1. Other domains untested (raw series absent). |
+| RC1 | Power law fits no better than linear/exponential across all domains | **NOT DECIDABLE BY AIC** (2026-10-02) | Tested per domain over E3 (234 cases, 90 superlinear), Domain B (446) and the ACO set (18, reproducing 13/4/1 exactly). A pre-registered gate simulating from a **known** power law shows the AIC misselects in **80.3% / 96.8% / 48.9%** of replicates in the `b ≥ 1` band, with the error **growing with b** — so the earlier "power law fits worse as b grows" was the estimator, not the systems. Separately, and without using the AIC: a true exponential fitted as a power law yields `b ≥ 1` in **99.9%** of replicates in E3's high band, so the `b > 1` "Roche Radius" band has **no support as a physical regime**. Report: [`RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md`](reconstruction_real/audits/RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md) |
 | RC2 | b is not reproducible from primary series | NOT REFUTED | Domain B (62% of the corpus) **reproduces byte for byte** from the Maddison Project Database 2020 (`data/mpd2020.xlsx`, verified 2026-09-27). Still partial overall: E1/E3 raw series absent. |
 | RC3 | Abrupt triggers produce same b as gradual | **NOT REFUTED — the SNT prediction passed a pre-registered test** (2026-09-27; was UNTESTABLE earlier that day) — see `reconstruction_real/audits/RESULTADOS_PREREGISTRO_2026-09-27.md`: 8/8 decree-driven cities (capital relocations, 1980 SEZs) gained on their incumbent faster than same-country cities with the same initial ratio (one-sided Wilcoxon p = 0.0039; capitals only 4/4, b ratio 5.1×). Caveat: the UN WUP file lists only cities ≥ 300k in 2018 (survivor filter). Earlier status: | The published test (5.9×, U=24,802, n=486) is not reproducible: the active satellization corpus has no trigger variable, the ratio originates in 2 vs 2 cases (v1.0, p = 0.33) and the 57-case v2.0 corpus is not citable. **Not to be confused with RC-ACO-2** (ACO absorption exponent, a different quantity): on ACO, abrupt vs gradual p = 0.10 (n = 18, gradual ≥ abrupt; within-domain exact permutation p = 0.94) — RC-ACO-2 remains undecided with this n. |
 | RC4 | Friction index is not correlated with b | NOT REFUTED (weak) | Direction holds in every variant of the corpus; cluster-level p = 0.25 (n = 6 domains). **Pre-registered test 2026-09-27 with new non-COVID domains: ρ = −0.131, p = 0.39 — not supported**; only the epidemic (friction-free) pole separates. The condition "not correlated" is not met in the corpus, but outside epidemics the evidence does not distinguish the prediction from zero. |

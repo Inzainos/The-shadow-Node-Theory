@@ -1,0 +1,1468 @@
+brazo,friccion,cantidad,id,etiqueta,n,ancho_ventana,n_ventanas,b_global,rho_ar1,b_primera_ventana,b_ultima_ventana,cruza_1_a_la_baja,spearman_deriva,p_descendente,p_ascendente,desc_sig,asc_sig,extinto,pico
+Dominio B,alta (3),cociente,B001,United Kingdom->France,119,30,12,-0.192,0.9115,-0.0957,0.247,0,0.0559,0.5333,0.4733,0,0,,
+Dominio B,alta (3),cociente,B002,Germany->United Kingdom,119,30,12,0.1947,0.8922,0.0216,0.7315,0,0.1399,0.6233,0.39,0,0,,
+Dominio B,alta (3),cociente,B003,Netherlands->United Kingdom,119,30,12,0.1472,0.8984,0.1187,0.671,0,0.3497,0.86,0.15,0,0,,
+Dominio B,alta (3),cociente,B004,Belgium->United Kingdom,119,30,12,0.0942,0.9193,0.0401,0.0268,0,0.042,0.5533,0.46,0,0,,
+Dominio B,alta (3),cociente,B005,Switzerland->United Kingdom,119,30,12,0.1522,0.9175,0.0581,1.0488,0,0.4056,0.88,0.1233,0,0,,
+Dominio B,alta (3),cociente,B006,Austria->United Kingdom,119,30,12,0.2022,0.9238,-0.0156,0.4165,0,0.4476,0.9167,0.09,0,0,,
+Dominio B,alta (3),cociente,B007,Italy->United Kingdom,119,30,12,0.273,0.9478,0.074,-0.345,0,0.0769,0.5967,0.4167,0,0,,
+Dominio B,alta (3),cociente,B008,Spain->United Kingdom,119,30,12,0.2569,0.9641,0.0866,0.7137,0,0.5874,0.9067,0.1,0,0,,
+Dominio B,alta (3),cociente,B009,United Kingdom->Portugal,119,30,12,-0.3425,0.9359,-0.0151,-0.1072,0,-0.4895,0.0733,0.9367,0,0,,
+Dominio B,alta (3),cociente,B010,Ireland->United Kingdom,99,25,13,0.2628,0.9872,-0.0865,2.2437,0,0.9615,1.0,0.0033,0,1,,
+Dominio B,alta (3),cociente,B011,Luxembourg->United Kingdom,69,17,14,0.1071,0.8153,0.0039,-0.0558,0,0.1385,0.66,0.3533,0,0,,
+Dominio B,alta (3),cociente,B012,Germany->France,119,30,12,0.0027,0.7945,-0.0741,0.9785,0,0.3776,0.9067,0.0967,0,0,,
+Dominio B,alta (3),cociente,B013,Netherlands->France,119,30,12,-0.0447,0.8477,0.023,0.9181,0,0.2308,0.7867,0.2233,0,0,,
+Dominio B,alta (3),cociente,B014,Belgium->France,119,30,12,-0.0978,0.834,-0.0556,0.2738,0,0.6224,0.9767,0.03,0,1,,
+Dominio B,alta (3),cociente,B015,Switzerland->France,119,30,12,-0.0397,0.9095,-0.0376,1.2958,0,0.1958,0.6867,0.3167,0,0,,
+Dominio B,alta (3),cociente,B016,Austria->France,119,30,12,0.0102,0.8237,-0.1113,0.6635,0,0.8252,1.0,0.0033,0,1,,
+Dominio B,alta (3),cociente,B017,Italy->France,119,30,12,0.0811,0.8712,-0.0217,-0.0979,0,0.5385,0.96,0.0433,0,1,,
+Dominio B,alta (3),cociente,B018,Spain->France,119,30,12,0.0649,0.9295,-0.0091,0.9607,0,0.7552,0.9833,0.02,0,1,,
+Dominio B,alta (3),cociente,B019,France->Portugal,119,30,12,-0.1505,0.906,0.0806,-0.3542,0,-0.6573,0.0367,0.9667,1,0,,
+Dominio B,alta (3),cociente,B020,Ireland->France,99,25,13,0.1149,0.9893,0.064,2.4606,0,0.6978,0.9367,0.07,0,0,,
+Dominio B,alta (3),cociente,B021,Luxembourg->France,69,17,14,0.0092,0.9503,-0.0862,-0.057,0,0.6308,0.9367,0.0667,0,0,,
+Dominio B,alta (3),cociente,B022,Germany->Netherlands,119,30,12,0.0475,0.762,-0.0971,0.0604,0,-0.0699,0.44,0.57,0,0,,
+Dominio B,alta (3),cociente,B023,Belgium->Germany,119,30,12,-0.1005,0.8168,0.0185,-0.7047,0,-0.2098,0.2633,0.7533,0,0,,
+Dominio B,alta (3),cociente,B024,Switzerland->Germany,119,30,12,-0.0425,0.7897,0.0365,0.3173,0,0.2308,0.77,0.24,0,0,,
+Dominio B,alta (3),cociente,B025,Austria->Germany,119,30,12,0.0075,0.7245,-0.0371,-0.315,0,0.3147,0.8567,0.16,0,0,,
+Dominio B,alta (3),cociente,B026,Germany->Italy,119,30,12,-0.0783,0.8063,-0.0525,1.0764,0,0.1259,0.7033,0.3133,0,0,,
+Dominio B,alta (3),cociente,B027,Germany->Spain,119,30,12,-0.0622,0.897,-0.0651,0.0178,0,-0.5455,0.06,0.95,0,0,,
+Dominio B,alta (3),cociente,B028,Germany->Portugal,119,30,12,-0.1478,0.8594,0.0065,0.6243,0,-0.3427,0.1633,0.8433,0,0,,
+Dominio B,alta (3),cociente,B029,Ireland->Germany,99,25,13,0.0814,0.9576,-0.1335,1.5798,0,0.7857,0.9867,0.0167,0,1,,
+Dominio B,alta (3),cociente,B030,Luxembourg->Germany,69,17,14,-0.0651,0.9221,-0.2103,-0.8731,0,0.0945,0.5633,0.4433,0,0,,
+Dominio B,alta (3),cociente,B031,Belgium->Netherlands,119,30,12,-0.053,0.7223,-0.0787,-0.6442,0,-0.2168,0.1933,0.81,0,0,,
+Dominio B,alta (3),cociente,B032,Switzerland->Netherlands,119,30,12,0.005,0.7856,-0.0606,0.3778,0,0.0979,0.5933,0.4133,0,0,,
+Dominio B,alta (3),cociente,B033,Austria->Netherlands,119,30,12,0.055,0.8312,-0.1343,-0.2546,0,0.1189,0.64,0.37,0,0,,
+Dominio B,alta (3),cociente,B034,Netherlands->Italy,119,30,12,-0.1258,0.9157,0.0447,1.016,0,-0.049,0.4133,0.5967,0,0,,
+Dominio B,alta (3),cociente,B035,Spain->Netherlands,119,30,12,0.1097,0.8998,-0.0321,0.0427,0,0.5874,0.9467,0.0567,0,0,,
+Dominio B,alta (3),cociente,B036,Netherlands->Portugal,119,30,12,-0.1953,0.888,0.1037,0.5639,0,-0.1888,0.23,0.78,0,0,,
+Dominio B,alta (3),cociente,B037,Ireland->Netherlands,99,25,13,0.1647,0.9461,0.0719,1.7768,0,0.7857,0.99,0.0133,0,1,,
+Dominio B,alta (3),cociente,B038,Luxembourg->Netherlands,69,17,14,0.0051,0.9021,-0.0565,-0.386,0,-0.3538,0.21,0.7967,0,0,,
+Dominio B,alta (3),cociente,B039,Switzerland->Belgium,119,30,12,0.058,0.8565,0.0181,1.022,0,0.1608,0.69,0.32,0,0,,
+Dominio B,alta (3),cociente,B040,Austria->Belgium,119,30,12,0.108,0.8335,-0.0556,0.3897,0,0.5455,0.96,0.0467,0,1,,
+Dominio B,alta (3),cociente,B041,Belgium->Italy,119,30,12,-0.1788,0.8912,-0.034,0.3718,0,-0.1608,0.35,0.6533,0,0,,
+Dominio B,alta (3),cociente,B042,Belgium->Spain,119,30,12,-0.1627,0.932,-0.0466,-0.6869,0,-0.8042,0.0067,0.9967,1,0,,
+Dominio B,alta (3),cociente,B043,Belgium->Portugal,119,30,12,-0.2483,0.8941,0.025,-0.0804,0,-0.4685,0.0667,0.9433,0,0,,
+Dominio B,alta (3),cociente,B044,Ireland->Belgium,99,25,13,0.1844,0.9918,0.0535,2.2482,0,0.6484,0.9133,0.09,0,0,,
+Dominio B,alta (3),cociente,B045,Luxembourg->Belgium,69,17,14,0.0004,0.9393,-0.0321,-0.1686,0,0.2835,0.7233,0.2833,0,0,,
+Dominio B,alta (3),cociente,B046,Switzerland->Austria,119,30,12,-0.05,0.866,0.0737,0.6323,0,-0.1189,0.33,0.6767,0,0,,
+Dominio B,alta (3),cociente,B047,Switzerland->Italy,119,30,12,-0.1208,0.9447,-0.0159,1.3938,0,0.042,0.5333,0.4767,0,0,,
+Dominio B,alta (3),cociente,B048,Switzerland->Spain,119,30,12,-0.1047,0.9458,-0.0285,0.3351,0,-0.3566,0.2133,0.7933,0,0,,
+Dominio B,alta (3),cociente,B049,Switzerland->Portugal,119,30,12,-0.1903,0.9227,0.0431,0.9416,0,-0.3636,0.1967,0.81,0,0,,
+Dominio B,alta (3),cociente,B050,Ireland->Switzerland,99,25,13,0.1278,0.9865,-0.0365,1.2164,0,0.7967,0.9733,0.0333,0,1,,
+Dominio B,alta (3),cociente,B051,Luxembourg->Switzerland,69,17,14,0.0029,0.9198,-0.0817,-0.8886,0,-0.1868,0.32,0.6867,0,0,,
+Dominio B,alta (3),cociente,B052,Austria->Italy,119,30,12,-0.0708,0.7229,-0.0896,0.7614,0,0.5734,0.9767,0.0267,0,1,,
+Dominio B,alta (3),cociente,B053,Austria->Spain,119,30,12,-0.0547,0.8259,-0.1022,-0.2972,0,-0.6853,0.01,0.9933,1,0,,
+Dominio B,alta (3),cociente,B054,Austria->Portugal,119,30,12,-0.1403,0.7741,-0.0306,0.3093,0,-0.0839,0.4433,0.5767,0,0,,
+Dominio B,alta (3),cociente,B055,Ireland->Austria,99,25,13,0.0275,0.9478,-0.0112,1.9394,0,0.5824,0.9533,0.0567,0,0,,
+Dominio B,alta (3),cociente,B056,Luxembourg->Austria,69,17,14,-0.1147,0.9334,-0.1745,-0.3429,0,0.0681,0.5567,0.45,0,0,,
+Dominio B,alta (3),cociente,B057,Spain->Italy,119,30,12,-0.0162,0.9344,0.0126,1.0587,0,0.7273,0.9833,0.02,0,1,,
+Dominio B,alta (3),cociente,B058,Italy->Portugal,119,30,12,-0.0694,0.8908,0.059,-0.4521,0,-0.6224,0.0333,0.97,1,0,,
+Dominio B,alta (3),cociente,B059,Ireland->Italy,99,25,13,0.0005,0.995,0.02,2.6625,0,0.6593,0.9033,0.1,0,0,,
+Dominio B,alta (3),cociente,B060,Luxembourg->Italy,69,17,14,-0.0855,0.9689,-0.1754,0.4164,0,0.7275,0.9367,0.0667,0,0,,
+Dominio B,alta (3),cociente,B061,Spain->Portugal,119,30,12,-0.0856,0.8649,0.0716,0.6065,0,0.5105,0.95,0.0533,0,0,,
+Dominio B,alta (3),cociente,B062,Ireland->Spain,99,25,13,0.0056,0.99,0.0805,1.7638,0,0.4615,0.8067,0.2067,0,0,,
+Dominio B,alta (3),cociente,B063,Luxembourg->Spain,69,17,14,-0.2223,0.8838,-0.1392,0.1567,0,0.3275,0.83,0.1767,0,0,,
+Dominio B,alta (3),cociente,B064,Ireland->Portugal,99,25,13,-0.0774,0.995,-0.0492,2.3766,0,0.4396,0.77,0.2367,0,0,,
+Dominio B,alta (3),cociente,B065,Luxembourg->Portugal,69,17,14,-0.1991,0.9189,-0.1102,0.0104,0,0.7055,0.9767,0.0267,0,1,,
+Dominio B,alta (3),cociente,B066,Luxembourg->Ireland,69,17,14,-0.2421,0.9731,-0.0076,-0.7423,0,-0.6967,0.1,0.9033,0,0,,
+Dominio B,alta (3),cociente,B067,Norway->Sweden,119,30,12,0.1347,0.9891,-0.0242,2.1896,0,0.9021,0.9933,0.01,0,1,,
+Dominio B,alta (3),cociente,B068,Denmark->Sweden,119,30,12,-0.1121,0.8812,-0.0548,-0.3686,0,0.4895,0.9467,0.06,0,0,,
+Dominio B,alta (3),cociente,B069,Finland->Sweden,119,30,12,0.0767,0.9247,-0.0801,-0.2543,0,0.3497,0.8167,0.1933,0,0,,
+Dominio B,alta (3),cociente,B070,Iceland->Sweden,69,17,14,0.0834,0.8532,0.0149,-0.1086,0,-0.6659,0.0167,0.9867,1,0,,
+Dominio B,alta (3),cociente,B071,Norway->Denmark,119,30,12,0.2468,0.9605,0.0306,2.5582,0,0.9161,0.9967,0.0067,0,1,,
+Dominio B,alta (3),cociente,B072,Norway->Finland,119,30,12,0.058,0.9914,0.056,2.4439,0,0.5245,0.8567,0.1467,0,0,,
+Dominio B,alta (3),cociente,B073,Iceland->Norway,69,17,14,-0.1949,0.9629,0.0185,-0.6411,0,-0.7626,0.0333,0.97,1,0,,
+Dominio B,alta (3),cociente,B074,Denmark->Finland,119,30,12,-0.1888,0.8647,0.0253,-0.1143,0,-0.1049,0.41,0.5967,0,0,,
+Dominio B,alta (3),cociente,B075,Iceland->Denmark,69,17,14,0.0556,0.848,0.0141,0.2266,0,-0.0242,0.4467,0.56,0,0,,
+Dominio B,alta (3),cociente,B076,Iceland->Finland,69,17,14,-0.0412,0.7728,-0.0292,0.4115,0,-0.2088,0.28,0.73,0,0,,
+Dominio B,alta (3),cociente,B077,Czechia->Poland,49,12,13,0.0201,0.9913,0.0367,-0.8925,0,-0.7143,0.0633,0.94,0,0,,
+Dominio B,alta (3),cociente,B078,Hungary->Poland,85,21,13,-0.0428,0.7764,0.016,-0.3749,0,-0.489,0.08,0.9233,0,0,,
+Dominio B,alta (3),cociente,B079,Romania->Poland,85,21,13,0.4294,0.7616,0.0564,1.3602,0,0.2527,0.78,0.2333,0,0,,
+Dominio B,alta (3),cociente,B080,Bulgaria->Poland,83,21,13,0.0645,0.9607,0.08,-0.1637,0,-0.6374,0.0867,0.9233,0,0,,
+Dominio B,alta (3),cociente,B081,Russia->Poland,59,15,12,-0.0597,0.9393,0.061,-0.4821,0,-0.0909,0.4033,0.6067,0,0,,
+Dominio B,alta (3),cociente,B082,Ukraine->Poland,40,10,16,-0.3648,0.8637,0.0629,-1.3422,0,-0.1235,0.4,0.6033,0,0,,
+Dominio B,alta (3),cociente,B083,Slovakia->Poland,34,8,14,-0.1119,0.6626,0.0205,-0.1623,0,-0.2615,0.25,0.7567,0,0,,
+Dominio B,alta (3),cociente,B084,Croatia->Poland,67,17,13,0.0815,0.9912,0.2126,-1.2052,0,-0.7033,0.0767,0.9333,0,0,,
+Dominio B,alta (3),cociente,B085,Serbia->Poland,67,17,13,-0.0155,0.9537,0.237,0.2029,0,-0.3956,0.2,0.8067,0,0,,
+Dominio B,alta (3),cociente,B086,Slovenia->Poland,67,17,13,0.0938,0.995,0.2186,-1.9522,0,-0.8022,0.05,0.9533,0,0,,
+Dominio B,alta (3),cociente,B087,Czechia->Hungary,49,12,13,0.0455,0.9142,0.0542,-0.1481,0,-0.2143,0.2867,0.7167,0,0,,
+Dominio B,alta (3),cociente,B088,Czechia->Romania,49,12,13,-0.1326,0.965,-0.0804,-0.6033,0,-0.6758,0.08,0.9233,0,0,,
+Dominio B,alta (3),cociente,B089,Czechia->Bulgaria,49,12,13,0.1785,0.8867,0.0359,-0.3499,0,-0.3846,0.1967,0.8067,0,0,,
+Dominio B,alta (3),cociente,B090,Czechia->Russia,49,12,13,0.1287,0.9437,0.0291,-0.3195,0,-0.478,0.1333,0.8733,0,0,,
+Dominio B,alta (3),cociente,B091,Czechia->Ukraine,40,10,16,0.3258,0.8903,0.0184,0.8862,0,-0.1088,0.38,0.6233,0,0,,
+Dominio B,alta (3),cociente,B092,Czechia->Slovakia,34,8,14,0.0225,0.8317,0.0675,-0.1358,0,-0.7055,0.0367,0.9667,1,0,,
+Dominio B,alta (3),cociente,B093,Czechia->Croatia,49,12,13,0.143,0.8987,-0.0579,0.5136,0,0.1538,0.66,0.3433,0,0,,
+Dominio B,alta (3),cociente,B094,Czechia->Serbia,49,12,13,0.2658,0.8906,-0.0664,-0.295,0,-0.544,0.1167,0.8867,0,0,,
+Dominio B,alta (3),cociente,B095,Slovenia->Czechia,49,12,13,-0.1645,0.897,0.0712,-0.721,0,-0.7363,0.0133,0.99,1,0,,
+Dominio B,alta (3),cociente,B096,Hungary->Romania,96,24,13,-0.4798,0.8563,0.1362,-1.7592,0,-0.456,0.12,0.89,0,0,,
+Dominio B,alta (3),cociente,B097,Hungary->Bulgaria,92,23,12,-0.1383,0.9447,-0.0188,0.2973,0,0.6364,0.9333,0.0767,0,0,,
+Dominio B,alta (3),cociente,B098,Russia->Hungary,59,15,12,-0.0178,0.9412,0.0871,0.4297,0,0.1818,0.6267,0.3833,0,0,,
+Dominio B,alta (3),cociente,B099,Hungary->Ukraine,40,10,16,0.3036,0.8814,-0.0117,1.1603,0,-0.0029,0.4667,0.5367,0,0,,
+Dominio B,alta (3),cociente,B100,Slovakia->Hungary,34,8,14,-0.0331,0.8026,-0.0032,-0.1054,0,0.1824,0.7033,0.3033,0,0,,
+Dominio B,alta (3),cociente,B101,Croatia->Hungary,67,17,13,0.1026,0.9879,0.1685,-0.4696,0,-0.6538,0.1033,0.9033,0,0,,
+Dominio B,alta (3),cociente,B102,Hungary->Serbia,67,17,13,-0.0056,0.9482,-0.1929,-0.9386,0,0.0495,0.51,0.5,0,0,,
+Dominio B,alta (3),cociente,B103,Slovenia->Hungary,67,17,13,0.1149,0.995,0.1744,-1.2166,0,-0.8571,0.03,0.9733,1,0,,
+Dominio B,alta (3),cociente,B104,Bulgaria->Romania,98,24,13,-0.3366,0.8824,0.1141,-2.1204,0,-0.9451,0.0033,1.0,1,0,,
+Dominio B,alta (3),cociente,B105,Russia->Romania,59,15,12,-0.3336,0.8181,-0.1352,-0.4485,0,-0.4056,0.1467,0.8633,0,0,,
+Dominio B,alta (3),cociente,B106,Ukraine->Romania,40,10,16,-0.4408,0.8768,-0.0686,-0.9701,0,-0.3618,0.2133,0.7967,0,0,,
+Dominio B,alta (3),cociente,B107,Slovakia->Romania,34,8,14,-0.1618,0.8553,0.0633,0.2201,0,-0.1648,0.3333,0.6767,0,0,,
+Dominio B,alta (3),cociente,B108,Croatia->Romania,67,17,13,-0.2735,0.9268,0.0481,-2.1821,0,-0.9121,0.0067,0.9967,1,0,,
+Dominio B,alta (3),cociente,B109,Serbia->Romania,67,17,13,-0.3705,0.9144,0.0724,-0.7739,0,-0.7802,0.0167,0.9867,1,0,,
+Dominio B,alta (3),cociente,B110,Slovenia->Romania,67,17,13,-0.2611,0.9558,0.054,-2.9291,0,-0.9615,0.0033,1.0,1,0,,
+Dominio B,alta (3),cociente,B111,Russia->Bulgaria,59,15,12,0.0552,0.8566,0.0118,0.0256,0,0.3287,0.7867,0.22,0,0,,
+Dominio B,alta (3),cociente,B112,Ukraine->Bulgaria,40,10,16,-0.1682,0.8847,0.0237,-1.0945,0,-0.1971,0.3367,0.6667,0,0,,
+Dominio B,alta (3),cociente,B113,Slovakia->Bulgaria,34,8,14,0.0858,0.8495,0.0462,-0.0794,0,-0.4198,0.1667,0.84,0,0,,
+Dominio B,alta (3),cociente,B114,Croatia->Bulgaria,67,17,13,0.1153,0.8906,0.0724,-1.0981,0,-0.1703,0.3467,0.6667,0,0,,
+Dominio B,alta (3),cociente,B115,Serbia->Bulgaria,67,17,13,0.0183,0.885,0.0967,0.3101,0,0.1154,0.6033,0.4067,0,0,,
+Dominio B,alta (3),cociente,B116,Slovenia->Bulgaria,67,17,13,0.1276,0.9756,0.0783,-1.8451,0,-0.3407,0.25,0.76,0,0,,
+Dominio B,alta (3),cociente,B117,Russia->Ukraine,40,10,16,0.2199,0.8851,-0.0254,0.7084,0,0.5588,0.9167,0.09,0,0,,
+Dominio B,alta (3),cociente,B118,Slovakia->Russia,34,8,14,0.0288,0.9201,-0.0099,0.6873,0,-0.1956,0.33,0.68,0,0,,
+Dominio B,alta (3),cociente,B119,Russia->Croatia,59,15,12,-0.0257,0.9364,-0.0278,1.043,0,0.2937,0.7167,0.2933,0,0,,
+Dominio B,alta (3),cociente,B120,Russia->Serbia,59,15,12,0.0924,0.8886,-0.0242,0.0693,0,0.5524,0.9233,0.0867,0,0,,
+Dominio B,alta (3),cociente,B121,Slovenia->Russia,59,15,12,0.0239,0.9794,0.0415,-1.3587,0,-0.5734,0.1167,0.9,0,0,,
+Dominio B,alta (3),cociente,B122,Slovakia->Ukraine,34,8,14,0.2701,0.8708,-0.0233,1.2911,0,0.0945,0.6367,0.3767,0,0,,
+Dominio B,alta (3),cociente,B123,Croatia->Ukraine,40,10,16,0.1611,0.8952,0.0215,0.5418,0,-0.1853,0.2933,0.71,0,0,,
+Dominio B,alta (3),cociente,B124,Ukraine->Serbia,40,10,16,-0.0359,0.7953,-0.0209,-0.7929,0,-0.3971,0.16,0.8433,0,0,,
+Dominio B,alta (3),cociente,B125,Slovenia->Ukraine,40,10,16,0.1311,0.9246,0.0014,0.5643,0,-0.2676,0.3367,0.67,0,0,,
+Dominio B,alta (3),cociente,B126,Slovakia->Croatia,34,8,14,0.1029,0.896,0.1059,0.3416,0,0.5385,0.9033,0.1,0,0,,
+Dominio B,alta (3),cociente,B127,Slovakia->Serbia,34,8,14,0.2054,0.8484,0.1082,0.3181,0,-0.3846,0.17,0.8367,0,0,,
+Dominio B,alta (3),cociente,B128,Slovenia->Slovakia,34,8,14,-0.1454,0.923,-0.074,-0.2471,0,-0.6615,0.0433,0.96,1,0,,
+Dominio B,alta (3),cociente,B129,Croatia->Serbia,67,17,13,0.097,0.8967,-0.0243,-1.4082,0,0.0604,0.5833,0.43,0,0,,
+Dominio B,alta (3),cociente,B130,Slovenia->Croatia,67,17,13,0.0124,0.9172,0.0059,-0.747,0,-0.3516,0.24,0.7633,0,0,,
+Dominio B,alta (3),cociente,B131,Slovenia->Serbia,67,17,13,0.1094,0.8949,-0.0184,-2.1551,0,-0.3242,0.2233,0.7833,0,0,,
+Dominio B,alta (3),cociente,B132,Greece->Italy,119,30,12,0.0004,0.7994,0.0194,0.6844,0,0.3706,0.8933,0.11,0,0,,
+Dominio B,alta (3),cociente,B133,Turkey->Italy,98,24,13,0.073,0.9174,0.217,2.0264,0,0.6264,0.93,0.0733,0,0,,
+Dominio B,alta (3),cociente,B134,Cyprus->Italy,69,17,14,0.1828,0.8969,-0.1217,0.2129,0,0.6044,0.9633,0.04,0,1,,
+Dominio B,alta (3),cociente,B135,Malta->Italy,69,17,14,0.391,0.9149,-0.1155,1.6974,0,0.3758,0.81,0.1933,0,0,,
+Dominio B,alta (3),cociente,B136,Greece->Spain,119,30,12,0.0166,0.8194,0.0068,-0.3742,0,-0.5035,0.0433,0.96,1,0,,
+Dominio B,alta (3),cociente,B137,Spain->Turkey,98,24,13,-0.0684,0.8581,-0.2583,-1.1264,0,-0.0055,0.5133,0.49,0,0,,
+Dominio B,alta (3),cociente,B138,Cyprus->Spain,69,17,14,0.046,0.8538,-0.0855,-0.0468,0,0.4154,0.8733,0.1367,0,0,,
+Dominio B,alta (3),cociente,B139,Malta->Spain,69,17,14,0.2542,0.9175,-0.0794,1.4377,0,0.178,0.6733,0.33,0,0,,
+Dominio B,alta (3),cociente,B140,Greece->Portugal,119,30,12,-0.069,0.8194,0.0783,0.2323,0,-0.049,0.46,0.5533,0,0,,
+Dominio B,alta (3),cociente,B141,Turkey->Portugal,98,24,13,-0.0126,0.8422,0.122,1.7302,0,0.3297,0.85,0.1667,0,0,,
+Dominio B,alta (3),cociente,B142,Cyprus->Portugal,69,17,14,0.0693,0.9061,-0.0565,-0.1931,0,0.3846,0.83,0.1733,0,0,,
+Dominio B,alta (3),cociente,B143,Malta->Portugal,69,17,14,0.2775,0.9297,-0.0504,1.2914,0,0.4505,0.8833,0.12,0,0,,
+Dominio B,alta (3),cociente,B144,Greece->Turkey,98,24,13,-0.0854,0.8494,-0.1618,-1.3505,0,-0.3187,0.21,0.7933,0,0,,
+Dominio B,alta (3),cociente,B145,Cyprus->Greece,69,17,14,0.09,0.9315,-0.1342,0.6565,0,0.3626,0.78,0.2233,0,0,,
+Dominio B,alta (3),cociente,B146,Malta->Greece,69,17,14,0.2982,0.9431,-0.128,2.1409,0,0.3231,0.7167,0.2867,0,0,,
+Dominio B,alta (3),cociente,B147,Cyprus->Turkey,69,17,14,0.109,0.8205,0.0026,-1.7336,0,-0.2176,0.2767,0.73,0,0,,
+Dominio B,alta (3),cociente,B148,Malta->Turkey,69,17,14,0.3172,0.8571,0.0088,-0.2491,0,-0.3802,0.1333,0.8767,0,0,,
+Dominio B,alta (3),cociente,B149,Cyprus->Malta,69,17,14,-0.2082,0.8725,-0.0061,-1.4844,0,-0.0418,0.5033,0.5033,0,0,,
+Dominio B,alta (3),cociente,B150,Canada->United States,119,30,12,0.1064,0.8176,0.0366,0.1799,0,-0.028,0.49,0.5233,0,0,,
+Dominio B,alta (3),cociente,B151,United States->Mexico,119,30,12,-0.0933,0.8898,-0.0126,-0.6515,0,-0.049,0.4633,0.5467,0,0,,
+Dominio B,alta (3),cociente,B152,Canada->Mexico,119,30,12,0.0132,0.8624,0.0239,-0.4716,0,-0.1678,0.28,0.7267,0,0,,
+Dominio B,alta (3),cociente,B153,Guatemala->Mexico,99,25,13,-0.2729,0.8993,0.2144,-0.7361,0,-0.6154,0.07,0.9367,0,0,,
+Dominio B,alta (3),cociente,B154,Mexico->Honduras,99,25,13,0.3827,0.8551,0.0646,0.0773,0,-0.0275,0.4667,0.5433,0,0,,
+Dominio B,alta (3),cociente,B155,Costa Rica->Mexico,99,25,13,-0.1045,0.7733,0.017,0.204,0,0.2637,0.7867,0.2333,0,0,,
+Dominio B,alta (3),cociente,B156,Panama->Mexico,113,28,13,-0.1223,0.982,-0.0579,2.017,0,0.7308,0.96,0.0433,0,1,,
+Dominio B,alta (3),cociente,B157,Cuba->Mexico,117,29,13,-0.3085,0.9168,0.0255,0.0169,0,-0.5604,0.06,0.9433,0,0,,
+Dominio B,alta (3),cociente,B158,El Salvador->Mexico,99,25,13,-0.1363,0.9107,0.0543,0.9045,0,0.1374,0.6433,0.3667,0,0,,
+Dominio B,alta (3),cociente,B159,Nicaragua->Mexico,99,25,13,-0.4135,0.9296,0.0104,1.3431,0,-0.2253,0.3267,0.68,0,0,,
+Dominio B,alta (3),cociente,B160,Dominican Republic->Mexico,69,17,14,0.1205,0.995,-0.0788,2.0452,0,0.9516,0.9967,0.0067,0,1,,
+Dominio B,alta (3),cociente,B161,Guatemala->Honduras,99,25,13,0.1098,0.8994,0.279,-0.6588,0,-0.544,0.08,0.93,0,0,,
+Dominio B,alta (3),cociente,B162,Costa Rica->Guatemala,99,25,13,0.1684,0.8779,-0.1974,0.9401,0,0.7582,0.9967,0.0067,0,1,,
+Dominio B,alta (3),cociente,B163,Panama->Guatemala,99,25,13,0.2214,0.9543,-0.1576,2.4888,0,0.9451,1.0,0.0033,0,1,,
+Dominio B,alta (3),cociente,B164,Guatemala->Cuba,99,25,13,0.0322,0.9328,0.2842,-2.9713,0,-0.1154,0.3633,0.6433,0,0,,
+Dominio B,alta (3),cociente,B165,Guatemala->El Salvador,99,25,13,-0.1366,0.8998,0.1601,-1.6405,0,-0.4396,0.1433,0.8633,0,0,,
+Dominio B,alta (3),cociente,B166,Guatemala->Nicaragua,99,25,13,0.1406,0.9187,0.204,-2.0791,0,0.0659,0.5867,0.4233,0,0,,
+Dominio B,alta (3),cociente,B167,Dominican Republic->Guatemala,69,17,14,0.3464,0.9836,0.0408,2.221,0,0.9824,1.0,0.0033,0,1,,
+Dominio B,alta (3),cociente,B168,Costa Rica->Honduras,99,25,13,0.2782,0.8051,0.0816,0.2813,0,0.2692,0.7733,0.23,0,0,,
+Dominio B,alta (3),cociente,B169,Panama->Honduras,99,25,13,0.3313,0.9302,0.1214,1.8301,0,0.7967,0.9933,0.01,0,1,,
+Dominio B,alta (3),cociente,B170,Cuba->Honduras,99,25,13,0.0776,0.8769,-0.0051,2.3125,0,-0.1099,0.3767,0.6367,0,0,,
+Dominio B,alta (3),cociente,B171,El Salvador->Honduras,99,25,13,0.2464,0.8307,0.1189,0.9818,0,0.3242,0.8233,0.18,0,0,,
+Dominio B,alta (3),cociente,B172,Nicaragua->Honduras,99,25,13,-0.0307,0.9493,0.075,1.4203,0,-0.1538,0.37,0.6333,0,0,,
+Dominio B,alta (3),cociente,B173,Dominican Republic->Honduras,69,17,14,0.3454,0.9509,0.0704,1.7033,0,0.9297,1.0,0.0033,0,1,,
+Dominio B,alta (3),cociente,B174,Costa Rica->Panama,99,25,13,-0.053,0.956,-0.0398,-1.5487,0,-0.8187,0.01,0.9967,1,0,,
+Dominio B,alta (3),cociente,B175,Costa Rica->Cuba,99,25,13,0.2006,0.8662,0.0868,-2.0312,0,0.1429,0.64,0.3667,0,0,,
+Dominio B,alta (3),cociente,B176,Costa Rica->El Salvador,99,25,13,0.0318,0.8786,-0.0373,-0.7004,0,-0.1868,0.3233,0.69,0,0,,
+Dominio B,alta (3),cociente,B177,Costa Rica->Nicaragua,99,25,13,0.309,0.9293,0.0066,-1.139,0,0.3736,0.85,0.1567,0,0,,
+Dominio B,alta (3),cociente,B178,Costa Rica->Dominican Republic,69,17,14,-0.1744,0.9651,0.0696,-1.4183,0,-0.8725,0.0033,1.0,1,0,,
+Dominio B,alta (3),cociente,B179,Panama->Cuba,113,28,13,0.1925,0.9555,-0.052,0.2434,0,0.6429,0.9467,0.0567,0,0,,
+Dominio B,alta (3),cociente,B180,Panama->El Salvador,99,25,13,0.0849,0.9564,0.0025,0.8483,0,0.2088,0.6433,0.3667,0,0,,
+Dominio B,alta (3),cociente,B181,Panama->Nicaragua,99,25,13,0.362,0.9647,0.0464,0.4097,0,0.6429,0.9433,0.06,0,0,,
+Dominio B,alta (3),cociente,B182,Panama->Dominican Republic,69,17,14,0.0006,0.9182,0.0874,0.3647,0,-0.3275,0.23,0.78,0,0,,
+Dominio B,alta (3),cociente,B183,El Salvador->Cuba,99,25,13,0.1688,0.8854,0.1241,-1.3307,0,0.1978,0.7333,0.28,0,0,,
+Dominio B,alta (3),cociente,B184,Cuba->Nicaragua,99,25,13,0.1084,0.9334,-0.0802,0.8922,0,0.1758,0.6733,0.33,0,0,,
+Dominio B,alta (3),cociente,B185,Dominican Republic->Cuba,69,17,14,0.3336,0.9279,0.0389,0.3621,0,0.178,0.64,0.3633,0,0,,
+Dominio B,alta (3),cociente,B186,El Salvador->Nicaragua,99,25,13,0.2771,0.9235,0.0439,-0.4386,0,0.3462,0.8267,0.1833,0,0,,
+Dominio B,alta (3),cociente,B187,Dominican Republic->El Salvador,69,17,14,0.2657,0.9313,-0.0208,1.5876,0,0.6879,0.9667,0.0433,0,1,,
+Dominio B,alta (3),cociente,B188,Dominican Republic->Nicaragua,69,17,14,0.5657,0.9156,-0.0523,0.8796,0,0.4022,0.85,0.1533,0,0,,
+Dominio B,alta (3),cociente,B189,Argentina->Brazil,119,30,12,-0.4744,0.9153,-0.0499,-0.4155,0,-0.4825,0.09,0.9233,0,0,,
+Dominio B,alta (3),cociente,B190,Chile->Brazil,119,30,12,-0.3934,0.9076,-0.0259,0.176,0,0.1678,0.6933,0.3233,0,0,,
+Dominio B,alta (3),cociente,B191,Uruguay->Brazil,119,30,12,-0.4215,0.903,-0.084,-0.4524,0,-0.3776,0.1567,0.85,0,0,,
+Dominio B,alta (3),cociente,B192,Paraguay->Brazil,80,20,13,-0.348,0.8749,-0.2954,0.5481,0,0.0,0.4833,0.5233,0,0,,
+Dominio B,alta (3),cociente,B193,Brazil->Bolivia,119,30,12,0.4917,0.9417,-0.0042,0.469,0,0.5594,0.94,0.0667,0,0,,
+Dominio B,alta (3),cociente,B194,Brazil->Peru,119,30,12,0.2576,0.954,-0.1419,-0.7261,0,0.4336,0.8733,0.1333,0,0,,
+Dominio B,alta (3),cociente,B195,Colombia->Brazil,119,30,12,-0.1301,0.971,0.113,-0.5615,0,-0.3776,0.17,0.8333,0,0,,
+Dominio B,alta (3),cociente,B196,Venezuela->Brazil,119,30,12,-0.0188,0.995,-0.0433,-1.6655,0,-0.6783,0.07,0.9367,0,0,,
+Dominio B,alta (3),cociente,B197,Ecuador->Brazil,119,30,12,-0.2022,0.9296,0.0398,-0.5357,0,-0.7273,0.01,0.9967,1,0,,
+Dominio B,alta (3),cociente,B198,Argentina->Chile,119,30,12,-0.081,0.9023,-0.024,-0.5915,0,-0.5664,0.06,0.9467,0,0,,
+Dominio B,alta (3),cociente,B199,Argentina->Uruguay,119,30,12,-0.0528,0.8292,0.0341,0.0369,0,-0.0979,0.4133,0.61,0,0,,
+Dominio B,alta (3),cociente,B200,Argentina->Paraguay,80,20,13,-0.0598,0.9288,0.1785,-0.7805,0,-0.1319,0.3633,0.64,0,0,,
+Dominio B,alta (3),cociente,B201,Argentina->Bolivia,119,30,12,0.0173,0.888,-0.0542,0.0535,0,0.3427,0.8133,0.2,0,0,,
+Dominio B,alta (3),cociente,B202,Argentina->Peru,119,30,12,-0.2167,0.8946,-0.1918,-1.1416,0,0.2168,0.74,0.2733,0,0,,
+Dominio B,alta (3),cociente,B203,Argentina->Colombia,119,30,12,-0.3442,0.8212,-0.163,0.146,0,0.021,0.5133,0.5,0,0,,
+Dominio B,alta (3),cociente,B204,Argentina->Venezuela,119,30,12,-0.4555,0.9367,-0.0067,1.25,0,0.7203,0.9867,0.02,0,1,,
+Dominio B,alta (3),cociente,B205,Argentina->Ecuador,119,30,12,-0.2721,0.8607,-0.0897,0.1202,0,-0.014,0.4467,0.56,0,0,,
+Dominio B,alta (3),cociente,B206,Uruguay->Chile,119,30,12,-0.0282,0.8055,-0.0581,-0.6284,0,-0.4476,0.0767,0.93,0,0,,
+Dominio B,alta (3),cociente,B207,Chile->Paraguay,80,20,13,0.0475,0.9513,0.1808,-0.8094,0,0.0385,0.4867,0.5167,0,0,,
+Dominio B,alta (3),cociente,B208,Chile->Bolivia,119,30,12,0.0983,0.9455,-0.0302,0.645,0,0.6434,0.95,0.0533,0,0,,
+Dominio B,alta (3),cociente,B209,Chile->Peru,119,30,12,-0.1357,0.954,-0.1678,-0.5501,0,0.2028,0.7233,0.2833,0,0,,
+Dominio B,alta (3),cociente,B210,Chile->Colombia,119,30,12,-0.2632,0.8586,-0.139,0.7375,0,0.4056,0.8633,0.1433,0,0,,
+Dominio B,alta (3),cociente,B211,Venezuela->Chile,119,30,12,0.3746,0.979,-0.0173,-1.8415,0,-0.5804,0.1133,0.8967,0,0,,
+Dominio B,alta (3),cociente,B212,Chile->Ecuador,119,30,12,-0.1912,0.8928,-0.0657,0.7118,0,0.1678,0.7067,0.31,0,0,,
+Dominio B,alta (3),cociente,B213,Uruguay->Paraguay,80,20,13,-0.0145,0.9392,0.283,-0.1898,0,0.044,0.5267,0.49,0,0,,
+Dominio B,alta (3),cociente,B214,Uruguay->Bolivia,119,30,12,0.0702,0.9113,-0.0883,0.0166,0,0.3986,0.85,0.1567,0,0,,
+Dominio B,alta (3),cociente,B215,Uruguay->Peru,119,30,12,-0.1639,0.9163,-0.2259,-1.1785,0,0.1608,0.6967,0.3133,0,0,,
+Dominio B,alta (3),cociente,B216,Uruguay->Colombia,119,30,12,-0.2914,0.7592,-0.1971,0.1091,0,0.2308,0.7667,0.2433,0,0,,
+Dominio B,alta (3),cociente,B217,Uruguay->Venezuela,119,30,12,-0.4027,0.9535,-0.0408,1.2131,0,0.5455,0.9133,0.09,0,0,,
+Dominio B,alta (3),cociente,B218,Uruguay->Ecuador,119,30,12,-0.2193,0.8145,-0.1238,0.0833,0,0.2308,0.75,0.2767,0,0,,
+Dominio B,alta (3),cociente,B219,Paraguay->Bolivia,80,20,13,0.1585,0.8856,-0.1032,0.4634,0,0.0989,0.5867,0.4167,0,0,,
+Dominio B,alta (3),cociente,B220,Paraguay->Peru,80,20,13,0.0248,0.9604,-0.2337,-0.6769,0,-0.2198,0.3,0.7033,0,0,,
+Dominio B,alta (3),cociente,B221,Paraguay->Colombia,80,20,13,-0.0899,0.9091,-0.1766,0.3667,0,0.0879,0.59,0.42,0,0,,
+Dominio B,alta (3),cociente,B222,Venezuela->Paraguay,80,20,13,0.0163,0.995,0.4741,-1.7422,0,-0.5934,0.1333,0.8733,0,0,,
+Dominio B,alta (3),cociente,B223,Paraguay->Ecuador,80,20,13,-0.1335,0.9413,-0.3067,0.4902,0,0.3516,0.8067,0.1967,0,0,,
+Dominio B,alta (3),cociente,B224,Bolivia->Peru,119,30,12,-0.2341,0.9231,-0.1377,-1.1951,0,0.2098,0.74,0.2667,0,0,,
+Dominio B,alta (3),cociente,B225,Colombia->Bolivia,119,30,12,0.3616,0.8756,0.1088,-0.0925,0,0.3217,0.8,0.21,0,0,,
+Dominio B,alta (3),cociente,B226,Venezuela->Bolivia,119,30,12,0.4729,0.9506,-0.0475,-1.1965,0,-0.6294,0.07,0.9367,0,0,,
+Dominio B,alta (3),cociente,B227,Ecuador->Bolivia,119,30,12,0.2895,0.9358,0.0356,-0.0667,0,0.3147,0.7967,0.21,0,0,,
+Dominio B,alta (3),cociente,B228,Colombia->Peru,119,30,12,0.1275,0.9311,-0.0289,-1.2876,0,0.1888,0.6867,0.3267,0,0,,
+Dominio B,alta (3),cociente,B229,Venezuela->Peru,119,30,12,0.2388,0.9664,-0.1852,-2.3916,0,-0.4196,0.1933,0.8133,0,0,,
+Dominio B,alta (3),cociente,B230,Ecuador->Peru,119,30,12,0.0554,0.9465,-0.1021,-1.2619,0,0.4126,0.82,0.1833,0,0,,
+Dominio B,alta (3),cociente,B231,Venezuela->Colombia,119,30,12,0.1113,0.995,-0.1563,-1.104,0,-0.5944,0.1133,0.89,0,0,,
+Dominio B,alta (3),cociente,B232,Ecuador->Colombia,119,30,12,-0.0721,0.9474,-0.0732,0.0258,0,-0.042,0.4567,0.5533,0,0,,
+Dominio B,alta (3),cociente,B233,Venezuela->Ecuador,119,30,12,0.1834,0.995,-0.0831,-1.1298,0,-0.6224,0.1267,0.88,0,0,,
+Dominio B,alta (3),cociente,B234,Japan->China,82,20,13,0.2344,0.995,0.1824,-3.991,0,-0.8462,0.0267,0.9767,1,0,,
+Dominio B,alta (3),cociente,B235,Japan->South Korea,106,26,14,-0.0593,0.995,0.0256,-2.4729,0,-0.6396,0.0967,0.91,0,0,,
+Dominio B,alta (3),cociente,B236,Japan->Taiwan,109,27,12,-0.0796,0.995,-0.0143,-2.8637,0,-0.6294,0.0867,0.92,0,0,,
+Dominio B,alta (3),cociente,B237,Japan->Mongolia,69,17,14,0.0575,0.995,0.262,-5.0241,0,-0.767,0.0533,0.9567,0,0,,
+Dominio B,alta (3),cociente,B238,South Korea->China,81,20,13,0.3968,0.9343,-0.0397,-2.3354,0,-0.2418,0.32,0.6833,0,0,,
+Dominio B,alta (3),cociente,B239,Taiwan->China,81,20,13,0.3717,0.9392,0.0328,-2.2036,0,-0.3846,0.2167,0.79,0,0,,
+Dominio B,alta (3),cociente,B240,Mongolia->China,69,17,14,-0.0047,0.959,0.0924,1.898,0,0.2879,0.7633,0.2467,0,0,,
+Dominio B,alta (3),cociente,B241,Taiwan->South Korea,99,25,13,0.0238,0.7539,0.0661,0.1561,0,-0.4725,0.08,0.9267,0,0,,
+Dominio B,alta (3),cociente,B242,South Korea->Mongolia,69,17,14,0.4545,0.9781,0.0811,-3.966,0,-0.2967,0.3167,0.6867,0,0,,
+Dominio B,alta (3),cociente,B243,Taiwan->Mongolia,69,17,14,0.3709,0.9908,0.07,-3.6911,0,-0.2967,0.29,0.7133,0,0,,
+Dominio B,alta (3),cociente,B244,Singapore->Malaysia,109,27,12,0.104,0.9385,-0.3018,0.5181,0,0.5804,0.93,0.0767,0,0,,
+Dominio B,alta (3),cociente,B245,Singapore->Thailand,72,18,14,0.2535,0.8503,0.0037,0.7798,0,0.4901,0.92,0.0833,0,0,,
+Dominio B,alta (3),cociente,B246,Singapore->Indonesia,109,27,12,0.4364,0.906,-0.0588,0.987,0,0.7483,0.9967,0.0067,0,1,,
+Dominio B,alta (3),cociente,B247,Singapore->Philippines,107,27,12,0.5528,0.9372,-0.2133,1.4036,0,0.8252,0.9967,0.0067,0,1,,
+Dominio B,alta (3),cociente,B248,Singapore->Vietnam,70,18,14,0.6638,0.9154,0.0913,-0.5264,0,-0.6088,0.08,0.9233,0,0,,
+Dominio B,alta (3),cociente,B249,Singapore->Cambodia,69,17,14,0.7069,0.8167,-0.0683,-0.1002,0,-0.2088,0.2867,0.7167,0,0,,
+Dominio B,alta (3),cociente,B250,Singapore->Myanmar,79,20,12,0.7403,0.8277,0.2993,-1.7684,0,-0.042,0.4433,0.5667,0,0,,
+Dominio B,alta (3),cociente,B251,Singapore->Laos,69,17,14,0.4874,0.8308,0.0369,-1.4373,0,-0.556,0.04,0.9633,1,0,,
+Dominio B,alta (3),cociente,B252,Thailand->Malaysia,72,18,14,0.0663,0.3167,0.0394,-0.3766,0,-0.4901,0.0433,0.96,1,0,,
+Dominio B,alta (3),cociente,B253,Malaysia->Indonesia,112,28,13,0.3271,0.7143,0.2421,-0.0235,0,0.1813,0.6967,0.3067,0,0,,
+Dominio B,alta (3),cociente,B254,Malaysia->Philippines,111,28,12,0.412,0.9033,0.1244,1.6607,0,0.6923,0.9733,0.03,0,1,,
+Dominio B,alta (3),cociente,B255,Malaysia->Vietnam,70,18,14,0.3562,0.9296,0.0669,-0.7224,0,-0.6044,0.07,0.9333,0,0,,
+Dominio B,alta (3),cociente,B256,Malaysia->Cambodia,69,17,14,0.3972,0.8653,-0.1052,-0.2594,0,-0.2308,0.27,0.7333,0,0,,
+Dominio B,alta (3),cociente,B257,Malaysia->Myanmar,79,20,12,0.4957,0.8709,0.548,-2.413,0,0.0839,0.5867,0.4233,0,0,,
+Dominio B,alta (3),cociente,B258,Malaysia->Laos,69,17,14,0.1778,0.9386,0.0,-1.5964,0,-0.4462,0.1733,0.83,0,0,,
+Dominio B,alta (3),cociente,B259,Thailand->Indonesia,72,18,14,0.2186,0.7817,0.0972,-1.0076,0,-0.4154,0.0867,0.9167,0,0,,
+Dominio B,alta (3),cociente,B260,Thailand->Philippines,72,18,14,0.4763,0.8414,0.0101,-0.5016,0,-0.0945,0.4033,0.6033,0,0,,
+Dominio B,alta (3),cociente,B261,Thailand->Vietnam,70,18,14,0.3931,0.9531,0.0677,-1.2179,0,-0.5429,0.1033,0.9,0,0,,
+Dominio B,alta (3),cociente,B262,Thailand->Cambodia,69,17,14,0.4639,0.8788,0.0093,-0.7979,0,-0.3187,0.2333,0.7767,0,0,,
+Dominio B,alta (3),cociente,B263,Thailand->Myanmar,71,18,14,0.3577,0.9543,0.1484,-2.0198,0,-0.3099,0.2633,0.74,0,0,,
+Dominio B,alta (3),cociente,B264,Thailand->Laos,69,17,14,0.2445,0.9909,0.1145,-2.1349,0,-0.5297,0.14,0.8667,0,0,,
+Dominio B,alta (3),cociente,B265,Philippines->Indonesia,109,27,12,-0.1027,0.9737,0.1413,-0.8861,0,-0.7832,0.0333,0.9733,1,0,,
+Dominio B,alta (3),cociente,B266,Vietnam->Indonesia,70,18,14,-0.1999,0.9558,0.0221,0.0829,0,0.6132,0.8867,0.12,0,0,,
+Dominio B,alta (3),cociente,B267,Indonesia->Cambodia,69,17,14,0.2737,0.8943,-0.0839,0.4121,0,0.0681,0.57,0.4367,0,0,,
+Dominio B,alta (3),cociente,B268,Indonesia->Myanmar,79,20,12,0.2514,0.9283,0.2599,-2.2587,0,-0.1469,0.3833,0.6233,0,0,,
+Dominio B,alta (3),cociente,B269,Indonesia->Laos,69,17,14,0.0543,0.9679,0.0213,-0.9249,0,-0.5912,0.1,0.9033,0,0,,
+Dominio B,alta (3),cociente,B270,Philippines->Vietnam,70,18,14,-0.0664,0.9655,0.0845,-0.4763,0,-0.7011,0.0767,0.93,0,0,,
+Dominio B,alta (3),cociente,B271,Philippines->Cambodia,69,17,14,-0.0063,0.837,-0.0036,0.0303,0,-0.2484,0.2667,0.74,0,0,,
+Dominio B,alta (3),cociente,B272,Philippines->Myanmar,78,20,12,0.0208,0.959,0.346,-2.2816,0,-0.9091,0.0133,0.99,1,0,,
+Dominio B,alta (3),cociente,B273,Philippines->Laos,69,17,14,-0.2257,0.9481,0.1016,-1.3067,0,-0.8989,0.0067,0.9967,1,0,,
+Dominio B,alta (3),cociente,B274,Vietnam->Cambodia,69,17,14,0.0788,0.9557,-0.0477,0.4522,0,0.5604,0.9167,0.0867,0,0,,
+Dominio B,alta (3),cociente,B275,Vietnam->Myanmar,70,18,14,-0.0616,0.824,0.0284,-0.6631,0,-0.2879,0.2167,0.79,0,0,,
+Dominio B,alta (3),cociente,B276,Vietnam->Laos,69,17,14,-0.1406,0.8385,0.0575,-0.8848,0,-0.1429,0.3367,0.6767,0,0,,
+Dominio B,alta (3),cociente,B277,Myanmar->Cambodia,69,17,14,0.161,0.9057,0.0017,0.9868,0,0.5956,0.9567,0.0467,0,1,,
+Dominio B,alta (3),cociente,B278,Laos->Cambodia,69,17,14,0.2194,0.9146,-0.1052,1.337,0,0.811,1.0,0.0033,0,1,,
+Dominio B,alta (3),cociente,B279,Laos->Myanmar,69,17,14,0.0584,0.9053,-0.1069,0.3502,0,0.0022,0.4933,0.51,0,0,,
+Dominio B,alta (3),cociente,B280,Pakistan->India,69,17,14,0.0446,0.995,-0.0244,-1.4418,0,-0.7143,0.04,0.9633,1,0,,
+Dominio B,alta (3),cociente,B281,India->Bangladesh,69,17,14,0.1545,0.8657,0.0686,-0.2474,0,-0.5341,0.0733,0.93,0,0,,
+Dominio B,alta (3),cociente,B282,Sri Lanka->India,119,30,12,0.0173,0.7665,-0.0596,-0.2372,0,-0.007,0.47,0.54,0,0,,
+Dominio B,alta (3),cociente,B283,India->Nepal,70,18,14,0.1811,0.9362,-0.0053,1.5496,0,0.9956,1.0,0.0033,0,1,,
+Dominio B,alta (3),cociente,B284,India->Afghanistan,69,17,14,0.5213,0.8968,0.053,-0.7318,0,-0.0769,0.4133,0.5933,0,0,,
+Dominio B,alta (3),cociente,B285,Pakistan->Bangladesh,69,17,14,0.1991,0.993,0.0442,-1.6892,0,-0.644,0.11,0.8933,0,0,,
+Dominio B,alta (3),cociente,B286,Sri Lanka->Pakistan,69,17,14,-0.0387,0.9744,-0.0687,1.1049,0,0.8418,0.9867,0.02,0,1,,
+Dominio B,alta (3),cociente,B287,Pakistan->Nepal,69,17,14,0.228,0.8009,-0.027,0.0697,0,-0.1912,0.3233,0.6833,0,0,,
+Dominio B,alta (3),cociente,B288,Pakistan->Afghanistan,69,17,14,0.5659,0.8931,0.0286,-2.1736,0,-0.1516,0.3767,0.63,0,0,,
+Dominio B,alta (3),cociente,B289,Sri Lanka->Bangladesh,69,17,14,0.1604,0.9392,-0.0244,-0.5843,0,-0.4901,0.11,0.8967,0,0,,
+Dominio B,alta (3),cociente,B290,Bangladesh->Nepal,69,17,14,0.0288,0.995,-0.0712,1.7589,0,0.7275,0.9333,0.0733,0,0,,
+Dominio B,alta (3),cociente,B291,Bangladesh->Afghanistan,69,17,14,0.3668,0.9132,-0.0157,-0.4844,0,-0.1956,0.3367,0.68,0,0,,
+Dominio B,alta (3),cociente,B292,Sri Lanka->Nepal,70,18,14,0.1898,0.942,-0.0772,1.2063,0,0.9077,1.0,0.0033,0,1,,
+Dominio B,alta (3),cociente,B293,Sri Lanka->Afghanistan,69,17,14,0.5272,0.9062,-0.0401,-1.0687,0,-0.0637,0.4533,0.55,0,0,,
+Dominio B,alta (3),cociente,B294,Nepal->Afghanistan,69,17,14,0.3379,0.9147,0.0555,-2.2433,0,-0.1604,0.3367,0.68,0,0,,
+Dominio B,alta (3),cociente,B295,Israel->Turkey,69,17,14,-0.0515,0.9565,0.124,-0.6842,0,-0.9253,0.0033,1.0,1,0,,
+Dominio B,alta (3),cociente,B296,Israel->Iran,69,17,14,0.0483,0.9529,0.1095,-0.5119,0,-0.5253,0.13,0.8733,0,0,,
+Dominio B,alta (3),cociente,B297,Israel->Iraq,69,17,14,0.3498,0.9317,-0.0241,-3.4526,0,-0.3626,0.1967,0.81,0,0,,
+Dominio B,alta (3),cociente,B298,Saudi Arabia->Israel,69,17,14,0.1447,0.963,0.0318,1.7067,0,0.5736,0.9233,0.08,0,0,,
+Dominio B,alta (3),cociente,B299,Israel->Egypt,69,17,14,-0.059,0.9713,0.2054,-0.8486,0,-0.8637,0.0067,0.9967,1,0,,
+Dominio B,alta (3),cociente,B300,Israel->Jordan,69,17,14,0.165,0.9088,0.0579,0.0318,0,-0.4462,0.1167,0.8867,0,0,,
+Dominio B,alta (3),cociente,B301,Israel->Lebanon,69,17,14,0.4242,0.8601,0.1838,-0.7158,0,-0.6923,0.01,0.9933,1,0,,
+Dominio B,alta (3),cociente,B302,Israel->Syria,69,17,14,0.4812,0.9665,0.1685,4.9358,0,0.8374,0.9933,0.01,0,1,,
+Dominio B,alta (3),cociente,B303,Israel->Yemen,69,17,14,0.2189,0.995,0.2752,3.4415,0,0.389,0.7767,0.2333,0,0,,
+Dominio B,alta (3),cociente,B304,Iran->Turkey,70,18,14,-0.0834,0.9092,0.0599,-0.0789,0,0.1912,0.61,0.3967,0,0,,
+Dominio B,alta (3),cociente,B305,Turkey->Iraq,70,18,14,0.3799,0.9183,-0.1884,-2.7667,0,-0.3011,0.2667,0.74,0,0,,
+Dominio B,alta (3),cociente,B306,Saudi Arabia->Turkey,70,18,14,0.1534,0.8033,0.3226,0.9895,0,0.4637,0.92,0.0833,0,0,,
+Dominio B,alta (3),cociente,B307,Turkey->Egypt,70,18,14,0.0333,0.7484,0.1945,-0.0715,0,-0.556,0.0367,0.9667,1,0,,
+Dominio B,alta (3),cociente,B308,Jordan->Turkey,70,18,14,-0.2112,0.862,0.0762,-0.7159,0,-0.178,0.34,0.6667,0,0,,
+Dominio B,alta (3),cociente,B309,Lebanon->Turkey,70,18,14,-0.4608,0.7773,-0.0025,0.0747,0,0.5429,0.96,0.0433,0,1,,
+Dominio B,alta (3),cociente,B310,Syria->Turkey,70,18,14,-0.515,0.9621,0.0021,-5.5915,0,-0.8813,0.0067,0.9967,1,0,,
+Dominio B,alta (3),cociente,B311,Turkey->Yemen,69,17,14,0.2704,0.995,0.1512,4.1257,0,0.7846,0.9667,0.04,0,1,,
+Dominio B,alta (3),cociente,B312,Iran->Iraq,70,18,14,0.2965,0.8883,-0.1284,-2.8455,0,-0.4154,0.14,0.8633,0,0,,
+Dominio B,alta (3),cociente,B313,Saudi Arabia->Iran,70,18,14,0.2368,0.7175,0.2627,1.0684,0,0.0374,0.5333,0.47,0,0,,
+Dominio B,alta (3),cociente,B314,Iran->Egypt,70,18,14,-0.0501,0.855,0.2544,-0.1504,0,-0.0725,0.38,0.6267,0,0,,
+Dominio B,alta (3),cociente,B315,Iran->Jordan,70,18,14,0.1278,0.9375,-0.0163,0.637,0,0.3055,0.7333,0.2733,0,0,,
+Dominio B,alta (3),cociente,B316,Iran->Lebanon,70,18,14,0.3775,0.7816,0.0624,-0.1536,0,-0.5692,0.04,0.9633,1,0,,
+Dominio B,alta (3),cociente,B317,Iran->Syria,70,18,14,0.4316,0.9888,0.0578,5.5126,0,0.6571,0.9367,0.0667,0,0,,
+Dominio B,alta (3),cociente,B318,Iran->Yemen,69,17,14,0.1706,0.995,0.1656,3.9534,0,0.6308,0.87,0.1333,0,0,,
+Dominio B,alta (3),cociente,B319,Saudi Arabia->Iraq,70,18,14,0.5333,0.8865,0.1343,-1.7771,0,-0.4286,0.1433,0.87,0,0,,
+Dominio B,alta (3),cociente,B320,Iraq->Egypt,70,18,14,-0.3466,0.8828,0.3828,2.6952,0,0.2923,0.7933,0.21,0,0,,
+Dominio B,alta (3),cociente,B321,Jordan->Iraq,70,18,14,0.1688,0.9291,-0.1122,-3.4825,0,-0.3802,0.2367,0.7733,0,0,,
+Dominio B,alta (3),cociente,B322,Lebanon->Iraq,70,18,14,-0.0809,0.8667,-0.1909,-2.6919,0,-0.2088,0.3233,0.69,0,0,,
+Dominio B,alta (3),cociente,B323,Syria->Iraq,70,18,14,-0.135,0.9929,-0.1863,-8.3581,0,-0.3099,0.3533,0.6633,0,0,,
+Dominio B,alta (3),cociente,B324,Iraq->Yemen,69,17,14,-0.1309,0.9753,0.2993,6.8941,0,0.3055,0.71,0.2933,0,0,,
+Dominio B,alta (3),cociente,B325,Saudi Arabia->Egypt,70,18,14,0.1867,0.7501,0.5171,0.918,0,-0.1736,0.2933,0.7233,0,0,,
+Dominio B,alta (3),cociente,B326,Saudi Arabia->Jordan,70,18,14,0.3646,0.9048,0.2464,1.7054,0,0.3802,0.8167,0.1867,0,0,,
+Dominio B,alta (3),cociente,B327,Saudi Arabia->Lebanon,70,18,14,0.6142,0.826,0.3251,0.9148,0,-0.4813,0.0933,0.91,0,0,,
+Dominio B,alta (3),cociente,B328,Saudi Arabia->Syria,70,18,14,0.6684,0.995,0.3205,6.581,0,0.6352,0.8867,0.1167,0,0,,
+Dominio B,alta (3),cociente,B329,Saudi Arabia->Yemen,69,17,14,0.3636,0.995,0.3069,5.1482,0,0.644,0.9133,0.09,0,0,,
+Dominio B,alta (3),cociente,B330,Jordan->Egypt,70,18,14,-0.1779,0.791,0.2707,-0.7874,0,-0.6747,0.0267,0.9767,1,0,,
+Dominio B,alta (3),cociente,B331,Lebanon->Egypt,70,18,14,-0.4276,0.7344,0.192,0.0032,0,0.4374,0.92,0.0867,0,0,,
+Dominio B,alta (3),cociente,B332,Syria->Egypt,70,18,14,-0.4817,0.9287,0.1965,-5.663,0,-0.9385,0.0033,1.0,1,0,,
+Dominio B,alta (3),cociente,B333,Egypt->Yemen,69,17,14,0.2779,0.995,0.0698,4.2901,0,0.9209,0.9933,0.01,0,1,,
+Dominio B,alta (3),cociente,B334,Lebanon->Jordan,70,18,14,-0.2497,0.8287,-0.0787,0.7906,0,0.622,0.95,0.0533,0,0,,
+Dominio B,alta (3),cociente,B335,Syria->Jordan,70,18,14,-0.3038,0.9841,-0.0741,-4.8756,0,-0.7758,0.0367,0.9667,1,0,,
+Dominio B,alta (3),cociente,B336,Jordan->Yemen,69,17,14,0.0539,0.995,0.2172,3.4097,0,0.6176,0.92,0.0833,0,0,,
+Dominio B,alta (3),cociente,B337,Lebanon->Syria,70,18,14,0.0541,0.9719,-0.0046,5.6662,0,0.7846,0.9633,0.0433,0,1,,
+Dominio B,alta (3),cociente,B338,Lebanon->Yemen,69,17,14,-0.2053,0.9362,0.0913,4.1572,0,0.7802,0.9833,0.02,0,1,,
+Dominio B,alta (3),cociente,B339,Syria->Yemen,69,17,14,-0.2622,0.8775,0.1066,-1.4943,0,-0.8418,0.0067,0.9967,1,0,,
+Dominio B,alta (3),cociente,B340,Egypt->Morocco,70,18,14,0.2342,0.5578,-0.0326,0.1033,0,0.578,0.98,0.0233,0,1,,
+Dominio B,alta (3),cociente,B341,Algeria->Egypt,70,18,14,-0.1119,0.7988,0.0923,0.3882,0,0.2923,0.8067,0.1967,0,0,,
+Dominio B,alta (3),cociente,B342,Tunisia->Egypt,70,18,14,-0.0477,0.8174,0.1066,-0.6879,0,-0.7978,0.0067,0.9967,1,0,,
+Dominio B,alta (3),cociente,B343,Egypt->Sudan,69,17,14,0.4554,0.8569,0.0252,0.2853,0,-0.3231,0.1667,0.8367,0,0,,
+Dominio B,alta (3),cociente,B344,Libya->Egypt,69,17,14,0.3334,0.911,0.5493,-3.0997,0,-0.244,0.25,0.7567,0,0,,
+Dominio B,alta (3),cociente,B345,Algeria->Morocco,70,18,14,0.1223,0.6345,0.0598,0.4914,0,0.5253,0.96,0.0433,0,1,,
+Dominio B,alta (3),cociente,B346,Tunisia->Morocco,70,18,14,0.1865,0.4072,0.0741,-0.5846,0,-0.1473,0.3267,0.68,0,0,,
+Dominio B,alta (3),cociente,B347,Morocco->Sudan,69,17,14,0.1728,0.916,-0.109,0.2195,0,-0.4022,0.1467,0.86,0,0,,
+Dominio B,alta (3),cociente,B348,Libya->Morocco,69,17,14,0.616,0.8746,0.6835,-3.0339,0,-0.0374,0.47,0.5367,0,0,,
+Dominio B,alta (3),cociente,B349,Algeria->Tunisia,70,18,14,-0.0643,0.8965,-0.0143,1.076,0,0.3538,0.79,0.2133,0,0,,
+Dominio B,alta (3),cociente,B350,Algeria->Sudan,69,17,14,0.3214,0.7464,0.0556,0.5513,0,-0.2615,0.1933,0.81,0,0,,
+Dominio B,alta (3),cociente,B351,Libya->Algeria,69,17,14,0.4674,0.871,0.5188,-3.3656,0,-0.2527,0.2433,0.76,0,0,,
+Dominio B,alta (3),cociente,B352,Tunisia->Sudan,69,17,14,0.3805,0.8746,0.0552,-0.4106,0,-0.5341,0.09,0.9133,0,0,,
+Dominio B,alta (3),cociente,B353,Libya->Tunisia,69,17,14,0.4083,0.8622,0.5193,-2.4037,0,-0.033,0.43,0.5767,0,0,,
+Dominio B,alta (3),cociente,B354,Libya->Sudan,69,17,14,0.7888,0.823,0.5745,-2.8144,0,-0.4286,0.11,0.8933,0,0,,
+Dominio B,alta (3),cociente,B355,South Africa->Nigeria,69,17,14,-0.0819,0.9406,0.0758,-1.3024,0,-0.7231,0.02,0.9833,1,0,,
+Dominio B,alta (3),cociente,B356,South Africa->Kenya,69,17,14,-0.0048,0.9006,0.0855,-0.5192,0,0.1033,0.6567,0.35,0,0,,
+Dominio B,alta (3),cociente,B357,South Africa->Ghana,69,17,14,0.1791,0.9308,0.0277,-1.135,0,-0.3187,0.1967,0.8067,0,0,,
+Dominio B,alta (3),cociente,B358,South Africa->Zimbabwe,69,17,14,0.1596,0.9836,-0.0137,1.7496,0,0.5648,0.8767,0.13,0,0,,
+Dominio B,alta (3),cociente,B359,South Africa->Zambia,69,17,14,0.0833,0.9538,-0.051,-1.7393,0,-0.433,0.1733,0.83,0,0,,
+Dominio B,alta (3),cociente,B360,South Africa->Tanzania,69,17,14,-0.0223,0.995,0.0823,-1.4866,0,-0.8066,0.03,0.9767,1,0,,
+Dominio B,alta (3),cociente,B361,South Africa->Uganda,69,17,14,0.1837,0.9081,0.068,-0.2216,0,-0.3319,0.2,0.8067,0,0,,
+Dominio B,alta (3),cociente,B362,South Africa->Mozambique,69,17,14,0.4959,0.9353,0.0492,1.7898,0,0.9077,1.0,0.0033,0,1,,
+Dominio B,alta (3),cociente,B363,Botswana->South Africa,69,17,14,0.9003,0.8884,-0.0318,0.8316,0,0.1209,0.6333,0.3733,0,0,,
+Dominio B,alta (3),cociente,B364,South Africa->Ethiopia,69,17,14,0.1164,0.9659,0.0101,-1.9814,0,0.1209,0.5833,0.4267,0,0,,
+Dominio B,alta (3),cociente,B365,South Africa->Cameroon,69,17,14,0.0202,0.9679,0.0154,0.3171,0,0.5516,0.9,0.1033,0,0,,
+Dominio B,alta (3),cociente,B366,South Africa->Senegal,69,17,14,0.2956,0.866,0.0502,0.7747,0,0.6176,0.9667,0.0367,0,1,,
+Dominio B,alta (3),cociente,B367,South Africa->Angola,69,17,14,0.0309,0.9942,-0.0238,-3.1596,0,-0.6923,0.07,0.9333,0,0,,
+Dominio B,alta (3),cociente,B368,Nigeria->Kenya,69,17,14,0.0771,0.9325,0.0097,0.7832,0,0.6615,0.9467,0.0567,0,0,,
+Dominio B,alta (3),cociente,B369,Nigeria->Ghana,69,17,14,0.261,0.8835,-0.0481,0.1673,0,0.2923,0.78,0.2267,0,0,,
+Dominio B,alta (3),cociente,B370,Nigeria->Zimbabwe,69,17,14,0.2415,0.9852,-0.0894,3.052,0,0.7055,0.9333,0.0767,0,0,,
+Dominio B,alta (3),cociente,B371,Nigeria->Zambia,69,17,14,0.1652,0.872,-0.1267,-0.4369,0,0.0154,0.5867,0.42,0,0,,
+Dominio B,alta (3),cociente,B372,Nigeria->Tanzania,69,17,14,0.0595,0.8052,0.0065,-0.1842,0,0.1692,0.7167,0.2867,0,0,,
+Dominio B,alta (3),cociente,B373,Nigeria->Uganda,69,17,14,0.2656,0.9053,-0.0078,1.0808,0,0.4769,0.92,0.09,0,0,,
+Dominio B,alta (3),cociente,B374,Nigeria->Mozambique,69,17,14,0.5777,0.9519,-0.0265,3.0921,0,0.8989,1.0,0.0067,0,1,,
+Dominio B,alta (3),cociente,B375,Botswana->Nigeria,69,17,14,0.8184,0.8765,0.0439,-0.4708,0,-0.3582,0.21,0.8,0,0,,
+Dominio B,alta (3),cociente,B376,Nigeria->Ethiopia,69,17,14,0.1983,0.94,-0.0657,-0.679,0,0.3978,0.81,0.1933,0,0,,
+Dominio B,alta (3),cociente,B377,Nigeria->Cameroon,69,17,14,0.102,0.9663,-0.0604,1.6195,0,0.7099,0.9533,0.0533,0,0,,
+Dominio B,alta (3),cociente,B378,Nigeria->Senegal,69,17,14,0.3774,0.9328,-0.0255,2.0771,0,0.7011,0.9667,0.0367,0,1,,
+Dominio B,alta (3),cociente,B379,Angola->Nigeria,69,17,14,-0.1127,0.9628,0.0996,1.8572,0,0.6,0.9233,0.08,0,0,,
+Dominio B,alta (3),cociente,B380,Ghana->Kenya,69,17,14,-0.1838,0.9219,0.0578,0.6158,0,0.6615,0.96,0.0433,0,1,,
+Dominio B,alta (3),cociente,B381,Zimbabwe->Kenya,69,17,14,-0.1644,0.9849,0.0992,-2.2688,0,-0.8769,0.0167,0.9867,1,0,,
+Dominio B,alta (3),cociente,B382,Kenya->Zambia,69,17,14,0.0881,0.9425,-0.1365,-1.2201,0,-0.4593,0.14,0.8633,0,0,,
+Dominio B,alta (3),cociente,B383,Kenya->Tanzania,69,17,14,-0.0176,0.995,-0.0032,-0.9674,0,-0.6088,0.0967,0.91,0,0,,
+Dominio B,alta (3),cociente,B384,Kenya->Uganda,69,17,14,0.1885,0.9272,-0.0175,0.2976,0,-0.4022,0.1633,0.8433,0,0,,
+Dominio B,alta (3),cociente,B385,Kenya->Mozambique,69,17,14,0.5006,0.9373,-0.0362,2.309,0,0.9297,1.0,0.0033,0,1,,
+Dominio B,alta (3),cociente,B386,Botswana->Kenya,69,17,14,0.8955,0.8663,0.0537,0.3124,0,0.2308,0.7367,0.2667,0,0,,
+Dominio B,alta (3),cociente,B387,Kenya->Ethiopia,69,17,14,0.1212,0.9307,-0.0754,-1.4622,0,0.0637,0.58,0.4333,0,0,,
+Dominio B,alta (3),cociente,B388,Cameroon->Kenya,69,17,14,-0.0249,0.9387,0.0701,-0.8363,0,-0.3099,0.2867,0.7167,0,0,,
+Dominio B,alta (3),cociente,B389,Senegal->Kenya,69,17,14,-0.3003,0.8677,0.0352,-1.2939,0,-0.7275,0.0133,0.99,1,0,,
+Dominio B,alta (3),cociente,B390,Angola->Kenya,69,17,14,-0.0356,0.9869,0.1093,2.6404,0,0.6308,0.88,0.1267,0,0,,
+Dominio B,alta (3),cociente,B391,Ghana->Zimbabwe,69,17,14,-0.0195,0.995,-0.0414,2.8846,0,0.7143,0.9367,0.0667,0,0,,
+Dominio B,alta (3),cociente,B392,Ghana->Zambia,69,17,14,-0.0957,0.8694,-0.0787,-0.6043,0,-0.3319,0.2067,0.8,0,0,,
+Dominio B,alta (3),cociente,B393,Ghana->Tanzania,69,17,14,-0.2014,0.8712,0.0546,-0.3516,0,-0.4286,0.1367,0.8667,0,0,,
+Dominio B,alta (3),cociente,B394,Ghana->Uganda,69,17,14,0.0046,0.7365,0.0403,0.9134,0,0.0857,0.5833,0.4267,0,0,,
+Dominio B,alta (3),cociente,B395,Ghana->Mozambique,69,17,14,0.3168,0.9806,0.0216,2.9248,0,0.9516,1.0,0.0033,0,1,,
+Dominio B,alta (3),cociente,B396,Botswana->Ghana,69,17,14,1.0793,0.874,-0.0041,-0.3034,0,-0.1473,0.3667,0.6467,0,0,,
+Dominio B,alta (3),cociente,B397,Ghana->Ethiopia,69,17,14,-0.0626,0.9472,-0.0176,-0.8463,0,0.1912,0.6533,0.35,0,0,,
+Dominio B,alta (3),cociente,B398,Ghana->Cameroon,69,17,14,-0.1589,0.9769,-0.0123,1.4521,0,0.644,0.9133,0.0933,0,0,,
+Dominio B,alta (3),cociente,B399,Ghana->Senegal,69,17,14,0.1165,0.9538,0.0225,1.9098,0,0.7187,0.9667,0.04,0,1,,
+Dominio B,alta (3),cociente,B400,Angola->Ghana,69,17,14,0.1482,0.9695,0.0515,2.0245,0,0.5604,0.9,0.1033,0,0,,
+Dominio B,alta (3),cociente,B401,Zimbabwe->Zambia,69,17,14,-0.0763,0.995,-0.0373,-3.4889,0,-0.6044,0.1267,0.8767,0,0,,
+Dominio B,alta (3),cociente,B402,Zimbabwe->Tanzania,69,17,14,-0.182,0.995,0.0959,-3.2362,0,-0.7011,0.0767,0.93,0,0,,
+Dominio B,alta (3),cociente,B403,Zimbabwe->Uganda,69,17,14,0.0241,0.995,0.0817,-1.9712,0,-0.6879,0.0533,0.95,0,0,,
+Dominio B,alta (3),cociente,B404,Zimbabwe->Mozambique,69,17,14,0.3362,0.8701,0.0629,0.0402,0,-0.1604,0.3567,0.65,0,0,,
+Dominio B,alta (3),cociente,B405,Botswana->Zimbabwe,69,17,14,1.0599,0.9097,-0.0455,2.5812,0,0.9121,1.0,0.0033,0,1,,
+Dominio B,alta (3),cociente,B406,Zimbabwe->Ethiopia,69,17,14,-0.0432,0.995,0.0237,-3.731,0,-0.3538,0.32,0.6933,0,0,,
+Dominio B,alta (3),cociente,B407,Cameroon->Zimbabwe,69,17,14,0.1395,0.9669,-0.0291,1.4325,0,0.4505,0.7867,0.2167,0,0,,
+Dominio B,alta (3),cociente,B408,Senegal->Zimbabwe,69,17,14,-0.1359,0.9732,-0.0639,0.9749,0,0.5341,0.8667,0.1367,0,0,,
+Dominio B,alta (3),cociente,B409,Angola->Zimbabwe,69,17,14,0.1288,0.995,0.0101,4.9092,0,0.6923,0.94,0.0633,0,0,,
+Dominio B,alta (3),cociente,B410,Zambia->Tanzania,69,17,14,-0.1057,0.8792,0.1332,0.2527,0,0.0989,0.6367,0.3667,0,0,,
+Dominio B,alta (3),cociente,B411,Zambia->Uganda,69,17,14,0.1004,0.8789,0.119,1.5177,0,0.1692,0.6567,0.35,0,0,,
+Dominio B,alta (3),cociente,B412,Zambia->Mozambique,69,17,14,0.4125,0.9746,0.1002,3.529,0,0.8681,0.99,0.0133,0,1,,
+Dominio B,alta (3),cociente,B413,Botswana->Zambia,69,17,14,0.9836,0.8901,-0.0828,-0.9077,0,-0.2659,0.2533,0.7633,0,0,,
+Dominio B,alta (3),cociente,B414,Zambia->Ethiopia,69,17,14,0.0331,0.945,0.061,-0.2421,0,0.4549,0.86,0.15,0,0,,
+Dominio B,alta (3),cociente,B415,Cameroon->Zambia,69,17,14,0.0632,0.9831,-0.0664,-2.0564,0,-0.6659,0.08,0.9267,0,0,,
+Dominio B,alta (3),cociente,B416,Senegal->Zambia,69,17,14,-0.2122,0.9678,-0.1012,-2.514,0,-0.6352,0.0833,0.92,0,0,,
+Dominio B,alta (3),cociente,B417,Angola->Zambia,69,17,14,0.0525,0.9598,-0.0271,1.4203,0,0.7187,0.9467,0.0567,0,0,,
+Dominio B,alta (3),cociente,B418,Uganda->Tanzania,69,17,14,-0.206,0.9338,0.0143,-1.265,0,-0.4505,0.1833,0.82,0,0,,
+Dominio B,alta (3),cociente,B419,Mozambique->Tanzania,69,17,14,-0.5182,0.9657,0.033,-3.2763,0,-0.9341,0.0033,1.0,1,0,,
+Dominio B,alta (3),cociente,B420,Botswana->Tanzania,69,17,14,0.8779,0.8778,0.0504,-0.655,0,-0.3363,0.1967,0.8167,0,0,,
+Dominio B,alta (3),cociente,B421,Tanzania->Ethiopia,69,17,14,0.1388,0.9609,-0.0722,-0.4948,0,0.4066,0.8133,0.19,0,0,,
+Dominio B,alta (3),cociente,B422,Cameroon->Tanzania,69,17,14,-0.0425,0.995,0.0669,-1.8037,0,-0.7319,0.05,0.9567,0,0,,
+Dominio B,alta (3),cociente,B423,Senegal->Tanzania,69,17,14,-0.3179,0.9583,0.032,-2.2613,0,-0.7582,0.0333,0.97,1,0,,
+Dominio B,alta (3),cociente,B424,Angola->Tanzania,69,17,14,-0.0532,0.9635,0.1061,1.673,0,0.644,0.95,0.0533,0,0,,
+Dominio B,alta (3),cociente,B425,Mozambique->Uganda,69,17,14,-0.3122,0.9615,0.0187,-2.0114,0,-0.8813,0.0067,0.9967,1,0,,
+Dominio B,alta (3),cociente,B426,Botswana->Uganda,69,17,14,1.084,0.8847,0.0362,0.61,0,-0.0022,0.4667,0.5433,0,0,,
+Dominio B,alta (3),cociente,B427,Uganda->Ethiopia,69,17,14,-0.0673,0.9665,-0.0579,-1.7598,0,0.0857,0.5733,0.4333,0,0,,
+Dominio B,alta (3),cociente,B428,Cameroon->Uganda,69,17,14,0.1635,0.9756,0.0526,-0.5387,0,-0.644,0.08,0.9267,0,0,,
+Dominio B,alta (3),cociente,B429,Senegal->Uganda,69,17,14,-0.1119,0.943,0.0177,-0.9963,0,-0.6835,0.03,0.9733,1,0,,
+Dominio B,alta (3),cociente,B430,Angola->Uganda,69,17,14,0.1528,0.9781,0.0918,2.938,0,0.6044,0.9,0.1033,0,0,,
+Dominio B,alta (3),cociente,B431,Botswana->Mozambique,69,17,14,1.3961,0.8982,0.0174,2.6213,0,0.7187,0.9767,0.03,0,1,,
+Dominio B,alta (3),cociente,B432,Mozambique->Ethiopia,69,17,14,-0.3794,0.9619,-0.0392,-3.7711,0,-0.6615,0.0533,0.9533,0,0,,
+Dominio B,alta (3),cociente,B433,Cameroon->Mozambique,69,17,14,0.4757,0.9189,0.0338,1.4727,0,0.622,0.9233,0.08,0,0,,
+Dominio B,alta (3),cociente,B434,Senegal->Mozambique,69,17,14,0.2003,0.9439,-0.001,1.015,0,0.8374,0.99,0.0167,0,1,,
+Dominio B,alta (3),cociente,B435,Angola->Mozambique,69,17,14,0.465,0.9881,0.0731,4.9493,0,0.7758,0.9767,0.0267,0,1,,
+Dominio B,alta (3),cociente,B436,Botswana->Ethiopia,69,17,14,1.0167,0.8954,-0.0218,-1.1498,0,0.0945,0.61,0.4,0,0,,
+Dominio B,alta (3),cociente,B437,Botswana->Cameroon,69,17,14,0.9204,0.8892,-0.0164,1.1487,0,0.3495,0.8233,0.1967,0,0,,
+Dominio B,alta (3),cociente,B438,Botswana->Senegal,69,17,14,1.1958,0.8721,0.0184,1.6063,0,0.3187,0.8167,0.19,0,0,,
+Dominio B,alta (3),cociente,B439,Botswana->Angola,69,17,14,0.9311,0.9293,-0.0557,-2.328,0,-0.4593,0.1,0.9067,0,0,,
+Dominio B,alta (3),cociente,B440,Cameroon->Ethiopia,69,17,14,0.0963,0.9706,-0.0053,-2.2985,0,-0.1385,0.4467,0.56,0,0,,
+Dominio B,alta (3),cociente,B441,Senegal->Ethiopia,69,17,14,-0.1791,0.9389,-0.0402,-2.7561,0,-0.1912,0.3033,0.7,0,0,,
+Dominio B,alta (3),cociente,B442,Angola->Ethiopia,69,17,14,0.0856,0.9819,0.0339,1.1782,0,0.7011,0.94,0.0633,0,0,,
+Dominio B,alta (3),cociente,B443,Senegal->Cameroon,69,17,14,-0.2754,0.8654,-0.0348,-0.4576,0,-0.1692,0.3633,0.6467,0,0,,
+Dominio B,alta (3),cociente,B444,Angola->Cameroon,69,17,14,-0.0107,0.9935,0.0392,3.4767,0,0.6879,0.9267,0.0767,0,0,,
+Dominio B,alta (3),cociente,B445,Angola->Senegal,69,17,14,0.2647,0.982,0.0741,3.9343,0,0.6747,0.9433,0.06,0,0,,
+Dominio B,alta (3),cociente,B446,New Zealand->Australia,119,30,12,-0.1096,0.9067,-0.054,-0.5448,0,-0.7063,0.0133,0.99,1,0,,
+Cripto,~0,cociente,0GUSDT,0GUSDT,344,86,12,-0.5912,0.9622,-0.3855,-3.6767,0,-0.9231,0.0033,1.0,1,0,,2025-09-23
+Cripto,~0,cociente,1000CATUSDT,1000CATUSDT,623,156,12,-0.6983,0.9373,-0.5785,-0.5942,0,-0.5385,0.0267,0.98,1,0,,2024-12-17
+Cripto,~0,cociente,1000CHEEMSUSDT,1000CHEEMSUSDT,569,142,12,-0.1706,0.9587,0.1389,0.6143,0,0.1119,0.6667,0.3433,0,0,,2025-03-25
+Cripto,~0,cociente,1000SATSUSDT,1000SATSUSDT,994,248,13,-1.3775,0.9672,-0.5025,-0.6274,0,-0.2692,0.1767,0.8367,0,0,,2023-12-25
+Cripto,~0,cociente,1INCHUSDT,1INCHUSDT,2076,519,12,-1.1752,0.9863,-0.144,-3.3699,0,-0.9231,0.0033,1.0,1,0,,2021-02-05
+Cripto,~0,cociente,1MBABYDOGEUSDT,1MBABYDOGEUSDT,715,179,12,-0.6013,0.9419,-0.214,-0.7951,0,-0.7133,0.0167,0.9867,1,0,,2024-12-09
+Cripto,~0,cociente,2ZUSDT,2ZUSDT,334,84,12,-0.2848,0.9436,-0.3522,-1.3836,0,-0.0769,0.4067,0.6033,0,0,,2025-10-02
+Cripto,~0,cociente,A2ZUSDT,A2ZUSDT,246,62,12,-0.5451,0.9915,0.0243,-2.125,0,-0.6364,0.1067,0.8967,0,0,,2025-08-07
+Cripto,~0,cociente,AAVEUSDT,AAVEUSDT,2147,537,13,-0.3606,0.986,0.1,-2.3959,0,-0.1538,0.3233,0.6833,0,0,,2021-05-18
+Cripto,~0,cociente,ACAUSDT,ACAUSDT,1481,370,13,-1.3905,0.9834,-0.5517,-6.4993,0,-0.8022,0.0033,1.0,1,0,,2022-01-25
+Cripto,~0,cociente,ACEUSDT,ACEUSDT,988,247,12,-1.4991,0.9586,-0.5567,-2.981,0,-0.5455,0.04,0.9633,1,0,,2023-12-21
+Cripto,~0,cociente,ACHUSDT,ACHUSDT,1695,424,12,-0.6066,0.9924,-0.2004,-4.0828,0,-0.9021,0.0033,1.0,1,0,,2022-01-10
+Cripto,~0,cociente,ACMUSDT,ACMUSDT,2015,504,12,-1.0332,0.9915,-0.1979,-3.1728,0,-0.8951,0.0067,0.9967,1,0,,2021-05-21
+Cripto,~0,cociente,ACTUSDT,ACTUSDT,659,165,13,-1.0541,0.9117,-0.5462,-1.2093,0,0.0549,0.58,0.43,0,0,,2024-11-14
+Cripto,~0,cociente,ACXUSDT,ACXUSDT,620,155,12,-0.7436,0.9476,-0.3968,0.6985,0,0.3217,0.8433,0.1667,0,0,,2024-12-06
+Cripto,~0,cociente,ADAUSDT,ADAUSDT,3059,765,13,-0.2051,0.995,-0.5306,-3.7722,0,-0.6758,0.0167,0.9867,1,0,,2021-09-02
+Cripto,~0,cociente,ADXUSDT,ADXUSDT,1768,442,13,-0.7479,0.9861,-0.1782,-0.1926,0,-0.2637,0.2333,0.7733,0,0,,2021-10-29
+Cripto,~0,cociente,AERGOUSDT,AERGOUSDT,694,174,12,-0.3897,0.9801,-0.0434,-1.6342,0,-0.5315,0.07,0.9367,0,0,,2023-11-14
+Cripto,~0,cociente,AEVOUSDT,AEVOUSDT,902,226,13,-1.3416,0.9434,-0.6766,-1.1841,0,-0.3791,0.0833,0.9233,0,0,,2024-03-27
+Cripto,~0,cociente,AGIXUSDT,AGIXUSDT,501,125,13,-0.1216,0.9893,-0.2421,-1.5126,0,0.4945,0.8833,0.12,0,0,,2023-03-01
+Cripto,~0,cociente,AGLDUSDT,AGLDUSDT,1792,448,13,-0.5715,0.9925,-0.375,-3.6694,0,-0.8077,0.0067,0.9967,1,0,,2021-10-05
+Cripto,~0,cociente,AIONUSDT,AIONUSDT,1105,276,13,-0.5968,0.976,-0.1899,0.3313,0,0.011,0.5267,0.48,0,0,,2020-02-26
+Cripto,~0,cociente,AIUSDT,AIUSDT,971,243,12,-1.3816,0.9675,-0.4151,-1.9765,0,-0.6923,0.01,0.9967,1,0,,2024-02-18
+Cripto,~0,cociente,AIXBTUSDT,AIXBTUSDT,599,150,12,-0.7484,0.9462,-0.4628,-0.7297,0,0.035,0.5133,0.5,0,0,,2025-01-15
+Cripto,~0,cociente,AKROUSDT,AKROUSDT,1515,379,12,-0.615,0.9907,0.0429,-3.9202,0,-0.3217,0.2067,0.8,0,0,,2021-04-07
+Cripto,~0,cociente,ALCXUSDT,ALCXUSDT,1684,421,13,-1.1141,0.9775,-0.5797,-1.3826,0,-0.6374,0.0167,0.99,1,0,,2022-01-05
+Cripto,~0,cociente,ALGOUSDT,ALGOUSDT,2628,657,13,-0.9909,0.9934,-0.3625,-3.6701,0,-0.6209,0.0267,0.98,1,0,,2019-06-22
+Cripto,~0,cociente,ALICEUSDT,ALICEUSDT,1996,499,12,-1.361,0.988,-0.1412,-6.2377,0,-0.9231,0.0033,1.0,1,0,,2021-11-24
+Cripto,~0,cociente,ALLOUSDT,ALLOUSDT,294,74,13,0.2691,0.9632,-0.3054,-1.7475,0,0.2088,0.71,0.3067,0,0,,2026-07-24
+Cripto,~0,cociente,ALPACAUSDT,ALPACAUSDT,1361,340,13,-0.6855,0.9844,-0.2779,-4.0536,0,-0.7967,0.0033,1.0,1,0,,2021-08-17
+Cripto,~0,cociente,ALPHAUSDT,ALPHAUSDT,1729,432,13,-0.8478,0.9919,0.4687,-7.2003,0,-0.9341,0.0033,1.0,1,0,,2021-02-05
+Cripto,~0,cociente,ALPINEUSDT,ALPINEUSDT,1653,413,13,-0.9797,0.9829,0.0032,-3.6249,0,-0.6813,0.0133,0.9933,1,0,,2022-09-02
+Cripto,~0,cociente,ALTUSDT,ALTUSDT,950,238,12,-1.3678,0.9546,-0.5402,-1.7779,0,-0.6084,0.02,0.9867,1,0,,2024-02-22
+Cripto,~0,cociente,AMBUSDT,AMBUSDT,725,181,13,-0.5728,0.995,-0.3699,-3.6884,0,-0.7802,0.0167,0.9867,1,0,,2023-03-03
+Cripto,~0,cociente,AMPUSDT,AMPUSDT,1743,436,12,-1.1,0.9819,-0.5062,-4.1232,0,-0.6434,0.0233,0.9833,1,0,,2021-11-23
+Cripto,~0,cociente,ANCUSDT,ANCUSDT,337,84,13,-1.0003,0.9478,0.1879,-2.9542,0,-0.1154,0.38,0.6333,0,0,,2022-03-05
+Cripto,~0,cociente,ANIMEUSDT,ANIMEUSDT,586,146,13,-0.5913,0.9765,-0.2053,-2.3184,0,-0.6264,0.06,0.9467,0,0,,2025-01-23
+Cripto,~0,cociente,ANKRUSDT,ANKRUSDT,2597,649,13,-0.1743,0.995,0.2378,-7.4108,0,-0.9615,0.0033,1.0,1,0,,2021-05-18
+Cripto,~0,cociente,ANTUSDT,ANTUSDT,1287,322,13,-0.2343,0.9851,-0.4529,0.7913,0,0.7033,1.0,0.0033,0,1,,2020-08-26
+Cripto,~0,cociente,APEUSDT,APEUSDT,1629,407,12,-1.4955,0.9785,-0.1253,-5.7099,0,-0.8741,0.0033,1.0,1,0,,2022-04-28
+Cripto,~0,cociente,API3USDT,API3USDT,1684,421,13,-0.8996,0.9878,-0.1451,-3.2313,0,-0.6813,0.0167,0.9867,1,0,,2022-02-19
+Cripto,~0,cociente,APTUSDT,APTUSDT,1413,353,13,-0.9223,0.9882,-0.11,-5.4531,0,-0.9725,0.0033,1.0,1,0,,2023-01-25
+Cripto,~0,cociente,ARBUSDT,ARBUSDT,1258,314,13,-1.0317,0.9793,-0.1189,-3.0215,0,-0.7967,0.0033,1.0,1,0,,2023-04-16
+Cripto,~0,cociente,ARDRUSDT,ARDRUSDT,2248,562,13,-0.5765,0.9911,0.0143,-2.0953,0,-0.8242,0.0033,1.0,1,0,,2021-09-04
+Cripto,~0,cociente,ARKMUSDT,ARKMUSDT,1141,285,13,-0.6519,0.9933,0.125,-1.5088,0,-0.7308,0.02,0.9833,1,0,,2024-03-09
+Cripto,~0,cociente,ARKUSDT,ARKUSDT,1075,269,13,-0.7281,0.9652,-0.1788,-2.9665,0,-0.522,0.0467,0.9567,1,0,,2023-11-10
+Cripto,~0,cociente,ARPAUSDT,ARPAUSDT,2491,623,12,-0.4875,0.995,-0.068,-6.2173,0,-0.8881,0.0033,1.0,1,0,,2023-05-25
+Cripto,~0,cociente,ARUSDT,ARUSDT,1936,484,13,-0.7542,0.9932,0.1418,-3.6639,0,-0.6044,0.0267,0.9767,1,0,,2021-09-09
+Cripto,~0,cociente,ASRUSDT,ASRUSDT,2071,518,12,-0.6539,0.9931,-0.1829,0.083,0,-0.4825,0.1033,0.91,0,0,,2020-12-30
+Cripto,~0,cociente,ASTERUSDT,ASTERUSDT,330,82,13,-0.0626,0.9447,-0.0942,-0.4315,0,0.1429,0.6867,0.3167,0,0,,2025-10-07
+Cripto,~0,cociente,ASTRUSDT,ASTRUSDT,1646,412,12,-0.8875,0.9925,-0.0944,-3.9907,0,-0.8042,0.0067,0.9967,1,0,,2022-04-10
+Cripto,~0,cociente,ASTUSDT,ASTUSDT,680,170,13,-0.4621,0.9922,-0.1616,-2.6394,0,-0.8736,0.0033,1.0,1,0,,2023-05-19
+Cripto,~0,cociente,ATAUSDT,ATAUSDT,1816,454,12,-1.1792,0.9947,-0.2684,-6.7015,0,-0.9371,0.0033,1.0,1,0,,2021-06-07
+Cripto,~0,cociente,ATMUSDT,ATMUSDT,2071,518,12,-0.8481,0.9915,-0.0528,-1.0754,0,-0.7762,0.0067,0.9967,1,0,,2021-05-21
+Cripto,~0,cociente,ATOMUSDT,ATOMUSDT,2682,670,12,-0.6481,0.995,-0.159,-5.0492,0,-0.8322,0.0033,1.0,1,0,,2022-01-16
+Cripto,~0,cociente,ATUSDT,ATUSDT,278,70,12,0.1026,0.9069,0.0338,-0.0671,0,0.014,0.5367,0.4767,0,0,,2026-08-12
+Cripto,~0,cociente,AUCTIONUSDT,AUCTIONUSDT,1768,442,13,-0.4834,0.9912,-0.2215,-1.9593,0,-0.6538,0.0067,0.9967,1,0,,2023-12-27
+Cripto,~0,cociente,AUDIOUSDT,AUDIOUSDT,2139,535,12,-1.0986,0.9938,0.491,-6.5946,0,-0.993,0.0033,1.0,1,0,,2021-03-27
+Cripto,~0,cociente,AUSDT,AUSDT,461,115,12,-0.5652,0.9571,-0.1059,-0.2735,0,0.0629,0.5533,0.46,0,0,,2025-05-28
+Cripto,~0,cociente,AUTOUSDT,AUTOUSDT,747,187,12,-0.4644,0.9789,-0.3537,0.407,0,0.6503,0.98,0.0267,0,1,,2021-04-02
+Cripto,~0,cociente,AVAUSDT,AVAUSDT,2107,527,12,-0.7985,0.9869,-0.0254,-4.3372,0,-0.9231,0.0033,1.0,1,0,,2021-04-12
+Cripto,~0,cociente,AVAXUSDT,AVAXUSDT,2170,542,12,-0.239,0.995,0.5602,-3.8204,0,-0.7762,0.02,0.9833,1,0,,2021-12-21
+Cripto,~0,cociente,AVNTUSDT,AVNTUSDT,351,88,12,-0.5797,0.8571,-0.3899,-1.3955,0,-0.3217,0.12,0.8867,0,0,,2025-09-21
+Cripto,~0,cociente,AWEUSDT,AWEUSDT,468,117,13,0.1535,0.9592,-0.0784,1.0141,0,0.478,0.9267,0.0833,0,0,,2026-02-18
+Cripto,~0,cociente,AXLUSDT,AXLUSDT,914,228,13,-1.0322,0.9717,-0.4028,-1.3771,0,-0.6923,0.0067,0.9967,1,0,,2024-03-03
+Cripto,~0,cociente,AXSUSDT,AXSUSDT,2127,532,12,-0.4591,0.995,1.5524,-5.6603,1,-0.972,0.0033,1.0,1,0,,2021-10-03
+Cripto,~0,cociente,BABYUSDT,BABYUSDT,509,127,12,-0.4996,0.9113,-0.3033,0.0331,0,0.5664,0.9833,0.02,0,1,,2025-04-12
+Cripto,~0,cociente,BADGERUSDT,BADGERUSDT,1507,377,13,-0.7863,0.9837,-0.2851,-3.8778,0,-0.6154,0.0133,0.9933,1,0,,2021-03-02
+Cripto,~0,cociente,BAKEUSDT,BAKEUSDT,1602,400,13,-1.0539,0.9703,-0.6257,-7.6163,0,-0.533,0.03,0.9767,1,0,,2021-05-16
+Cripto,~0,cociente,BALUSDT,BALUSDT,1710,428,12,-1.0081,0.9883,-0.3268,-5.2189,0,-0.7972,0.0067,0.9967,1,0,,2020-09-01
+Cripto,~0,cociente,BANANAS31USDT,BANANAS31USDT,523,131,12,0.1917,0.9794,0.074,-1.0075,0,0.3776,0.83,0.18,0,0,,2025-07-10
+Cripto,~0,cociente,BANANAUSDT,BANANAUSDT,773,193,13,-0.8451,0.965,-0.1677,-0.3932,0,-0.4505,0.0733,0.9367,0,0,,2024-10-13
+Cripto,~0,cociente,BANDUSDT,BANDUSDT,2540,635,12,-0.8007,0.995,0.7489,-6.7373,0,-0.8881,0.0033,1.0,1,0,,2020-09-01
+Cripto,~0,cociente,BANKUSDT,BANKUSDT,292,73,13,0.1038,0.9583,-0.0131,-0.2717,0,0.2747,0.7767,0.23,0,0,,2026-07-26
+Cripto,~0,cociente,BARDUSDT,BARDUSDT,348,87,12,-0.3939,0.9884,-0.0243,-1.8656,0,-0.6224,0.1,0.9133,0,0,,2026-03-05
+Cripto,~0,cociente,BARUSDT,BARUSDT,1959,490,13,-1.2155,0.9889,-0.4229,-4.3864,0,-0.956,0.0033,1.0,1,0,,2021-04-21
+Cripto,~0,cociente,BATUSDT,BATUSDT,2738,684,13,-0.8755,0.9917,-0.3323,-1.984,0,-0.7143,0.0033,1.0,1,0,,2019-04-21
+Cripto,~0,cociente,BBUSDT,BBUSDT,841,210,13,-0.9429,0.9728,-0.1775,-2.6919,0,-0.5989,0.0333,0.9733,1,0,,2024-06-05
+Cripto,~0,cociente,BCCUSDT,BCCUSDT,371,93,13,-0.1916,0.9589,-0.0345,-0.2672,0,-0.5275,0.0533,0.95,0,0,,2017-11-12
+Cripto,~0,cociente,BCHABCUSDT,BCHABCUSDT,378,94,12,-0.0764,0.9813,-0.0888,-0.0599,0,-0.4825,0.0933,0.91,0,0,,2019-04-15
+Cripto,~0,cociente,BCHUSDT,BCHUSDT,2469,617,13,-0.5671,0.9778,-0.2936,0.6436,0,0.3022,0.8767,0.13,0,0,,2020-02-14
+Cripto,~0,cociente,BEAMUSDT,BEAMUSDT,1224,306,13,-0.7568,0.9727,-0.2709,0.2397,0,-0.044,0.43,0.5733,0,0,,2019-09-21
+Cripto,~0,cociente,BEAMXUSDT,BEAMXUSDT,1022,256,12,-0.868,0.9766,0.0452,-2.289,0,-0.7133,0.01,1.0,1,0,,2024-02-21
+Cripto,~0,cociente,BELUSDT,BELUSDT,2177,544,13,-0.9793,0.9941,-0.3873,-4.7443,0,-0.8901,0.0033,1.0,1,0,,2020-09-15
+Cripto,~0,cociente,BERAUSDT,BERAUSDT,572,143,12,-0.8926,0.9619,-0.4106,-3.5031,0,-0.6573,0.01,0.9933,1,0,,2025-02-28
+Cripto,~0,cociente,BETAUSDT,BETAUSDT,1287,322,13,-1.0614,0.995,-0.6061,-5.7522,0,-0.9451,0.0033,1.0,1,0,,2021-10-09
+Cripto,~0,cociente,BETHUSDT,BETHUSDT,223,56,12,-0.0266,0.9546,-0.0146,-0.1527,0,-0.3357,0.21,0.7933,0,0,,2023-03-12
+Cripto,~0,cociente,BICOUSDT,BICOUSDT,1727,432,12,-1.3472,0.987,-0.4755,-5.4154,0,-0.8671,0.0033,1.0,1,0,,2021-12-09
+Cripto,~0,cociente,BIFIUSDT,BIFIUSDT,1484,371,12,-0.8534,0.9864,-0.1456,-1.8435,0,-0.8531,0.0033,1.0,1,0,,2022-04-12
+Cripto,~0,cociente,BIGTIMEUSDT,BIGTIMEUSDT,508,127,12,-0.5737,0.9615,-0.1881,-2.2994,0,-0.7762,0.0067,0.9967,1,0,,2025-04-17
+Cripto,~0,cociente,BIOUSDT,BIOUSDT,606,152,12,-0.512,0.9785,-0.6511,2.0053,0,0.035,0.56,0.4633,0,0,,2025-01-03
+Cripto,~0,cociente,BLURUSDT,BLURUSDT,1012,253,13,-1.1777,0.9698,-0.4056,-1.4685,0,-0.6264,0.02,0.9867,1,0,,2023-11-24
+Cripto,~0,cociente,BLZUSDT,BLZUSDT,1598,400,12,-0.2198,0.9924,-0.2178,-3.1206,0,0.0559,0.5167,0.4933,0,0,,2020-08-28
+Cripto,~0,cociente,BMTUSDT,BMTUSDT,532,133,13,-0.6389,0.9496,-0.2239,0.3114,0,0.1593,0.6667,0.3433,0,0,,2025-03-18
+Cripto,~0,cociente,BNBUSDT,BNBUSDT,3221,805,13,0.7383,0.9938,0.5571,0.6042,0,-0.2802,0.1567,0.8533,0,0,,2022-11-26
+Cripto,~0,cociente,BNSOLUSDT,BNSOLUSDT,684,171,12,-0.1711,0.9592,-0.1213,-0.244,0,-0.4336,0.09,0.9167,0,0,,2024-11-18
+Cripto,~0,cociente,BNTUSDT,BNTUSDT,2399,600,12,-0.7826,0.9908,0.3543,-1.9102,0,-0.5664,0.05,0.9533,0,0,,2020-08-08
+Cripto,~0,cociente,BNXUSDT,BNXUSDT,1226,306,13,-1.9992,0.9891,0.3496,-6.0494,0,0.0495,0.56,0.4467,0,0,,2022-11-24
+Cripto,~0,cociente,BOMEUSDT,BOMEUSDT,899,225,13,-1.0882,0.9741,-0.1934,1.9173,0,0.0769,0.5933,0.42,0,0,,2024-03-16
+Cripto,~0,cociente,BONDUSDT,BONDUSDT,1114,278,12,-0.6494,0.9795,-0.3783,-2.3617,0,-0.6573,0.04,0.97,1,0,,2021-07-05
+Cripto,~0,cociente,BONKUSDT,BONKUSDT,991,248,12,-0.4704,0.9902,0.0337,-1.6683,0,-0.6923,0.0333,0.97,1,0,,2024-05-28
+Cripto,~0,cociente,BREVUSDT,BREVUSDT,238,60,12,-0.3352,0.7799,-0.2567,-0.6781,0,-0.8811,0.0033,1.0,1,0,,2026-01-07
+Cripto,~0,cociente,BROCCOLI714USDT,BROCCOLI714USDT,523,131,12,-0.203,0.9371,-0.0881,0.0794,0,0.5734,0.9733,0.03,0,1,,2025-03-27
+Cripto,~0,cociente,BSWUSDT,BSWUSDT,1202,300,13,-1.1647,0.9764,-0.2263,-6.3303,0,-0.7912,0.0033,1.0,1,0,,2022-04-01
+Cripto,~0,cociente,BTCSTUSDT,BTCSTUSDT,682,170,13,-0.5381,0.9537,-0.3879,1.3552,0,0.5,0.96,0.0433,0,1,,2021-02-24
+Cripto,~0,cociente,BTGUSDT,BTGUSDT,557,139,12,-0.2067,0.9684,-0.1026,2.4176,0,0.3217,0.84,0.1733,0,0,,2021-05-06
+Cripto,~0,cociente,BTSUSDT,BTSUSDT,1401,350,12,-0.6377,0.9749,-0.2773,-2.1599,0,-0.3497,0.1733,0.8433,0,0,,2020-09-07
+Cripto,~0,cociente,BTTCUSDT,BTTCUSDT,1680,420,13,-0.6838,0.9841,-0.1187,-1.2196,0,-0.6209,0.0133,0.99,1,0,,2022-02-02
+Cripto,~0,cociente,BTTUSDT,BTTUSDT,1083,271,12,-0.3735,0.9942,-0.4354,0.8749,0,0.6294,0.9333,0.07,0,0,,2019-02-05
+Cripto,~0,cociente,BURGERUSDT,BURGERUSDT,1429,357,13,-0.9627,0.9875,-0.5226,-3.9777,0,-0.7473,0.0033,1.0,1,0,,2021-05-02
+Cripto,~0,cociente,BZRXUSDT,BZRXUSDT,477,119,12,-0.4237,0.9638,-0.6043,-1.2166,0,-0.3077,0.1633,0.8467,0,0,,2020-08-31
+Cripto,~0,cociente,C98USDT,C98USDT,1866,466,13,-1.5132,0.9789,-0.2938,-3.02,0,-0.8077,0.0033,1.0,1,0,,2021-08-27
+Cripto,~0,cociente,CAKEUSDT,CAKEUSDT,2020,505,13,-0.9175,0.9829,-0.192,-0.3834,0,-0.1264,0.3767,0.6333,0,0,,2021-04-29
+Cripto,~0,cociente,CATIUSDT,CATIUSDT,711,178,13,-0.7475,0.9549,-0.5277,0.2732,0,0.8736,1.0,0.0033,0,1,,2024-09-20
+Cripto,~0,cociente,CELOUSDT,CELOUSDT,2065,516,13,-1.1589,0.9883,0.0044,-5.531,0,-0.9396,0.0033,1.0,1,0,,2021-09-24
+Cripto,~0,cociente,CELRUSDT,CELRUSDT,2717,679,12,-0.6786,0.995,-0.6634,-7.3638,0,-0.9091,0.0033,1.0,1,0,,2019-03-25
+Cripto,~0,cociente,CETUSUSDT,CETUSUSDT,664,166,12,-0.8201,0.9504,-0.453,0.6196,0,0.1958,0.7433,0.2733,0,0,,2024-11-09
+Cripto,~0,cociente,CFXUSDT,CFXUSDT,1982,496,12,-0.6189,0.9935,-0.5557,-1.63,0,-0.6434,0.0367,0.9733,1,0,,2021-03-29
+Cripto,~0,cociente,CGPTUSDT,CGPTUSDT,599,150,12,-0.599,0.9548,-0.3528,0.0265,0,0.1958,0.71,0.3033,0,0,,2025-01-15
+Cripto,~0,cociente,CHESSUSDT,CHESSUSDT,1576,394,13,-1.1711,0.9898,-0.4574,-5.1861,0,-0.9396,0.0033,1.0,1,0,,2021-10-22
+Cripto,~0,cociente,CHRUSDT,CHRUSDT,2308,577,13,-0.3958,0.995,0.2836,-7.1396,0,-0.8901,0.0033,1.0,1,0,,2021-11-20
+Cripto,~0,cociente,CHZUSDT,CHZUSDT,2552,638,12,-0.1352,0.995,0.2924,-3.7246,0,-0.8741,0.0033,1.0,1,0,,2022-11-18
+Cripto,~0,cociente,CITYUSDT,CITYUSDT,1756,439,12,-1.1205,0.988,0.0544,-1.5644,0,-0.7273,0.02,0.9833,1,0,,2022-04-02
+Cripto,~0,cociente,CKBUSDT,CKBUSDT,2044,511,12,-0.6611,0.9912,0.0214,-5.4057,0,-0.5594,0.06,0.9433,0,0,,2021-03-31
+Cripto,~0,cociente,CLVUSDT,CLVUSDT,1307,327,12,-1.0929,0.958,-0.5245,-3.1522,0,-0.3007,0.1767,0.8433,0,0,,2021-08-16
+Cripto,~0,cociente,COCOSUSDT,COCOSUSDT,1375,344,12,2.2408,0.9859,-0.4507,0.9746,0,0.2098,0.7267,0.29,0,0,,2023-02-23
+Cripto,~0,cociente,COMBOUSDT,COMBOUSDT,666,166,12,-0.6184,0.995,-0.2628,-2.8192,0,-0.9301,0.0067,1.0,1,0,,2023-06-02
+Cripto,~0,cociente,COMPUSDT,COMPUSDT,2259,565,13,-1.0893,0.9831,-0.2828,-2.8415,0,-0.8901,0.0033,1.0,1,0,,2020-06-26
+Cripto,~0,cociente,COOKIEUSDT,COOKIEUSDT,599,150,12,-0.8596,0.9777,-0.3048,-2.807,0,-0.8252,0.0033,1.0,1,0,,2025-01-10
+Cripto,~0,cociente,COSUSDT,COSUSDT,2513,628,13,-1.0746,0.9903,-0.5425,-7.9481,0,-0.9505,0.0033,1.0,1,0,,2019-08-17
+Cripto,~0,cociente,COTIUSDT,COTIUSDT,2379,595,12,-0.6144,0.995,0.2269,-7.9405,0,-0.8322,0.0033,1.0,1,0,,2021-09-29
+Cripto,~0,cociente,COWUSDT,COWUSDT,664,166,12,-0.2925,0.968,-0.1404,-1.6035,0,-0.1818,0.2633,0.7433,0,0,,2024-12-25
+Cripto,~0,cociente,CREAMUSDT,CREAMUSDT,573,143,12,-0.4502,0.9939,-0.1656,-4.4086,0,-0.7133,0.0433,0.9667,1,0,,2024-05-19
+Cripto,~0,cociente,CRVUSDT,CRVUSDT,2208,552,13,-0.8879,0.9944,-0.174,-3.1533,0,-0.4286,0.1267,0.8833,0,0,,2020-08-15
+Cripto,~0,cociente,CTKUSDT,CTKUSDT,2135,534,12,-0.803,0.9941,-0.1491,-3.81,0,-0.8951,0.0033,1.0,1,0,,2020-10-27
+Cripto,~0,cociente,CTSIUSDT,CTSIUSDT,2322,580,13,-0.5704,0.995,0.3548,-3.7243,0,-0.9066,0.0033,1.0,1,0,,2021-05-08
+Cripto,~0,cociente,CTXCUSDT,CTXCUSDT,1973,493,13,-0.247,0.9897,-0.2579,-6.2561,0,-0.522,0.0433,0.9633,1,0,,2019-11-22
+Cripto,~0,cociente,CUSDT,CUSDT,410,102,12,-0.27,0.9571,-0.2608,-0.6635,0,0.4196,0.88,0.1233,0,0,,2025-07-23
+Cripto,~0,cociente,CVCUSDT,CVCUSDT,2409,602,13,-0.4596,0.995,0.0418,-6.0504,0,-0.9011,0.0033,1.0,1,0,,2021-09-04
+Cripto,~0,cociente,CVPUSDT,CVPUSDT,1058,264,13,-0.4298,0.995,-0.277,-3.8049,0,-0.7582,0.01,0.9933,1,0,,2021-10-04
+Cripto,~0,cociente,CVXUSDT,CVXUSDT,1713,428,13,-1.0258,0.9682,-0.4289,-1.2576,0,-0.1484,0.27,0.74,0,0,,2022-01-04
+Cripto,~0,cociente,CYBERUSDT,CYBERUSDT,1113,278,12,-1.0934,0.9729,-0.0614,-2.1121,0,-0.4615,0.08,0.9267,0,0,,2023-09-01
+Cripto,~0,cociente,DARUSDT,DARUSDT,1160,290,13,-0.8709,0.9579,-0.3614,-1.459,0,-0.1593,0.3,0.72,0,0,,2021-11-24
+Cripto,~0,cociente,DASHUSDT,DASHUSDT,2714,678,12,-1.1165,0.9869,-0.3937,0.1419,0,-0.4895,0.0567,0.95,0,0,,2019-04-01
+Cripto,~0,cociente,DATAUSDT,DATAUSDT,2139,535,12,-0.9114,0.9944,-0.3272,-7.4094,0,-0.8951,0.0033,1.0,1,0,,2020-04-30
+Cripto,~0,cociente,DCRUSDT,DCRUSDT,2224,556,13,-0.7612,0.9903,0.2251,2.3883,0,-0.033,0.45,0.5533,0,0,,2021-05-31
+Cripto,~0,cociente,DEGOUSDT,DEGOUSDT,1876,469,13,-0.8897,0.9908,-0.4279,-6.4633,0,-0.9451,0.0033,1.0,1,0,,2021-03-15
+Cripto,~0,cociente,DENTUSDT,DENTUSDT,2437,609,13,-0.3398,0.995,-0.094,-7.4268,0,-0.956,0.0033,1.0,1,0,,2021-04-05
+Cripto,~0,cociente,DEXEUSDT,DEXEUSDT,1866,466,13,-0.2786,0.9857,-0.2518,2.3872,0,-0.0495,0.4067,0.6033,0,0,,2026-07-12
+Cripto,~0,cociente,DFUSDT,DFUSDT,1604,401,13,-0.6875,0.995,-0.2759,-8.4082,0,-0.6099,0.0367,0.9667,1,0,,2021-09-24
+Cripto,~0,cociente,DGBUSDT,DGBUSDT,2234,558,12,-1.0082,0.9806,-0.2656,-2.401,0,-0.9021,0.0033,1.0,1,0,,2020-08-16
+Cripto,~0,cociente,DIAUSDT,DIAUSDT,2188,547,12,-0.9614,0.9793,-0.476,-3.7662,0,-0.6084,0.01,0.9933,1,0,,2020-09-04
+Cripto,~0,cociente,DNTUSDT,DNTUSDT,714,178,13,-0.1588,0.9746,0.2384,0.2567,0,-0.1099,0.3833,0.62,0,0,,2021-02-13
+Cripto,~0,cociente,DOCKUSDT,DOCKUSDT,1792,448,13,-0.1406,0.995,0.0304,-1.9477,0,-0.6868,0.04,0.9633,1,0,,2020-08-26
+Cripto,~0,cociente,DODOUSDT,DODOUSDT,2020,505,13,-1.4604,0.9831,-0.7041,-2.5038,0,-0.8791,0.0033,1.0,1,0,,2021-02-21
+Cripto,~0,cociente,DOGEUSDT,DOGEUSDT,2615,654,12,0.65,0.995,0.1321,-1.564,0,-0.5455,0.0767,0.9267,0,0,,2021-05-07
+Cripto,~0,cociente,DOGSUSDT,DOGSUSDT,736,184,13,-1.0525,0.9375,-0.6195,1.393,0,0.3407,0.8867,0.1167,0,0,,2024-08-28
+Cripto,~0,cociente,DOLOUSDT,DOLOUSDT,370,92,13,-0.408,0.8353,-0.4368,-0.6872,0,-0.6209,0.0067,0.9967,1,0,,2025-08-31
+Cripto,~0,cociente,DOTUSDT,DOTUSDT,2205,551,12,-0.8544,0.9913,0.1769,-4.8018,0,-0.986,0.0033,1.0,1,0,,2021-05-14
+Cripto,~0,cociente,DREPUSDT,DREPUSDT,1537,384,13,1.4082,0.9885,-0.0702,-5.2983,0,-0.7747,0.0033,1.0,1,0,,2021-04-08
+Cripto,~0,cociente,DUSDT,DUSDT,527,132,12,-0.666,0.9257,-0.3572,0.446,0,-0.3357,0.1733,0.8333,0,0,,2025-01-09
+Cripto,~0,cociente,DUSKUSDT,DUSKUSDT,2598,650,13,-0.4195,0.995,-0.3845,-0.4925,0,-0.7198,0.0033,1.0,1,0,,2019-07-22
+Cripto,~0,cociente,DYDXUSDT,DYDXUSDT,1818,454,12,-1.2715,0.9892,-0.4674,-6.426,0,-0.9161,0.0033,1.0,1,0,,2021-09-29
+Cripto,~0,cociente,DYMUSDT,DYMUSDT,938,234,13,-1.7234,0.9682,-0.588,-4.8818,0,-0.8956,0.0033,1.0,1,0,,2024-02-08
+Cripto,~0,cociente,EDENUSDT,EDENUSDT,336,84,13,-0.3133,0.9547,-0.4269,0.0672,0,0.3956,0.87,0.1333,0,0,,2025-09-30
+Cripto,~0,cociente,EDUUSDT,EDUUSDT,1222,306,13,-1.107,0.9816,-0.3429,-6.0208,0,-0.3681,0.1033,0.9033,0,0,,2023-05-28
+Cripto,~0,cociente,EGLDUSDT,EGLDUSDT,2189,547,12,-0.8009,0.995,0.5727,-6.8965,0,-0.993,0.0033,1.0,1,0,,2021-11-22
+Cripto,~0,cociente,EIGENUSDT,EIGENUSDT,700,175,12,-0.8437,0.9677,-0.3508,0.6498,0,-0.2378,0.2633,0.7467,0,0,,2024-10-01
+Cripto,~0,cociente,ELFUSDT,ELFUSDT,1317,329,13,-0.1421,0.995,-0.229,-3.3446,0,-0.4835,0.1,0.9067,0,0,,2023-12-23
+Cripto,~0,cociente,ENAUSDT,ENAUSDT,882,220,13,-0.59,0.9739,-0.4197,-0.7336,0,-0.4945,0.0633,0.9433,0,0,,2024-04-10
+Cripto,~0,cociente,ENJUSDT,ENJUSDT,2693,673,13,-0.7533,0.995,-0.1044,-6.5881,0,-0.9286,0.0033,1.0,1,0,,2021-11-24
+Cripto,~0,cociente,ENSOUSDT,ENSOUSDT,322,80,13,-0.0086,0.9562,-0.3221,1.0378,0,0.0055,0.48,0.53,0,0,,2026-02-24
+Cripto,~0,cociente,ENSUSDT,ENSUSDT,1756,439,12,-0.4976,0.9922,-0.0415,-3.6856,0,-0.6364,0.0233,0.98,1,0,,2021-11-27
+Cripto,~0,cociente,EOSUSDT,EOSUSDT,2556,639,12,-1.3608,0.9856,-0.3624,-5.5141,0,-0.8322,0.0033,1.0,1,0,,2018-06-02
+Cripto,~0,cociente,EPICUSDT,EPICUSDT,537,134,12,-0.3617,0.9744,-0.1993,3.7424,0,0.042,0.6067,0.4033,0,0,,2025-08-19
+Cripto,~0,cociente,EPSUSDT,EPSUSDT,403,101,13,-0.7386,0.9295,-0.5903,0.5445,0,-0.1484,0.3233,0.6833,0,0,,2021-04-02
+Cripto,~0,cociente,EPXUSDT,EPXUSDT,827,207,12,-0.7628,0.9922,-0.2007,-3.5639,0,-0.6643,0.0567,0.95,0,0,,2022-05-24
+Cripto,~0,cociente,ERAUSDT,ERAUSDT,411,103,12,-0.6208,0.9356,-0.3595,-1.8931,0,-0.4266,0.1,0.91,0,0,,2025-07-17
+Cripto,~0,cociente,ERDUSDT,ERDUSDT,425,106,13,0.1515,0.995,-0.3441,9.8854,0,0.467,0.8667,0.14,0,0,,2020-07-28
+Cripto,~0,cociente,ERNUSDT,ERNUSDT,1358,340,12,-0.576,0.975,-0.2208,-3.1417,0,-0.2238,0.2533,0.7533,0,0,,2021-08-20
+Cripto,~0,cociente,ESPUSDT,ESPUSDT,201,50,13,-0.0746,0.8982,0.0955,0.1692,0,0.5604,0.9767,0.03,0,1,,2026-02-24
+Cripto,~0,cociente,ETCUSDT,ETCUSDT,3003,751,12,-0.5258,0.995,-0.3822,-4.6498,0,-0.7203,0.0133,0.99,1,0,,2018-07-06
+Cripto,~0,cociente,ETHFIUSDT,ETHFIUSDT,897,224,13,-0.7071,0.9408,-0.3775,-0.4952,0,-0.1593,0.3,0.7033,0,0,,2024-03-27
+Cripto,~0,cociente,ETHUSDT,ETHUSDT,3302,826,13,-0.0571,0.995,-0.3319,-1.4768,0,-0.5714,0.05,0.9533,0,0,,2018-02-01
+Cripto,~0,cociente,EULUSDT,EULUSDT,323,81,13,-0.4656,0.9512,-0.2778,0.8446,0,0.6374,0.9767,0.0267,0,1,,2025-10-29
+Cripto,~0,cociente,FARMUSDT,FARMUSDT,1751,438,12,-0.7909,0.9873,-0.2719,-3.1722,0,-0.7483,0.0133,0.99,1,0,,2021-08-12
+Cripto,~0,cociente,FETUSDT,FETUSDT,2742,686,12,-0.1518,0.995,-0.8125,-8.927,0,-0.1119,0.3833,0.63,0,0,,2019-03-01
+Cripto,~0,cociente,FFUSDT,FFUSDT,337,84,13,-0.0926,0.8826,-0.0672,-0.3687,0,-0.011,0.43,0.5733,0,0,,2025-09-29
+Cripto,~0,cociente,FIDAUSDT,FIDAUSDT,1797,449,13,-1.5423,0.9816,-0.6641,-4.6232,0,-0.8681,0.0033,1.0,1,0,,2021-11-03
+Cripto,~0,cociente,FILUSDT,FILUSDT,2147,537,13,-1.3693,0.9888,-0.241,-3.9233,0,-0.8956,0.0033,1.0,1,0,,2020-10-15
+Cripto,~0,cociente,FIOUSDT,FIOUSDT,2058,514,13,-1.0941,0.9927,-0.2784,-4.7329,0,-0.9011,0.0033,1.0,1,0,,2020-09-04
+Cripto,~0,cociente,FIROUSDT,FIROUSDT,1539,385,13,-0.6123,0.9885,-0.0476,-2.9667,0,-0.8407,0.0033,1.0,1,0,,2021-05-11
+Cripto,~0,cociente,FISUSDT,FISUSDT,1751,438,12,-0.9124,0.9925,-0.3753,-7.1067,0,-0.8531,0.0033,1.0,1,0,,2021-03-19
+Cripto,~0,cociente,FLMUSDT,FLMUSDT,1872,468,13,-0.9891,0.9948,-0.1544,-6.3468,0,-0.9615,0.0033,1.0,1,0,,2020-09-28
+Cripto,~0,cociente,FLOKIUSDT,FLOKIUSDT,1215,304,12,-0.1791,0.995,-0.1369,-2.7527,0,-0.7832,0.0133,0.9933,1,0,,2024-06-06
+Cripto,~0,cociente,FLOWUSDT,FLOWUSDT,1859,465,13,-1.6364,0.985,-0.5583,-10.1719,0,-0.8901,0.0033,1.0,1,0,,2021-07-31
+Cripto,~0,cociente,FLUXUSDT,FLUXUSDT,1726,432,12,-1.0332,0.9892,-0.0879,-4.6612,0,-0.8392,0.0033,1.0,1,0,,2022-01-12
+Cripto,~0,cociente,FOGOUSDT,FOGOUSDT,229,57,13,-0.3493,0.9543,-0.0473,-0.8259,0,-0.8462,0.0067,1.0,1,0,,2026-01-15
+Cripto,~0,cociente,FORMUSDT,FORMUSDT,531,133,13,-0.759,0.9685,0.0376,-0.2889,0,0.1319,0.6067,0.4067,0,0,,2025-09-07
+Cripto,~0,cociente,FORTHUSDT,FORTHUSDT,1805,451,12,-0.8468,0.989,-0.4873,-3.475,0,-0.9091,0.0033,1.0,1,0,,2021-04-23
+Cripto,~0,cociente,FORUSDT,FORUSDT,1103,276,12,-0.4159,0.995,-0.1964,-2.8258,0,-0.8252,0.0167,0.99,1,0,,2021-09-17
+Cripto,~0,cociente,FRAXUSDT,FRAXUSDT,229,57,13,-0.3218,0.8823,-0.0522,0.3705,0,0.0879,0.61,0.4067,0,0,,2026-01-18
+Cripto,~0,cociente,FRONTUSDT,FRONTUSDT,1059,265,13,-0.1321,0.9838,-0.2582,1.6283,0,0.5934,0.9767,0.03,0,1,,2024-03-17
+Cripto,~0,cociente,FTMUSDT,FTMUSDT,2044,511,12,0.7519,0.9917,-0.1956,-0.6231,0,-0.6364,0.04,0.97,1,0,,2022-01-16
+Cripto,~0,cociente,FTTUSDT,FTTUSDT,2137,534,12,-1.2017,0.995,0.1809,-6.4993,0,-0.6923,0.0133,0.99,1,0,,2021-09-09
+Cripto,~0,cociente,FUNUSDT,FUNUSDT,2432,608,13,-0.6381,0.995,0.0467,-3.6036,0,-0.8462,0.0033,1.0,1,0,,2021-02-03
+Cripto,~0,cociente,FUSDT,FUSDT,311,78,12,-0.2542,0.9704,-0.2282,-1.5272,0,-0.8392,0.0033,1.0,1,0,,2025-10-25
+Cripto,~0,cociente,FXSUSDT,FXSUSDT,1496,374,12,-0.9902,0.9873,-0.229,-1.2866,0,-0.7692,0.0033,1.0,1,0,,2022-01-12
+Cripto,~0,cociente,GALAUSDT,GALAUSDT,1814,454,12,-1.1935,0.983,-0.0386,-5.6933,0,-0.8881,0.0033,1.0,1,0,,2021-11-26
+Cripto,~0,cociente,GALUSDT,GALUSDT,803,201,13,-0.4306,0.9745,-0.2092,-0.4484,0,0.478,0.9433,0.06,0,0,,2022-05-05
+Cripto,~0,cociente,GASUSDT,GASUSDT,1264,316,13,-0.5482,0.9857,0.0781,-1.6542,0,-0.478,0.04,0.9667,1,0,,2023-11-10
+Cripto,~0,cociente,GFTUSDT,GFTUSDT,439,110,12,-0.3082,0.995,-0.1482,-2.226,0,-0.1958,0.4,0.6067,0,0,,2023-09-28
+Cripto,~0,cociente,GHSTUSDT,GHSTUSDT,1639,410,13,-0.6809,0.994,0.1528,-5.0595,0,-0.9286,0.0033,1.0,1,0,,2023-03-07
+Cripto,~0,cociente,GIGGLEUSDT,GIGGLEUSDT,311,78,12,-0.3609,0.9109,-0.2184,0.7348,0,0.6993,0.9867,0.0167,0,1,,2025-11-05
+Cripto,~0,cociente,GLMRUSDT,GLMRUSDT,1694,424,12,-1.685,0.9859,-0.6615,-6.323,0,-0.9371,0.0033,1.0,1,0,,2022-01-14
+Cripto,~0,cociente,GLMUSDT,GLMUSDT,1264,316,13,-0.4459,0.9833,-0.1223,-1.9291,0,-0.4121,0.1,0.91,0,0,,2024-03-03
+Cripto,~0,cociente,GMTUSDT,GMTUSDT,1637,409,13,-1.5919,0.974,-0.1425,-4.9735,0,-0.8846,0.0033,1.0,1,0,,2022-04-29
+Cripto,~0,cociente,GMXUSDT,GMXUSDT,1427,357,13,-1.0651,0.9797,-0.0868,-0.5762,0,-0.3077,0.17,0.84,0,0,,2022-12-12
+Cripto,~0,cociente,GNOUSDT,GNOUSDT,1828,457,13,-0.4823,0.9896,0.0039,1.8609,0,-0.011,0.49,0.5167,0,0,,2021-12-30
+Cripto,~0,cociente,GNSUSDT,GNSUSDT,1292,323,12,-1.0181,0.9723,-0.3704,-3.0672,0,-0.2657,0.1933,0.82,0,0,,2023-02-18
+Cripto,~0,cociente,GPSUSDT,GPSUSDT,546,136,13,-0.3617,0.9806,-0.2719,2.0143,0,0.4615,0.8733,0.1333,0,0,,2025-03-04
+Cripto,~0,cociente,GRTUSDT,GRTUSDT,2084,521,13,-1.0502,0.9809,-0.1942,-5.6759,0,-0.7308,0.0033,1.0,1,0,,2021-02-13
+Cripto,~0,cociente,GTCUSDT,GTCUSDT,1909,477,13,-1.4447,0.9884,-0.1891,-3.7408,0,-0.9066,0.0033,1.0,1,0,,2021-11-26
+Cripto,~0,cociente,GTOUSDT,GTOUSDT,1247,312,12,-0.1541,0.9791,-0.2663,-0.3856,0,0.0,0.4733,0.5467,0,0,,2019-07-01
+Cripto,~0,cociente,GUNUSDT,GUNUSDT,519,130,13,-0.4941,0.9903,-0.3464,-6.4827,0,-0.4945,0.12,0.89,0,0,,2025-03-31
+Cripto,~0,cociente,GUSDT,GUSDT,774,194,13,-0.8409,0.9498,-0.3001,-0.0118,0,0.1154,0.6267,0.3867,0,0,,2024-07-19
+Cripto,~0,cociente,GXSUSDT,GXSUSDT,713,178,13,-0.2814,0.9875,-0.093,4.7433,0,0.6209,0.9767,0.0267,0,1,,2020-08-25
+Cripto,~0,cociente,HAEDALUSDT,HAEDALUSDT,468,117,13,-0.5054,0.9655,-0.0201,-2.229,0,-0.5,0.0667,0.9367,0,0,,2025-07-16
+Cripto,~0,cociente,HARDUSDT,HARDUSDT,1623,406,12,-0.8255,0.9923,-0.1606,-4.1948,0,-0.8462,0.0033,1.0,1,0,,2020-11-06
+Cripto,~0,cociente,HBARUSDT,HBARUSDT,2529,632,13,-0.294,0.9937,0.0035,-3.4814,0,-0.1209,0.3933,0.6133,0,0,,2021-09-15
+Cripto,~0,cociente,HCUSDT,HCUSDT,413,103,12,-0.1805,0.9857,-0.0696,-1.0307,0,-0.2797,0.3167,0.69,0,0,,2020-02-07
+Cripto,~0,cociente,HEIUSDT,HEIUSDT,565,141,13,-0.4497,0.9515,-0.2888,2.6834,0,0.1099,0.6033,0.41,0,0,,2025-02-13
+Cripto,~0,cociente,HEMIUSDT,HEMIUSDT,343,86,12,-0.6607,0.8963,-0.6162,-0.7467,0,-0.2028,0.2933,0.71,0,0,,2025-09-24
+Cripto,~0,cociente,HFTUSDT,HFTUSDT,1380,345,13,-1.4174,0.9833,-0.2899,-5.8572,0,-0.9505,0.0033,1.0,1,0,,2022-11-07
+Cripto,~0,cociente,HIFIUSDT,HIFIUSDT,980,245,13,-0.6626,0.9887,-0.2126,-8.484,0,-0.9011,0.0033,1.0,1,0,,2023-09-16
+Cripto,~0,cociente,HIGHUSDT,HIGHUSDT,1646,412,12,-1.0733,0.9938,-0.3781,-5.2132,0,-0.8531,0.0067,0.9967,1,0,,2021-12-17
+Cripto,~0,cociente,HIVEUSDT,HIVEUSDT,2318,580,12,-0.6953,0.995,-0.363,-4.9753,0,-0.8881,0.0033,1.0,1,0,,2020-04-27
+Cripto,~0,cociente,HMSTRUSDT,HMSTRUSDT,705,176,13,-1.0411,0.9656,-0.4082,1.4481,0,0.1703,0.7067,0.3033,0,0,,2024-09-27
+Cripto,~0,cociente,HNTUSDT,HNTUSDT,751,188,12,0.5712,0.9758,-0.1357,-1.5092,0,-0.5664,0.0633,0.9467,0,0,,2022-01-06
+Cripto,~0,cociente,HOLOUSDT,HOLOUSDT,355,89,13,-0.2459,0.9685,-0.4528,-0.4291,0,0.6484,0.9833,0.02,0,1,,2025-09-11
+Cripto,~0,cociente,HOMEUSDT,HOMEUSDT,446,112,12,-0.0266,0.9944,0.1701,-1.7256,0,0.007,0.51,0.5,0,0,,2026-06-04
+Cripto,~0,cociente,HOOKUSDT,HOOKUSDT,1218,304,13,-1.5367,0.9839,-0.4091,-5.4589,0,-0.9176,0.0033,1.0,1,0,,2023-02-07
+Cripto,~0,cociente,HOTUSDT,HOTUSDT,2752,688,13,-0.7289,0.995,-0.5898,-6.3595,0,-0.8956,0.0033,1.0,1,0,,2021-04-05
+Cripto,~0,cociente,HUMAUSDT,HUMAUSDT,463,116,12,-0.0611,0.9478,-0.204,1.1104,0,0.5245,0.9633,0.04,0,1,,2025-05-26
+Cripto,~0,cociente,HYPERUSDT,HYPERUSDT,497,124,13,-0.1421,0.9689,0.1267,-1.8644,0,-0.4451,0.0833,0.92,0,0,,2025-07-10
+Cripto,~0,cociente,ICPUSDT,ICPUSDT,1939,485,13,-1.0171,0.9828,-0.6803,-1.49,0,-0.5604,0.03,0.9733,1,0,,2021-05-11
+Cripto,~0,cociente,ICXUSDT,ICXUSDT,3002,750,12,-1.2987,0.9945,-0.6454,-6.5315,0,-0.9231,0.0033,1.0,1,0,,2018-06-14
+Cripto,~0,cociente,IDEXUSDT,IDEXUSDT,1666,416,13,-0.9899,0.9904,-0.2914,-4.9837,0,-0.9945,0.0033,1.0,1,0,,2021-09-11
+Cripto,~0,cociente,IDUSDT,IDUSDT,1259,315,12,-0.9383,0.9856,-0.3642,-4.6441,0,-0.8811,0.0033,1.0,1,0,,2023-04-17
+Cripto,~0,cociente,ILVUSDT,ILVUSDT,1805,451,12,-1.5712,0.9836,-0.5001,-4.2353,0,-0.7343,0.01,0.9933,1,0,,2021-11-30
+Cripto,~0,cociente,IMXUSDT,IMXUSDT,1695,424,12,-0.7819,0.9944,-0.2205,-3.8346,0,-0.6923,0.0367,0.9667,1,0,,2022-01-16
+Cripto,~0,cociente,INITUSDT,INITUSDT,495,124,12,-0.6964,0.9205,-0.326,-1.4843,0,0.1678,0.7033,0.3033,0,0,,2025-05-13
+Cripto,~0,cociente,INJUSDT,INJUSDT,2141,535,12,-0.0334,0.995,0.2015,-5.9925,0,-0.5105,0.1267,0.88,0,0,,2023-12-25
+Cripto,~0,cociente,IOSTUSDT,IOSTUSDT,2720,680,13,-1.0016,0.995,-0.4896,-7.5988,0,-0.9505,0.0033,1.0,1,0,,2019-04-05
+Cripto,~0,cociente,IOTAUSDT,IOTAUSDT,3015,754,13,-1.197,0.9915,-0.5892,-5.551,0,-0.9121,0.0067,0.9967,1,0,,2018-06-01
+Cripto,~0,cociente,IOTXUSDT,IOTXUSDT,2483,621,13,-0.2812,0.995,0.0582,-7.8301,0,-0.8956,0.0033,1.0,1,0,,2021-11-21
+Cripto,~0,cociente,IOUSDT,IOUSDT,812,203,12,-1.0462,0.9693,-0.2292,1.636,0,-0.2727,0.2067,0.8033,0,0,,2024-06-12
+Cripto,~0,cociente,IQUSDT,IQUSDT,1075,269,13,-0.75,0.9837,-0.0536,-2.4448,0,-0.8901,0.0033,1.0,1,0,,2024-03-19
+Cripto,~0,cociente,IRISUSDT,IRISUSDT,1583,396,12,-0.761,0.9856,-0.3961,-3.724,0,-0.6014,0.0367,0.97,1,0,,2020-08-12
+Cripto,~0,cociente,JASMYUSDT,JASMYUSDT,1744,436,13,-0.6388,0.9917,-0.6829,-2.6475,0,-0.5549,0.0233,0.98,1,0,,2021-11-22
+Cripto,~0,cociente,JOEUSDT,JOEUSDT,1708,427,12,-0.9765,0.992,-0.4277,-5.0103,0,-0.9231,0.0033,1.0,1,0,,2021-12-28
+Cripto,~0,cociente,JSTUSDT,JSTUSDT,2212,553,13,-0.4507,0.9948,-0.2919,6.1988,0,-0.1099,0.42,0.59,0,0,,2020-08-12
+Cripto,~0,cociente,JTOUSDT,JTOUSDT,999,250,13,-0.6729,0.9822,-0.0841,3.7896,0,-0.1978,0.3333,0.6767,0,0,,2023-12-08
+Cripto,~0,cociente,JUPUSDT,JUPUSDT,944,236,13,-0.5681,0.981,0.0492,1.2595,0,-0.0659,0.4233,0.5833,0,0,,2024-03-31
+Cripto,~0,cociente,JUVUSDT,JUVUSDT,2080,520,13,-1.0876,0.993,-0.2352,-2.9889,0,-0.8462,0.0067,1.0,1,0,,2020-12-21
+Cripto,~0,cociente,KAIAUSDT,KAIAUSDT,670,168,12,-0.3818,0.9739,-0.1212,-1.5016,0,-0.5944,0.0467,0.96,1,0,,2024-12-02
+Cripto,~0,cociente,KAITOUSDT,KAITOUSDT,558,140,12,-0.2888,0.9774,-0.0821,3.1359,0,0.2308,0.7333,0.2767,0,0,,2025-02-26
+Cripto,~0,cociente,KAVAUSDT,KAVAUSDT,2503,626,13,-1.2391,0.9943,-0.0451,-9.4111,0,-0.978,0.0033,1.0,1,0,,2020-08-16
+Cripto,~0,cociente,KDAUSDT,KDAUSDT,1343,336,12,-0.9966,0.995,-0.2941,-3.7229,0,-0.6783,0.0433,0.96,1,0,,2022-03-12
+Cripto,~0,cociente,KEEPUSDT,KEEPUSDT,245,61,13,0.152,0.8876,-0.1465,-0.3677,0,0.0549,0.5467,0.4667,0,0,,2022-01-04
+Cripto,~0,cociente,KERNELUSDT,KERNELUSDT,505,126,12,-0.2928,0.9838,-0.1778,-2.8491,0,-0.3776,0.18,0.8233,0,0,,2025-04-14
+Cripto,~0,cociente,KEYUSDT,KEYUSDT,1906,476,13,-0.0734,0.995,-0.0235,-5.1831,0,-0.5824,0.06,0.9433,0,0,,2020-08-26
+Cripto,~0,cociente,KGSTUSDT,KGSTUSDT,251,63,12,0.0877,0.9624,0.0918,-0.171,0,0.0629,0.59,0.4267,0,0,,2026-06-30
+Cripto,~0,cociente,KITEUSDT,KITEUSDT,302,76,12,0.29,0.9835,0.0931,-2.6959,0,-0.4476,0.19,0.82,0,0,,2026-03-09
+Cripto,~0,cociente,KLAYUSDT,KLAYUSDT,1225,306,13,-0.7304,0.9781,-0.0244,-3.525,0,-0.7637,0.0067,0.9967,1,0,,2021-08-15
+Cripto,~0,cociente,KMDUSDT,KMDUSDT,1789,447,12,-0.7824,0.995,-0.2787,-3.7118,0,-0.7552,0.0133,0.99,1,0,,2020-08-22
+Cripto,~0,cociente,KMNOUSDT,KMNOUSDT,483,121,13,-0.2364,0.9816,-0.1182,0.5069,0,-0.0165,0.5,0.5067,0,0,,2025-05-06
+Cripto,~0,cociente,KNCUSDT,KNCUSDT,2272,568,13,-1.0145,0.9913,-0.4606,-3.6549,0,-0.8516,0.0033,1.0,1,0,,2020-07-03
+Cripto,~0,cociente,KP3RUSDT,KP3RUSDT,1091,273,13,-0.9067,0.9646,-0.4732,-3.3418,0,-0.6264,0.01,0.9933,1,0,,2022-01-16
+Cripto,~0,cociente,KSMUSDT,KSMUSDT,2188,547,12,-1.1541,0.9916,0.2782,-5.6671,0,-0.951,0.0033,1.0,1,0,,2021-05-18
+Cripto,~0,cociente,LAUSDT,LAUSDT,419,105,13,-0.2985,0.9932,0.0026,-2.6797,0,-0.8956,0.0033,1.0,1,0,,2025-11-15
+Cripto,~0,cociente,LAYERUSDT,LAYERUSDT,567,142,12,-0.8339,0.9661,0.007,-0.5561,0,-0.1119,0.3533,0.6633,0,0,,2025-05-04
+Cripto,~0,cociente,LAZIOUSDT,LAZIOUSDT,1776,444,13,-0.8722,0.9939,0.1682,-0.8823,0,-0.3846,0.1133,0.89,0,0,,2022-11-15
+Cripto,~0,cociente,LDOUSDT,LDOUSDT,1576,394,13,-0.7307,0.9913,0.2456,-3.4651,0,-0.8352,0.0033,1.0,1,0,,2023-02-27
+Cripto,~0,cociente,LEVERUSDT,LEVERUSDT,1088,272,13,-0.6546,0.9851,-0.1016,-8.1592,0,-0.544,0.0467,0.9633,1,0,,2022-07-16
+Cripto,~0,cociente,LINAUSDT,LINAUSDT,1472,368,13,-0.8619,0.995,-0.3641,-6.9963,0,-0.6209,0.0533,0.9533,0,0,,2021-03-18
+Cripto,~0,cociente,LINEAUSDT,LINEAUSDT,356,89,13,-0.5713,0.8529,-0.2928,-0.902,0,-0.033,0.49,0.5233,0,0,,2025-09-21
+Cripto,~0,cociente,LINKUSDT,LINKUSDT,2785,696,13,-0.0529,0.995,0.5995,-1.6912,0,-0.7637,0.0067,0.9967,1,0,,2020-08-15
+Cripto,~0,cociente,LISTAUSDT,LISTAUSDT,803,201,13,-0.6106,0.9591,-0.2378,-2.0696,0,-0.5824,0.01,0.9933,1,0,,2024-06-26
+Cripto,~0,cociente,LITUSDT,LITUSDT,1468,367,12,-0.7075,0.9595,-0.3352,-3.5107,0,-0.7063,0.01,0.9933,1,0,,2021-02-15
+Cripto,~0,cociente,LOKAUSDT,LOKAUSDT,1286,322,13,-1.0945,0.9796,-0.2728,-7.2633,0,-0.9231,0.0033,1.0,1,0,,2022-03-30
+Cripto,~0,cociente,LOOMUSDT,LOOMUSDT,522,130,13,-0.1507,0.9919,-0.1595,-1.9808,0,-0.7418,0.0267,0.9767,1,0,,2023-10-14
+Cripto,~0,cociente,LPTUSDT,LPTUSDT,1922,480,13,-0.7804,0.9909,-0.017,-4.2809,0,-0.6703,0.01,0.9933,1,0,,2021-11-10
+Cripto,~0,cociente,LQTYUSDT,LQTYUSDT,1281,320,13,-0.828,0.9755,-0.2953,-2.2512,0,-0.8077,0.0033,1.0,1,0,,2023-03-14
+Cripto,~0,cociente,LRCUSDT,LRCUSDT,2120,530,13,-0.7091,0.995,-0.0693,-5.7747,0,-0.956,0.0033,1.0,1,0,,2021-11-24
+Cripto,~0,cociente,LSKUSDT,LSKUSDT,2399,600,12,-1.0573,0.9919,-0.2602,-7.772,0,-0.965,0.0033,1.0,1,0,,2020-02-10
+Cripto,~0,cociente,LTCUSDT,LTCUSDT,3184,796,13,-0.8141,0.9867,-0.2665,-1.8192,0,-0.6758,0.0133,0.99,1,0,,2018-02-25
+Cripto,~0,cociente,LTOUSDT,LTOUSDT,1975,494,12,-0.4834,0.995,0.0748,-2.0106,0,-0.6923,0.0233,0.98,1,0,,2021-04-06
+Cripto,~0,cociente,LUMIAUSDT,LUMIAUSDT,683,171,12,-0.8129,0.9533,-0.3916,2.2559,0,0.1958,0.7033,0.3067,0,0,,2024-12-04
+Cripto,~0,cociente,LUNAUSDT,LUNAUSDT,2185,546,13,-1.3286,0.9819,1.2093,-4.1857,1,-0.6099,0.0267,0.98,1,0,,2022-03-10
+Cripto,~0,cociente,LUNCUSDT,LUNCUSDT,1453,363,12,-0.9034,0.9709,-0.5507,1.4557,0,-0.3636,0.1167,0.89,0,0,,2022-09-10
+Cripto,~0,cociente,MAGICUSDT,MAGICUSDT,1359,340,12,-1.2411,0.98,-0.2589,-2.8918,0,-0.6503,0.0267,0.9767,1,0,,2023-02-07
+Cripto,~0,cociente,MANAUSDT,MANAUSDT,2217,554,13,-0.4413,0.995,0.6072,-4.7702,0,-0.967,0.0033,1.0,1,0,,2021-11-24
+Cripto,~0,cociente,MANTAUSDT,MANTAUSDT,957,239,12,-1.2786,0.9512,-0.5478,0.2105,0,-0.2028,0.27,0.74,0,0,,2024-01-27
+Cripto,~0,cociente,MASKUSDT,MASKUSDT,1925,481,13,-0.8377,0.9926,-0.2168,-3.6711,0,-0.8736,0.0033,1.0,1,0,,2021-08-25
+Cripto,~0,cociente,MATICUSDT,MATICUSDT,1965,491,12,0.9779,0.9937,0.1537,-4.5055,0,-0.4406,0.1167,0.8867,0,0,,2022-11-10
+Cripto,~0,cociente,MAVUSDT,MAVUSDT,1161,290,13,-1.2706,0.9834,-0.0398,-3.473,0,-0.7198,0.01,0.9933,1,0,,2023-06-28
+Cripto,~0,cociente,MBLUSDT,MBLUSDT,2384,596,13,-0.6424,0.995,-0.0706,-4.0908,0,-0.9176,0.0033,1.0,1,0,,2021-04-02
+Cripto,~0,cociente,MBOXUSDT,MBOXUSDT,1766,442,13,-1.658,0.9857,-0.4347,-5.1463,0,-0.9286,0.0033,1.0,1,0,,2021-11-30
+Cripto,~0,cociente,MCOUSDT,MCOUSDT,340,85,13,-0.0835,0.995,0.0153,-0.8807,0,-0.6264,0.0933,0.9167,0,0,,2020-03-31
+Cripto,~0,cociente,MCUSDT,MCUSDT,706,176,13,-0.7172,0.9724,-0.3491,2.8018,0,-0.1099,0.4567,0.56,0,0,,2021-12-02
+Cripto,~0,cociente,MDTUSDT,MDTUSDT,2149,537,13,-0.3242,0.995,-0.0898,-5.7854,0,-0.7857,0.01,0.9933,1,0,,2023-03-06
+Cripto,~0,cociente,MDXUSDT,MDXUSDT,1156,289,13,-1.0217,0.9553,-0.6813,-4.3204,0,-0.6429,0.0067,0.9967,1,0,,2021-06-01
+Cripto,~0,cociente,MEMEUSDT,MEMEUSDT,1033,258,13,-1.4339,0.9713,-0.2379,-1.5887,0,-0.3901,0.0833,0.9233,0,0,,2023-11-14
+Cripto,~0,cociente,METISUSDT,METISUSDT,904,226,13,-1.0224,0.9702,-0.3245,-1.1123,0,-0.5769,0.03,0.9733,1,0,,2024-03-11
+Cripto,~0,cociente,METUSDT,METUSDT,292,73,13,-0.1616,0.9529,-0.1424,0.4549,0,0.4396,0.8933,0.11,0,0,,2025-11-14
+Cripto,~0,cociente,MEUSDT,MEUSDT,630,158,12,-0.9833,0.9641,-0.452,-2.2268,0,-0.8951,0.0033,1.0,1,0,,2024-12-10
+Cripto,~0,cociente,MFTUSDT,MFTUSDT,1226,306,13,0.2693,0.9804,-0.0926,2.3408,0,0.0824,0.6433,0.3633,0,0,,2021-04-02
+Cripto,~0,cociente,MINAUSDT,MINAUSDT,1848,462,12,-1.2207,0.9878,-0.3093,-5.2272,0,-0.9021,0.0033,1.0,1,0,,2021-09-14
+Cripto,~0,cociente,MIRAUSDT,MIRAUSDT,340,85,13,-0.5303,0.9492,-0.5087,-1.4982,0,-0.6044,0.01,0.9933,1,0,,2025-09-26
+Cripto,~0,cociente,MIRUSDT,MIRUSDT,618,154,13,-0.8944,0.9591,-0.2744,-0.8675,0,-0.2033,0.29,0.72,0,0,,2021-05-04
+Cripto,~0,cociente,MITHUSDT,MITHUSDT,1344,336,13,-0.4148,0.9908,-0.7103,0.2501,0,0.1703,0.6933,0.3167,0,0,,2019-04-19
+Cripto,~0,cociente,MITOUSDT,MITOUSDT,368,92,13,-0.4718,0.8975,-0.3051,-0.2713,0,-0.2363,0.1967,0.81,0,0,,2025-09-14
+Cripto,~0,cociente,MKRUSDT,MKRUSDT,1881,470,12,-0.2396,0.9928,0.0938,-4.8374,0,-0.3007,0.2467,0.7633,0,0,,2021-05-18
+Cripto,~0,cociente,MLNUSDT,MLNUSDT,1788,447,12,-1.0322,0.9871,-0.263,-4.7072,0,-0.979,0.0033,1.0,1,0,,2021-09-21
+Cripto,~0,cociente,MMTUSDT,MMTUSDT,301,75,12,-0.1932,0.8706,-0.3543,1.6796,0,0.8531,1.0,0.0033,0,1,,2025-11-04
+Cripto,~0,cociente,MOBUSDT,MOBUSDT,706,176,13,-0.579,0.995,-0.182,-6.6369,0,-0.7747,0.0133,0.99,1,0,,2022-04-30
+Cripto,~0,cociente,MORPHOUSDT,MORPHOUSDT,333,83,12,0.2199,0.9688,-0.0155,0.3018,0,0.3566,0.7967,0.22,0,0,,2026-08-23
+Cripto,~0,cociente,MOVEUSDT,MOVEUSDT,631,158,12,-1.1967,0.9485,-0.3479,-2.4245,0,-0.7762,0.0033,1.0,1,0,,2024-12-27
+Cripto,~0,cociente,MOVRUSDT,MOVRUSDT,1758,440,12,-1.2735,0.9805,-0.7886,-4.7305,0,-0.6853,0.02,0.9867,1,0,,2021-11-23
+Cripto,~0,cociente,MTLUSDT,MTLUSDT,2566,642,13,-0.4239,0.995,-0.0985,-5.0982,0,-0.9011,0.0033,1.0,1,0,,2021-04-03
+Cripto,~0,cociente,MUBARAKUSDT,MUBARAKUSDT,523,131,12,-0.285,0.9352,-0.143,0.0836,0,0.0839,0.6333,0.3767,0,0,,2025-03-27
+Cripto,~0,cociente,MULTIUSDT,MULTIUSDT,686,172,12,-0.4056,0.995,-0.1088,-1.3264,0,-0.6364,0.0767,0.9267,0,0,,2023-02-20
+Cripto,~0,cociente,NANOUSDT,NANOUSDT,1028,257,13,-0.1943,0.9837,-0.3782,-3.5936,0,-0.0549,0.4,0.6133,0,0,,2019-04-23
+Cripto,~0,cociente,NBSUSDT,NBSUSDT,764,191,12,-0.277,0.9683,-0.1382,-1.5886,0,-0.5944,0.0167,0.9867,1,0,,2020-09-21
+Cripto,~0,cociente,NBTUSDT,NBTUSDT,336,84,13,-0.2236,0.9589,-0.1686,-2.2994,0,-0.7582,0.0033,1.0,1,0,,2022-03-11
+Cripto,~0,cociente,NEARUSDT,NEARUSDT,2148,537,13,-0.3431,0.995,0.4468,-0.2966,0,-0.5549,0.0733,0.9333,0,0,,2022-01-14
+Cripto,~0,cociente,NEIROUSDT,NEIROUSDT,715,179,12,-0.9005,0.9245,-0.4678,-0.068,0,-0.1329,0.3967,0.6167,0,0,,2024-11-09
+Cripto,~0,cociente,NEOUSDT,NEOUSDT,3207,802,13,-1.2352,0.9882,-0.5671,-7.1355,0,-0.9066,0.0033,1.0,1,0,,2018-01-29
+Cripto,~0,cociente,NEWTUSDT,NEWTUSDT,434,108,13,-0.4673,0.9502,-0.1924,-2.2728,0,-0.3022,0.19,0.8133,0,0,,2025-06-24
+Cripto,~0,cociente,NEXOUSDT,NEXOUSDT,1586,396,13,-0.4125,0.9806,-0.1329,0.349,0,-0.0385,0.47,0.5333,0,0,,2022-04-30
+Cripto,~0,cociente,NFPUSDT,NFPUSDT,927,232,12,-1.3124,0.9723,-0.4175,-3.1501,0,-0.6993,0.01,0.9933,1,0,,2023-12-27
+Cripto,~0,cociente,NILUSDT,NILUSDT,526,132,12,-0.7161,0.9605,-0.2628,0.3882,0,0.1119,0.61,0.3967,0,0,,2025-03-24
+Cripto,~0,cociente,NKNUSDT,NKNUSDT,2318,580,12,-0.3883,0.995,-0.138,-8.2727,0,-0.9091,0.0033,1.0,1,0,,2021-04-09
+Cripto,~0,cociente,NMRUSDT,NMRUSDT,2204,551,12,-0.785,0.9867,-0.4364,-1.3273,0,-0.7483,0.01,0.9933,1,0,,2020-08-28
+Cripto,~0,cociente,NOMUSDT,NOMUSDT,335,84,12,-0.6847,0.9318,-0.3402,-0.7831,0,-0.6224,0.0333,0.97,1,0,,2025-10-01
+Cripto,~0,cociente,NOTUSDT,NOTUSDT,838,210,13,-1.1471,0.9585,-0.1557,0.234,0,0.1429,0.7033,0.3167,0,0,,2024-06-02
+Cripto,~0,cociente,NPXSUSDT,NPXSUSDT,602,150,12,-0.1831,0.995,-0.2935,1.945,0,-0.049,0.5033,0.51,0,0,,2021-03-25
+Cripto,~0,cociente,NTRNUSDT,NTRNUSDT,905,226,13,-1.2106,0.9893,0.1581,-7.1869,0,-0.9121,0.0033,1.0,1,0,,2024-02-16
+Cripto,~0,cociente,NULSUSDT,NULSUSDT,2460,615,12,-1.0607,0.9833,-0.6017,-1.3956,0,-0.1608,0.34,0.6733,0,0,,2018-07-29
+Cripto,~0,cociente,NUUSDT,NUUSDT,258,64,13,0.2333,0.9337,-0.1893,-1.0178,0,-0.0385,0.44,0.57,0,0,,2021-10-16
+Cripto,~0,cociente,NXPCUSDT,NXPCUSDT,474,118,12,-0.3873,0.9728,-0.3541,0.1158,0,0.7273,0.9767,0.0267,0,1,,2025-05-15
+Cripto,~0,cociente,OAXUSDT,OAXUSDT,628,157,13,-0.4743,0.99,-0.3137,-2.2407,0,-0.6813,0.05,0.9533,0,0,,2023-03-24
+Cripto,~0,cociente,OCEANUSDT,OCEANUSDT,1413,353,13,-0.2897,0.9779,-0.2969,0.6561,0,0.3571,0.8933,0.1167,0,0,,2020-08-29
+Cripto,~0,cociente,OGNUSDT,OGNUSDT,2427,607,12,-1.1687,0.9905,-0.1439,-5.5725,0,-0.9441,0.0033,1.0,1,0,,2020-03-08
+Cripto,~0,cociente,OGUSDT,OGUSDT,2071,518,12,-0.2684,0.9909,-0.147,1.4603,0,-0.042,0.4567,0.5533,0,0,,2023-04-23
+Cripto,~0,cociente,OMGUSDT,OMGUSDT,1903,476,12,-0.5786,0.995,-0.3507,-6.4245,0,-0.8951,0.0033,1.0,1,0,,2020-08-23
+Cripto,~0,cociente,OMNIUSDT,OMNIUSDT,531,133,13,-0.7896,0.9681,-0.2844,2.4528,0,-0.1099,0.3733,0.64,0,0,,2024-04-20
+Cripto,~0,cociente,OMUSDT,OMUSDT,1821,455,12,-0.0029,0.995,-0.3777,-12.4712,0,-0.042,0.4833,0.5233,0,0,,2025-02-28
+Cripto,~0,cociente,ONDOUSDT,ONDOUSDT,508,127,12,-0.249,0.9771,-0.0886,1.9355,0,0.2797,0.75,0.2567,0,0,,2025-04-11
+Cripto,~0,cociente,ONEUSDT,ONEUSDT,2649,662,12,-0.6795,0.995,-0.4375,-6.9276,0,-0.8042,0.0067,0.9967,1,0,,2022-01-14
+Cripto,~0,cociente,ONGUSDT,ONGUSDT,2754,688,13,-0.8897,0.9941,-0.7558,-6.4679,0,-0.8846,0.0033,1.0,1,0,,2019-02-16
+Cripto,~0,cociente,ONTUSDT,ONTUSDT,3007,752,12,-1.6407,0.9852,-0.6693,-7.1628,0,-0.8951,0.0033,1.0,1,0,,2018-06-08
+Cripto,~0,cociente,OOKIUSDT,OOKIUSDT,1049,262,12,-0.827,0.995,-0.3003,-2.9004,0,-0.8811,0.0033,1.0,1,0,,2021-12-25
+Cripto,~0,cociente,OPENUSDT,OPENUSDT,358,90,13,-0.2345,0.9685,-0.4318,-0.9621,0,0.2527,0.7467,0.26,0,0,,2025-09-08
+Cripto,~0,cociente,OPUSDT,OPUSDT,1553,388,13,-0.848,0.9935,0.274,-6.2372,0,-0.967,0.0033,1.0,1,0,,2023-02-03
+Cripto,~0,cociente,ORCAUSDT,ORCAUSDT,634,158,12,-0.2853,0.9576,-0.2195,1.5118,0,0.3986,0.9267,0.0767,0,0,,2024-12-06
+Cripto,~0,cociente,ORDIUSDT,ORDIUSDT,1029,257,13,-1.0298,0.9674,-0.0434,1.0863,0,0.033,0.5567,0.45,0,0,,2023-12-30
+Cripto,~0,cociente,ORNUSDT,ORNUSDT,1477,369,13,-0.659,0.9887,0.136,0.418,0,0.0385,0.5167,0.4967,0,0,,2021-03-22
+Cripto,~0,cociente,OSMOUSDT,OSMOUSDT,1404,351,12,-1.2762,0.9866,-0.5092,-4.6051,0,-0.8881,0.0067,0.9967,1,0,,2022-10-28
+Cripto,~0,cociente,OXTUSDT,OXTUSDT,2041,510,12,-1.0058,0.9906,-0.3064,-4.9212,0,-0.972,0.0033,1.0,1,0,,2020-09-21
+Cripto,~0,cociente,PARTIUSDT,PARTIUSDT,525,131,12,-0.4366,0.9727,-0.1427,-1.8542,0,-0.5035,0.07,0.9333,0,0,,2025-03-26
+Cripto,~0,cociente,PAXGUSDT,PAXGUSDT,2195,549,13,-0.1795,0.995,-0.4795,3.3935,0,0.0934,0.5733,0.4333,0,0,,2020-09-09
+Cripto,~0,cociente,PDAUSDT,PDAUSDT,428,107,12,-0.7268,0.9759,-0.4194,-3.5321,0,-0.951,0.0033,1.0,1,0,,2024-03-01
+Cripto,~0,cociente,PENDLEUSDT,PENDLEUSDT,1156,289,13,-0.0489,0.9945,0.2455,-0.2524,0,-0.6264,0.0467,0.9567,1,0,,2024-04-14
+Cripto,~0,cociente,PENGUUSDT,PENGUUSDT,623,156,12,-0.1587,0.9911,-0.5154,0.0731,0,-0.1818,0.3833,0.6267,0,0,,2025-01-06
+Cripto,~0,cociente,PEOPLEUSDT,PEOPLEUSDT,1713,428,13,-0.7195,0.9914,-0.1664,-2.3476,0,-0.6538,0.0233,0.98,1,0,,2021-12-23
+Cripto,~0,cociente,PEPEUSDT,PEPEUSDT,1215,304,12,0.1536,0.9935,-0.2626,-1.9933,0,-0.8531,0.0067,0.9967,1,0,,2024-12-09
+Cripto,~0,cociente,PERLUSDT,PERLUSDT,1565,391,12,-0.5207,0.9881,-0.2476,-2.0512,0,-0.2098,0.2933,0.7167,0,0,,2019-08-26
+Cripto,~0,cociente,PERPUSDT,PERPUSDT,1700,425,13,-1.1983,0.9839,-0.0459,-7.0556,0,-0.6154,0.0167,0.9867,1,0,,2021-08-30
+Cripto,~0,cociente,PHAUSDT,PHAUSDT,1894,474,13,-0.9273,0.9832,-0.4968,-4.2004,0,-0.9121,0.0033,1.0,1,0,,2021-07-13
+Cripto,~0,cociente,PHBUSDT,PHBUSDT,1287,322,13,-0.7277,0.994,-0.1845,-5.4491,0,-0.7637,0.02,0.9867,1,0,,2023-02-20
+Cripto,~0,cociente,PIVXUSDT,PIVXUSDT,1006,252,12,-0.666,0.9907,-0.2285,-3.4219,0,-0.042,0.4767,0.5267,0,0,,2023-11-16
+Cripto,~0,cociente,PIXELUSDT,PIXELUSDT,925,231,12,-1.464,0.9625,-0.4974,-0.6969,0,-0.4056,0.0833,0.9233,0,0,,2024-03-10
+Cripto,~0,cociente,PLAUSDT,PLAUSDT,826,206,12,-0.5688,0.968,-0.2325,-0.3499,0,-0.6224,0.0067,0.9967,1,0,,2021-11-24
+Cripto,~0,cociente,PLUMEUSDT,PLUMEUSDT,379,95,12,-0.5576,0.9563,-0.1569,0.0362,0,0.7692,0.99,0.0167,0,1,,2025-09-12
+Cripto,~0,cociente,PNTUSDT,PNTUSDT,1382,346,13,-0.7759,0.9829,-0.4056,-1.7407,0,-0.7802,0.0033,1.0,1,0,,2020-07-24
+Cripto,~0,cociente,PNUTUSDT,PNUTUSDT,659,165,13,-0.7646,0.8978,-0.7223,-0.0128,0,-0.044,0.4967,0.5233,0,0,,2024-11-14
+Cripto,~0,cociente,POLSUSDT,POLSUSDT,1161,290,13,-0.4222,0.9894,0.0518,-0.872,0,-0.0659,0.43,0.5833,0,0,,2021-12-07
+Cripto,~0,cociente,POLUSDT,POLUSDT,718,180,12,-0.4953,0.9484,-0.1849,-0.7711,0,-0.1958,0.2733,0.7467,0,0,,2024-12-03
+Cripto,~0,cociente,POLYUSDT,POLYUSDT,397,99,12,-0.1129,0.8997,-0.0937,0.7364,0,0.2517,0.7867,0.2267,0,0,,2022-09-08
+Cripto,~0,cociente,POLYXUSDT,POLYXUSDT,1415,354,13,-0.7248,0.9907,-0.2562,-1.9257,0,-0.7473,0.02,0.99,1,0,,2022-10-17
+Cripto,~0,cociente,PONDUSDT,PONDUSDT,1950,488,12,-1.0809,0.9845,-0.5103,-6.0211,0,-0.6643,0.0167,0.9867,1,0,,2021-04-05
+Cripto,~0,cociente,PORTALUSDT,PORTALUSDT,915,229,13,-1.5425,0.9564,-0.668,-0.2368,0,-0.0549,0.43,0.5767,0,0,,2024-02-29
+Cripto,~0,cociente,PORTOUSDT,PORTOUSDT,1750,438,12,-0.7551,0.9927,0.3122,1.2754,0,-0.3147,0.1967,0.8133,0,0,,2022-09-02
+Cripto,~0,cociente,POWRUSDT,POWRUSDT,1749,437,13,-0.7306,0.9875,-0.0865,-3.1178,0,-0.8846,0.0033,1.0,1,0,,2024-01-06
+Cripto,~0,cociente,PROMUSDT,PROMUSDT,1264,316,13,-0.4831,0.9894,-0.105,-5.4793,0,-0.478,0.0633,0.9433,0,0,,2024-02-21
+Cripto,~0,cociente,PROSUSDT,PROSUSDT,811,203,12,-0.475,0.9924,-0.3382,-0.5553,0,0.0559,0.5867,0.4233,0,0,,2023-02-20
+Cripto,~0,cociente,PROVEUSDT,PROVEUSDT,392,98,13,-0.3841,0.8694,-0.1781,-1.2797,0,-0.3626,0.1167,0.89,0,0,,2025-08-11
+Cripto,~0,cociente,PSGUSDT,PSGUSDT,2080,520,13,-1.0764,0.9938,-0.003,-3.5073,0,-0.9341,0.0033,1.0,1,0,,2020-12-21
+Cripto,~0,cociente,PUMPUSDT,PUMPUSDT,355,89,13,-0.1721,0.9812,-0.2106,3.3691,0,0.3846,0.82,0.1833,0,0,,2025-09-15
+Cripto,~0,cociente,PUNDIXUSDT,PUNDIXUSDT,1971,493,13,-0.8312,0.9896,-0.3345,-3.5338,0,-0.9396,0.0033,1.0,1,0,,2021-04-09
+Cripto,~0,cociente,PYRUSDT,PYRUSDT,1726,432,12,-1.1959,0.9949,-0.308,-4.8333,0,-0.8881,0.0033,1.0,1,0,,2021-11-30
+Cripto,~0,cociente,PYTHUSDT,PYTHUSDT,942,236,12,-0.9002,0.9616,-0.3172,-1.2676,0,-0.5455,0.0433,0.9633,1,0,,2024-03-17
+Cripto,~0,cociente,QIUSDT,QIUSDT,1751,438,12,-1.1118,0.984,-0.6747,-5.2298,0,-0.6923,0.0133,0.9933,1,0,,2021-11-25
+Cripto,~0,cociente,QKCUSDT,QKCUSDT,1264,316,13,-0.679,0.9779,-0.1197,-1.9034,0,-0.8242,0.0033,1.0,1,0,,2023-03-17
+Cripto,~0,cociente,QNTUSDT,QNTUSDT,1860,465,13,-0.5044,0.99,-0.0171,0.1933,0,-0.0989,0.39,0.6167,0,0,,2022-10-17
+Cripto,~0,cociente,QTUMUSDT,QTUMUSDT,3088,772,13,-1.0886,0.9894,-0.6757,-5.18,0,-0.8352,0.0033,1.0,1,0,,2018-04-29
+Cripto,~0,cociente,QUICKUSDT,QUICKUSDT,1842,460,13,-3.7468,0.9853,-0.4265,-2.3291,0,-0.1758,0.29,0.7233,0,0,,2021-08-14
+Cripto,~0,cociente,RADUSDT,RADUSDT,1790,448,12,-1.1257,0.9868,-0.2968,-4.1455,0,-0.986,0.0033,1.0,1,0,,2021-10-07
+Cripto,~0,cociente,RAMPUSDT,RAMPUSDT,470,118,12,-0.5143,0.9563,-0.3094,-1.9862,0,-0.8182,0.0033,1.0,1,0,,2021-04-09
+Cripto,~0,cociente,RAREUSDT,RAREUSDT,1786,446,12,-1.2659,0.9817,-0.4429,-4.7651,0,-0.8252,0.0067,0.9967,1,0,,2021-10-11
+Cripto,~0,cociente,RAYUSDT,RAYUSDT,1848,462,12,-0.6151,0.993,-0.6353,-4.7897,0,-0.1329,0.3533,0.6533,0,0,,2021-09-12
+Cripto,~0,cociente,RDNTUSDT,RDNTUSDT,1099,275,12,-1.4542,0.98,-0.1978,-3.0157,0,-0.6224,0.0167,0.99,1,0,,2023-04-15
+Cripto,~0,cociente,REDUSDT,REDUSDT,550,138,13,-0.3834,0.9287,-0.3333,-1.0084,0,-0.6813,0.02,0.9833,1,0,,2025-03-03
+Cripto,~0,cociente,REEFUSDT,REEFUSDT,1337,334,12,-0.8738,0.988,-0.0219,-1.7152,0,-0.7273,0.0267,0.98,1,0,,2021-02-13
+Cripto,~0,cociente,REIUSDT,REIUSDT,1324,331,12,-0.5863,0.9947,-0.0777,-6.3534,0,-0.5524,0.0767,0.9267,0,0,,2024-03-28
+Cripto,~0,cociente,RENDERUSDT,RENDERUSDT,767,192,12,-0.4629,0.9688,-0.0514,0.6974,0,0.2168,0.7433,0.2667,0,0,,2024-12-06
+Cripto,~0,cociente,RENUSDT,RENUSDT,1904,476,13,-0.5645,0.995,0.4379,-5.0682,0,-0.9725,0.0033,1.0,1,0,,2020-09-01
+Cripto,~0,cociente,REPUSDT,REPUSDT,924,231,12,-0.5122,0.9282,-0.3559,0.5379,0,0.2308,0.7967,0.2067,0,0,,2020-07-21
+Cripto,~0,cociente,REQUSDT,REQUSDT,1838,460,12,-0.5324,0.9813,0.0343,-0.8784,0,-0.2727,0.2167,0.8,0,0,,2021-11-26
+Cripto,~0,cociente,RESOLVUSDT,RESOLVUSDT,447,112,12,-0.5016,0.9784,-0.1738,-1.4094,0,-0.6014,0.05,0.9567,0,0,,2025-06-11
+Cripto,~0,cociente,REZUSDT,REZUSDT,854,214,12,-1.1336,0.9424,-0.5178,0.004,0,-0.0839,0.46,0.5467,0,0,,2024-05-04
+Cripto,~0,cociente,RIFUSDT,RIFUSDT,2063,516,12,-0.6151,0.9899,-0.1334,-2.2377,0,-0.7483,0.01,0.9933,1,0,,2023-03-03
+Cripto,~0,cociente,RLCUSDT,RLCUSDT,2483,621,13,-0.526,0.995,-0.0241,-5.0135,0,-0.8736,0.0033,1.0,1,0,,2021-05-10
+Cripto,~0,cociente,RNDRUSDT,RNDRUSDT,969,242,13,0.1373,0.9913,-0.4546,1.5752,0,0.6923,0.9833,0.02,0,1,,2024-03-17
+Cripto,~0,cociente,RONINUSDT,RONINUSDT,939,235,12,-1.2071,0.9753,-0.2404,-2.4031,0,-0.8042,0.0067,0.9967,1,0,,2024-02-19
+Cripto,~0,cociente,ROSEUSDT,ROSEUSDT,2112,528,13,-0.7142,0.995,0.3509,-4.539,0,-0.8462,0.0033,1.0,1,0,,2022-01-14
+Cripto,~0,cociente,RPLUSDT,RPLUSDT,1322,330,13,-1.3333,0.9736,-0.2837,-1.0553,0,-0.4945,0.03,0.9767,1,0,,2023-02-09
+Cripto,~0,cociente,RSRUSDT,RSRUSDT,2196,549,13,-1.0778,0.9839,-0.2279,-6.5175,0,-0.3187,0.1267,0.8833,0,0,,2020-08-31
+Cripto,~0,cociente,RUNEUSDT,RUNEUSDT,2188,547,12,-0.5626,0.995,0.4469,-7.8109,0,-0.6084,0.0433,0.96,1,0,,2021-05-18
+Cripto,~0,cociente,RVNUSDT,RVNUSDT,2533,633,13,-0.9399,0.9928,-0.2894,-4.5346,0,-0.9505,0.0033,1.0,1,0,,2019-10-12
+Cripto,~0,cociente,SAGAUSDT,SAGAUSDT,875,219,12,-1.5791,0.9779,-0.246,-4.6761,0,-0.8462,0.0067,0.9967,1,0,,2024-04-09
+Cripto,~0,cociente,SAHARAUSDT,SAHARAUSDT,432,108,13,-0.458,0.9774,-0.0149,-6.0569,0,-0.3132,0.22,0.7967,0,0,,2025-07-23
+Cripto,~0,cociente,SANDUSDT,SANDUSDT,2209,552,13,-0.3097,0.995,0.842,-6.236,0,-0.9231,0.0033,1.0,1,0,,2021-12-25
+Cripto,~0,cociente,SANTOSUSDT,SANTOSUSDT,1735,434,13,-0.6713,0.9947,0.5507,-2.6652,0,-0.6429,0.0333,0.97,1,0,,2022-09-27
+Cripto,~0,cociente,SAPIENUSDT,SAPIENUSDT,299,75,12,-0.1372,0.8743,-0.1382,-0.1158,0,0.028,0.6267,0.3867,0,0,,2025-11-06
+Cripto,~0,cociente,SCRTUSDT,SCRTUSDT,1684,421,13,-1.3854,0.9791,-0.4486,-3.8304,0,-0.7637,0.0033,1.0,1,0,,2022-01-21
+Cripto,~0,cociente,SCRUSDT,SCRUSDT,690,172,13,-0.9945,0.967,-0.3353,-3.0421,0,-0.6868,0.01,0.9933,1,0,,2024-10-21
+Cripto,~0,cociente,SCUSDT,SCUSDT,2248,562,13,-0.7623,0.9941,0.0948,-5.6528,0,-0.8132,0.0033,1.0,1,0,,2021-04-17
+Cripto,~0,cociente,SEIUSDT,SEIUSDT,1113,278,12,-0.5819,0.991,0.3216,-3.6881,0,-0.6993,0.04,0.9633,1,0,,2024-01-17
+Cripto,~0,cociente,SENTUSDT,SENTUSDT,222,56,12,-0.209,0.8644,-0.0393,-0.4165,0,0.042,0.5467,0.4567,0,0,,2026-01-31
+Cripto,~0,cociente,SFPUSDT,SFPUSDT,2031,508,12,-0.6095,0.9808,-0.2953,-2.375,0,-0.8252,0.0033,1.0,1,0,,2021-02-09
+Cripto,~0,cociente,SHELLUSDT,SHELLUSDT,551,138,13,-0.6721,0.9585,-0.3659,-1.8516,0,-0.4066,0.0867,0.9167,0,0,,2025-02-27
+Cripto,~0,cociente,SHIBUSDT,SHIBUSDT,1940,485,13,-0.3539,0.995,0.3089,-2.2604,0,-0.7527,0.0067,0.9967,1,0,,2021-10-27
+Cripto,~0,cociente,SIGNUSDT,SIGNUSDT,491,123,12,-0.4696,0.981,-0.1279,-3.7813,0,-0.5105,0.09,0.9167,0,0,,2025-04-29
+Cripto,~0,cociente,SKLUSDT,SKLUSDT,2100,525,13,-1.1397,0.987,-0.0523,-5.8178,0,-0.7088,0.0033,1.0,1,0,,2021-03-12
+Cripto,~0,cociente,SKYUSDT,SKYUSDT,349,87,12,0.1865,0.9576,-0.0369,-0.1184,0,-0.5874,0.0467,0.96,1,0,,2026-04-27
+Cripto,~0,cociente,SLFUSDT,SLFUSDT,384,96,13,-0.7236,0.9832,-0.3073,-3.63,0,-0.7198,0.02,0.9833,1,0,,2024-08-30
+Cripto,~0,cociente,SLPUSDT,SLPUSDT,1950,488,12,-1.6323,0.959,-1.033,-4.1774,0,-0.6154,0.0133,0.99,1,0,,2021-07-13
+Cripto,~0,cociente,SNTUSDT,SNTUSDT,699,175,12,-0.2984,0.9812,0.0377,-0.2048,0,-0.007,0.5333,0.48,0,0,,2023-11-04
+Cripto,~0,cociente,SNXUSDT,SNXUSDT,2245,561,13,-1.1909,0.9891,-0.2378,-3.593,0,-0.8791,0.0033,1.0,1,0,,2020-08-31
+Cripto,~0,cociente,SOLUSDT,SOLUSDT,2212,553,13,0.5185,0.995,0.8925,-1.4099,0,-0.2033,0.25,0.7533,0,0,,2021-11-06
+Cripto,~0,cociente,SOLVUSDT,SOLVUSDT,592,148,13,-0.7342,0.987,-0.1623,-2.0276,0,-0.6484,0.0433,0.97,1,0,,2025-01-17
+Cripto,~0,cociente,SOMIUSDT,SOMIUSDT,364,91,12,-0.4563,0.8451,-0.3222,-1.6408,0,-0.6643,0.01,0.9933,1,0,,2025-09-07
+Cripto,~0,cociente,SOPHUSDT,SOPHUSDT,461,115,12,-0.5279,0.9641,-0.1932,-2.2051,0,-0.8182,0.0033,1.0,1,0,,2025-05-28
+Cripto,~0,cociente,SPELLUSDT,SPELLUSDT,1712,428,13,-1.1528,0.977,-0.6493,-4.5322,0,-0.8571,0.0033,1.0,1,0,,2021-12-27
+Cripto,~0,cociente,SPKUSDT,SPKUSDT,441,110,12,-0.1776,0.9684,0.143,-2.5103,0,0.1329,0.6233,0.39,0,0,,2025-07-23
+Cripto,~0,cociente,SRMUSDT,SRMUSDT,840,210,13,-0.3107,0.9891,-0.375,-1.5385,0,-0.7033,0.0267,0.98,1,0,,2020-09-02
+Cripto,~0,cociente,SSVUSDT,SSVUSDT,1285,321,13,-1.0155,0.9847,-0.3521,-1.4227,0,-0.5769,0.0267,0.98,1,0,,2023-02-27
+Cripto,~0,cociente,STEEMUSDT,STEEMUSDT,1593,398,12,-0.7869,0.9867,-0.056,-2.3924,0,-0.951,0.0033,1.0,1,0,,2022-04-27
+Cripto,~0,cociente,STGUSDT,STGUSDT,1474,368,13,-0.905,0.983,-0.0939,2.9591,0,-0.0879,0.4433,0.57,0,0,,2023-02-16
+Cripto,~0,cociente,STMXUSDT,STMXUSDT,1720,430,12,-0.2235,0.995,0.2677,-4.0397,0,-0.7063,0.0367,0.9667,1,0,,2021-04-02
+Cripto,~0,cociente,STORJUSDT,STORJUSDT,2224,556,13,-0.7553,0.9928,0.0466,-4.919,0,-0.9231,0.0033,1.0,1,0,,2020-08-29
+Cripto,~0,cociente,STORMUSDT,STORMUSDT,287,72,12,-0.0027,0.9943,-0.0149,-1.1468,0,-0.0629,0.47,0.54,0,0,,2020-06-03
+Cripto,~0,cociente,STOUSDT,STOUSDT,487,122,13,-0.038,0.971,-0.2282,-2.5293,0,-0.4725,0.0967,0.91,0,0,,2026-04-01
+Cripto,~0,cociente,STPTUSDT,STPTUSDT,1882,470,12,-0.1224,0.9927,-0.1697,-4.0284,0,-0.8671,0.0033,1.0,1,0,,2021-10-07
+Cripto,~0,cociente,STRATUSDT,STRATUSDT,268,67,12,0.0145,0.971,-0.036,-1.6819,0,-0.5175,0.1033,0.9033,0,0,,2020-07-20
+Cripto,~0,cociente,STRAXUSDT,STRAXUSDT,2106,526,12,-1.4312,0.9932,0.1028,-4.9061,0,-0.7972,0.01,0.9933,1,0,,2021-05-10
+Cripto,~0,cociente,STRKUSDT,STRKUSDT,924,231,12,-1.212,0.9534,-0.5594,-3.5643,0,-0.4825,0.0667,0.9367,0,0,,2024-03-06
+Cripto,~0,cociente,STXUSDT,STXUSDT,2503,626,13,-0.2106,0.995,0.0713,-6.4051,0,-0.5989,0.0333,0.97,1,0,,2024-03-23
+Cripto,~0,cociente,SUIUSDT,SUIUSDT,1217,304,13,-0.0967,0.995,-0.1849,-2.1868,0,-0.6978,0.0367,0.9667,1,0,,2025-01-10
+Cripto,~0,cociente,SUNUSDT,SUNUSDT,2168,542,12,-2.1427,0.9885,-2.6547,0.2563,0,0.8042,0.9967,0.0067,0,1,,2020-09-21
+Cripto,~0,cociente,SUPERUSDT,SUPERUSDT,1986,496,13,-0.5485,0.995,-0.3849,-7.3027,0,-0.6264,0.04,0.9667,1,0,,2021-03-30
+Cripto,~0,cociente,SUSDT,SUSDT,593,148,13,-0.8485,0.9708,-0.0642,-2.4615,0,-0.5989,0.0267,0.9767,1,0,,2025-02-21
+Cripto,~0,cociente,SUSHIUSDT,SUSHIUSDT,2191,548,12,-1.1281,0.9931,0.1122,-5.267,0,-0.951,0.0033,1.0,1,0,,2020-09-01
+Cripto,~0,cociente,SXPUSDT,SXPUSDT,2082,520,13,-1.2687,0.9938,-0.4024,-9.0284,0,-0.9066,0.0033,1.0,1,0,,2020-08-13
+Cripto,~0,cociente,SXTUSDT,SXTUSDT,481,120,13,-0.6329,0.9632,-0.2096,-1.9026,0,-0.8297,0.0033,1.0,1,0,,2025-05-11
+Cripto,~0,cociente,SYNUSDT,SYNUSDT,1287,322,13,-1.082,0.9858,-0.4621,4.4619,0,-0.4176,0.1267,0.8833,0,0,,2023-02-22
+Cripto,~0,cociente,SYRUPUSDT,SYRUPUSDT,483,121,13,-0.0946,0.9586,0.1264,-0.2949,0,-0.6484,0.0133,0.99,1,0,,2025-06-28
+Cripto,~0,cociente,SYSUSDT,SYSUSDT,1707,427,12,-1.0655,0.9914,-0.0008,-5.4731,0,-0.9161,0.0033,1.0,1,0,,2022-01-21
+Cripto,~0,cociente,TAOUSDT,TAOUSDT,873,218,13,-0.2286,0.9795,-0.0262,0.523,0,0.3352,0.8733,0.1367,0,0,,2024-10-12
+Cripto,~0,cociente,TCTUSDT,TCTUSDT,1008,252,13,-0.1923,0.9824,-0.0501,-0.8737,0,-0.3846,0.1233,0.8867,0,0,,2020-08-31
+Cripto,~0,cociente,TFUELUSDT,TFUELUSDT,2657,664,13,-0.1175,0.995,-0.0095,-6.6694,0,-0.8956,0.0033,1.0,1,0,,2021-06-08
+Cripto,~0,cociente,THETAUSDT,THETAUSDT,2701,675,12,-0.19,0.995,0.32,-8.1809,0,-0.7413,0.02,0.9833,1,0,,2021-06-08
+Cripto,~0,cociente,THEUSDT,THEUSDT,643,161,13,-0.7021,0.9691,-0.6912,-2.4985,0,-0.3736,0.1267,0.8833,0,0,,2024-11-28
+Cripto,~0,cociente,TIAUSDT,TIAUSDT,1036,259,12,-1.1712,0.9712,0.0117,-1.6928,0,-0.8252,0.0033,1.0,1,0,,2024-01-15
+Cripto,~0,cociente,TKOUSDT,TKOUSDT,1973,493,13,-1.0583,0.9858,-0.4092,-3.3772,0,-0.9231,0.0033,1.0,1,0,,2021-05-02
+Cripto,~0,cociente,TLMUSDT,TLMUSDT,1967,492,12,-1.557,0.9841,-0.4241,-5.1577,0,-0.951,0.0033,1.0,1,0,,2021-05-02
+Cripto,~0,cociente,TNSRUSDT,TNSRUSDT,876,219,12,-1.0313,0.9605,-0.3849,-2.4708,0,-0.4126,0.1267,0.8833,0,0,,2024-04-09
+Cripto,~0,cociente,TOMOUSDT,TOMOUSDT,1550,388,12,-0.1621,0.9884,0.1288,2.5079,0,-0.2168,0.2933,0.72,0,0,,2020-08-13
+Cripto,~0,cociente,TONUSDT,TONUSDT,692,173,13,-0.4971,0.945,-0.2127,1.4322,0,0.2033,0.7367,0.2733,0,0,,2024-08-18
+Cripto,~0,cociente,TORNUSDT,TORNUSDT,565,141,13,-0.2992,0.9884,-0.0063,-3.0343,0,-0.5879,0.06,0.9433,0,0,,2021-06-11
+Cripto,~0,cociente,TOWNSUSDT,TOWNSUSDT,392,98,13,-0.622,0.9035,-0.3433,-0.709,0,-0.456,0.0767,0.93,0,0,,2025-08-05
+Cripto,~0,cociente,TRBUSDT,TRBUSDT,2194,548,13,-0.3949,0.995,-0.3362,-2.0152,0,-0.511,0.0733,0.93,0,0,,2020-08-29
+Cripto,~0,cociente,TREEUSDT,TREEUSDT,399,100,12,-0.5248,0.9266,-0.3091,-1.6464,0,-0.5944,0.03,0.9733,1,0,,2025-07-29
+Cripto,~0,cociente,TRIBEUSDT,TRIBEUSDT,462,116,12,-0.1711,0.9864,0.0592,2.2143,0,0.0839,0.5233,0.48,0,0,,2022-01-13
+Cripto,~0,cociente,TROYUSDT,TROYUSDT,1960,490,13,-0.7853,0.995,-0.459,-3.822,0,-0.9066,0.0033,1.0,1,0,,2019-12-05
+Cripto,~0,cociente,TRUMPUSDT,TRUMPUSDT,590,148,12,-0.5668,0.9657,-0.313,-2.4464,0,-0.8811,0.0067,0.9967,1,0,,2025-01-19
+Cripto,~0,cociente,TRUUSDT,TRUUSDT,1926,482,13,-1.0104,0.991,-0.0947,-8.2861,0,-0.5824,0.0367,0.97,1,0,,2021-08-12
+Cripto,~0,cociente,TRXUSDT,TRXUSDT,3004,751,12,-0.0811,0.995,-0.327,1.9145,0,0.3357,0.8467,0.16,0,0,,2019-01-27
+Cripto,~0,cociente,TSTUSDT,TSTUSDT,569,142,12,-0.5692,0.9483,-0.3255,1.3517,0,0.4755,0.93,0.0733,0,0,,2025-02-09
+Cripto,~0,cociente,TURBOUSDT,TURBOUSDT,715,179,12,-0.6208,0.9518,-0.2777,-0.5058,0,-0.3916,0.1133,0.9,0,0,,2024-10-15
+Cripto,~0,cociente,TURTLEUSDT,TURTLEUSDT,314,78,12,-0.1954,0.878,-0.27,0.4468,0,0.2168,0.7767,0.2367,0,0,,2025-10-26
+Cripto,~0,cociente,TUSDT,TUSDT,1649,412,13,-0.9653,0.9821,-0.2767,-3.9867,0,-0.9451,0.0033,1.0,1,0,,2022-02-27
+Cripto,~0,cociente,TUTUSDT,TUTUSDT,523,131,12,-0.2174,0.9811,0.0975,1.71,0,0.0979,0.5567,0.45,0,0,,2026-08-09
+Cripto,~0,cociente,TVKUSDT,TVKUSDT,844,211,12,-0.5288,0.9727,-0.1862,-2.9403,0,-0.5035,0.0667,0.94,0,0,,2021-11-28
+Cripto,~0,cociente,TWTUSDT,TWTUSDT,2043,511,12,-0.1281,0.995,0.2058,-1.2087,0,-0.6643,0.0133,0.99,1,0,,2022-12-11
+Cripto,~0,cociente,UFTUSDT,UFTUSDT,762,190,12,-0.5227,0.995,-0.2126,-2.4968,0,-0.7483,0.0333,0.97,1,0,,2023-03-17
+Cripto,~0,cociente,UMAUSDT,UMAUSDT,2183,546,13,-1.1989,0.9866,-0.4397,-3.7739,0,-0.8626,0.0033,1.0,1,0,,2020-09-12
+Cripto,~0,cociente,UNFIUSDT,UNFIUSDT,1449,362,13,-0.3501,0.9881,-0.0923,-6.8737,0,-0.4505,0.09,0.9133,0,0,,2021-03-01
+Cripto,~0,cociente,UNIUSDT,UNIUSDT,2175,544,12,-0.523,0.9897,0.1352,-2.9203,0,-0.8601,0.0033,1.0,1,0,,2021-05-18
+Cripto,~0,cociente,USUALUSDT,USUALUSDT,651,163,12,-1.0971,0.9411,-0.3323,-1.4577,0,-0.4336,0.1033,0.91,0,0,,2024-12-19
+Cripto,~0,cociente,UTKUSDT,UTKUSDT,2021,505,13,-1.0147,0.9933,-0.0513,-7.0719,0,-0.9945,0.0033,1.0,1,0,,2020-10-02
+Cripto,~0,cociente,UUSDT,UUSDT,231,58,13,0.069,0.9685,0.1347,-0.5021,0,-0.1813,0.36,0.6533,0,0,,2026-06-30
+Cripto,~0,cociente,VANAUSDT,VANAUSDT,624,156,13,-0.6196,0.9521,-0.3804,-1.2671,0,-0.5934,0.0267,0.9767,1,0,,2024-12-16
+Cripto,~0,cociente,VANRYUSDT,VANRYUSDT,991,248,12,-1.025,0.9882,0.2149,-2.8704,0,-0.8182,0.0067,0.9967,1,0,,2024-03-13
+Cripto,~0,cociente,VELODROMEUSDT,VELODROMEUSDT,627,157,13,-0.543,0.9462,-0.4578,1.5289,0,0.1484,0.6433,0.3667,0,0,,2024-12-13
+Cripto,~0,cociente,VETUSDT,VETUSDT,2960,740,13,-0.4751,0.995,-0.3742,-7.0322,0,-0.8681,0.0067,0.9967,1,0,,2021-04-18
+Cripto,~0,cociente,VGXUSDT,VGXUSDT,1009,252,13,-1.1029,0.9831,-0.4217,-5.3137,0,-0.8297,0.0033,1.0,1,0,,2021-11-22
+Cripto,~0,cociente,VIBUSDT,VIBUSDT,799,200,12,-0.4613,0.995,-0.3478,-2.4276,0,-0.8252,0.01,0.9933,1,0,,2023-02-24
+Cripto,~0,cociente,VICUSDT,VICUSDT,998,250,13,-0.9995,0.9752,-0.4444,-2.3234,0,-0.8846,0.0033,1.0,1,0,,2023-11-24
+Cripto,~0,cociente,VIDTUSDT,VIDTUSDT,1308,327,12,-1.3035,0.9791,-0.2285,-1.9318,0,-0.2098,0.29,0.7267,0,0,,2022-07-07
+Cripto,~0,cociente,VIRTUALUSDT,VIRTUALUSDT,508,127,12,-0.1082,0.9467,0.1511,-0.1608,0,0.2378,0.7867,0.2167,0,0,,2025-05-27
+Cripto,~0,cociente,VITEUSDT,VITEUSDT,1901,475,12,-0.4948,0.995,-0.1629,-2.3397,0,-0.8252,0.01,0.9933,1,0,,2021-04-09
+Cripto,~0,cociente,VOXELUSDT,VOXELUSDT,1465,366,12,-1.2059,0.9807,-0.5108,-6.7487,0,-0.8741,0.0033,1.0,1,0,,2022-01-02
+Cripto,~0,cociente,VTHOUSDT,VTHOUSDT,2237,559,12,-0.6183,0.995,0.2336,-5.3585,0,-0.6364,0.0267,0.9767,1,0,,2021-04-18
+Cripto,~0,cociente,WALUSDT,WALUSDT,326,82,13,-0.4707,0.9657,-0.1163,-2.1927,0,-0.9396,0.0033,1.0,1,0,,2025-10-18
+Cripto,~0,cociente,WANUSDT,WANUSDT,2432,608,13,-0.8655,0.9928,-0.1059,-5.0396,0,-0.9341,0.0033,1.0,1,0,,2020-09-02
+Cripto,~0,cociente,WAVESUSDT,WAVESUSDT,1978,494,12,-0.3775,0.995,-0.6481,-3.5194,0,-0.6503,0.0467,0.9567,1,0,,2022-03-31
+Cripto,~0,cociente,WAXPUSDT,WAXPUSDT,1835,459,12,-1.2794,0.9867,-0.1599,-4.8303,0,-0.965,0.0033,1.0,1,0,,2021-11-19
+Cripto,~0,cociente,WBETHUSDT,WBETHUSDT,1140,285,13,-0.2245,0.9858,-0.059,-0.6135,0,-0.1319,0.3433,0.6667,0,0,,2023-08-20
+Cripto,~0,cociente,WBTCUSDT,WBTCUSDT,1222,306,13,-0.0006,0.5262,-0.0006,0.0036,0,-0.0659,0.4467,0.57,0,0,,2023-06-18
+Cripto,~0,cociente,WCTUSDT,WCTUSDT,504,126,12,-0.649,0.922,-0.1803,-1.0734,0,0.028,0.5167,0.5,0,0,,2025-05-29
+Cripto,~0,cociente,WIFUSDT,WIFUSDT,910,228,12,-0.8824,0.9663,-0.0823,-1.9574,0,-0.4755,0.0867,0.9233,0,0,,2024-03-31
+Cripto,~0,cociente,WINGUSDT,WINGUSDT,1690,422,12,-0.7526,0.995,-0.4142,-4.369,0,-0.6853,0.0267,0.98,1,0,,2020-09-16
+Cripto,~0,cociente,WINUSDT,WINUSDT,2588,647,12,-1.0226,0.9928,-0.4638,-6.0617,0,-0.8881,0.0033,1.0,1,0,,2021-04-05
+Cripto,~0,cociente,WLDUSDT,WLDUSDT,1135,284,12,-0.8208,0.9832,0.1349,-2.9005,0,-0.6224,0.04,0.9633,1,0,,2024-03-09
+Cripto,~0,cociente,WLFIUSDT,WLFIUSDT,365,91,12,-0.2094,0.9803,-0.1153,0.1786,0,-0.2028,0.4,0.6133,0,0,,2025-09-01
+Cripto,~0,cociente,WNXMUSDT,WNXMUSDT,1390,348,12,-0.2391,0.9874,-0.3014,0.6271,0,0.6853,0.98,0.0233,0,1,,2020-08-30
+Cripto,~0,cociente,WOOUSDT,WOOUSDT,1666,416,13,-1.0067,0.9936,-0.1383,-5.0656,0,-0.9341,0.0033,1.0,1,0,,2022-02-08
+Cripto,~0,cociente,WRXUSDT,WRXUSDT,1786,446,12,-0.4003,0.995,-0.2225,-1.388,0,-0.5315,0.1,0.9033,0,0,,2021-04-07
+Cripto,~0,cociente,WTCUSDT,WTCUSDT,1340,335,12,-0.5172,0.995,-0.2821,-3.4964,0,-0.3636,0.2167,0.79,0,0,,2020-08-22
+Cripto,~0,cociente,WUSDT,WUSDT,881,220,13,-1.1853,0.9739,-0.4017,-3.4011,0,-0.7747,0.01,0.9933,1,0,,2024-04-03
+Cripto,~0,cociente,XAIUSDT,XAIUSDT,966,242,13,-1.5691,0.9569,-0.4769,-1.9942,0,-0.544,0.04,0.9633,1,0,,2024-02-25
+Cripto,~0,cociente,XECUSDT,XECUSDT,1824,456,13,-0.9446,0.9876,-0.2815,-3.0443,0,-0.8681,0.0033,1.0,1,0,,2021-09-04
+Cripto,~0,cociente,XEMUSDT,XEMUSDT,1302,326,12,-0.7154,0.9666,-0.3205,-1.2222,0,-0.7133,0.01,0.9967,1,0,,2021-03-02
+Cripto,~0,cociente,XLMUSDT,XLMUSDT,3015,754,13,-0.7258,0.9823,-0.5744,0.4684,0,0.0769,0.57,0.4367,0,0,,2018-11-19
+Cripto,~0,cociente,XMRUSDT,XMRUSDT,1804,451,12,-0.1951,0.9902,-0.1908,-1.6603,0,-0.1399,0.3167,0.6867,0,0,,2019-04-01
+Cripto,~0,cociente,XNOUSDT,XNOUSDT,1677,419,12,-0.5879,0.9802,-0.1004,-1.2691,0,-0.8671,0.0033,1.0,1,0,,2022-11-23
+Cripto,~0,cociente,XPLUSDT,XPLUSDT,341,85,13,-0.4567,0.9113,-0.5714,-0.6062,0,0.1868,0.7367,0.2733,0,0,,2025-09-27
+Cripto,~0,cociente,XRPUSDT,XRPUSDT,3042,760,13,-0.4303,0.992,-0.3438,1.4521,0,0.5055,0.9633,0.0433,0,1,,2018-12-25
+Cripto,~0,cociente,XTZUSDT,XTZUSDT,2534,634,13,-1.053,0.9882,-0.0844,-3.8298,0,-0.8956,0.0033,1.0,1,0,,2020-04-25
+Cripto,~0,cociente,XVGUSDT,XVGUSDT,1913,478,12,-0.6864,0.9678,-0.468,0.2111,0,0.021,0.49,0.5167,0,0,,2021-06-06
+Cripto,~0,cociente,XVSUSDT,XVSUSDT,2156,539,12,-0.6082,0.9908,0.178,-2.7953,0,-0.6503,0.04,0.9633,1,0,,2021-05-14
+Cripto,~0,cociente,XZCUSDT,XZCUSDT,294,74,13,-0.3305,0.982,-0.0252,-2.8074,0,-0.8736,0.0067,0.9967,1,0,,2020-08-08
+Cripto,~0,cociente,YBUSDT,YBUSDT,321,80,13,-0.4986,0.9488,0.0057,-0.3084,0,-0.1703,0.29,0.7133,0,0,,2025-12-05
+Cripto,~0,cociente,YFIIUSDT,YFIIUSDT,1086,272,12,-0.387,0.9876,-0.6994,-2.8315,0,-0.1189,0.41,0.6133,0,0,,2020-09-01
+Cripto,~0,cociente,YFIUSDT,YFIUSDT,2213,553,13,-1.0144,0.9777,-0.2398,-2.5077,0,-0.8132,0.0033,1.0,1,0,,2020-09-12
+Cripto,~0,cociente,YGGUSDT,YGGUSDT,1803,451,12,-1.3523,0.9859,-0.6694,-5.6213,0,-0.6364,0.0233,0.98,1,0,,2021-10-01
+Cripto,~0,cociente,ZAMAUSDT,ZAMAUSDT,211,53,13,0.2212,0.9297,-0.0849,0.7757,0,0.8407,1.0,0.0033,0,1,,2026-07-28
+Cripto,~0,cociente,ZBTUSDT,ZBTUSDT,319,80,12,-0.0245,0.9464,-0.2916,-0.2688,0,0.1259,0.64,0.37,0,0,,2025-10-17
+Cripto,~0,cociente,ZECUSDT,ZECUSDT,2721,680,13,-0.6226,0.995,-0.2945,13.1191,0,-0.022,0.4533,0.5533,0,0,,2019-04-01
+Cripto,~0,cociente,ZENUSDT,ZENUSDT,2248,562,13,-0.743,0.9911,0.3206,-1.2928,0,-0.4286,0.1267,0.8867,0,0,,2021-05-29
+Cripto,~0,cociente,ZILUSDT,ZILUSDT,2751,688,12,-0.8036,0.995,-0.3127,-6.2948,0,-0.958,0.0033,1.0,1,0,,2019-03-24
+Cripto,~0,cociente,ZKCUSDT,ZKCUSDT,351,88,12,-0.5219,0.8941,-0.4844,-1.4963,0,-0.7483,0.0033,1.0,1,0,,2025-09-15
+Cripto,~0,cociente,ZKPUSDT,ZKPUSDT,237,59,12,-0.2428,0.9201,-0.0932,-0.8304,0,-0.8042,0.01,0.9933,1,0,,2026-01-07
+Cripto,~0,cociente,ZKUSDT,ZKUSDT,806,202,13,-0.8106,0.9703,-0.1242,-3.4674,0,-0.7198,0.0067,1.0,1,0,,2024-06-19
+Cripto,~0,cociente,ZROUSDT,ZROUSDT,803,201,13,-0.4431,0.9699,-0.0064,-3.5155,0,-0.0165,0.48,0.5367,0,0,,2024-07-20
+Cripto,~0,cociente,ZRXUSDT,ZRXUSDT,2742,686,12,-0.8337,0.9918,-0.1916,-5.6054,0,-0.9301,0.0033,1.0,1,0,,2019-04-01
+Cripto,~0,cociente,币安人生USDT,币安人生USDT,237,59,12,0.644,0.9764,-0.2061,-1.6209,0,0.035,0.5667,0.4467,0,0,,2026-06-06
+npm,~0,nivel,@types/karma-coverage,@types/karma-coverage,120,30,12,0.6866,0.6922,0.8371,2.3715,0,-0.035,0.4933,0.5233,0,0,0,
+npm,~0,nivel,@babel/plugin-proposal-do-expressions,@babel/plugin-proposal-do-expressions,108,27,12,1.1665,0.7127,2.4076,1.2446,0,-0.5455,0.0433,0.9633,1,0,0,
+npm,~0,nivel,@carbon-io/carbon-core,@carbon-io/carbon-core,120,30,12,-1.0189,0.7166,1.4659,5.0727,0,0.3077,0.8667,0.1433,0,0,1,
+npm,~0,nivel,@ciscospark/internal-plugin-encryption,@ciscospark/internal-plugin-encryption,113,28,13,-0.6276,0.6814,1.3018,8.6644,0,0.2582,0.8433,0.1667,0,0,0,
+npm,~0,nivel,@envato-foundation/foundation-design-system-components-text,@envato-foundation/foundation-design-system-components-text,118,30,12,-1.1312,0.6358,-1.006,4.5611,0,0.5035,0.96,0.0433,0,1,1,
+npm,~0,nivel,@heml/validate,@heml/validate,108,27,12,0.5042,0.6939,0.4911,-1.3779,0,-0.007,0.4833,0.5267,0,0,0,
+npm,~0,nivel,@indec/heimdall,@indec/heimdall,109,27,12,-0.5977,0.3741,0.1524,2.867,0,0.2448,0.7933,0.2167,0,0,0,
+npm,~0,nivel,@ionic-native/launch-review,@ionic-native/launch-review,116,29,13,0.4446,0.7362,0.676,-0.9893,0,-0.8681,0.0033,1.0,1,0,0,
+npm,~0,nivel,@linagora/i18n-checker,@linagora/i18n-checker,106,26,14,-0.9566,0.7285,0.0278,1.7568,0,0.3187,0.8467,0.1633,0,0,0,
+npm,~0,nivel,@pietvanzoen/jasmine-promise-matchers,@pietvanzoen/jasmine-promise-matchers,117,29,13,-0.8161,0.412,-0.4716,6.965,0,0.1319,0.6833,0.33,0,0,0,
+npm,~0,nivel,@types/libpq,@types/libpq,117,29,13,0.3641,0.7412,0.7069,-1.1378,0,-0.4011,0.12,0.8833,0,0,0,
+npm,~0,nivel,@types/lodash.values,@types/lodash.values,118,30,12,0.4806,0.7974,0.5825,-3.3916,0,-0.2937,0.1933,0.8167,0,0,0,
+npm,~0,nivel,@types/prosemirror-state,@types/prosemirror-state,115,29,13,1.9864,0.9219,2.049,0.036,1,-0.5989,0.0633,0.9433,0,0,1,
+npm,~0,nivel,@types/xml,@types/xml,118,30,12,1.5716,0.7254,1.069,0.67,1,-0.1049,0.4,0.61,0,0,1,
+npm,~0,nivel,@usehenri/log,@usehenri/log,114,28,13,-0.3155,0.1425,-0.2618,4.8826,0,-0.2527,0.1667,0.8433,0,0,0,
+npm,~0,nivel,@abeai/node-logging,@abeai/node-logging,101,25,13,-0.5564,0.5488,0.5093,-1.9872,0,-0.6923,0.0133,0.99,1,0,0,
+npm,~0,nivel,@aereal/cdk-mackerel-container-agent,@aereal/cdk-mackerel-container-agent,91,23,12,-0.5907,0.348,-0.4012,3.374,0,0.1608,0.75,0.27,0,0,0,
+npm,~0,nivel,@amalto/scope-helpers,@amalto/scope-helpers,104,26,14,-0.1687,0.2926,0.0973,0.1649,0,-0.4549,0.0333,0.97,1,0,0,
+npm,~0,nivel,@ang-kit/http,@ang-kit/http,96,24,13,-0.1784,0.2104,-0.5466,5.9722,0,0.0659,0.6,0.41,0,0,0,
+npm,~0,nivel,@audentio/ssr-toolkit,@audentio/ssr-toolkit,96,24,13,-0.5555,0.1097,-0.1285,3.7632,0,0.3132,0.8833,0.13,0,0,0,
+npm,~0,nivel,@aws-cdk/app-delivery,@aws-cdk/app-delivery,95,24,12,-0.2144,0.8213,1.914,0.4843,1,-0.3846,0.1733,0.84,0,0,0,
+npm,~0,nivel,@bb-cli/bb-ang,@bb-cli/bb-ang,103,26,13,0.4495,0.7949,1.0957,-1.9022,1,-0.7308,0.0133,0.9933,1,0,0,
+npm,~0,nivel,@bentley/geometry-core,@bentley/geometry-core,96,24,13,0.3049,0.6663,0.7118,6.9391,0,-0.1264,0.31,0.7,0,0,0,
+npm,~0,nivel,@boost/core,@boost/core,98,24,13,0.8037,0.7382,1.1535,2.0312,0,0.489,0.9633,0.0467,0,1,0,
+npm,~0,nivel,@canvas-panel/core,@canvas-panel/core,104,26,14,-0.5133,0.2866,0.4231,11.7968,0,0.0066,0.4733,0.5467,0,0,0,
+npm,~0,nivel,@carto/airship-style,@carto/airship-style,99,25,13,-0.2024,0.6371,0.756,0.81,0,-0.2967,0.2033,0.8,0,0,0,
+npm,~0,nivel,@chadmarchand/comet-diagrams-vue,@chadmarchand/comet-diagrams-vue,89,22,12,-0.0814,0.2632,-0.8308,4.0101,0,0.3007,0.8767,0.1267,0,0,0,
+npm,~0,nivel,@citizenfx/three,@citizenfx/three,93,23,12,1.7533,0.8772,1.32,-0.9733,1,-0.7692,0.0167,0.9867,1,0,0,
+npm,~0,nivel,@comparaonline/ui-with-final-form-field,@comparaonline/ui-with-final-form-field,94,24,12,-0.4848,0.2529,0.0382,-4.2081,0,-0.3706,0.11,0.8933,0,0,0,
+npm,~0,nivel,@ctx-core/a__target,@ctx-core/a__target,90,22,12,0.3422,0.3177,0.5527,2.8962,0,-0.2308,0.1867,0.82,0,0,0,
+npm,~0,nivel,@egjs/react-children-differ,@egjs/react-children-differ,89,22,12,-0.0979,0.8203,1.1678,3.4132,0,0.021,0.5033,0.5167,0,0,0,
+npm,~0,nivel,@financial-times/fticons,@financial-times/fticons,92,23,12,-0.106,0.9314,0.5825,-2.9028,0,-0.7133,0.03,0.9767,1,0,0,
+npm,~0,nivel,@govuk-react/panel,@govuk-react/panel,103,26,13,1.139,0.6577,0.9361,-0.5823,0,-0.2088,0.2667,0.75,0,0,0,
+npm,~0,nivel,@grapecity/wijmo.react.chart.finance,@grapecity/wijmo.react.chart.finance,90,22,12,0.3257,0.6599,0.7753,1.9966,0,-0.028,0.53,0.4967,0,0,0,
+npm,~0,nivel,@haul-bundler/cli,@haul-bundler/cli,89,22,12,-0.3101,0.7293,1.0786,3.4272,0,0.3147,0.8633,0.1433,0,0,0,
+npm,~0,nivel,@hieunv/react-scripts,@hieunv/react-scripts,98,24,13,-0.2505,0.1994,-0.3188,3.9328,0,-0.044,0.4833,0.5333,0,0,0,
+npm,~0,nivel,@hokify/vuejs-datepicker,@hokify/vuejs-datepicker,89,22,12,0.0698,0.8483,0.6805,-1.5651,0,-0.9021,0.0033,1.0,1,0,0,
+npm,~0,nivel,@ied/polyfill,@ied/polyfill,92,23,12,-1.1723,0.8327,-0.2141,-2.0353,0,-0.7622,0.01,0.9933,1,0,1,
+npm,~0,nivel,@internetarchive/ia-js-client,@internetarchive/ia-js-client,92,23,12,-0.1259,0.4925,-0.4774,-0.5168,0,-0.2448,0.2333,0.78,0,0,0,
+npm,~0,nivel,@kayakyakr/babel-plugin-mobx-async-action,@kayakyakr/babel-plugin-mobx-async-action,91,23,12,0.268,0.856,-0.0262,-7.0331,0,-0.5455,0.04,0.9633,1,0,0,
+npm,~0,nivel,@mcwv/floating-label,@mcwv/floating-label,91,23,12,-0.877,0.5484,0.8945,6.8656,0,0.2797,0.81,0.2033,0,0,0,
+npm,~0,nivel,@milestones/babel-plugin-strip-milestones,@milestones/babel-plugin-strip-milestones,90,22,12,0.3461,0.8358,0.497,-5.9509,0,-0.8811,0.0033,1.0,1,0,0,
+npm,~0,nivel,@n4jsd/node-fetch,@n4jsd/node-fetch,88,22,12,-1.1177,0.5672,-0.4308,3.8332,0,0.2657,0.81,0.21,0,0,0,
+npm,~0,nivel,@newbiz/axios-libs,@newbiz/axios-libs,90,22,12,-0.7375,0.6574,0.6183,1.9082,0,-0.3357,0.12,0.89,0,0,0,
+npm,~0,nivel,@pawelgalazka/cli,@pawelgalazka/cli,92,23,12,0.875,0.825,1.8997,-4.5008,1,-0.6084,0.0433,0.96,1,0,0,
+npm,~0,nivel,@profriday/windmilljs,@profriday/windmilljs,89,22,12,-0.2935,0.147,-0.9061,7.1347,0,0.3147,0.84,0.1633,0,0,0,
+npm,~0,nivel,@skpm/internal-utils,@skpm/internal-utils,102,26,13,0.1507,0.809,0.76,1.3173,0,0.1319,0.6467,0.3633,0,0,0,
+npm,~0,nivel,@skyux-sdk/pact,@skyux-sdk/pact,98,24,13,-1.0941,0.7862,1.1305,5.0875,0,0.1484,0.6533,0.3567,0,0,0,
+npm,~0,nivel,@talixo/typography,@talixo/typography,101,25,13,-0.7744,0.5055,-0.4327,6.6478,0,-0.011,0.5,0.51,0,0,0,
+npm,~0,nivel,@tophat/commitlint-config,@tophat/commitlint-config,90,22,12,0.6791,0.5248,0.4925,-5.1807,0,-0.014,0.5033,0.51,0,0,0,
+npm,~0,nivel,@types/giphy-api,@types/giphy-api,92,23,12,0.7304,0.8801,0.7064,2.6626,0,-0.2308,0.2867,0.7333,0,0,0,
+npm,~0,nivel,@types/scrypt-js,@types/scrypt-js,98,24,13,0.062,0.6683,1.1025,-5.2193,1,0.011,0.5533,0.4533,0,0,0,
+npm,~0,nivel,@webpack-cli/init,@webpack-cli/init,101,25,13,0.7677,0.7378,1.2769,1.2616,0,-0.1868,0.2967,0.7133,0,0,1,
+npm,~0,nivel,@wordpress/list-reusable-blocks,@wordpress/list-reusable-blocks,96,24,13,0.9956,0.6343,0.1157,-1.0957,0,-0.033,0.4233,0.5867,0,0,0,
+npm,~0,nivel,@xpresser/router,@xpresser/router,89,22,12,-0.1832,0.1698,0.0101,3.726,0,0.3217,0.92,0.09,0,0,0,
+npm,~0,nivel,@2kara/form-payment,@2kara/form-payment,77,19,12,-0.0499,0.2477,-0.6776,3.2227,0,0.3706,0.87,0.14,0,0,0,
+npm,~0,nivel,@adobe/aio-cli-plugin-doc,@adobe/aio-cli-plugin-doc,75,19,12,-0.3163,0.2904,-0.5343,4.4406,0,0.3497,0.8867,0.12,0,0,0,
+npm,~0,nivel,@apollo/link-retry,@apollo/link-retry,81,20,13,-0.2029,0.6359,1.0119,-1.1015,1,0.1429,0.72,0.29,0,0,0,
+npm,~0,nivel,@asayerio/js,@asayerio/js,87,22,11,-0.4826,0.3285,-0.5616,2.0461,0,0.1818,0.69,0.3333,0,0,0,
+npm,~0,nivel,@byu-oit/nuxt-common,@byu-oit/nuxt-common,78,20,12,-0.2251,0.2592,0.0203,0.7449,0,0.2168,0.8,0.2133,0,0,0,
+npm,~0,nivel,@chlorophytum/arch,@chlorophytum/arch,85,21,13,-0.1427,0.4743,0.0442,5.3005,0,0.0055,0.47,0.54,0,0,0,
+npm,~0,nivel,@codesandbox/components,@codesandbox/components,80,20,13,0.0287,0.5152,-0.2915,4.1997,0,0.4286,0.93,0.08,0,0,0,
+npm,~0,nivel,@compai/logo,@compai/logo,72,18,14,-0.3511,0.5302,0.0178,4.206,0,0.3319,0.89,0.12,0,0,0,
+npm,~0,nivel,@contember/cli,@contember/cli,81,20,13,0.283,0.345,1.096,0.9355,1,0.022,0.4867,0.5233,0,0,0,
+npm,~0,nivel,@customjs/card,@customjs/card,83,21,13,-0.5879,0.2315,-0.1136,5.0402,0,0.4286,0.9467,0.0667,0,0,0,
+npm,~0,nivel,@dolittle/sdk.events.processing,@dolittle/sdk.events.processing,75,19,12,-0.6658,0.4448,0.2132,5.9173,0,0.1818,0.74,0.27,0,0,0,
+npm,~0,nivel,@domain-digital/web-lib,@domain-digital/web-lib,78,20,12,-0.4483,0.206,-0.2514,2.9382,0,-0.1259,0.3367,0.6733,0,0,0,
+npm,~0,nivel,@economist/fabric-components,@economist/fabric-components,81,20,13,-0.227,0.5862,0.4758,6.4572,0,0.0385,0.5533,0.4533,0,0,0,
+npm,~0,nivel,@ethersproject/asm,@ethersproject/asm,80,20,13,1.0279,0.7626,0.9485,-3.8532,0,-0.3516,0.17,0.84,0,0,0,
+npm,~0,nivel,@fbcnms/logging,@fbcnms/logging,75,19,12,-0.5632,0.5083,0.3764,2.7745,0,-0.021,0.5,0.51,0,0,0,
+npm,~0,nivel,@fremtind/jkl-progress-bar,@fremtind/jkl-progress-bar,83,21,13,-0.0486,0.3141,0.2519,-0.0545,0,-0.1484,0.31,0.7,0,0,0,
+npm,~0,nivel,@future-grid/fgp-platform-ts,@future-grid/fgp-platform-ts,78,20,12,-0.7086,0.4407,0.8397,8.8409,0,0.2797,0.8067,0.2,0,0,0,
+npm,~0,nivel,@gtgalone/react-store,@gtgalone/react-store,83,21,13,-0.3988,0.2892,-0.15,1.1065,0,-0.3571,0.12,0.8867,0,0,0,
+npm,~0,nivel,@gympass/yoga,@gympass/yoga,84,21,13,-0.1789,0.5052,0.0244,-0.5882,0,-0.7308,0.0033,1.0,1,0,0,
+npm,~0,nivel,@hediet/i18n-frontend,@hediet/i18n-frontend,75,19,12,1.3045,0.7822,-0.8091,0.7678,0,0.4406,0.9433,0.06,0,0,1,
+npm,~0,nivel,@holvonix-open/release-config-js,@holvonix-open/release-config-js,86,22,11,-1.2107,0.5584,0.1624,2.7824,0,0.3,0.8,0.2133,0,0,0,
+npm,~0,nivel,@inventage/portal-components,@inventage/portal-components,76,19,12,-0.5994,0.1498,-0.0285,4.6428,0,-0.2797,0.2133,0.7967,0,0,0,
+npm,~0,nivel,@j2inn/haystack-core,@j2inn/haystack-core,78,20,12,-0.3945,0.4747,-0.0012,7.6083,0,0.1608,0.6933,0.3167,0,0,0,
+npm,~0,nivel,@lapidist/linting,@lapidist/linting,83,21,13,0.2997,0.4555,0.8486,-2.999,0,-0.5879,0.0133,0.99,1,0,0,
+npm,~0,nivel,@lazy-glob/sort-entries,@lazy-glob/sort-entries,76,19,12,0.9497,0.7532,-0.0653,-2.412,0,-0.007,0.4967,0.5067,0,0,0,
+npm,~0,nivel,@ldf/datasource-n3,@ldf/datasource-n3,78,20,12,-0.8871,0.6713,0.3009,1.9975,0,0.7762,1.0,0.0033,0,1,1,
+npm,~0,nivel,@lskjs/article,@lskjs/article,80,20,13,-0.0768,0.3471,-0.0336,1.6689,0,0.9011,1.0,0.0033,0,1,0,
+npm,~0,nivel,@magento/upward-security-headers,@magento/upward-security-headers,73,18,14,0.6218,0.5719,1.3827,-0.7388,1,-0.7582,0.0033,1.0,1,0,0,
+npm,~0,nivel,@makerdao/dai-ui-icons-branding,@makerdao/dai-ui-icons-branding,76,19,12,-0.39,0.5959,-0.1146,-0.1733,0,0.1748,0.6933,0.31,0,0,0,
+npm,~0,nivel,@material-icons/font,@material-icons/font,79,20,12,0.4069,0.8801,2.7536,1.0818,0,0.2378,0.76,0.2433,0,0,0,
+npm,~0,nivel,@meta-react/i18n,@meta-react/i18n,85,21,13,0.4555,0.6025,0.4713,-1.4114,0,-0.2363,0.2067,0.8033,0,0,0,
+npm,~0,nivel,@mu-ts/xray,@mu-ts/xray,79,20,12,-0.7183,0.7464,0.7188,-0.114,0,-0.5664,0.0367,0.9667,1,0,0,
+npm,~0,nivel,@mui-treasury/components,@mui-treasury/components,85,21,13,0.6668,0.8843,2.0341,-0.9582,1,-0.9011,0.0033,1.0,1,0,0,
+npm,~0,nivel,@nestcloud/proxy,@nestcloud/proxy,87,22,11,-0.2564,0.6358,1.0363,2.0153,0,0.1182,0.5967,0.4167,0,0,0,
+npm,~0,nivel,@nexus-switchboard/nexus-conn-slack,@nexus-switchboard/nexus-conn-slack,81,20,13,-0.4655,0.1284,-0.5654,3.8446,0,0.0549,0.5633,0.4567,0,0,0,
+npm,~0,nivel,@onflow/sdk-build-ping,@onflow/sdk-build-ping,73,18,14,-0.9858,0.45,0.2104,2.4208,0,0.5253,0.98,0.0267,0,1,1,
+npm,~0,nivel,@ontologies/core,@ontologies/core,85,21,13,0.0776,0.7612,0.192,2.8723,0,0.0165,0.47,0.55,0,0,0,
+npm,~0,nivel,@planet/importer,@planet/importer,81,20,13,-0.9694,0.4341,-0.5156,5.2433,0,0.4505,0.9467,0.0567,0,0,0,
+npm,~0,nivel,@pulumi/wavefront,@pulumi/wavefront,74,18,15,0.7993,0.6607,-0.2234,0.1406,0,-0.2429,0.2067,0.7967,0,0,0,
+npm,~0,nivel,@react-typed-hooks/use-window-size,@react-typed-hooks/use-window-size,76,19,12,-0.5657,0.4528,0.817,1.4818,0,-0.2378,0.1967,0.8167,0,0,0,
+npm,~0,nivel,@retailwe/ui-error,@retailwe/ui-error,77,19,12,-0.6178,0.0152,-0.7826,2.5805,0,0.2308,0.8,0.2233,0,0,0,
+npm,~0,nivel,@sap-devx/yeoman-ui-types,@sap-devx/yeoman-ui-types,79,20,12,1.6715,0.7176,2.1086,0.4882,1,-0.1678,0.33,0.68,0,0,0,
+npm,~0,nivel,@shopify/manifests,@shopify/manifests,83,21,13,1.2095,0.9306,-0.5179,-12.0243,0,-0.7088,0.0367,0.9667,1,0,1,
+npm,~0,nivel,@sitecore-jss/sitecore-jss-react-forms,@sitecore-jss/sitecore-jss-react-forms,87,22,11,1.6671,0.7545,1.9833,-0.5137,1,-0.3727,0.14,0.8733,0,0,1,
+npm,~0,nivel,@skyframe/datasource,@skyframe/datasource,77,19,12,-0.4505,0.7501,0.742,-1.2189,0,-0.6853,0.0067,0.9967,1,0,0,
+npm,~0,nivel,@speakapbv/dough-component-library-tokens,@speakapbv/dough-component-library-tokens,81,20,13,0.2137,0.6004,0.3097,-1.4841,0,-0.6758,0.0133,0.9933,1,0,0,
+npm,~0,nivel,@squiz/mercury-theme-adapter-mui-react,@squiz/mercury-theme-adapter-mui-react,75,19,12,-0.6069,0.3633,-0.2229,7.7097,0,0.2587,0.82,0.19,0,0,0,
+npm,~0,nivel,@teambit/documenter.ui.table.base-table,@teambit/documenter.ui.table.base-table,70,18,14,-0.9668,0.7717,0.5828,8.607,0,-0.0989,0.4533,0.5533,0,0,0,
+npm,~0,nivel,@telefonica/la-web-sdk,@telefonica/la-web-sdk,76,19,12,-0.6781,0.2891,0.4236,1.1275,0,0.3776,0.92,0.0833,0,0,0,
+npm,~0,nivel,@test-graphql-cli/serve,@test-graphql-cli/serve,85,21,13,-0.4853,0.1967,0.2583,3.8061,0,0.1319,0.68,0.33,0,0,0,
+npm,~0,nivel,@thzero/library_server_logger_winston,@thzero/library_server_logger_winston,74,18,15,-0.393,0.1017,-0.5787,10.966,0,-0.1893,0.25,0.7567,0,0,0,
+npm,~0,nivel,@types/react-native-video-player,@types/react-native-video-player,80,20,13,1.0232,0.9847,0.4548,-11.7641,0,-0.3901,0.2533,0.7567,0,0,0,
+npm,~0,nivel,@welcome-ui/system,@welcome-ui/system,81,20,13,0.1054,0.739,0.2261,-4.2661,0,-0.4725,0.06,0.9467,0,0,0,
+npm,~0,nivel,@wikimedia/wvui,@wikimedia/wvui,75,19,12,-0.4301,0.6619,0.5544,1.6588,0,0.3916,0.9067,0.11,0,0,0,
+npm,~0,nivel,@acuity-brands/uiux.facade.theme.decorator,@acuity-brands/uiux.facade.theme.decorator,58,14,12,-0.2625,0.0475,0.8578,3.231,0,0.5245,0.9833,0.02,0,1,0,
+npm,~0,nivel,@aggre/ullr,@aggre/ullr,68,17,13,0.9358,0.7844,0.5934,-0.9217,0,-0.1538,0.3533,0.6533,0,0,0,
+npm,~0,nivel,@antchain/myfish-scaffold-assemblyscript-dapp,@antchain/myfish-scaffold-assemblyscript-dapp,53,13,14,-0.4687,0.2608,0.2377,5.4838,0,0.3055,0.8733,0.1333,0,0,0,
+npm,~0,nivel,@atomico/channel,@atomico/channel,64,16,13,0.7114,0.7374,0.7919,3.1798,0,-0.2253,0.23,0.7833,0,0,0,
+npm,~0,nivel,@autobest-ui/california,@autobest-ui/california,64,16,13,0.2029,0.393,0.0164,5.7829,0,0.1264,0.7,0.3133,0,0,0,
+npm,~0,nivel,@biosci/common,@biosci/common,64,16,13,-0.3525,0.2058,-0.5706,-2.9089,0,0.3242,0.9167,0.0867,0,0,0,
+npm,~0,nivel,@bloomium/bloomium-sdk,@bloomium/bloomium-sdk,65,16,13,-0.1138,0.1888,-0.1678,-0.1044,0,0.4945,0.9767,0.03,0,1,0,
+npm,~0,nivel,@bugcrowd/briareus,@bugcrowd/briareus,62,16,12,-2.5381,0.7708,0.424,-1.3334,0,0.2867,0.7833,0.2233,0,0,1,
+npm,~0,nivel,@bytedance/mona-client-plugin,@bytedance/mona-client-plugin,58,14,12,0.1254,0.5696,1.9407,2.2003,0,-0.049,0.4767,0.5367,0,0,0,
+npm,~0,nivel,@commercetools-frontend/kms-cli,@commercetools-frontend/kms-cli,65,16,13,0.9767,0.8487,0.2916,-4.2062,0,-0.7967,0.0067,0.9967,1,0,0,
+npm,~0,nivel,@coveops/deflection,@coveops/deflection,69,17,14,-0.1605,0.8282,1.0617,7.18,0,-0.5648,0.0733,0.9333,0,0,0,
+npm,~0,nivel,@cryptovarna/tron-web-api,@cryptovarna/tron-web-api,61,15,12,-0.4714,0.1239,0.2361,4.6768,0,0.4825,0.96,0.0433,0,1,0,
+npm,~0,nivel,@culur/stylelint-config,@culur/stylelint-config,68,17,13,0.5672,0.4505,0.3249,-0.6905,0,-0.4231,0.07,0.9333,0,0,0,
+npm,~0,nivel,@dependable/state,@dependable/state,52,13,14,-0.0442,0.4393,-0.8133,0.1509,0,-0.1165,0.3233,0.68,0,0,0,
+npm,~0,nivel,@dxp-dc/el-data-table,@dxp-dc/el-data-table,67,17,13,-0.6881,0.1736,-0.6614,4.7542,0,0.2912,0.8233,0.1967,0,0,0,
+npm,~0,nivel,@eeacms/volto-ims-policy,@eeacms/volto-ims-policy,66,16,13,-0.632,0.2351,-0.1765,7.3764,0,0.2637,0.8233,0.1867,0,0,0,
+npm,~0,nivel,@elrondnetwork/erdjs-wallet-connect-provider,@elrondnetwork/erdjs-wallet-connect-provider,55,14,11,-0.9555,0.6528,1.4595,3.0123,0,0.6636,0.9833,0.02,0,1,1,
+npm,~0,nivel,@etherdata-blockchain/url-join,@etherdata-blockchain/url-join,54,14,11,-0.316,0.8567,0.5532,-0.6379,0,-0.7455,0.0167,0.9867,1,0,0,
+npm,~0,nivel,@form8ion/eslint,@form8ion/eslint,66,16,13,0.0951,0.1989,0.8013,2.1842,0,-0.2473,0.17,0.84,0,0,0,
+npm,~0,nivel,@fuel-ts/sparsemerkle,@fuel-ts/sparsemerkle,56,14,11,-0.4038,0.4481,0.7789,7.9709,0,0.1364,0.6867,0.32,0,0,0,
+npm,~0,nivel,@gadgetinc/react,@gadgetinc/react,60,15,12,1.8719,0.8734,0.6052,-0.758,0,-0.3147,0.2333,0.7767,0,0,1,
+npm,~0,nivel,@gama-academy/smash-web,@gama-academy/smash-web,61,15,12,-0.7532,0.1552,0.1382,7.9462,0,0.3287,0.86,0.15,0,0,0,
+npm,~0,nivel,@hippo-oss/nest-dto,@hippo-oss/nest-dto,69,17,14,0.0914,0.3533,0.6008,-3.4272,0,-0.2835,0.1533,0.8567,0,0,0,
+npm,~0,nivel,@innexgo/auth-react-components,@innexgo/auth-react-components,61,15,12,-0.3594,0.294,0.2883,2.836,0,0.5804,0.9867,0.02,0,1,0,
+npm,~0,nivel,@itentialopensource/adapter-azure_devops,@itentialopensource/adapter-azure_devops,58,14,12,0.069,0.494,0.2171,2.5313,0,0.3776,0.9267,0.0767,0,0,0,
+npm,~0,nivel,@jayfong/x-server,@jayfong/x-server,54,14,11,0.0842,0.6404,-0.0107,2.8253,0,-0.1545,0.3233,0.68,0,0,0,
+npm,~0,nivel,@jup-ag/cykura-sdk-core,@jup-ag/cykura-sdk-core,54,14,11,-0.3897,0.7728,0.6151,-2.0184,0,-0.8273,0.0067,0.9967,1,0,0,
+npm,~0,nivel,@keyvhq/multi,@keyvhq/multi,61,15,12,-0.1193,0.5552,0.6491,0.2619,0,-0.2168,0.2667,0.75,0,0,0,
+npm,~0,nivel,@kongponents/kmenu,@kongponents/kmenu,59,15,12,-0.7629,0.3578,0.0691,5.562,0,-0.0839,0.3767,0.6367,0,0,0,
+npm,~0,nivel,@kyve/query,@kyve/query,66,16,13,-0.6174,0.3466,-0.5311,0.8294,0,0.5495,0.9733,0.0367,0,1,0,
+npm,~0,nivel,@nexys/validation,@nexys/validation,66,16,13,-0.1782,0.4082,0.1756,-7.1166,0,-0.0934,0.4033,0.6033,0,0,0,
+npm,~0,nivel,@nfq/react-grid,@nfq/react-grid,62,16,12,0.4433,0.0,0.5794,-1.8985,0,-0.6643,0.0133,0.9933,1,0,0,
+npm,~0,nivel,@ninetailed/experience.js-plugin-contentsquare,@ninetailed/experience.js-plugin-contentsquare,52,13,14,0.1755,0.6132,0.8799,0.2187,0,0.3626,0.8767,0.1267,0,0,0,
+npm,~0,nivel,@openinventor/remoteviz-client,@openinventor/remoteviz-client,66,16,13,0.4345,0.6252,0.413,-3.6364,0,-0.3022,0.1467,0.86,0,0,0,
+npm,~0,nivel,@phila/vue-sso,@phila/vue-sso,64,16,13,-0.2471,0.3253,-0.1045,2.7827,0,0.544,0.98,0.0233,0,1,0,
+npm,~0,nivel,@prisma/text-editors,@prisma/text-editors,62,16,12,-1.2985,0.7317,0.5129,7.6212,0,-0.1049,0.37,0.64,0,0,1,
+npm,~0,nivel,@radixdlt/util,@radixdlt/util,67,17,13,-0.533,0.489,-0.0838,3.1214,0,0.5714,0.9733,0.03,0,1,0,
+npm,~0,nivel,@react-query-firebase/analytics,@react-query-firebase/analytics,60,15,12,-0.6197,0.574,0.2346,-1.4554,0,-0.5524,0.0233,0.9867,1,0,0,
+npm,~0,nivel,@rxap/schematics-xml-parser,@rxap/schematics-xml-parser,65,16,13,0.4612,0.2839,-0.0177,1.6153,0,0.0275,0.5567,0.45,0,0,0,
+npm,~0,nivel,@sarafhbk/react-audio-recorder,@sarafhbk/react-audio-recorder,63,16,12,0.5906,0.4321,0.6929,-3.7052,0,-0.035,0.41,0.5967,0,0,0,
+npm,~0,nivel,@sberdevices/cra-template-plasma-shop-template,@sberdevices/cra-template-plasma-shop-template,63,16,12,-0.4957,0.117,-0.0523,2.4935,0,0.3357,0.8933,0.1233,0,0,0,
+npm,~0,nivel,@script-wiz/lib,@script-wiz/lib,65,16,13,-0.3642,0.3923,0.5357,2.7164,0,0.3901,0.9,0.1033,0,0,0,
+npm,~0,nivel,@secjs/utils,@secjs/utils,64,16,13,-0.369,0.4738,0.327,1.2132,0,0.6209,0.99,0.0167,0,1,0,
+npm,~0,nivel,@serverless/aws-lambda-otel-extension,@serverless/aws-lambda-otel-extension,56,14,11,-0.3032,0.388,-0.5213,2.466,0,-0.0091,0.49,0.53,0,0,0,
+npm,~0,nivel,@sounisi5011/run-if-supported,@sounisi5011/run-if-supported,65,16,13,-0.2228,0.1535,0.0428,3.8003,0,0.511,0.9533,0.05,0,0,0,
+npm,~0,nivel,@stackbit/cms-core,@stackbit/cms-core,57,14,11,2.0334,0.6599,2.137,-9.2917,1,-0.4091,0.11,0.9067,0,0,1,
+npm,~0,nivel,@stdlib/assert-is-uint8array,@stdlib/assert-is-uint8array,64,16,13,1.489,0.8311,1.4801,3.6009,0,-0.2198,0.2733,0.74,0,0,0,
+npm,~0,nivel,@stdlib/constants-int8-max,@stdlib/constants-int8-max,64,16,13,0.7548,0.703,0.5444,4.2585,0,-0.0659,0.4533,0.55,0,0,0,
+npm,~0,nivel,@stdlib/ndarray-array,@stdlib/ndarray-array,64,16,13,0.4414,0.6406,0.9498,8.0957,0,-0.1154,0.37,0.64,0,0,0,
+npm,~0,nivel,@steedos-labs/finance,@steedos-labs/finance,61,15,12,0.2166,0.1219,0.3005,2.1789,0,-0.014,0.4433,0.57,0,0,0,
+npm,~0,nivel,@stimulus_reflex/activity,@stimulus_reflex/activity,63,16,12,-1.7335,0.7112,0.2111,0.9497,0,0.2657,0.7667,0.25,0,0,1,
+npm,~0,nivel,@symphony-ui/adk-react,@symphony-ui/adk-react,55,14,11,0.4878,0.8385,0.1625,-12.7409,0,-0.3727,0.1567,0.85,0,0,0,
+npm,~0,nivel,@teambit/base-ui.input.checkbox.label,@teambit/base-ui.input.checkbox.label,69,17,14,-1.2157,0.7876,0.5343,11.2341,0,0.0022,0.4833,0.5267,0,0,0,
+npm,~0,nivel,@teambit/ui-foundation.ui.hooks.use-data-query,@teambit/ui-foundation.ui.hooks.use-data-query,65,16,13,-0.5558,0.7891,0.3252,7.0346,0,-0.456,0.08,0.9333,0,0,0,
+npm,~0,nivel,@thecolvinco/blom-auth-utils,@thecolvinco/blom-auth-utils,64,16,13,-1.2821,0.6645,1.4505,5.8942,0,0.1868,0.7267,0.2833,0,0,1,
+npm,~0,nivel,@tul/select,@tul/select,67,17,13,-1.0818,0.8927,0.8203,1.0844,0,-0.5165,0.07,0.94,0,0,1,
+npm,~0,nivel,@tunaiku-ui-web/bottom-sheet,@tunaiku-ui-web/bottom-sheet,53,13,14,-0.3748,0.7276,0.0638,2.7644,0,-0.1077,0.3633,0.64,0,0,0,
+npm,~0,nivel,@udecode/plate-table-ui,@udecode/plate-table-ui,63,16,12,-0.1183,0.6281,1.165,-4.0658,1,-0.1538,0.3467,0.66,0,0,0,
+npm,~0,nivel,@uvalib/uvalib-sub-nav,@uvalib/uvalib-sub-nav,63,16,12,-1.1875,0.4893,0.6921,3.5737,0,0.6224,0.9633,0.0433,0,1,0,
+npm,~0,nivel,@web3auth/sign-in-with-web3,@web3auth/sign-in-with-web3,53,13,14,0.4935,0.3997,0.5193,2.4667,0,0.3407,0.8867,0.1233,0,0,0,
+npm,~0,nivel,@winner-fed/create-project,@winner-fed/create-project,60,15,12,-0.3095,0.2921,0.4398,1.6348,0,0.5315,0.9833,0.02,0,1,0,
+npm,~0,nivel,@xinminlabs/node-mutation,@xinminlabs/node-mutation,52,13,14,-0.0096,0.3896,0.1229,-1.5457,0,0.3538,0.8933,0.11,0,0,1,
+npm,~0,nivel,@aaronshaf/ger,@aaronshaf/ger,42,10,17,0.3579,0.6731,-0.9645,-1.5793,0,0.4853,0.98,0.0233,0,1,0,
+npm,~0,nivel,@alebcay/openlens-node-pod-menu,@alebcay/openlens-node-pod-menu,46,12,12,0.2553,0.1174,1.2826,-0.7672,1,-0.972,0.0033,1.0,1,0,0,
+npm,~0,nivel,@alex-tiplink/wallet-adapter-tiplink,@alex-tiplink/wallet-adapter-tiplink,37,9,15,-0.9312,0.4524,0.246,6.6411,0,0.3464,0.9067,0.1033,0,0,0,
+npm,~0,nivel,@antv/gi-assets-basic,@antv/gi-assets-basic,47,12,12,-0.7281,0.6417,0.2961,6.8438,0,0.5315,0.9433,0.06,0,0,0,
+npm,~0,nivel,@aomex/core,@aomex/core,44,11,12,-0.3524,0.238,-0.3034,7.041,0,0.2517,0.83,0.1767,0,0,0,
+npm,~0,nivel,@apzelos/react-native-activity-feed-core,@apzelos/react-native-activity-feed-core,37,9,15,-0.5684,0.8573,-0.0397,-0.4699,0,-0.6393,0.03,0.9767,1,0,0,
+npm,~0,nivel,@atproto/did-resolver,@atproto/did-resolver,45,11,12,-0.2089,0.5184,1.047,7.8119,0,0.2937,0.8133,0.2,0,0,0,
+npm,~0,nivel,@azure/schema-registry-json,@azure/schema-registry-json,38,10,15,0.626,0.4505,0.1998,-4.521,0,-0.2036,0.25,0.7567,0,0,0,
+npm,~0,nivel,@baloise/design-system-favicons,@baloise/design-system-favicons,43,11,11,-0.5037,0.1606,0.4614,1.437,0,0.2636,0.7933,0.22,0,0,0,
+npm,~0,nivel,@butter-cream/box,@butter-cream/box,42,10,17,-0.3895,0.0,-0.3653,0.9005,0,0.2794,0.9067,0.1,0,0,0,
+npm,~0,nivel,@cardano-sdk/e2e,@cardano-sdk/e2e,49,12,13,0.0992,0.7173,0.3891,1.8006,0,-0.3736,0.1367,0.87,0,0,0,
+npm,~0,nivel,@crutchcorn/plop,@crutchcorn/plop,37,9,15,-1.229,0.5635,1.485,5.6781,0,0.2821,0.8133,0.2,0,0,0,
+npm,~0,nivel,@decipad/safejs,@decipad/safejs,38,10,15,-1.2209,0.4815,-0.3079,8.3583,0,-0.1821,0.26,0.75,0,0,0,
+npm,~0,nivel,@dxos/client-protocol,@dxos/client-protocol,41,10,16,-0.0753,0.4668,1.8787,5.4978,0,0.2441,0.8167,0.1867,0,0,0,
+npm,~0,nivel,@elliemae/ds-legacy-hooks-fontsize-media,@elliemae/ds-legacy-hooks-fontsize-media,34,8,14,-0.8792,0.5223,0.4847,6.5512,0,0.5912,0.9767,0.0267,0,1,0,
+npm,~0,nivel,@fernui/util,@fernui/util,45,11,12,-0.5823,0.1693,0.3989,7.5186,0,0.3147,0.8433,0.1633,0,0,0,
+npm,~0,nivel,@girs/gdk-3.0,@girs/gdk-3.0,43,11,11,1.1649,0.7539,1.1099,-0.451,1,-0.8182,0.0033,1.0,1,0,0,
+npm,~0,nivel,@glitterprotocol/glitter-sdk,@glitterprotocol/glitter-sdk,42,10,17,-0.2427,0.0,0.35,0.9494,0,0.3995,0.94,0.0633,0,0,0,
+npm,~0,nivel,@gmap-vue/v3,@gmap-vue/v3,40,10,16,1.0636,0.8663,1.5722,2.6479,0,-0.4235,0.1767,0.83,0,0,0,
+npm,~0,nivel,@google-translate-select/vue3,@google-translate-select/vue3,46,12,12,1.0279,0.1759,0.8311,0.0986,0,-0.042,0.4167,0.61,0,0,0,
+npm,~0,nivel,@halsp/micro-grpc,@halsp/micro-grpc,43,11,11,-1.4283,0.561,-0.1454,7.3973,0,0.2909,0.8467,0.16,0,0,0,
+npm,~0,nivel,@hijacker/core,@hijacker/core,50,12,13,-0.9385,0.5229,0.3917,11.5964,0,0.2747,0.84,0.1633,0,0,0,
+npm,~0,nivel,@huasi/text-shuffle,@huasi/text-shuffle,41,10,16,2.0556,0.3657,0.4545,3.7356,0,0.3765,0.8867,0.1167,0,0,1,
+npm,~0,nivel,@imaegoo/node-ip2region,@imaegoo/node-ip2region,51,13,13,0.1202,0.3666,1.0174,4.5937,0,0.1868,0.7433,0.2667,0,0,0,
+npm,~0,nivel,@janus-idp/backstage-scaffolder-backend-module-sonarqube,@janus-idp/backstage-scaffolder-backend-module-sonarqube,43,11,11,0.1895,0.5933,1.5252,3.9633,0,0.0455,0.5767,0.4367,0,0,0,
+npm,~0,nivel,@journeyapps/component-parser-base,@journeyapps/component-parser-base,38,10,15,0.3427,0.5649,0.6783,0.8271,0,-0.3893,0.1267,0.88,0,0,0,
+npm,~0,nivel,@ltht-react/plan-definition-editor,@ltht-react/plan-definition-editor,47,12,12,-0.0716,0.1328,0.3326,-0.8145,0,-0.3287,0.1433,0.8633,0,0,0,
+npm,~0,nivel,@maxim_mazurok/gapi.client.bigquerydatatransfer-v1,@maxim_mazurok/gapi.client.bigquerydatatransfer-v1,50,12,13,0.563,0.7842,0.3774,4.9792,0,-0.0385,0.4433,0.57,0,0,0,
+npm,~0,nivel,@maxim_mazurok/gapi.client.jobs-v3p1beta1,@maxim_mazurok/gapi.client.jobs-v3p1beta1,50,12,13,0.5069,0.7745,0.4948,5.6485,0,-0.0495,0.4467,0.5633,0,0,0,
+npm,~0,nivel,@mchp-mcc/hv-pwm,@mchp-mcc/hv-pwm,49,12,13,-0.8616,0.6723,0.7263,1.1609,0,0.1868,0.7,0.3033,0,0,0,
+npm,~0,nivel,@midwayjs/tags,@midwayjs/tags,43,11,11,-0.1299,0.0,0.5406,1.9109,0,-0.2182,0.2533,0.7667,0,0,0,
+npm,~0,nivel,@mondrian-framework/rate-limiter,@mondrian-framework/rate-limiter,35,9,14,-0.6596,0.0,-0.0519,7.5154,0,0.3846,0.9167,0.09,0,0,0,
+npm,~0,nivel,@nationalarchives/tdr-components,@nationalarchives/tdr-components,46,12,12,-0.1375,0.1504,-0.1321,0.8904,0,-0.0699,0.44,0.5733,0,0,0,
+npm,~0,nivel,@nbcom/types,@nbcom/types,45,11,12,-0.4825,0.1757,0.362,0.871,0,0.5524,0.99,0.0167,0,1,0,
+npm,~0,nivel,@near-js/utils,@near-js/utils,43,11,11,2.0825,0.4518,2.2393,0.5653,1,-0.1909,0.3433,0.6767,0,0,0,
+npm,~0,nivel,@nolyfill/is-generator-function,@nolyfill/is-generator-function,38,10,15,0.7422,0.4608,1.0941,-2.0129,1,-0.7786,0.0067,0.9967,1,0,0,
+npm,~0,nivel,@nostr-fetch/kernel,@nostr-fetch/kernel,41,10,16,1.2998,0.6035,0.5067,-2.6351,0,0.1118,0.6867,0.3233,0,0,0,
+npm,~0,nivel,@novatics-ui/file-upload,@novatics-ui/file-upload,38,10,15,-0.8916,0.6903,-0.1557,8.8918,0,-0.4357,0.1067,0.9,0,0,0,
+npm,~0,nivel,@nucypher/taco,@nucypher/taco,36,9,14,0.3716,0.3936,0.0308,-4.5369,0,-0.0154,0.48,0.5267,0,0,0,
+npm,~0,nivel,@opi_pib/node-translate,@opi_pib/node-translate,49,12,13,-0.3247,0.0666,-0.6348,3.7446,0,0.5,0.9667,0.0367,0,1,0,
+npm,~0,nivel,@oqton/auth0-spa-js,@oqton/auth0-spa-js,41,10,16,0.3068,0.5924,0.3058,-0.6555,0,0.5559,0.9767,0.03,0,1,0,
+npm,~0,nivel,@povio/node-stage,@povio/node-stage,48,12,13,-0.4005,0.7328,0.068,-12.1197,0,-0.544,0.0533,0.95,0,0,0,
+npm,~0,nivel,@rabbitholegg/questdk-plugin-arbitrum,@rabbitholegg/questdk-plugin-arbitrum,37,9,15,-0.9082,0.4851,0.8076,-0.2451,0,0.4143,0.9333,0.0733,0,0,0,
+npm,~0,nivel,@rbxts/immut,@rbxts/immut,42,10,17,0.5689,0.5963,-0.6731,-3.9086,0,-0.3775,0.0867,0.92,0,0,0,
+npm,~0,nivel,@rye-api/rye-pay,@rye-api/rye-pay,43,11,11,0.391,0.4667,-0.1169,-1.1704,0,-0.3364,0.1233,0.88,0,0,0,
+npm,~0,nivel,@scom/dapp,@scom/dapp,47,12,12,-0.5697,0.072,0.2551,4.2885,0,0.5035,0.93,0.0767,0,0,0,
+npm,~0,nivel,@scoped-vaadin/select,@scoped-vaadin/select,43,11,11,-0.1191,0.4255,-0.1675,-1.701,0,-0.4909,0.0367,0.97,1,0,0,
+npm,~0,nivel,@scout9/admin,@scout9/admin,38,10,15,-0.0519,0.034,-0.2492,1.2503,0,0.7821,1.0,0.0033,0,1,0,
+npm,~0,nivel,@sergiomorenoalbert/fastify-totp,@sergiomorenoalbert/fastify-totp,42,10,17,0.0346,0.2145,-0.0967,1.5179,0,0.1814,0.7933,0.21,0,0,0,
+npm,~0,nivel,@spryker-oryx/experience,@spryker-oryx/experience,44,11,12,-0.4215,0.5776,0.1465,2.9772,0,-0.2168,0.2567,0.75,0,0,0,
+npm,~0,nivel,@statusneo/backstage-plugin-github,@statusneo/backstage-plugin-github,43,11,11,-0.2351,0.3946,0.1376,4.987,0,0.4545,0.94,0.0667,0,0,0,
+npm,~0,nivel,@tableland/rigs,@tableland/rigs,51,13,13,-0.0758,0.5492,0.402,-7.2451,0,0.2143,0.77,0.2333,0,0,0,
+npm,~0,nivel,@tecnonews/server-utils,@tecnonews/server-utils,45,11,12,-1.0323,0.2436,-0.2968,2.9686,0,0.4336,0.9633,0.0433,0,1,0,
+npm,~0,nivel,@tensor-hq/tensor-tests-common,@tensor-hq/tensor-tests-common,34,8,14,0.3673,0.8818,0.976,-7.2135,0,-0.7758,0.0067,0.9967,1,0,0,
+npm,~0,nivel,@thi.ng/wasm-api,@thi.ng/wasm-api,50,12,13,0.2047,0.1612,-0.1142,3.0762,0,0.2747,0.8367,0.1767,0,0,0,
+npm,~0,nivel,@tsed/cli-generate-http-client,@tsed/cli-generate-http-client,51,13,13,0.1457,0.5693,-0.3381,4.1479,0,-0.0604,0.46,0.5467,0,0,0,
+npm,~0,nivel,@vcsuite/publisher-sdk,@vcsuite/publisher-sdk,37,9,15,0.408,0.2464,-0.2828,-2.489,0,0.2,0.78,0.2333,0,0,0,
+npm,~0,nivel,@velocitycareerlabs/request,@velocitycareerlabs/request,35,9,14,0.0172,0.5274,0.2763,5.7813,0,0.2703,0.7733,0.23,0,0,0,
+npm,~0,nivel,@weno/icons,@weno/icons,34,8,14,-0.3059,0.7729,0.5875,-4.9911,0,-0.7802,0.0067,0.9967,1,0,0,
+npm,~0,nivel,@ws-serenity/react-button,@ws-serenity/react-button,47,12,12,-0.6517,0.5398,-0.2235,1.6376,0,0.6154,0.96,0.0433,0,1,0,
+npm,~0,nivel,@xapp/stentor-chat-router,@xapp/stentor-chat-router,42,10,17,0.7319,0.3249,1.4646,1.6635,0,0.2623,0.81,0.1967,0,0,0,
+npm,~0,nivel,@yamada-ui/alert,@yamada-ui/alert,40,10,16,0.0692,0.5427,0.6223,2.9248,0,-0.2882,0.19,0.82,0,0,0,
+npm,~0,nivel,@zthun/helpful-internet,@zthun/helpful-internet,38,10,15,0.0335,0.0,-0.5512,1.3145,0,0.4643,0.9467,0.0567,0,0,0,
+npm,~0,nivel,@angularity/theming-material,@angularity/theming-material,31,8,12,0.1361,0.0,-0.298,6.6092,0,0.0839,0.63,0.38,0,0,0,
+npm,~0,nivel,@atlaspack/conditional-import-types,@atlaspack/conditional-import-types,25,8,9,0.2993,0.2982,0.2079,-1.6014,0,-0.7,0.0533,0.96,0,0,0,
+npm,~0,nivel,@availity/mui-stepper,@availity/mui-stepper,27,8,10,0.777,0.6646,0.4294,-7.5172,0,-0.3939,0.21,0.8033,0,0,0,
+npm,~0,nivel,@chainsafe/swap-or-not-shuffle-win32-arm64-msvc,@chainsafe/swap-or-not-shuffle-win32-arm64-msvc,24,8,9,0.0239,0.7208,0.4074,-1.4235,0,-0.5833,0.1267,0.8833,0,0,0,
+npm,~0,nivel,@chatify/locale,@chatify/locale,27,8,10,0.1007,0.1693,-1.0568,2.7034,0,-0.2485,0.28,0.7267,0,0,0,
+npm,~0,nivel,@easymais-ui-css/tabs,@easymais-ui-css/tabs,29,8,11,-0.8104,0.0434,-0.0919,1.5772,0,0.6636,0.9933,0.01,0,1,0,
+npm,~0,nivel,@emmercm/maxcso-darwin-x64,@emmercm/maxcso-darwin-x64,25,8,9,0.7705,0.2886,0.6068,-0.3014,0,0.05,0.5633,0.4567,0,0,0,
+npm,~0,nivel,@getlang/utils,@getlang/utils,28,8,11,-0.6471,0.0,-0.396,3.0581,0,0.7182,0.9933,0.01,0,1,0,
+npm,~0,nivel,@hrzn/cli,@hrzn/cli,33,8,13,0.6359,0.6712,-1.1822,-0.1686,0,0.011,0.57,0.4367,0,0,0,
+npm,~0,nivel,@idrinth-api-bench/inline-critical-css,@idrinth-api-bench/inline-critical-css,29,8,11,-1.1809,0.3056,0.5838,0.9353,0,0.4909,0.9433,0.07,0,0,0,
+npm,~0,nivel,@mahdaad/editor-vue,@mahdaad/editor-vue,27,8,10,-0.4722,0.1639,-0.8368,3.1797,0,0.0545,0.5033,0.51,0,0,0,
+npm,~0,nivel,@river-build/proto,@river-build/proto,28,8,11,-0.7453,0.4142,0.6538,5.5483,0,0.3909,0.8767,0.13,0,0,0,
+npm,~0,nivel,@substrate-system/progress-indicator,@substrate-system/progress-indicator,27,8,10,0.4963,0.2495,1.8705,5.8134,0,0.1515,0.7067,0.3067,0,0,0,
+npm,~0,nivel,@vipstorage/material-datetime-picker,@vipstorage/material-datetime-picker,33,8,13,-0.1893,0.671,1.5035,-0.1109,1,-0.3901,0.1133,0.8933,0,0,0,
+npm,~0,nivel,@wix/bookings_extended-bookings,@wix/bookings_extended-bookings,30,8,12,-0.9197,0.7112,0.4456,3.4264,0,-0.2657,0.25,0.7567,0,0,0,
+npm,~0,nivel,aws_message_reader,aws_message_reader,135,34,13,-0.7772,0.2747,-0.5058,0.3422,0,-0.0275,0.4733,0.5433,0,0,0,
+npm,~0,nivel,bin-protocol,bin-protocol,130,32,13,0.8989,0.861,1.2909,1.8933,0,-0.3736,0.1333,0.8733,0,0,0,
+npm,~0,nivel,ember-cli-foundation-6-sass,ember-cli-foundation-6-sass,131,33,13,-0.2901,0.767,1.0805,2.4755,0,-0.1538,0.3533,0.6533,0,0,0,
+npm,~0,nivel,ember-debug-handlers-polyfill,ember-debug-handlers-polyfill,135,34,13,0.4572,0.8995,1.0591,-2.4752,1,-0.6648,0.04,0.9667,1,0,0,
+npm,~0,nivel,esdoc-importpath-plugin,esdoc-importpath-plugin,134,34,13,0.8144,0.6582,0.7512,0.6867,0,0.1209,0.6833,0.3233,0,0,0,
+npm,~0,nivel,fake-module-system,fake-module-system,130,32,13,-0.8184,0.5426,-1.0612,2.9421,0,0.478,0.98,0.0233,0,1,0,
+npm,~0,nivel,generator-dizmo,generator-dizmo,130,32,13,-0.9149,0.3288,0.2604,8.0545,0,0.0385,0.5567,0.45,0,0,0,
+npm,~0,nivel,gulp-promisify,gulp-promisify,129,32,13,-0.0732,0.6562,-0.0957,4.3928,0,-0.0549,0.46,0.5467,0,0,0,
+npm,~0,nivel,homebridge-isy-js,homebridge-isy-js,131,33,13,-0.4855,0.4398,-0.0015,5.6218,0,0.4341,0.95,0.0533,0,0,0,
+npm,~0,nivel,is-accessor-descriptor,is-accessor-descriptor,134,34,13,3.5934,0.99,3.5042,-1.8113,1,-0.9396,0.01,0.9933,1,0,1,
+npm,~0,nivel,jokesearch,jokesearch,129,32,13,-0.7485,0.4585,-0.3183,3.5343,0,0.3242,0.8833,0.1267,0,0,0,
+npm,~0,nivel,jsps,jsps,131,33,13,1.0631,0.8854,-1.2272,-2.2461,0,-0.4615,0.1167,0.8867,0,0,1,
+npm,~0,nivel,microbejs,microbejs,134,34,13,-0.5275,0.5693,0.017,8.5031,0,0.5604,0.9667,0.04,0,1,0,
+npm,~0,nivel,neft,neft,131,33,13,0.0437,0.6807,0.3404,3.4993,0,0.6593,0.9967,0.0067,0,1,0,
+npm,~0,nivel,penumbra,penumbra,131,33,13,-0.8231,0.2459,-0.1959,5.9653,0,0.0385,0.6233,0.3867,0,0,0,
+npm,~0,nivel,pug-loader,pug-loader,130,32,13,1.0896,0.73,1.5956,0.1248,1,-0.6868,0.0033,1.0,1,0,0,
+npm,~0,nivel,react-bootstrap-date-picker,react-bootstrap-date-picker,130,32,13,0.6059,0.9368,1.8356,-1.0044,1,-0.7253,0.0233,0.98,1,0,0,
+npm,~0,nivel,redux-validate-fsa,redux-validate-fsa,131,33,13,0.5897,0.5777,0.7726,0.1758,0,-0.7912,0.0033,1.0,1,0,0,
+npm,~0,nivel,reflux-promise,reflux-promise,132,33,13,0.6476,0.8729,0.9557,-7.8959,0,-0.3187,0.1667,0.84,0,0,0,
+npm,~0,nivel,rijs.resdir,rijs.resdir,135,34,13,1.7837,0.9289,1.416,-0.5795,1,-0.8352,0.0033,1.0,1,0,1,
+npm,~0,nivel,syncano,syncano,135,34,13,-0.5742,0.5215,0.2936,5.7606,0,0.3736,0.8733,0.13,0,0,0,
+npm,~0,nivel,video-webinar-utils,video-webinar-utils,131,33,13,-0.9625,0.3913,0.9328,5.6754,0,-0.0495,0.4233,0.5833,0,0,0,
+npm,~0,nivel,vinyl-multipart-stream,vinyl-multipart-stream,134,34,13,-0.9166,0.6497,-0.655,4.9686,0,0.4231,0.9167,0.0867,0,0,0,
+npm,~0,nivel,vscode,vscode,133,33,13,0.5589,0.9018,1.1235,4.1588,0,-0.2582,0.1967,0.8067,0,0,0,
+npm,~0,nivel,vue-swipe,vue-swipe,130,32,13,0.5513,0.67,0.9038,-0.6151,0,-0.8956,0.0033,1.0,1,0,0,
+npm,~0,nivel,2create-task-runner-package,2create-task-runner-package,119,30,12,-0.2558,0.2918,-0.3749,8.2369,0,0.035,0.5867,0.4233,0,0,0,
+npm,~0,nivel,angular-breadcrumbs,angular-breadcrumbs,124,31,12,-0.1322,0.8226,0.4279,2.3257,0,-0.3776,0.1467,0.8567,0,0,0,
+npm,~0,nivel,can-view-callbacks,can-view-callbacks,126,32,12,0.858,0.6592,1.0114,-0.7125,1,-0.3357,0.1133,0.9033,0,0,0,
+npm,~0,nivel,create-package,create-package,120,30,12,-0.3753,0.0866,-0.5362,3.3493,0,-0.028,0.4967,0.52,0,0,0,
+npm,~0,nivel,fastboot,fastboot,125,31,12,1.0266,0.8207,0.8834,2.8072,0,0.2657,0.8067,0.2067,0,0,0,
+npm,~0,nivel,flickr-api-swagger,flickr-api-swagger,126,32,12,-0.7226,0.298,-0.5418,4.2853,0,0.3427,0.8633,0.14,0,0,0,
+npm,~0,nivel,homebridge-people,homebridge-people,128,32,13,-0.7762,0.8744,0.9337,1.9052,0,-0.3846,0.12,0.9,0,0,0,
+npm,~0,nivel,inspect-process,inspect-process,120,30,12,0.1938,0.8419,0.9212,3.0213,0,-0.4476,0.1033,0.9,0,0,0,
+npm,~0,nivel,luster-consul-config,luster-consul-config,127,32,12,-1.2568,0.5963,-0.7611,0.1225,0,0.4056,0.92,0.0833,0,0,1,
+npm,~0,nivel,miniplug,miniplug,118,30,12,0.3561,0.4744,0.1352,0.4773,0,-0.1818,0.2733,0.7433,0,0,0,
+npm,~0,nivel,patternplate-transform-react,patternplate-transform-react,128,32,13,-0.5179,0.4309,-0.5232,5.3093,0,0.7582,0.9967,0.0067,0,1,0,
+npm,~0,nivel,rambler-ui,rambler-ui,119,30,12,-0.0215,0.639,1.0936,8.9398,0,0.028,0.5767,0.44,0,0,0,
+npm,~0,nivel,react-fade,react-fade,125,31,12,-0.0794,0.8106,0.985,-3.4611,0,-0.9301,0.0033,1.0,1,0,0,
+npm,~0,nivel,redux-reset,redux-reset,127,32,12,0.8835,0.8438,1.5025,-0.2928,1,-0.7692,0.0033,1.0,1,0,0,
+npm,~0,nivel,remotedev-slider,remotedev-slider,120,30,12,-0.0654,0.7713,0.0634,0.3039,0,-0.4056,0.1133,0.8933,0,0,0,
+npm,~0,nivel,semver-webpack-plugin,semver-webpack-plugin,128,32,13,0.1589,0.3499,-0.3215,-0.9351,0,-0.2308,0.22,0.7833,0,0,0,
+npm,~0,nivel,signalk-client,signalk-client,118,30,12,-0.5961,0.6562,-0.7123,9.2971,0,0.1818,0.6867,0.3233,0,0,0,
+npm,~0,nivel,static-extend,static-extend,127,32,12,2.7043,0.9643,3.0834,-1.2031,1,-0.951,0.0033,1.0,1,0,1,
+npm,~0,nivel,trailpack-proxy-cart,trailpack-proxy-cart,118,30,12,-0.6598,0.3217,0.1517,6.6664,0,0.3566,0.9,0.11,0,0,1,
+npm,~0,nivel,use-scroll-behavior,use-scroll-behavior,127,32,12,-0.5112,0.5862,-0.3456,-1.5613,0,0.4056,0.9133,0.0967,0,0,0,
+npm,~0,nivel,vue2-strap,vue2-strap,119,30,12,-0.3785,0.2001,-0.462,2.4598,0,0.1259,0.6967,0.31,0,0,0,
+npm,~0,nivel,webpack-asset-pipeline,webpack-asset-pipeline,117,29,13,-0.1195,0.9243,0.5906,-1.2228,0,-0.7637,0.01,0.9933,1,0,0,
+npm,~0,nivel,am-i-a-dependency,am-i-a-dependency,112,28,13,1.3212,0.7043,1.7855,3.1324,0,-0.3516,0.14,0.8667,0,0,0,
+npm,~0,nivel,apigee-edge-js,apigee-edge-js,115,29,13,0.431,0.726,0.5964,8.8484,0,0.7857,1.0,0.0033,0,1,0,
+npm,~0,nivel,backpack-examples-basic,backpack-examples-basic,116,29,13,-0.5264,0.0723,-0.241,5.5208,0,-0.1484,0.3,0.7067,0,0,0,
+npm,~0,nivel,clay-list-filter,clay-list-filter,114,28,13,-0.3444,0.7237,0.2169,8.8165,0,0.011,0.5233,0.4867,0,0,1,
+npm,~0,nivel,cli-ngy,cli-ngy,116,29,13,-0.5887,0.2553,0.3765,4.478,0,0.1538,0.72,0.2867,0,0,1,
+npm,~0,nivel,cordova-plugin-ionic-webview,cordova-plugin-ionic-webview,109,27,12,-0.0207,0.5623,0.8952,-1.9146,0,-0.965,0.0033,1.0,1,0,0,
+npm,~0,nivel,datastream-js,datastream-js,108,27,12,0.548,0.8178,-0.1145,-14.3036,0,-0.0699,0.4267,0.5833,0,0,0,
+npm,~0,nivel,divo-divnoe,divo-divnoe,115,29,13,-0.7518,0.1552,-0.4245,3.7096,0,0.1154,0.67,0.34,0,0,0,
+npm,~0,nivel,ec2-spot-notification,ec2-spot-notification,116,29,13,0.0299,0.9222,-0.242,1.2682,0,-0.1923,0.3367,0.6733,0,0,1,
+npm,~0,nivel,ember-classy-page-object,ember-classy-page-object,107,27,12,0.5957,0.8405,0.3483,-1.5429,0,-0.7762,0.0067,0.9967,1,0,0,
+npm,~0,nivel,ember-md5,ember-md5,112,28,13,0.5347,0.8901,1.8309,-0.5652,1,-0.5714,0.0633,0.94,0,0,0,
+npm,~0,nivel,fill-pdf-utf8,fill-pdf-utf8,117,29,13,0.3663,0.889,0.018,1.4611,0,-0.3901,0.15,0.8533,0,0,0,
+npm,~0,nivel,gulp-uglifyes,gulp-uglifyes,109,27,12,0.201,0.6449,1.0283,-0.0805,1,0.0699,0.5967,0.4133,0,0,0,
+npm,~0,nivel,happo-target-firefox,happo-target-firefox,117,29,13,-0.861,0.7787,0.6515,9.8692,0,0.4231,0.9267,0.0867,0,0,1,
+npm,~0,nivel,hops-renderer,hops-renderer,112,28,13,-0.7663,0.0598,-0.9274,4.8346,0,0.478,0.9633,0.0433,0,1,0,
+npm,~0,nivel,jest-dot-reporter,jest-dot-reporter,108,27,12,0.2132,0.8801,1.4915,7.2015,0,-0.1399,0.3867,0.62,0,0,0,
+npm,~0,nivel,koa-better-flash,koa-better-flash,109,27,12,0.0159,0.7362,0.475,0.7648,0,-0.3077,0.1433,0.8633,0,0,0,
+npm,~0,nivel,kokua,kokua,106,26,14,-0.4653,0.8476,0.2383,1.1982,0,-0.2791,0.1867,0.8167,0,0,0,
+npm,~0,nivel,mandle,mandle,107,27,12,-0.6613,0.7246,0.88,1.6119,0,-0.2448,0.19,0.82,0,0,0,
+npm,~0,nivel,mtproto-logger,mtproto-logger,113,28,13,-0.244,0.5291,0.0589,2.0529,0,0.4615,0.95,0.0533,0,0,0,
+npm,~0,nivel,ngx-openlayers,ngx-openlayers,110,28,12,0.0044,0.7325,0.8373,0.3261,0,-0.3776,0.1233,0.88,0,0,0,
+npm,~0,nivel,ok-file,ok-file,108,27,12,-0.3717,0.8624,0.3626,6.8311,0,-0.1189,0.3867,0.6233,0,0,0,
+npm,~0,nivel,react-cosmos-wrapper-proxy,react-cosmos-wrapper-proxy,107,27,12,-0.3822,0.9285,1.9285,3.0466,0,-0.3846,0.1933,0.8167,0,0,0,
+npm,~0,nivel,react-universal-ui,react-universal-ui,116,29,13,-0.8479,0.1791,-0.1786,4.4697,0,-0.0385,0.51,0.5,0,0,0,
+npm,~0,nivel,rebber,rebber,112,28,13,-0.1776,0.6317,0.0876,10.3518,0,0.0549,0.5867,0.43,0,0,0,
+npm,~0,nivel,run-fn,run-fn,111,28,12,-0.0544,0.1422,0.4508,3.5602,0,-0.2587,0.1867,0.8333,0,0,0,
+npm,~0,nivel,screen-flexible,screen-flexible,112,28,13,-0.4691,0.2456,-0.496,6.9332,0,0.3846,0.93,0.0767,0,0,0,
+npm,~0,nivel,snyk-gradle-plugin,snyk-gradle-plugin,112,28,13,-0.0668,0.9427,0.7616,-1.1551,0,-0.5989,0.0333,0.97,1,0,0,
+npm,~0,nivel,subschema-transitions,subschema-transitions,113,28,13,-0.557,0.3501,-0.2769,4.7511,0,0.0,0.54,0.48,0,0,0,
+npm,~0,nivel,svgr,svgr,110,28,12,-0.0378,0.8224,1.9312,4.6634,0,0.2517,0.79,0.22,0,0,0,
+npm,~0,nivel,turbo-gulp,turbo-gulp,107,27,12,0.1411,0.5047,-0.1254,4.6738,0,0.4476,0.9333,0.0767,0,0,0,
+npm,~0,nivel,vue-notif,vue-notif,109,27,12,0.2068,0.7008,0.7097,1.5505,0,0.2587,0.7867,0.2333,0,0,0,
+npm,~0,nivel,vue-vega,vue-vega,110,28,12,0.4602,0.6303,0.3132,0.5455,0,-0.5035,0.0333,0.9733,1,0,0,
+npm,~0,nivel,weblite,weblite,105,26,14,-0.5089,0.1218,-0.4243,3.1,0,0.0374,0.57,0.4333,0,0,0,
+npm,~0,nivel,weweb-cli,weweb-cli,112,28,13,-0.3157,0.3359,-0.1992,1.0832,0,0.5604,0.98,0.0233,0,1,0,
+npm,~0,nivel,apollo-model-mongodb,apollo-model-mongodb,94,24,12,-0.855,0.6231,0.454,0.8006,0,0.2448,0.8067,0.2,0,0,0,
+npm,~0,nivel,autoprefixer-tv,autoprefixer-tv,104,26,14,-0.8287,0.5563,-1.2965,3.7074,0,0.3758,0.8967,0.1133,0,0,1,
+npm,~0,nivel,egg-moe,egg-moe,103,26,13,-0.3156,0.1916,0.2336,3.2847,0,0.3791,0.91,0.1,0,0,0,
+npm,~0,nivel,ember-cli-mdc-tab-indicator,ember-cli-mdc-tab-indicator,97,24,13,-0.2066,0.1713,-0.4538,3.3348,0,0.0879,0.6667,0.3533,0,0,0,
+npm,~0,nivel,gatsby-plugin-config,gatsby-plugin-config,96,24,13,0.4012,0.9146,1.1998,-2.5327,1,-0.8901,0.0033,1.0,1,0,0,
+npm,~0,nivel,ncd-red-wireless,ncd-red-wireless,102,26,13,0.0749,0.414,0.117,-2.1601,0,-0.5165,0.05,0.9533,0,0,0,
+npm,~0,nivel,nestfy,nestfy,94,24,12,-0.6007,0.2162,-1.0524,1.6997,0,0.3217,0.85,0.1633,0,0,0,
+npm,~0,nivel,nib-core,nib-core,94,24,12,0.3432,0.6886,1.211,-1.5327,1,-0.3427,0.1767,0.83,0,0,0,
+npm,~0,nivel,pxls,pxls,96,24,13,0.7283,0.8165,2.1735,-0.013,1,-0.8626,0.0033,1.0,1,0,0,
+npm,~0,nivel,react-native-sideswipe,react-native-sideswipe,104,26,14,0.0655,0.9403,0.9706,-0.4803,0,-0.3978,0.1733,0.83,0,0,0,
+npm,~0,nivel,react-timebomb,react-timebomb,99,25,13,0.2384,0.2293,0.8888,-2.736,0,0.1538,0.7167,0.2867,0,0,0,
+npm,~0,nivel,recruit-form,recruit-form,100,25,13,-0.4552,0.0765,-0.1288,1.9449,0,0.3297,0.8633,0.14,0,0,0,
+npm,~0,nivel,redux-combiner,redux-combiner,105,26,14,-0.5509,0.3286,-0.2621,3.2911,0,0.5077,0.9867,0.0167,0,1,0,
+npm,~0,nivel,rsocket-tcp-server,rsocket-tcp-server,103,26,13,1.0296,0.9305,1.0522,-2.072,1,-0.8187,0.0067,0.9967,1,0,0,
+npm,~0,nivel,safely-parse-json,safely-parse-json,99,25,13,0.5898,0.8454,0.2127,-3.4103,0,0.1044,0.6767,0.3333,0,0,0,
+npm,~0,nivel,simple-type-check,simple-type-check,95,24,12,-0.4168,0.52,-0.892,0.3477,0,0.3427,0.8633,0.1433,0,0,0,
+npm,~0,nivel,spexplorerts,spexplorerts,95,24,12,-0.3023,0.1537,0.1708,0.1766,0,0.035,0.4967,0.5133,0,0,0,
+npm,~0,nivel,thing-it-device-enocean-ip,thing-it-device-enocean-ip,102,26,13,-0.4045,0.384,-0.0136,5.7154,0,0.3022,0.87,0.1367,0,0,0,
+npm,~0,nivel,wprocedure,wprocedure,94,24,12,-0.2153,0.8804,0.7499,-1.4079,0,-0.6364,0.0467,0.9567,1,0,1,
+npm,~0,nivel,zation,zation,103,26,13,-0.1272,0.2303,0.7703,2.3067,0,0.0659,0.5567,0.4533,0,0,0,
+npm,~0,nivel,angularjs-google-recaptcha-v3,angularjs-google-recaptcha-v3,88,22,12,0.2791,0.6914,0.5064,1.3923,0,0.6014,0.98,0.0233,0,1,0,
+npm,~0,nivel,chromecast-controller,chromecast-controller,85,21,13,-0.8217,0.7027,0.2902,-0.4533,0,-0.0604,0.41,0.5967,0,0,0,
+npm,~0,nivel,figma-plugin-ds-svelte,figma-plugin-ds-svelte,81,20,13,0.6491,0.3505,0.4771,-1.8199,0,-0.1703,0.26,0.7533,0,0,0,
+npm,~0,nivel,formik-with-formikhelpers-type-fix,formik-with-formikhelpers-type-fix,82,20,13,-1.0745,0.7332,-0.1652,-4.4831,0,0.3516,0.9067,0.1,0,0,0,
+npm,~0,nivel,gcbuild,gcbuild,92,23,12,0.1392,0.9035,0.8613,11.819,0,0.2028,0.7233,0.2833,0,0,0,
+npm,~0,nivel,ibmcc-prod,ibmcc-prod,87,22,11,-0.7064,0.8682,0.2869,-15.1139,0,-0.4545,0.1233,0.8867,0,0,0,
+npm,~0,nivel,is-primitive-x,is-primitive-x,86,22,11,0.0769,0.7947,0.6648,3.0845,0,0.2182,0.74,0.2767,0,0,0,
+npm,~0,nivel,jest-transformer-mdx,jest-transformer-mdx,88,22,12,0.4621,0.8743,2.3875,-2.6841,1,-0.8252,0.0033,1.0,1,0,0,
+npm,~0,nivel,jovo-analytics-googleanalytics,jovo-analytics-googleanalytics,84,21,13,-0.2296,0.506,1.0922,2.1687,0,-0.4615,0.0533,0.95,0,0,0,
+npm,~0,nivel,react-treat,react-treat,89,22,12,-0.0946,0.873,0.5355,0.2168,0,-0.6783,0.02,0.9867,1,0,0,
+npm,~0,nivel,rollup-plugin-hot,rollup-plugin-hot,84,21,13,0.1741,0.707,1.2183,-3.5865,1,-0.1264,0.33,0.68,0,0,0,
+npm,~0,nivel,stylelint-config-taro-rn,stylelint-config-taro-rn,91,23,12,-0.1742,0.6007,0.2582,3.7193,0,0.042,0.5767,0.44,0,0,0,
+npm,~0,nivel,trig-language-server,trig-language-server,86,22,11,-0.4033,0.2196,0.2441,0.4825,0,0.3727,0.8833,0.1267,0,0,0,
+npm,~0,nivel,twitter-autohook,twitter-autohook,87,22,11,0.1525,0.7237,0.7743,-0.3698,0,-0.8273,0.0033,1.0,1,0,0,
+npm,~0,nivel,wingbot-mssql,wingbot-mssql,85,21,13,-0.2294,0.426,-0.3037,11.8811,0,0.2418,0.83,0.1833,0,0,0,
+npm,~0,nivel,witnet-radon-js,witnet-radon-js,83,21,13,0.004,0.2154,-0.0254,1.5942,0,-0.0495,0.46,0.55,0,0,0,
+npm,~0,nivel,wwindowskill,wwindowskill,82,20,13,-2.125,0.4367,-2.3081,3.4597,0,0.9176,1.0,0.0033,0,1,1,
+npm,~0,nivel,backend-core,backend-core,73,18,14,-0.5536,0.0483,-0.5219,2.4375,0,0.2264,0.7433,0.2633,0,0,0,
+npm,~0,nivel,bespoken-datadog-plugin,bespoken-datadog-plugin,79,20,12,-0.0035,0.8497,0.4485,-21.3992,0,-0.7063,0.0167,0.9867,1,0,0,
+npm,~0,nivel,block-renderer,block-renderer,74,18,15,-0.6717,0.1413,-0.9576,7.2792,0,0.2036,0.79,0.2233,0,0,0,
+npm,~0,nivel,cy-tkey-screenshot,cy-tkey-screenshot,71,18,14,-1.0736,0.8901,-0.1755,11.7041,0,0.2088,0.7133,0.2967,0,0,1,
+npm,~0,nivel,electoral-college,electoral-college,73,18,14,-0.1516,0.2803,-0.6799,1.8227,0,0.0593,0.6233,0.39,0,0,0,
+npm,~0,nivel,eleventy-plugin-embed-tiktok,eleventy-plugin-embed-tiktok,77,19,12,1.1471,0.8709,1.095,-0.3935,1,-0.7063,0.0067,0.9967,1,0,0,
+npm,~0,nivel,eos-transit-anchorlink-provider,eos-transit-anchorlink-provider,78,20,12,-0.6962,0.6791,0.631,6.7713,0,-0.3566,0.1167,0.8933,0,0,0,
+npm,~0,nivel,evgenyberezny14module,evgenyberezny14module,75,19,12,-1.4255,0.6713,-1.3191,1.4112,0,0.6573,0.99,0.0133,0,1,0,
+npm,~0,nivel,fetch-rate-limit-util,fetch-rate-limit-util,73,18,14,-0.038,0.5183,0.0945,2.2368,0,0.0374,0.5633,0.45,0,0,0,
+npm,~0,nivel,floatplane,floatplane,73,18,14,-0.0107,0.0034,-0.2788,3.9639,0,0.4593,0.9533,0.0533,0,0,0,
+npm,~0,nivel,hospital_lh,hospital_lh,69,17,14,-1.1665,0.5298,-1.5097,10.0021,0,0.5516,0.9733,0.03,0,1,0,
+npm,~0,nivel,iobroker.echarts,iobroker.echarts,72,18,14,0.1938,0.4668,-0.0831,3.3526,0,-0.411,0.09,0.9133,0,0,0,
+npm,~0,nivel,ipfs-types,ipfs-types,80,20,13,-0.1054,0.3917,-0.0414,2.494,0,-0.0055,0.4833,0.5233,0,0,0,
+npm,~0,nivel,koishi-plugin-github,koishi-plugin-github,74,18,15,-0.1222,0.4555,-0.2868,9.7195,0,-0.0929,0.3833,0.62,0,0,0,
+npm,~0,nivel,lcap-pc-template,lcap-pc-template,73,18,14,-0.0501,0.4005,-0.3404,0.1187,0,-0.2747,0.1633,0.8433,0,0,0,
+npm,~0,nivel,libcream,libcream,75,19,12,-0.6566,0.1883,-0.1506,5.1826,0,0.4406,0.9533,0.0567,0,0,0,
+npm,~0,nivel,linagora.esn.videoconference,linagora.esn.videoconference,78,20,12,-0.5775,0.0,-0.3302,8.8746,0,0.1538,0.6967,0.32,0,0,0,
+npm,~0,nivel,lit-context,lit-context,79,20,12,1.0242,0.7953,-0.8206,-1.1684,0,-0.2797,0.2567,0.76,0,0,0,
+npm,~0,nivel,mdast-excerpt,mdast-excerpt,73,18,14,0.5903,0.6046,0.1944,2.8602,0,0.6044,0.99,0.0133,0,1,0,
+npm,~0,nivel,near-cli,near-cli,81,20,13,0.9351,0.8894,3.3329,-1.0095,1,-0.511,0.07,0.9333,0,0,1,
+npm,~0,nivel,nice-react-ticker,nice-react-ticker,80,20,13,0.2534,0.7011,1.024,-1.5282,1,-0.6593,0.01,0.9933,1,0,0,
+npm,~0,nivel,react-lazy-data,react-lazy-data,80,20,13,-0.4525,0.8153,0.8116,2.9455,0,-0.4066,0.1167,0.8867,0,0,0,
+npm,~0,nivel,react-native-socials,react-native-socials,78,20,12,0.1072,0.8969,-0.6342,-1.6726,0,0.2797,0.74,0.2667,0,0,0,
+npm,~0,nivel,react-tag-input-facet,react-tag-input-facet,79,20,12,-1.3941,0.6585,-0.8336,2.4076,0,0.6503,0.9833,0.02,0,1,1,
+npm,~0,nivel,redis-modules-sdk,redis-modules-sdk,71,18,14,-0.0423,0.7519,0.8545,-0.5497,0,-0.7319,0.01,0.9933,1,0,0,
+npm,~0,nivel,sanity-plugin-autocomplete-tags,sanity-plugin-autocomplete-tags,72,18,14,-0.367,0.9416,0.9847,-0.7359,0,-0.7582,0.0233,0.9833,1,0,0,
+npm,~0,nivel,stenciljs-bootstrap,stenciljs-bootstrap,73,18,14,-0.0911,0.538,0.3012,0.5357,0,-0.411,0.0633,0.9433,0,0,0,
+npm,~0,nivel,sunbridger-cli,sunbridger-cli,75,19,12,-0.4576,0.3135,0.1334,1.0382,0,-0.0909,0.3433,0.67,0,0,0,
+npm,~0,nivel,tripetto-runner-foundation,tripetto-runner-foundation,79,20,12,0.0256,0.7007,0.9185,0.2142,0,-0.6923,0.0133,0.9933,1,0,0,
+npm,~0,nivel,vasp-gateway,vasp-gateway,70,18,14,-0.9064,0.6284,0.9704,5.4214,0,0.2923,0.8,0.21,0,0,0,
+npm,~0,nivel,vbs2js-runtime,vbs2js-runtime,75,19,12,-0.4722,0.1261,-0.1512,5.3267,0,0.2867,0.85,0.1767,0,0,0,
+npm,~0,nivel,vue-cli-plugin-cypress-experimental,vue-cli-plugin-cypress-experimental,78,20,12,-0.6877,0.8473,0.9142,1.2758,0,-0.2937,0.24,0.7733,0,0,0,
+npm,~0,nivel,web-leti-lab3,web-leti-lab3,70,18,14,-1.3924,0.6985,-1.9118,2.1721,0,0.7011,0.9867,0.0167,0,1,0,
+npm,~0,nivel,agp-npm,agp-npm,63,16,12,-0.9846,0.8652,0.8634,1.8957,0,0.0769,0.55,0.4567,0,0,0,
+npm,~0,nivel,anime-wallpapers,anime-wallpapers,63,16,12,-0.6209,0.72,0.9258,2.3904,0,-0.2517,0.2733,0.7367,0,0,0,
+npm,~0,nivel,azlan-form-builder,azlan-form-builder,67,17,13,-0.2628,0.761,-0.529,3.9847,0,-0.2967,0.1867,0.8267,0,0,0,
+npm,~0,nivel,costimize-mat-select-autocomplete,costimize-mat-select-autocomplete,67,17,13,0.3495,0.6434,-0.0148,-2.2064,0,-0.5769,0.0367,0.97,1,0,0,
+npm,~0,nivel,delightmom-scratch-gui,delightmom-scratch-gui,62,16,12,0.4266,0.5792,0.2564,-1.8785,0,-0.1259,0.3667,0.65,0,0,0,
+npm,~0,nivel,dot11-components,dot11-components,63,16,12,-0.1966,0.2685,0.3184,1.3707,0,-0.1469,0.3167,0.69,0,0,0,
+npm,~0,nivel,dynamongo,dynamongo,66,16,13,-1.2758,0.5099,-1.22,3.1612,0,0.5604,0.99,0.0133,0,1,1,
+npm,~0,nivel,emurgo-message-signing-nodejs,emurgo-message-signing-nodejs,59,15,12,-0.4876,0.9217,0.6429,-5.635,0,-0.6993,0.04,0.9633,1,0,0,
+npm,~0,nivel,ezeecomponent,ezeecomponent,62,16,12,-0.3292,0.3823,-1.0702,3.6857,0,-0.1678,0.28,0.7367,0,0,0,
+npm,~0,nivel,fower-plugin-cursor,fower-plugin-cursor,66,16,13,-0.2716,0.7455,1.0894,7.8271,0,-0.4945,0.07,0.9333,0,0,0,
+npm,~0,nivel,gatsby-theme-q3-mui,gatsby-theme-q3-mui,58,14,12,-0.7227,0.0272,0.2736,13.8378,0,0.1469,0.7267,0.2933,0,0,0,
+npm,~0,nivel,itty-router-extras,itty-router-extras,67,17,13,1.2755,0.8667,0.7781,2.1078,0,-0.3022,0.2267,0.7833,0,0,0,
+npm,~0,nivel,mars3d-space,mars3d-space,68,17,13,0.6762,0.6236,0.8063,1.0361,0,-0.3681,0.11,0.9,0,0,0,
+npm,~0,nivel,panify,panify,64,16,13,-0.7578,0.798,0.9937,3.6848,0,0.0,0.44,0.5667,0,0,0,
+npm,~0,nivel,promo-server,promo-server,58,14,12,-0.2059,0.2742,0.7173,1.5446,0,0.5105,0.9767,0.0267,0,1,0,
+npm,~0,nivel,react-native-ty-image-sdk,react-native-ty-image-sdk,67,17,13,-0.8141,0.0176,-1.1028,-0.4742,0,0.6154,0.9933,0.01,0,1,0,
+npm,~0,nivel,strings-interpolation,strings-interpolation,62,16,12,0.7013,0.8502,0.3452,7.837,0,0.8252,1.0,0.0033,0,1,0,
+npm,~0,nivel,tap-arc,tap-arc,59,15,12,0.781,0.5922,1.0268,2.1186,0,0.2098,0.77,0.2367,0,0,0,
+npm,~0,nivel,vcomply-workflow-engine,vcomply-workflow-engine,61,15,12,1.1081,0.6587,1.7961,0.772,1,0.2517,0.8267,0.1867,0,0,1,
+npm,~0,nivel,vue-lazytube,vue-lazytube,67,17,13,0.3086,0.8969,0.9827,0.7049,0,-0.4725,0.1067,0.8967,0,0,0,
+npm,~0,nivel,yj-rent-common-component,yj-rent-common-component,59,15,12,-0.6071,0.1023,0.327,12.6626,0,0.4545,0.9467,0.0567,0,0,0,
+npm,~0,nivel,dandi-api,dandi-api,55,14,11,0.4878,0.9792,1.6483,-9.3894,1,-0.9182,0.0033,1.0,1,0,1,
+npm,~0,nivel,gmate,gmate,56,14,11,-0.6295,0.0,-0.8421,3.8321,0,0.1545,0.6867,0.34,0,0,0,
+npm,~0,nivel,hattip,hattip,56,14,11,0.5758,0.4427,1.1679,-3.0407,1,-0.4818,0.0367,0.9733,1,0,0,
+npm,~0,nivel,newsletters-v2-ui,newsletters-v2-ui,48,12,13,-0.2332,0.0727,0.3402,5.4479,0,0.044,0.5567,0.45,0,0,0,
+npm,~0,nivel,random-access-memory-overlay,random-access-memory-overlay,55,14,11,0.371,0.2945,0.4548,-3.5913,0,-0.0818,0.4567,0.56,0,0,0,
+npm,~0,nivel,react-native-global-components,react-native-global-components,45,11,12,0.2956,0.7398,-0.9704,-3.8789,0,-0.3077,0.21,0.7967,0,0,0,
+npm,~0,nivel,tencentcloud-sdk-nodejs-teo,tencentcloud-sdk-nodejs-teo,54,14,11,0.362,0.4449,1.2301,5.864,0,0.4545,0.9267,0.08,0,0,0,
+npm,~0,nivel,bigrequest,bigrequest,39,10,15,0.2426,0.5024,-0.2355,-1.8493,0,0.1321,0.6267,0.38,0,0,0,
+npm,~0,nivel,cra-template-memfire-react-template,cra-template-memfire-react-template,42,10,17,-0.5243,0.0602,-1.4737,5.4028,0,0.4044,0.9367,0.07,0,0,0,
+npm,~0,nivel,crosscontrol-library,crosscontrol-library,41,10,16,-0.5125,0.3755,-0.2924,1.6198,0,0.1706,0.6933,0.31,0,0,0,
+npm,~0,nivel,cube-3d-js,cube-3d-js,36,9,14,-0.813,0.541,2.0013,7.1786,0,0.4286,0.92,0.0833,0,0,1,
+npm,~0,nivel,discord-url,discord-url,42,10,17,-0.3245,0.6726,0.0673,-1.3353,0,-0.6103,0.0267,0.98,1,0,0,
+npm,~0,nivel,element-admin-layout,element-admin-layout,38,10,15,-0.47,0.073,-0.7443,7.5211,0,0.5821,0.97,0.0333,0,1,0,
+npm,~0,nivel,eslint-config-leaflink,eslint-config-leaflink,41,10,16,-0.9837,0.6338,0.2986,2.6908,0,-0.2618,0.19,0.8167,0,0,0,
+npm,~0,nivel,fyq-tools,fyq-tools,42,10,17,0.1044,0.0441,1.3442,2.7721,0,-0.0613,0.4467,0.5633,0,0,0,
+npm,~0,nivel,gupshup-integrations,gupshup-integrations,44,11,12,-0.4502,0.4785,-1.5301,6.8964,0,0.1678,0.6933,0.32,0,0,0,
+npm,~0,nivel,iq-sorting-hat-client-sdk,iq-sorting-hat-client-sdk,43,11,11,-1.1204,0.8405,0.23,0.3246,0,-0.2818,0.2833,0.72,0,0,0,
+npm,~0,nivel,nima-threads-dl-api,nima-threads-dl-api,39,10,15,0.0173,0.7471,0.2368,-5.5077,0,-0.775,0.01,0.9933,1,0,0,
+npm,~0,nivel,qase-mocha-reporter,qase-mocha-reporter,34,8,14,0.1256,0.4568,-0.039,-6.9192,0,-0.244,0.1967,0.8067,0,0,0,
+npm,~0,nivel,reg-notify-azuredevops-plugin,reg-notify-azuredevops-plugin,35,9,14,0.0957,0.2529,-0.1359,-0.6439,0,0.1253,0.6667,0.34,0,0,0,
+npm,~0,nivel,scandit-datacapture-frameworks-id,scandit-datacapture-frameworks-id,34,8,14,1.3048,0.6181,1.8939,-2.609,1,-0.6044,0.0233,0.9833,1,0,0,
+npm,~0,nivel,selenoid-browsers-config,selenoid-browsers-config,44,11,12,-0.3,0.7754,-0.0143,0.5421,0,0.0979,0.6533,0.3567,0,0,0,
+npm,~0,nivel,vite-plugin-unplugin,vite-plugin-unplugin,40,10,16,0.6255,0.5213,0.4796,-1.6255,0,0.1353,0.6467,0.3633,0,0,0,
+npm,~0,nivel,web-bridge,web-bridge,37,9,15,-0.7595,0.0,-0.553,6.2468,0,0.5536,0.9833,0.02,0,1,0,
+npm,~0,nivel,effector-swc-plugin,effector-swc-plugin,33,8,13,-0.5897,0.5929,0.757,1.301,0,-0.033,0.49,0.5133,0,0,0,
+npm,~0,nivel,parsenbt-js,parsenbt-js,29,8,11,0.0572,0.2096,0.0296,2.3409,0,0.4545,0.93,0.08,0,0,0,
+npm,~0,nivel,pixi-react-custom-fiber,pixi-react-custom-fiber,28,8,11,-0.8501,0.4577,-0.4239,4.5974,0,0.0091,0.5333,0.4867,0,0,0,
+npm,~0,nivel,tailwinds,tailwinds,29,8,11,0.5072,0.3311,0.3295,2.7332,0,0.3273,0.8433,0.1667,0,0,0,

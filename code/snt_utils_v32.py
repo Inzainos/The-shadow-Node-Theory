@@ -51,11 +51,24 @@ except Exception:  # pragma: no cover - base import is best-effort
 
 
 def _clasificar(b):
-    """The base module's classification bands (kept in sync)."""
+    """The base module's classification bands (kept in sync).
+
+    The two bands above b = 1 no longer assert a regime. RC1, tested per
+    domain on 2026-10-02, measured that a *true exponential* fitted as a power
+    law yields b >= 1 in 99.9% of replicates in E3's high band and 100% in the
+    ACO set, against 0.0% where the real b is below 0.5. So the threshold does
+    not separate "fast satellization" from a misfit of functional form, and the
+    label said more than the data supports. The bands and their boundaries are
+    kept so output columns stay comparable; only the claim is withdrawn.
+    Report: reconstruction_real/audits/RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md
+
+    The bands below b = 1 are untouched: the same test found 0.0% false b >= 1
+    there, so the finding does not speak to them.
+    """
     if b > 2.0:
-        return "Satelizacion extrema (b>2)"
+        return "Exponente b>2 - sin clasificar (ver RC1 2026-10-02)"
     if b > 1.0:
-        return "Satelizacion rapida sin friccion"
+        return "Exponente b>1 - sin clasificar (ver RC1 2026-10-02)"
     if b > 0.3:
         return "Satelizacion activa"
     if b > 0.05:
@@ -266,6 +279,17 @@ def comparar_modelos(t, r):
     the scales are comparable. Returns dict with per-model AIC, the winner
     and ``delta_aic_potencia`` (AIC_best_other - AIC_power; positive means
     power wins).
+
+    CALIBRATION WARNING (measured 2026-10-02). This AIC assumes independent
+    residuals. Where they are autocorrelated -- which is every domain of this
+    corpus that has raw series -- it misselects badly, and worse as b grows.
+    Simulating from a *known* power law with each case's own sigma and AR(1)
+    rho, the winner is something other than the power law in 80.3% of
+    replicates in E3, 96.8% in Domain B and 48.9% in the ACO set, within the
+    b >= 1 band; in the b < 0.5 band it falls to 14.1% / 40.4% / 16.3%. So
+    ``ganador`` and ``delta_aic_potencia`` must not be counted as evidence
+    about functional form at high b without a calibration alongside them.
+    Report: reconstruction_real/audits/RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md
     """
     t = np.asarray(t, dtype=float)
     r = np.asarray(r, dtype=float)

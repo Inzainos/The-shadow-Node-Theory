@@ -1,0 +1,4 @@
+dominio,casos,admisible_P0,gana_potencia,gana_exponencial,gana_lineal,superlineales,spearman_b_dAIC,p_una_cola_P2,fisher_OR_P3,p_una_cola_P3,frac_superlineales_no_potencia_P4
+E3,234,0,64,51,119,90,-0.2504,5e-05,0.1533,0.0,0.9111
+B,446,0,112,138,196,6,0.0387,0.79251,0.0,0.17439,1.0
+ACO,18,0,13,4,1,4,-0.7957,4e-05,0.0556,0.04412,0.75

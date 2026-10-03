@@ -161,12 +161,28 @@ Aplicación independiente, fuera del corpus de 721 casos. Consultadas el 2026-10
 | `https://api.npmjs.org/downloads/range/{inicio}:{fin}/{paquetes}` | Series diarias. Máximo **128 paquetes** por petición y **365 días** en consulta por lote (18 meses si es un solo paquete) |
 | `https://api.osv.dev/v1/query` | Avisos de vulnerabilidad con fecha y severidad |
 
-Los crudos quedan en `data/raw_npm/` (no versionado). Salidas versionadas:
+Los crudos quedan en `data/raw_npm/` (no versionado, 15 MB el mayor). **Su hash sí
+queda registrado**, para que se pueda verificar que un crudo reconstruido es el mismo
+que produjo estos resultados:
+
+| Crudo (no versionado) | SHA-256 |
+|---|---|
+| `data/raw_npm/descargas.jsonl.gz` (series diarias, 15,486,679 bytes) | `455acba13c8b8d951243bbf3ef23e5ead4bf4a8271ec8e599c74f7a19d31ac71` |
+
+Salidas versionadas:
 
 | Archivo | SHA-256 |
 |---|---|
 | `reconstruction_real/data/npm_cohorte_aco.csv.gz` (450 paquetes) | `c4bfbf0513954911ad1c6d5e445ec01ff8d6bab47453d90bfc89428672a1c58b` |
 | `reconstruction_real/data/npm_hazard_bandas.csv` | `981a0781668a9b9daf68f21e2783e572ffb652dde954e762f97f74f8fa5fe203` |
+| `data/npm_descargas_mensuales_deriva.csv.gz` (agregado mensual de los 450; 35,002 filas `nombre,mes,descargas`; 183,179 bytes) | `20fc2f6b6b70796020cd75a182df6de5913ef9942a526ebb71ff77f88338345b` |
+
+El agregado mensual es el **insumo exacto** del brazo npm de la prueba de deriva, y
+está versionado precisamente para que esa prueba sea reproducible sin los 15 MB del
+crudo. `deriva_forma_friccion.py` lo prefiere si está presente y recae en el crudo si
+no, con un `warning` en el log. Verificado: con el derivado, las dos salidas de la
+prueba reproducen sus SHA-256 registrados **al bit**. Conserva el orden de paquetes
+del crudo, no el alfabético, porque el nulo por caso consume el RNG caso por caso.
 
 Nota de calidad: el muestreo aleatorio del registro completo está dominado por la cola
 larga, así que la codificación de fricción a priori resultó degenerada (0 paquetes de
@@ -223,6 +239,91 @@ Nota de calidad: la tabla 5938 del IBGE **no publica PIB per cápita**, así que
 no entra en la secundaria. Los datos de Estados Unidos quedan fuera del diseño: la
 API del BLS respondió `REQUEST_NOT_PROCESSED` por umbral diario agotado desde esta
 dirección, y las de BEA y Census exigen clave.
+
+---
+
+### Valor puntual del Dominio B 2026-10-02 (sin descargas)
+
+No entra ninguna fuente externa nueva. Entradas, ya versionadas y con su SHA-256 más
+arriba en este archivo: `data/maddison_mpd2020.csv` (las 446 series del Dominio B se
+reconstruyen desde ahí, verificado caso por caso contra la `b` publicada) y
+`reconstruction_real/data/by_domain/dominio_B_real.csv`.
+
+| Archivo de salida | SHA-256 |
+|---|---|
+| `reconstruction_real/data/dominio_B_calibracion.csv` | `c2372a096bdba792b8fbb4728ed709575c1b91435103910b9cffa6d2700659d8` |
+| `reconstruction_real/data/dominio_B_valor_puntual.csv` | `0cfb54028790bfb3b38e8a9d13e51031f7c5d7e6ca220e20257ee3dcc0d75c16` |
+
+Nota de calidad: `dominio_B_valor_puntual.csv` trae el p de los doce métodos por caso.
+**Solo uno de ellos es admisible** —`p_ar1_inf`, con 7.1% de falso positivo medido,
+único dentro de la banda [2.5%, 7.5%] tras la corrección de estratificación del
+2026-10-03 (ver `audits/RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md`). Las otras once
+columnas **no deben usarse para contar significativos**: sobre los mismos datos la
+cuenta va de 33 a 134 de 156 según el método, y su tasa de falso positivo medida va de
+11.3% a 59.5%. Con la columna admisible la cuenta es **33 de 156 (21.2%)**, y la §6.1
+del informe explica por qué se lee como "al menos 33".
+
+---
+
+### Deriva del exponente contra fricción 2026-10-02 (sin descargas)
+
+Entradas, todas versionadas: `data/maddison_mpd2020.csv` (Dominio B),
+`data/binance_cierres_diarios.csv.gz` (cripto, cocientes moneda/BTC) y
+`data/npm_descargas_mensuales_deriva.csv.gz` (npm, agregado mensual de los 450 de la
+cohorte, SHA-256 arriba). El crudo `data/raw_npm/descargas.jsonl.gz` sigue sin
+versionar por tamaño, pero su SHA-256 está registrado en la sección de npm y el script
+recae en él si el derivado no está.
+
+| Archivo de salida | SHA-256 |
+|---|---|
+| `reconstruction_real/data/deriva_forma_por_caso.csv` | `56eeb28b82605fb4eb106145b1b342cafb12ba9ce433f133eef4ed6d41c9b299` |
+| `reconstruction_real/data/deriva_forma_resumen.csv` | `37297b6c331c2759b14d6f836ac36a7b6a917a5039845cf1868c3923afcedddc` |
+
+El hash del resumen cambió el 2026-10-03 al añadirse los puntos secundarios S2 y S4, que faltaban. Cambia **solo por las filas nuevas** `S2_*` y `S4_*`: `deriva_forma_por_caso.csv` conserva su SHA-256 al bit y ninguna cifra de los puntos anteriores se movió. El hash previo del resumen era `848be0936875973c9d5c3e38668ef285aece34117310a79a1fb400742b0070ce`.
+
+**Nota de calidad, de primer orden para cualquiera que use datos de Binance en análisis
+temporales.** El momento en que un exchange lista una moneda es un **sesgo de selección
+fuerte**: en los 571 cocientes moneda/BTC analizados, **el 70.1% tiene su máximo dentro
+del primer 10% de la serie** y el 84.9% dentro del primer 25% (mediana de la posición
+del máximo: 0.019). Una serie que empieza en su máximo tiene que bajar, y eso produce
+por sí solo un exponente local cada vez más negativo. Partiendo los casos por posición
+del pico, la deriva descendente pasa de **57.5%** (pico temprano) a **0.0%** (pico
+tardío). Ver `audits/RESULTADOS_DERIVA_FORMA_2026-10-02.md` §3.
+
+Nota de calidad: el brazo de npm mide un **nivel** de descargas, no un cociente, así
+que arrastra el crecimiento del ecosistema completo — la mediana del exponente en las
+ventanas tardías es 1.858, que es npm creciendo, no el paquete. Por eso entró cripto al
+diseño como brazo de cociente.
+
+---
+
+### RC1, régimen superlineal 2026-10-02 (sin descargas)
+
+Entradas, todas versionadas: `data/owid_covid_casos_totales.csv.gz` (E3, receta
+verificada: acumulados, inicio en el primer día con ≥ 100 casos, 60 días),
+`data/maddison_mpd2020.csv` (B) y
+`reconstruction_real/data/snt_corpus_aco_timeseries_v29.csv` (ACO, control).
+
+| Archivo de salida | SHA-256 |
+|---|---|
+| `reconstruction_real/data/rc1_por_caso.csv` | `066f5fdd9f55018ab553590754ef293a0a110281ebc1e718d543143525e86e82` |
+| `reconstruction_real/data/rc1_calibracion.csv` | `29fa46af16fa0777dca5064255df22dc6d16108dddb0f893b65e427b096b97a5` |
+| `reconstruction_real/data/rc1_resumen.csv` | `a853282f43b7bed971219ca3174bbf6bcb50d8f8fa287dc6279c469c8ad488f7` |
+
+**Nota de calidad, de primer orden para cualquiera que use `comparar_modelos` o
+cualquier AIC sobre residuos crudos.** El criterio supone independencia, y en estos
+dominios los residuos están muy autocorrelados. Calibrado contra series simuladas desde
+una **ley de potencia conocida**, el AIC elige otro modelo en el **80.3%** de las
+réplicas en E3, el **96.8%** en B y el **48.9%** en el ACO, dentro de la banda `b ≥ 1`
+— y el error **crece con `b`**. Las columnas `ganador` y `delta_aic_potencia` de
+`rc1_por_caso.csv` **no deben usarse para contar formas** sin leer antes
+`rc1_calibracion.csv`.
+
+**Segunda nota, independiente del AIC.** Una exponencial verdadera ajustada como ley de
+potencia produce `b ≥ 1` en el **99.9%** de las réplicas en la banda alta de E3 y en el
+**100%** del ACO, contra **0.0%** donde la `b` real es menor que 0.5. Cualquier umbral
+sobre la `b` estimada bajo ley de potencia hereda eso. Ver
+`audits/RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md` §2.
 
 ---
 
