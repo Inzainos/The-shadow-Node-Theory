@@ -45,10 +45,16 @@ def ajustar_ley_potencia(años, sombra, dominante, trigger_año):
         r2 = 1 - ss_res / ss_tot if ss_tot > 0 else 0
         rp, pv = pearsonr(log_t, log_r)
 
+        # Bandas b>1: etiqueta retirada el 2026-10-02. RC1 midio que una
+        # exponencial verdadera ajustada como ley de potencia produce b>=1 en
+        # el 99.9% de las replicas (E3, banda alta) y el 100% (ACO), contra
+        # 0.0% donde la b real es < 0.5. El umbral no separa "satelizacion
+        # rapida" de un desajuste de forma, asi que no se afirma un regimen.
+        # Ver reconstruction_real/audits/RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md
         if b > 2.0:
-            clf = "Satelizacion extrema (b>2)"
+            clf = "Exponente b>2 - sin clasificar (ver RC1 2026-10-02)"
         elif b > 1.0:
-            clf = "Satelizacion rapida sin friccion"
+            clf = "Exponente b>1 - sin clasificar (ver RC1 2026-10-02)"
         elif b > 0.3:
             clf = "Satelizacion activa"
         elif b > 0.05:

@@ -79,6 +79,24 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   - **Sexta vez el mismo patrón** —tras el 5.9×, el ROC-AUC filtrado, la precisión del
     ASI, el apego preferencial de N-cuerpos y la inferencia del Dominio B—: la
     aritmética estaba bien, la interpretación no.
+- **El código deja de afirmar el régimen: se retiran las etiquetas de `b > 1`.**
+  Consecuencia directa del resultado de RC1, señalada por el autor. `code/snt_utils.py`
+  y `code/snt_utils_v32.py` emitían *"Satelizacion rapida sin friccion"* para `b > 1` y
+  *"Satelizacion extrema (b>2)"* para `b > 2`. Como el umbral **no separa un régimen de
+  un desajuste de forma** —una exponencial verdadera da `b ≥ 1` en el 99.9% de las
+  réplicas—, las dos etiquetas pasan a **`"Exponente b>1 - sin clasificar (ver RC1
+  2026-10-02)"`** y su equivalente para `b > 2`. Se conservan las bandas y sus límites
+  para que las columnas de salida sigan siendo comparables; **lo que se retira es la
+  afirmación, no la medición.** Las bandas por debajo de `b = 1` quedan intactas: la
+  misma prueba midió 0.0% de falso `b ≥ 1` ahí, así que el hallazgo no las toca.
+  Verificado antes de cambiar: ningún test asierta sobre esas cadenas y ningún CSV
+  versionado las contiene.
+- **`comparar_modelos()` lleva su advertencia de calibración en el docstring.** La
+  función se documenta como "RC1 test" y su AIC supone residuos independientes;
+  ahora dice con cifras que en la banda `b ≥ 1` se equivoca en el **80.3% / 96.8% /
+  48.9%** de las réplicas (E3 / B / ACO) cuando los datos son una ley de potencia pura,
+  y que `ganador` y `delta_aic_potencia` **no deben contarse como evidencia de forma a
+  `b` alta** sin una calibración al lado.
 - **Corregido el signo de una cifra de la auditoría v32.** La prosa de
   `audits/AUDITORIA_INTEGRAL_v32.md` tecleaba `rho = +0.657` donde corresponde negativo.
   El runner (`code/snt_auditoria_integral_v32.py:209`) siempre registró `−0.657`, su CSV
