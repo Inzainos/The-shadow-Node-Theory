@@ -164,6 +164,26 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   ρ = 0.94 con `b` verdaderamente constante mantiene 4.7% de falso positivo contra el
   5% nominal, en el mismo régimen donde el OLS del Dominio B tiene 59.5%.
   `code/deriva_forma_friccion.py`, con su tabla de poder por brazo.
+- **El brazo npm de la prueba de deriva pasa a ser reproducible sin el crudo**, a
+  señalamiento de la revisión del PR #54: su insumo era
+  `data/raw_npm/descargas.jsonl.gz`, 15 MB, **no versionado y sin hash registrado**, de
+  modo que el resultado no era verificable por nadie más.
+  - Se registra el **SHA-256 del crudo exacto** que se usó
+    (`455acba1…1ac71`, 15,486,679 bytes) en `data/FUENTES.md`.
+  - Se versiona el **agregado mensual** que el brazo consume de verdad:
+    `data/npm_descargas_mensuales_deriva.csv.gz`, 35,002 filas `nombre,mes,descargas`
+    para los 450 paquetes de la cohorte, **183 KB** en vez de 15 MB
+    (`20fc2f6b…8345b`). Es el patrón que el repo ya seguía con
+    `owid_covid_casos_totales.csv.gz` y `binance_cierres_diarios.csv.gz`.
+  - `deriva_forma_friccion.py` prefiere el derivado y recae en el crudo con un
+    `warning` en el log si no está. Conserva el orden de paquetes del crudo, no el
+    alfabético, porque el nulo por caso consume el RNG caso por caso y reordenar
+    cambiaría las réplicas. **Verificado:** con el derivado, `deriva_forma_por_caso.csv`
+    y `deriva_forma_resumen.csv` reproducen sus SHA-256 registrados **al bit**.
+  - De paso se corrige en `data/FUENTES.md` la nota de calidad del valor puntual, que
+    seguía diciendo "ninguno de ellos es admisible", y en el encabezado del informe de
+    deriva la frase "no recibe respaldo en ninguno de los tres brazos", que atribuía a
+    cripto y npm un negativo que su poder (11.7% y 6.7%) no sostiene.
 - **La retractación de la banda `b > 1` se propaga al código que faltaba.** La
   retirada de la etiqueta "Roche Radius" (RC1, 2026-10-02) se había aplicado a
   `code/snt_utils.py` y `code/snt_utils_v32.py`, pero tres lugares seguían

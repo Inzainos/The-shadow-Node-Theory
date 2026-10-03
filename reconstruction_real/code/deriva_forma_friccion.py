@@ -52,6 +52,7 @@ MADDISON = ROOT / "data" / "maddison_mpd2020.csv"
 B_PUB = ROOT / "reconstruction_real" / "data" / "by_domain" / "dominio_B_real.csv"
 CRIPTO = ROOT / "data" / "binance_cierres_diarios.csv.gz"
 NPM_DESC = ROOT / "data" / "raw_npm" / "descargas.jsonl.gz"
+NPM_MENS = ROOT / "data" / "npm_descargas_mensuales_deriva.csv.gz"
 NPM_COH = ROOT / "reconstruction_real" / "data" / "npm_cohorte_aco.csv.gz"
 OUT_CASO = ROOT / "reconstruction_real" / "data" / "deriva_forma_por_caso.csv"
 OUT_RES = ROOT / "reconstruction_real" / "data" / "deriva_forma_resumen.csv"
@@ -244,11 +245,33 @@ def cargar_cripto():
     return casos
 
 
-def cargar_npm():
-    """Descargas mensuales de los 450 de la cohorte, desde el nacimiento."""
-    with gzip.open(NPM_COH, "rt", encoding="utf-8") as fh:
-        coh = {r["nombre"]: r for r in csv.DictReader(fh)}
-    casos = []
+def series_mensuales_npm(coh):
+    """Serie mensual por paquete de la cohorte, en el orden de la fuente.
+
+    Prefiere el derivado versionado ``data/npm_descargas_mensuales_deriva.csv.gz``
+    (183 KB, SHA-256 en ``data/FUENTES.md``), que es la agregacion mensual exacta
+    que usa este brazo. Si no esta, recae en el crudo no versionado
+    ``data/raw_npm/descargas.jsonl.gz`` (15 MB) y produce lo mismo.
+
+    El orden de salida replica el del archivo crudo, no el alfabetico: el nulo
+    por caso consume el RNG caso por caso, asi que reordenar cambiaria las
+    replicas sin cambiar el metodo.
+    """
+    if NPM_MENS.exists():
+        orden, meses = [], defaultdict(lambda: defaultdict(float))
+        with gzip.open(NPM_MENS, "rt", encoding="utf-8") as fh:
+            for r in csv.DictReader(fh):
+                nombre = r["nombre"]
+                if nombre not in coh:
+                    continue
+                if nombre not in meses:
+                    orden.append(nombre)
+                meses[nombre][r["mes"]] += float(r["descargas"])
+        return [(nombre, meses[nombre]) for nombre in orden]
+
+    log.warning("Sin %s; se recae en el crudo no versionado %s",
+                NPM_MENS.name, NPM_DESC.name)
+    salida = []
     with gzip.open(NPM_DESC, "rt", encoding="utf-8") as fh:
         for linea in fh:
             d = json.loads(linea)
@@ -257,23 +280,33 @@ def cargar_npm():
             meses = defaultdict(float)
             for dia, v in d["dias"].items():
                 meses[dia[:7]] += float(v)
-            claves = sorted(meses)
-            if len(claves) < MIN_MESES_NPM:
+            salida.append((d["nombre"], meses))
+    return salida
+
+
+def cargar_npm():
+    """Descargas mensuales de los 450 de la cohorte, desde el nacimiento."""
+    with gzip.open(NPM_COH, "rt", encoding="utf-8") as fh:
+        coh = {r["nombre"]: r for r in csv.DictReader(fh)}
+    casos = []
+    for nombre, meses in series_mensuales_npm(coh):
+        claves = sorted(meses)
+        if len(claves) < MIN_MESES_NPM:
+            continue
+        R = np.array([meses[k] for k in claves], dtype=float)
+        if np.any(R <= 0):                 # el logaritmo no existe
+            pos = R > 0
+            R = R[pos]
+            if len(R) < MIN_MESES_NPM:
                 continue
-            R = np.array([meses[k] for k in claves], dtype=float)
-            if np.any(R <= 0):                 # el logaritmo no existe
-                pos = R > 0
-                R = R[pos]
-                if len(R) < MIN_MESES_NPM:
-                    continue
-            fila = coh[d["nombre"]]
-            casos.append({"brazo": "npm", "friccion": "~0",
-                          "cantidad": "nivel", "id": d["nombre"],
-                          "etiqueta": d["nombre"], "b_pub": None,
-                          "lx": np.log(np.arange(1, len(R) + 1, dtype=float)),
-                          "ly": np.log(R),
-                          "extinto": int(fila["mes_extincion"] not in ("", None)),
-                          "delta_caida": fila["delta_caida"]})
+        fila = coh[nombre]
+        casos.append({"brazo": "npm", "friccion": "~0",
+                      "cantidad": "nivel", "id": nombre,
+                      "etiqueta": nombre, "b_pub": None,
+                      "lx": np.log(np.arange(1, len(R) + 1, dtype=float)),
+                      "ly": np.log(R),
+                      "extinto": int(fila["mes_extincion"] not in ("", None)),
+                      "delta_caida": fila["delta_caida"]})
     return casos
 
 

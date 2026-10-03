@@ -3,6 +3,12 @@
 **Pre-registro:** [`../preregistro/PREREGISTRO_DERIVA_FORMA_2026-10-02.md`](../preregistro/PREREGISTRO_DERIVA_FORMA_2026-10-02.md)
 (commit `e9a152c`, subido antes de escribir el script).
 **Script:** `code/deriva_forma_friccion.py` (con log). **Sin descargas.**
+**Entradas, todas versionadas:** `data/maddison_mpd2020.csv`,
+`data/binance_cierres_diarios.csv.gz` y
+`data/npm_descargas_mensuales_deriva.csv.gz` (agregado mensual de los 450 paquetes de
+la cohorte, añadido el 2026-10-03 para que el brazo npm sea reproducible sin el crudo
+de 15 MB; SHA-256 en `data/FUENTES.md`, y con él las dos salidas reproducen su hash
+registrado al bit).
 **Salidas:** `data/deriva_forma_por_caso.csv`, `data/deriva_forma_resumen.csv`.
 
 Prueba de la hipótesis del autor: que la forma no es una etiqueta por caso sino una
@@ -10,8 +16,10 @@ Prueba de la hipótesis del autor: que la forma no es una etiqueta por caso sino
 **requiere fricción** para existir, de modo que los ambientes digitales (fricción ≈ 0)
 no la tendrían.
 
-**Resultado: la hipótesis no recibe respaldo en ninguno de los tres brazos, y el único
-brazo que parecía respaldarla resultó ser un artefacto de selección.**
+**Resultado: la hipótesis no recibe respaldo donde la prueba tiene poder para
+evaluarla —el Dominio B— y queda sin probar en los otros dos brazos, cuyo poder no
+permite interpretar un negativo. El único brazo que parecía respaldarla, cripto,
+resultó ser un artefacto de selección.**
 
 ---
 

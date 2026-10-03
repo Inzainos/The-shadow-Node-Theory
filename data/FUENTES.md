@@ -161,12 +161,28 @@ Aplicación independiente, fuera del corpus de 721 casos. Consultadas el 2026-10
 | `https://api.npmjs.org/downloads/range/{inicio}:{fin}/{paquetes}` | Series diarias. Máximo **128 paquetes** por petición y **365 días** en consulta por lote (18 meses si es un solo paquete) |
 | `https://api.osv.dev/v1/query` | Avisos de vulnerabilidad con fecha y severidad |
 
-Los crudos quedan en `data/raw_npm/` (no versionado). Salidas versionadas:
+Los crudos quedan en `data/raw_npm/` (no versionado, 15 MB el mayor). **Su hash sí
+queda registrado**, para que se pueda verificar que un crudo reconstruido es el mismo
+que produjo estos resultados:
+
+| Crudo (no versionado) | SHA-256 |
+|---|---|
+| `data/raw_npm/descargas.jsonl.gz` (series diarias, 15,486,679 bytes) | `455acba13c8b8d951243bbf3ef23e5ead4bf4a8271ec8e599c74f7a19d31ac71` |
+
+Salidas versionadas:
 
 | Archivo | SHA-256 |
 |---|---|
 | `reconstruction_real/data/npm_cohorte_aco.csv.gz` (450 paquetes) | `c4bfbf0513954911ad1c6d5e445ec01ff8d6bab47453d90bfc89428672a1c58b` |
 | `reconstruction_real/data/npm_hazard_bandas.csv` | `981a0781668a9b9daf68f21e2783e572ffb652dde954e762f97f74f8fa5fe203` |
+| `data/npm_descargas_mensuales_deriva.csv.gz` (agregado mensual de los 450; 35,002 filas `nombre,mes,descargas`; 183,179 bytes) | `20fc2f6b6b70796020cd75a182df6de5913ef9942a526ebb71ff77f88338345b` |
+
+El agregado mensual es el **insumo exacto** del brazo npm de la prueba de deriva, y
+está versionado precisamente para que esa prueba sea reproducible sin los 15 MB del
+crudo. `deriva_forma_friccion.py` lo prefiere si está presente y recae en el crudo si
+no, con un `warning` en el log. Verificado: con el derivado, las dos salidas de la
+prueba reproducen sus SHA-256 registrados **al bit**. Conserva el orden de paquetes
+del crudo, no el alfabético, porque el nulo por caso consume el RNG caso por caso.
 
 Nota de calidad: el muestreo aleatorio del registro completo está dominado por la cola
 larga, así que la codificación de fricción a priori resultó degenerada (0 paquetes de
@@ -239,18 +255,24 @@ reconstruyen desde ahí, verificado caso por caso contra la `b` publicada) y
 | `reconstruction_real/data/dominio_B_valor_puntual.csv` | `0cfb54028790bfb3b38e8a9d13e51031f7c5d7e6ca220e20257ee3dcc0d75c16` |
 
 Nota de calidad: `dominio_B_valor_puntual.csv` trae el p de los doce métodos por caso.
-**Ninguno de ellos es admisible** (ver `audits/RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md`),
-así que esas columnas no deben usarse para contar significativos sin leer antes la
-tabla de calibración: sobre los mismos datos la cuenta va de 33 a 134 de 156 según el
-método elegido.
+**Solo uno de ellos es admisible** —`p_ar1_inf`, con 7.1% de falso positivo medido,
+único dentro de la banda [2.5%, 7.5%] tras la corrección de estratificación del
+2026-10-03 (ver `audits/RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md`). Las otras once
+columnas **no deben usarse para contar significativos**: sobre los mismos datos la
+cuenta va de 33 a 134 de 156 según el método, y su tasa de falso positivo medida va de
+11.3% a 59.5%. Con la columna admisible la cuenta es **33 de 156 (21.2%)**, y la §6.1
+del informe explica por qué se lee como "al menos 33".
 
 ---
 
 ### Deriva del exponente contra fricción 2026-10-02 (sin descargas)
 
-Entradas, todas ya en disco o versionadas: `data/maddison_mpd2020.csv` (Dominio B),
+Entradas, todas versionadas: `data/maddison_mpd2020.csv` (Dominio B),
 `data/binance_cierres_diarios.csv.gz` (cripto, cocientes moneda/BTC) y
-`data/raw_npm/descargas.jsonl.gz` (npm, no versionado).
+`data/npm_descargas_mensuales_deriva.csv.gz` (npm, agregado mensual de los 450 de la
+cohorte, SHA-256 arriba). El crudo `data/raw_npm/descargas.jsonl.gz` sigue sin
+versionar por tamaño, pero su SHA-256 está registrado en la sección de npm y el script
+recae en él si el derivado no está.
 
 | Archivo de salida | SHA-256 |
 |---|---|
