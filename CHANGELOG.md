@@ -164,6 +164,26 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   ρ = 0.94 con `b` verdaderamente constante mantiene 4.7% de falso positivo contra el
   5% nominal, en el mismo régimen donde el OLS del Dominio B tiene 59.5%.
   `code/deriva_forma_friccion.py`, con su tabla de poder por brazo.
+- **La retractación de la banda `b > 1` se propaga al código que faltaba.** La
+  retirada de la etiqueta "Roche Radius" (RC1, 2026-10-02) se había aplicado a
+  `code/snt_utils.py` y `code/snt_utils_v32.py`, pero tres lugares seguían
+  afirmando el régimen retirado, a señalamiento de la revisión del PR #54:
+  - `delta/snt_market_core.py`: el enum `DominanceRegime` tenía `ROCHE_RADIUS` y
+    `EXTREME`, y `classify_regime()` los devolvía para `b > 1.0` y `b > 2.0`. Pasan a
+    `UNCLASSIFIED_B_GT_1` y `UNCLASSIFIED_B_GT_2`, con la razón de la retirada en el
+    docstring del módulo y la nota de que quedan en sincronía con `snt_utils`.
+    **Cambio visible para consumidores:** la cadena `regime` que emite `delta_engine`
+    para `b > 1` ya no es `"roche_radius"` ni `"extreme"`. Ningún artefacto versionado
+    la cargaba (`delta/real_delta_signals.json` solo tiene bandas por debajo de 1).
+  - `dashboard/app.py`: la anotación del trazo `b = 1` decía "Roche Radius (b=1)" y
+    pasa a "b=1 (unclassified above)"; el bloque de bandas de la pestaña de teoría
+    explica por qué queda sin clasificar; y la fila RC1 de la tabla de
+    falsabilidad pasa de "NOT REFUTED" a **"NOT DECIDABLE BY AIC" (2026-10-02)**,
+    que es lo que el informe concluyó.
+  - `README.md` y `reconstruction_real/code/generate_figures_v29.py` (con su
+    `figures/figure_captions_v29.txt` versionado): el bloque de bandas y el pie de la
+    Figura 1 citaban la etiqueta. Los trazos `b = 1` de las figuras no llevan texto,
+    así que no hubo que regenerar ninguna imagen.
 - **El valor puntual del Dominio B se cierra en 33 de 156 estimables (21.2%)**
   (2026-10-02, **corregido 2026-10-03**; pre-registro
   `preregistro/PREREGISTRO_DOMINIO_B_PUNTUAL_2026-10-02.md`, commit `05bc9ee`,

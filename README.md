@@ -158,8 +158,15 @@ relative standing against a dominant core.
 b < 0    --> convergence (node gains ground)
 b ~ 0    --> dynamic equilibrium
 0 < b < 1 --> sublinear satellization (gradual)
-b >= 1    --> superlinear satellization -- Roche Radius
+b >= 1    --> exponent reported, regime NOT classified (RC1, 2026-10-02)
 ```
+
+The `b >= 1` band carried the label "superlinear satellization -- Roche Radius"
+until 2026-10-02. It was withdrawn: a truly exponential curve fitted as a power
+law yields `b >= 1` in 99.9% of replicates in E3's high band and 100% in the ACO
+set, against 0.0% where the real `b` is below 0.5, so the threshold does not
+separate fast satellization from a shape misfit. See RC1 in the falsifiability
+table below. The bands under 1 are unaffected.
 
 ---
 

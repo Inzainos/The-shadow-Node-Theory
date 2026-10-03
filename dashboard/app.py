@@ -125,9 +125,12 @@ if page == "Overview":
         )
         fig_box.add_hline(y=0, line_dash="dash", line_color="gray",
                           opacity=0.5)
+        # b = 1 se marca como referencia, no como regimen: la etiqueta
+        # "Roche Radius" se retiro el 2026-10-02 (RC1). Ver
+        # reconstruction_real/audits/RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md
         fig_box.add_hline(y=1, line_dash="dot", line_color="red",
                           opacity=0.4,
-                          annotation_text="Roche Radius (b=1)")
+                          annotation_text="b=1 (unclassified above)")
         fig_box.update_layout(
             showlegend=False, xaxis_title="", yaxis_title="Exponent b",
             height=450,
@@ -468,14 +471,22 @@ relative standing against a dominant core.
 b < 0     → convergence (node gains ground)
 b ~ 0     → dynamic equilibrium
 0 < b < 1 → sublinear satellization (gradual)
-b >= 1    → superlinear satellization — Roche Radius
+b >= 1    → exponent reported, regime NOT classified (see below)
 ```
+
+**Why `b >= 1` is left unclassified.** Until 2026-10-02 this band was labelled
+"superlinear satellization — Roche Radius". RC1 measured that a *truly
+exponential* curve fitted as a power law yields `b >= 1` in **99.9%** of
+replicates in E3's high band and **100%** in the ACO set, against **0.0%**
+where the real `b` is below 0.5. The threshold does not separate fast
+satellization from a shape misfit, so the label was withdrawn. The exponent is
+still reported; no regime is asserted above 1. Bands below 1 are unaffected.
 
 ### Falsifiability Criteria (RC1-RC8)
 
 | RC | Refutation Condition | v29 Status |
 |----|---------------------|------------|
-| RC1 | Power law fits no better than alternatives | NOT REFUTED |
+| RC1 | Power law fits no better than alternatives | **NOT DECIDABLE BY AIC** (2026-10-02) |
 | RC2 | b is not reproducible from primary series | NOT REFUTED |
 | RC3 | Abrupt triggers produce same b as gradual | NOT REFUTED (pre-registered city test, 2026-09-27) |
 | RC4 | Friction index is not correlated with b | NOT REFUTED |
