@@ -108,10 +108,16 @@ RC1 aguanta en mayoría. Pero al cruzar con b apareció esto:
 | lineal | 1 | +0.453 | — |
 
 ```
-Spearman b vs ΔAIC_potencia:  rho = -0.657   p = 0.0031
+Spearman b vs ΔAIC_potencia:  rho = -0.657   p = 0.0031   (publicado v32)
+                              rho = -0.796   p = 0.0001   (recomputado 2026-10-02)
 b>=1 x gana ley de potencia:  Fisher OR = 0.056   p = 0.0441
                               (3 de 4 casos superlineales son exponenciales)
 ```
+
+El bloque de arriba conserva **la cifra publicada** y la recomputada **juntas, las dos
+etiquetadas**, en vez de reemplazar una por la otra. La publicada es el registro de lo
+que se publicó y se cita en otros documentos; borrarla deja esas citas sin referente y
+oculta que hubo un recómputo. La nota siguiente explica la diferencia al dígito.
 
 **Corrección de signo (2026-10-02).** La línea de arriba decía `rho = +0.657`. Es un
 error de tecleo en la prosa de este informe, no en el resultado: el runner
@@ -133,6 +139,27 @@ ley de potencia.
 El corpus reporta `pct_b_super = 14.1%` (102 de 721 casos). Si el patrón generaliza, ese 14.1%
 está mal clasificado. **No se puede confirmar sin las series crudas de los otros dominios** —
 n=18 es poca base para extrapolar. Pero es la hipótesis a probar primero.
+
+> **Estado al 2026-10-02 (RC1), posterior a este informe.** La hipótesis se probó
+> pre-registrada sobre tres dominios y la respuesta partió el enunciado en dos:
+>
+> 1. **"A mayor b, peor ajusta la ley de potencia" queda retirado como hallazgo sobre
+>    los sistemas.** Una compuerta que simula desde una **ley de potencia conocida**
+>    muestra que el AIC se equivoca de modelo en el 80.3% / 96.8% / 48.9% de las
+>    réplicas en la banda `b ≥ 1`, y el error **crece con b**. El patrón que esta
+>    sección leyó era el estimador, no las cavidades. RC1 queda **cerrado como
+>    indecidible por AIC** en estos dominios.
+> 2. **Pero la etiqueta sí se cae, por evidencia que no usa el AIC.** Una exponencial
+>    verdadera ajustada como ley de potencia produce `b ≥ 1` en el 99.9% de las
+>    réplicas de la banda alta de E3 y el 100% en ACO, contra 0.0% donde la `b` real es
+>    < 0.5. La banda `b > 1` **no tiene respaldo como régimen físico**, y el 14.1% no
+>    es el conteo de un régimen. La etiqueta se retiró de `snt_utils.py`,
+>    `snt_utils_v32.py`, `delta/snt_market_core.py` y `dashboard/app.py`.
+>
+> Informe: [`RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md`](RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md).
+> La ρ de esta sección tampoco se promedia con las de los otros dominios: por Axioma
+> 0.1 son tres resultados por dominio, y **no concuerdan** (−0.796 en ACO, −0.250 en
+> E3 y +0.039, no significativa, en el Dominio B).
 
 Nota de coherencia interna: el propio ACO ya clasifica el modo "Catastrophic Cliff" como
 *super-exponential*. O sea, el marco ya sabe que algunos colapsos no son leyes de potencia. El

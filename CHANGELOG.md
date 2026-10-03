@@ -164,6 +164,24 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   ρ = 0.94 con `b` verdaderamente constante mantiene 4.7% de falso positivo contra el
   5% nominal, en el mismo régimen donde el OLS del Dominio B tiene 59.5%.
   `code/deriva_forma_friccion.py`, con su tabla de poder por brazo.
+- **El `ρ = −0.657` publicado de la auditoría v32 se conserva junto al recomputado, no
+  se reemplaza.** La revisión del PR #54 propuso sustituir la cifra del bloque de
+  resultados por el **−0.796** recomputado. No se hace: la publicada es el registro de
+  lo que se publicó y lo que otros documentos citan, y borrarla deja esas citas sin
+  referente y oculta que hubo un recómputo. Las dos quedan en el bloque, **las dos
+  etiquetadas** (`(publicado v32)` y `(recomputado 2026-10-02)`), con la nota que ya
+  explicaba la diferencia al dígito justo debajo. Lo que sí se corrigió el 2026-10-02
+  —y sigue corregido— fue el **signo** de la prosa, que decía `+0.657` cuando el runner
+  siempre registró `−0.657`.
+- **Y de paso, una afirmación de esa misma sección que RC1 dejó obsoleta.** El informe
+  v32 cerraba con *"A mayor b, peor ajusta la ley de potencia"*. RC1 (2026-10-02)
+  partió ese enunciado en dos y la sección ahora lo dice: (1) **queda retirado como
+  hallazgo sobre los sistemas**, porque simulando desde una ley de potencia **conocida**
+  el AIC se equivoca de modelo en el 80.3% / 96.8% / 48.9% de las réplicas de la banda
+  `b ≥ 1` y el error **crece con b** — era el estimador, no las cavidades; (2) **pero la
+  etiqueta sí se cae**, por evidencia que no usa el AIC. Se añade también que esa ρ no
+  se promedia con las de los otros dominios: por Axioma 0.1 son tres resultados y **no
+  concuerdan** (−0.796 ACO, −0.250 E3, +0.039 n.s. Dominio B).
 - **Se implementan los dos puntos secundarios pre-registrados que faltaban en la
   prueba de deriva**, S2 y S4, a señalamiento de la revisión del PR #54. La primera
   versión del informe los **omitió sin declararlo**, que es exactamente el defecto que
