@@ -162,35 +162,53 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   primera que se detecta **antes** de publicar.
 - **Herramienta reutilizable: nulo simulado por caso para derivas de exponente.** A
   ρ = 0.94 con `b` verdaderamente constante mantiene 4.7% de falso positivo contra el
-  5% nominal, en el mismo régimen donde el OLS del Dominio B tiene 67.0%.
+  5% nominal, en el mismo régimen donde el OLS del Dominio B tiene 59.5%.
   `code/deriva_forma_friccion.py`, con su tabla de poder por brazo.
-- **El valor puntual del Dominio B se cierra como INDECIDIBLE** (2026-10-02;
-  pre-registro `preregistro/PREREGISTRO_DOMINIO_B_PUNTUAL_2026-10-02.md`, commit
-  `05bc9ee`, informe `audits/RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md`). Era el
-  último número abierto de la teoría y la respuesta es que **no hay número**.
+- **El valor puntual del Dominio B se cierra en 33 de 156 estimables (21.2%)**
+  (2026-10-02, **corregido 2026-10-03**; pre-registro
+  `preregistro/PREREGISTRO_DOMINIO_B_PUNTUAL_2026-10-02.md`, commit `05bc9ee`,
+  informe `audits/RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md`). Era el último número
+  abierto de la teoría.
   - En vez de elegir una corrección por autoridad —el razonamiento que produjo el
     120/156 imposible de Newey-West— se midió la de cada una: 2,000 casos sintéticos
     con `b = 0` y la terna `(n, ρ, σ)` de un caso real, donde todo rechazo es un falso
-    positivo por construcción. **Ninguno de los doce métodos cae en la banda de
-    admisión [2.5%, 7.5%]** fijada por anticipado: cota inferior AR(1) 11.7%,
-    Prais-Winsten GLS 17.1%, bootstrap por bloques 24.1%, Newey-West 52.3%, y el
-    **OLS con el que se construyó el corpus, 67.0%**.
-  - **El fallo es de tamaño, no de conservadurismo:** el poder va del 74% al 98% a
-    `b = −0.30` y del 91% al 100% a `b = −0.60`. Todos los métodos detectan un efecto
-    real sin problema; el problema es que también "detectan" los que no existen.
+    positivo por construcción. **Uno de los doce métodos cae en la banda de admisión
+    [2.5%, 7.5%]** fijada por anticipado: la cota inferior AR(1), con **7.1%**. Los
+    demás quedan fuera: Prais-Winsten GLS 11.3%, bootstrap por bloques 15.6%,
+    Newey-West 40.8%, y el **OLS con el que se construyó el corpus, 59.5%**.
+  - **El método admisible no lo es por ser ciego:** su poder es **84.1%** a
+    `b = −0.30` y 95.6% a `b = −0.60`. Es el menos potente de los doce —los otros once
+    compran poder gastando tamaño— pero detecta cinco de cada seis efectos moderados.
   - Sobre los 446 casos reales la cuenta va de **33 a 134 de 156** según el método.
-    Ese abanico, con los mismos datos y la misma hipótesis, es el argumento.
-  - **El 33 queda respaldado por medición:** de los doce candidatos, el mejor
-    calibrado es exactamente la corrección que la auditoría ya había elegido por
-    prudencia, y devuelve exactamente 33. Y el 374/446 publicado queda **cuantificado**
-    en vez de solo sospechado.
-  - **Consecuencia:** el Dominio B pasa a ser **descriptivo, no inferencial**. Las 446
-    `b` siguen siendo descripciones válidas y reproducibles; lo que no se puede hacer
-    con ellas es contar cuántas son "significativas". Ni el exponente ni la dirección
-    de los hallazgos del dominio cambian.
-  - Tres validaciones del propio diseño: 446/446 series reproducen su `b` publicada
-    con |Δ| ≤ 1×10⁻⁴, `nw_auto` devuelve el 120/156 de la auditoría y `ar1_inf`
-    devuelve el 33/156 publicado.
+    Ese abanico, con los mismos datos y la misma hipótesis, es el argumento de por qué
+    la calibración tenía que decidir en lugar de la autoridad del método.
+  - **Tres reservas van con el número**, escritas en la §6.1 del informe y no después:
+    (1) la admisión es **marginal** —7.1% está a 0.4 puntos del techo de la banda y su
+    IC95 de Wilson, [5.5%, 9.2%], la rebasa—; (2) el chequeo pre-registrado "¿cae
+    dentro de [33, 112]?" es **tautológico** para este método, porque `ar1_inf` *es*
+    el estimador que produjo la cota inferior, así que se satisface en el borde exacto
+    y por construcción; (3) al ser el menos potente, el 33 se lee **"al menos 33 de
+    156"**, no "exactamente 33".
+  - **Consecuencia:** el Dominio B conserva capacidad inferencial, **reducida en un
+    factor de 11** respecto a lo publicado (33 contra 374 de 446). Las 446 `b` siguen
+    siendo descripciones válidas y reproducibles. Ni el exponente ni la dirección de
+    los hallazgos del dominio cambian. El 374/446 queda **cuantificado** en vez de
+    solo sospechado: el procedimiento que lo produjo rechaza el 59.5% bajo la nula.
+  - Cuatro validaciones del propio diseño: 446/446 series reproducen su `b` publicada
+    con |Δ| ≤ 1×10⁻⁴, `nw_auto` devuelve el 120/156 de la auditoría, `ar1_inf`
+    devuelve el 33/156 publicado y el estrato simulado reproduce la proporción real de
+    estimables (36.7% contra 35.0%).
+  - **Corrección del 2026-10-03 (defecto de estratificación).** La primera corrida
+    concluía lo contrario —ningún método admisible, valor puntual indecidible— porque
+    el estrato de estimabilidad de la simulación se clasificaba por la **realización
+    simulada** en vez de por el **caso real de origen**. Con `b = 0`, ρ se subestima
+    en series cortas, `n_eff` sale inflada y el 86.9% de las simulaciones caía en un
+    estrato que en los datos reales es del 35.0%, contaminado con casos de ρ alta.
+    Todas las tasas salían demasiado pesimistas. Corregido, el estrato pasa a 36.7% y
+    las doce tasas bajan entre 4.6 y 13.1 puntos; una sola cruza la banda. El defecto
+    lo detectó la revisión automatizada del PR #54. El informe trae las dos tablas de
+    números y declara la corrida doble; el punto 3 sobre datos reales es idéntico al
+    dígito en las dos corridas, porque no toca la simulación.
 - **Corregido el diagnóstico de Newey-West.** La auditoría anotaba que subcorrige *por
   la ρ alta*. Con **ruido blanco puro** (ρ = 0, n = 69, `b` = 0) ya rechaza el 12.2%
   —y el 25.2% con rezago `n/4`— contra un 5% nominal: el estimador HAC está mal

@@ -71,9 +71,23 @@ Desviaciones.
 | **S1** | "Potencia → lineal" predice cruzar `b = 1` a la baja | **0.0%** en Dominio B, **0.4%** en cripto, 9.6% en npm | **Tres enunciados por dominio**, no uno general: el cruce no ocurre en el Dominio B ni en cripto; en npm ocurre en 9.6% y su brazo está contaminado por el crecimiento del ecosistema |
 | **S3** | ¿La deriva es una firma pre-colapso? | Extinguidos 17.1% contra persistentes 14.7%; los extinguidos con deriva mediana **+0.187** (ascendente) | **No hay firma pre-colapso** |
 
-**Veredicto:** con el poder disponible, **`b` se comporta como constante dentro de cada
-caso** en los tres dominios. La trayectoria de formas no está respaldada, y el régimen
-superlineal **no** es "un caso atrapado temprano".
+**Veredicto:** **no se evidenció deriva apreciable de `b` dentro de los casos**, y el
+alcance de esa frase es desigual entre los tres brazos, porque el poder lo es:
+
+- **Dominio B, 31.7% de poder contra una deriva 1.5 → 0.5:** es el único brazo donde
+  el negativo se interpreta. Detección descendente 10.1% contra ascendente 11.9%, con
+  poder suficiente para haber visto ~32% si la deriva existiera. **Resultado negativo
+  real, no falta de poder.**
+- **Cripto, 11.7%, y npm, 6.7%:** a ese poder **ningún negativo es interpretable**.
+  Lo que estos dos brazos aportan no es "`b` es constante" sino "esta prueba no puede
+  decirlo aquí". El 55.5% de cripto, además, queda explicado por un artefacto de
+  selección (§3) y no por deriva.
+
+Por lo tanto: la trayectoria de formas **no queda respaldada en el Dominio B**, y en
+cripto y npm **queda sin probar**, no refutada. Lo mismo aplica a "el régimen
+superlineal es un caso atrapado temprano": el cruce del `b = 1` no ocurre en el
+Dominio B (0.0%) ni en cripto (0.4%), lo cual **quita el respaldo** a la consecuencia
+propuesta sin demostrar su negación.
 
 ---
 
@@ -212,7 +226,7 @@ mediana **positiva**. **No hay firma de deriva antes del colapso.**
 
 | Afirmación | Estado anterior | Estado ahora |
 |---|---|---|
-| La forma es una trayectoria dentro del caso (potencia → lineal) | Hipótesis del autor, 2026-10-02 | **No respaldada.** `b` se comporta como constante en los tres dominios al poder disponible |
+| La forma es una trayectoria dentro del caso (potencia → lineal) | Hipótesis del autor, 2026-10-02 | **No respaldada en el Dominio B** (31.7% de poder, 10.1% descendente contra 11.9% ascendente). **Sin probar en cripto y npm**, cuyo poder —11.7% y 6.7%— no permite interpretar un negativo |
 | La trayectoria requiere fricción; lo digital no la tiene | Predicción diferencial pre-registrada | **No evaluable con este diseño**: el contraste entre dominios es inadmisible (Axioma 0.1) y se retira. Lo que sí queda medido es que el aparente efecto en cripto es un **artefacto de listado**. La formulación admisible —que el dominio digital tiene transiciones más abruptas **contra su propio nulo**— queda sin probar |
 | El régimen superlineal es "un caso atrapado temprano" | Consecuencia propuesta para RC1 | **Sin respaldo.** El cruce del 1 ocurre en 0.0% del Dominio B y 0.4% de cripto |
 | La deriva como firma pre-colapso | Idea secundaria | **Sin respaldo.** Extinguidos y persistentes indistinguibles |
@@ -231,7 +245,7 @@ mediana **positiva**. **No hay firma de deriva antes del colapso.**
    temporales hereda esto, y es un hallazgo de instrumento que no depende de la SNT.
 3. **El nulo simulado por caso neutraliza la autocorrelación.** A ρ = 0.94, con `b`
    verdaderamente constante, la prueba mantiene 4.7% de falso positivo contra el 5%
-   nominal — en el mismo régimen donde el OLS del Dominio B tiene 67.0%. La
+   nominal — en el mismo régimen donde el OLS del Dominio B tiene 59.5%. La
    herramienta sirve y es reutilizable.
 
 ### Lo que NO se concluye
@@ -278,7 +292,7 @@ ascendente — que fue la que mostró que el Dominio B es simétrico y por tanto
 
 - **A `b` constante con ruido blanco:** 5.3% de falso descendente (nominal 5%).
 - **A `b` constante con AR(1) ρ = 0.94:** **4.7%** de falso descendente. El nulo por
-  caso absorbe la autocorrelación en el régimen donde el OLS tiene 67%.
+  caso absorbe la autocorrelación en el régimen donde el OLS tiene 59.5%.
 - **Con deriva real 1.5 → 0.5:** detectada en 60.7% con ruido blanco, 14.7% con
   ρ = 0.94, y **0.0% en dirección ascendente** — el detector no se equivoca de signo.
 - **Con deriva real ascendente 0.5 → 1.5:** 66.0% ascendente, 0.0% descendente.

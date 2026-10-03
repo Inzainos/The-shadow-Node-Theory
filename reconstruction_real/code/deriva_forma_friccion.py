@@ -22,7 +22,7 @@ nivel; un precio de cripto es un cociente y cripto es friccion ~ 0):
 Se mide el exponente local b_k por ventana movil y se toma Spearman entre el indice de
 ventana y b_k. El nulo se simula POR CASO con b constante y el ruido AR(1) del propio
 caso, porque una deriva descendente tambien la produce la autocorrelacion: en el
-Dominio B el OLS tiene 67.0% de falso positivo. Cada brazo se compara contra su propio
+Dominio B el OLS tiene 59.5% de falso positivo. Cada brazo se compara contra su propio
 nulo.
 
 Salidas:

@@ -8,8 +8,10 @@ PIBpc_hub/PIBpc_nodo y un OLS de log R contra log t. La auditoria v32 mostro que
 sus residuos son casi de raiz unitaria: DW mediana 0.112, rho AR(1) mediana 0.944,
 n efectiva mediana 2.2 contra 69 nominal. La particion de estimabilidad (156 si,
 290 no) y las cotas de significativos entre los estimables (33 a 112) estan
-cerradas. El valor puntual no: Newey-West con rezago automatico da 120 de 156, por
-encima de la cota superior, porque subcorrige a rho ~ 0.94.
+cerradas. El valor puntual no lo estaba: Newey-West con rezago automatico da 120 de
+156, por encima de la cota superior, porque subcorrige a rho ~ 0.94. La corrida del
+2026-10-03 lo cierra en 33 de 156 (21.2%) con el unico metodo admisible de doce; ver
+las tres reservas en la seccion 6.1 del informe.
 
 El diseno no elige un metodo por autoridad, lo mide:
 
@@ -288,8 +290,13 @@ def main():
         n = len(c["x"])
         dw = durbin_watson(e)
         rho = rho_de_dw(dw)
-        perfiles.append((n, rho, float(np.std(e, ddof=2))))
         c.update(b=b, n=n, dw=dw, rho=rho, n_eff=n_efectivo(n, rho))
+        # El cuarto elemento es si el caso REAL de origen es estimable. Ver la
+        # nota de estratificacion en nulo_por_caso... mas abajo: clasificar por
+        # la realizacion simulada en vez de por el origen metia casos de rho
+        # alta en el estrato, porque rho se subestima en series cortas.
+        perfiles.append((n, rho, float(np.std(e, ddof=2)),
+                         c["n_eff"] >= 3.0))
     if desvios:
         for i, bb, bp in desvios[:5]:
             log.error("   %s: b reconstruida %.6f contra publicada %.6f", i, bb, bp)
@@ -324,8 +331,10 @@ def main():
         validos = {m: 0 for m in NOMBRES}
         val_est = {m: 0 for m in NOMBRES}
         n_est = 0
+        n_est_realizacion = 0
         for _ in range(N_SIM):
-            n, rho, sigma = perfiles[rng.integers(0, len(perfiles))]
+            n, rho, sigma, fuente_estimable = perfiles[
+                rng.integers(0, len(perfiles))]
             e = np.empty(n)
             e[0] = rng.normal(0.0, sigma)
             ruido = rng.normal(0.0, sigma * math.sqrt(1.0 - rho ** 2), n - 1)
@@ -334,8 +343,17 @@ def main():
             x = np.log(np.arange(1, n + 1, dtype=float))
             y = b_true * x + e
             ps = todos_los_p(x, y, BOOT_SIM, rng)
-            estimable = ps["_n_eff"] is not None and ps["_n_eff"] >= 3.0
+            # El estrato lo fija el caso REAL de origen, no la realizacion
+            # simulada. Clasificar por la realizacion (como hizo la primera
+            # corrida) mandaba 87% de las simulaciones al estrato estimable
+            # cuando en los datos reales es 35%: con b = 0 los residuos son el
+            # propio ruido AR(1) y rho se subestima en series cortas, asi que
+            # n_eff sale inflada y entran casos de rho alta que el estrato real
+            # no contiene. Eso sesgaba la tasa que decide la admisibilidad.
+            estimable = bool(fuente_estimable)
             n_est += estimable
+            n_est_realizacion += (ps["_n_eff"] is not None
+                                  and ps["_n_eff"] >= 3.0)
             for m in NOMBRES:
                 p = ps[m]
                 if p is None or not np.isfinite(p):
@@ -346,7 +364,10 @@ def main():
                     val_est[m] += 1
                     rech_est[m] += p < ALFA
         log.info("")
-        log.info("%s — estimables en la simulacion: %d/%d", etiqueta, n_est, N_SIM)
+        log.info("%s — estimables por el caso REAL de origen: %d/%d "
+                 "(por la realizacion simulada habrian sido %d/%d; ver la nota "
+                 "de estratificacion)", etiqueta, n_est, N_SIM,
+                 n_est_realizacion, N_SIM)
         log.info("%-10s %10s %12s %10s %12s  %s", "metodo", "tasa total",
                  "(evaluables)", "tasa est.", "(evaluables)", "pre-registrado")
         for m in NOMBRES:
@@ -447,8 +468,9 @@ def main():
                  "La cifra cae %s de las cotas.",
                  "DENTRO" if 33 <= sig_e <= 112 else "FUERA")
     else:
-        log.info("El valor puntual queda cerrado como INDECIDIBLE: con rho ~ 0.94 "
-                 "y n ~ 69 ningun metodo evaluado alcanza el tamano nominal.")
+        log.info("El valor puntual NO se declara: con rho ~ 0.94 y n ~ 69 ningun "
+                 "metodo evaluado alcanza el tamano nominal. Por regla "
+                 "pre-registrada queda cerrado como indecidible.")
     log.info("Calibracion -> %s", OUT_CAL.relative_to(ROOT))
     log.info("Por caso    -> %s", OUT_PTO.relative_to(ROOT))
     log.info("LOG         -> %s", LOG_FILE.relative_to(ROOT))

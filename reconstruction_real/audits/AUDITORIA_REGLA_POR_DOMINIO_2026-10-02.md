@@ -107,7 +107,8 @@ concreto de inferencia:
 
 Entero dentro de un solo dominio, con un solo proxy: 12 métodos, calibración por
 simulación con la terna `(n, ρ, σ)` de casos reales **de ese dominio**, valor puntual
-declarado indecidible.
+cerrado en 33 de 156 (21.2%) por el único método admisible (corregido 2026-10-03; la
+primera corrida lo declaraba indecidible por un defecto de estratificación).
 
 **VÁLIDO sin cambios.** Cero afirmaciones entre dominios.
 

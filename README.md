@@ -353,15 +353,29 @@ pytest reconstruction_real/tests                                 # fixes 156 / 2
    | **Not estimable** (`n_eff < 3`) — not "non-significant" | **290 / 446 (65.0%)** |
    | Significant among estimable — lower bound (inflated SE + df) | **33 (21.2%)** |
    | Significant among estimable — upper bound (df only) | 112 (71.8%) |
-   | Point value | **closed 2026-10-02 as undecidable.** Twelve corrections were scored on their *measured* false-positive rate against 2,000 synthetic cases built with b = 0 and each real case's own (n, ρ, σ). None reaches the pre-registered [2.5%, 7.5%] band: the best is the lower-bound AR(1) correction at **11.7%**, then Prais-Winsten GLS at 17.1% and the block bootstrap at 24.1%, up to **67.0% for the naive OLS the corpus was built with**. Power is 74–98% at b = −0.30, so the failure is one of size, not conservatism. On the real data the count ranges from **33 to 134 of 156** depending on method, which is the argument itself. See [`RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md`](reconstruction_real/audits/RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md) |
+   | Point value | **closed 2026-10-02 (corrected 2026-10-03) at 33 of 156 estimable (21.2%).** Twelve corrections were scored on their *measured* false-positive rate against 2,000 synthetic cases built with b = 0 and each real case's own (n, ρ, σ). **One** reaches the pre-registered [2.5%, 7.5%] band: the lower-bound AR(1) correction, at **7.1%** (Wilson 95% CI [5.5%, 9.2%]). The rest fall outside — Prais-Winsten GLS 11.3%, block bootstrap 15.6%, Newey-West 40.8%, up to **59.5% for the naive OLS the corpus was built with**. The admissible method's power is 84.1% at b = −0.30 and 95.6% at b = −0.60: the least powerful of the twelve, but not blind. On the real data the count ranges from **33 to 134 of 156** depending on method, which is why calibration rather than authority had to decide. See [`RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md`](reconstruction_real/audits/RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md) |
 
-   Two consequences worth stating plainly. **The 33 is now backed by measurement**:
-   of twelve candidates, the best-calibrated one is exactly the correction the audit
-   had already picked out of caution, and it returns exactly 33. And **the published
-   374/446 is quantified rather than merely suspected** — the OLS procedure behind it
-   rejects the null 67.0% of the time when there is nothing to reject. Domain B's
-   exponents stand as descriptions; what cannot be done with them is count how many
-   are "significant". The domain is **descriptive, not inferential**.
+   Three reserves travel with the number, stated in §6.1 of the report rather than
+   afterwards. **The admission is marginal**: 7.1% sits 0.4 points below the band's
+   ceiling and its Wilson interval crosses it. **The bounds check is tautological for
+   this method**: `ar1_inf` *is* the estimator that produced the published lower bound,
+   so "falls within [33, 112]" is satisfied at the exact edge and by construction, not
+   independently. And because it is **the least powerful of the twelve** (one real
+   moderate effect in six escapes it), the figure reads **"at least 33 of 156"**, not
+   "exactly 33".
+
+   What does stand plainly: **the published 374/446 is quantified rather than merely
+   suspected** — the OLS procedure behind it rejects the null 59.5% of the time when
+   there is nothing to reject. Domain B keeps inferential capacity, **cut by a factor
+   of 11** against what was published. Its exponents stand as descriptions either way.
+
+   The first run of this block concluded the opposite — no admissible method, point
+   value undecidable — because the simulation classified its estimability stratum by
+   the **simulated realization** instead of by the **source real case**: with b = 0, ρ
+   is underestimated in short series, `n_eff` inflates, and 86.9% of simulations landed
+   in a stratum that is 35.0% of the real data, contaminated with high-ρ cases. Every
+   rate came out too pessimistic. The defect was caught in automated review of PR #54;
+   the report carries both tables of numbers and declares the double run.
 
    Newey-West's diagnosis also changed: on **white noise** at n = 69 it already
    rejects 12.2% (and 25.2% at lag n/4) against a nominal 5%. The HAC estimator is

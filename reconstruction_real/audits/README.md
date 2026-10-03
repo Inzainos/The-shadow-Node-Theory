@@ -27,7 +27,7 @@ committeados.
 python reconstruction_real/code/snt_auditoria_integral_v32.py
 ```
 
-### Valor puntual del Dominio B (2026-10-02) — cerrado como indecidible
+### Valor puntual del Dominio B (2026-10-02, corregido 2026-10-03) — cerrado en 33/156
 
 - **Pre-registro:** [`../preregistro/PREREGISTRO_DOMINIO_B_PUNTUAL_2026-10-02.md`](../preregistro/PREREGISTRO_DOMINIO_B_PUNTUAL_2026-10-02.md)
   (commit `05bc9ee`, subido antes de correr el script).
@@ -105,25 +105,35 @@ reporta un conteo sobre 446 —eso trata a los casos no estimables como
 | **No estimables** (`n_eff < 3`) | **290 / 446 (65.0%)** |
 | Sig. entre estimables — cota inf. (SE inflado + gl) | **33 (21.2%)** |
 | Sig. entre estimables — cota sup. (solo gl, `df>0`) | 112 (71.8%) |
-| Valor puntual | **cerrado 2026-10-02 como indecidible**: de doce correcciones evaluadas por su tasa de falso positivo medida, ninguna alcanza la banda [2.5%, 7.5%] (mejor: 11.7% la cota inferior; GLS 17.1%; bloques 24.1%; OLS 67.0%). Sobre los datos reales la cuenta va de 33 a 134 de 156 según el método. Informe: [`RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md`](RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md) |
+| Valor puntual | **cerrado 2026-10-02 (corregido 2026-10-03) en 33 de 156 (21.2%)**: de doce correcciones evaluadas por su tasa de falso positivo medida, **una** cae en la banda [2.5%, 7.5%] — la cota inferior AR(1), con 7.1% (IC95 Wilson [5.5%, 9.2%]); GLS 11.3%; bloques 15.6%; OLS 59.5%. Sobre los datos reales la cuenta va de 33 a 134 de 156 según el método. Admisión **marginal** y chequeo de cotas **tautológico** para ese método: ver §6.1 del informe. Informe: [`RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md`](RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md) |
 
 La partición **290/446 no estimables** es el hallazgo más limpio: sale directo de
 `n_eff < 3`, sin convenciones ni aproximación de Bartlett. La cota inferior 33 es
 la corrección coherente (**inflar el SE** `√((1+ρ)/(1−ρ))`, mediana 5.9×, *además*
-de recortar gl) y es invariante a la convención de gl. El valor puntual **se cerró el 2026-10-02, y la respuesta es que no hay número**
+de recortar gl) y es invariante a la convención de gl. El valor puntual **se cerró el 2026-10-02 y se corrigió el 2026-10-03: son 33 de
+156 estimables (21.2%)**, por la cota inferior AR(1)
 (pre-registro `../preregistro/PREREGISTRO_DOMINIO_B_PUNTUAL_2026-10-02.md`, commit
 `05bc9ee`, informe `RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md`). En vez de elegir
 una corrección por autoridad se midió la de cada una: 2,000 casos sintéticos con
 `b = 0` y la terna `(n, ρ, σ)` de un caso real, donde todo rechazo es un falso
-positivo por construcción. Ninguno de los doce métodos cae en la banda de admisión
-[2.5%, 7.5%] fijada por anticipado — la cota inferior AR(1) da 11.7%, Prais-Winsten
-GLS 17.1%, el bootstrap por bloques 24.1%, Newey-West 52.3% y el **OLS del corpus
-67.0%** — y el poder es del 74% al 98% a `b = −0.30`, así que el fallo es de tamaño y
-no de conservadurismo. Sobre los 446 casos reales la cuenta va de **33 a 134 de 156**
-según el método: ese abanico es el argumento. Tres validaciones salieron del diseño:
-446/446 series reproducen su `b` publicada, `nw_auto` devuelve el 120/156 de la
-auditoría y `ar1_inf` devuelve el 33/156 publicado. **El método mejor calibrado de los
-doce es el que ya se citaba como conservador, y da exactamente 33.** Nota de margen:
+positivo por construcción. **Uno** de los doce métodos cae en la banda de admisión
+[2.5%, 7.5%] fijada por anticipado — la cota inferior AR(1) da **7.1%**—, mientras
+Prais-Winsten GLS da 11.3%, el bootstrap por bloques 15.6%, Newey-West 40.8% y el
+**OLS del corpus 59.5%**. El poder del método admisible es **84.1%** a `b = −0.30` y
+95.6% a `b = −0.60`: es el menos potente de los doce, pero no es ciego. Sobre los 446
+casos reales la cuenta va de **33 a 134 de 156** según el método: ese abanico es el
+argumento de por qué la calibración tenía que decidir. Cuatro validaciones salieron
+del diseño: 446/446 series reproducen su `b` publicada, `nw_auto` devuelve el 120/156
+de la auditoría, `ar1_inf` devuelve el 33/156 publicado y el estrato simulado
+reproduce la proporción real de estimables (36.7% contra 35.0%). **Tres reservas van
+con el número** (§6.1 del informe): la admisión es marginal —7.1% está a 0.4 puntos
+del techo y su IC95 Wilson [5.5%, 9.2%] rebasa la banda—, el chequeo "¿cae en
+[33, 112]?" es **tautológico** porque `ar1_inf` *es* el estimador de la cota inferior,
+y al ser el menos potente el 33 se lee **"al menos 33"**, no "exactamente 33". La
+primera corrida de este bloque concluía lo contrario —ningún método admisible— por un
+defecto de estratificación en la simulación que la revisión del PR #54 detectó; el
+informe documenta el defecto, el antes y el después de los doce métodos, y la corrida
+doble. Nota de margen:
 recomputada desde las series crudas la cota superior da 113 y no 112, por el redondeo
 de un `dw` a tres decimales en un único caso (`B042`, Belgium→Spain, p = 0.0490 contra
 0.0503); la cota inferior da 33 por las dos vías.
