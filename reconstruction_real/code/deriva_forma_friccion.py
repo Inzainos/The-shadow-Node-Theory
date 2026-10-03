@@ -67,6 +67,11 @@ N_BOOT = 1999             # bootstrap de casos para el IC de la diferencia
 N_PODER = 60              # casos por brazo para medir el poder (anadido)
 DERIVAS_PODER = ((1.5, 0.5), (1.0, 0.5))   # derivas verdaderas simuladas
 MIN_VENTANAS = 5
+# S2: definicion operativa de "cae" contra "se mantiene". El pre-registro fijo el
+# punto pero no el umbral ni el estadistico, asi que se declaran aqui.
+S2_COLAPSO = 0.10         # retiene menos del 10% de su maximo -> cae
+S2_PERSISTE = 0.90        # retiene 90% o mas -> se mantiene
+N_NULO_S2 = 299           # replicas del nulo de retencion por caso
 RHO_TOPE = 0.995
 HUB_CRIPTO = "BTCUSDT"
 MIN_DIAS_CRIPTO = 200
@@ -164,6 +169,44 @@ def perfil_ruido(lx, ly):
     rho = float(np.sum(e[1:] * e[:-1]) / den) if den > 0 else 0.0
     rho = min(max(rho, 0.0), RHO_TOPE)
     return b, rho, float(np.std(e, ddof=2)) if len(e) > 2 else float(np.std(e))
+
+
+def retencion(lx, ly):
+    """Cuanto del maximo conserva el caso al final, en escala original.
+
+    r = mediana de la ultima ventana / maximo de la serie. Se toma la mediana de
+    la ventana y no el ultimo punto para que una sola observacion rara no decida
+    la clasificacion.
+    """
+    w, _, _ = ventanas(len(lx))
+    return float(np.exp(np.median(ly[-w:]) - np.max(ly)))
+
+
+def bandas_retencion(rs):
+    """Fracciones (colapso, intermedio, persiste) de un vector de retenciones."""
+    rs = np.asarray(rs, dtype=float)
+    if rs.size == 0:
+        return None
+    col = float(np.mean(rs < S2_COLAPSO))
+    per = float(np.mean(rs >= S2_PERSISTE))
+    return col, 1.0 - col - per, per
+
+
+def retencion_nula(lx, b, rho, sigma, rng, reps=N_NULO_S2):
+    """Retencion bajo b CONSTANTE con el ruido AR(1) del propio caso.
+
+    Sin esta referencia el reparto observado no se puede leer: con b negativa una
+    serie baja sola, asi que una fraccion alta de "colapso" puede ser la
+    pendiente y no una caida abrupta.
+    """
+    n = len(lx)
+    esc = sigma * math.sqrt(max(1.0 - rho ** 2, 1e-12))
+    z = rng.normal(0.0, esc, (reps, n))
+    z[:, 0] = rng.normal(0.0, sigma, reps)
+    e = lfilter([1.0], [1.0, -rho], z, axis=1)
+    ys = b * lx[None, :] + e
+    w, _, _ = ventanas(n)
+    return np.exp(np.median(ys[:, -w:], axis=1) - np.max(ys, axis=1))
 
 
 def nulo_por_caso(lx, b, rho, sigma, rng):
@@ -452,6 +495,78 @@ def main():
                     "b_ultima_mediana": round(u, 4), "cruzan_1": cr,
                     "frac_cruzan": round(cr / len(f), 4)})
 
+    # ------------------------------------------- S2 bimodalidad en friccion 0
+    log.info("")
+    log.info("=" * 78)
+    log.info("S2. BIMODALIDAD EN FRICCION 0 — 'o muy abruptos o se mantienen'")
+    log.info("=" * 78)
+    log.info("El pre-registro fijo el punto pero NO la definicion operativa de "
+             "'cae' ni un estadistico de bimodalidad. Se declaran aqui: retencion "
+             "r = mediana de la ultima ventana / maximo de la serie; cae si "
+             "r < %.2f, se mantiene si r >= %.2f. La hipotesis del autor predice "
+             "masa en los dos extremos y hueco en medio.", S2_COLAPSO, S2_PERSISTE)
+    log.info("Cada brazo digital se compara contra SU PROPIO nulo (b constante con "
+             "su rho y su sigma, %d replicas por caso), nunca contra otro brazo: "
+             "con b negativa una serie baja sola, asi que sin el nulo no se puede "
+             "saber si el hueco es real o aritmetica de la pendiente.", N_NULO_S2)
+    log.info("RNG propio (semilla %d) para no alterar las replicas de los puntos "
+             "ya corridos.", SEMILLA + 2)
+    rng_s2 = np.random.default_rng(SEMILLA + 2)
+    log.info("%-8s %6s %10s %12s %10s %12s %10s %12s", "brazo", "casos",
+             "cae obs", "cae nulo", "medio obs", "medio nulo", "mantiene",
+             "mant. nulo")
+    for brazo in ("Cripto", "npm"):
+        pool = [c for c in brazos if c["brazo"] == brazo]
+        if not pool:
+            continue
+        r_obs, nul_col, nul_med, nul_per = [], [], [], []
+        for c in pool:
+            lx, ly = c["lx"], c["ly"]
+            r_obs.append(retencion(lx, ly))
+            bg, rho_c, sg = perfil_ruido(lx, ly)
+            bn = bandas_retencion(retencion_nula(lx, bg, rho_c, sg, rng_s2))
+            if bn is None:
+                continue
+            nul_col.append(bn[0])
+            nul_med.append(bn[1])
+            nul_per.append(bn[2])
+        obs = bandas_retencion(r_obs)
+        if obs is None or not nul_col:
+            continue
+        esp = (float(np.mean(nul_col)), float(np.mean(nul_med)),
+               float(np.mean(nul_per)))
+        log.info("%-8s %6d %9.1f%% %11.1f%% %9.1f%% %11.1f%% %9.1f%% %11.1f%%",
+                 brazo, len(pool), 100 * obs[0], 100 * esp[0], 100 * obs[1],
+                 100 * esp[1], 100 * obs[2], 100 * esp[2])
+        res.append({"punto": "S2_bimodalidad_digital", "brazo": brazo,
+                    "casos": len(pool),
+                    "frac_cae": round(obs[0], 4),
+                    "frac_cae_nulo": round(esp[0], 4),
+                    "frac_medio": round(obs[1], 4),
+                    "frac_medio_nulo": round(esp[1], 4),
+                    "frac_mantiene": round(obs[2], 4),
+                    "frac_mantiene_nulo": round(esp[2], 4)})
+        # empinamiento de la caida cuando cae
+        caen = [x for x, r in zip(pool, r_obs) if r < S2_COLAPSO]
+        if caen:
+            ids = {x["id"] for x in caen}
+            g = [x for x in filas if x["brazo"] == brazo and x["id"] in ids]
+            if g:
+                bgm = float(np.median([x["b_global"] for x in g]))
+                bum = float(np.median([x["b_ultima_ventana"] for x in g]))
+                log.info("   empinamiento de los que caen (n=%d): b global "
+                         "mediana %+.3f | b de la ultima ventana %+.3f",
+                         len(g), bgm, bum)
+                res.append({"punto": "S2_empinamiento_caida", "brazo": brazo,
+                            "casos": len(g), "b_global_mediana": round(bgm, 4),
+                            "b_ultima_mediana": round(bum, 4)})
+        hueco = obs[1] - esp[1]
+        log.info("   hueco en medio: %+.1f puntos contra el nulo -> %s",
+                 100 * hueco,
+                 "mas vacio que el nulo (compatible con bimodalidad)"
+                 if hueco < 0 else
+                 "NO mas vacio que el nulo (sin evidencia de bimodalidad)")
+
     # --------------------------------------------- S3 control de supervivencia
     log.info("")
     log.info("=" * 78)
@@ -469,6 +584,45 @@ def main():
         res.append({"punto": "S3_supervivencia_npm", "brazo": etq,
                     "casos": len(g), "desc_sig": nd,
                     "frac_desc": round(nd / len(g), 4)})
+
+    # -------------------------------------------------- S4 relacion con RC1
+    log.info("")
+    log.info("=" * 78)
+    log.info("S4. RELACION CON RC1 — los casos con b >= 1, 'atrapados temprano'?")
+    log.info("=" * 78)
+    log.info("b >= 1 se usa aqui como CORTE NUMERICO, no como regimen: RC1 "
+             "(2026-10-02) midio que una exponencial verdadera ajustada como ley "
+             "de potencia cae ahi casi siempre, asi que el umbral no separa "
+             "satelizacion rapida de un desajuste de forma. Ver "
+             "audits/RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md.")
+    log.info("La comparacion es DENTRO de cada brazo; entre brazos no se compara.")
+    log.info("Bajo la hipotesis del autor, un caso con b >= 1 esta atrapado "
+             "temprano en su trayectoria, asi que deberia tener b de la primera "
+             "ventana aun mayor que su b global y deriva descendente.")
+    log.info("%-12s %-14s %6s %16s %14s %16s", "brazo", "grupo", "casos",
+             "b 1a ventana (med)", "b global (med)", "desc. sig.")
+    for brazo in ("Dominio B", "Cripto", "npm"):
+        f = [x for x in filas if x["brazo"] == brazo]
+        if not f:
+            continue
+        for etq, sel in (("b >= 1", True), ("b < 1", False)):
+            g = [x for x in f if (x["b_global"] >= 1.0) == sel]
+            if not g:
+                log.info("%-12s %-14s %6d %16s %14s %16s", brazo, etq, 0,
+                         "-", "-", "-")
+                res.append({"punto": "S4_rc1_superlineales", "brazo": brazo,
+                            "grupo": etq, "casos": 0})
+                continue
+            p1 = float(np.median([x["b_primera_ventana"] for x in g]))
+            pg = float(np.median([x["b_global"] for x in g]))
+            nd = sum(x["desc_sig"] for x in g)
+            log.info("%-12s %-14s %6d %16.3f %14.3f %10d (%4.1f%%)", brazo, etq,
+                     len(g), p1, pg, nd, 100 * nd / len(g))
+            res.append({"punto": "S4_rc1_superlineales", "brazo": brazo,
+                        "grupo": etq, "casos": len(g),
+                        "b_primera_mediana": round(p1, 4),
+                        "b_global_mediana": round(pg, 4),
+                        "desc_sig": nd, "frac_desc": round(nd / len(g), 4)})
 
     # ------------------------------------------------- PODER (anadido)
     log.info("")

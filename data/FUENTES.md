@@ -277,7 +277,9 @@ recae en él si el derivado no está.
 | Archivo de salida | SHA-256 |
 |---|---|
 | `reconstruction_real/data/deriva_forma_por_caso.csv` | `56eeb28b82605fb4eb106145b1b342cafb12ba9ce433f133eef4ed6d41c9b299` |
-| `reconstruction_real/data/deriva_forma_resumen.csv` | `848be0936875973c9d5c3e38668ef285aece34117310a79a1fb400742b0070ce` |
+| `reconstruction_real/data/deriva_forma_resumen.csv` | `37297b6c331c2759b14d6f836ac36a7b6a917a5039845cf1868c3923afcedddc` |
+
+El hash del resumen cambió el 2026-10-03 al añadirse los puntos secundarios S2 y S4, que faltaban. Cambia **solo por las filas nuevas** `S2_*` y `S4_*`: `deriva_forma_por_caso.csv` conserva su SHA-256 al bit y ninguna cifra de los puntos anteriores se movió. El hash previo del resumen era `848be0936875973c9d5c3e38668ef285aece34117310a79a1fb400742b0070ce`.
 
 **Nota de calidad, de primer orden para cualquiera que use datos de Binance en análisis
 temporales.** El momento en que un exchange lista una moneda es un **sesgo de selección

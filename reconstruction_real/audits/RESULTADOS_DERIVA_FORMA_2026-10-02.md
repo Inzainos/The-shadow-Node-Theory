@@ -78,6 +78,8 @@ Desviaciones.
 | **P1, npm** | Deriva ausente | 14.9% descendente contra 10.4% ascendente; poder 6.7% | **No informativo** |
 | **S1** | "Potencia → lineal" predice cruzar `b = 1` a la baja | **0.0%** en Dominio B, **0.4%** en cripto, 9.6% en npm | **Tres enunciados por dominio**, no uno general: el cruce no ocurre en el Dominio B ni en cripto; en npm ocurre en 9.6% y su brazo está contaminado por el crecimiento del ecosistema |
 | **S3** | ¿La deriva es una firma pre-colapso? | Extinguidos 17.1% contra persistentes 14.7%; los extinguidos con deriva mediana **+0.187** (ascendente) | **No hay firma pre-colapso** |
+| **S2** | "O muy abruptos o se mantienen" predice masa en los extremos y hueco en medio | El hueco **no existe**: la banda de en medio sale **más llena** que su propio nulo (+6.4 puntos en cripto, +6.2 en npm), y la banda "se mantiene" está vacía en los datos **y en el nulo** (0.5% / 0.0%) | **Sin respaldo**, y la mitad "se mantienen" no es ni medible |
+| **S4** | ¿Los casos con `b ≥ 1` están "atrapados temprano"? | **Tres enunciados por dominio.** Dominio B: lo contrario —`b` de la 1ª ventana 0.007 contra `b` global 1.082, y 0.0% de deriva descendente (n = 6). npm: compatible —1.110 contra 1.300 y 33.3% descendente contra 13.4% del resto (n = 33). Cripto: n = 2, no dice nada | **No se sostiene como enunciado general** |
 
 **Veredicto:** **no se evidenció deriva apreciable de `b` dentro de los casos**, y el
 alcance de esa frase es desigual entre los tres brazos, porque el poder lo es:
@@ -230,6 +232,120 @@ mediana **positiva**. **No hay firma de deriva antes del colapso.**
 
 ---
 
+## 5.1 S2 — La bimodalidad de los ambientes digitales no aparece
+
+**Este punto estaba pre-registrado y faltaba en la primera versión del informe.** Se
+implementó y corrió el **2026-10-03**, a señalamiento de la revisión del PR #54, junto
+con S4. La omisión queda declarada en la sección de desviaciones.
+
+Es la mitad **"o muy abruptos o se mantienen"** de la hipótesis del autor: en fricción
+≈ 0 no habría trayectoria gradual, sino dos destinos. El pre-registro fijó el punto
+—"fracción que persiste contra fracción que cae, y empinamiento de la caída cuando
+cae"— pero **no fijó ni el umbral de "cae" ni un estadístico de bimodalidad**, así que
+las dos cosas se declaran aquí y van marcadas como operacionalización posterior:
+
+- **Retención** `r` = mediana de la última ventana / máximo de la serie. Se toma la
+  mediana de la ventana y no el último punto para que una sola observación rara no
+  decida la clasificación.
+- **Cae** si `r < 0.10`; **se mantiene** si `r ≥ 0.90`; lo de en medio es la banda
+  gradual. La hipótesis predice masa en los extremos y **hueco en medio**.
+
+Y aquí está lo que vuelve legible el resultado: **cada brazo se compara contra su
+propio nulo**, nunca contra el otro. El nulo es `b` constante con la ρ y la σ de ese
+mismo caso, 299 réplicas. Sin esa referencia el reparto no se puede leer: con `b`
+negativa una serie **baja sola**, así que una fracción alta de "colapso" puede ser la
+pendiente y no una caída abrupta. (RNG propio, semilla `20261004`, para no alterar las
+réplicas de los puntos ya corridos.)
+
+| Brazo | n | Cae: obs. | Cae: nulo | En medio: obs. | En medio: nulo | Se mantiene: obs. | Se mantiene: nulo |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Cripto | 571 | 70.1% | **76.7%** | 29.4% | **23.0%** | 0.5% | 0.3% |
+| npm | 450 | 43.8% | **50.0%** | 56.2% | **50.0%** | 0.0% | 0.0% |
+
+**Las tres lecturas, y las tres van contra la hipótesis:**
+
+1. **El hueco en medio no existe. Es lo contrario.** La banda gradual sale **más
+   llena** que su propio nulo: +6.4 puntos en cripto, +6.2 en npm. Bimodalidad
+   predeciría el signo opuesto.
+2. **La fracción que "cae" es menor que la del nulo** en los dos brazos (70.1% contra
+   76.7%; 43.8% contra 50.0%). Es decir: estos casos caen **menos** de lo que caerían
+   por su sola pendiente con ruido. El "muy abrupto" no está ahí.
+3. **La mitad "se mantienen" no es medible con esta definición.** 0.5% y 0.0% en los
+   datos, pero **0.3% y 0.0% en el nulo**: la banda `r ≥ 0.90` está estructuralmente
+   casi vacía —exige terminar prácticamente en el máximo, que con ruido es raro—, así
+   que su vacío **no informa nada sobre el mundo**. Es precisamente lo que el nulo
+   sirve para detectar, y por eso no se reporta "casi nada persiste" como hallazgo.
+
+**Empinamiento de la caída, cuando cae** (lo otro que pedía el punto):
+
+| Brazo | n que caen | `b` global (mediana) | `b` de la última ventana (mediana) |
+|---|---:|---:|---:|
+| Cripto | 400 | −0.836 | **−3.474** |
+| npm | 197 | −0.556 | **+2.867** |
+
+En cripto la caída sí se empina muchísimo al final (−3.5 contra −0.8 global), pero esa
+cifra **no se puede leer como dinámica**: es el mismo brazo cuyo 70.1% de máximos en el
+primer 10% de la serie quedó identificado como artefacto de listado en la §3. En npm el
+signo se **invierte** —la última ventana sube a +2.9— por el crecimiento del ecosistema
+descrito en la §4. Ninguno de los dos empinamientos es interpretable, y por la regla
+por dominio tampoco se promedian.
+
+> **Veredicto de S2:** en los dos brazos digitales, el reparto de destinos no se aparta
+> de lo que produce un exponente constante con el ruido de cada caso. La predicción de
+> bimodalidad **no recibe respaldo**, y su mitad "se mantienen" no llega a ser medible
+> bajo esta operacionalización. Como siempre, es un enunciado **de estos dos brazos con
+> este proxy**, no de "lo digital".
+
+---
+
+## 5.2 S4 — Los `b ≥ 1` no están "atrapados temprano", y la respuesta es por dominio
+
+**También pre-registrado y también faltante en la primera versión**; corrido el
+2026-10-03.
+
+Primero una advertencia que la propia ronda obliga a poner: **`b ≥ 1` se usa aquí como
+corte numérico, no como régimen.** RC1 midió el 2026-10-02 que una exponencial
+verdadera ajustada como ley de potencia cae en esa banda casi siempre (99.9% en la
+banda alta de E3, 100% en ACO, contra 0.0% donde la `b` real es < 0.5), así que el
+umbral **no separa satelización rápida de un desajuste de forma**. Ver
+[`RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md`](RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md).
+
+La predicción del autor era: un caso con `b ≥ 1` está **atrapado temprano** en su
+trayectoria, así que debería tener `b` de la primera ventana **aún mayor** que su `b`
+global y deriva descendente. La comparación es **dentro** de cada brazo:
+
+| Brazo | Grupo | n | `b` 1ª ventana (mediana) | `b` global (mediana) | Descendente sig. |
+|---|---|---:|---:|---:|---:|
+| **Dominio B** | `b ≥ 1` | 6 | **0.007** | 1.082 | **0 (0.0%)** |
+| Dominio B | `b < 1` | 440 | 0.015 | 0.057 | 45 (10.2%) |
+| **Cripto** | `b ≥ 1` | 2 | −0.260 | 1.825 | 1 (50.0%) |
+| Cripto | `b < 1` | 569 | −0.221 | −0.661 | 316 (55.5%) |
+| **npm** | `b ≥ 1` | 33 | **1.110** | 1.300 | **11 (33.3%)** |
+| npm | `b < 1` | 417 | 0.288 | −0.223 | 56 (13.4%) |
+
+**Tres enunciados, uno por dominio, como manda el Axioma 0.1:**
+
+- **Dominio B: lo contrario de la predicción.** Sus 6 casos con `b ≥ 1` empiezan con
+  `b` de ventana **0.007** —indistinguible del resto del dominio— y terminan con `b`
+  global 1.082. No vienen de arriba: su `b` global alta se construye a lo largo de la
+  serie. Y **ninguno** tiene deriva descendente significativa, contra 10.2% del resto
+  del mismo brazo. Con n = 6 esto no prueba nada por sí solo, pero va en la dirección
+  opuesta a la hipótesis, no a su favor.
+- **npm: compatible con la predicción, en el brazo más débil.** Ahí sí los `b ≥ 1`
+  arrancan alto (1.110) y derivan hacia abajo con más frecuencia que el resto (33.3%
+  contra 13.4%). Es el único apoyo que S4 encuentra, y llega con tres descuentos: el
+  brazo tiene **6.7% de poder**, es el brazo de **nivel** (contaminado por el
+  crecimiento del ecosistema, §4), y son **33 casos**.
+- **Cripto: n = 2.** No dice nada y se reporta para que no parezca que se escondió.
+
+> **Veredicto de S4:** la consecuencia "los superlineales son casos atrapados
+> temprano" **no se sostiene como enunciado general**. Recibe apoyo en npm y lo
+> contrario en el Dominio B, que es justo lo que la regla por dominio predice que
+> pasará cuando se intente un enunciado único. Y de todos modos el corte `b ≥ 1` ya no
+> designa un régimen desde RC1, así que la pregunta misma quedó reformulada.
+
+---
+
 ## 6. Qué significa para la SNT
 
 | Afirmación | Estado anterior | Estado ahora |
@@ -276,6 +392,16 @@ variantes. La causa de raíz: el pre-registro se escribió **antes** de leer el 
 los resultados previos del eje. Queda como regla de operación — antes de pre-registrar,
 leer el marco y los resultados previos del eje que se va a tocar.
 
+**Segunda falta, corregida el 2026-10-03:** la primera versión de este informe
+**omitió dos de los cuatro puntos secundarios pre-registrados** —S2 (bimodalidad en
+fricción 0) y S4 (relación con RC1)— sin declararlo. Lo detectó la revisión del PR #54.
+Están implementados y corridos en las §5.1 y §5.2, y ninguno de los dos cambia el
+resultado principal: los dos van en contra de la hipótesis del autor. Omitir puntos
+pre-registrados sin declararlo es el defecto que el pre-registro existe para impedir,
+así que queda escrito aquí y no en una nota al pie. **El pre-registro de S2 fijó el
+punto pero no su definición operativa ni un estadístico de bimodalidad**; las dos cosas
+se declaran en la §5.1 y van marcadas como operacionalización posterior a los datos.
+
 Y tres desviaciones menores, todas declaradas:
 
 1. **Brazo de poder añadido.** El pre-registro fijó el nulo pero no el poder. La
@@ -295,6 +421,14 @@ Lo que **no** se desvió: las ventanas (`w = max(8, n/4)`, paso `w/4`, mínimo 5
 réplicas del nulo por caso, las 1,999 del bootstrap, la semilla `20261002`, la
 ubicación a priori de la fricción digital, y el reporte obligatorio de la deriva
 ascendente — que fue la que mostró que el Dominio B es simétrico y por tanto nulo.
+
+**Nota de reproducibilidad de la corrida del 2026-10-03.** S2 usa un generador propio
+(semilla `20261004`) precisamente para no desplazar el consumo del RNG de los puntos
+que ya se habían corrido y publicado. Verificado: `deriva_forma_por_caso.csv` conserva
+su SHA-256 **al bit** (`56eeb28b…c9b299`). El único archivo que cambia es
+`deriva_forma_resumen.csv`, y cambia **solo por las filas nuevas** `S2_*` y `S4_*`; su
+hash actualizado está en `data/FUENTES.md`. Ninguna cifra de P1, del estadístico
+principal, de S1, de S3 ni de la tabla de poder se movió.
 
 ## Validación del código
 

@@ -164,6 +164,37 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   ρ = 0.94 con `b` verdaderamente constante mantiene 4.7% de falso positivo contra el
   5% nominal, en el mismo régimen donde el OLS del Dominio B tiene 59.5%.
   `code/deriva_forma_friccion.py`, con su tabla de poder por brazo.
+- **Se implementan los dos puntos secundarios pre-registrados que faltaban en la
+  prueba de deriva**, S2 y S4, a señalamiento de la revisión del PR #54. La primera
+  versión del informe los **omitió sin declararlo**, que es exactamente el defecto que
+  un pre-registro existe para impedir; queda escrito en la sección de desviaciones del
+  informe y no en una nota al pie. Los dos van **en contra** de la hipótesis del autor:
+  - **S2 — la bimodalidad de los ambientes digitales no aparece.** El pre-registro fijó
+    el punto pero no el umbral de "cae" ni un estadístico, así que se declaran como
+    operacionalización posterior: retención `r` = mediana de la última ventana / máximo
+    de la serie, cae si `r < 0.10`, se mantiene si `r ≥ 0.90`. Cada brazo digital se
+    compara contra **su propio nulo** (`b` constante con su ρ y su σ, 299 réplicas),
+    porque con `b` negativa una serie baja sola. Resultado: el hueco en medio **no
+    existe, es lo contrario** —la banda gradual sale más llena que su nulo, +6.4 puntos
+    en cripto y +6.2 en npm—; la fracción que cae es **menor** que la del nulo (70.1%
+    contra 76.7%; 43.8% contra 50.0%); y la banda "se mantiene" está casi vacía en los
+    datos **y en el nulo** (0.5%/0.3% y 0.0%/0.0%), así que **no es medible** con esta
+    definición y su vacío no se reporta como hallazgo. El empinamiento de la caída da
+    −3.474 en cripto y **+2.867** en npm, y ninguno es interpretable: el primero es el
+    brazo del artefacto de listado, el segundo el del crecimiento del ecosistema.
+  - **S4 — los `b ≥ 1` no están "atrapados temprano", y la respuesta es por dominio.**
+    `b ≥ 1` se usa como corte numérico y no como régimen, porque RC1 ya le quitó ese
+    estatus. **Dominio B da lo contrario de la predicción:** sus 6 casos arrancan con
+    `b` de ventana 0.007 —indistinguible del resto— y terminan en `b` global 1.082, con
+    **0.0%** de deriva descendente contra 10.2% del resto del brazo. **npm es
+    compatible:** arrancan en 1.110 y derivan abajo en 33.3% contra 13.4%, pero con
+    6.7% de poder, en el brazo de nivel y con 33 casos. **Cripto tiene n = 2** y no
+    dice nada. La consecuencia no se sostiene como enunciado general.
+  - Reproducibilidad: S2 usa un generador propio (semilla `20261004`) para no desplazar
+    el consumo del RNG de los puntos ya publicados. **Verificado:**
+    `deriva_forma_por_caso.csv` conserva su SHA-256 al bit; solo cambia
+    `deriva_forma_resumen.csv` y solo por las filas nuevas. Hash actualizado en
+    `data/FUENTES.md`, con el anterior anotado al lado.
 - **El brazo npm de la prueba de deriva pasa a ser reproducible sin el crudo**, a
   señalamiento de la revisión del PR #54: su insumo era
   `data/raw_npm/descargas.jsonl.gz`, 15 MB, **no versionado y sin hash registrado**, de
