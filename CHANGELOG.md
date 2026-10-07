@@ -49,6 +49,319 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 ## [No publicado]
 
 ### Corregido
+- **El régimen superlineal `b ≥ 1` queda sin respaldo como régimen físico, y RC1 queda
+  cerrado como no decidible por AIC** (2026-10-02; pre-registro
+  `preregistro/PREREGISTRO_RC1_SUPERLINEAL_2026-10-02.md`, commit `1a2ac0e`, informe
+  `audits/RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md`). Tres dominios con serie cruda,
+  cada uno con su proxy y su calibración, sin agrupar ni ordenar (Axioma 0.1): E3 (234
+  casos, 90 superlineales), B (446, 6) y las 18 series del ACO como control.
+  - **Compuerta pre-registrada: los tres dominios resultan NO INTERPRETABLES.**
+    Simulando desde una ley de potencia **conocida** con la σ y la ρ AR(1) de cada
+    caso, el AIC elige otro modelo en el **80.3%** de las réplicas en E3, **96.8%** en B
+    y **48.9%** en el ACO, dentro de la banda `b ≥ 1`. El umbral de admisión era 20%.
+  - **Y el error crece con `b`** (E3: 14.1% → 57.0% → 88.6%). Eso activa el desenlace
+    que el pre-registro declaró como el más informativo: **el hallazgo de la auditoría
+    v32 —"a mayor `b`, peor ajusta la ley de potencia", ρ = −0.796 sobre 18 series—
+    queda explicado como artefacto del estimador.** Es lo que el AIC produce aunque
+    todos los casos sean leyes de potencia puras.
+  - **La etiqueta sí se cae, por una prueba que no usa el AIC.** Una exponencial
+    verdadera ajustada como ley de potencia produce `b ≥ 1` en el **99.9%** de las
+    réplicas en la banda alta de E3 y en el **100%** del ACO, contra **0.0%** donde la
+    `b` real es menor que 0.5. La banda `b > 1` de `snt_utils.py` —*"Satelización
+    rápida sin fricción / Roche Radius"*— **no separa un régimen de un desajuste**, y
+    el 14.1% (102 de 721) no es un conteo de régimen.
+  - **El ρ no replica entre dominios:** −0.796 en el ACO, −0.250 en E3 y **+0.039 sin
+    significancia en B**. Tres dominios, tres valores, uno con el signo contrario — la
+    regla por dominio afirmándose sola.
+  - Reproducción verificada antes de probar nada: E3 **233/234** (±0.01), B
+    **446/446** (±1e-4), ACO **13/4/1 exacto**. E1 (4 casos, los 4 superlineales), F2
+    (1) y F3 (1) no tienen serie cruda y se reportan como no testeables, sin imputar.
+  - **Sexta vez el mismo patrón** —tras el 5.9×, el ROC-AUC filtrado, la precisión del
+    ASI, el apego preferencial de N-cuerpos y la inferencia del Dominio B—: la
+    aritmética estaba bien, la interpretación no.
+- **El código deja de afirmar el régimen: se retiran las etiquetas de `b > 1`.**
+  Consecuencia directa del resultado de RC1, señalada por el autor. `code/snt_utils.py`
+  y `code/snt_utils_v32.py` emitían *"Satelizacion rapida sin friccion"* para `b > 1` y
+  *"Satelizacion extrema (b>2)"* para `b > 2`. Como el umbral **no separa un régimen de
+  un desajuste de forma** —una exponencial verdadera da `b ≥ 1` en el 99.9% de las
+  réplicas—, las dos etiquetas pasan a **`"Exponente b>1 - sin clasificar (ver RC1
+  2026-10-02)"`** y su equivalente para `b > 2`. Se conservan las bandas y sus límites
+  para que las columnas de salida sigan siendo comparables; **lo que se retira es la
+  afirmación, no la medición.** Las bandas por debajo de `b = 1` quedan intactas: la
+  misma prueba midió 0.0% de falso `b ≥ 1` ahí, así que el hallazgo no las toca.
+  Verificado antes de cambiar: ningún test asierta sobre esas cadenas y ningún CSV
+  versionado las contiene.
+- **`comparar_modelos()` lleva su advertencia de calibración en el docstring.** La
+  función se documenta como "RC1 test" y su AIC supone residuos independientes;
+  ahora dice con cifras que en la banda `b ≥ 1` se equivoca en el **80.3% / 96.8% /
+  48.9%** de las réplicas (E3 / B / ACO) cuando los datos son una ley de potencia pura,
+  y que `ganador` y `delta_aic_potencia` **no deben contarse como evidencia de forma a
+  `b` alta** sin una calibración al lado.
+- **Corregido el signo de una cifra de la auditoría v32.** La prosa de
+  `audits/AUDITORIA_INTEGRAL_v32.md` tecleaba `rho = +0.657` donde corresponde negativo.
+  El runner (`code/snt_auditoria_integral_v32.py:209`) siempre registró `−0.657`, su CSV
+  de salida marca la fila `REPLICA_SIGNO`, y la tabla y la conclusión de esa sección
+  siempre apuntaron en dirección negativa. Recomputado sobre las mismas 18 series:
+  **ρ = −0.796, p = 0.0001**, idéntico al runner. Las otras cinco cifras del bloque
+  reproducen exactas. Detectado al leer los resultados previos del eje **antes** de
+  pre-registrar RC1.
+- **La trayectoria de formas (potencia → lineal dentro de un caso) no recibe respaldo**
+  (2026-10-02; pre-registro `preregistro/PREREGISTRO_DERIVA_FORMA_2026-10-02.md`,
+  commit `e9a152c`, informe `audits/RESULTADOS_DERIVA_FORMA_2026-10-02.md`). Tres
+  brazos: Dominio B (446 pares, fricción 3, cociente), cripto (571 cocientes
+  moneda/BTC, fricción ≈ 0) y npm (450 paquetes, fricción ≈ 0, nivel).
+  - **El contraste entre dominios se retira por inadmisible** (corregido el mismo día,
+    a señalamiento del autor; auditoría completa en
+    `audits/AUDITORIA_REGLA_POR_DOMINIO_2026-10-02.md`). El estadístico principal
+    —Dominio B 10.1% − cripto 55.5% = −45.4 puntos— compara tres proxies distintos en
+    tres cavidades distintas, y el **Axioma 0.1** no licencia leerlo como medición de
+    la fricción: *"cada eje tenga definición operativa por dominio... no entra en
+    ningún ajuste para ese dominio"*. Se conserva el número por transparencia, no como
+    resultado. Agravante: la nota del **Axioma 5** ya registraba que ese ordenamiento
+    por fricción se probó pre-registrado el 2026-09-27 y **falló en las cinco
+    variantes**, y el dominio digital **ya estaba codificado** en ese eje como "D2
+    cuotas digitales — baja (1)"; la afirmación de que faltaba ubicarlo era falsa.
+  - **Y ese único resultado positivo es un artefacto de selección.** En cripto,
+    **70.1% de las series tienen su máximo dentro de su primer 10%**, porque un
+    exchange lista una moneda cuando está en auge. Partiendo por posición del pico, la
+    deriva descendente va de **57.5%** (pico temprano) a **0.0%** (pico tardío).
+    Diagnóstico post hoc, etiquetado como tal.
+  - **El resultado negativo del Dominio B es interpretable**, porque tiene el **mejor
+    poder** de los tres (31.7% contra una deriva de 1.5 → 0.5) y la **menor** detección
+    (10.1%, contra 11.9% ascendente: simétrico, es decir nulo).
+  - **El cruce de `b = 1` no ocurre:** 0.0% en el Dominio B, 0.4% en cripto. Cripto no
+    se vuelve lineal, se pasa de largo hasta −2.3.
+  - **Sin firma pre-colapso:** en npm, extinguidos 17.1% contra persistentes 14.7%, y
+    los extinguidos con deriva mediana **+0.187**.
+  - **Consecuencia, leída por dominio:** en el Dominio B `b` se comporta como
+    constante dentro del caso al poder disponible, así que el régimen superlineal **no**
+    es "un caso atrapado temprano en su trayectoria". El pendiente de RC1 se queda
+    donde estaba. En cripto y npm no hay resultado interpretable: uno es artefacto de
+    listado y el otro tiene 6.7% de poder.
+- **Auditoría de la regla por dominio sobre toda la ronda del 2026-10-02**
+  (`audits/AUDITORIA_REGLA_POR_DOMINIO_2026-10-02.md`). Revisa **todas** las
+  afirmaciones de la ronda, no solo la señalada, contra el Axioma 0.1 y el Axioma 2, y
+  fija la distinción que decide cada caso: entre dominios solo se admiten réplica
+  independiente, refutación de un universal por contraejemplo y conteo de resultados
+  independientes; no se admite ordenar dominios en una escala compartida ni leer su
+  diferencia como medición. **Resultado: se retiran 2 afirmaciones, se reformula 1, y
+  los otros tres bloques de la ronda —npm, rango-tamaño internacional y valor puntual
+  del Dominio B— sobreviven íntegros**, porque se construyeron como pruebas
+  independientes por dominio con nulo por dominio. El bloque que falla es el único
+  diseñado como contraste entre cavidades. Se añade la regla como sexto criterio de
+  admisión en `CASOS_DE_USO.md` y se registra la causa de raíz: el pre-registro se
+  escribió antes de leer el marco y los resultados previos del eje.
+
+### Añadido
+- **Hallazgo de instrumento: el momento de listado de un exchange es un sesgo de
+  selección de primer orden** para análisis temporales en cripto. 70.1% de 571 series
+  de Binance empiezan dentro del 10% de su máximo (mediana de la posición del máximo:
+  0.019). Anotado en `data/FUENTES.md` para quien reutilice esos datos. Es la cuarta
+  vez que este proyecto se topa con esta clase de defecto —tras el filtro de ciudades
+  ≥ 300 mil de la WUP, el ROC-AUC filtrado y la precisión tautológica del ASI— y la
+  primera que se detecta **antes** de publicar.
+- **Herramienta reutilizable: nulo simulado por caso para derivas de exponente.** A
+  ρ = 0.94 con `b` verdaderamente constante mantiene 4.7% de falso positivo contra el
+  5% nominal, en el mismo régimen donde el OLS del Dominio B tiene 59.5%.
+  `code/deriva_forma_friccion.py`, con su tabla de poder por brazo.
+- **El bloque de resultados de la auditoría v32 pasa a mostrar el `ρ = −0.796, p =
+  0.0001` recomputado**, reemplazando el `−0.657, p = 0.0031` publicado (decisión del
+  autor, 2026-10-03, a petición de la revisión del PR #54). El motivo del cambio es el
+  que la revisión dio: el bloque contradecía a la nota que lo sigue, y un lector se
+  topaba con una cifra desnuda refutada cuatro líneas después. **La cifra publicada no
+  se pierde**, y queda en los dos lugares que le corresponden: la nota fechada debajo
+  del bloque, y la **columna de valor esperado del runner**
+  (`code/snt_auditoria_integral_v32.py:209`), donde la auditoría la compara contra el
+  recómputo y marca la fila `REPLICA_SIGNO`. Ese valor esperado **no se toca**: poner
+  ahí el −0.796 haría que la auditoría se comparara contra sí misma y dejara de señalar
+  la discrepancia. Lo que se corrigió el 2026-10-02 —y sigue corregido— fue el **signo**
+  de la prosa, que decía `+0.657` cuando el runner siempre registró `−0.657`.
+- **Y de paso, una afirmación de esa misma sección que RC1 dejó obsoleta.** El informe
+  v32 cerraba con *"A mayor b, peor ajusta la ley de potencia"*. RC1 (2026-10-02)
+  partió ese enunciado en dos y la sección ahora lo dice: (1) **queda retirado como
+  hallazgo sobre los sistemas**, porque simulando desde una ley de potencia **conocida**
+  el AIC se equivoca de modelo en el 80.3% / 96.8% / 48.9% de las réplicas de la banda
+  `b ≥ 1` y el error **crece con b** — era el estimador, no las cavidades; (2) **pero la
+  etiqueta sí se cae**, por evidencia que no usa el AIC. Se añade también que esa ρ no
+  se promedia con las de los otros dominios: por Axioma 0.1 son tres resultados y **no
+  concuerdan** (−0.796 ACO, −0.250 E3, +0.039 n.s. Dominio B).
+- **Se implementan los dos puntos secundarios pre-registrados que faltaban en la
+  prueba de deriva**, S2 y S4, a señalamiento de la revisión del PR #54. La primera
+  versión del informe los **omitió sin declararlo**, que es exactamente el defecto que
+  un pre-registro existe para impedir; queda escrito en la sección de desviaciones del
+  informe y no en una nota al pie. Los dos van **en contra** de la hipótesis del autor:
+  - **S2 — la bimodalidad de los ambientes digitales no aparece.** El pre-registro fijó
+    el punto pero no el umbral de "cae" ni un estadístico, así que se declaran como
+    operacionalización posterior: retención `r` = mediana de la última ventana / máximo
+    de la serie, cae si `r < 0.10`, se mantiene si `r ≥ 0.90`. Cada brazo digital se
+    compara contra **su propio nulo** (`b` constante con su ρ y su σ, 299 réplicas),
+    porque con `b` negativa una serie baja sola. Resultado: el hueco en medio **no
+    existe, es lo contrario** —la banda gradual sale más llena que su nulo, +6.4 puntos
+    en cripto y +6.2 en npm—; la fracción que cae es **menor** que la del nulo (70.1%
+    contra 76.7%; 43.8% contra 50.0%); y la banda "se mantiene" está casi vacía en los
+    datos **y en el nulo** (0.5%/0.3% y 0.0%/0.0%), así que **no es medible** con esta
+    definición y su vacío no se reporta como hallazgo. El empinamiento de la caída da
+    −3.474 en cripto y **+2.867** en npm, y ninguno es interpretable: el primero es el
+    brazo del artefacto de listado, el segundo el del crecimiento del ecosistema.
+  - **S4 — los `b ≥ 1` no están "atrapados temprano", y la respuesta es por dominio.**
+    `b ≥ 1` se usa como corte numérico y no como régimen, porque RC1 ya le quitó ese
+    estatus. **Dominio B da lo contrario de la predicción:** sus 6 casos arrancan con
+    `b` de ventana 0.007 —indistinguible del resto— y terminan en `b` global 1.082, con
+    **0.0%** de deriva descendente contra 10.2% del resto del brazo. **npm es
+    compatible:** arrancan en 1.110 y derivan abajo en 33.3% contra 13.4%, pero con
+    6.7% de poder, en el brazo de nivel y con 33 casos. **Cripto tiene n = 2** y no
+    dice nada. La consecuencia no se sostiene como enunciado general.
+  - Reproducibilidad: S2 usa un generador propio (semilla `20261004`) para no desplazar
+    el consumo del RNG de los puntos ya publicados. **Verificado:**
+    `deriva_forma_por_caso.csv` conserva su SHA-256 al bit; solo cambia
+    `deriva_forma_resumen.csv` y solo por las filas nuevas. Hash actualizado en
+    `data/FUENTES.md`, con el anterior anotado al lado.
+- **El brazo npm de la prueba de deriva pasa a ser reproducible sin el crudo**, a
+  señalamiento de la revisión del PR #54: su insumo era
+  `data/raw_npm/descargas.jsonl.gz`, 15 MB, **no versionado y sin hash registrado**, de
+  modo que el resultado no era verificable por nadie más.
+  - Se registra el **SHA-256 del crudo exacto** que se usó
+    (`455acba1…1ac71`, 15,486,679 bytes) en `data/FUENTES.md`.
+  - Se versiona el **agregado mensual** que el brazo consume de verdad:
+    `data/npm_descargas_mensuales_deriva.csv.gz`, 35,002 filas `nombre,mes,descargas`
+    para los 450 paquetes de la cohorte, **183 KB** en vez de 15 MB
+    (`20fc2f6b…8345b`). Es el patrón que el repo ya seguía con
+    `owid_covid_casos_totales.csv.gz` y `binance_cierres_diarios.csv.gz`.
+  - `deriva_forma_friccion.py` prefiere el derivado y recae en el crudo con un
+    `warning` en el log si no está. Conserva el orden de paquetes del crudo, no el
+    alfabético, porque el nulo por caso consume el RNG caso por caso y reordenar
+    cambiaría las réplicas. **Verificado:** con el derivado, `deriva_forma_por_caso.csv`
+    y `deriva_forma_resumen.csv` reproducen sus SHA-256 registrados **al bit**.
+  - De paso se corrige en `data/FUENTES.md` la nota de calidad del valor puntual, que
+    seguía diciendo "ninguno de ellos es admisible", y en el encabezado del informe de
+    deriva la frase "no recibe respaldo en ninguno de los tres brazos", que atribuía a
+    cripto y npm un negativo que su poder (11.7% y 6.7%) no sostiene.
+- **El valor puntual del Dominio B vuelve a cerrarse como INDECIDIBLE** (2026-10-03,
+  14:47 UTC; adenda `preregistro/ADENDA_RECALIBRACION_DOMINIO_B_2026-10-03.md`
+  comprometida **antes** de correr —commit `8952d59`, 14:34:56 UTC, contra un arranque
+  de corrida a las 14:36:16—, script `code/dominio_B_recalibracion.py`, informe
+  `audits/RESULTADOS_RECALIBRACION_DOMINIO_B_2026-10-03.md`, salida
+  `data/dominio_B_recalibracion.csv`). **Esto revierte el cierre en 33/156 de la misma
+  mañana.**
+  - **La cifra.** Con `N = 200,000` —estrato estimable de **69,827** casos— `ar1_inf`
+    mide **7.962%** de falso positivo, IC95 de Wilson **[7.76%, 8.17%]**, contra el 7.1%
+    que midió con 2,000. Queda **fuera** de la banda `[2.5%, 7.5%]` por 0.46 puntos, y
+    su intervalo **ni toca** el techo. Ninguno de los doce métodos es admisible: el
+    segundo mejor, `gls_pw`, mide 12.9%. Por la regla del pre-registro base, **el valor
+    puntual no se declara** y el 33 **vuelve a ser cota conservadora**, no estimación.
+  - **Las dos corridas no se contradicen.** Las **doce** estimaciones de 200,000 caen
+    **dentro** del IC95 de la corrida de 2,000, y el poder de `ar1_inf` reproduce a la
+    décima (84.03% contra 84.1% a `b = −0.30`). Son dos mediciones independientes
+    —semillas `20261002` y `20261003`— de la misma cantidad, y concuerdan. **El 7.1% no
+    era un error ni un defecto de código: era el mismo número con 1/10 de la precisión,
+    caído del lado bajo de su propio intervalo**, lo bastante bajo como para cruzar el
+    techo por 0.4 puntos.
+  - **Y era el riesgo declarado.** La reserva 1 del informe, escrita antes de medir
+    esto, decía literalmente *"con otra semilla el método podría medir 7.6% y quedar
+    fuera"*. Midió **7.96%**. La reserva no era una formalidad: se cerró, y se cerró en
+    contra.
+  - **La regla de decisión se fijó antes y se honró como cayó.** La adenda declaró por
+    anticipado que gobierna el estimado de 200,000 —mide lo mismo con error diez veces
+    menor—, que la banda `[2.5%, 7.5%]` **no se toca**, y que si `ar1_inf` salía arriba
+    de 7.5% el valor puntual volvía a no declararse con el informe reescrito en esa
+    dirección. Es el desenlace que se publicó, con el mismo detalle que habría tenido
+    el que confirmaba el cierre.
+  - **Dos validaciones del propio diseño.** El estrato simulado reproduce la proporción
+    real con tres cifras —**34.91%** contra 34.98% en los datos—, que con 200,000
+    réplicas deja de ser indicativo y pasa a ser verificación estricta de la
+    estratificación por el caso de origen. Y `ar1_inf` sigue devolviendo **33 de 156**
+    sobre los datos reales, recomputado de forma determinista.
+  - **Lo que sí queda más firme.** La cuantificación del 374/446 publicado: el OLS con
+    el que se construyó el corpus rechaza la nula el **58.0%** de las veces bajo la nula,
+    ahora con un IC95 de **[57.6%, 58.4%]** en vez de [55.9%, 63.0%].
+  - **Regla de operación nueva, y es la lección del bloque:** **la precisión de la
+    simulación se dimensiona contra el ancho de la regla de decisión, antes de
+    pre-registrarla.** El pre-registro base fijó `N_SIM = 2,000` para decidir con una
+    banda de 5 puntos de ancho, cuando con 733 casos en el estrato el error Monte Carlo
+    es de ±1.9: la admisibilidad la decidía el ruido de simulación y no el método. Ese
+    es el defecto de procedimiento del bloque, y es del pre-registro, no de la corrida.
+  - El script original y sus salidas **no se tocaron**: la recalibración escribió sus
+    propios archivos, y el informe del 2026-10-02 **se conserva sin recortar** con un
+    bloque de supersesión al inicio, porque es el registro de una decisión tomada
+    correctamente sobre la mejor medición disponible en su momento.
+- **La retractación de la banda `b > 1` se propaga al código que faltaba.** La
+  retirada de la etiqueta "Roche Radius" (RC1, 2026-10-02) se había aplicado a
+  `code/snt_utils.py` y `code/snt_utils_v32.py`, pero tres lugares seguían
+  afirmando el régimen retirado, a señalamiento de la revisión del PR #54:
+  - `delta/snt_market_core.py`: el enum `DominanceRegime` tenía `ROCHE_RADIUS` y
+    `EXTREME`, y `classify_regime()` los devolvía para `b > 1.0` y `b > 2.0`. Pasan a
+    `UNCLASSIFIED_B_GT_1` y `UNCLASSIFIED_B_GT_2`, con la razón de la retirada en el
+    docstring del módulo y la nota de que quedan en sincronía con `snt_utils`.
+    **Cambio visible para consumidores:** la cadena `regime` que emite `delta_engine`
+    para `b > 1` ya no es `"roche_radius"` ni `"extreme"`. Ningún artefacto versionado
+    la cargaba (`delta/real_delta_signals.json` solo tiene bandas por debajo de 1).
+  - `dashboard/app.py`: la anotación del trazo `b = 1` decía "Roche Radius (b=1)" y
+    pasa a "b=1 (unclassified above)"; el bloque de bandas de la pestaña de teoría
+    explica por qué queda sin clasificar; y la fila RC1 de la tabla de
+    falsabilidad pasa de "NOT REFUTED" a **"NOT DECIDABLE BY AIC" (2026-10-02)**,
+    que es lo que el informe concluyó.
+  - `README.md` y `reconstruction_real/code/generate_figures_v29.py` (con su
+    `figures/figure_captions_v29.txt` versionado): el bloque de bandas y el pie de la
+    Figura 1 citaban la etiqueta. Los trazos `b = 1` de las figuras no llevan texto,
+    así que no hubo que regenerar ninguna imagen.
+- **El valor puntual del Dominio B se cierra en 33 de 156 estimables (21.2%)**
+  — ⚠ **SUPERSEDIDO el mismo día a las 14:47 UTC por la recalibración a N = 200,000;
+  ver la entrada de arriba. El valor puntual NO se declara.** La entrada se conserva
+  porque documenta el defecto de estratificación y la decisión intermedia.
+  (2026-10-02, **corregido 2026-10-03**; pre-registro
+  `preregistro/PREREGISTRO_DOMINIO_B_PUNTUAL_2026-10-02.md`, commit `05bc9ee`,
+  informe `audits/RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md`). Era el último número
+  abierto de la teoría.
+  - En vez de elegir una corrección por autoridad —el razonamiento que produjo el
+    120/156 imposible de Newey-West— se midió la de cada una: 2,000 casos sintéticos
+    con `b = 0` y la terna `(n, ρ, σ)` de un caso real, donde todo rechazo es un falso
+    positivo por construcción. **Uno de los doce métodos cae en la banda de admisión
+    [2.5%, 7.5%]** fijada por anticipado: la cota inferior AR(1), con **7.1%**. Los
+    demás quedan fuera: Prais-Winsten GLS 11.3%, bootstrap por bloques 15.6%,
+    Newey-West 40.8%, y el **OLS con el que se construyó el corpus, 59.5%**.
+  - **El método admisible no lo es por ser ciego:** su poder es **84.1%** a
+    `b = −0.30` y 95.6% a `b = −0.60`. Es el menos potente de los doce —los otros once
+    compran poder gastando tamaño— pero detecta cinco de cada seis efectos moderados.
+  - Sobre los 446 casos reales la cuenta va de **33 a 134 de 156** según el método.
+    Ese abanico, con los mismos datos y la misma hipótesis, es el argumento de por qué
+    la calibración tenía que decidir en lugar de la autoridad del método.
+  - **Tres reservas van con el número**, escritas en la §6.1 del informe y no después:
+    (1) la admisión es **marginal** —7.1% está a 0.4 puntos del techo de la banda y su
+    IC95 de Wilson, [5.5%, 9.2%], la rebasa—; (2) el chequeo pre-registrado "¿cae
+    dentro de [33, 112]?" es **tautológico** para este método, porque `ar1_inf` *es*
+    el estimador que produjo la cota inferior, así que se satisface en el borde exacto
+    y por construcción; (3) al ser el menos potente, el 33 se lee **"al menos 33 de
+    156"**, no "exactamente 33".
+  - **Consecuencia:** el Dominio B conserva capacidad inferencial, **reducida en un
+    factor de 11** respecto a lo publicado (33 contra 374 de 446). Las 446 `b` siguen
+    siendo descripciones válidas y reproducibles. Ni el exponente ni la dirección de
+    los hallazgos del dominio cambian. El 374/446 queda **cuantificado** en vez de
+    solo sospechado: el procedimiento que lo produjo rechaza el 59.5% bajo la nula.
+  - Cuatro validaciones del propio diseño: 446/446 series reproducen su `b` publicada
+    con |Δ| ≤ 1×10⁻⁴, `nw_auto` devuelve el 120/156 de la auditoría, `ar1_inf`
+    devuelve el 33/156 publicado y el estrato simulado reproduce la proporción real de
+    estimables (36.7% contra 35.0%).
+  - **Corrección del 2026-10-03 (defecto de estratificación).** La primera corrida
+    concluía lo contrario —ningún método admisible, valor puntual indecidible— porque
+    el estrato de estimabilidad de la simulación se clasificaba por la **realización
+    simulada** en vez de por el **caso real de origen**. Con `b = 0`, ρ se subestima
+    en series cortas, `n_eff` sale inflada y el 86.9% de las simulaciones caía en un
+    estrato que en los datos reales es del 35.0%, contaminado con casos de ρ alta.
+    Todas las tasas salían demasiado pesimistas. Corregido, el estrato pasa a 36.7% y
+    las doce tasas bajan entre 4.6 y 13.1 puntos; una sola cruza la banda. El defecto
+    lo detectó la revisión automatizada del PR #54. El informe trae las dos tablas de
+    números y declara la corrida doble; el punto 3 sobre datos reales es idéntico al
+    dígito en las dos corridas, porque no toca la simulación.
+- **Corregido el diagnóstico de Newey-West.** La auditoría anotaba que subcorrige *por
+  la ρ alta*. Con **ruido blanco puro** (ρ = 0, n = 69, `b` = 0) ya rechaza el 12.2%
+  —y el 25.2% con rezago `n/4`— contra un 5% nominal: el estimador HAC está mal
+  calibrado **a estos tamaños de muestra**. La ρ ≈ 0.94 empeora el cuadro, no lo causa.
+- **La cota superior del Dominio B es 112 o 113, según el redondeo.** Recomputada
+  desde las series crudas da 113. La diferencia es un único caso, `B042`
+  (Belgium→Spain), cuyo p vale 0.0490 con el `dw` sin redondear y 0.0503 con el `dw`
+  redondeado a tres decimales del CSV versionado. Ninguna de las dos está mal; lo que
+  muestra es que la cota superior es frágil en el margen. La cota inferior da 33 por
+  las dos vías.
 - **La lectura de apego preferencial del Módulo de N-cuerpos se retira** (2026-10-02;
   pre-registro `preregistro/PREREGISTRO_LOGNORMAL_2026-10-02.md`, commit `9718808`,
   informe `audits/RESULTADOS_LOGNORMAL_2026-10-02.md`). La comparación contra la

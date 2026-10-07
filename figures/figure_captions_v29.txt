@@ -4,7 +4,7 @@ Fractal Core Research | Tlaxcala, Mexico | 2026
 Figure 1. Power-law satellization dynamics across 721 verified cases in 10 domains.
 (A) Distribution of the power-law exponent b by domain, ordered by mean b. Boxes show
 interquartile range; whiskers extend to 1.5xIQR. Dashed line: b = 0 (no satellization);
-dotted line: b = 1 (Roche Radius). (B) Percentage of cases with statistically significant
+dotted line: b = 1 (reference only; the regime above 1 is left unclassified since RC1, 2026-10-02). (B) Percentage of cases with statistically significant
 power-law fits (p < 0.05) per domain. Dashed line: 50% threshold. (C) Mean exponent b by
 institutional friction category. All 721 cases derived from verifiable primary sources.
 
