@@ -107,8 +107,12 @@ concreto de inferencia:
 
 Entero dentro de un solo dominio, con un solo proxy: 12 métodos, calibración por
 simulación con la terna `(n, ρ, σ)` de casos reales **de ese dominio**, valor puntual
-cerrado en 33 de 156 (21.2%) por el único método admisible (corregido 2026-10-03; la
-primera corrida lo declaraba indecidible por un defecto de estratificación).
+cerrado como **indecidible**: ninguno de los doce métodos alcanza la banda de admisión
+con su tasa medida a N = 200,000 (recalibración del 2026-10-03). El bloque pasó por tres
+estados en dos días —indecidible por un defecto de estratificación, luego 33/156 con la
+tasa de 7.1% medida a N = 2,000, y finalmente indecidible otra vez con la tasa de 7.96%
+medida a N = 200,000— y los tres quedan documentados. **Cero afirmaciones entre dominios
+en ninguno de los tres.**
 
 **VÁLIDO sin cambios.** Cero afirmaciones entre dominios.
 

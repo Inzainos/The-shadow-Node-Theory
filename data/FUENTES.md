@@ -253,15 +253,17 @@ reconstruyen desde ahí, verificado caso por caso contra la `b` publicada) y
 |---|---|
 | `reconstruction_real/data/dominio_B_calibracion.csv` | `c2372a096bdba792b8fbb4728ed709575c1b91435103910b9cffa6d2700659d8` |
 | `reconstruction_real/data/dominio_B_valor_puntual.csv` | `0cfb54028790bfb3b38e8a9d13e51031f7c5d7e6ca220e20257ee3dcc0d75c16` |
+| `reconstruction_real/data/dominio_B_recalibracion.csv` (recalibración a N = 200,000, 2026-10-03) | `4f1034a34b0bd7bf82f37ae61c20b81bd8db3d1d14359dca1bf0076d4fb045b1` |
 
 Nota de calidad: `dominio_B_valor_puntual.csv` trae el p de los doce métodos por caso.
-**Solo uno de ellos es admisible** —`p_ar1_inf`, con 7.1% de falso positivo medido,
-único dentro de la banda [2.5%, 7.5%] tras la corrección de estratificación del
-2026-10-03 (ver `audits/RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md`). Las otras once
-columnas **no deben usarse para contar significativos**: sobre los mismos datos la
-cuenta va de 33 a 134 de 156 según el método, y su tasa de falso positivo medida va de
-11.3% a 59.5%. Con la columna admisible la cuenta es **33 de 156 (21.2%)**, y la §6.1
-del informe explica por qué se lee como "al menos 33".
+**Ninguna de ellas es admisible.** La recalibración a `N = 200,000` del 2026-10-03
+(`audits/RESULTADOS_RECALIBRACION_DOMINIO_B_2026-10-03.md`, salida
+`dominio_B_recalibracion.csv`) midió la banda de admisión [2.5%, 7.5%] contra las doce
+tasas y **ninguna entra**: la mejor, `p_ar1_inf`, mide **7.96%** (IC95 Wilson
+[7.76%, 8.17%]) y se queda a 0.46 puntos del techo; el resto va de 12.9% a 58.0%.
+**Ninguna de las doce columnas debe usarse para contar significativos.** Sobre los
+mismos datos la cuenta va de 33 a 134 de 156 según el método, y el 33 de `p_ar1_inf` es
+una **cota conservadora, no un valor puntual**.
 
 ---
 

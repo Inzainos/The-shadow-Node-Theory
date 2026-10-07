@@ -7,10 +7,41 @@
 versionados. **Sin descargas.**
 **Salidas:** `data/dominio_B_calibracion.csv`, `data/dominio_B_valor_puntual.csv`.
 
+> # ⚠ CONCLUSIÓN SUPERSEDIDA — 2026-10-03, 14:47 UTC
+>
+> **El valor puntual que este informe declara ya no se sostiene.** La recalibración de
+> alta precisión midió la tasa de `ar1_inf` en **7.96%** (IC95 [7.76%, 8.17%]) y no en
+> 7.1%: queda **fuera** de la banda `[2.5%, 7.5%]`, ningún método es admisible, y por la
+> regla pre-registrada **el valor puntual vuelve a NO declararse y se cierra como
+> indecidible.**
+>
+> Informe de la recalibración:
+> [`RESULTADOS_RECALIBRACION_DOMINIO_B_2026-10-03.md`](RESULTADOS_RECALIBRACION_DOMINIO_B_2026-10-03.md).
+> Adenda pre-registrada que fijó la regla antes de medir:
+> [`../preregistro/ADENDA_RECALIBRACION_DOMINIO_B_2026-10-03.md`](../preregistro/ADENDA_RECALIBRACION_DOMINIO_B_2026-10-03.md).
+>
+> **Este documento se conserva sin recortar**, porque es el registro de una decisión
+> tomada correctamente sobre la mejor medición disponible en su momento, con su
+> imprecisión declarada en la §6.1 como la reserva 1 — la reserva que después se cerró
+> en la dirección desfavorable. Las doce estimaciones de la recalibración caen **dentro**
+> del IC95 de esta corrida, así que las cifras de aquí no son erróneas: son las mismas
+> cantidades con 1/10 de la precisión. Lo que cambió es de qué lado de la banda cae el
+> estimado de `ar1_inf`.
+>
+> **Lo único que este informe declaraba y queda retirado es el valor puntual.** Todo lo
+> demás —la partición 156/290, la tabla de calibración, el poder, el diagnóstico de
+> Newey-West, el caso `B042`, y el defecto de estratificación documentado abajo— sigue
+> vigente.
+
+---
+
 Cierra el **último número abierto de la teoría**. El valor puntual es **33 de 156
 estimables (21.2%)**, producido por el único método de doce cuya tasa de falso
 positivo medida cae en la banda de admisión pre-registrada — y con **tres reservas
 explícitas** que la §6.1 detalla, porque la admisión es marginal.
+
+*(Párrafo de la versión del 2026-10-03 por la mañana. Superseído por el bloque de
+arriba: la reserva 1 se cerró en contra y el valor puntual no se declara.)*
 
 ---
 
@@ -80,14 +111,21 @@ parámetros son los mismos; el único cambio de código es la línea de estratif
 | Punto | Pregunta | Resultado | Decisión |
 |---|---|---|---|
 | **0** | ¿Las 446 series reconstruyen la `b` publicada? | **446 / 446** con \|Δb\| ≤ 1×10⁻⁴ | **CORRECTO**, se procede |
-| **P1** | ¿Algún método alcanza el 5% nominal de falso positivo? | **`ar1_inf`: 7.1%**, dentro de `[2.5%, 7.5%]`. El resto va de 11.3% a 59.5% | **UNO ES ADMISIBLE** |
+| **P1** | ¿Algún método alcanza el 5% nominal de falso positivo? | **`ar1_inf`: 7.1%**, dentro de `[2.5%, 7.5%]`. El resto va de 11.3% a 59.5%. **Recalibrado a N = 200,000: 7.96%, FUERA** | ~~UNO ES ADMISIBLE~~ → **NINGUNO** |
 | **P2** | ¿El método admisible lo es por ser ciego? | `ar1_inf` tiene **84.1%** de poder a b = −0.30 y **95.6%** a b = −0.60 | **NO.** Es el menos potente de doce, pero no es ciego |
-| **P3** | ¿Cuántos de los 156 estimables son significativos? | **33 (21.2%)** por `ar1_inf`. Los doce métodos dan de 33 a 134 | **SE DECLARA 33**, con las reservas de §6.1 |
+| **P3** | ¿Cuántos de los 156 estimables son significativos? | **33 (21.2%)** por `ar1_inf`. Los doce métodos dan de 33 a 134 | ~~SE DECLARA 33~~ → **NO SE DECLARA**: sin método admisible, regla pre-registrada |
 
-**Veredicto:** el valor puntual del Dominio B es **33 de 156 estimables (21.2%)**, lo
-que sobre los 446 casos del dominio son **33 de 446 (7.4%)** — contra los **374 de
-446 (83.9%)** del corpus publicado sin corregir. El procedimiento que produjo ese 374
-rechaza la nula el **59.5%** de las veces cuando no hay nada que rechazar.
+**Veredicto (superseído).** Decía: el valor puntual del Dominio B es **33 de 156
+estimables (21.2%)**, lo que sobre los 446 casos del dominio son **33 de 446 (7.4%)** —
+contra los **374 de 446 (83.9%)** del corpus publicado sin corregir.
+
+**Veredicto vigente al 2026-10-03, 14:47 UTC:** el valor puntual **no se declara y queda
+cerrado como indecidible**. Ninguno de los doce métodos alcanza la banda de admisión con
+la tasa medida a `N = 200,000`; el más cercano, `ar1_inf`, se queda a **0.46 puntos** del
+techo. **El 33 vuelve a ser la cota inferior conservadora a citar, no una estimación
+puntual.** Lo que sí queda firme y más preciso es la cuantificación del 374: el
+procedimiento que lo produjo rechaza la nula el **58.0%** de las veces (IC95 [57.6%,
+58.4%]) cuando no hay nada que rechazar.
 
 ---
 
@@ -268,7 +306,10 @@ no tiene este problema: da 33 por las dos vías.
 
 ## 6. Qué significa para la SNT
 
-El pre-registro fija la lectura de cada desenlace. El que aplica es el **primero**:
+El pre-registro fija la lectura de cada desenlace. Al cerrar la corrida de 2,000
+aplicaba el **primero**; tras la recalibración del 2026-10-03 aplica el **tercero** —el
+de "ningún método es admisible"—, que vuelve a ser el vigente. Lo que sigue de esta
+sección quedó escrito bajo el primer desenlace y se conserva como registro:
 
 > *"Hay método admisible y su cifra cae **dentro de [33, 112]** → el pendiente **se
 > cierra**. El valor puntual se publica con su método, su tamaño medido y su poder
@@ -277,18 +318,21 @@ El pre-registro fija la lectura de cada desenlace. El que aplica es el **primero
 | Afirmación | Estado anterior | Estado ahora |
 |---|---|---|
 | Estimables / no estimables, 156 / 290 | Cerrado | **Sin cambio.** Sale de `n_eff < 3`, no depende de convenciones ni de métodos |
-| Cota inferior 33 (21.2%) | Cerrada, elegida por prudencia | **Pasa a ser el valor puntual**: único método de doce con tasa de error medida en la banda nominal (7.1%), poder 84.1% / 95.6% |
+| Cota inferior 33 (21.2%) | Cerrada, elegida por prudencia | ~~Pasa a ser el valor puntual~~ → **sigue siendo cota.** Es el método **mejor calibrado** de doce (7.96%, poder 84.0% / 94.0%), pero fuera de la banda de admisión |
 | Cota superior 112 (71.8%) | Cerrada | **Frágil**: 112 o 113 según el redondeo de un `dw`; y su método mide 48.6% de falso positivo. Queda como cota, no como estimación |
-| **Valor puntual** | Abierto | **CERRADO: 33 de 156 estimables (21.2%)**, con las tres reservas de §6.1 |
+| **Valor puntual** | Abierto | ~~CERRADO: 33 de 156 (21.2%)~~ → **CERRADO COMO INDECIDIBLE** tras la recalibración: ningún método admisible a `N = 200,000` |
 | Los 374/446 significativos del corpus | Sabidos inflados | **Cuantificado:** el procedimiento que los produjo rechaza el **59.5%** de las veces bajo la nula |
 | El exponente `b` del Dominio B | Verificado | **Sin cambio.** Esta prueba no reestima ninguna `b` |
 | Dirección de los hallazgos del dominio | Verificada en todas las variantes | **Sin cambio.** La dirección no depende de la significancia por caso |
 
 **Lo que se cae es el 374, no la medición.** Las 446 `b` siguen siendo descripciones
 válidas y reproducibles de sus pares de países. Lo que no se puede sostener es que 374
-de ellas sean "significativas": con el único contraste de tamaño medido, son **33**.
-El Dominio B conserva capacidad inferencial, pero **reducida en un factor de 11** con
-respecto a lo publicado.
+de ellas sean "significativas".
+
+*(La versión de la mañana seguía: "con el único contraste de tamaño medido, son 33. El
+Dominio B conserva capacidad inferencial, pero reducida en un factor de 11". **Eso queda
+retirado:** sin método admisible no hay contraste con el que contar, y el Dominio B
+queda **descriptivo**, no inferencial con capacidad reducida.)*
 
 Es la misma clase de corrección que el 5.9×, el ROC-AUC filtrado, la precisión
 tautológica del ASI y la lectura de apego preferencial del Módulo de N-cuerpos: **la
@@ -306,6 +350,13 @@ resultado. Pero el número **no es robusto**, y las tres razones van aquí:
    7.6% y quedar fuera. La regla pre-registrada no previó la precisión Monte Carlo, y
    no se la añade ahora para cambiar el desenlace; se reporta. **Para cerrar esta
    reserva habría que recalibrar con N ≫ 2,000** y el pre-registro no lo fijó.
+
+   > **⚠ Esta reserva se cerró el 2026-10-03 a las 14:47 UTC, y se cerró EN CONTRA.**
+   > Con `N = 200,000` la tasa es **7.96%**, IC95 **[7.76%, 8.17%]**, enteramente por
+   > encima del techo. El método **no es admisible** y el valor puntual **no se
+   > declara**. La frase "con otra semilla el método podría medir 7.6% y quedar fuera"
+   > no era una formalidad: midió 7.96%. Ver
+   > [`RESULTADOS_RECALIBRACION_DOMINIO_B_2026-10-03.md`](RESULTADOS_RECALIBRACION_DOMINIO_B_2026-10-03.md).
 2. **El chequeo de cotas es tautológico para este método.** El 33 coincide con la
    cota inferior porque `ar1_inf` **es** el estimador de la cota inferior (§3). El
    desenlace pre-registrado se satisface en el borde exacto y por construcción, no por
@@ -322,8 +373,9 @@ Honestidad sobre lo que esto no dice. El cierre aplica a **esta especificación*
 —OLS de `log R` contra `log t` con residuos casi de raíz unitaria a n ≈ 69— y a
 **estos doce métodos**. Lo que queda por hacer, en orden de viabilidad:
 
-1. **Recalibrar `ar1_inf` con más réplicas** para cerrar la reserva 1. Es lo más
-   barato y lo único que puede volver firme o tumbar el 33.
+1. ~~**Recalibrar `ar1_inf` con más réplicas** para cerrar la reserva 1. Es lo más
+   barato y lo único que puede volver firme o tumbar el 33.~~ **Hecho el 2026-10-03 con
+   N = 200,000: tumbó el 33.** Esta vía está agotada y la puerta quedó cerrada.
 2. **Cambiar la especificación**, no el contraste: trabajar en diferencias o con un
    modelo que no suponga residuos estacionarios alrededor de una tendencia
    logarítmica. Es el camino que la literatura de raíz unitaria señalaría, y el único

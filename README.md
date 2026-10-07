@@ -360,7 +360,25 @@ pytest reconstruction_real/tests                                 # fixes 156 / 2
    | **Not estimable** (`n_eff < 3`) — not "non-significant" | **290 / 446 (65.0%)** |
    | Significant among estimable — lower bound (inflated SE + df) | **33 (21.2%)** |
    | Significant among estimable — upper bound (df only) | 112 (71.8%) |
-   | Point value | **closed 2026-10-02 (corrected 2026-10-03) at 33 of 156 estimable (21.2%).** Twelve corrections were scored on their *measured* false-positive rate against 2,000 synthetic cases built with b = 0 and each real case's own (n, ρ, σ). **One** reaches the pre-registered [2.5%, 7.5%] band: the lower-bound AR(1) correction, at **7.1%** (Wilson 95% CI [5.5%, 9.2%]). The rest fall outside — Prais-Winsten GLS 11.3%, block bootstrap 15.6%, Newey-West 40.8%, up to **59.5% for the naive OLS the corpus was built with**. The admissible method's power is 84.1% at b = −0.30 and 95.6% at b = −0.60: the least powerful of the twelve, but not blind. On the real data the count ranges from **33 to 134 of 156** depending on method, which is why calibration rather than authority had to decide. See [`RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md`](reconstruction_real/audits/RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md) |
+   | Point value | **closed as UNDECIDABLE (2026-10-03, recalibration at N = 200,000).** Twelve corrections were scored on their *measured* false-positive rate against synthetic cases built with b = 0 and each real case's own (n, ρ, σ). **None** reaches the pre-registered [2.5%, 7.5%] band. With a 69,827-case estimable stratum the best, the lower-bound AR(1) correction, measures **7.96%** (Wilson 95% CI [7.76%, 8.17%]) — **0.46 points above the ceiling**; then Prais-Winsten GLS 12.9%, block bootstrap 14.7%, Newey-West 40.7%, up to **58.0% for the naive OLS the corpus was built with**. The failure is one of size, not conservatism: the best-calibrated method's power is 84.0% at b = −0.30 and 94.0% at b = −0.60. On the real data the count ranges from **33 to 134 of 156** depending on method, which is why calibration rather than authority had to decide — and **33 remains a conservative bound, not a point value**. See [`RESULTADOS_RECALIBRACION_DOMINIO_B_2026-10-03.md`](reconstruction_real/audits/RESULTADOS_RECALIBRACION_DOMINIO_B_2026-10-03.md) |
+
+   > **⚠ Superseded 2026-10-03, 14:47 UTC.** The first of those three reserves — that
+   > the 7.1% admission sat 0.4 points below the ceiling with a Wilson interval crossing
+   > it — was closed by a **pre-registered recalibration at N = 200,000**, and it closed
+   > **against** the point value. `ar1_inf` measures **7.96%** (Wilson [7.76%, 8.17%]),
+   > entirely above the ceiling: **no method is admissible and the point value is not
+   > declared.** Domain B is closed as **undecidable**, and 33 reverts to being the
+   > conservative lower bound to cite rather than an estimate. All twelve new estimates
+   > fall **inside** the 2,000-replicate run's confidence intervals, so the 7.1% was not
+   > an error — it was the same quantity at one tenth the precision, landing on the low
+   > side of its own interval. Reports:
+   > [`RESULTADOS_RECALIBRACION_DOMINIO_B_2026-10-03.md`](reconstruction_real/audits/RESULTADOS_RECALIBRACION_DOMINIO_B_2026-10-03.md),
+   > addendum [`ADENDA_RECALIBRACION_DOMINIO_B_2026-10-03.md`](reconstruction_real/preregistro/ADENDA_RECALIBRACION_DOMINIO_B_2026-10-03.md).
+   >
+   > The lesson is recorded as an operating rule: **size the simulation's precision
+   > against the width of the decision rule, before pre-registering it.** With 733 cases
+   > in the stratum the Monte Carlo error (±1.9 points) was the same order as the band
+   > (5 points), so admissibility was being decided by noise.
 
    Three reserves travel with the number, stated in §6.1 of the report rather than
    afterwards. **The admission is marginal**: 7.1% sits 0.4 points below the band's
@@ -539,10 +557,11 @@ trajectory), and R(t) is fitted exactly as in Domain B.
 
 1. ~~AR(1)-correct E3~~ — done 2026-09-27 from the raw OWID series (pre-registration,
    point 3): conservative AR(1) bound, 176 of 198 estimable cases significant. The
-   other domains still need their raw series. ~~Domain B's point value~~ — **closed
-   2026-10-02 as undecidable**: GLS and the block bootstrap were both run, and neither
-   reaches nominal size at ρ ≈ 0.94 (17.1% and 24.1% false positives), so no point
-   value is declared and 33 stands as the conservative figure.
+   other domains still need their raw series. ~~Domain B's point value~~ — **closed as
+   undecidable**, confirmed by a pre-registered recalibration at N = 200,000 on
+   2026-10-03: none of the twelve corrections reaches the [2.5%, 7.5%] band, the best
+   measuring 7.96% (Wilson [7.76%, 8.17%]) against ρ ≈ 0.94, so no point value is
+   declared and 33 stands as the conservative figure.
 2. ~~Update the SSRN v30 EN preprint~~ — revised manuscript **r31** prepared
    2026-09-27 (`papers/snt_ssrn_v31_EN.md` / `.pdf` / `.docx`; v30 kept
    unchanged as the submitted record). It withdraws the 5.9× claim, corrects the

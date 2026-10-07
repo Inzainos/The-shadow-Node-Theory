@@ -236,6 +236,54 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
     seguía diciendo "ninguno de ellos es admisible", y en el encabezado del informe de
     deriva la frase "no recibe respaldo en ninguno de los tres brazos", que atribuía a
     cripto y npm un negativo que su poder (11.7% y 6.7%) no sostiene.
+- **El valor puntual del Dominio B vuelve a cerrarse como INDECIDIBLE** (2026-10-03,
+  14:47 UTC; adenda `preregistro/ADENDA_RECALIBRACION_DOMINIO_B_2026-10-03.md`
+  comprometida **antes** de correr —commit `8952d59`, 14:34:56 UTC, contra un arranque
+  de corrida a las 14:36:16—, script `code/dominio_B_recalibracion.py`, informe
+  `audits/RESULTADOS_RECALIBRACION_DOMINIO_B_2026-10-03.md`, salida
+  `data/dominio_B_recalibracion.csv`). **Esto revierte el cierre en 33/156 de la misma
+  mañana.**
+  - **La cifra.** Con `N = 200,000` —estrato estimable de **69,827** casos— `ar1_inf`
+    mide **7.962%** de falso positivo, IC95 de Wilson **[7.76%, 8.17%]**, contra el 7.1%
+    que midió con 2,000. Queda **fuera** de la banda `[2.5%, 7.5%]` por 0.46 puntos, y
+    su intervalo **ni toca** el techo. Ninguno de los doce métodos es admisible: el
+    segundo mejor, `gls_pw`, mide 12.9%. Por la regla del pre-registro base, **el valor
+    puntual no se declara** y el 33 **vuelve a ser cota conservadora**, no estimación.
+  - **Las dos corridas no se contradicen.** Las **doce** estimaciones de 200,000 caen
+    **dentro** del IC95 de la corrida de 2,000, y el poder de `ar1_inf` reproduce a la
+    décima (84.03% contra 84.1% a `b = −0.30`). Son dos mediciones independientes
+    —semillas `20261002` y `20261003`— de la misma cantidad, y concuerdan. **El 7.1% no
+    era un error ni un defecto de código: era el mismo número con 1/10 de la precisión,
+    caído del lado bajo de su propio intervalo**, lo bastante bajo como para cruzar el
+    techo por 0.4 puntos.
+  - **Y era el riesgo declarado.** La reserva 1 del informe, escrita antes de medir
+    esto, decía literalmente *"con otra semilla el método podría medir 7.6% y quedar
+    fuera"*. Midió **7.96%**. La reserva no era una formalidad: se cerró, y se cerró en
+    contra.
+  - **La regla de decisión se fijó antes y se honró como cayó.** La adenda declaró por
+    anticipado que gobierna el estimado de 200,000 —mide lo mismo con error diez veces
+    menor—, que la banda `[2.5%, 7.5%]` **no se toca**, y que si `ar1_inf` salía arriba
+    de 7.5% el valor puntual volvía a no declararse con el informe reescrito en esa
+    dirección. Es el desenlace que se publicó, con el mismo detalle que habría tenido
+    el que confirmaba el cierre.
+  - **Dos validaciones del propio diseño.** El estrato simulado reproduce la proporción
+    real con tres cifras —**34.91%** contra 34.98% en los datos—, que con 200,000
+    réplicas deja de ser indicativo y pasa a ser verificación estricta de la
+    estratificación por el caso de origen. Y `ar1_inf` sigue devolviendo **33 de 156**
+    sobre los datos reales, recomputado de forma determinista.
+  - **Lo que sí queda más firme.** La cuantificación del 374/446 publicado: el OLS con
+    el que se construyó el corpus rechaza la nula el **58.0%** de las veces bajo la nula,
+    ahora con un IC95 de **[57.6%, 58.4%]** en vez de [55.9%, 63.0%].
+  - **Regla de operación nueva, y es la lección del bloque:** **la precisión de la
+    simulación se dimensiona contra el ancho de la regla de decisión, antes de
+    pre-registrarla.** El pre-registro base fijó `N_SIM = 2,000` para decidir con una
+    banda de 5 puntos de ancho, cuando con 733 casos en el estrato el error Monte Carlo
+    es de ±1.9: la admisibilidad la decidía el ruido de simulación y no el método. Ese
+    es el defecto de procedimiento del bloque, y es del pre-registro, no de la corrida.
+  - El script original y sus salidas **no se tocaron**: la recalibración escribió sus
+    propios archivos, y el informe del 2026-10-02 **se conserva sin recortar** con un
+    bloque de supersesión al inicio, porque es el registro de una decisión tomada
+    correctamente sobre la mejor medición disponible en su momento.
 - **La retractación de la banda `b > 1` se propaga al código que faltaba.** La
   retirada de la etiqueta "Roche Radius" (RC1, 2026-10-02) se había aplicado a
   `code/snt_utils.py` y `code/snt_utils_v32.py`, pero tres lugares seguían
@@ -257,6 +305,9 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
     Figura 1 citaban la etiqueta. Los trazos `b = 1` de las figuras no llevan texto,
     así que no hubo que regenerar ninguna imagen.
 - **El valor puntual del Dominio B se cierra en 33 de 156 estimables (21.2%)**
+  — ⚠ **SUPERSEDIDO el mismo día a las 14:47 UTC por la recalibración a N = 200,000;
+  ver la entrada de arriba. El valor puntual NO se declara.** La entrada se conserva
+  porque documenta el defecto de estratificación y la decisión intermedia.
   (2026-10-02, **corregido 2026-10-03**; pre-registro
   `preregistro/PREREGISTRO_DOMINIO_B_PUNTUAL_2026-10-02.md`, commit `05bc9ee`,
   informe `audits/RESULTADOS_DOMINIO_B_PUNTUAL_2026-10-02.md`). Era el último número
