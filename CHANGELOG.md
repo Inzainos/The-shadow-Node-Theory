@@ -48,6 +48,11 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 
 ## [No publicado]
 
+### Seguridad
+- Los puertos publicados de `genomic_agent` para `mock_services` (`8081`) y
+  `agent_core` (`8501`) quedan ligados a `127.0.0.1`, evitando su exposición en
+  todas las interfaces del host.
+
 ### Corregido
 - **El régimen superlineal `b ≥ 1` queda sin respaldo como régimen físico, y RC1 queda
   cerrado como no decidible por AIC** (2026-10-02; pre-registro
