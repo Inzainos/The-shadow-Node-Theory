@@ -585,7 +585,7 @@ trajectory), and R(t) is fitted exactly as in Domain B.
     dominio, no del estimador. Series C: ρ AR(1) mediana 0.970, 12/23 no estimables
     (n_eff < 3) bajo marco v32 (misma salvedad que B). Ver
     `reconstruction_real/audits/RESULTADOS_RC1_DOMINIOS_RESTANTES_2026-10-17.md`.
-4. Report exact p-values and split `r2_log` / `r2_raw` in the consolidated corpus.
+4. ~~Report exact p-values and split `r2_log` / `r2_raw` in the consolidated corpus~~ — done 2026-10-17. Script `reconstruction_real/code/corpus_p_exacto_r2_split.py` produces `reconstruction_real/data/snt_corpus_REAL_v6.csv`: 680/721 cases now have exact p-values (B: 446 from `se_b`, E3: 234 from `p_ols`) and `r2_log`/`r2_raw` split; 41 cases (A, C, D, E1, E2, F1-F3) lack raw series → NA. Audit v32 block 5 updated to report exact vs truncated counts. No case with `p_exacto` truncates to 0.0 anymore.
 5. ~~Decide on the 5.9× figure~~ — recalculated 2026-09-27: not reproducible and
    untestable on the active corpus; RC3 changed to UNTESTABLE (see the findings
    table and `reconstruction_real/data/trigger_abrupto_gradual_recalculo.csv`).
