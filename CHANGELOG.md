@@ -62,6 +62,12 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   los cocientes de Dominio B y cripto desde las fuentes versionadas, registra
   SHA-256 de entradas y salidas y aplica cada compuerta por dominio sin usar `b`,
   `Δ` ni fricción como descriptor.
+- **Resultado pre-registrado del candidato `u^H`.** No queda admitido como eje:
+  B (96 casos elegibles) y cripto (571) pasan cobertura, variación y no colapso,
+  pero fallan invarianza entre `θ1` y `θ2` (medianas Spearman `−0.065` y `+0.076`,
+  respectivamente). Por diseño, `u` sigue sin definición operativa; procedencia,
+  CSV por caso y compuertas viven en
+  `reconstruction_real/audits/RESULTADOS_EJE_U_TRANSICIONES_2026-10-17.md`.
 
 ### Corregido
 - **Resumen de SSRN r32 alineado con la auditoría vigente.** Declara que E1 no es

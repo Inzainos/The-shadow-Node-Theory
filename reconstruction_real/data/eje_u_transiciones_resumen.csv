@@ -1,0 +1,9 @@
+dominio,compuerta,estado,n_total,n_elegibles,n_evaluables,n_cumplen,valor,umbral,detalle
+B,A_cobertura,PASA,446,96,96,96,96,>=30,Casos con ambas proyecciones y al menos 12 posiciones alineadas.
+B,B_invarianza,FALLA,446,96,96,10,-0.0652226619068,evaluables>=90%; mediana>=0.60; casos>=67% con rho>=0.30,fraccion_evaluable=1.000; fraccion_casos=0.104
+B,C_variacion,PASA,446,96,96,90,0.145524119939,mediana_IQR>=0.05,IQR de h_t bajo theta1.
+B,D_no_colapso,PASA,446,96,96,94,0.0208333333333,evaluables>=90%; casos_colapsados<75% con |rho|>=0.90,fraccion_evaluable=1.000; casos_colapsados=2
+Cripto,A_cobertura,PASA,662,571,571,571,571,>=30,Casos con ambas proyecciones y al menos 12 posiciones alineadas.
+Cripto,B_invarianza,FALLA,662,571,571,2,0.075779762226,evaluables>=90%; mediana>=0.60; casos>=67% con rho>=0.30,fraccion_evaluable=1.000; fraccion_casos=0.004
+Cripto,C_variacion,PASA,662,571,571,571,0.107355009926,mediana_IQR>=0.05,IQR de h_t bajo theta1.
+Cripto,D_no_colapso,PASA,662,571,571,571,0,evaluables>=90%; casos_colapsados<75% con |rho|>=0.90,fraccion_evaluable=1.000; casos_colapsados=0
