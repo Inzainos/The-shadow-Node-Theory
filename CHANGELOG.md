@@ -71,6 +71,32 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 3. E2 tratado por caso (listas de recetas distintas) no por dominio.
 4. A_001 coincidencia espuria ignorada (n mismatch).
 
+### 2026-10-17 — Corpus v6: p_exacto + r2_log/r2_raw y separación APC crypto
+
+**Agregado**
+- Script `reconstruction_real/code/corpus_p_exacto_r2_split.py` (determinista,
+  sin descargas) → `reconstruction_real/data/snt_corpus_REAL_v6.csv` (SHA-256
+  `0ebbd56a…`): enriquece el corpus v5 (721 casos) con `p_exacto` (sin
+  truncado a 0.0), `r2_log` y `r2_raw`, `dw`, `rho_ar1`, `n_eff` donde las
+  series raw lo permiten.
+- **680/721 casos con `p_exacto`** (B: 446 desde `se_b`; E3: 234 desde
+  `p_ols`; 41 sin serie raw → NA). Ningún `p_exacto` == 0.0 (en v5: 557
+  truncados a 0.0).
+- **680 casos con `r2_log`**, **487 con `r2_raw`** (split completado donde
+  procede).
+- Audit v32 bloque 5 actualizado para reportar conteos exactos vs truncados.
+- Script `reconstruction_real/code/apc_separacion_crypto.py` (determinista,
+  lee `data/aco_hazard_bandas.csv`): separación APC completa no identificable
+  (`periodo = cohorte + edad` es dependencia lineal exacta); pendientes de
+  edad por cohorte reportadas (cripto ACO +0.474/año; bancos 1970 +0.0014/año).
+
+**Desviaciones declaradas**
+- ACO: los IDs de `snt_corpus_aco_timeseries_v29.csv` no coinciden con los
+  `id` del corpus v5 → no se pudo recomputar p_exacto/r2 para esos 18 casos;
+  quedan NA.
+- E3: `r2_raw` no disponible (series OWID crudas no versionadas en el repo);
+  solo `r2_log` y `p_exacto`.
+
 ## [No publicado]
 
 ### Seguridad

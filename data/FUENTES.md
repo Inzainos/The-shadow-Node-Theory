@@ -372,6 +372,57 @@ series de n=126.
 
 ---
 
+### Corpus v6: p_exacto + r2_log/r2_raw (2026-10-17)
+
+Script: `reconstruction_real/code/corpus_p_exacto_r2_split.py` (determinista,
+sin descargas, lee solo CSV del repo).
+
+Enriquece `snt_corpus_REAL_v5.csv` (721 casos) con columnas de p-valor exacto
+(sin truncado a 0.0 por `round(p,6)`) y split `r2_log` / `r2_raw`, donde las
+series raw lo permiten:
+
+| Origen | Casos | Cómo se obtiene p_exacto | Cómo se obtiene r2_split |
+|---|---:|---|---|
+| Dominio B (`by_domain/dominio_B_real.csv`) | 446 | Desde `se_b` + `n` (t-Student, sin redondeo) | `r2_log` = r_pearson²; `r2_raw` existente |
+| Dominio E3 (`dominio_E3_series_crudas.csv`) | 234 | Copiado de `p_ols` (ya exacto) | `r2_log` existente; `r2_raw` = NA (raw OWID no en repo) |
+| Dominio ACO (`snt_corpus_aco_timeseries_v29.csv`) | 0 | — | — (IDs no coinciden con corpus v5) |
+| Otros dominios (A, C, D, E1, E2, F1-F3) | 41 | NA (sin serie raw) | NA |
+
+| Archivo de salida | SHA-256 |
+|---|---|
+| `reconstruction_real/data/snt_corpus_REAL_v6.csv` | `0ebbd56a710a512790427a8ac4731b6505004468ec7e9138c3dc2606cd04db9a` |
+| `reconstruction_real/code/corpus_p_exacto_r2_split.py` | `7c0d84267049fb0d424c7eec705212700788159d9917e36522eeaf1bdf128cdd` |
+
+Resultados del split: **680/721 casos con `p_exacto`** (de los cuales 0 == 0.0;
+en v5 eran 557 truncados a 0.0), **680 con `r2_log`**, **487 con `r2_raw`**.
+Audit v32 bloque 5 actualizado para reportar conteos exactos vs truncados.
+
+---
+
+### Separación APC del hazard cripto (2026-10-17)
+
+Script: `reconstruction_real/code/apc_separacion_crypto.py` (determinista,
+lee `data/aco_hazard_bandas.csv`).
+
+**Resultado:** la separación APC completa (edad + cohorte + periodo) no es
+identificable porque `periodo = cohorte + edad` es una dependencia lineal exacta.
+Se reportan pendientes de edad condicionales por cohorte (log-hazard vs edad):
+
+| Cohorte | Pendiente edad (/año) |
+|---|---:|
+| bancos cualquier fin, entrada corregida 1970 | +0.001386 |
+| bancos cualquier fin, entrada pre-registro 1934 (sesgada) | +0.006223 |
+| bancos solo quiebras, entrada corregida 1970 | −0.002898 |
+| bancos solo quiebras, entrada pre-registro 1934 (sesgada) | +0.002498 |
+| cripto ACO | +0.474177 |
+| cripto ACO+retiro | +0.238378 |
+
+| Archivo de salida | SHA-256 |
+|---|---|
+| `reconstruction_real/code/apc_separacion_crypto.py` | `70640794caaaf8b29fefa26bfa3b9af736fe1c95105a7f4f877d0b7cf4af9191` |
+
+---
+
 ## 2. Archivos derivados que SÍ están en el repo (checksums)
 
 Checksums SHA-256 al 2026-07-25, **re-verificados el 2026-09-26: los 6 coinciden**.
@@ -382,6 +433,7 @@ Sirven para detectar si un archivo cambió sin que se documente. Recalcular con 
 | `reconstruction_real/data/by_domain/dominio_B_real.csv` | `e0c7738a31b45b913c73d851ac1b81a9d2ea56aef7e9168ae991eda2687ce583` |
 | `reconstruction_real/data/by_domain/dominio_E3_real.csv` | `11a99cc42a62a73dbe4b282acd66d48c8e86839e6a0fc8cdddc187f9c70c0e82` |
 | `reconstruction_real/data/snt_corpus_REAL_v5.csv` | `6a4a89ed780552facfc0cd77a1abf7ce49b02d73211205d04f51f5eb5d38e9b1` |
+| `reconstruction_real/data/snt_corpus_REAL_v6.csv` | `0ebbd56a710a512790427a8ac4731b6505004468ec7e9138c3dc2606cd04db9a` |
 | `reconstruction_real/data/snt_corpus_aco_timeseries_v29.csv` | `68c11e95e3b609008820111e303141b2d9391923960a5f7855c074e44512d31c` |
 | `data/snt_asi_scores.csv` | `57e38ee9f779efc117b747247cb72ce6f869ae433f885aa116a653b766531fb6` |
 | `data/owid-maddison.csv` | `6e905c41324d50f2e4e468bad9d204a1efd44f6f34368c98425e8e0b33d6a4ec` |
@@ -395,6 +447,7 @@ Sirven para detectar si un archivo cambió sin que se documente. Recalcular con 
 > for f in reconstruction_real/data/by_domain/dominio_B_real.csv \
 >          reconstruction_real/data/by_domain/dominio_E3_real.csv \
 >          reconstruction_real/data/snt_corpus_REAL_v5.csv \
+>          reconstruction_real/data/snt_corpus_REAL_v6.csv \
 >          reconstruction_real/data/snt_corpus_aco_timeseries_v29.csv \
 >          data/snt_asi_scores.csv \
          data/owid-maddison.csv \
