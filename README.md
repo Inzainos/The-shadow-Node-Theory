@@ -575,8 +575,16 @@ trajectory), and R(t) is fitted exactly as in Domain B.
    the five pre-registered tests and the E3 raw-series correction. **Uploading r32
    to SSRN is pending (author action).** PLOS is deferred until the theory is
    resubmitted once refined.
-3. Test b ≥ 1 on the other domains' raw series (now feasible for E3, whose raw
-   series are in the repo since 2026-09-27).
+3. ~~Test b ≥ 1 on the other domains' raw series~~ — **closed in what is testable**
+    (2026-10-17): RC1 run on A, E2, C with pre-registration `4e9cb9e`. E3/B/ACO were
+    done in RC1 2026-10-02. Veredicto por dominio: **E3/B/ACO/C/E2_01 no decidibles por
+    AIC a b ≥ 1** (E3 80.3%, B 96.8%, ACO 48.9%, C 22.6%, E2_01 94%); **A no reproducible
+    (1/4, la coincidencia es espuria n=69 vs n=7); E2_02 no reproducible; D/E1/F1-F3 no
+    testeables** (causa documentada). Hallazgo: la tautología "exponencial → b ≥ 1" se
+    mide 70-100% en E3/B/ACO pero **0.7% en C** — es propiedad de la estructura por
+    dominio, no del estimador. Series C: ρ AR(1) mediana 0.970, 12/23 no estimables
+    (n_eff < 3) bajo marco v32 (misma salvedad que B). Ver
+    `reconstruction_real/audits/RESULTADOS_RC1_DOMINIOS_RESTANTES_2026-10-17.md`.
 4. Report exact p-values and split `r2_log` / `r2_raw` in the consolidated corpus.
 5. ~~Decide on the 5.9× figure~~ — recalculated 2026-09-27: not reproducible and
    untestable on the active corpus; RC3 changed to UNTESTABLE (see the findings

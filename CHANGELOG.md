@@ -48,6 +48,31 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 
 ## [No publicado]
 
+### 2026-10-17 — RC1 en dominios restantes (A, E2, C)
+
+**Agregado**
+- Informe `reconstruction_real/audits/RESULTADOS_RC1_DOMINIOS_RESTANTES_2026-10-17.md` (pre-registro `4e9cb9e`).
+- Fuentes nuevas versionadas: `data/us_census_poblacion_estatal_1900_2025.csv` (32 estados, FRED), `data/lynx_1821_1934.csv` (Rdatasets), `data/hare_lynx_1900_1920.csv` (dsem/CRAN, extraído de `.rda` con `pyreadr`).
+- Script `reconstruction_real/code/rc1_dominios_restantes.py` (semilla `20261017`, determinista).
+- Salidas SHA-256: `rc1_resto_{recetas,por_caso,calibracion,resumen}.csv`.
+
+**Resultados**
+- **A**: 1/4 reproduce (A_001 espuria, n=69 vs n=7) → no reproducible.
+- **E2**: E2_01 reproduce exacto (b, R², DW); E2_02 no reproducible → calibración solo E2_01 (caso único).
+- **C**: 23/23 reproducen (receta anual 1900-2025) → calibrado.
+- P0 C: error AIC banda `b ≥ 1` = 22.6% → no interpretable (umbral 20%), pero muy lejos de E3/B (80-97%).
+- P5 C: exponencial verdadera → `b ≥ 1` = **0.7%** (vs 70-100% en E3/B/ACO) → la tautología **no se replica** en series n=126.
+- Series C: ρ AR(1) mediana 0.970, DW 0.032 → **12/23 casos no estimables** (`n_eff < 3`) bajo marco v32 (misma salvedad que B).
+- Pendiente README "Test b ≥ 1 on the other domains' raw series": cerrado en lo cerrable (7 dominios con veredicto).
+
+**Desviaciones declaradas**
+1. C tiene 23 pares (no 22) → umbral ≥90% se cumple 23/23.
+2. Descarga censo vía FRED (b) sin intentar census.gov (a) — FRED identificó la receta al primer intento.
+3. E2 tratado por caso (listas de recetas distintas) no por dominio.
+4. A_001 coincidencia espuria ignorada (n mismatch).
+
+## [No publicado]
+
 ### Seguridad
 - Los puertos publicados de `genomic_agent` para `mock_services` (`8081`) y
   `agent_core` (`8501`) quedan ligados a `127.0.0.1`, evitando su exposición en

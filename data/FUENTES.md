@@ -329,6 +329,49 @@ sobre la `b` estimada bajo ley de potencia hereda eso. Ver
 
 ---
 
+### RC1 dominios restantes (A, E2, C) 2026-10-17
+
+Pre-registro: `reconstruction_real/preregistro/PREREGISTRO_RC1_DOMINIOS_RESTANTES_2026-10-17.md`
+(commit `4e9cb9e`, subido antes de descargar). Informe:
+`reconstruction_real/audits/RESULTADOS_RC1_DOMINIOS_RESTANTES_2026-10-17.md`.
+
+Fuentes nuevas (descargadas el 2026-10-17, después del pre-registro):
+
+| Fuente | URL | Crudo (no versionado) | Subconjunto/derivado versionado |
+|---|---|---|---|
+| US Census Bureau, Population Estimates Program — población estatal anual 1900-2025, 32 estados ({XX}POP), vía FRED (espejo Census, sin API key) | `https://fred.stlouisfed.org/graph/fredgraph.csv?id={XX}POP` | un CSV por estado; SHA-256 de cada uno en `reconstruction_real/logs/rc1_dominios_restantes_log.txt` | `data/us_census_poblacion_estatal_1900_2025.csv` (estado, anio, poblacion_miles — unidades FRED: miles de personas; el cociente R es invariante a la escala) |
+| R `lynx` (Elton & Nicholson 1942; dataset `datasets/lynx`), vía Rdatasets | `https://vincentarelbundock.github.io/Rdatasets/csv/datasets/lynx.csv` | SHA-256 `0766d4043eb8a20ac83afefff1c78063beff3891571c59e8e38d72503ca86cf1` | `data/lynx_1821_1934.csv` |
+| `hare_lynx` del paquete CRAN `dsem` — pieles lince/liebre Hudson Bay 1900-1920 (Gotelli 2008 Fig. 6.16 ← Elton & Nicholson 1942, MacLulich 1937) | `https://raw.githubusercontent.com/James-Thorson-NOAA/dsem/main/data/hare_lynx.rda` | SHA-256 `3a0d8b7cbcef88d57a7a9cb580bb03de9ba25b7d281532d238ceb2167085be69` (extraído a CSV con `pyreadr`, una vez) | `data/hare_lynx_1900_1920.csv` |
+
+Verificación de receta (Fase 0): **C 23/23 reproducen la `b` publicada dentro de
+±0.01** con R = pob_hub/pob_node anual 1900-2025; **E2_01 reproduce exacto**
+(b, R² y DW: 0.5371 vs 0.537 publicado; receta R = lince/liebre); E2_02 y el
+dominio A **no reproducen** con las recetas pre-registradas (detalles en el
+informe) y no se calibran.
+
+| Archivo de salida | SHA-256 |
+|---|---|
+| `data/us_census_poblacion_estatal_1900_2025.csv` | `6c6600d8e0cbe2e8d8ac7b9733646b487d43987db6a9ea4d22673a5e0cf27c8d` |
+| `data/lynx_1821_1934.csv` | `9433fc763d102a9587649be5ee2546dcb4a5e08d49f045370bdfa08393a87c6d` |
+| `data/hare_lynx_1900_1920.csv` | `8dae8e3993e52e12a1d72bd7987223f4b33cc3114cfbe09431e1934b4b717213` |
+| `reconstruction_real/data/rc1_resto_recetas.csv` | `2df959bcd655a1cfb74a5bcb19f2e62f4adc6e8ff4dc789d54c2b9d50bb3127c` |
+| `reconstruction_real/data/rc1_resto_por_caso.csv` | `194e29f7444cc67c18d58a17e9e62f8f045999e158dcb62906884add25b3ce13` |
+| `reconstruction_real/data/rc1_resto_calibracion.csv` | `7daaca1a4a6e37ed0dd8a1eb6befb6e09865ad756c63c37e28b2c128707d09b8` |
+| `reconstruction_real/data/rc1_resto_resumen.csv` | `394a8fa07ec10b64e864a3c99816f2da332caab18c2d5f7e3f433bd23caf4fca` |
+
+**Nota de calidad — Dominio C.** Las series estatales 1900-2025 recién
+versionadas tienen **ρ AR(1) mediana 0.970** (DW mediana 0.032), peor que el
+Dominio B (0.944). Bajo el marco de la auditoría v32, **12 de los 23 casos de C
+no son estimables** (`n_eff < 3`) pese a figurar en el corpus como 23/23
+significativos. La significancia por caso de C hereda la salvedad de B. La
+**nota de calidad del AIC** (arriba) sigue vigente y no cambia: en C, banda
+contrafactual `b ≥ 1`, el error de selección es 22.6% (aún por encima del
+umbral del 20%); en cambio una exponencial verdadera produce `b ≥ 1` sólo en el
+0.7% de réplicas — la tautología medida en E3/B/ACO **no** se replica con
+series de n=126.
+
+---
+
 ## 2. Archivos derivados que SÍ están en el repo (checksums)
 
 Checksums SHA-256 al 2026-07-25, **re-verificados el 2026-09-26: los 6 coinciden**.
