@@ -53,6 +53,12 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   `agent_core` (`8501`) quedan ligados a `127.0.0.1`, evitando su exposición en
   todas las interfaces del host.
 
+### Añadido
+- **Pre-registro del eje `u` por entropía condicional de transiciones.** Fija una
+  compuerta de admisión sin proxy: dos dominios de cocientes, dos proyecciones
+  independientes y pruebas de cobertura, invariancia, variación y no colapso a
+  magnitud o dispersión antes de admitir `u` como coordenada de `𝒞`.
+
 ### Corregido
 - **Resumen de SSRN r32 alineado con la auditoría vigente.** Declara que E1 no es
   reproducible, retira la lectura que atribuía la asociación del corpus a un contraste
