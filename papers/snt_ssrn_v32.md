@@ -674,12 +674,30 @@ red; reconstruido con hubs que emergen del comercio, solo 9 de 102 pares hub–n
 comerciales están en el dominio B, y el principal destino de exportación cambia
 para 2005–2014 en 77 de 102 países, así que un solo hub fijo durante 50–119 años es
 en sí una aproximación fuerte. (iv) *Régimen superlineal:* en las 18 series crudas
-de la capa de colapso, el AIC prefiere la ley de potencia en 13, una exponencial en
+de la capa de colapso (ACO), el AIC prefiere la ley de potencia en 13, una exponencial en
 4 (b media = +1.54) y un modelo lineal en 1; cuanto mayor es b, peor ajusta la ley
 de potencia, así que parte de la banda b ≥ 1 (102 de 721 casos) puede ser mala
-especificación. (v) *Reporte:* los p-values por caso se redondearon a seis
-decimales (557 de 721 aparecen como 0.0) y se promediaron dos definiciones de R²
-(escala logarítmica y escala original). (vi) *Composición:* el polo sin fricción
+especificación. RC1 extendido a los dominios restantes (r32): el Dominio C (23 series
+de población estatal de EE. UU., 1900–2025) reproduce 23/23 desde el archivo Census/FRED
+versionado pero no es interpretable por AIC en b ≥ 1 (error contrafactual 22.6%, umbral
+20%); el Dominio A (4 pares de ciudades) no es reproducible (1/4, la única coincidencia
+es espuria: n = 69 vs n = 7 publicado); el Dominio E2 (lince–liebre, n = 21) reproduce
+exactamente un caso (b, R² y Durbin-Watson coinciden con el publicado) y falla en el otro.
+Entre los dominios calibrados (E3 80.3%, B 96.8%, ACO 48.9%, C 22.6%, E2 94%) el error
+contrafactual del AIC en b ≥ 1 siempre supera el 20%, así que la banda superlineal no es
+decidible por AIC en ningún dominio. Crucialmente, la tautología de que "una exponencial
+verdadera ajustada como ley de potencia produce b ≥ 1" — medida en 70–100% en E3/B/ACO —
+**no se replica en el Dominio C** (0.7% de réplicas); es una propiedad de la estructura de
+ruido de cada dominio, no del estimador. Las series del Dominio C muestran ρ AR(1) mediano
+0.970 (DW = 0.032, peor que el 0.944 de B), así que 12 de 23 casos de C no son estimables
+(efectiva n < 3) bajo el marco de la auditoría v32 — la misma salvedad que el Dominio B.
+(v) *Reporte:* los p-values por caso se redondearon a seis decimales en el corpus v5
+comprometido (557 de 721 leen 0.0) y se promediaron dos definiciones de R² (escala
+logarítmica y escala original). El corpus v6 (r32) recomputa p-values exactos (sin
+truncamiento) para 680 de 721 casos usando la SE y la n propias de cada caso (Dominio B:
+446; Dominio E3: 234; los 41 restantes carecen de series raw) — cero casos leen
+p_exacto = 0.0 — y divide R² en r2_log (680 casos) y r2_raw (487 casos) en lugar de
+promediarlos. (vi) *Composición:* el polo sin fricción
 (E1 + E3) son datos de COVID-19; E1 modela propagación territorial, no invasión de
 especies. (vii) *Reproducibilidad:* el dominio B se reproduce con exactitud desde
 el archivo Maddison 2020 versionado; E3 se reproduce desde las series crudas (233 de
@@ -873,10 +891,20 @@ descripción donde la fricción es baja (propagación epidémica, E1 y E3); con
 fricción alta (países) compiten los modelos exponencial y lineal. En las 18 series
 crudas de la capa de colapso, el AIC prefiere la ley de potencia en 13, la
 exponencial en 4 (b media = +1.54) y el modelo lineal en 1: cuanto mayor es b, peor
-ajusta la ley de potencia. El exponente b es una métrica descriptiva y comparable
-entre dominios — no la afirmación de que la ley de potencia sea el único modelo
-generador en todos los dominios —, y la banda superlineal b ≥ 1 debe volver a
-probarse contra modelos alternativos.
+ajusta la ley de potencia. RC1 extendido a los dominios restantes (r32): el
+Dominio C reproduce 23/23 desde Census/FRED pero no es interpretable por AIC en
+b ≥ 1 (error contrafactual 22.6%, umbral 20%); el Dominio A no es reproducible
+(1/4); el Dominio E2 reproduce exactamente un caso y falla en el otro. Entre los
+dominios calibrados (E3 80.3%, B 96.8%, ACO 48.9%, C 22.6%, E2 94%) el error
+contrafactual del AIC en b ≥ 1 siempre supera el 20%, así que la banda superlineal
+no es decidible por AIC en ningún dominio. La tautología de que "una exponencial
+verdadera ajustada como ley de potencia produce b ≥ 1" — medida en 70–100% en
+E3/B/ACO — **no se replica en el Dominio C** (0.7% de réplicas); es una propiedad
+de la estructura de ruido de cada dominio, no del estimador. El exponente b es
+una métrica descriptiva y comparable entre dominios — no la afirmación de que
+la ley de potencia sea el único modelo generador en todos los dominios —, y
+la banda superlineal b ≥ 1 debe volver a probarse contra modelos alternativos por
+dominio.
 
 ---
 
