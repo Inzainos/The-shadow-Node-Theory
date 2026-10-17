@@ -13,6 +13,7 @@ from eje_u_transiciones import (  # noqa: E402
     classify_states,
     safe_spearman,
     transition_entropy_rows,
+    write_csv,
 )
 
 
@@ -59,3 +60,10 @@ def test_transition_entropy_uses_only_prior_origin_states():
 
 def test_constant_vectors_are_not_spearman_evaluable():
     assert safe_spearman(np.ones(4), np.arange(4, dtype=float)) is None
+
+
+def test_result_csvs_use_lf_line_endings(tmp_path):
+    output = tmp_path / "result.csv"
+    write_csv(output, ["valor"], [{"valor": 1.0}])
+
+    assert b"\r\n" not in output.read_bytes()

@@ -722,7 +722,9 @@ def write_csv(path: Path, fieldnames: list[str], rows: list[dict[str, object]]) 
     """Write a reproducible UTF-8 CSV with explicit missing cells."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer = csv.DictWriter(
+            handle, fieldnames=fieldnames, lineterminator="\n"
+        )
         writer.writeheader()
         for row in rows:
             writer.writerow(
