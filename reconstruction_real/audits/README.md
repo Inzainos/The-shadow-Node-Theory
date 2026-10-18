@@ -164,13 +164,13 @@ recálculo independiente de las cifras que el runner no emite:
 | Punto | Estado 2026-09-26 |
 |---|---|
 | Runner v32 | Corre limpio; **ninguna discrepancia**: 26 REPLICA, 1 REPLICA_SIGNO, 1 RANGO, 1 OK. El resto no es replicable por diseño: 5 NO_REPRODUCIBLE y 2 BLOQUEADO (requieren datos ausentes del repo), 1 CIRCULAR (`soberania` = umbral de ASI) y 7 INFO. |
-| `data/owid-maddison.csv` (hallazgo #7) | **PRESENTE** — la fila del CSV de salida pasó de `AUSENTE/NO_REPRODUCIBLE` a `PRESENTE/OK`. La fila `dominio_B_regenerable` sigue fija en `NO` dentro del runner (pendiente de actualizar el script). |
+| `data/owid-maddison.csv` (hallazgo #7) | **PRESENTE** — la fila del CSV de salida pasó de `AUSENTE/NO_REPRODUCIBLE` a `PRESENTE/OK`. `dominio_B_regenerable` ya está resuelto: el runner regenera B y compara caso a caso + SHA-256 → `REPLICA` (446/446 b idénticos, byte a byte). |
 | Hallazgo central por cluster | Recalculado con `spearman_cluster()`: ρ = −0.5555, p = 0.2525 (6 dominios); bootstrap por cluster IC95 [−0.7219, −0.0063]; sin E3 ρ = −0.1162 (p = 0.011, n = 480); sin E3 ni B ρ = −0.4264 (p = 0.0119, n = 34). **Replica exacto.** |
 | RC9 (§5 del informe: "no verificable") | **Corregido:** los pares (b_rise, Δ_fall) sí están versionados en `data/orthogonality_crypto_v25.csv`; Spearman ρ = +0.009, p = 0.98, n = 11. Replica exacto. Alcance: solo cripto. |
 | Origen del 5.9× (§8) | **Localizado:** aparece como texto fijo en el script histórico v28 `code/generate_publication_figures.py` (líneas del texto de la figura y del pie), no como cálculo sobre el corpus v5. Confirma la hipótesis del informe. |
 | Composición del polo sin fricción | E1 (4) + E3 (234) = 238 casos, **todos OWID COVID-19** según la columna `fuente` de `by_domain/`. E1 no son invasiones biológicas. |
 | Checksums de `data/FUENTES.md` | Los 6 SHA-256 coinciden con los archivos actuales. |
-| Prueba de regresión | `pytest reconstruction_real/tests` → 4 passed. |
+| Prueba de regresión | `pytest reconstruction_real/tests` → 9 passed. |
 
 ## Seguimiento — 2026-09-27: recálculo del 5.9× y filas fijas del runner
 
@@ -184,11 +184,18 @@ recálculo independiente de las cifras que el runner no emite:
 | **Reconstrucción del dominio B con hub emergente del comercio** | Informe [`RECONSTRUCCION_DOMINIO_B_HUB_COMERCIO.md`](RECONSTRUCCION_DOMINIO_B_HUB_COMERCIO.md); script `code/reconstruccion_B_hub_comercio.py` → `data/dominio_B_hub_comercio.csv` + `data/dominio_B_hub_comercio_intra_nodo.csv` (+ log). Hub = mayor destino de exportación del nodo en su primera década de datos COW (predeterminado), mismo ajuste que B. 102/103 países; 19 hubs (Reino Unido 37, Estados Unidos 27). Solo **9/102** pares hub–nodo comerciales existen en B; el hub cambia para 2005–2014 en 77/102. Con hub más rico, **62/95 convergen** (b < 0). ρ(b, brecha) = −0.153 (p = 0.125) vs −0.489 en B. **Hub vs controles con la misma brecha:** d mediana −0.014, 45/102 > 0, Wilcoxon p = 0.78 (cluster por hub p = 0.62) → **sin acoplamiento**. Hub de ventana completa da d > 0 (p = 5×10⁻¹⁰), pero es causalidad inversa por gravedad (endógeno). Dentro de cada nodo: ρ parcial mediana +0.115 (Wilcoxon p = 0.046; permutación p = 0.15; con control de tamaño, signo p = 0.10) → no concluyente. Calidad: Mongolia y Vietnam con comercio CMEA faltante en COW (excluirlos no cambia nada). **Veredicto: la reconstrucción no rescata el acoplamiento.** |
 | **Runner v32** | 51 filas: 28 REPLICA, 1 REPLICA_SIGNO, 1 RANGO, 2 OK, 2 PARCIAL (sensibilidad a la edición y script previo), 3 NO_REPRODUCIBLE, 2 BLOQUEADO, 1 CIRCULAR, 11 INFO. Ninguna discrepancia. |
 
-Pendientes que siguen abiertos: series crudas de E3 (corrección AR(1) de E3),
-prueba de b ≥ 1 en otros dominios, p sin truncar + `r2_log`/`r2_raw`
-separados en el corpus consolidado, y una definición de hub variable en el
-tiempo antes de volver a usar pares de países como evidencia (PLOS queda para el
-reenvío de la teoría una vez afinada). Hechos el 2026-09-27: ~~fijar la edición
+Pendientes que siguen abiertos: p sin truncar + `r2_log`/`r2_raw` separados en el
+corpus consolidado (**hecho 2026-10-17**: `corpus_p_exacto_r2_split.py` →
+`snt_corpus_REAL_v6.csv`, 680/721 con p exacto, 41 sin serie raw → NA), y una
+definición de hub variable en el tiempo antes de volver a usar pares de países
+como evidencia (**hecho**: pre-registro punto 1, H=20/10/30, sin acoplamiento;
+ver `RESULTADOS_PREREGISTRO_2026-09-27.md`). PLOS queda para el reenvío de la
+teoría una vez afinada. **Cerrado 2026-10-17: prueba de b ≥ 1 en otros dominios**
+(RC1 dominios A, E2, C — veredicto por dominio: E3/B/ACO/C/E2_01 no decidibles
+por AIC a b ≥ 1; A no reproducible; E2_02 no reproducible; D/E1/F1-F3 no
+testeables; tautología exponencial→b≥1 medida 70-100% en E3/B/ACO pero 0.7%
+en C — es propiedad de la estructura por dominio, no del estimador; series C:
+ρ=0.970, 12/23 no estimables bajo v32). Hechos el 2026-09-27: ~~fijar la edición
 exacta de Maddison~~ (MPD2020, reproducción byte a byte), ~~re-correr la prueba
 discriminante con MPD2020~~ (sigue inconclusa), ~~bloque 2 con comercio
 bilateral~~ (acoplamiento no respaldado), ~~actualizar el preprint de SSRN~~

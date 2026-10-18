@@ -1,0 +1,12 @@
+admisible,banda_b,casos,dominio,error_seleccion_P0,frac_b_aparente_mayor_0_5,frac_b_aparente_mayor_1,replicas
+,P5 (exponencial verdadera),23,C,,0.0885,0.007,4600
+,cf:1.0 <= b < 1.5,23,C,0.3326,,,4600
+,cf:b >= 1.5,23,C,0.1189,,,4600
+,obs:0.5 <= b < 1,2,C,0.665,,,400
+,obs:b < 0.5,21,C,0.2702,,,4200
+0,cf: b >= 1 (agregada),,C,0.2258,,,9200
+,P5 (exponencial verdadera),1,E2,,0.47,0.11,200
+,cf:1.0 <= b < 1.5,1,E2,0.985,,,200
+,cf:b >= 1.5,1,E2,0.895,,,200
+,obs:0.5 <= b < 1,1,E2,0.97,,,200
+0,cf: b >= 1 (agregada),,E2,0.94,,,400

@@ -575,9 +575,17 @@ trajectory), and R(t) is fitted exactly as in Domain B.
    the five pre-registered tests and the E3 raw-series correction. **Uploading r32
    to SSRN is pending (author action).** PLOS is deferred until the theory is
    resubmitted once refined.
-3. Test b ≥ 1 on the other domains' raw series (now feasible for E3, whose raw
-   series are in the repo since 2026-09-27).
-4. Report exact p-values and split `r2_log` / `r2_raw` in the consolidated corpus.
+3. ~~Test b ≥ 1 on the other domains' raw series~~ — **closed in what is testable**
+    (2026-10-17): RC1 run on A, E2, C with pre-registration `4e9cb9e`. E3/B/ACO were
+    done in RC1 2026-10-02. Veredicto por dominio: **E3/B/ACO/C/E2_01 no decidibles por
+    AIC a b ≥ 1** (E3 80.3%, B 96.8%, ACO 48.9%, C 22.6%, E2_01 94%); **A no reproducible
+    (1/4, la coincidencia es espuria n=69 vs n=7); E2_02 no reproducible; D/E1/F1-F3 no
+    testeables** (causa documentada). Hallazgo: la tautología "exponencial → b ≥ 1" se
+    mide 70-100% en E3/B/ACO pero **0.7% en C** — es propiedad de la estructura por
+    dominio, no del estimador. Series C: ρ AR(1) mediana 0.970, 12/23 no estimables
+    (n_eff < 3) bajo marco v32 (misma salvedad que B). Ver
+    `reconstruction_real/audits/RESULTADOS_RC1_DOMINIOS_RESTANTES_2026-10-17.md`.
+4. ~~Report exact p-values and split `r2_log` / `r2_raw` in the consolidated corpus~~ — done 2026-10-17, **completed 2026-10-18**. Script `reconstruction_real/code/corpus_p_exacto_r2_split.py` produces `reconstruction_real/data/snt_corpus_REAL_v6.csv`: 680/721 cases with exact p-values (B: 446 from `se_b`, E3: 234 from `p_ols`), 680 with `r2_log`, **720/721 with `r2_raw`** — E3's 234 cases got r2_raw from the raw OWID series on 2026-10-18 (the re-downloaded file is byte-identical to the pinned snapshot, SHA `8473d0f0…`; gate: b reproduces 233/234; only E3_060 stays NA). 41 cases (A, C, D, E1, E2, F1-F3) lack raw series for p_exacto/r2_log → NA. Audit v32 block 5 updated. No case with `p_exacto` truncates to 0.0 anymore.
 5. ~~Decide on the 5.9× figure~~ — recalculated 2026-09-27: not reproducible and
    untestable on the active corpus; RC3 changed to UNTESTABLE (see the findings
    table and `reconstruction_real/data/trigger_abrupto_gradual_recalculo.csv`).
@@ -603,9 +611,26 @@ trajectory), and R(t) is fitted exactly as in Domain B.
     supported; E3 recovered from raw data and robust to autocorrelation; E1 not
     reproducible; abrupt decree triggers supported on cities; b ⊥ Δ supported
     (n = 242); h > 0 supported in crypto and banks, rising hazard only in crypto.
-12. Open after the pre-registration: age-period-cohort separation of the crypto
-    hazard; friction → Δ with a larger cohort (no public absorption series yet);
-    a trigger corpus without the UN WUP ≥ 300k survivor filter.
+12. Open after the pre-registration — **attacked with data on 2026-10-18**
+    (`reconstruction_real/audits/RESULTADOS_DESBLOQUEOS_2026-10-18.md`, post-hoc, declared):
+    - *APC separation:* mathematically non-identifiable (period = cohort + age).
+      Best achievable with committed data: same-age comparison of the 1934 vs 1970
+      bank cohorts shows the between-cohort difference concentrates exactly where
+      the 1934 records are left-truncated (ratio 0.25–0.62 at young ages) and
+      converges to 0.85–0.92 where both are complete — **selection, not period**.
+    - *Friction → Δ:* enlarged two ways. ACO n=18 (post-hoc channel ordinals,
+      author to validate): ρ = −0.377, p = 0.12 — the 2008 cohort's perfect ρ = −1.000
+      **does not generalize** (industrial cases even reverse, +0.949). npm n=450 with
+      the pre-registered `friccion_a_priori` coding: Spearman = +0.163, p = 0.0005,
+      in the anticipated direction (institutional backing → gentler fall:
+      median Δ −0.953 without repo vs −0.732 with). Weak but no longer n=6.
+    - *Trigger corpus without the WUP ≥ 300k filter:* **closed as impossible with
+      the public source** — the full WUP2018 zip (SHA verified) was enumerated: all
+      27 tables; none has per-city series below 300k (F17a–d are size-class
+      aggregates without identities). Removing the filter requires national censuses
+      per country.
+    - Still genuinely open: pre-registered replication of friction → Δ in another
+      ecosystem (PyPI/CRAN).
 
 ---
 
@@ -1132,7 +1157,7 @@ finding.
 | RC4 | Friction index is not correlated with b | NOT REFUTED (weak) | Direction holds in every variant of the corpus; cluster-level p = 0.25 (n = 6 domains). **Pre-registered test 2026-09-27 with new non-COVID domains: ρ = −0.131, p = 0.39 — not supported**; only the epidemic (friction-free) pole separates. The condition "not correlated" is not met in the corpus, but outside epidemics the evidence does not distinguish the prediction from zero. |
 | RC5 | N-body matrix does not change satellization estimates | NOT REFUTED | Fit replicates, and the composite gradient does change the estimate (9.3×). **Lognormal comparison done 2026-10-02: the power law loses (ΔAIC = 65 on the rank-size curve), so the preferential-attachment reading is withdrawn.** **Replicated internationally the same day over six territorial levels (27 to 5,570 units): the lognormal wins five of six, Clauset's test never reaches usable power (42.6% false "survives" at n = 5,570), and the shape turns out to depend on the partition — which strengthens the withdrawal rather than reopening it.** The criterion itself is about the N-body correction changing estimates, which it does. |
 | RC6 | Shadow node reverses satellization without exogenous trigger | NOT REFUTED | Not covered by the audit. |
-| RC7 | ASI does not predict outcomes better than chance | NOT REFUTED | ROC-AUC 0.715 not reproducible from the repo (target absent). |
+| RC7 | ASI does not predict outcomes better than chance | NOT REFUTED | ROC-AUC 0.715 not reproducible from the repo (target absent). **Post-print verification 2026-10-18** (platform dataset in hand, `audits/REVISION_REPORTE_HACKEREARTH_2026-10-18.md`): the leaked v30 figures (0.9994 / precision 1.0) are label-defined-by-feature circularity — churn label == Basic cohort user-by-user (4,774/4,774); an honest temporal churn label (30-day inactivity, features strictly prior to the cutoff) yields **CV AUC 0.836 ± 0.038**, near the audit's corrected 0.715 ± 0.019, not the leaked 0.9994. Real numbers delivered in `data/hackerearth_zerve/NUMEROS_REALES_2026-10-18.md`. |
 | RC8 | Mutual interdependence does not brake satellization | NOT REFUTED | Rests on Domain B, whose discriminant test is inconclusive. Block 2 (2026-09-27): initial trade integration with the hub goes with **lower** b (ρ = −0.185, within-region permutation p = 0.026) — a direction consistent with "interdependence as brake", but it is a correlation on the assigned-hub construct and it contradicts the coupling reading of Domain B. With trade-emergent hubs (2026-09-27) no coupling appears either; the brake stays a hypothesis without support in this domain. |
 | RC9 | Collapse axis is not orthogonal to satellization: corr(b, Delta) >> 0 | NOT REFUTED (first test: crypto n=11, Spearman rho=+0.009, p=0.98 -- consistent with orthogonality; cross-domain still untested) | Replicates exactly from `orthogonality_crypto_v25.csv`. **Pre-registered test 2026-09-27 (Binance archive, n = 242):** ρ = −0.119, 95% CI [−0.241, +0.007] inside the ±0.3 equivalence band → orthogonality **supported**; 153/242 peaks fall in 2021 (one market cycle). |
 | RC10 | A realized collapse takes a higher-friction path when a lower one exists | NOT REFUTED | Not covered by the audit. |

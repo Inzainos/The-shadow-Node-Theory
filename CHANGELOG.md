@@ -48,6 +48,120 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 
 ## [No publicado]
 
+### 2026-10-18 — Verificación del reporte HackerEarth "Fractal V3" con datos
+
+Informe: `reconstruction_real/audits/REVISION_REPORTE_HACKEREARTH_2026-10-18.md`.
+Datos: `data/hackerearth_zerve/` (5 CSV versionados) + crudo no versionado
+(SHA anclado). Script: `code/hackerearth_verificacion.py`.
+
+- **Conteos del PDF reproducen exacto** (4,774 usuarios; cohortes 4,444/306/24;
+  tiers 4,444/299/21/10) — el trabajo descriptivo del proyecto es verificable.
+- **Circularidad demostrada empíricamente**: "High Risk" == cohorte Basic
+  usuario por usuario (4,774/4,774); el modelo de retención reproduce AUC
+  1.0000 con CSI_V3 (la variable que define la etiqueta) como feature top;
+  CSI_V3 sola contra la etiqueta de churn da AUC 1.0000 — el 0.9994 del modelo
+  de 284 features es peor que su propia etiqueta.
+- **Prueba honesta temporal** (corte 2025-11-08, outcome 30 días de
+  inactividad, features pre-corte): AUC **0.836 ± 0.038** (n=2,058) /
+  **0.893 ± 0.041** (antigüedad ≥ 7d). El gap 1.0000→0.836 es la circularidad
+  removida; cae en la vecindad de la corrección v32 (0.715 ± 0.019), validando
+  la auditoría retrospectivamente.
+- **Conexión con la auditoría v32**: el 0.9994 y el "precision 1.0" del PDF
+  nuevo son las mismas cifras retiradas del preprint v30 (leaked ROC-AUC
+  0.9994 → 0.715; ASI "precision 1.0" tautológica). La rama `zerve`
+  (`a4fef75`) documenta el mecanismo; el Dominio D del corpus sigue
+  NO_REPRODUCIBLE (los 3 casos no derivan de estos datos agregados).
+- Recomendación al autor: no citar 0.9994/1.0 en ningún documento; el valor
+  honesto del proyecto es la segmentación + matriz de acción + AUC ~0.84.
+- **Entrega de los números reales** (`code/hackerearth_entrega_honesta.py` →
+  `data/hackerearth_zerve/`): modelo temporal entrenado al corte 2025-11-08
+  (AUC 0.836 ± 0.038, calibración 0.920 vs 0.927), score de los 4,774
+  usuarios al fin de los datos, matriz 2×2 honesta (Reactivar 2,334 /
+  Intervenir ya 2,259 / Cuidar 179 / Vigilar 2), señales dominantes
+  antigüedad 25% + recencia 23% + días activos 16%. Documento de entrega:
+  `data/hackerearth_zerve/NUMEROS_REALES_2026-10-18.md`.
+- **SNT actualizada con los números reales**: SSRN r32 (EN+ES) RC7 con la
+  verificación post-preprint; README tabla RC7 con el AUC honesto y la
+  referencia a la entrega.
+
+### 2026-10-18 — Desbloqueo de pendientes con datos (post-hoc, declarado)
+
+Informe: `reconstruction_real/audits/RESULTADOS_DESBLOQUEOS_2026-10-18.md`.
+
+**Resuelto**
+- **E3 r2_raw**: re-descarga OWID byte-idéntica al snapshot anclado (SHA
+  `8473d0f0…`); `e3_r2_raw.py` computa r2_raw con la receta verificada
+  (233/234, E3_060 NA conservador). Corpus v6 regenerado: **r2_raw 720/721**
+  (antes 487). SHAs nuevos en FUENTES.md.
+- **WUP sin filtro ≥300k**: zip completo enumerado (SHA verificado) — la ONU
+  no publica series por ciudad <300k. Pendiente cerrado como imposible con
+  la fuente pública.
+
+**Acotado**
+- **APC**: comparación mismo-edad cohortes bancarias 1934 vs 1970 — la
+  diferencia es selección por truncamiento (razón 0.25–0.62 joven, 0.85–0.92
+  donde ambas completas), no efecto periodo.
+- **Fricción → Δ**: ACO n=18 (canales documentados, post-hoc, a validar por
+  el autor): ρ=−0.377, p=0.121 — la ρ=−1.000 de 2008 no generaliza. npm n=450
+  (codificación pre-registrada): ρ=+0.163, p=0.0005, dirección anticipada.
+- **npm hazard decreciente**: se mantiene dentro de cada cohorte de
+  nacimiento (−0.47/−0.34/−0.77) — no es puro artefacto de mezcla.
+
+**Scripts nuevos**: `e3_r2_raw.py`, `friction_aco_18.py`,
+`npm_followup_cohorte_friccion.py`; `apc_separacion_crypto.py` extendido con
+la sección mismo-edad. Todo determinista; descargas verificadas por SHA.
+
+### 2026-10-17 — RC1 en dominios restantes (A, E2, C)
+
+**Agregado**
+- Informe `reconstruction_real/audits/RESULTADOS_RC1_DOMINIOS_RESTANTES_2026-10-17.md` (pre-registro `4e9cb9e`).
+- Fuentes nuevas versionadas: `data/us_census_poblacion_estatal_1900_2025.csv` (32 estados, FRED), `data/lynx_1821_1934.csv` (Rdatasets), `data/hare_lynx_1900_1920.csv` (dsem/CRAN, extraído de `.rda` con `pyreadr`).
+- Script `reconstruction_real/code/rc1_dominios_restantes.py` (semilla `20261017`, determinista).
+- Salidas SHA-256: `rc1_resto_{recetas,por_caso,calibracion,resumen}.csv`.
+
+**Resultados**
+- **A**: 1/4 reproduce (A_001 espuria, n=69 vs n=7) → no reproducible.
+- **E2**: E2_01 reproduce exacto (b, R², DW); E2_02 no reproducible → calibración solo E2_01 (caso único).
+- **C**: 23/23 reproducen (receta anual 1900-2025) → calibrado.
+- P0 C: error AIC banda `b ≥ 1` = 22.6% → no interpretable (umbral 20%), pero muy lejos de E3/B (80-97%).
+- P5 C: exponencial verdadera → `b ≥ 1` = **0.7%** (vs 70-100% en E3/B/ACO) → la tautología **no se replica** en series n=126.
+- Series C: ρ AR(1) mediana 0.970, DW 0.032 → **12/23 casos no estimables** (`n_eff < 3`) bajo marco v32 (misma salvedad que B).
+- Pendiente README "Test b ≥ 1 on the other domains' raw series": cerrado en lo cerrable (7 dominios con veredicto).
+
+**Desviaciones declaradas**
+1. C tiene 23 pares (no 22) → umbral ≥90% se cumple 23/23.
+2. Descarga censo vía FRED (b) sin intentar census.gov (a) — FRED identificó la receta al primer intento.
+3. E2 tratado por caso (listas de recetas distintas) no por dominio.
+4. A_001 coincidencia espuria ignorada (n mismatch).
+
+### 2026-10-17 — Corpus v6: p_exacto + r2_log/r2_raw y separación APC crypto
+
+**Agregado**
+- Script `reconstruction_real/code/corpus_p_exacto_r2_split.py` (determinista,
+  sin descargas) → `reconstruction_real/data/snt_corpus_REAL_v6.csv` (SHA-256
+  `0ebbd56a…`): enriquece el corpus v5 (721 casos) con `p_exacto` (sin
+  truncado a 0.0), `r2_log` y `r2_raw`, `dw`, `rho_ar1`, `n_eff` donde las
+  series raw lo permiten.
+- **680/721 casos con `p_exacto`** (B: 446 desde `se_b`; E3: 234 desde
+  `p_ols`; 41 sin serie raw → NA). Ningún `p_exacto` == 0.0 (en v5: 557
+  truncados a 0.0).
+- **680 casos con `r2_log`**, **487 con `r2_raw`** (split completado donde
+  procede).
+- Audit v32 bloque 5 actualizado para reportar conteos exactos vs truncados.
+- Script `reconstruction_real/code/apc_separacion_crypto.py` (determinista,
+  lee `data/aco_hazard_bandas.csv`): separación APC completa no identificable
+  (`periodo = cohorte + edad` es dependencia lineal exacta); pendientes de
+  edad por cohorte reportadas (cripto ACO +0.474/año; bancos 1970 +0.0014/año).
+
+**Desviaciones declaradas**
+- ACO: los IDs de `snt_corpus_aco_timeseries_v29.csv` no coinciden con los
+  `id` del corpus v5 → no se pudo recomputar p_exacto/r2 para esos 18 casos;
+  quedan NA.
+- E3: `r2_raw` no disponible (series OWID crudas no versionadas en el repo);
+  solo `r2_log` y `p_exacto`.
+
+## [No publicado]
+
 ### Seguridad
 - Los puertos publicados de `genomic_agent` para `mock_services` (`8081`) y
   `agent_core` (`8501`) quedan ligados a `127.0.0.1`, evitando su exposición en

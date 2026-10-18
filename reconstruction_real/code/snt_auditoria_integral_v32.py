@@ -215,10 +215,19 @@ def bloque_rc1_aic(add):
 
 
 def bloque_p_truncados(add):
-    """5 — p truncados a 0.0 por round(p, 6)."""
+    """5 — p truncados a 0.0 por round(p, 6) en v5; exactos en v6."""
     corpus = _read(os.path.join(DATA, "snt_corpus_REAL_v5.csv"))
     z = sum(1 for r in corpus if _f(r["p"]) == 0.0)
-    add("5_p_truncados", "corpus_p_igual_0", 557, z, "REPLICA")
+    add("5_p_truncados", "corpus_p_igual_0_v5", 557, z, "REPLICA")
+    v6 = os.path.join(DATA, "snt_corpus_REAL_v6.csv")
+    if os.path.exists(v6):
+        c6 = _read(v6)
+        exact = sum(1 for r in c6 if r["p_exacto"] not in (None, ""))
+        exact_cero = sum(1 for r in c6 if r["p_exacto"] not in (None, "") and _f(r["p_exacto"]) == 0.0)
+        add("5_p_truncados", "corpus_p_exacto_v6", "-", f"{exact}/{len(c6)} casos", "INFO")
+        add("5_p_truncados", "corpus_p_exacto_igual_0_v6", "0", exact_cero, "INFO")
+        na = sum(1 for r in c6 if r["p_exacto"] in (None, ""))
+        add("5_p_truncados", "corpus_p_exacto_na_v6", "-", f"{na}/{len(c6)} sin serie raw", "INFO")
     b = _read(os.path.join(DATA, "by_domain", "dominio_B_real.csv"))
     zb = sum(1 for r in b if _f(r["p"]) == 0.0)
     add("5_p_truncados", "B_p_igual_0", "n/d", zb, "INFO")
