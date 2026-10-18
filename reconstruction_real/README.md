@@ -121,9 +121,14 @@ significativo tras corregir la autocorrelacion, y mpox tambien da b alto
 - **Regimen superlineal b >= 1**: por AIC sobre las 18 series crudas ACO, la ley
   de potencia gana 13/18 y la exponencial 4/18; los ganadores exponenciales
   tienen b medio +1.54. El 14.1% del corpus etiquetado como superlineal puede
-  ser mala especificacion de modelo. Desde 2026-09-27 la serie cruda de E3 esta
-  en el repo (94 de los 102 casos con b >= 1 son E1 + E3), asi que la prueba ya
-  es posible para E3 (pendiente).
+  ser mala especificacion de modelo. **Prueba cerrada 2026-10-02/17 (RC1, los
+  7 dominios):** el error de seleccion AIC en la banda contrafactual b >= 1
+  supera el umbral del 20% en todos los dominios calibrados (E3 80.3%, B 96.8%,
+  ACO 48.9%, C 22.6%, E2 94%) -> la banda NO es decidible por AIC en ningun
+  dominio. La tautologia exponencial->b>=1 (70-100% en E3/B/ACO) no se replica
+  en C (0.7%): es propiedad de la estructura por dominio. Ver
+  `audits/RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md` y
+  `audits/RESULTADOS_RC1_DOMINIOS_RESTANTES_2026-10-17.md`.
 - **Dominios fisicos (F)**: siguen ley de potencia pero su "friccion" es
   fisica (Eddington, resonancia orbital), no institucional.
 
