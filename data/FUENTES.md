@@ -466,6 +466,43 @@ artefacto de mezcla. Ver informe §5.
 
 ---
 
+### Proyecto HackerEarth/Zerve — dataset y verificación (2026-10-18)
+
+**Contexto:** el reporte `HackerEarth User Retention Analysis: Fractal V3
+Insights & Intervention Strategy.pdf` (18-oct-2026, Downloads de Windows,
+SHA-256 `92fa43f7b67c6236bcfaab00003ec9ba5c8a68c9fe65dd9e85426fd0d4196d52`)
+y su proyecto (rama `zerve`, commit `a4fef75`, directorio
+`79d2da5a-bd19-47f0-8eab-3f9d426e1f46/` — código sin datos). Revisión:
+`reconstruction_real/audits/REVISION_REPORTE_HACKEREARTH_2026-10-18.md`.
+
+Datos descargados el mismo día (fuente: export interno de la plataforma —
+no público):
+
+| Archivo | SHA-256 | Versionado |
+|---|---|---|
+| `zerve_hackathon_dataset.csv` (crudo, 299 MB, 409,287 eventos PostHog, 2025-09-01→2025-12-08, 4,774 usuarios) | `73c44fc9d47abd67ef0e9280f71bc2fec9b8483d3fc304a1f747593f9aa27390` | **No** (tamaño; el script lo lee de Downloads o `--raw`) |
+| `metricas_fractal_v3.csv` (= `docu_metricas_fractal_v3.csv`) | `4f34b79bea9f2e967a4f907573846cc264221623fd7dbc219d241b3e548d1f1e` | Sí: `data/hackerearth_zerve/` |
+| `docu_retention_scores.csv` | `99a5f5f2ba53132a0f1d5e2015a56393d815eb9488ac55ea0526867c4613970b` | Sí |
+| `docu_churn_early_warning.csv` | `77bfba10ff686abc38ce91c32ad474e4d9d85011491d31688f8ed1f45e7cb67b` | Sí |
+| `docu_elite_users.csv` | `566f8267096306bc3ce662f9943053b6377e2e01d243646e0c484c8bab0d5765` | Sí |
+| `docu_intermediate_users.csv` | `472a69cc2a054eb8be59a95fb32af7a8e5f34b78e77e4218393b71c6889fe095` | Sí |
+
+**Verificación** (`code/hackerearth_verificacion.py`): los conteos del PDF
+reproducen exacto; High Risk == Basic usuario por usuario (4,774/4,774); el
+modelo de retención reproduce AUC 1.0000 con CSI_V3 como feature top (43%);
+CSI_V3 sola contra la etiqueta de churn da AUC 1.0000 (el modelo de 284
+features del PDF, 0.9994, es peor que la variable que define la etiqueta).
+Prueba honesta temporal (corte 2025-11-08, outcome = 30 días de inactividad):
+**AUC 0.836 ± 0.038** (todos, n=2,058) / **0.893 ± 0.041** (antigüedad ≥ 7d,
+n=137) — el gap 1.0000→0.836 es la circularidad removida y cae en la vecindad
+de la corrección de la auditoría v32 (0.715 ± 0.019), no del leak. Salida:
+`reconstruction_real/data/hackerearth_verificacion_resultados.csv`.
+
+**Nota de seguridad:** los `person_id` son hashes de PostHog, no PII directa;
+el dataset crudo no se versiona y vive fuera del repo.
+
+---
+
 ## 2. Archivos derivados que SÍ están en el repo (checksums)
 
 Checksums SHA-256 al 2026-07-25, **re-verificados el 2026-09-26: los 6 coinciden**.

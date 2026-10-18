@@ -48,6 +48,32 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 
 ## [No publicado]
 
+### 2026-10-18 — Verificación del reporte HackerEarth "Fractal V3" con datos
+
+Informe: `reconstruction_real/audits/REVISION_REPORTE_HACKEREARTH_2026-10-18.md`.
+Datos: `data/hackerearth_zerve/` (5 CSV versionados) + crudo no versionado
+(SHA anclado). Script: `code/hackerearth_verificacion.py`.
+
+- **Conteos del PDF reproducen exacto** (4,774 usuarios; cohortes 4,444/306/24;
+  tiers 4,444/299/21/10) — el trabajo descriptivo del proyecto es verificable.
+- **Circularidad demostrada empíricamente**: "High Risk" == cohorte Basic
+  usuario por usuario (4,774/4,774); el modelo de retención reproduce AUC
+  1.0000 con CSI_V3 (la variable que define la etiqueta) como feature top;
+  CSI_V3 sola contra la etiqueta de churn da AUC 1.0000 — el 0.9994 del modelo
+  de 284 features es peor que su propia etiqueta.
+- **Prueba honesta temporal** (corte 2025-11-08, outcome 30 días de
+  inactividad, features pre-corte): AUC **0.836 ± 0.038** (n=2,058) /
+  **0.893 ± 0.041** (antigüedad ≥ 7d). El gap 1.0000→0.836 es la circularidad
+  removida; cae en la vecindad de la corrección v32 (0.715 ± 0.019), validando
+  la auditoría retrospectivamente.
+- **Conexión con la auditoría v32**: el 0.9994 y el "precision 1.0" del PDF
+  nuevo son las mismas cifras retiradas del preprint v30 (leaked ROC-AUC
+  0.9994 → 0.715; ASI "precision 1.0" tautológica). La rama `zerve`
+  (`a4fef75`) documenta el mecanismo; el Dominio D del corpus sigue
+  NO_REPRODUCIBLE (los 3 casos no derivan de estos datos agregados).
+- Recomendación al autor: no citar 0.9994/1.0 en ningún documento; el valor
+  honesto del proyecto es la segmentación + matriz de acción + AUC ~0.84.
+
 ### 2026-10-18 — Desbloqueo de pendientes con datos (post-hoc, declarado)
 
 Informe: `reconstruction_real/audits/RESULTADOS_DESBLOQUEOS_2026-10-18.md`.
