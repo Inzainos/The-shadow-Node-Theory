@@ -1,0 +1,15 @@
+metrica,valor
+usuarios_totales,4774
+ventana_datos,2025-09-01 a 2025-12-08
+modelo_entrenamiento,"features < 2025-11-08, outcome 30d"
+auc_cv_5fold,0.8359 +/- 0.0383
+n_entrenamiento,2058
+tasa_churn_ventana,92.7%
+prob_media_predicha,0.920
+top_features,antiguedad_dias 25%; recencia_dias 23%; dias_activos 16%; n_eventos 10%; tipos_evento 8%
+umbral_prob,0.5
+umbral_engagement_eventos,3
+"cuadrante_Reactivar (riesgo alto, engagement bajo)",2334
+"cuadrante_Intervenir ya (riesgo alto, engagement alto)",2259
+"cuadrante_Cuidar (riesgo bajo, engagement alto)",179
+"cuadrante_Vigilar (riesgo bajo, engagement bajo)",2

@@ -501,6 +501,15 @@ de la corrección de la auditoría v32 (0.715 ± 0.019), no del leak. Salida:
 **Nota de seguridad:** los `person_id` son hashes de PostHog, no PII directa;
 el dataset crudo no se versiona y vive fuera del repo.
 
+**Entrega de números reales** (2026-10-18, `code/hackerearth_entrega_honesta.py`):
+modelo temporal (corte 2025-11-08, outcome 30 días de inactividad, AUC CV
+0.836 ± 0.038, calibración 0.920 vs 0.927) puntuado sobre los 4,774 usuarios
+al fin de los datos. Salidas en `data/hackerearth_zerve/`:
+`entrega_scores_honestos.csv` (prob_churn_30d por usuario + cuadrante),
+`entrega_matriz_accion.csv` (Reactivar 2,334 / Intervenir ya 2,259 / Cuidar
+179 / Vigilar 2), `entrega_resumen.csv`, y el documento
+`NUMEROS_REALES_2026-10-18.md` que sustituye las cifras del PDF.
+
 ---
 
 ## 2. Archivos derivados que SÍ están en el repo (checksums)

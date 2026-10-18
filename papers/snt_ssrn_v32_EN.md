@@ -678,7 +678,14 @@ absorption. RC6 — Irreversibility: falsified if a Shadow Node reverses
 satellization endogenously without an exogenous trigger. RC7 — ASI
 Operationalization: falsified if users with ASI > 1 show performance comparable to
 users with ASI < 0.5 in tasks requiring cognitive sovereignty (untested: the v30
-"precision = 1.0" was tautological, §6.6). RC8 — Mutual-interdependence brake:
+"precision = 1.0" was tautological, §6.6. Post-print verification, 2026-10-18,
+with the platform dataset in hand: the v30 leaked figures are label-defined-by-
+feature circularity — the churn label equals the Basic cohort user-by-user
+(4,774/4,774) and the label-defining composite sits in the feature matrix; an
+honest temporal churn label — 30-day inactivity after a fixed cutoff, features
+strictly prior — yields CV AUC 0.836 ± 0.038, in the neighborhood of the audit's
+corrected 0.715 ± 0.019, not of the leaked 0.9994. The honest signal is
+dominated by recency and tenure, not by the claimed "anchor events".). RC8 — Mutual-interdependence brake:
 falsified if predator-prey or sovereign-state systems produce sustained b > 0.5
 without exogenous perturbation.
 

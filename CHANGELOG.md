@@ -73,6 +73,16 @@ Datos: `data/hackerearth_zerve/` (5 CSV versionados) + crudo no versionado
   NO_REPRODUCIBLE (los 3 casos no derivan de estos datos agregados).
 - Recomendación al autor: no citar 0.9994/1.0 en ningún documento; el valor
   honesto del proyecto es la segmentación + matriz de acción + AUC ~0.84.
+- **Entrega de los números reales** (`code/hackerearth_entrega_honesta.py` →
+  `data/hackerearth_zerve/`): modelo temporal entrenado al corte 2025-11-08
+  (AUC 0.836 ± 0.038, calibración 0.920 vs 0.927), score de los 4,774
+  usuarios al fin de los datos, matriz 2×2 honesta (Reactivar 2,334 /
+  Intervenir ya 2,259 / Cuidar 179 / Vigilar 2), señales dominantes
+  antigüedad 25% + recencia 23% + días activos 16%. Documento de entrega:
+  `data/hackerearth_zerve/NUMEROS_REALES_2026-10-18.md`.
+- **SNT actualizada con los números reales**: SSRN r32 (EN+ES) RC7 con la
+  verificación post-preprint; README tabla RC7 con el AUC honesto y la
+  referencia a la entrega.
 
 ### 2026-10-18 — Desbloqueo de pendientes con datos (post-hoc, declarado)
 

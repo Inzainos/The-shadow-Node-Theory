@@ -722,7 +722,15 @@ RC6 — Irreversibilidad: se refuta si un Nodo Sombra revierte la satelización 
 forma endógena, sin disparador exógeno. RC7 — Operacionalización del ASI: se
 refuta si los usuarios con ASI > 1 muestran un desempeño comparable al de los
 usuarios con ASI < 0.5 en tareas que requieren soberanía cognitiva (sin poner a
-prueba: la "precisión = 1.0" de la v30 era tautológica, §6.6). RC8 — Freno por
+prueba: la "precisión = 1.0" de la v30 era tautológica, §6.6. Verificación
+post-preprint, 2026-10-18, con el dataset de la plataforma en mano: las cifras
+filtradas de la v30 son circularidad etiqueta-definida-por-feature — la
+etiqueta de churn es la cohorte Basic usuario por usuario (4.774/4.774) y el
+compuesto que define la etiqueta está en la matriz de features; una etiqueta
+temporal honesta — inactividad de 30 días tras un corte fijo, features
+estrictamente previos — da AUC CV 0.836 ± 0.038, en la vecindad del 0.715
+± 0.019 corregido por la auditoría, no del 0.9994 filtrado. La señal honesta
+la dominan la recencia y la antigüedad, no los "anchor events" reclamados). RC8 — Freno por
 interdependencia mutua: se refuta si sistemas depredador-presa o de Estados
 soberanos producen b > 0.5 sostenido sin perturbación exógena.
 
