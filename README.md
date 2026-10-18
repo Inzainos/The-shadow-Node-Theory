@@ -585,7 +585,7 @@ trajectory), and R(t) is fitted exactly as in Domain B.
     dominio, no del estimador. Series C: ρ AR(1) mediana 0.970, 12/23 no estimables
     (n_eff < 3) bajo marco v32 (misma salvedad que B). Ver
     `reconstruction_real/audits/RESULTADOS_RC1_DOMINIOS_RESTANTES_2026-10-17.md`.
-4. ~~Report exact p-values and split `r2_log` / `r2_raw` in the consolidated corpus~~ — done 2026-10-17. Script `reconstruction_real/code/corpus_p_exacto_r2_split.py` produces `reconstruction_real/data/snt_corpus_REAL_v6.csv`: 680/721 cases now have exact p-values (B: 446 from `se_b`, E3: 234 from `p_ols`) and `r2_log`/`r2_raw` split; 41 cases (A, C, D, E1, E2, F1-F3) lack raw series → NA. Audit v32 block 5 updated to report exact vs truncated counts. No case with `p_exacto` truncates to 0.0 anymore.
+4. ~~Report exact p-values and split `r2_log` / `r2_raw` in the consolidated corpus~~ — done 2026-10-17, **completed 2026-10-18**. Script `reconstruction_real/code/corpus_p_exacto_r2_split.py` produces `reconstruction_real/data/snt_corpus_REAL_v6.csv`: 680/721 cases with exact p-values (B: 446 from `se_b`, E3: 234 from `p_ols`), 680 with `r2_log`, **720/721 with `r2_raw`** — E3's 234 cases got r2_raw from the raw OWID series on 2026-10-18 (the re-downloaded file is byte-identical to the pinned snapshot, SHA `8473d0f0…`; gate: b reproduces 233/234; only E3_060 stays NA). 41 cases (A, C, D, E1, E2, F1-F3) lack raw series for p_exacto/r2_log → NA. Audit v32 block 5 updated. No case with `p_exacto` truncates to 0.0 anymore.
 5. ~~Decide on the 5.9× figure~~ — recalculated 2026-09-27: not reproducible and
    untestable on the active corpus; RC3 changed to UNTESTABLE (see the findings
    table and `reconstruction_real/data/trigger_abrupto_gradual_recalculo.csv`).
@@ -611,9 +611,26 @@ trajectory), and R(t) is fitted exactly as in Domain B.
     supported; E3 recovered from raw data and robust to autocorrelation; E1 not
     reproducible; abrupt decree triggers supported on cities; b ⊥ Δ supported
     (n = 242); h > 0 supported in crypto and banks, rising hazard only in crypto.
-12. Open after the pre-registration: age-period-cohort separation of the crypto
-    hazard; friction → Δ with a larger cohort (no public absorption series yet);
-    a trigger corpus without the UN WUP ≥ 300k survivor filter.
+12. Open after the pre-registration — **attacked with data on 2026-10-18**
+    (`reconstruction_real/audits/RESULTADOS_DESBLOQUEOS_2026-10-18.md`, post-hoc, declared):
+    - *APC separation:* mathematically non-identifiable (period = cohort + age).
+      Best achievable with committed data: same-age comparison of the 1934 vs 1970
+      bank cohorts shows the between-cohort difference concentrates exactly where
+      the 1934 records are left-truncated (ratio 0.25–0.62 at young ages) and
+      converges to 0.85–0.92 where both are complete — **selection, not period**.
+    - *Friction → Δ:* enlarged two ways. ACO n=18 (post-hoc channel ordinals,
+      author to validate): ρ = −0.377, p = 0.12 — the 2008 cohort's perfect ρ = −1.000
+      **does not generalize** (industrial cases even reverse, +0.949). npm n=450 with
+      the pre-registered `friccion_a_priori` coding: Spearman = +0.163, p = 0.0005,
+      in the anticipated direction (institutional backing → gentler fall:
+      median Δ −0.953 without repo vs −0.732 with). Weak but no longer n=6.
+    - *Trigger corpus without the WUP ≥ 300k filter:* **closed as impossible with
+      the public source** — the full WUP2018 zip (SHA verified) was enumerated: all
+      27 tables; none has per-city series below 300k (F17a–d are size-class
+      aggregates without identities). Removing the filter requires national censuses
+      per country.
+    - Still genuinely open: pre-registered replication of friction → Δ in another
+      ecosystem (PyPI/CRAN).
 
 ---
 

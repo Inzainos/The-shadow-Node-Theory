@@ -75,6 +75,16 @@ def main():
 
     e3_rows = {r["id"]: r for r in _read(os.path.join(DATA, "dominio_E3_series_crudas.csv"))}
 
+    # r2_raw de E3 desde las series crudas OWID (receta verificada; solo casos
+    # cuya b reproduce la publicada — ver e3_r2_raw.py, compuerta ±0.01).
+    e3_r2raw_path = os.path.join(DATA, "dominio_E3_r2_raw.csv")
+    e3_r2raw = {}
+    if os.path.exists(e3_r2raw_path):
+        for r in _read(e3_r2raw_path):
+            if r["coincide_r2raw"] not in (None, "") and \
+                    str(r["coincide_r2raw"]).strip().lower() in ("true", "1", "yes"):
+                e3_r2raw[r["id"]] = _f(r["r2_raw"])
+
     aco = _read(os.path.join(DATA, "snt_corpus_aco_timeseries_v29.csv"))
     aco_series = {}
     for r in aco:
@@ -132,8 +142,12 @@ def main():
             if p_ols == p_ols:
                 p_exacto = p_ols
             r2_log = _f(er["r2_log"])
-            # r2_raw needs raw OWID series: not committed → NA
-            r2_raw = None
+            # r2_raw: desde las series crudas OWID cuando la b reproduce la
+            # publicada (233/234); el caso que no reproduce queda NA.
+            r2_raw = e3_r2raw.get(cid)
+            if r2_raw is None or not (r2_raw == r2_raw):
+                r2_raw = None
+                nota.append("E3_r2raw_no_disponible_b_no_reproduce")
             dw = _f(er["dw"])
             if dw == dw:
                 rho_ar1 = 1.0 - dw / 2.0

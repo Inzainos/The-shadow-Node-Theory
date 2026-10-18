@@ -391,11 +391,13 @@ series raw lo permiten:
 
 | Archivo de salida | SHA-256 |
 |---|---|
-| `reconstruction_real/data/snt_corpus_REAL_v6.csv` | `0ebbd56a710a512790427a8ac4731b6505004468ec7e9138c3dc2606cd04db9a` |
+| `reconstruction_real/data/snt_corpus_REAL_v6.csv` | `9f380d1cd1c70685136192fd13f632da6f2dae55949e14a1c7913a263c3d38f1` |
 | `reconstruction_real/code/corpus_p_exacto_r2_split.py` | `7c0d84267049fb0d424c7eec705212700788159d9917e36522eeaf1bdf128cdd` |
 
 Resultados del split: **680/721 casos con `p_exacto`** (de los cuales 0 == 0.0;
-en v5 eran 557 truncados a 0.0), **680 con `r2_log`**, **487 con `r2_raw`**.
+en v5 eran 557 truncados a 0.0), **680 con `r2_log`**, **720 con `r2_raw`**
+(actualizado 2026-10-18 con E3: 233/234 desde las series crudas OWID con SHA
+verificado; solo E3_060 queda NA porque su b no reproduce la publicada).
 Audit v32 bloque 5 actualizado para reportar conteos exactos vs truncados.
 
 ---
@@ -424,6 +426,46 @@ Se reportan pendientes de edad condicionales por cohorte (log-hazard vs edad):
 
 ---
 
+### Desbloqueos 2026-10-18 (r2_raw E3, WUP, fricción, npm)
+
+Informe: `reconstruction_real/audits/RESULTADOS_DESBLOQUEOS_2026-10-18.md`.
+
+**E3 r2_raw.** Re-descarga del archivo completo OWID
+(`raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv`,
+98 MB, no versionado): el SHA-256 del archivo ACTUAL resultó **idéntico al
+snapshot del 2026-09-27** (`8473d0f0fdf962e1ffbd5b85b18726fc96a49bab109e271186c339725a12b10c`)
+— la edición es exactamente la que produjo E3. `e3_r2_raw.py` reconstruye cada
+serie con la receta verificada (acumulados, ≥100, 60 días) y computa `r2_raw`;
+compuerta b (±0.01): 233/234 (E3_060 East Timor, igual que el run original);
+r2_log recomputado idéntico al resumen. **El corpus v6 se regeneró** y ahora
+lleva `r2_raw` en 720/721 (solo E3_060 queda NA, conservador).
+
+**WUP2018 completo.** `WUP2018-Excel-files.zip` de population.un.org,
+SHA-256 **verificado idéntico al anclado** (`80eb71bbabb46cb2…`). Enumeración
+de las 27 tablas: ninguna contiene series por ciudad < 300k (F17a-d son
+agregados por clase de tamaño, sin identidades). El filtro de supervivencia
+del test de disparadores **no es removible con la fuente pública** — evidencia
+en el informe.
+
+| Archivo de salida | SHA-256 |
+|---|---|
+| `reconstruction_real/data/snt_corpus_REAL_v6.csv` (regenerado) | `9f380d1cd1c70685136192fd13f632da6f2dae55949e14a1c7913a263c3d38f1` |
+| `reconstruction_real/data/dominio_E3_r2_raw.csv` | `0f7d5dfb333e3e7ababc62ab85865c427072971d208f5d9f149b09443dee47fb` |
+| `reconstruction_real/code/e3_r2_raw.py` | `10b9095bbcecda77c008424a82418adbb46f3a8911163fb9afc5c16caa6ee504` |
+| `reconstruction_real/code/friction_aco_18.py` | `19162d45f2e19b375ad36f4e0523c122e62108c52cb889cede33f028e67d67dc` |
+| `reconstruction_real/code/npm_followup_cohorte_friccion.py` | `5fd0d89fcfbdc52ec75fdd4e60e106b665f8f70c851df1f407016d0fbf17c21e` |
+
+**Fricción → Δ (post-hoc, declarado).** ACO n=18: ρ=−0.377 (p=0.121) — la
+correlación perfecta de la cohorte 2008 no generaliza. npm n=450 con la
+codificación pre-registrada: Spearman(fricción, Δ_caida) = +0.163,
+p=0.0005, dirección anticipada ("fricción alta → caída suave"). Ver informe §4.
+
+**npm hazard decreciente.** Estratificado por cohorte de nacimiento: la
+dirección se mantiene dentro de cada cohorte (−0.47/−0.34/−0.77) — no es puro
+artefacto de mezcla. Ver informe §5.
+
+---
+
 ## 2. Archivos derivados que SÍ están en el repo (checksums)
 
 Checksums SHA-256 al 2026-07-25, **re-verificados el 2026-09-26: los 6 coinciden**.
@@ -434,7 +476,7 @@ Sirven para detectar si un archivo cambió sin que se documente. Recalcular con 
 | `reconstruction_real/data/by_domain/dominio_B_real.csv` | `e0c7738a31b45b913c73d851ac1b81a9d2ea56aef7e9168ae991eda2687ce583` |
 | `reconstruction_real/data/by_domain/dominio_E3_real.csv` | `11a99cc42a62a73dbe4b282acd66d48c8e86839e6a0fc8cdddc187f9c70c0e82` |
 | `reconstruction_real/data/snt_corpus_REAL_v5.csv` | `6a4a89ed780552facfc0cd77a1abf7ce49b02d73211205d04f51f5eb5d38e9b1` |
-| `reconstruction_real/data/snt_corpus_REAL_v6.csv` | `0ebbd56a710a512790427a8ac4731b6505004468ec7e9138c3dc2606cd04db9a` |
+| `reconstruction_real/data/snt_corpus_REAL_v6.csv` | `9f380d1cd1c70685136192fd13f632da6f2dae55949e14a1c7913a263c3d38f1` |
 | `reconstruction_real/data/snt_corpus_aco_timeseries_v29.csv` | `68c11e95e3b609008820111e303141b2d9391923960a5f7855c074e44512d31c` |
 | `data/snt_asi_scores.csv` | `57e38ee9f779efc117b747247cb72ce6f869ae433f885aa116a653b766531fb6` |
 | `data/owid-maddison.csv` | `6e905c41324d50f2e4e468bad9d204a1efd44f6f34368c98425e8e0b33d6a4ec` |

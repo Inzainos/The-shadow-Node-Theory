@@ -129,6 +129,45 @@ def main():
     print("se necesitaría una restricción externa (p. ej. efecto de periodo nulo en")
     print("algún año de referencia) o datos que rompan la dependencia lineal.")
 
+    # ---- Máximo alcanzable con datos committeados: mismo edad, distinto periodo ----
+    # Las cohortes bancarias 1934 y 1970 observan las MISMAS bandas de edad en
+    # periodos calendario distintos (1934+edad vs 1970+edad). Bajo un modelo de
+    # puro efecto de edad, el hazard a la misma edad deberia coincidir; si
+    # difiere, hay efecto de periodo y/o de seleccion. CAVEAT declarado: la
+    # entrada 1934 esta marcada "sesgada" en los datos (el FDIC no registra
+    # cierres antes de 1970 -> truncamiento izquierdo), asi que la comparacion
+    # mezcla periodo con seleccion. Es descriptiva, no una identificacion APC.
+    print("\n" + "=" * 70)
+    print("Mismo edad, distinto periodo — cohortes bancarias 1934 vs 1970")
+    print("=" * 70)
+    pares = [("bancos cualquier fin, entrada pre-registro 1934 (sesgada)",
+              "bancos cualquier fin, entrada corregida 1970"),
+             ("bancos solo quiebras, entrada pre-registro 1934 (sesgada)",
+              "bancos solo quiebras, entrada corregida 1970")]
+    for c34, c70 in pares:
+        if c34 not in cohortes or c70 not in cohortes:
+            continue
+        h34 = {d["edad"]: d for d in cohortes[c34]}
+        h70 = {d["edad"]: d for d in cohortes[c70]}
+        comunes = sorted(set(h34) & set(h70))
+        print(f"\n{c34.split(', entrada')[0]}:")
+        print(f"  {'edad (años)':>14}{'h 1934+edad':>12}{'h 1970+edad':>12}"
+              f"{'razon 34/70':>12}")
+        diferencias = []
+        for e in comunes:
+            a, b_ = h34[e]["hazard"], h70[e]["hazard"]
+            razon = (a / b_) if b_ > 0 else float("inf")
+            diferencias.append(razon)
+            print(f"  {e:>14.0f}{a:>12.5f}{b_:>12.5f}{razon:>12.2f}")
+        if diferencias:
+            med = np.median([d for d in diferencias if np.isfinite(d)])
+            print(f"  razon mediana 1934/1970 a misma edad: {med:.2f}")
+            print("  (CAVEAT: la entrada 1934 esta truncada a la izquierda —")
+            print("   los bancos que cerraron antes de 1970 no existen en el")
+            print("   archivo FDIC, asi que su cohorte es seleccion de")
+            print("   supervivientes. La diferencia mezcla periodo con")
+            print("   seleccion; descriptiva, no identificacion APC.)")
+
 
 if __name__ == "__main__":
     main()

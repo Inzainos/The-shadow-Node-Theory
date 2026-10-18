@@ -653,7 +653,9 @@ corpus v5 (557 of 721 read 0.0), and two R² definitions (log and raw scale) wer
 averaged together. Corpus v6 (r32) recomputes exact p-values (no truncation) for
 680 of 721 cases using each case's own SE and n (Domain B: 446; Domain E3: 234;
 the remaining 41 lack raw series) — zero cases read p_exacto = 0.0 — and splits
-R² into r2_log (680 cases) and r2_raw (487 cases) instead of averaging them.
+R² into r2_log (680 cases) and r2_raw (720 of 721 cases — E3's raw series
+re-verified byte-identical to the pinned OWID snapshot; one non-reproducing
+case stays NA) instead of averaging them.
 (vi) *Composition:* the friction-free
 pole (E1 + E3) is COVID-19 data; E1 models territorial spread, not species
 invasion. (vii) *Reproducibility:* Domain B reproduces exactly from the committed
@@ -689,8 +691,12 @@ is significantly different from zero across paired cases (first test: crypto n=1
 ρ = +0.009; pre-registered test in r32: 242 pairs, ρ = −0.119, 95% CI
 [−0.241, +0.007] inside the ±0.3 equivalence band — not refuted). RC-Δ2 —
 Friction governs collapse shape: falsified if resolution friction does not
-predict Δ (first test: 2008 cohort n=6, ρ = −1.000; not enlarged in r32 for lack
-of comparable public data). RC-Δ3 — Hazard positivity: falsified if a system
+predict Δ (first test: 2008 cohort n=6, ρ = −1.000; post-hoc enlargements:
+ACO n=18 with documented channel ordinals gives ρ = −0.377, p = 0.12 — the
+perfect n=6 correlation does not generalize; the npm cohort n=450 with the
+pre-registered institutional friction coding gives ρ = +0.163, p = 0.0005, in
+the anticipated direction — institutional backing goes with a gentler fall.
+Weak support; a pre-registered replication in another ecosystem remains open). RC-Δ3 — Hazard positivity: falsified if a system
 with hazard = 0 is found (r32: every age band with ≥ 30 at risk has endings in
 663 crypto pairs and 27,771 banks — not refuted).
 

@@ -696,7 +696,9 @@ comprometido (557 de 721 leen 0.0) y se promediaron dos definiciones de R² (esc
 logarítmica y escala original). El corpus v6 (r32) recomputa p-values exactos (sin
 truncamiento) para 680 de 721 casos usando la SE y la n propias de cada caso (Dominio B:
 446; Dominio E3: 234; los 41 restantes carecen de series raw) — cero casos leen
-p_exacto = 0.0 — y divide R² en r2_log (680 casos) y r2_raw (487 casos) en lugar de
+p_exacto = 0.0 — y divide R² en r2_log (680 casos) y r2_raw (720 de 721 casos;
+las series crudas de E3 re-verificadas byte-idénticas contra el snapshot OWID
+anclado; un caso que no reproduce queda NA) en lugar de
 promediarlos. (vi) *Composición:* el polo sin fricción
 (E1 + E3) son datos de COVID-19; E1 modela propagación territorial, no invasión de
 especies. (vii) *Reproducibilidad:* el dominio B se reproduce con exactitud desde
@@ -735,7 +737,12 @@ prueba: cripto n = 11, ρ = +0.009; prueba pre-registrada en la r32: 242 pares,
 ρ = −0.119, IC 95% [−0.241, +0.007] dentro de la banda de equivalencia ±0.3 — no
 refutado). RC-Δ2 — La fricción gobierna la forma del colapso: se refuta si la
 fricción de resolución no predice Δ (primera prueba: cohorte 2008 n = 6,
-ρ = −1.000; no se amplía en la r32 por falta de datos públicos comparables). RC-Δ3 —
+ρ = −1.000; ampliaciones post-hoc: ACO n = 18 con ordinales de canal
+documentados da ρ = −0.377, p = 0.12 — la correlación perfecta del n = 6 no
+generaliza; la cohorte npm n = 450 con la codificación pre-registrada de
+fricción institucional da ρ = +0.163, p = 0.0005, en la dirección anticipada
+— el respaldo institucional va con una caída más suave. Respaldo débil; queda
+abierta una réplica pre-registrada en otro ecosistema). RC-Δ3 —
 Positividad del hazard: se refuta si se encuentra un sistema con hazard = 0 (r32:
 toda banda de edad con ≥ 30 en riesgo tiene fines en 663 pares cripto y 27,771
 bancos — no refutado).

@@ -48,6 +48,33 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 
 ## [No publicado]
 
+### 2026-10-18 — Desbloqueo de pendientes con datos (post-hoc, declarado)
+
+Informe: `reconstruction_real/audits/RESULTADOS_DESBLOQUEOS_2026-10-18.md`.
+
+**Resuelto**
+- **E3 r2_raw**: re-descarga OWID byte-idéntica al snapshot anclado (SHA
+  `8473d0f0…`); `e3_r2_raw.py` computa r2_raw con la receta verificada
+  (233/234, E3_060 NA conservador). Corpus v6 regenerado: **r2_raw 720/721**
+  (antes 487). SHAs nuevos en FUENTES.md.
+- **WUP sin filtro ≥300k**: zip completo enumerado (SHA verificado) — la ONU
+  no publica series por ciudad <300k. Pendiente cerrado como imposible con
+  la fuente pública.
+
+**Acotado**
+- **APC**: comparación mismo-edad cohortes bancarias 1934 vs 1970 — la
+  diferencia es selección por truncamiento (razón 0.25–0.62 joven, 0.85–0.92
+  donde ambas completas), no efecto periodo.
+- **Fricción → Δ**: ACO n=18 (canales documentados, post-hoc, a validar por
+  el autor): ρ=−0.377, p=0.121 — la ρ=−1.000 de 2008 no generaliza. npm n=450
+  (codificación pre-registrada): ρ=+0.163, p=0.0005, dirección anticipada.
+- **npm hazard decreciente**: se mantiene dentro de cada cohorte de
+  nacimiento (−0.47/−0.34/−0.77) — no es puro artefacto de mezcla.
+
+**Scripts nuevos**: `e3_r2_raw.py`, `friction_aco_18.py`,
+`npm_followup_cohorte_friccion.py`; `apc_separacion_crypto.py` extendido con
+la sección mismo-edad. Todo determinista; descargas verificadas por SHA.
+
 ### 2026-10-17 — RC1 en dominios restantes (A, E2, C)
 
 **Agregado**
