@@ -1,7 +1,10 @@
 # Resultados — RC1 en los dominios restantes (A, E2, C)
 
 **Pre-registro:** [`../preregistro/PREREGISTRO_RC1_DOMINIOS_RESTANTES_2026-10-17.md`](../preregistro/PREREGISTRO_RC1_DOMINIOS_RESTANTES_2026-10-17.md)
-(commit `4e9cb9e`, subido antes de descargar un solo byte de datos nuevos).
+(commit `4e9cb9e`, fechado 2026-10-17 21:58:52Z — antes de la primera descarga
+de datos, 22:16Z en el log. Verificado 2026-10-18: el *push* a GitHub llegó
+después del análisis, así que lo verificable remotamente es el timestamp del
+commit, no un push previo).
 **Script:** `code/rc1_dominios_restantes.py` (con log).
 **Semilla:** `20261017` · `N_CAL = 200` · umbral de admisión 20% (el de RC1).
 

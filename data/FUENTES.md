@@ -332,7 +332,8 @@ sobre la `b` estimada bajo ley de potencia hereda eso. Ver
 ### RC1 dominios restantes (A, E2, C) 2026-10-17
 
 Pre-registro: `reconstruction_real/preregistro/PREREGISTRO_RC1_DOMINIOS_RESTANTES_2026-10-17.md`
-(commit `4e9cb9e`, subido antes de descargar). Informe:
+(commit `4e9cb9e`, fechado 2026-10-17 21:58:52Z, antes de la primera descarga
+— 22:16Z; el push a GitHub fue posterior al análisis, verificado 2026-10-18). Informe:
 `reconstruction_real/audits/RESULTADOS_RC1_DOMINIOS_RESTANTES_2026-10-17.md`.
 
 Fuentes nuevas (descargadas el 2026-10-17, después del pre-registro):

@@ -456,7 +456,7 @@ def main():
 
     filas_rec, filas_caso, cal, resumen = [], [], [], []
 
-    log.info("FASE 0 — identificacion de recetas (criterio: >= 90% dentro de ±%.2f)", TOL_RECETA)
+    log.info("FASE 0 — identificacion de recetas (criterio: >= 90%% dentro de ±%.2f)", TOL_RECETA)
     log.info("")
     log.info("A (WUP versionado, sin descargas):")
     fase0_A(filas_rec)

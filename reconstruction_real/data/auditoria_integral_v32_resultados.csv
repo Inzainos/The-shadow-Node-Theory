@@ -25,7 +25,10 @@ bloque,cifra,publicado,recomputado,estado
 4_rc1_aic,lineal_gana,1/18,1,REPLICA
 4_rc1_aic,spearman_b_vs_dAIC,-0.657 (p=0.003),rho=-0.796 p=0.0001,REPLICA_SIGNO
 4_rc1_aic,superlineales_b>=1,4,4,REPLICA
-5_p_truncados,corpus_p_igual_0,557,557,REPLICA
+5_p_truncados,corpus_p_igual_0_v5,557,557,REPLICA
+5_p_truncados,corpus_p_exacto_v6,-,680/721 casos,INFO
+5_p_truncados,corpus_p_exacto_igual_0_v6,0,0,INFO
+5_p_truncados,corpus_p_exacto_na_v6,-,41/721 sin serie raw,INFO
 5_p_truncados,B_p_igual_0,n/d,294,INFO
 6_soberania,ASI_soberano_min,1.0874,1.0874,INFO
 6_soberania,ASI_no_soberano_max,0.9126,0.9126,INFO
