@@ -1,0 +1,8 @@
+punto,prueba,estadistico,p,veredicto
+P1,bondad_ajuste_potencia,0.0769,0.974,No se puede descartar la ley de potencia (p >= 0.1). Ojo: esto NO la confirma
+P1,vuong_vs_lognormal,-0.1027,0.7456,INDISTINGUIBLE con estos datos
+P1,vuong_vs_exponencial,-0.1221,0.8282,INDISTINGUIBLE con estos datos
+P2,r2_potencia,0.8377,,R2 log 0.8705 | AIC -115.84
+P2,r2_lognormal,0.9755,,R2 log 0.9830 | AIC -180.88
+P2,aic_potencia_vs_lognormal,65.0429,,evidencia fuerte a favor de la LOGNORMAL (dAIC = 65.04)
+P3,tasa_falso_sobrevive,0.964,,SIN PODER: el procedimiento no descarta la ley de potencia ni cuando los datos son lognormales por construccion (96%)

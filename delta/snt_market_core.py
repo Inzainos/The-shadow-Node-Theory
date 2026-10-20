@@ -8,13 +8,25 @@ has no cross-repo dependency.
 
 Core law:  R(t) = a · t^b     (dominance ratio hub/shadow over time)
 
-Regime by exponent b (SNT v2.5.0 thresholds):
-  b > 2.0   → EXTREME satellization
-  b > 1.0   → ROCHE_RADIUS (fast, near-capture)
+Regime by exponent b:
+  b > 2.0   → UNCLASSIFIED_B_GT_2   (label withdrawn 2026-10-02, see below)
+  b > 1.0   → UNCLASSIFIED_B_GT_1   (label withdrawn 2026-10-02, see below)
   b > 0.3   → SATELLIZATION_ACTIVE
   b > 0.05  → SATELLIZATION_GRADUAL
   b > -0.1  → EQUILIBRIUM
   b ≤ -0.1  → CONVERGENCE / leapfrog
+
+Withdrawn labels for b > 1 (2026-10-02). The v2.5.0 thresholds read b > 1.0
+as "ROCHE_RADIUS (fast, near-capture)" and b > 2.0 as "EXTREME". RC1 measured
+that a *truly exponential* curve fitted as a power law yields b ≥ 1 in 99.9%
+of replicates in E3's high band and 100% in the ACO set, against 0.0% where
+the real b is below 0.5. The threshold therefore does not separate fast
+satellization from a shape misfit, so no regime is asserted above b = 1: the
+exponent is reported and left unclassified. The bands below 1 are unaffected.
+See reconstruction_real/audits/RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md.
+
+Note for consumers: the `regime` string emitted by delta_engine for b > 1
+changed with this retraction (was "roche_radius" / "extreme").
 
 Estimation: OLS on log-log space (np.polyfit), Pearson on log-log.
 Faithful to code/snt_utils.py in the SNT theory repo and to the Omega
@@ -35,8 +47,8 @@ class DominanceRegime(Enum):
     EQUILIBRIUM = "equilibrium"
     SATELLIZATION_GRADUAL = "satellization_gradual"
     SATELLIZATION_ACTIVE = "satellization_active"
-    ROCHE_RADIUS = "roche_radius"
-    EXTREME = "extreme"
+    UNCLASSIFIED_B_GT_1 = "unclassified_b_gt_1"
+    UNCLASSIFIED_B_GT_2 = "unclassified_b_gt_2"
 
 
 @dataclass
@@ -51,11 +63,17 @@ class SatellizationResult:
 
 
 def classify_regime(b: float) -> DominanceRegime:
-    """Map an exponent b to its SNT dominance regime (v2.5.0 thresholds)."""
+    """Map an exponent b to its SNT dominance regime.
+
+    Above b = 1 no regime is asserted: the "Roche Radius" and "extreme"
+    labels were withdrawn on 2026-10-02 because a true exponential fitted as
+    a power law lands there almost always (see the module docstring). Kept in
+    sync with ``code/snt_utils.py`` and ``code/snt_utils_v32.py``.
+    """
     if b > 2.0:
-        return DominanceRegime.EXTREME
+        return DominanceRegime.UNCLASSIFIED_B_GT_2
     if b > 1.0:
-        return DominanceRegime.ROCHE_RADIUS
+        return DominanceRegime.UNCLASSIFIED_B_GT_1
     if b > 0.3:
         return DominanceRegime.SATELLIZATION_ACTIVE
     if b > 0.05:

@@ -1,0 +1,5 @@
+nivel,n,b,daic,daic_pib_total,fuente,mu,ordenes_magnitud,poder_suficiente,r2_log_lognormal,r2_log_potencia,r2_raw_lognormal,r2_raw_potencia,sha256,sigma,tasa_falso_sobrevive,veredicto_p1
+Mexico entidades,32,-0.4732,65.04,40.89,matriz_mexico_32.csv pib_pc,4.7775,0.813,0,0.983,0.8705,0.9755,0.8377,—,0.434,0.938,LOGNORMAL (fuerte)
+UE NUTS1,110,-0.6689,235.03,263.52,Eurostat nama_10r_3gdp EUR_HAB,10.0451,1.465,0,0.9671,0.7216,0.8605,-0.1777,9f79df345d31300ee828962e4005c2be27f3ce68e402031670e295a981bda251,0.7342,0.894,LOGNORMAL (fuerte)
+UE NUTS2,285,-0.6205,600.71,815.03,Eurostat nama_10r_3gdp EUR_HAB,10.0461,1.609,0,0.9618,0.6852,0.7684,-0.9667,9f79df345d31300ee828962e4005c2be27f3ce68e402031670e295a981bda251,0.7228,0.792,LOGNORMAL (fuerte)
+UE NUTS3,1300,-0.5967,2548.71,4868.49,Eurostat nama_10r_3gdp EUR_HAB,10.055,1.823,0,0.9533,0.6684,0.8362,-1.9856,9f79df345d31300ee828962e4005c2be27f3ce68e402031670e295a981bda251,0.7212,0.608,LOGNORMAL (fuerte)

@@ -149,9 +149,183 @@ presente.
 | Binance, archivo público de velas diarias spot (<https://data.binance.vision>), todos los pares contra USDT salvo estables/fiat y apalancados | por par en `data/raw_binance/klines_1d/` | `data/binance_cierres_diarios.csv.gz` — `fcb2ad7e34f7b5d0ad3ee4a685f952f3e9391bc9d85212b2eb110428d375915e` (663 pares, 2017-08-17..2026-08-31) | Punto 5 (ortogonalidad y hazard cripto) |
 | FDIC BankFind API — instituciones (índice `institutions_20260925090006`) y quiebras (índice `failures_1787667198788`), <https://api.fdic.gov/banks> | institutions `8d410c2583a59d7b4540046f77f28dd6fa6761beb816ec94a7531d4fb4c0003e`; failures `65e727fff36cc9bf86a772e7cec4dd8d0b8368f2990b945742e40f0ddc90161c` | `data/fdic_instituciones_2026-09-25.csv.gz`, `data/fdic_quiebras_2026-08-25.csv.gz` | Punto 5 (hazard bancos) |
 
+
+### Pre-registro npm 2026-10-02 (capa ACO-A en software libre)
+
+Aplicación independiente, fuera del corpus de 721 casos. Consultadas el 2026-10-02.
+
+| Fuente | Uso |
+|---|---|
+| `https://replicate.npmjs.com/_all_docs` | Marco de muestreo (4,446,361 paquetes). Paginado con `startkey`, máximo 10,000 filas por petición |
+| `https://registry.npmjs.org/{paquete}` | Nacimiento (`time.created`), versiones, `deprecated`, repositorio |
+| `https://api.npmjs.org/downloads/range/{inicio}:{fin}/{paquetes}` | Series diarias. Máximo **128 paquetes** por petición y **365 días** en consulta por lote (18 meses si es un solo paquete) |
+| `https://api.osv.dev/v1/query` | Avisos de vulnerabilidad con fecha y severidad |
+
+Los crudos quedan en `data/raw_npm/` (no versionado, 15 MB el mayor). **Su hash sí
+queda registrado**, para que se pueda verificar que un crudo reconstruido es el mismo
+que produjo estos resultados:
+
+| Crudo (no versionado) | SHA-256 |
+|---|---|
+| `data/raw_npm/descargas.jsonl.gz` (series diarias, 15,486,679 bytes) | `455acba13c8b8d951243bbf3ef23e5ead4bf4a8271ec8e599c74f7a19d31ac71` |
+
+Salidas versionadas:
+
+| Archivo | SHA-256 |
+|---|---|
+| `reconstruction_real/data/npm_cohorte_aco.csv.gz` (450 paquetes) | `c4bfbf0513954911ad1c6d5e445ec01ff8d6bab47453d90bfc89428672a1c58b` |
+| `reconstruction_real/data/npm_hazard_bandas.csv` | `981a0781668a9b9daf68f21e2783e572ffb652dde954e762f97f74f8fa5fe203` |
+| `data/npm_descargas_mensuales_deriva.csv.gz` (agregado mensual de los 450; 35,002 filas `nombre,mes,descargas`; 183,179 bytes) | `20fc2f6b6b70796020cd75a182df6de5913ef9942a526ebb71ff77f88338345b` |
+
+El agregado mensual es el **insumo exacto** del brazo npm de la prueba de deriva, y
+está versionado precisamente para que esa prueba sea reproducible sin los 15 MB del
+crudo. `deriva_forma_friccion.py` lo prefiere si está presente y recae en el crudo si
+no, con un `warning` en el log. Verificado: con el derivado, las dos salidas de la
+prueba reproducen sus SHA-256 registrados **al bit**. Conserva el orden de paquetes
+del crudo, no el alfabético, porque el nulo por caso consume el RNG caso por caso.
+
+Nota de calidad: el muestreo aleatorio del registro completo está dominado por la cola
+larga, así que la codificación de fricción a priori resultó degenerada (0 paquetes de
+fundación, 3 corporativos) y no es aprovechable en esta cohorte.
+
 Notas de calidad: WUP incluye solo aglomeraciones con ≥ 300 mil habitantes en
 2018 (filtro de supervivencia); la base de la FDIC no registra cierres antes de
 1970; 41 instituciones tienen fecha de fundación de relleno (01/01/1800).
+
+### Pre-registro rango-tamaño internacional 2026-10-02 (réplica del Módulo de N-cuerpos)
+
+Aplicación independiente, fuera del corpus de 721 casos. Seis niveles territoriales
+de Brasil y la Unión Europea, de 27 a 5,570 unidades, más México como referencia.
+Año **2021** en todas las fuentes. Consultadas el 2026-10-02.
+
+| Fuente | Uso | Unidades utilizadas |
+|---|---|---|
+| `https://apisidra.ibge.gov.br/values/t/5938/n3/all/v/37/p/2021` | PIB por estado, en Mil Reais | 27 |
+| `https://apisidra.ibge.gov.br/values/t/5938/n6/all/v/37/p/2021` | PIB por municipio, en Mil Reais | 5,570 |
+| `https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10r_3gdp?format=JSON&time=2021&unit=MIO_EUR` | PIB regional total | 111 NUTS1, 293 NUTS2, 1,327 NUTS3 |
+| `https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10r_3gdp?format=JSON&time=2021&unit=EUR_HAB` | PIB regional per cápita (secundaria) | 110 NUTS1, 285 NUTS2, 1,300 NUTS3 |
+| `data/matriz_mexico_32.csv` | `pct_pib` (primaria) y `pib_pc` (secundaria) | 32 |
+
+Los crudos quedan en `data/raw_rango_tamano/` (no versionado):
+
+| Archivo crudo | Bytes | SHA-256 |
+|---|---:|---|
+| `ibge_n3_2021.json` | 8,084 | `b60e7b58e17c81a06d12196e37a15539ab27eca1e7fae351c0384b4dbdc88550` |
+| `ibge_n6_2021.json` | 1,577,341 | `619f9caf07f59d4f85fdf128389ce001c593199b2d78076f876122ae66d024e3` |
+| `eurostat_mio_eur_2021.json` | 98,639 | `bb237abf4695e8e353d60cb4561f0c57be86096d70dcba113c1e58e5dacb27a7` |
+| `eurostat_eur_hab_2021.json` | 94,737 | `9f79df345d31300ee828962e4005c2be27f3ce68e402031670e295a981bda251` |
+
+Salidas versionadas:
+
+| Archivo | SHA-256 |
+|---|---|
+| `reconstruction_real/data/rango_tamano_internacional.csv` | `58392810079966d929d9d6d927c1c5fdb2f127b559777c18c81a6326431b47b5` |
+| `reconstruction_real/data/rango_tamano_poder.csv` | `99e424c52328c1b71b0b8ab6a769b925d3f0be5d24a03452a0e5f28fbf4d7c6b` |
+| `reconstruction_real/data/rango_tamano_percapita.csv` | `1ecd50e67afbdc12eee5b7998d26d8f7c031025824e779eebdef9e6b9512af9f` |
+| `reconstruction_real/data/rango_tamano_diagnostico.csv` | `67854656728ac25326b909600dc6464570107a132b36bb9524b464ad9c90c4cd` |
+
+**Nota de calidad, importante.** Eurostat publica, por país y por nivel, un código
+residual etiquetado **"Extra-Regio"** (`BEZ`/`BEZZ`/`BEZZZ`, `FRZ`/`FRZZ`/`FRZZZ`, …)
+con la actividad económica que no puede asignarse a ninguna región: embajadas,
+plataformas marinas, buques. Son **16 por nivel**, tienen la longitud de código
+correcta y por eso pasan cualquier filtro que solo mire la longitud. **No son
+unidades territoriales.** Incluirlos ocupa toda la cola baja de los tres niveles
+NUTS —desde 22.62 MIO_EUR— e infla el rango dinámico europeo de ~3 a 4.5 órdenes de
+magnitud, que es justo la cantidad decisiva del método de Clauset. Se excluyen con
+`es_region()`. Quien reutilice `nama_10r_3gdp` para una distribución de tamaños
+tiene que descartarlos.
+
+Nota de calidad: la tabla 5938 del IBGE **no publica PIB per cápita**, así que Brasil
+no entra en la secundaria. Los datos de Estados Unidos quedan fuera del diseño: la
+API del BLS respondió `REQUEST_NOT_PROCESSED` por umbral diario agotado desde esta
+dirección, y las de BEA y Census exigen clave.
+
+---
+
+### Valor puntual del Dominio B 2026-10-02 (sin descargas)
+
+No entra ninguna fuente externa nueva. Entradas, ya versionadas y con su SHA-256 más
+arriba en este archivo: `data/maddison_mpd2020.csv` (las 446 series del Dominio B se
+reconstruyen desde ahí, verificado caso por caso contra la `b` publicada) y
+`reconstruction_real/data/by_domain/dominio_B_real.csv`.
+
+| Archivo de salida | SHA-256 |
+|---|---|
+| `reconstruction_real/data/dominio_B_calibracion.csv` | `c2372a096bdba792b8fbb4728ed709575c1b91435103910b9cffa6d2700659d8` |
+| `reconstruction_real/data/dominio_B_valor_puntual.csv` | `0cfb54028790bfb3b38e8a9d13e51031f7c5d7e6ca220e20257ee3dcc0d75c16` |
+| `reconstruction_real/data/dominio_B_recalibracion.csv` (recalibración a N = 200,000, 2026-10-03) | `4f1034a34b0bd7bf82f37ae61c20b81bd8db3d1d14359dca1bf0076d4fb045b1` |
+
+Nota de calidad: `dominio_B_valor_puntual.csv` trae el p de los doce métodos por caso.
+**Ninguna de ellas es admisible.** La recalibración a `N = 200,000` del 2026-10-03
+(`audits/RESULTADOS_RECALIBRACION_DOMINIO_B_2026-10-03.md`, salida
+`dominio_B_recalibracion.csv`) midió la banda de admisión [2.5%, 7.5%] contra las doce
+tasas y **ninguna entra**: la mejor, `p_ar1_inf`, mide **7.96%** (IC95 Wilson
+[7.76%, 8.17%]) y se queda a 0.46 puntos del techo; el resto va de 12.9% a 58.0%.
+**Ninguna de las doce columnas debe usarse para contar significativos.** Sobre los
+mismos datos la cuenta va de 33 a 134 de 156 según el método, y el 33 de `p_ar1_inf` es
+una **cota conservadora, no un valor puntual**.
+
+---
+
+### Deriva del exponente contra fricción 2026-10-02 (sin descargas)
+
+Entradas, todas versionadas: `data/maddison_mpd2020.csv` (Dominio B),
+`data/binance_cierres_diarios.csv.gz` (cripto, cocientes moneda/BTC) y
+`data/npm_descargas_mensuales_deriva.csv.gz` (npm, agregado mensual de los 450 de la
+cohorte, SHA-256 arriba). El crudo `data/raw_npm/descargas.jsonl.gz` sigue sin
+versionar por tamaño, pero su SHA-256 está registrado en la sección de npm y el script
+recae en él si el derivado no está.
+
+| Archivo de salida | SHA-256 |
+|---|---|
+| `reconstruction_real/data/deriva_forma_por_caso.csv` | `56eeb28b82605fb4eb106145b1b342cafb12ba9ce433f133eef4ed6d41c9b299` |
+| `reconstruction_real/data/deriva_forma_resumen.csv` | `37297b6c331c2759b14d6f836ac36a7b6a917a5039845cf1868c3923afcedddc` |
+
+El hash del resumen cambió el 2026-10-03 al añadirse los puntos secundarios S2 y S4, que faltaban. Cambia **solo por las filas nuevas** `S2_*` y `S4_*`: `deriva_forma_por_caso.csv` conserva su SHA-256 al bit y ninguna cifra de los puntos anteriores se movió. El hash previo del resumen era `848be0936875973c9d5c3e38668ef285aece34117310a79a1fb400742b0070ce`.
+
+**Nota de calidad, de primer orden para cualquiera que use datos de Binance en análisis
+temporales.** El momento en que un exchange lista una moneda es un **sesgo de selección
+fuerte**: en los 571 cocientes moneda/BTC analizados, **el 70.1% tiene su máximo dentro
+del primer 10% de la serie** y el 84.9% dentro del primer 25% (mediana de la posición
+del máximo: 0.019). Una serie que empieza en su máximo tiene que bajar, y eso produce
+por sí solo un exponente local cada vez más negativo. Partiendo los casos por posición
+del pico, la deriva descendente pasa de **57.5%** (pico temprano) a **0.0%** (pico
+tardío). Ver `audits/RESULTADOS_DERIVA_FORMA_2026-10-02.md` §3.
+
+Nota de calidad: el brazo de npm mide un **nivel** de descargas, no un cociente, así
+que arrastra el crecimiento del ecosistema completo — la mediana del exponente en las
+ventanas tardías es 1.858, que es npm creciendo, no el paquete. Por eso entró cripto al
+diseño como brazo de cociente.
+
+---
+
+### RC1, régimen superlineal 2026-10-02 (sin descargas)
+
+Entradas, todas versionadas: `data/owid_covid_casos_totales.csv.gz` (E3, receta
+verificada: acumulados, inicio en el primer día con ≥ 100 casos, 60 días),
+`data/maddison_mpd2020.csv` (B) y
+`reconstruction_real/data/snt_corpus_aco_timeseries_v29.csv` (ACO, control).
+
+| Archivo de salida | SHA-256 |
+|---|---|
+| `reconstruction_real/data/rc1_por_caso.csv` | `066f5fdd9f55018ab553590754ef293a0a110281ebc1e718d543143525e86e82` |
+| `reconstruction_real/data/rc1_calibracion.csv` | `29fa46af16fa0777dca5064255df22dc6d16108dddb0f893b65e427b096b97a5` |
+| `reconstruction_real/data/rc1_resumen.csv` | `a853282f43b7bed971219ca3174bbf6bcb50d8f8fa287dc6279c469c8ad488f7` |
+
+**Nota de calidad, de primer orden para cualquiera que use `comparar_modelos` o
+cualquier AIC sobre residuos crudos.** El criterio supone independencia, y en estos
+dominios los residuos están muy autocorrelados. Calibrado contra series simuladas desde
+una **ley de potencia conocida**, el AIC elige otro modelo en el **80.3%** de las
+réplicas en E3, el **96.8%** en B y el **48.9%** en el ACO, dentro de la banda `b ≥ 1`
+— y el error **crece con `b`**. Las columnas `ganador` y `delta_aic_potencia` de
+`rc1_por_caso.csv` **no deben usarse para contar formas** sin leer antes
+`rc1_calibracion.csv`.
+
+**Segunda nota, independiente del AIC.** Una exponencial verdadera ajustada como ley de
+potencia produce `b ≥ 1` en el **99.9%** de las réplicas en la banda alta de E3 y en el
+**100%** del ACO, contra **0.0%** donde la `b` real es menor que 0.5. Cualquier umbral
+sobre la `b` estimada bajo ley de potencia hereda eso. Ver
+`audits/RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md` §2.
 
 ---
 

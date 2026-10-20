@@ -25,7 +25,7 @@ across three scales of systemic resolution — Micro (Atomic Node), Meso (intra-
 national Fungal Network), and Macro (superorganism collision) — in which the
 satellization ratio follows a power law R(t)=a·t^b. The empirical base is a corpus
 of 721 cases reconstructed from verifiable primary sources. Revision r32 follows an
-internal integral audit, which corrected or narrowed several v30 claims, and five
+internal integral audit, which corrected, narrowed, or withdrew several v30 claims, and five
 tests pre-registered in the public repository before any new data were downloaded.
 Supported: cities favored by an abrupt decree (four capital relocations, four
 Chinese special economic zones) gain on the incumbent faster than cities with the
@@ -46,7 +46,7 @@ R²=0.838) and a Coupled Orbital Collapse layer (ACO-A). Falsifiability criteria
 a diagnostic protocol and a public replication package accompany the model
 (Zenodo 10.5281/zenodo.19446521).
 
-*(Length check: 2,007 characters including spaces; verify against the
+*(Length check: 1,945 characters including spaces; verify against the
 SSRN form limit before pasting.)*
 
 ## Keywords

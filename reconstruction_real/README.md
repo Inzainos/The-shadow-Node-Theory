@@ -22,7 +22,12 @@
 Tras la correccion AR(1) de la auditoria v32, el dominio B tiene **156/446
 casos estimables** (`n_eff >= 3`) y **290/446 no estimables**; entre los
 estimables, los significativos caen a **33-112 (21.2%-71.8%)** segun la
-variante analitica. Ver `audits/`.
+variante analitica. El valor puntual quedo **cerrado como INDECIDIBLE** el
+2026-10-03: de doce correcciones evaluadas por su tasa de falso positivo
+**medida**, ninguna cae en la banda [2.5%, 7.5%]. La mejor calibrada es la cota
+inferior AR(1), que mide **7.96%** con N = 200,000 (IC95 [7.76%, 8.17%]) y se
+queda a 0.46 puntos del techo. El **33 es cota conservadora, no valor puntual**.
+Ver `audits/RESULTADOS_RECALIBRACION_DOMINIO_B_2026-10-03.md` y `audits/`.
 
 ## Hallazgo central (datos reales)
 
