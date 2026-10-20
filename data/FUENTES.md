@@ -327,6 +327,11 @@ potencia produce `b ≥ 1` en el **99.9%** de las réplicas en la banda alta de 
 sobre la `b` estimada bajo ley de potencia hereda eso. Ver
 `audits/RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md` §2.
 
+**Nota clave de interpretación (2026-10-20):** `b ≥ 1` **solo tiene significado si se
+mantiene por periodos muy largos** (cavidad superlineal sostenida → cambio inminente).
+Si `b ≥ 1` es transitorio/puntual, **NO es superlineal**: el sistema entra en **ACO**
+(Colapso Orbital Acoplado), es decir, colapso del sistema.
+
 ---
 
 ## 2. Archivos derivados que SÍ están en el repo (checksums)

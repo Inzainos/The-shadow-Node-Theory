@@ -123,7 +123,10 @@ significativo tras corregir la autocorrelacion, y mpox tambien da b alto
   tienen b medio +1.54. El 14.1% del corpus etiquetado como superlineal puede
   ser mala especificacion de modelo. Desde 2026-09-27 la serie cruda de E3 esta
   en el repo (94 de los 102 casos con b >= 1 son E1 + E3), asi que la prueba ya
-  es posible para E3 (pendiente).
+  es posible para E3 (pendiente). **b >= 1 solo tiene significado si se mantiene
+  por periodos muy largos (cavidad superlineal sostenida -> cambio inminente).
+  Si es transitorio/puntual, NO es superlineal: el sistema entra en ACO
+  (Colapso Orbital Acoplado), es decir, colapso del sistema.**
 - **Dominios fisicos (F)**: siguen ley de potencia pero su "friccion" es
   fisica (Eddington, resonancia orbital), no institucional.
 

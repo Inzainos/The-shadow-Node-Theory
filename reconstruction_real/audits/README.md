@@ -102,7 +102,10 @@ python reconstruction_real/code/snt_auditoria_integral_v32.py
    `by_domain/dominio_B_real.csv`.
 2. **Régimen superlineal b≥1 puede ser artefacto de modelo.** Por AIC sobre las
    18 series ACO: potencia gana 13/18, exponencial 4/18 (b̄ +1.54), lineal 1/18.
-   A mayor b, peor ajusta la ley de potencia.
+   A mayor b, peor ajusta la ley de potencia. **Nota: b ≥ 1 solo tiene significado
+   si se mantiene por periodos muy largos (cavidad superlineal sostenida → cambio
+   inminente). Si es transitorio/puntual, NO es superlineal: el sistema entra en
+   ACO (Colapso Orbital Acoplado), es decir, colapso del sistema.**
 3. **Dirección aguanta, p no.** El p por caso está doblemente inflado
    (autocorrelación + pseudo-replicación de 714 casos no independientes).
 4. **Defectos de reporte.** 557/721 p-values truncados a `0.0` por

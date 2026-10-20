@@ -94,9 +94,12 @@ donde **b** es el exponente de satelización.
 - 0 < b < 1 → satelización sublineal (gradual)
 - b ≥ 1 → satelización superlineal (acelerada)
 
-**Roche Radius (b = 1.0):** umbral crítico. Un nodo con b ≥ 1 está en absorción
-acelerada — análogo al radio de Roche astronómico (distancia dentro de la cual
-las fuerzas de marea superan la cohesión del satélite).
+**Roche Radius (b = 1.0):** umbral candidato que solo tiene significado si se
+mantiene por periodos muy largos (cavidad superlineal sostenida → cambio
+inminente). Si es transitorio/puntual, NO es superlineal: el sistema entra en
+ACO (Colapso Orbital Acoplado), es decir, colapso del sistema — análogo al radio
+de Roche astronómico (distancia dentro de la cual las fuerzas de marea superan
+la cohesión del satélite).
 
 **Nota (v29):** el exponente b es una **métrica descriptiva** de la velocidad y
 dirección de satelización, no la afirmación de que la ley de potencia sea el

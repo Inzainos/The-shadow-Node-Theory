@@ -205,8 +205,10 @@ exponent b is the velocity parameter: b > 0.45 indicates accelerated satellizati
 0.1 < b < 0.45 indicates gradual satellization; −0.1 < b < 0.1 indicates
 approximate steady state; b < −0.1 indicates convergence or leapfrog. (v30 tied
 the accelerated band to an "abrupt-trigger class"; that link is withdrawn in r31.
-The superlinear band b ≥ 1 may partly reflect model misspecification — see
-Finding 5 in §12.)
+b ≥ 1 only has meaning if maintained over long periods (sustained superlinear
+cavity → impending change). If transient/punctual, NOT superlinear: system
+enters ACO (Orbital Collapse Architecture), i.e., collapse. — see Finding 5
+in §12.)
 
 ### 2.2 Central Hypothesis
 
@@ -634,7 +636,10 @@ pairs are in Domain B, and the main export destination changes by 2005–2014 fo
 approximation. (iv) *Superlinear regime:* in the 18 raw collapse-layer series, AIC
 prefers the power law in 13, an exponential in 4 (mean b = +1.54) and a linear
 model in 1; the higher b, the worse the power law fits, so part of the b ≥ 1 band
-(102 of 721 cases) may be misspecification. (v) *Reporting:* per-case p-values
+(102 of 721 cases) may be misspecification. **However, b ≥ 1 is only meaningful if
+sustained over long periods (sustained superlinear cavity → impending change). If
+transient/punctual, it is NOT superlinear: the system enters ACO (Orbital Collapse
+Architecture), i.e., collapse.** (v) *Reporting:* per-case p-values
 were rounded to six decimals (557 of 721 read 0.0), and two R² definitions (log
 and raw scale) were averaged together. (vi) *Composition:* the friction-free
 pole (E1 + E3) is COVID-19 data; E1 models territorial spread, not species
@@ -812,7 +817,10 @@ than toward an equally distant country they barely trade with. The hub changes
 sovereignty-as-brake statement is kept as a hypothesis. v30 closed this finding
 with the contrast that, when resource transfer is direct and unmediated (a
 herring shoal cannot negotiate with a school of mackerel; a Hot Jupiter does not
-apply for regulatory approval), b exceeds 1 regardless of substrate. In the
+apply for regulatory approval), b exceeds 1 regardless of substrate. **However,
+b ≥ 1 only has meaning if sustained over long periods (sustained superlinear
+cavity → impending change). If transient/punctual, NOT superlinear: the system
+enters ACO (Orbital Collapse Architecture), i.e., collapse.** In the
 corpus 94 of the 102 cases with b ≥ 1 are COVID-19 spread series (E1 + E3), and
 the band may partly reflect misspecification (Finding 5), so r31 states it as a
 conjecture.

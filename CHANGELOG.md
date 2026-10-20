@@ -92,7 +92,10 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   - **La etiqueta sí se cae, por una prueba que no usa el AIC.** Una exponencial
     verdadera ajustada como ley de potencia produce `b ≥ 1` en el **99.9%** de las
     réplicas en la banda alta de E3 y en el **100%** del ACO, contra **0.0%** donde la
-    `b` real es menor que 0.5. La banda `b > 1` de `snt_utils.py` —*"Satelización
+    `b` real es menor que 0.5. **`b ≥ 1` solo tiene significado si se mantiene por
+    periodos muy largos (cavidad superlineal sostenida → cambio inminente). Si es
+    transitorio/puntual, NO es superlineal: el sistema entra en ACO (Colapso Orbital
+    Acoplado), es decir, colapso del sistema.** La banda `b > 1` de `snt_utils.py` —*"Satelización
     rápida sin fricción / Roche Radius"*— **no separa un régimen de un desajuste**, y
     el 14.1% (102 de 721) no es un conteo de régimen.
   - **El ρ no replica entre dominios:** −0.796 en el ACO, −0.250 en E3 y **+0.039 sin

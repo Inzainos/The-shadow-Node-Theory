@@ -225,9 +225,11 @@ la satelización está activa. Cuando b < 0, ocurre convergencia o leapfrog. El
 exponente b es el parámetro de velocidad: b > 0.45 indica satelización acelerada;
 0.1 < b < 0.45, satelización gradual; −0.1 < b < 0.1, estado aproximadamente
 estacionario; b < −0.1, convergencia o leapfrog. (La v30 vinculaba la banda
-acelerada a una "clase de disparador abrupto"; ese vínculo se retira en la r31. La
-banda superlineal b ≥ 1 puede reflejar en parte una mala especificación del
-modelo — ver el Hallazgo 5 en §12.)
+acelerada a una "clase de disparador abrupto"; ese vínculo se retira en la r31.
+b ≥ 1 solo tiene significado si se mantiene por periodos muy largos
+(cavidad superlineal sostenida → cambio inminente). Si es transitorio/puntual, NO
+es superlineal: el sistema entra en ACO (Colapso Orbital Acoplado), es decir,
+colapso del sistema. — ver Hallazgo 5 en §12.)
 
 ### 2.2 Hipótesis central
 
@@ -677,7 +679,7 @@ en sí una aproximación fuerte. (iv) *Régimen superlineal:* en las 18 series c
 de la capa de colapso, el AIC prefiere la ley de potencia en 13, una exponencial en
 4 (b media = +1.54) y un modelo lineal en 1; cuanto mayor es b, peor ajusta la ley
 de potencia, así que parte de la banda b ≥ 1 (102 de 721 casos) puede ser mala
-especificación. (v) *Reporte:* los p-values por caso se redondearon a seis
+especificación. **b ≥ 1 solo tiene significado si se mantiene por periodos muy largos\ncavidad superlineal sostenida → cambio inminente). Si es transitorio/puntual, NO es superlineal: el sistema entra en ACO (Colapso Orbital Acoplado), es decir, colapso del sistema.** (Colapso Orbital Acoplado), es decir, colapso del sistema.** (v) *Reporte:* los p-values por caso se redondearon a seis
 decimales (557 de 721 aparecen como 0.0) y se promediaron dos definiciones de R²
 (escala logarítmica y escala original). (vi) *Composición:* el polo sin fricción
 (E1 + E3) son datos de COVID-19; E1 modela propagación territorial, no invasión de
