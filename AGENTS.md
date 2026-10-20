@@ -16,8 +16,10 @@ Research, Tlaxcala, Mexico). Code, data, and theory must stay traceable and
 reproducible.
 
 Projects housed here: the SNT theory + corpus (`reconstruction_real/`,
-`papers/`), the **Genomic Topologic Analyzer** (`genomic_agent/`), and **Delta**
-(`delta/`, independent crypto & bolsa signal engine).
+`papers/`) and **Delta** (`delta/`, independent crypto & bolsa signal engine).
+The **Genomic Topologic Analyzer** migrated to its own standalone project on
+2026-10-20: `/home/deamon/genomic_agent` (own git repo, full 45-commit history
+preserved via `git subtree split`; Docker services run from there).
 
 ## Working method (good practices)
 
@@ -26,7 +28,8 @@ Projects housed here: the SNT theory + corpus (`reconstruction_real/`,
    cite a primary source (`sources.md`). Missing values stay missing, not zero.
 3. **Reproducibility + provenance.** Every result ships with its script and source.
 4. **Security.** Never commit PHI, secrets, or `.env` (see `.gitignore`,
-   `SECURITY.md`). `genomic_agent` blocks raw patient RNA-seq patterns.
+   `SECURITY.md`). The standalone `genomic_agent` project blocks raw patient
+   RNA-seq patterns and PHI (see its own AGENTS_USE.md).
 5. **Update `CHANGELOG.md`** on every relevant change (the practice that slips most).
 6. **Report inference honestly.** Per-case p-values in the corpus are inflated
    (serial autocorrelation in Domain B; 714 non-independent cases). Never cite
@@ -40,7 +43,7 @@ Projects housed here: the SNT theory + corpus (`reconstruction_real/`,
 flake8 .
 
 # Compile active modules
-python -m compileall -q code reconstruction_real genomic_agent dashboard delta
+python -m compileall -q code reconstruction_real dashboard delta
 
 # Smoke test (CI runs this)
 python reconstruction_real/code/build_aco_v29.py
@@ -66,8 +69,10 @@ Subject in English, typed prefix: `feat:` `fix:` `docs:` `data:` `refactor:`
 - `papers/` — academic documents and preprints. Active conceptual framework:
   **marco teórico v34** (`papers/marco_teorico.md`; lineage in
   `papers/CHANGELOG_marco.md`). Framework and corpus are numbered independently.
-- `genomic_agent/` — SNT Genomic Topologic Analyzer (empirical baseline; validated
-  on real TCGA patients up to the full 976-case cohort).
+- `genomic_agent` — **MOVED 2026-10-20** to `/home/deamon/genomic_agent` (standalone
+  project, own git repo with preserved history; Docker services :8081/:8501 loopback
+  run from the new location). It remains the empirical genomic application of SNT
+  topology (TCGA 976-case validation; 5-Event Wall corpus n=2,746).
 - `delta/` — independent crypto & bolsa signal engine (real CoinGecko + Yahoo data).
 - `code/` — shared utilities (`snt_utils.py`, audit extension `snt_utils_v32.py`)
   and historical v28 scripts.

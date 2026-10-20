@@ -1000,14 +1000,10 @@ The-shadow-Node-Theory/
 |   |-- phi_validation_bio_primary.csv <-- H-phi validation round 2
 |   +-- dataset_completo_v2.csv / snt_corpus_50_resultados_v2.csv / shadow_node_maddison_resumen.csv <-- Historical (v2.0)
 |
-|-- genomic_agent/                     <-- SNT Genomic Topologic Analyzer (active in v2.6.1)
-|   |-- agent_core/                    <-- Analysis engine (agent_logic.py) + Streamlit UI (app.py)
-|   |-- genomic_database/             <-- DB builders: db_builder.py (active oracle) + hpa_db_builder.py (HPA/UniProt alt)
-|   |-- mock_services/                <-- Jira/Slack/Email mock integrations
-|   |-- analysis/                     <-- TCGA batch analysis (2,746 patients) + real-patient validation
-|   |   |-- TCGA_SNT_ANALYSIS.md       <-- 5-Event-Wall corpus report (BRCA/LUAD/GBM/COAD)
-|   |   |-- snt_pipeline.py            <-- TCGA batch Z-score pipeline
-|   |   |-- baseline_derivation/       <-- Empirical BASELINE_NETWORK from n=40 healthy TCGA samples
+|
+|-- (genomic_agent MOVED 2026-10-20 --> /home/deamon/genomic_agent — standalone
+|    project, own git repo, 45-commit history preserved; Docker services
+|    :8081/:8501 loopback run from the new location. See its README/AGENTS_USE.)
 |   |   +-- real_patient_validation/   <-- End-to-end run on real TCGA-BH-A18H case + round2/ (8 patients) + scale_976/ (976 patients)
 |   +-- docker-compose.yml            <-- Container orchestration
 |
@@ -1042,6 +1038,13 @@ The-shadow-Node-Theory/
 
 ## SNT Genomic Topologic Analyzer
 
+> **Moved 2026-10-20** to its own standalone project:
+> **`/home/deamon/genomic_agent`** (own git repo; full 45-commit history
+> preserved via `git subtree split`; Docker services `:8081` mock integrations
+> and `:8501` Streamlit UI, loopback-only, running from the new location).
+> The science summary below remains the SNT-side reference; for operation,
+> README/AGENTS_USE/QUICKGUIDE/SCALING live in the new project.
+
 Cross-domain application of SNT hub-satellite topology to functional genomics.
 Instead of detecting structural mutations (wrong letters in the code), the
 Genomic Agent detects **regulatory topology disruptions** (who stopped
@@ -1054,25 +1057,25 @@ network derived from real TCGA normal-adjacent RNA-seq samples.
   orphan anomaly scan.
 - **Three anomaly types** (produced by the active engine): HUB_COLLAPSE,
   SATELLITE_CAPTURE, LEAPFROG. The alternate HPA/UniProt oracle
-  (`genomic_database/hpa_db_builder.py`) additionally models HUB_OVERACTIVATION.
+  (`hpa_db_builder.py` in the standalone project) additionally models HUB_OVERACTIVATION.
 - **ACO-A frame:** for confirmed HUB_COLLAPSE hubs, the agent fits the collapse
   exponent Delta and classifies the collapse mode (Regulated Decay,
   Cracquelure, Floor-Arrested, Catastrophic Cliff, Logistic Sweep), tying the
   genomic layer to the v2.5.0 coupled-collapse theory.
 - **Empirical grounding:** the disease oracle's 5-Event-Wall signatures were
   derived from a real 2,746-patient TCGA batch analysis across BRCA/LUAD/GBM/COAD
-  cohorts (`genomic_agent/analysis/TCGA_SNT_ANALYSIS.md`).
+  cohorts (`/home/deamon/genomic_agent/analysis/TCGA_SNT_ANALYSIS.md`).
 - **Empirical healthy baseline:** the hub-satellite reference ratios in
   `BASELINE_NETWORK` are derived from n=40 real TCGA-BRCA normal-adjacent
   RNA-seq samples (50/51 pairs; only the unresolvable NRAS->PI3K pair remains
-  synthetic). See `genomic_agent/analysis/baseline_derivation/`.
+  synthetic). See `/home/deamon/genomic_agent/analysis/baseline_derivation/`.
 - **Real-patient validation:** the full pipeline (Level 1 -> Level 2 -> ACO-A)
   was run end-to-end against a genuine open-access TCGA-BRCA case (`TCGA-BH-A18H`,
   via the NIH GDC API). Against the empirical baseline it produces biologically
   plausible Z-scores (59/60 SNT-panel genes; 10 confirmed matches, 14 orphan
   anomalies). A second round extends this to a batch of 8 real TCGA-BRCA tumor
   patients (0 exceptions; heterogeneous per-patient results, means 5.5 confirmed
-  / 13.75 orphan). See `genomic_agent/analysis/real_patient_validation/` (and
+  / 13.75 orphan). See `/home/deamon/genomic_agent/analysis/real_patient_validation/` (and
   `round2/`).
 - **Scale validation (976 patients):** the pipeline was run against the full
   TCGA-BRCA primary-tumor cohort (976 unique cases, downloaded in 10 batches of
@@ -1080,7 +1083,7 @@ network derived from real TCGA normal-adjacent RNA-seq samples.
   976/976 ran without exceptions; distributions are stable and discriminant
   (confirmed mean 7.49, orphan mean 14.79, ACO-A hubs mean 3.86). Report,
   aggregated results and runner script in
-  `genomic_agent/analysis/real_patient_validation/scale_976/`.
+  `/home/deamon/genomic_agent/analysis/real_patient_validation/scale_976/`.
 
 See `papers/SNT_Genomic_Topologic_Analyzer_v3.pdf` for full documentation.
 

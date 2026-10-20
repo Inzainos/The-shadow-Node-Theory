@@ -7,8 +7,9 @@ exclude =
     .git,
     __pycache__,
     archive,
-    *[0-9a-f]*-*-*-*-*/**,
+    */[0-9a-f]*-*-*-*-*/**,
     *hackerearth_zerve/**,
+    ./*[0-9a-f]*-*-*-*-*/**,
 show_source = True
 statistics = True
 count = True

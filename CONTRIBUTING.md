@@ -90,7 +90,7 @@ completo de carpetas. En resumen:
 - `code/` — utilidades compartidas (`snt_utils.py`, `snt_utils_v32.py`) y scripts
   históricos (v28).
 - `data/` — datos fuente y provenance (`FUENTES.md` con URL, edición y SHA-256).
-- `genomic_agent/` — SNT Genomic Topologic Analyzer.
+- `genomic_agent` — moved to `/home/deamon/genomic_agent` (standalone since 2026-10-20).
 - `delta/` — motor de señales cripto y bolsa (independiente).
 - `dashboard/` — dashboard interactivo en Streamlit.
 - `figures/` — figuras de publicación.
