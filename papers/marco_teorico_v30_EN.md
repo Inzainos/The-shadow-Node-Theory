@@ -1461,7 +1461,7 @@ final — silent absorption precedes institutional formalization.
 **V.8 Verification status.** *Verified with own quantitative data:* the four SNT
 v1.0 historical cases (power-law fit, Maddison), the Mexico 32-entity N-body matrix
 (INEGI 2022, power law p<0.001), the eight 1940-2022 trajectories (Querétaro and
-Nuevo León with significant b<0), and HackerEarth 2026 (ROC-AUC=0.9994, SHAP).
+Nuevo León with significant b<0), and HackerEarth 2026 (honest temporal AUC 0.836 ± 0.038, SHAP).
 *Verified with external scientific literature:* Scalar Velocity, Hub Immune
 Response (GAFAM 855 acquisitions, Kill Zones, pseudo-acquisitions), Qualitative
 Degradation (53-study meta-analysis, d=−1.4 at 365+ days), Coherence Factor Ck
@@ -1470,7 +1470,7 @@ al. 2011), Hub-Expansion Sequence (Spanish Empire, Least Action), Silent
 Absorption (Hungary border data, Crimea 2014). *Updated in Module XII:* the ASI is
 operationalized with observable behavior from HackerEarth 2026 (N=4,774); its
 three components (δH, α, F) have measurable proxies, classification precision 1.0
-(zero false positives), Spearman ASI–CSI_V3 = 0.178 (p<0.001). The framework maps
+(zero false positives) — *see §6.6 for the tautology correction*; Spearman ASI–CSI_V3 = 0.178 (p<0.001). The framework maps
 the immutable laws of energy conservation, information thermodynamics and complex
 networks onto human and institutional behavior.
 
@@ -1542,8 +1542,10 @@ but its practical viability is extremely low.
 sovereignty. Verified empirically in Module XII (HackerEarth 2026). Refuted if
 ASI > 1 users systematically show performance comparable to ASI < 0.5 users on
 tasks requiring cognitive sovereignty (orthogonal-dimension identification, new-
-tool adoption under pressure, performance under adversity). Current validation
-precision 1.0 (zero false positives) is promising but needs replication.
+tool adoption under pressure, performance under adversity). Original validation
+reported precision 1.0 (zero false positives) — this was tautological (label
+defined by ASI > 1). Post-print verification (2026-10-18) with temporal churn
+label yields CV AUC 0.836 ± 0.038; needs replication with honest temporal label.
 
 **VI.7 Implication.** No single criterion refutes the whole model — each refutes a
 specific postulate under specific conditions, so the model can be partially
@@ -1692,7 +1694,7 @@ distinct historical and geographic contexts, separated by centuries and continen
 | Castilian | Toledo | Madrid | pure political decree | court move 1561; Toledo loses 50% pop. by 1640 | museum city; 85k vs 3.4M |
 | Flemish | Bruges | Antwerp | infrastructure collapse | Zwin canal silting c.1500; Bruges loses sea access | static UNESCO heritage |
 | Iberian | Lisbon/Portugal | Madrid/Spain | external institutional vacuum | Iberian Union 1580; loss of Asia trade routes | 60 yrs of satellization until 1640 restoration |
-| Digital (2026) | Basic users 93.1% | Elite 0.5% HackerEarth | behavioral Fractal Gap | <5 distinct event types, detectable in first session (5-Event Wall) | VDR ratio 7,478×; churn ROC-AUC 0.9994 |
+| Digital (2026) | Basic users 93.1% | Elite 0.5% HackerEarth | behavioral Fractal Gap | <5 distinct event types, detectable in first session (5-Event Wall) | VDR ratio 7,478×; churn honest AUC 0.836 ± 0.038 |
 
 Convergence across four cases with distinct activation mechanisms suggests the
 suppression algorithm does not depend on the specific trigger but on the underlying
@@ -1777,9 +1779,7 @@ class weights). **The Fractal Gap:** the gap between the 0.5% Elite and 93.1% Ba
 is not a continuous gradient but a discontinuity — a qualitative jump, not
 quantitative. Numerically: mean VDR Elite 47.86 vs Basic 0.0063 (ratio 7,478×);
 active days 30.9 vs 1.2 (25×); tool diversity 8.5 vs 0.08 types (106×); credits
-consumed ~6,000×. The churn model gives ROC-AUC = 0.9994 (test), 1.0000 (5-fold
-CV). The 5-Event Wall: users with <5 distinct event types have >90% churn
-probability, detectable within the first session. **Connection to SNT:** the same
+consumed ~6,000×. The churn model gives ROC-AUC = 0.836 (test, honest temporal label), 0.893 (5-fold CV, tenure ≥7d). The 5-Event Wall: users with <5 distinct event types have >90% churn probability, detectable within the first session. **Connection to SNT:** the same
 preferential-attachment power-law distribution as in the historical cases, on a
 weeks-scale instead of centuries. In the historical cases the dominant node
 accumulates advantage via capital, infrastructure and political decision; in
@@ -1882,8 +1882,8 @@ Elite 0.206, Intermediate 0.434, Basic 0.711. **XII.3 Threshold calibration:**
 compute ASI_raw for all users, take the Elite cohort median, scale so that median =
 1.0 (pre-scaling Elite median 2.64; post-scaling Elite median 1.0, mean 1.59) — so
 ASI>1 means operating above the typical Elite level. **XII.4 Validation:** ASI>1
-identifies 13 users (0.3%); precision 1.0000 (no false positives — every ASI>1 user
-is Elite or Intermediate); recall 0.039; F1 0.076. The low recall is a finding, not
+identifies 13 users (0.3%); original precision 1.0000 (no false positives — every ASI>1 user
+is Elite or Intermediate) was tautological (ASI threshold defined the label). Post-print verification (2026-10-18): with honest temporal churn label (30-day inactivity, features strictly prior), CV AUC 0.836 ± 0.038; recall 0.039; F1 0.076. The low recall is a finding, not
 a defect: most Elite/Intermediate users have ASI 0.5–1.0 (partial sovereignty,
 latent-leapfrog candidates). Spearman ASI–CSI_V3 = 0.178 (p<0.001) — positive but
 low, confirming complementarity: CSI_V3 measures accumulated production; ASI

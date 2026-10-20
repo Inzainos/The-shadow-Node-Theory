@@ -1261,11 +1261,11 @@ El analisis de los condados hungaros post-Primera Guerra Mundial muestra que los
 
 La siguiente tabla consolida el estado de verificacion empirica de cada variable del marco teorico despues de la integracion de evidencia externa:
 
-Verificado con datos cuantitativos propios: Los cuatro casos historicos SNT v1.0 (ajuste ley de potencia, datos Maddison), la matriz N-cuerpos Mexico 32 entidades (INEGI 2022, ley de potencia p<0.001), las ocho trayectorias 1940-2022 (Queretaro y Nuevo Leon con b<0 significativo), y el caso HackerEarth 2026 (ROC-AUC=0.9994, SHAP).
+Verificado con datos cuantitativos propios: Los cuatro casos historicos SNT v1.0 (ajuste ley de potencia, datos Maddison), la matriz N-cuerpos Mexico 32 entidades (INEGI 2022, ley de potencia p<0.001), las ocho trayectorias 1940-2022 (Queretaro y Nuevo Leon con b<0 significativo), y el caso HackerEarth 2026 (AUC honesto temporal 0.836 ± 0.038, SHAP).
 
 Verificado con literatura cientifica externa: Principio de Velocidad Escalar (datos de adopcion tecnologica por escala), Respuesta Inmunologica del Hub (GAFAM 855 adquisiciones, Kill Zones, pseudo-adquisiciones), Degradacion de Recursos Cualitativos (meta-analisis 53 estudios d=-1.4 a 365+ dias), Factor de Coherencia Ck (Friston 2010, Nature Reviews Neuroscience), Dos Dimensiones del Salto (PsyCap meta-analisis N=12,567, Avey et al. 2011), Secuencia de Expansion del Hub (Imperio Espanol, Principio de Minima Accion), Absorcion Silenciosa (datos fronterizos Hungary, Crimea 2014).
 
-Actualizado en Modulo XII: el Indice de Soberania Atomica (ASI) ha sido operacionalizado empiricamente con datos de comportamiento observable del dataset HackerEarth 2026 (N=4,774 usuarios). Los tres componentes — delta_H (Shannon entropy de eventos), alpha (autonomia de decision), F (coeficiente de variacion del desempeno) — tienen proxies medibles con precision 1.0 en validacion (cero falsos positivos). Correlacion Spearman ASI-CSI_V3 = rs=0.178 (p<0.001) confirma que el ASI captura una dimension complementaria al CSI_V3. El Factor de Coherencia Ck como variable predictiva — el mecanismo neurologico esta verificado pero la operacionalizacion especifica para el modelo no ha sido probada con datos estructurados. Las tres intervenciones del dominio empresarial (CSIE) — propuesta metodologica que requiere aplicacion en caso real para validacion.
+Actualizado en Modulo XII: el Indice de Soberania Atomica (ASI) ha sido operacionalizado empiricamente con datos de comportamiento observable del dataset HackerEarth 2026 (N=4,774 usuarios). Los tres componentes — delta_H (Shannon entropy de eventos), alpha (autonomia de decision), F (coeficiente de variacion del desempeno) — tienen proxies medibles con precision 1.0 en validacion original (cero falsos positivos) — tautológica; verificación honesta (2026-10-18): AUC temporal 0.836 ± 0.038. Correlacion Spearman ASI-CSI_V3 = rs=0.178 (p<0.001) confirma que el ASI captura una dimension complementaria al CSI_V3. El Factor de Coherencia Ck como variable predictiva — el mecanismo neurologico esta verificado pero la operacionalizacion especifica para el modelo no ha sido probada con datos estructurados. Las tres intervenciones del dominio empresarial (CSIE) — propuesta metodologica que requiere aplicacion en caso real para validacion.
 
 El marco teorico de la SNT v2.0 no inventa reglas artificiales. Mapea las leyes inmutables de la conservacion de energia, la termodinamica de la informacion y las redes complejas sobre el comportamiento humano e institucional. Las variables que parecian metaforicas — la energia residual del nodo, el costo de activacion del salto, la respuesta inmunologica del hub — tienen contrapartes neurologicas, psicologicas e institucionales medibles con datos reales.
 
@@ -1556,7 +1556,7 @@ La teoria se valida mediante la identificacion del mismo patron en cuatro contex
 | Castellano | Toledo | Madrid | Decreto politico puro | Traslado de corte 1561. Toledo pierde 50% poblacion para 1640 | Ciudad museo. Poblacion actual: 85k vs 3.4M |
 | Flamenco | Brujas | Amberes | Colapso de infraestructura | Sedimentacion canal Zwin c.1500. Brujas pierde acceso maritimo | Patrimonio UNESCO estatico |
 | Iberico | Lisboa / Portugal | Madrid / Espana | Vacio institucional externo | Union Iberica 1580. Enemigos de Espana se vuelven enemigos de Portugal. Perdida de rutas comerciales Asia | 60 anos de satelizacion hasta restauracion 1640 |
-| Digital (2026) | Usuarios Basic 93.1% | Elite 0.5% HackerEarth | Fractal Gap conductual | Trigger: < 5 tipos de evento distintos. Detectable en primera sesion (5-Event Wall) | VDR ratio 7,478x. Churn ROC-AUC = 0.9994 |
+| Digital (2026) | Usuarios Basic 93.1% | Elite 0.5% HackerEarth | Fractal Gap conductual | Trigger: < 5 tipos de evento distintos. Detectable en primera sesion (5-Event Wall) | VDR ratio 7,478x. Churn AUC honesto 0.836 ± 0.038 |
 
 La convergencia del patron en cuatro casos con mecanismos de activacion distintos sugiere que el algoritmo de supresion no depende del trigger especifico sino de la dinamica matematica subyacente. El resultado final es invariante: el nodo sombra queda satelizado independientemente de si el mecanismo fue un decreto politico, un fallo de infraestructura fisica o una absorcion por vacio institucional.
 
@@ -1662,7 +1662,7 @@ Diversidad de herramientas: Elite promedio 8.5 tipos. Basic promedio 0.08 tipos.
 
 Creditos consumidos: Elite promedio 6,000x el promedio de Basic.
 
-El modelo de prediccion de churn sobre esta distribucion produce ROC-AUC = 0.9994 en test, ROC-AUC = 1.0000 en validacion cruzada de 5 folds. El 5-Event Wall identifica el umbral critico: usuarios con menos de 5 tipos de evento distintos tienen probabilidad de churn mayor al 90%. Este umbral es detectable dentro de la primera sesion.
+El modelo de prediccion de churn sobre esta distribucion produce ROC-AUC honesto = 0.836 ± 0.038 (test temporal), 0.893 ± 0.041 (CV 5-fold, antigüedad ≥7d). La cifra 0.9994 original era tautológica (etiqueta = cohorte Basic). El 5-Event Wall identifica el umbral critico: usuarios con menos de 5 tipos de evento distintos tienen probabilidad de churn mayor al 90%. Este umbral es detectable dentro de la primera sesion.
 
 Conexion con la Shadow Node Theory
 
@@ -1684,7 +1684,7 @@ La validacion en dominio digital tiene tres implicaciones para el marco general.
 
 Dataset: zerve_hackathon_dataset.csv — 4,774 usuarios, 409,287 eventos, 141 tipos de evento.
 
-Modelo: GradientBoostingClassifier, 284 features, ROC-AUC = 0.9994, CV = 1.0000.
+Modelo: GradientBoostingClassifier, 284 features, ROC-AUC honesto = 0.836 ± 0.038 (test temporal), CV = 0.893 ± 0.041 (antigüedad ≥7d).
 
 Fuente: Captain 1n2a1n05, Fractal Core Framework, HackerEarth 2026.
 
@@ -1718,7 +1718,7 @@ Fuente: Captain 1n2a1n05, Fractal Core Framework, HackerEarth 2026, zerve_hackat
 
 Visualizaciones: 7 graficas de pipeline — SHAP, Beeswarm, Feature Importance, Survival Chart, Action Matrix, Risk Heatmap, Credit Cohorts.
 
-Modelo: GradientBoostingClassifier, 284 features, ROC-AUC test = 0.9994, CV = 1.0000.
+Modelo: GradientBoostingClassifier, 284 features, ROC-AUC test = 0.836 ± 0.038, CV = 0.893 ± 0.041 (antigüedad ≥7d).
 
 
 
