@@ -1,11 +1,69 @@
-# Shadow Node Theory
+# Shadow Node Theory · v2.7.1
 
-Shadow Node Theory (SNT) estudia relaciones de satelización de escala
-`R(t) = a·t^b` y la capa de colapso orbital acoplado (ACO-A),
-`A(τ) = c·τ^Δ`. Este repositorio contiene teoría, datos versionados, scripts y
-auditorías. El estado que sigue prioriza resultados empíricos auditados; el
-corpus consolidado reúne 721 casos, pero **no** equivale a 721 réplicas
-independientes ni todos sus dominios son reproducibles.
+### Satelización de escala · colapso orbital acoplado · tela de incertidumbre
+
+[![Release](https://img.shields.io/badge/release-v2.7.1-6f42c1)](CHANGELOG.md)
+[![Marco teórico](https://img.shields.io/badge/marco-v34-0e8a8a)](papers/marco_teorico.md)
+[![Series reales en la tela](https://img.shields.io/badge/tela-699%20series%20reales-2ea44f)](reconstruction_real/audits/TELA_EXOGENA_2026-10-21.md)
+[![Python CI](https://github.com/Inzainos/The-shadow-Node-Theory/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/Inzainos/The-shadow-Node-Theory/actions/workflows/python-package-conda.yml)
+
+**Shadow Node Theory (SNT)** estudia la evolución de relaciones entre nodos y
+hubs mediante `R(t) = a·t^b`; **ACO-A** añade un eje ortogonal para el colapso,
+`A(τ) = c·τ^Δ`. La **tela de incertidumbre** incorpora esas trayectorias como
+proyecciones observables en `𝒞(u, m, τ)`: series reales donde están versionadas,
+y sombras del modelo solo donde todavía faltan.
+
+<p align="center">
+  <img src="figures/fig_tela_cimatica_chladni.png" alt="Placa cimática continua de la tela de incertidumbre" width="48%">
+  <img src="figures/fig_tela_cimatica_tonos.png" alt="Firmas de tono y espectro por dominio" width="48%">
+</p>
+
+> **Qué contiene esta versión:** el corpus SNT de **721 casos** permanece
+> separado de la tela integrada, que reúne **740 trayectorias y 51.210 puntos**:
+> 699 series reales reconstruidas desde fuentes versionadas y 41 sombras
+> explícitamente identificadas. No son 740 nuevas réplicas independientes ni
+> una afirmación de ley universal.
+
+## La tela de incertidumbre, integrada
+
+La capa conecta SNT + ACO-A con mediciones temporales trazables: magnitud
+`m = R`, fase normalizada `τ` y marco de observación declarado
+`θ = (B, V, ρ, W, λ)`. El eje `u` sigue **sin definición operativa** y se
+conserva como `NULL`; la fricción `φ` es postulada por dominio, no una medición
+continua.
+
+| Capa | Qué integra | Resultado auditado |
+|---|---|---|
+| **Series exógenas** | E3 (234), B (446), ACO (18) y G (1); 50.813 puntos reconstruidos desde datos versionados | B reproduce 446/446; E3 reproduce 233/234 dentro de ±0,01 en `b`; ACO 18/18. |
+| **Cubo v2** | Series reales donde existen y 41 sombras donde faltan | 740 trayectorias / 51.210 puntos; las sombras no se presentan como observaciones reales. |
+| **Capa cimática** | Placa continua, figura por dominio, espectros, huellas y prueba leave-one-out | Identificación LOO: 50,7% por dominio y 66,2% por tono `φ`; resultado exploratorio, no clasificador calibrado. |
+| **Dirección → destino** | Relación entre dirección en el primer 25% y régimen final | Spearman: E3 `+0,823`, B `+0,224`, ACO `+0,413` (`n=18`, `p=0,089`, no concluyente). Asociación descriptiva, no causalidad. |
+
+La matriz agrupada sugiere que la dirección temprana contiene información
+sobre el régimen final, pero su composición está dominada por E3 en el tercil
+rápido y B en el lento; debe leerse conociendo ese sesgo. La capa cimática
+identifica mejor tonos que etiquetas de dominio; **no** identifica de forma
+fiable el dominio por la figura. ACO converge hacia `m≈1` en la muestra
+disponible (`n=18`), sin inferencia concluyente.
+
+**Explora la capa:** [auditoría de la tela integrada](reconstruction_real/audits/TELA_V2_INTEGRADA_2026-10-21.md) ·
+[serie real y capa exógena](reconstruction_real/audits/TELA_EXOGENA_2026-10-21.md) ·
+[resultados cimáticos](reconstruction_real/audits/TELA_CIMATICA_2026-10-21.md) ·
+[implementación del cubo](reconstruction_real/audits/TELA_DE_INCERTIDUMBRE_2026-10-21.md).
+
+**Figuras:** [placa continua (PNG)](figures/fig_tela_cimatica_chladni.png) ·
+[placa vectorial (SVG)](figures/fig_tela_cimatica_chladni.svg) ·
+[tonos (PNG)](figures/fig_tela_cimatica_tonos.png) ·
+[tonos vectoriales (SVG)](figures/fig_tela_cimatica_tonos.svg).
+
+> **Versionado independiente:** v2.7.1 es la versión del paquete del
+> repositorio; el marco teórico activo sigue en v34 y el corpus SNT en 721
+> casos. La tela añade una capa de trayectorias y análisis, no cambia el tamaño
+> del corpus consolidado.
+
+El estado que sigue prioriza resultados empíricos auditados. El corpus de
+721 casos **no equivale a 721 réplicas independientes**, y la reproducibilidad
+varía entre dominios.
 
 ## Hallazgos empíricos
 
@@ -32,6 +90,8 @@ inferencias. Las cifras por caso y sus valores p no deben agregarse como si los
 ## Corpus y procedencia
 
 - Corpus consolidado: [`reconstruction_real/data/snt_corpus_REAL_v6.csv`](reconstruction_real/data/snt_corpus_REAL_v6.csv).
+- Datos de la tela: [`reconstruction_real/data/tela_de_incertidumbre.csv`](reconstruction_real/data/tela_de_incertidumbre.csv) (740 trayectorias, 51.210 puntos); series exógenas: [`tela_exogena_series.csv`](reconstruction_real/data/tela_exogena_series.csv) (699 series reales).
+- Código reproducible: [`tela_exogena.py`](reconstruction_real/code/tela_exogena.py) → [`tela_de_incertidumbre.py`](reconstruction_real/code/tela_de_incertidumbre.py) → [`tela_cimatica.py`](reconstruction_real/code/tela_cimatica.py).
 - Descripción, métodos y estado de reproducibilidad:
   [`reconstruction_real/README.md`](reconstruction_real/README.md).
 - Fuentes, ediciones y checksums: [`data/FUENTES.md`](data/FUENTES.md).
@@ -63,7 +123,8 @@ regenerar salidas.
 - `code/` — utilidades y scripts activos compartidos.
 - `data/` — datos fuente/versionados y procedencia.
 - `Legacy/` — archivos heredados listados abajo.
-- `figures/` — figuras de resultados vigentes.
+- `figures/` — figuras de resultados vigentes, incluidas la placa cimática y
+  las firmas de tono de la tela.
 - `delta/` — motor independiente de señales de cripto y bolsa.
 - `dashboard/` — dashboard Streamlit.
 - `archive/` — documentos históricos.

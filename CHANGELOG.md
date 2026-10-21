@@ -6,6 +6,35 @@ y el proyecto sigue [Versionado Semántico](https://semver.org/lang/es/).
 
 Las fechas corresponden a la integración de cada versión en la rama `main`.
 
+## [2.7.1] — 2026-10-21 — Tela de incertidumbre integrada
+
+*El corpus SNT de 721 casos no cambia de tamaño. Esta versión incorpora una
+capa trazable de trayectorias reales y sombras explícitas, ligada al marco
+teórico v34.*
+
+### Agregado
+
+- **Capa exógena de la tela:** 699 series reales (E3 234, B 446, ACO 18, G 1)
+  y 50.813 puntos procedentes de fuentes versionadas. La reconstrucción de B
+  reproduce 446/446 casos; E3 reproduce 233/234 dentro de ±0,01 en `b`.
+- **Tela v2 integrada:** 740 trayectorias y 51.210 puntos; 699 series reales
+  y 41 sombras para casos sin series crudas versionadas. Se corrige la lectura
+  anterior del cometa: el origen común en `m=1` era un artefacto de las sombras.
+- **Capa cimática:** placa continua, figuras por dominio, tonos, huellas y
+  evaluación leave-one-out. En esta base, LOO alcanza 50,7% por dominio y
+  66,2% por tono; es una medición exploratoria, no un clasificador calibrado.
+- **Documentación y visualización:** informes de auditoría, datos derivados,
+  scripts reproducibles y figuras PNG/SVG enlazados desde el README.
+
+### Límites explícitos
+
+- `u` sigue sin definición operativa (`NULL`); `φ` es postulado por dominio,
+  no una variable continua medida.
+- 41 trayectorias son sombras, no observaciones reales. El conjunto de 740
+  trayectorias de la tela no sustituye ni amplía el corpus SNT de 721 casos.
+- La dirección temprana→destino es descriptiva; ACO (`n=18`) no ofrece
+  evidencia concluyente. La selección de E3 condiciona la matriz agrupada.
+
 ## [Marco teórico v34] — 2026-09-14 — Capa de proyección
 *Cruzado contra el corpus Shadow Node Theory v2.5.2. Las dos numeraciones son independientes: esta entrada versiona el marco teórico, no el corpus.*
 
@@ -45,93 +74,6 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 - Eje `u` del Axioma 0.1 sin definición operativa en ningún dominio.
 - Campo de fricción `φ` postulado, no medido.
 - El piso sigue siendo factor y no variable, lo que acota la cimática del colapso al eje acelera / no acelera.
-
-## [No publicado]
-
-### 2026-10-21 — Tela v2 integrada: serie real donde existe, sombra solo donde falta
-
-Informe: `reconstruction_real/audits/TELA_V2_INTEGRADA_2026-10-21.md`.
-Rama: `local/tela-v2-exogena`.
-
-- `tela_de_incertidumbre.py` v2: prefiere las 699 series reales de la
-  capa exógena (E3 234, B 446, ACO 18, G 1) y mapea como sombra solo los
-  41 casos sin serie cruda versionada (A, C, D, E1, E2, F). 740 casos /
-  51,210 puntos (antes: 739 / 7,306). Degrada a v1 sin la capa exógena.
-- **Corrección honesta del cometa:** el "nacen del mismo punto" era
-  artefacto de las sombras (todas nacían en m=1). En v2 los casos nacen
-  en la escala real de su dominio (E3 +2.16 décadas, ACO −0.29) y el
-  abanico nace abierto. Sobreviven: la cabeza (55-60% en la banda de
-  equilibrio), la estela (4.72→13.38 décadas) y la convergencia ACO a
-  m≈1 (0.29→0.07).
-- **LOO con series reales:** dominio 21.2% → **50.7%** (E3 94%); tono φ
-  53.7% → **66.2%** (nula 95%). La firma de dominio que las sombras
-  borraban es medible en los nacimientos reales.
-
-### 2026-10-21 — Capa exógena de la tela: 699 series reales + estadística dirección→destino
-
-Informe: `reconstruction_real/audits/TELA_EXOGENA_2026-10-21.md`.
-
-- **La tela pasa de 18 a 699 casos exógenos** (`code/tela_exogena.py`):
-  E3 234 (receta re-identificada: casos acumulados desde ≥100, 60 días,
-  233/234 en ±0.01), B 446 (R = PIB_pc hub/nodo desde
-  `maddison_mpd2020.csv` — **446/446 reproducen, 100%**), ACO 18
-  (100%), G 1 (declarado). 50,813 puntos reales, sin descargas.
-- **Lección Regla Cero**: la primera corrida usó `owid-maddison.csv`
-  (extracto OWID) y 45 casos de B fallaban con desviaciones hasta 0.31
-  en b — el panel correcto es `maddison_mpd2020.csv` (el de la
-  recalibración auditada 2026-10-03). Con el correcto: 446/446.
-- **Estadística real** (medias/medianas/modas por dominio + Spearman
-  dirección→destino): E3 +0.823 (p=7×10⁻⁵⁹), B +0.224 (p=1.7×10⁻⁶),
-  ACO +0.413 (p=0.089, n=18 no concluye).
-- **Matriz P(régimen | dirección temprana)** con terciles calibrados:
-  dirección lenta → 96% b<0.5, 0% superlineal; dirección rápida → 74%
-  b≥0.5, 40% superlineal. Convergencia 11× más probable con dirección
-  lenta.
-
-### 2026-10-21 — Capa cimática de la tela: placa, figura, tonos, huellas y prueba de identificación
-
-Informe: `reconstruction_real/audits/TELA_CIMATICA_2026-10-21.md`.
-
-- **Nueva capa** (`code/tela_cimatica.py`): la lectura cimática del cubo
-  𝒞(u, m, τ) — la tela como placa de Chladni. La placa (mapa de densidad
-  τ × log₁₀ m de los 7,306 puntos con líneas nodales), la figura
-  (trayectoria mediana por dominio), los tonos (espectro FFT mediano por
-  dominio), las huellas (CSV de identificación por dominio) y la prueba
-  LOO de identificación.
-- **Objetivo medido — identificar el dominio viendo la figura: NO**
-  (21.2% con todos los rasgos, 19.8% solo-forma). B y C (mismo φ alta,
-  b solapados) dibujan la misma figura.
-- **Predicción cimática medida — identificar el TONO (φ): PARCIAL**
-  (53.7% / 43.7%, 2.5× mejor que por dominio). El tono `nula` y los
-  colapsos reales ACO sí se identifican (72% ambos): la figura revela
-  el régimen de fricción, no el instrumento — como en Chladni.
-- **Placa continua** (hallazgo de visualización): la placa cruda mostraba
-  "peras" repetidas en columnas τ=k/9 — la rejilla de muestreo de las
-  sombras (t=1..10), no física; su pico espectral en el armónico 9 era el
-  dominante (1.0). Regenerada con 200 fases interpoladas por caso y peso
-  1/n: el pico cae a 0.301 y la arena se concentra en τ→1 (convergencia
-  terminal real).
-- **Corrección del informe de la tela**: las sombras son 721 (todo el
-  corpus v5, sin ACO), no 703; casos totales en la tela = 739
-  (18 reales + 721 sombras).
-
-### 2026-10-21 — Tela de Incertidumbre (Axioma 0.1 v34) implementada correctamente
-
-Informe: `reconstruction_real/audits/TELA_DE_INCERTIDUMBRE_2026-10-21.md`.
-
-- **Implementación corregida** (`code/tela_de_incertidumbre.py`, commit `cbdeec6`):
-  la versión anterior tenía 3 errores contra el marco v34 — m era `|b|/2`
-  en lugar de `R` (la razón), τ era `n_eff/n` en lugar de fase temporal
-  normalizada, y u inventaba una fórmula que el marco explícitamente prohíbe
-  ("lo que falta se queda faltando"). Corregidos: **m=R, τ=(t−t_min)/(t_max−t_min),
-  u=NULL** para todos los casos.
-- **7,306 puntos en el cubo**: 109 reales (serie cruda ACO de
-  `snt_corpus_aco_timeseries_v29.csv`) + 7,197 sombras del modelo ajustado
-  R=a·t^b (a=1 relativa) para los demás dominios.
-- **φ fricción** como campo categórico postulado (no medido), por dominio.
-- **θ = (B, V, ρ, W, λ)** del Axioma 0.2 declarado en cada fila.
-- Limpieza: removidos `tejer_tela.py` (duplicado antiguo), `etl_limpiar_datos.py`
-  (no integrado), `tela_de_incertidumbre_resumen.csv` (salida de versión errónea).
 
 ### 2026-10-20 — Hallazgos empíricos y separación del material legado
 

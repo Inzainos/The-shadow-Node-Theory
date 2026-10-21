@@ -1,16 +1,19 @@
 cff-version: 1.2.0
 message: "If you use this software or data, please cite it as below."
 type: software
-title: "Shadow Node Theory v2.6.1: Scale-Invariant Satellization and Coupled Orbital Collapse Across Empirical Domains"
+title: "Shadow Node Theory v2.7.1: Scale-Invariant Satellization, Coupled Orbital Collapse, and the Integrated Uncertainty Fabric"
 abstract: >
-  Replication package for Shadow Node Theory v2.6.1 (SNT v2.6.1), a formal
+  Replication package for Shadow Node Theory v2.7.1 (SNT v2.7.1), a formal
   model of node satellization with a corpus of 721 empirical cases
-  reconstructed from verifiable primary sources (unchanged since v2.5.2) and
-  a coupled Orbital Collapse layer (ACO-A). Version 2.6.0 integrated an
-  internal integral audit (v32) and five pre-registered tests (2026-09-27);
-  patch 2.6.1 corrects the cited E3 autocorrelation figure (conservative
-  AR(1) bound, 176 of 198 estimable cases) and adds the SSRN preprint
-  revision r32.
+  reconstructed from verifiable primary sources and a coupled Orbital
+  Collapse layer (ACO-A). This release adds an integrated uncertainty-fabric
+  layer: 699 real, source-versioned trajectories and 41 explicitly labeled
+  model shadows, totaling 740 trajectories and 51,210 points. The exogenous
+  series, cube implementation, cymatic analyses, figures, derived data, and
+  audits are included. The 721-case SNT corpus itself is unchanged; the
+  trajectory count is a separate analytical layer, not 740 independent
+  replications. The active conceptual framework is marco teórico v34,
+  numbered independently from the software release and corpus.
   The published arithmetic replicates; the inference does not always. The
   friction finding keeps its direction (per case rho = -0.68, n = 714) but is
   not significant at the domain level (rho = -0.56, p = 0.25) and is not
@@ -27,8 +30,10 @@ abstract: >
   orthogonality of satellization and collapse holds with 242 crypto pairs,
   and a positive hazard ("no system is eternal") holds in 663 crypto pairs
   and 27,771 FDIC banks; a hazard rising with age holds only in crypto.
-  The active conceptual framework is marco teórico v34
-  (papers/marco_teorico.md), numbered independently from the corpus.
+  In the uncertainty fabric, u remains without an operational definition
+  and is stored as NULL; friction phi is postulated by domain, not measured
+  continuously. The leave-one-out results are exploratory and not a
+  calibrated classifier.
 authors:
   - family-names: "Zainos Corona"
     given-names: "Elan"
@@ -38,8 +43,8 @@ authors:
     email: "elan.zainos.corona@gmail.com"
     city: "Tlaxcala"
     country: MX
-version: "2.6.1"
-date-released: "2026-09-27"
+version: "2.7.1"
+date-released: "2026-10-21"
 url: "https://github.com/Inzainos/The-shadow-Node-Theory"
 repository-code: "https://github.com/Inzainos/The-shadow-Node-Theory"
 license: "MIT"
@@ -71,7 +76,7 @@ keywords:
 identifiers:
   - type: doi
     value: "10.5281/zenodo.19446521"
-    description: "Zenodo DOI for the 721-case corpus release line"
+    description: "Zenodo DOI for the 721-case corpus release line; this DOI is not a versioned archive of v2.7.1"
   - type: doi
     value: "10.5281/zenodo.19131327"
     description: "Zenodo DOI v2.0"
