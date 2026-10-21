@@ -78,6 +78,36 @@ b bajo dibujan la misma figura sin importar su φ nominal.
   para casos crudos y artefacto de construcción para sombras (disclosed).
 - **nula (D+E1+E3): 72%** — la cavidad sin fricción es visible.
 
+## La estructura de cometa (medida 2026-10-21, tarde)
+
+Lectura visual del operador: "como un cometa dejando estela — pegado a Y
+se compactan, alejado se dispersan". Verificado:
+
+| Medida | Resultado |
+|--------|-----------|
+| **Cabeza** (banda de equilibrio, m ∈ [0.56, 1.78]) | 63.3% de los casos en τ=0.25 → 52.6% en τ=1: la mayoría vive pegada a m≈1 |
+| **Estela** (apertura del abanico) | IQR entre casos: 0.00 → 1.11 décadas; ancho total: 0.92 → **13.38 décadas** al avanzar τ |
+| **Cabeza = fuente (sombras)** | Todas nacen en m=1 (τ=0) y se alejan con la fase |
+| **Cabeza = atractor (colapsos reales)** | ACO: \|log₁₀ m\| mediana **0.292 → 0.071** — nacen fuera y **convergen a m≈1** al final |
+
+**La asimetría cabeza-fuente/cabeza-atractor es el hallazgo:** los
+modelos emanan de la banda de equilibrio; los colapsos reales mueren en
+ella. La banda m≈1 es donde los sistemas viven (b≈0) y a donde llegan
+cuando el nodo se iguala con el hub (colapso = satelización completada).
+
+**El cometa ES la ley de potencia hecha visible:** los 739 casos son
+curvas t^b — la forma del cometa es la firma de la familia R = a·t^b a
+través de todo el corpus. Sus sectores son los regímenes de la SNT:
+caen (b<0, convergencia) · cabeza (b≈0, equilibrio dinámico) · estela
+suave (0<b<1, satelización gradual) · estela extrema (b≥1 — sostenido =
+superlineal, transitorio = ACO).
+
+**Lectura operacional:** la tela clasifica por posición en el cometa —
+sector + dirección de movimiento — no por etiqueta de dominio. La
+exactitud medida coincide con esa declaración: dominio 21% (la etiqueta
+no), tono φ 54% (el régimen, parcial), extremos 72% (donde la teoría
+afirma algo, sí).
+
 ## Lectura cimática honesta
 
 1. La placa funciona: la arena se organiza en bandas por φ, y las líneas
