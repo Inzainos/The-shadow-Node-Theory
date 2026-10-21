@@ -16,8 +16,11 @@ Research, Tlaxcala, Mexico). Code, data, and theory must stay traceable and
 reproducible.
 
 Projects housed here: the SNT theory + corpus (`reconstruction_real/`,
-`papers/`), the **Genomic Topologic Analyzer** (`genomic_agent/`), and **Delta**
-(`delta/`, independent crypto & bolsa signal engine).
+`papers/`), and **Delta** (`delta/`, independent crypto & bolsa signal engine).
+
+The **Genomic Topologic Analyzer** previously housed here has been migrated to
+its own standalone project at `/home/deamon/genomic_agent/` (own git repo, full
+history preserved via `git subtree split`). It no longer lives in this repo.
 
 ## Working method (good practices)
 
@@ -26,12 +29,26 @@ Projects housed here: the SNT theory + corpus (`reconstruction_real/`,
    cite a primary source (`sources.md`). Missing values stay missing, not zero.
 3. **Reproducibility + provenance.** Every result ships with its script and source.
 4. **Security.** Never commit PHI, secrets, or `.env` (see `.gitignore`,
-   `SECURITY.md`). `genomic_agent` blocks raw patient RNA-seq patterns.
+   `SECURITY.md`). `genomic_agent` is now a separate project; see
+   `/home/deamon/genomic_agent/AGENTS_USE.md`.
 5. **Update `CHANGELOG.md`** on every relevant change (the practice that slips most).
 6. **Report inference honestly.** Per-case p-values in the corpus are inflated
    (serial autocorrelation in Domain B; 714 non-independent cases). Never cite
    the per-row p-value without the audit v32 caveats (README → "Audit v32").
 7. **Tests/CI must pass before merge.**
+
+## Environment
+
+This project runs with a local virtual environment at `/home/deamon/
+The-shadow-Node-Theory/.venv/` (Python 3.14.7 from the system Python). Activate
+it before running anything:
+
+```bash
+source /home/deamon/The-shadow-Node-Theory/.venv/bin/activate
+```
+
+Do **not** use `conda` or `conda activate snt-env` — those refer to an older
+setup. The `.venv` directory contains all runtime dependencies.
 
 ## Commands
 
@@ -40,7 +57,7 @@ Projects housed here: the SNT theory + corpus (`reconstruction_real/`,
 flake8 .
 
 # Compile active modules
-python -m compileall -q code reconstruction_real genomic_agent dashboard delta
+python -m compileall -q code reconstruction_real dashboard delta
 
 # Smoke test (CI runs this)
 python reconstruction_real/code/build_aco_v29.py
@@ -66,8 +83,6 @@ Subject in English, typed prefix: `feat:` `fix:` `docs:` `data:` `refactor:`
 - `papers/` — academic documents and preprints. Active conceptual framework:
   **marco teórico v34** (`papers/marco_teorico.md`; lineage in
   `papers/CHANGELOG_marco.md`). Framework and corpus are numbered independently.
-- `genomic_agent/` — SNT Genomic Topologic Analyzer (empirical baseline; validated
-  on real TCGA patients up to the full 976-case cohort).
 - `delta/` — independent crypto & bolsa signal engine (real CoinGecko + Yahoo data).
 - `code/` — shared utilities (`snt_utils.py`, audit extension `snt_utils_v32.py`)
   and historical v28 scripts.

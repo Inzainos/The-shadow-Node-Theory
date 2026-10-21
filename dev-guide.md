@@ -51,7 +51,7 @@ python reconstruction_real/code/build_aco_v29.py
 ### Compile active modules
 
 ```bash
-python -m compileall -q code reconstruction_real genomic_agent dashboard delta
+python -m compileall -q code reconstruction_real dashboard delta
 ```
 
 ### Run tests
@@ -81,7 +81,7 @@ It performs:
 - Conda environment setup from `environment.yml`
 - installation of Python dependencies
 - static checking with `flake8` (config in `.flake8`)
-- Python module compilation (`code reconstruction_real genomic_agent dashboard delta`)
+- Python module compilation (`code reconstruction_real dashboard delta`)
 - smoke testing via `build_aco_v29.py`
 
 ## Notes
