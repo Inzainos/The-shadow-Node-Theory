@@ -500,6 +500,19 @@ los resultados del pre-registro. El corpus de 721 casos no cambia. PR
   nunca subido); la v30 queda intacta.
 
 ### Corregido
+- **Actualización de GitHub Actions para Node.js 24** (2026-10-20).
+  `actions/checkout` y `conda-incubator/setup-miniconda` pasan a sus versiones
+  compatibles con Node.js 24 para evitar la advertencia de deprecación de Node.js 20.
+  La advertencia de alias de Conda no proviene de un archivo de configuración
+  versionado; no se añadió configuración local para ocultarla. Se conserva
+  `ubuntu-latest`: el aviso sobre la migración a Ubuntu 26 es informativo y no
+  evidencia una incompatibilidad del flujo.
+- **Resumen canónico de reproducibilidad del README** (2026-10-20). Se corrige
+  el estado obsoleto del valor puntual del Dominio B: la recalibración
+  pre-registrada de `N = 200,000` lo cerró como indecidible; 33/156 queda como
+  cota inferior conservadora, no como estimación. También se distingue la
+  reproducción de datos de la evidencia inferencial y se aclara el estado de
+  E1, del resultado histórico 5.9× y de los datos propietarios.
 - **Estado canónico de reproducibilidad y cierre de referencias no reproducibles**
   (2026-10-02). Se unifica el estatus en `README.md`, `reconstruction_real/audits/README.md`
   y `sources.md`: B reproducible desde MPD2020, E3 reproducible desde la serie cruda
