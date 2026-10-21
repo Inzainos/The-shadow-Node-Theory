@@ -39,10 +39,16 @@ REGLA DE ADMISIÓN DE EJES (v34, línea 114):
 SOMBRA (Axioma 0.2):
     𝒮ᶿ = Π_θ(𝒞) con θ = (B, V, ρ, W, λ) declarado:
       B = base de observación (ejes m, τ)
-      V = variables: R crudo (ACO) / R ajustado R=a·t^b (B, E3, otros)
-      ρ = 1 punto por caso (casos sin serie) o por dato (ACO con serie)
+      V = variables: R crudo (serie real) / R ajustado R=a·t^b (sombras)
+      ρ = 1 punto por dato (serie real) / 1 punto por caso (sombras)
       W = ventana completa de cada caso
       λ = sin corte (todos los puntos)
+
+v2 (2026-10-21): INTEGRADA. La tela prefiere la SERIE REAL de la capa
+exógena (data/tela_exogena_series.csv — E3 234, B 446, ACO 18, G 1) y
+solo mapea como sombra los casos sin serie cruda versionada
+(A, C, D, E1, E2, F: 41 casos). Genera tela_exogena_series.csv primero
+(code/tela_exogena.py) — sin ella este script degrada a ACO + sombras.
 
 Uso (desde la raíz del repo):
     python reconstruction_real/code/tela_de_incertidumbre.py
@@ -88,6 +94,7 @@ FRICCION_POR_DOMINIO = {
     "F1": "fisica",
     "F2": "fisica",
     "F3": "fisica",
+    "G": "fisica",    # geoquímico/planetario (Bennu): fricción física
     "ACO": "variable",  # colapso: depende del caso (regulado/craquelado/etc)
     "ACO-F": "alta",
     "ACO-H": "alta",
@@ -120,21 +127,47 @@ def _f_int(x, default=None):
         return default
 
 
-def cargar_aco_timeseries() -> dict[str, list[dict]]:
-    """Carga las series (t, R) de los 18 casos ACO."""
-    ruta = DATA / "snt_corpus_aco_timeseries_v29.csv"
-    if not ruta.exists():
-        return {}
-    series = {}
-    for r in csv.DictReader(ruta.open(encoding="utf-8-sig")):
-        cid = r.get("id", "")
-        t = _f(r.get("t"), None)
-        R = _f(r.get("R"), None)
-        if t is not None and R is not None and t > 0 and R > 0:
-            series.setdefault(cid, []).append({"t": t, "R": R,
-                                              "unidad": r.get("t_unidad", "")})
-    for cid in series:
-        series[cid].sort(key=lambda p: p["t"])
+def cargar_series_reales() -> dict[str, dict]:
+    """
+    Carga las series (t, R) reales de la capa exógena
+    (data/tela_exogena_series.csv — 699 casos: E3, B, ACO, G).
+
+    Si la capa exógena no existe (p. ej. checkout limpio sin correr
+    tela_exogena.py), degrada a la serie ACO v29 sola (18 casos) — el
+    resto del pipeline sigue funcionando con sombras.
+    """
+    ruta_exogena = DATA / "tela_exogena_series.csv"
+    ruta_aco = DATA / "snt_corpus_aco_timeseries_v29.csv"
+    series: dict[str, dict] = {}
+    if ruta_exogena.exists():
+        for r in csv.DictReader(ruta_exogena.open(encoding="utf-8")):
+            cid = r.get("id", "")
+            t = _f(r.get("t"), None)
+            R = _f(r.get("R"), None)
+            if not cid or t is None or R is None or t <= 0 or R <= 0:
+                continue
+            series.setdefault(cid, {
+                "dominio": r.get("dominio", ""),
+                "unidad": r.get("t_unidad", ""),
+                "puntos": [],
+            })["puntos"].append({"t": t, "R": R})
+        for cid in series:
+            series[cid]["puntos"].sort(key=lambda p: p["t"])
+        return series
+    if ruta_aco.exists():
+        log.warning("Sin capa exógena — degradando a serie ACO v29 (18 casos)")
+        for r in csv.DictReader(ruta_aco.open(encoding="utf-8-sig")):
+            cid = r.get("id", "")
+            t = _f(r.get("t"), None)
+            R = _f(r.get("R"), None)
+            if t is not None and R is not None and t > 0 and R > 0:
+                series.setdefault(cid, {
+                    "dominio": "ACO",
+                    "unidad": r.get("t_unidad", ""),
+                    "puntos": [],
+                })["puntos"].append({"t": t, "R": R})
+        for cid in series:
+            series[cid]["puntos"].sort(key=lambda p: p["t"])
     return series
 
 
@@ -196,18 +229,19 @@ def main():
     log.info("")
 
     # Cargar datos
-    aco_series = cargar_aco_timeseries()
+    series_reales = cargar_series_reales()
     corpus = cargar_corpus_v5()
-    log.info("Serie ACO: %d casos con datos crudos (t, R)", len(aco_series))
+    log.info("Series reales (capa exógena): %d casos", len(series_reales))
     log.info("Corpus v5: %d casos", len(corpus))
 
     filas_tela = []
 
-    # ---- Casos ACO con serie cruda (18 casos, ~150 puntos) ----
-    for cid, puntos in sorted(aco_series.items()):
-        dominio = "ACO"
-        t_vals = [p["t"] for p in puntos]
-        R_vals = [p["R"] for p in puntos]
+    # ---- Casos con serie real (exógena: E3, B, ACO, G) ----
+    for cid in sorted(series_reales):
+        info = series_reales[cid]
+        dominio = info["dominio"]
+        t_vals = [p["t"] for p in info["puntos"]]
+        R_vals = [p["R"] for p in info["puntos"]]
         t_min, t_max = min(t_vals), max(t_vals)
 
         for t, R in zip(t_vals, R_vals):
@@ -227,21 +261,20 @@ def main():
                 "theta_V": "R crudo",
             })
 
-    log.info("ACO: %d puntos mapeados al cubo desde serie cruda",
+    log.info("Serie cruda: %d puntos mapeados al cubo desde series reales",
              len(filas_tela))
 
-    # ---- Casos del corpus sin serie cruda: sombra del modelo ajustado ----
-    # Para B, E3, A, C, D, E1, E2, F: generamos la trayectoria R(t) = a·t^b
-    # con a=1 (R relativa) y t=1..n. Esto es una SOMbra Π_θ(𝒞), no el
-    # volumen mismo. Marco v34 Axioma 0.2: "una sombra es válida y
-    # parcial a la vez".
+    # ---- Casos del corpus SIN serie real: sombra del modelo ajustado ----
+    # Solo los casos sin serie cruda versionada (A, C, D, E1, E2, F) se
+    # mapean como sombra R(t) = a·t^b con a=1 (R relativa) y t=1..n.
+    # Marco v34 Axioma 0.2: "una sombra es válida y parcial a la vez".
     casos_con_sombra = 0
     for r in corpus:
         cid = r.get("id", "")
         dominio = r.get("dominio", "")
 
-        # Saltar ACO (ya mapeado arriba con datos crudos)
-        if cid in aco_series:
+        # Ya mapeado arriba con serie real
+        if cid in series_reales:
             continue
 
         b = _f(r.get("b"), None)
@@ -279,8 +312,8 @@ def main():
                 "theta_V": "R ajustado a·t^b (a=1 relativa)",
             })
 
-    log.info("Otros dominios: %d casos con sombra del modelo ajustado",
-             casos_con_sombra)
+    log.info("Otros dominios (sin serie real): %d casos con sombra del "
+             "modelo ajustado", casos_con_sombra)
     log.info("Total de puntos en la tela: %d", len(filas_tela))
 
     # ---- Escribir CSV ----
@@ -343,8 +376,10 @@ def main():
     log.info("")
     log.info("NOTA: los puntos de dominios sin serie cruda son SOMBRAS")
     log.info("del modelo ajustado R=a·t^b (a=1 relativa), no datos crudos.")
-    log.info("Solo ACO (18 casos, %d puntos) tiene serie (t,R) real.",
-             sum(1 for f in filas_tela if f["fuente"] == "serie_cruda"))
+    reales = sum(1 for f in filas_tela if f["fuente"] == "serie_cruda")
+    sombras = sum(1 for f in filas_tela
+                  if f["fuente"] == "sombra_modelo_ajustado")
+    log.info("Serie real: %d puntos | Sombras: %d puntos", reales, sombras)
 
     return 0
 
