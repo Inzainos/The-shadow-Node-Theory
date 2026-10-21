@@ -48,6 +48,24 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 
 ## [No publicado]
 
+### 2026-10-21 — Tela de Incertidumbre (Axioma 0.1 v34) implementada correctamente
+
+Informe: `reconstruction_real/audits/TELA_DE_INCERTIDUMBRE_2026-10-21.md`.
+
+- **Implementación corregida** (`code/tela_de_incertidumbre.py`, commit `cbdeec6`):
+  la versión anterior tenía 3 errores contra el marco v34 — m era `|b|/2`
+  en lugar de `R` (la razón), τ era `n_eff/n` en lugar de fase temporal
+  normalizada, y u inventaba una fórmula que el marco explícitamente prohíbe
+  ("lo que falta se queda faltando"). Corregidos: **m=R, τ=(t−t_min)/(t_max−t_min),
+  u=NULL** para todos los casos.
+- **7,306 puntos en el cubo**: 109 reales (serie cruda ACO de
+  `snt_corpus_aco_timeseries_v29.csv`) + 7,197 sombras del modelo ajustado
+  R=a·t^b (a=1 relativa) para los demás dominios.
+- **φ fricción** como campo categórico postulado (no medido), por dominio.
+- **θ = (B, V, ρ, W, λ)** del Axioma 0.2 declarado en cada fila.
+- Limpieza: removidos `tejer_tela.py` (duplicado antiguo), `etl_limpiar_datos.py`
+  (no integrado), `tela_de_incertidumbre_resumen.csv` (salida de versión errónea).
+
 ### 2026-10-20 — Hallazgos empíricos y separación del material legado
 
 - **README reorganizado:** los hallazgos empíricos auditados pasan al inicio;
