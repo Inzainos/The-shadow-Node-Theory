@@ -48,6 +48,27 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 
 ## [No publicado]
 
+### 2026-10-21 — Capa exógena de la tela: 699 series reales + estadística dirección→destino
+
+Informe: `reconstruction_real/audits/TELA_EXOGENA_2026-10-21.md`.
+
+- **La tela pasa de 18 a 699 casos exógenos** (`code/tela_exogena.py`):
+  E3 234 (receta re-identificada: casos acumulados desde ≥100, 60 días,
+  233/234 en ±0.01), B 446 (R = PIB_pc hub/nodo desde
+  `maddison_mpd2020.csv` — **446/446 reproducen, 100%**), ACO 18
+  (100%), G 1 (declarado). 50,813 puntos reales, sin descargas.
+- **Lección Regla Cero**: la primera corrida usó `owid-maddison.csv`
+  (extracto OWID) y 45 casos de B fallaban con desviaciones hasta 0.31
+  en b — el panel correcto es `maddison_mpd2020.csv` (el de la
+  recalibración auditada 2026-10-03). Con el correcto: 446/446.
+- **Estadística real** (medias/medianas/modas por dominio + Spearman
+  dirección→destino): E3 +0.823 (p=7×10⁻⁵⁹), B +0.224 (p=1.7×10⁻⁶),
+  ACO +0.413 (p=0.089, n=18 no concluye).
+- **Matriz P(régimen | dirección temprana)** con terciles calibrados:
+  dirección lenta → 96% b<0.5, 0% superlineal; dirección rápida → 74%
+  b≥0.5, 40% superlineal. Convergencia 11× más probable con dirección
+  lenta.
+
 ### 2026-10-21 — Capa cimática de la tela: placa, figura, tonos, huellas y prueba de identificación
 
 Informe: `reconstruction_real/audits/TELA_CIMATICA_2026-10-21.md`.
