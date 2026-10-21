@@ -25,6 +25,9 @@ teórico v34.*
   66,2% por tono; es una medición exploratoria, no un clasificador calibrado.
 - **Documentación y visualización:** informes de auditoría, datos derivados,
   scripts reproducibles y figuras PNG/SVG enlazados desde el README.
+- **Casos explicados para lectores:** ejemplos concretos de uso de la tela en
+  B, E3, ACO y G; guía de lectura de los ejes y una conexión con la prueba
+  externa de npm, aclarando que npm aún no está integrado en la tela.
 
 ### Límites explícitos
 

@@ -46,6 +46,37 @@ identifica mejor tonos que etiquetas de dominio; **no** identifica de forma
 fiable el dominio por la figura. ACO converge hacia `m≈1` en la muestra
 disponible (`n=18`), sin inferencia concluyente.
 
+### Casos de uso: qué pregunta responde la tela
+
+La tela no es solo una imagen: es una forma común de **seguir una razón a lo
+largo de una trayectoria**, distinguir observaciones de sombras y preguntar
+qué rasgos aparecen al principio, al final o en distintos regímenes. Estos
+ejemplos vienen de las series que ya están integradas:
+
+| Caso | Pregunta práctica | Qué muestra la tela | Qué no permite concluir |
+|---|---|---|---|
+| **Países (B): PIB per cápita hub/nodo** | ¿Se reconstruyó fielmente la trayectoria relativa a través del tiempo? | Las 446 series reales reproducen `b` publicado (446/446) usando MPD2020. La curva permite inspeccionar la razón `R` y su evolución normalizada. | La reproducción no prueba por sí sola acoplamiento hub-nodo ni significancia: la autocorrelación es severa y la inferencia puntual de B sigue indecidible. |
+| **Epidemias (E3): crecimiento de casos COVID-19** | ¿La forma temprana de la curva está asociada con su estado al cierre de la ventana? | 233/234 pendientes reproducen dentro de ±0,01; en esta selección de trayectorias de crecimiento, la asociación entre pendiente temprana y destino es `ρ=+0,823`. | No es una alerta anticipada validada ni una regla general para epidemias: la cohorte se seleccionó por fase de crecimiento y eso condiciona el resultado. |
+| **Colapsos ACO-A** | ¿La trayectoria real se acerca o se aleja de la banda `m≈1`? | En los 18 casos, la mediana de `|log₁₀ m|` baja de 0,292 a 0,071: descriptivamente, las trayectorias terminan más cerca de `m=1`. | Con `n=18`, no demuestra un atractor universal ni permite predecir cuándo ocurrirá un colapso (`ρ=+0,413`, `p=0,089`). |
+| **Bennu (G): proxy geoquímico** | ¿Puede visualizarse una trayectoria real de un dominio distinto? | La fuente versionada aporta un caso y tres puntos, mostrado como serie real; sirve para inspección y para definir qué datos faltarían para una prueba. | Un caso no permite estimar distribución, clasificación ni generalizar a cuerpos celestes. |
+
+**Cómo leer la placa:** el eje horizontal `τ` lleva cada ventana desde el inicio
+(0) hasta el final (1); el vertical `log₁₀ m` muestra la razón `m=R` en escala
+logarítmica. La densidad indica dónde pasan más trayectorias; la figura resume
+la mediana por dominio y su banda IQR. Una curva que termina más cerca de cero
+termina más cerca de `m=1`. Las trayectorias de datos reales y las sombras se
+identifican por separado en los datos; una forma visual parecida no las vuelve
+la misma clase de evidencia.
+
+**¿Cómo se aplicaría a otro caso?** El apartado
+[Casos de uso de SNT](CASOS_DE_USO.md) documenta pruebas externas como la
+cohorte de 450 paquetes npm: allí se evaluó ACO-A y se encontró
+`ρ(b, Δ)=+0,114` (IC95 `[+0,016, +0,209]`). Es un ejemplo de cómo una aplicación
+puede respaldar una parte de la teoría y contradecir otra; **npm todavía no
+forma parte de la tela integrada**. Para añadirlo haría falta construir y
+auditar su serie `R(t)`, declarar el marco `θ` y repetir el análisis sin
+confundirlo con validación ya hecha.
+
 **Explora la capa:** [auditoría de la tela integrada](reconstruction_real/audits/TELA_V2_INTEGRADA_2026-10-21.md) ·
 [serie real y capa exógena](reconstruction_real/audits/TELA_EXOGENA_2026-10-21.md) ·
 [resultados cimáticos](reconstruction_real/audits/TELA_CIMATICA_2026-10-21.md) ·
