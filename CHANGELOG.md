@@ -48,6 +48,22 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 
 ## [No publicado]
 
+### 2026-10-20 — Hallazgos empíricos y separación del material legado
+
+- **README reorganizado:** los hallazgos empíricos auditados pasan al inicio;
+  se reportan sus límites de reproducibilidad e inferencia y se enlazan los
+  informes fuente. Los antiguos nombres de archivos se conservan sin exponer
+  sus resultados supersedidos como evidencia actual.
+- **Zerve integrado como snapshot histórico** en `Legacy/hackerearth_zerve/`;
+  se incorpora el export de código y `canvas.yaml`, no el dataset propietario.
+  Las métricas actuales de HackerEarth se enlazan desde el informe auditado,
+  no desde la narrativa antigua de Zerve.
+- **Material legado reubicado** en `Legacy/`: tres CSV históricos, tres
+  scripts antiguos y dos figuras asociadas. El script de recálculo histórico
+  apunta ahora a los CSV en su nueva ubicación.
+- `.flake8`, `AGENTS.md` y las referencias de auditoría/documentación se
+  alinean con la separación de `Legacy/`.
+
 ### 2026-10-18 — Verificación del reporte HackerEarth "Fractal V3" con datos
 
 Informe: `reconstruction_real/audits/REVISION_REPORTE_HACKEREARTH_2026-10-18.md`.
@@ -838,7 +854,7 @@ Hasta entonces estas entradas figuraban dentro de 2.6.0.
     del 2026-09-26 y aviso fechado en `AUDITORIA_INTEGRAL_v32.md`. **Corrige el
     §5 de la auditoría:** RC9 sí es verificable desde
     `data/orthogonality_crypto_v25.csv` (ρ = +0.009, p = 0.98, n = 11). **Localiza
-    el origen del 5.9×:** texto fijo en `code/generate_publication_figures.py` (v28).
+    el origen del 5.9×:** texto fijo en `Legacy/code/generate_publication_figures.py` (v28).
   - `sources.md`: encabezados con el conteo activo real y la fuente que usan los
     casos activos (C 24, D 3, E1 4, E2 2, F1 2, F2 1, F3 = Multiplanet; F4 y
     agujeros negros no están en el corpus activo); la bibliografía previa se

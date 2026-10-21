@@ -11,9 +11,9 @@ read; `CONTRIBUTING.md` and `dev-guide.md` carry the fuller detail.
 
 **Shadow Node Theory** — a research repository: scale-invariant satellization
 (`R(t) = a·t^b`) and the Coupled Orbital Collapse layer (ACO-A, `A(τ) = c·τ^Δ`),
-with a verified 721-case real corpus. Author: Elán Zainos Corona (Fractal Core
-Research, Tlaxcala, Mexico). Code, data, and theory must stay traceable and
-reproducible.
+with a 721-case corpus whose reproducibility varies by domain. Author: Elán
+Zainos Corona (Fractal Core Research, Tlaxcala, Mexico). Code, data, and theory
+must stay traceable and reproducible.
 
 Projects housed here: the SNT theory + corpus (`reconstruction_real/`,
 `papers/`) and **Delta** (`delta/`, independent crypto & bolsa signal engine).
@@ -32,8 +32,9 @@ preserved via `git subtree split`; Docker services run from there).
    RNA-seq patterns and PHI (see its own AGENTS_USE.md).
 5. **Update `CHANGELOG.md`** on every relevant change (the practice that slips most).
 6. **Report inference honestly.** Per-case p-values in the corpus are inflated
-   (serial autocorrelation in Domain B; 714 non-independent cases). Never cite
-   the per-row p-value without the audit v32 caveats (README → "Audit v32").
+   (serial autocorrelation in Domain B; cases are not 721 independent
+   replications). Never cite per-case p-values without the audit caveats in
+   `README.md` and `reconstruction_real/audits/`.
 7. **Tests/CI must pass before merge.**
 
 ## Environment
@@ -75,7 +76,7 @@ Subject in English, typed prefix: `feat:` `fix:` `docs:` `data:` `refactor:`
 
 ## Repository map
 
-- `reconstruction_real/` — real 721-case corpus (data + code + methodology);
+- `reconstruction_real/` — 721-case corpus (data + code + methodology);
   `audits/` holds the v32 integral audit and the Domain B discriminant test,
   `tests/` the regression test (`pytest reconstruction_real/tests`).
 - `papers/` — academic documents and preprints. Active conceptual framework:
@@ -86,9 +87,9 @@ Subject in English, typed prefix: `feat:` `fix:` `docs:` `data:` `refactor:`
   run from the new location). It remains the empirical genomic application of SNT
   topology (TCGA 976-case validation; 5-Event Wall corpus n=2,746).
 - `delta/` — independent crypto & bolsa signal engine (real CoinGecko + Yahoo data).
-- `code/` — shared utilities (`snt_utils.py`, audit extension `snt_utils_v32.py`)
-  and historical v28 scripts.
+- `code/` — shared utilities (`snt_utils.py`, audit extension `snt_utils_v32.py`).
 - `data/` — source data and provenance (`FUENTES.md`: URLs, editions, SHA-256).
+- `Legacy/` — superseded corpus datasets/scripts/figures and the archived Zerve export.
 - `dashboard/` — Streamlit dashboard (Hugging Face Spaces).
 - `figures/` — publication figures.
 - `archive/` — superseded versions (do not cite).
