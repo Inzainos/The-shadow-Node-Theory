@@ -48,7 +48,7 @@ shadow-node-theory/
 │   └── matriz_mexico_ncuerpos.py          ← N-body matrix analysis
 │
 ├── data/
-│   ├── shadow_node_maddison_resumen.csv   ← v1.0 results summary
+│   ├── Legacy/data/shadow_node_maddison_resumen.csv   ← v1.0 results summary
 │   ├── shadow_node_resultados_v2.csv      ← v1.0 case results
 │   ├── matriz_mexico_32.csv               ← 32 states INEGI classification
 │   ├── snt_v2_vectores.csv                ← Trajectory vectors 8 states

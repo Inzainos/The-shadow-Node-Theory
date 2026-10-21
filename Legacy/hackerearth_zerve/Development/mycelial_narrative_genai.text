@@ -1,0 +1,26 @@
+You are a compelling data storyteller crafting a judge-ready HackerEarth narrative. Write 300-400 words of polished prose that brings data to life using the **Mycelial Map** metaphor — where a platform's user ecosystem is like a mycelium network: most nodes (spores) lie dormant, a few threads pulse with activity, and a rare apex cluster drives the network's entire vitality.
+
+---
+
+**Dataset Overview**
+- Total users analyzed: {{ summary_rows[0]['N'] + summary_rows[1]['N'] + summary_rows[2]['N'] }}
+- CSI_V3 (Composite Synergy Index v3) measures each user's depth of platform engagement, combining active days, tool diversity, credits used, Coder Agent adoption, and Velocity-Depth Ratio (VDR).
+
+**CSI_V3 Cohort Thresholds**
+- Elite threshold (top 0.5%): CSI_V3 ≥ {{ "%.2f"|format(p99_5) }}
+- Intermediate threshold (next ~6.4%): {{ "%.2f"|format(p93_1) }} ≤ CSI_V3 < {{ "%.2f"|format(p99_5) }}
+- Basic (remaining ~93%): CSI_V3 < {{ "%.2f"|format(p93_1) }}
+
+**Cohort Breakdown**
+- 🔴 Elite: {{ summary_rows[0]['N'] }} users ({{ summary_rows[0]['% of Users'] }}) — Avg Active Days: {{ "%.1f"|format(summary_rows[0]['Avg Active Days']) }}, Avg Tool Diversity: {{ "%.1f"|format(summary_rows[0]['Avg Tool Diversity']) }}, Avg VDR: {{ "%.1f"|format(summary_rows[0]['Avg VDR']) }}, Avg Coder Agent %: {{ "%.1f"|format(summary_rows[0]['Avg Coder Agent %']) }}%
+- 🟡 Intermediate: {{ summary_rows[1]['N'] }} users ({{ summary_rows[1]['% of Users'] }}) — Avg Active Days: {{ "%.1f"|format(summary_rows[1]['Avg Active Days']) }}, Avg Tool Diversity: {{ "%.1f"|format(summary_rows[1]['Avg Tool Diversity']) }}, Avg VDR: {{ "%.1f"|format(summary_rows[1]['Avg VDR']) }}, Avg Coder Agent %: {{ "%.1f"|format(summary_rows[1]['Avg Coder Agent %']) }}%
+- 🟢 Basic: {{ summary_rows[2]['N'] }} users ({{ summary_rows[2]['% of Users'] }}) — Avg Active Days: {{ "%.1f"|format(summary_rows[2]['Avg Active Days']) }}, Avg Tool Diversity: {{ "%.2f"|format(summary_rows[2]['Avg Tool Diversity']) }}, Avg VDR: {{ "%.4f"|format(summary_rows[2]['Avg VDR']) }}
+
+**Key Computed Insights**
+- VDR gap (Elite vs Basic): ~{{ "%.0f"|format(summary_rows[0]['Avg VDR'] / (summary_rows[2]['Avg VDR'] + 0.0001)) }}× difference
+- Elite users are {{ "%.0f"|format(summary_rows[0]['Avg Active Days'] / summary_rows[2]['Avg Active Days']) }}× more active than Basic users
+- Elite users wield {{ "%.0f"|format(summary_rows[0]['Avg Tool Diversity'] / (summary_rows[2]['Avg Tool Diversity'] + 0.0001)) }}× more tool diversity than Basic users
+
+---
+
+Write the narrative now. Use the Mycelial Map metaphor naturally throughout. Lead with a vivid hook that draws the judges in. Ground every claim in the specific numbers above — cite the Elite count, VDR gap, active days multiplier, and CSI_V3 thresholds. Close with a forward-looking insight about what unlocking the Intermediate cohort's {{ summary_rows[1]['N'] }} users (currently at VDR {{ "%.1f"|format(summary_rows[1]['Avg VDR']) }}) could mean for the network's overall vitality. The tone should be confident, data-driven, and presentation-worthy for a HackerEarth judging panel.

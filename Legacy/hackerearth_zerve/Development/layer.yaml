@@ -1,0 +1,455 @@
+id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+name: Development
+type: 1
+canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+blocks:
+- auto_size: false
+  canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  compute_settings: null
+  description: "Loads and inspects zerve_hackathon_dataset.csv \u2014 displays data\
+    \ types and column names from 409K rows \xD7 107 columns"
+  height: 1000
+  id: 108ae51a-169d-4c0b-8b1d-5aedba9b533a
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  name: load_dataset_inspection
+  parent_id: null
+  properties: {}
+  status: 3
+  type: 1
+  variables: null
+  width: 1600
+  x: 0
+  y: 8400
+- auto_size: false
+  canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  compute_settings: null
+  description: Synthesizes churn risk tier analysis into 3-part retention strategy,
+    identifying top behavioral anchor events differentiating Elite from At-Risk users,
+    segmenting 299 Likely Retained users by engagement depth, and projecting 12-month
+    LTV uplift from tier transitions.
+  height: 1000
+  id: 2e168a42-2adf-4a7b-8f27-cca9537139dd
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  name: intervention_playbook
+  parent_id: null
+  properties: {}
+  status: 1
+  type: 1
+  variables: null
+  width: 1600
+  x: 16000
+  y: 2400
+- auto_size: false
+  canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  compute_settings: null
+  description: Scores all users with retention probability via trained GBM model,
+    creates composite retention score blending predictions with CSI_V3 and active
+    days, assigns users to 4 risk tiers (High Risk/At Risk/Likely Retained/Confident
+    Retained), and exports final scores with tier summary statistics
+  height: 1000
+  id: 31a26f30-b7ac-4169-8499-60fcf9940d10
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  name: retention_scoring
+  parent_id: null
+  properties: {}
+  status: 1
+  type: 1
+  variables: null
+  width: 1600
+  x: 8000
+  y: 2400
+- auto_size: false
+  canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  compute_settings: null
+  description: "Trains gradient boosting churn classifier with SHAP explainability\u2014\
+    identifies top event predictors and early warning signals via feature importance\
+    \ ranking and event lift analysis"
+  height: 1000
+  id: 4a3c1698-a22f-4973-b402-587cb3a379b3
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  name: churn_early_warning_classifier
+  parent_id: null
+  properties: {}
+  status: 1
+  type: 1
+  variables: null
+  width: 1600
+  x: 12000
+  y: 2400
+- auto_size: false
+  canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  compute_settings: null
+  description: 'Computes Fractal V3 metrics: aggregates user activity into 12 engagement
+    dimensions (events, tool diversity, credits), calculates tool-switching velocity
+    (VDR), and derives weighted CSI_V3 score with resonance boost for power users.'
+  height: 1000
+  id: 4affa9a1-07cd-45f2-9b2b-aaafda1c9866
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  name: load_fractal_metrics
+  parent_id: null
+  properties: {}
+  status: 4
+  type: 1
+  variables: null
+  width: 1600
+  x: 0
+  y: 1000
+- auto_size: false
+  canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  compute_settings: null
+  description: Exports Elite and Intermediate cohorts to CSV, then generates detailed
+    behavioral summaries with event patterns, tool diversity, and engagement metrics
+  height: 1000
+  id: 645108b7-85f6-4daf-8575-34a42b1bce9e
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  name: export_cohort_profiles
+  parent_id: null
+  properties: {}
+  status: 1
+  type: 1
+  variables: null
+  width: 1600
+  x: 4000
+  y: 2400
+- auto_size: false
+  canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  compute_settings: null
+  description: Segments users into three cohorts (Elite 0.5%, Intermediate 6.4%, Basic
+    93.1%) using CSI_V3 percentile thresholds; computes behavioral metrics including
+    active days, tool diversity, credits, Coder Agent usage, and VDR per segment
+  height: 1000
+  id: 6afa8bf7-4fbc-4124-b51e-a8024cc73c49
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  name: cohort_segmentation_csi_v3
+  parent_id: null
+  properties: {}
+  status: 1
+  type: 1
+  variables: null
+  width: 1600
+  x: 2000
+  y: 1000
+- auto_size: false
+  canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  compute_settings: null
+  description: "Comprehensive 5-act narrative documenting HackerEarth user behavior\
+    \ analysis, cohort segmentation, and churn prediction. Synthesizes 4,774 users\
+    \ across 296 events into a behavioral fingerprint model (CSI V3), identifies Elite\
+    \ top 0.5% with 7,478\xD7 higher value-density, and prescribes personalized retention\
+    \ interventions via 0.9994 ROC-AUC churn classifier with 21 anchor event triggers."
+  height: 1000
+  id: 6b21ae39-d3f1-4a1d-ace6-52493e1f371d
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  name: markdown_block
+  parent_id: null
+  properties: {}
+  status: 1
+  type: 4
+  variables: null
+  width: 1600
+  x: 0
+  y: 0
+- auto_size: false
+  canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  compute_settings: null
+  description: Trains Gradient Boosting classifier to predict user retention (Elite/Intermediate
+    vs Basic); evaluates with ROC-AUC, precision, recall; visualizes feature importance
+  height: 1000
+  id: 7edb7a34-8446-4d84-85b9-82b216e77264
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  name: retention_prediction_model
+  parent_id: null
+  properties: {}
+  status: 1
+  type: 1
+  variables: null
+  width: 1600
+  x: 6000
+  y: 2400
+- auto_size: false
+  canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  compute_settings: null
+  description: "Complete technical documentation and reference narrative for the Fractal\
+    \ Core analytics pipeline\u2014a five-act HackerEarth 2026 submission analyzing\
+    \ 4,774 users, engineering 296 features, identifying 7,478\xD7 behavioral gap\
+    \ between Elite and Basic cohorts, achieving 0.9994 ROC-AUC churn prediction,\
+    \ and prescribing 4-tier intervention strategy with 11.6\xD7 LTV multiplier"
+  height: 1000
+  id: 81df7da0-b406-45af-8bfd-074a0fcf3098
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  name: "FRACTAL CORE \u2014 Master Narrative"
+  parent_id: null
+  properties: {}
+  status: 1
+  type: 4
+  variables: null
+  width: 1600
+  x: 0
+  y: 5400
+- auto_size: false
+  canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  compute_settings: null
+  description: 'Creates 4 dark-themed visualizations: CSI_V3 score distribution, VDR
+    vs tool diversity scatter plot, top 20 users by performance, and credit usage
+    by lifetime cohorts.'
+  height: 1000
+  id: 958c488a-ac20-4c43-b483-895968ae10e9
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  name: fractal_visualizations
+  parent_id: null
+  properties: {}
+  status: 1
+  type: 1
+  variables: null
+  width: 1600
+  x: 2000
+  y: 2400
+- auto_size: false
+  canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  compute_settings: null
+  description: Extracts event sequences per user and correlates with retention risk
+    tiers to identify behavioral patterns that signal churn vs. retention
+  height: 1000
+  id: b763e29a-f7ed-4b67-83ea-f7b1d42772bb
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  name: event_feature_engineering
+  parent_id: null
+  properties: {}
+  status: 1
+  type: 1
+  variables: null
+  width: 1600
+  x: 10000
+  y: 2400
+- auto_size: false
+  canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  compute_settings: null
+  description: "Analyzes HackerEarth Fractal V3 metrics across 4,774 users\u2014computing\
+    \ VDR, CSI_V3 scores, cohort distribution (Elite/Intermediate/Basic), and ranking\
+    \ top 10 orchestrators"
+  height: 1000
+  id: bda22f18-36f7-40d7-af4e-3fde1ab2b270
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  name: fractal_v3_protocol
+  parent_id: null
+  properties: {}
+  status: 1
+  type: 1
+  variables: null
+  width: 1600
+  x: 2000
+  y: 3800
+- auto_size: false
+  canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  compute_settings: null
+  description: "Generates early-warning churn visualizations & actionable segmentation.\
+    \ Creates 3 charts: (1) risk heatmap showing top 15 churn-signal events by user\
+    \ cohort, (2) survival-style curve revealing when churn risk peaks across event\
+    \ journey, (3) 2\xD72 action matrix stratifying 4,774 users into intervention\
+    \ strategies (Intervene Now, Re-engage, Nurture, Monitor). Exports segmented user\
+    \ list with risk tiers & recommended actions to CSV."
+  height: 1000
+  id: be75cb7d-8176-4723-951f-ee2d5371ab5e
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  name: churn_early_warning_output
+  parent_id: null
+  properties: {}
+  status: 1
+  type: 1
+  variables: null
+  width: 1600
+  x: 14000
+  y: 2400
+- auto_size: false
+  canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  compute_settings: null
+  description: "Audits data integrity across 6 CSV files, checking column presence,\
+    \ null values, join compatibility, and trigger-related fields\u2014identifies\
+    \ critical issues like index type mismatches and missing trigger columns that\
+    \ block dashboard integration"
+  height: 1000
+  id: c3c523a2-f5bf-4d57-bed6-c9792efa4e30
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  name: trigger_integrity_audit
+  parent_id: null
+  properties: {}
+  status: 1
+  type: 1
+  variables: null
+  width: 1600
+  x: 16000
+  y: 3800
+- auto_size: false
+  canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  compute_settings: null
+  description: Audits person_id mapping across 6 datasets (events, metrics, churn
+    warnings, retention scores, elite/intermediate users) to verify index alignment,
+    identify join compatibility issues, and provide code fixes for positional index
+    reconstruction and trigger data quality problems.
+  height: 1000
+  id: d3e3144e-66a6-410a-a9ce-338356ab6930
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  name: person_id_mapping_audit
+  parent_id: null
+  properties: {}
+  status: 1
+  type: 1
+  variables: null
+  width: 1600
+  x: 20000
+  y: 3800
+- auto_size: false
+  canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  compute_settings: null
+  description: "Generates a judge-ready HackerEarth narrative (300\u2013400 words)\
+    \ using mycelial network metaphor to frame user cohorts\u2014Elite (0.5%), Intermediate\
+    \ (6.4%), Basic (93%)\u2014with CSI_V3 thresholds and engagement metrics"
+  height: 1000
+  id: e95b40f6-3ef5-4071-971e-9197f1ec39d5
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  name: mycelial_narrative_genai
+  parent_id: null
+  properties:
+    all_blocks_context_in_prompt: false
+    id: null
+    inputModalities: null
+    max_tokens: 4096
+    model: anthropic.claude-3-haiku-20240307-v1:0
+    modelId: null
+    modelName: null
+    modelType: null
+    model_input_image: null
+    outputModalities: null
+    output_variable: output
+    provider: bedrock
+    region: eu-west-1
+    system_prompt: null
+    temperature: 0.5
+  status: 1
+  type: 9
+  variables: null
+  width: 1600
+  x: 4000
+  y: 1000
+- auto_size: false
+  canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  compute_settings: null
+  description: "Explains Zerve's architecture through mycelial organism metaphor\u2014\
+    positioning canvas blocks as spores, DAGs as mycelial networks, and insights as\
+    \ fruiting bodies within the Fractal V3 Analytics framework"
+  height: 1000
+  id: eb581401-dbfc-4d07-b8e1-f0f6479165f0
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  name: markdown_block_1
+  parent_id: null
+  properties: {}
+  status: 1
+  type: 4
+  variables: null
+  width: 1600
+  x: 0
+  y: 500
+- auto_size: false
+  canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  compute_settings: null
+  description: Audits join key compatibility across 6 datasets (raw events, fractal
+    metrics, churn warnings, retention scores, and user cohorts) by analyzing index
+    types, key formats, and overlap percentages to identify joinability issues
+  height: 1000
+  id: fab0272e-62e8-4704-860e-478658e3c35e
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  name: join_key_audit
+  parent_id: null
+  properties: {}
+  status: 1
+  type: 1
+  variables: null
+  width: 1600
+  x: 18000
+  y: 3800
+edges:
+- canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  id: 0044b71f-f1d1-416a-a9a9-02f116868016
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  source: be75cb7d-8176-4723-951f-ee2d5371ab5e
+  target: c3c523a2-f5bf-4d57-bed6-c9792efa4e30
+- canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  id: 08c70057-4bd9-42c1-81f5-0a9da2107da2
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  source: fab0272e-62e8-4704-860e-478658e3c35e
+  target: d3e3144e-66a6-410a-a9ce-338356ab6930
+- canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  id: 0a6853e7-95a8-4748-b370-e671f8ea9726
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  source: be75cb7d-8176-4723-951f-ee2d5371ab5e
+  target: 2e168a42-2adf-4a7b-8f27-cca9537139dd
+- canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  id: 10b148f7-bbd6-41e4-8368-f9f6da0cd41c
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  source: 4affa9a1-07cd-45f2-9b2b-aaafda1c9866
+  target: bda22f18-36f7-40d7-af4e-3fde1ab2b270
+- canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  id: 3224d708-ffb0-4549-9592-b62820e3a379
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  source: 4a3c1698-a22f-4973-b402-587cb3a379b3
+  target: be75cb7d-8176-4723-951f-ee2d5371ab5e
+- canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  id: 5879cfd9-9e7b-4590-9a93-59db7df876c9
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  source: 4affa9a1-07cd-45f2-9b2b-aaafda1c9866
+  target: 958c488a-ac20-4c43-b483-895968ae10e9
+- canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  id: 70c2ad02-d102-46fe-8fcb-e4ba87e6df33
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  source: 645108b7-85f6-4daf-8575-34a42b1bce9e
+  target: 7edb7a34-8446-4d84-85b9-82b216e77264
+- canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  id: 7bcdbcbc-85fa-4da8-adc6-30bb6f26602f
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  source: c3c523a2-f5bf-4d57-bed6-c9792efa4e30
+  target: fab0272e-62e8-4704-860e-478658e3c35e
+- canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  id: 7d687925-f7bd-476d-8ca1-914f27efb47b
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  source: 6afa8bf7-4fbc-4124-b51e-a8024cc73c49
+  target: e95b40f6-3ef5-4071-971e-9197f1ec39d5
+- canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  id: 9185bbf5-b84a-4da3-a109-ff620d59cf5a
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  source: 7edb7a34-8446-4d84-85b9-82b216e77264
+  target: 31a26f30-b7ac-4169-8499-60fcf9940d10
+- canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  id: 99c40978-37e3-4735-a6d1-0389aa05cdbc
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  source: eb581401-dbfc-4d07-b8e1-f0f6479165f0
+  target: 4affa9a1-07cd-45f2-9b2b-aaafda1c9866
+- canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  id: aabd519e-a0d0-4c13-9e09-1b5bcb58859b
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  source: 6b21ae39-d3f1-4a1d-ace6-52493e1f371d
+  target: eb581401-dbfc-4d07-b8e1-f0f6479165f0
+- canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  id: afbc37c6-7cf1-4b35-ab30-f31f67189558
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  source: 6afa8bf7-4fbc-4124-b51e-a8024cc73c49
+  target: 645108b7-85f6-4daf-8575-34a42b1bce9e
+- canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  id: b0a2179f-3e4a-4ee5-a298-c0a1a1c69b6f
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  source: b763e29a-f7ed-4b67-83ea-f7b1d42772bb
+  target: 4a3c1698-a22f-4973-b402-587cb3a379b3
+- canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  id: c4f1fb30-2fd0-4867-bcc3-9f885665a502
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  source: 6afa8bf7-4fbc-4124-b51e-a8024cc73c49
+  target: 7edb7a34-8446-4d84-85b9-82b216e77264
+- canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  id: e617673f-e2e6-4b9f-bf6e-cf57eda5ae1c
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  source: 31a26f30-b7ac-4169-8499-60fcf9940d10
+  target: b763e29a-f7ed-4b67-83ea-f7b1d42772bb
+- canvas_id: 79d2da5a-bd19-47f0-8eab-3f9d426e1f46
+  id: ea576b92-ff0d-460e-9866-fc65af6d2b34
+  layer_id: e33523c3-d5a5-4bb6-b0fb-8470360a309a
+  source: 4affa9a1-07cd-45f2-9b2b-aaafda1c9866
+  target: 6afa8bf7-4fbc-4124-b51e-a8024cc73c49

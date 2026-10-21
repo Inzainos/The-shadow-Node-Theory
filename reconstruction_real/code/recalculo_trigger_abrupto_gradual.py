@@ -10,8 +10,8 @@ Este script recalcula la comparación sobre TODOS los conjuntos del repo que sí
 traen etiqueta abrupto/gradual y separa lo activo de lo histórico:
 
   1. ACTIVO    reconstruction_real/data/snt_corpus_aco_v29.csv   (ACO, 18 casos)
-  2. HISTÓRICO data/shadow_node_maddison_resumen.csv            (v1.0, 4 casos)
-  3. HISTÓRICO data/snt_corpus_50_resultados_v2.csv             (v2.0, 57 casos)
+  2. HISTÓRICO Legacy/data/shadow_node_maddison_resumen.csv      (v1.0, 4 casos)
+  3. HISTÓRICO Legacy/data/snt_corpus_50_resultados_v2.csv       (v2.0, 57 casos)
   4. ACTIVO    reconstruction_real/data/by_domain/dominio_B_real.csv
                (446 casos, todos 'gradual' por asignación -> no testeable)
 
@@ -56,8 +56,8 @@ LOG_DIR.mkdir(parents=True, exist_ok=True)
 
 IN_ACO = DATA_DIR / "snt_corpus_aco_v29.csv"
 IN_B = DATA_DIR / "by_domain" / "dominio_B_real.csv"
-IN_V10 = ROOT / "data" / "shadow_node_maddison_resumen.csv"
-IN_V20 = ROOT / "data" / "snt_corpus_50_resultados_v2.csv"
+IN_V10 = ROOT / "Legacy" / "data" / "shadow_node_maddison_resumen.csv"
+IN_V20 = ROOT / "Legacy" / "data" / "snt_corpus_50_resultados_v2.csv"
 
 OUT_CSV = DATA_DIR / "trigger_abrupto_gradual_recalculo.csv"
 LOG_FILE = LOG_DIR / "recalculo_trigger_abrupto_gradual_log.txt"

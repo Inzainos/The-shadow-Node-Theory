@@ -7,8 +7,8 @@
 > entonces: `data/owid-maddison.csv` ya está en el repo (§7 resuelto para el
 > dominio B), RC9 sí es verificable desde `data/orthogonality_crypto_v25.csv`
 > (§5, replica ρ = +0.009) y el origen del 5.9× quedó localizado en
-> `code/generate_publication_figures.py` (§8). Detalle en
-> [`README.md` → Seguimiento](README.md#seguimiento--re-verificación-2026-09-26).
+> `Legacy/code/generate_publication_figures.py` (§8). Detalle en
+> [`README.md` de auditorías → Seguimiento](README.md#seguimiento--re-verificación-2026-09-26).
 >
 > **Seguimiento (2026-09-27).** El dominio B se reproduce byte a byte desde Maddison
 > 2020 y el dominio E3 desde las series crudas de OWID (233/234), así que el runner
