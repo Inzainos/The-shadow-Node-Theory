@@ -84,7 +84,7 @@ TAU_GRID = np.linspace(0.0, 1.0, N_GRID)
 PALETA = {
     "A": "#E69F00", "ACO": "#000000", "B": "#56B4E9", "C": "#009E73",
     "D": "#F0E442", "E1": "#0072B2", "E2": "#D55E00", "E3": "#CC79A7",
-    "F1": "#8B4513", "F2": "#7F7F7F", "F3": "#17BECF",
+    "F1": "#8B4513", "F2": "#7F7F7F", "F3": "#17BECF", "G": "#FF7F0E",
 }
 
 ETIQUETAS = {
@@ -92,6 +92,7 @@ ETIQUETAS = {
     "C": "C estados EEUU", "D": "D HackerEarth", "E1": "E1 territorial",
     "E2": "E2 biológico", "E3": "E3 epidémico", "F1": "F1 impacto",
     "F2": "F2 parametrización", "F3": "F3 integración",
+    "G": "G geoquímico (Bennu)",
 }
 
 

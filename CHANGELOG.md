@@ -48,6 +48,25 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 
 ## [No publicado]
 
+### 2026-10-21 — Tela v2 integrada: serie real donde existe, sombra solo donde falta
+
+Informe: `reconstruction_real/audits/TELA_V2_INTEGRADA_2026-10-21.md`.
+Rama: `local/tela-v2-exogena`.
+
+- `tela_de_incertidumbre.py` v2: prefiere las 699 series reales de la
+  capa exógena (E3 234, B 446, ACO 18, G 1) y mapea como sombra solo los
+  41 casos sin serie cruda versionada (A, C, D, E1, E2, F). 740 casos /
+  51,210 puntos (antes: 739 / 7,306). Degrada a v1 sin la capa exógena.
+- **Corrección honesta del cometa:** el "nacen del mismo punto" era
+  artefacto de las sombras (todas nacían en m=1). En v2 los casos nacen
+  en la escala real de su dominio (E3 +2.16 décadas, ACO −0.29) y el
+  abanico nace abierto. Sobreviven: la cabeza (55-60% en la banda de
+  equilibrio), la estela (4.72→13.38 décadas) y la convergencia ACO a
+  m≈1 (0.29→0.07).
+- **LOO con series reales:** dominio 21.2% → **50.7%** (E3 94%); tono φ
+  53.7% → **66.2%** (nula 95%). La firma de dominio que las sombras
+  borraban es medible en los nacimientos reales.
+
 ### 2026-10-21 — Capa exógena de la tela: 699 series reales + estadística dirección→destino
 
 Informe: `reconstruction_real/audits/TELA_EXOGENA_2026-10-21.md`.
