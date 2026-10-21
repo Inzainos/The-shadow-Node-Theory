@@ -65,6 +65,12 @@ Informe: `reconstruction_real/audits/TELA_CIMATICA_2026-10-21.md`.
   (53.7% / 43.7%, 2.5× mejor que por dominio). El tono `nula` y los
   colapsos reales ACO sí se identifican (72% ambos): la figura revela
   el régimen de fricción, no el instrumento — como en Chladni.
+- **Placa continua** (hallazgo de visualización): la placa cruda mostraba
+  "peras" repetidas en columnas τ=k/9 — la rejilla de muestreo de las
+  sombras (t=1..10), no física; su pico espectral en el armónico 9 era el
+  dominante (1.0). Regenerada con 200 fases interpoladas por caso y peso
+  1/n: el pico cae a 0.301 y la arena se concentra en τ→1 (convergencia
+  terminal real).
 - **Corrección del informe de la tela**: las sombras son 721 (todo el
   corpus v5, sin ACO), no 703; casos totales en la tela = 739
   (18 reales + 721 sombras).

@@ -218,14 +218,32 @@ def clasificacion_loo(casos, usar_tau0=True, por_phi=False):
 
 
 def figura_chladni(df, trajs):
+    """Placa continua: densidad desde trayectorias interpoladas.
+
+    Cada caso se muestrea en 200 fases (interpolación lineal de su serie)
+    con peso 1/n_muestras por punto — la densidad cuenta CASOS que pasan
+    por cada celda, no puntos crudos. Esto elimina la rejilla discreta de
+    las sombras (las 'peras' en columnas tau = k/9) y deja solo el abanico
+    físico.
+    """
     fig, (axa, axb) = plt.subplots(
         1, 2, figsize=(9.0, 4.0), gridspec_kw={"width_ratios": [1.1, 1.0]})
 
-    tau = df["tau"].to_numpy(dtype=float)
-    lm = np.log10(df["m"].to_numpy(dtype=float))
+    tau_densa = np.linspace(0.0, 1.0, 200)
+    taus, lms, pesos = [], [], []
+    for r in trajs.values():
+        lm_d = np.interp(tau_densa, TAU_GRID, r["lm"])
+        taus.append(tau_densa)
+        lms.append(lm_d)
+        pesos.append(np.full_like(tau_densa, 1.0 / len(tau_densa)))
+    tau_todos = np.concatenate(taus)
+    lm_todos = np.concatenate(lms)
+    w = np.concatenate(pesos)
+
     nb_t, nb_m = 100, 80
-    H, xe, ye = np.histogram2d(tau, lm, bins=[nb_t, nb_m],
-                               range=[[0, 1], [lm.min(), lm.max()]])
+    H, xe, ye = np.histogram2d(
+        tau_todos, lm_todos, bins=[nb_t, nb_m], weights=w,
+        range=[[0, 1], [lm_todos.min(), lm_todos.max()]])
     Hs = gaussian_filter(H, sigma=1.5)
     pc = axa.pcolormesh(xe, ye, Hs.T, cmap="magma", shading="auto")
     fig.colorbar(pc, ax=axa, label="densidad (suavizada)")
@@ -239,7 +257,8 @@ def figura_chladni(df, trajs):
                 edgecolors="none", alpha=0.7, label="ACO real (109 pts)")
     axa.set_xlabel("τ fase temporal normalizada")
     axa.set_ylabel("log₁₀ m  (m = R)")
-    axa.set_title("A · La placa: dónde cae la arena")
+    axa.set_title("A · La placa continua: densidad de casos "
+                  "(200 fases interpoladas)")
     axa.legend(loc="lower right", framealpha=0.7)
 
     for dom in sorted({d for (d, _) in trajs}):

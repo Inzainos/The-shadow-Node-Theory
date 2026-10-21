@@ -19,11 +19,22 @@ implementan cinco piezas:
 
 | Pieza | Qué produce |
 |-------|-------------|
-| **La placa** | Mapa de densidad (τ × log₁₀ m) de los 7,306 puntos, con líneas nodales (zonas vacías) |
+| **La placa** | Mapa de densidad continua (τ × log₁₀ m): cada caso muestreado en 200 fases interpoladas con peso 1/n — cuenta casos que pasan por cada celda, no puntos crudos. Con líneas nodales (zonas vacías) |
 | **La figura** | Trayectoria mediana log₁₀ m(τ) por dominio con banda IQR |
 | **Los tonos** | Espectro FFT (armónicos 1-16 de la fase τ) mediano por dominio |
 | **Las huellas** | CSV por dominio: m en τ=0/0.25/0.5/0.75/1, amplitudes A1/A2/A3, m máx |
 | **La prueba** | Clasificación leave-one-out por centroide cercano: ¿viendo la figura se identifica el dominio? ¿y el tono? |
+
+### La rejilla de las peras (hallazgo de visualización)
+
+La primera versión de la placa usaba los 7,306 puntos crudos. Las sombras
+muestrean t=1..10 → todas aportan puntos en las MISMAS posiciones
+τ = k/9, y la placa mostraba "peras" repetidas lado a lado en esas
+columnas. Medido: el pico espectral de la placa cruda en el armónico 9
+(la rejilla) era **el componente dominante** (1.0 relativo); en la placa
+continua cae a 0.301 y la arena se concentra en τ→1 — estructura física
+(convergencia terminal de todas las trayectorias), no de muestreo.
+La placa continua es la que se publica.
 
 ## Resultados medidos
 
