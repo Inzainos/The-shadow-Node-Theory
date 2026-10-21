@@ -1,0 +1,147 @@
+# Capa Cimática de la Tela de Incertidumbre — Resultados
+
+**Fecha:** 2026-10-21
+**Script:** `code/tela_cimatica.py`
+**Salidas:** `figures/fig_tela_cimatica_chladni.{png,svg}`,
+`figures/fig_tela_cimatica_tonos.{png,svg}`,
+`data/tela_cimatica_huellas.csv`,
+`data/tela_cimatica_clasificacion.csv`,
+`data/tela_cimatica_clasificacion_phi.csv`
+**Origen de la idea:** `conocimiento/Tela/` (prototipo + lluvia de ideas
+2026-10-20 — la tela nació como capa cimática: "la tela vibra en modos
+propios; cada dominio tiene su tono resonante")
+
+## Qué es
+
+La lectura cimática del cubo 𝒞(u, m, τ): la tela es la placa de Chladni,
+los 7,306 puntos son la arena, y el campo φ (fricción) es el tono. Se
+implementan cinco piezas:
+
+| Pieza | Qué produce |
+|-------|-------------|
+| **La placa** | Mapa de densidad continua (τ × log₁₀ m): cada caso muestreado en 200 fases interpoladas con peso 1/n — cuenta casos que pasan por cada celda, no puntos crudos. Con líneas nodales (zonas vacías) |
+| **La figura** | Trayectoria mediana log₁₀ m(τ) por dominio con banda IQR |
+| **Los tonos** | Espectro FFT (armónicos 1-16 de la fase τ) mediano por dominio |
+| **Las huellas** | CSV por dominio: m en τ=0/0.25/0.5/0.75/1, amplitudes A1/A2/A3, m máx |
+| **La prueba** | Clasificación leave-one-out por centroide cercano: ¿viendo la figura se identifica el dominio? ¿y el tono? |
+
+### La rejilla de las peras (hallazgo de visualización)
+
+La primera versión de la placa usaba los 7,306 puntos crudos. Las sombras
+muestrean t=1..10 → todas aportan puntos en las MISMAS posiciones
+τ = k/9, y la placa mostraba "peras" repetidas lado a lado en esas
+columnas. Medido: el pico espectral de la placa cruda en el armónico 9
+(la rejilla) era **el componente dominante** (1.0 relativo); en la placa
+continua cae a 0.301 y la arena se concentra en τ→1 — estructura física
+(convergencia terminal de todas las trayectorias), no de muestreo.
+La placa continua es la que se publica.
+
+## Resultados medidos
+
+### Identificación por dominio (el objetivo declarado)
+
+| Configuración | Exactitud |
+|---------------|-----------|
+| Todos los rasgos (m en 5 fases + A1/A2/A3) | **21.2%** (156/737) |
+| Solo-forma (sin τ=0, que es 1.0 por construcción en sombras) | **19.8%** (146/737) |
+
+Por dominio: A 3/4 · ACO 13/18 · B 30/446 · C 2/24 · D 2/3 · E1 3/4 ·
+E2 0/2 · E3 101/234 · F1 2/2.
+
+**Veredicto: NO.** La figura sola no identifica el dominio. B y C —
+mismo φ alta, distribuciones de b solapadas — dibujan la misma figura y
+se confunden entre sí.
+
+### Identificación por tono φ (la predicción cimática)
+
+| Tono | Configuración | Exactitud |
+|------|---------------|-----------|
+| Por dominio | todos / solo-forma | 21.2% / 19.8% |
+| **Por tono φ** | todos / solo-forma | **53.7% / 43.7%** |
+
+Por tono: alta 207/472 · fisica 0/4 · media 3/4 · nula 174/241 ·
+variable (ACO) 13/18.
+
+**Veredicto: PARCIAL.** El tono se identifica mejor que el dominio
+(2.5× con todos los rasgos), como predice la cimática — la figura
+revela el régimen de fricción, no la etiqueta del instrumento. El tono
+`nula` se identifica bien (174/241 = 72%): sin fricción la arena vuela a
+m extremos (mediana de m máx = 32.5, hasta 24 millones) y eso es
+inconfundible. El tono `alta` se confunde (44%) porque muchos casos con
+b bajo dibujan la misma figura sin importar su φ nominal.
+
+### Los regímenes extremos SÍ se identifican
+
+- **ACO real (serie cruda): 13/18 = 72%** con todos los rasgos — las
+  trayectorias reales empiezan abajo (m<1) y terminan cerca de 1; la
+  sombra siempre empieza exactamente en 1. El rasgo τ=0 es señal REAL
+  para casos crudos y artefacto de construcción para sombras (disclosed).
+- **nula (D+E1+E3): 72%** — la cavidad sin fricción es visible.
+
+## La estructura de cometa (medida 2026-10-21, tarde)
+
+Lectura visual del operador: "como un cometa dejando estela — pegado a Y
+se compactan, alejado se dispersan". Verificado:
+
+| Medida | Resultado |
+|--------|-----------|
+| **Cabeza** (banda de equilibrio, m ∈ [0.56, 1.78]) | 63.3% de los casos en τ=0.25 → 52.6% en τ=1: la mayoría vive pegada a m≈1 |
+| **Estela** (apertura del abanico) | IQR entre casos: 0.00 → 1.11 décadas; ancho total: 0.92 → **13.38 décadas** al avanzar τ |
+| **Cabeza = fuente (sombras)** | Todas nacen en m=1 (τ=0) y se alejan con la fase |
+| **Cabeza = atractor (colapsos reales)** | ACO: \|log₁₀ m\| mediana **0.292 → 0.071** — nacen fuera y **convergen a m≈1** al final |
+
+**La asimetría cabeza-fuente/cabeza-atractor es el hallazgo:** los
+modelos emanan de la banda de equilibrio; los colapsos reales mueren en
+ella. La banda m≈1 es donde los sistemas viven (b≈0) y a donde llegan
+cuando el nodo se iguala con el hub (colapso = satelización completada).
+
+**El cometa ES la ley de potencia hecha visible:** los 739 casos son
+curvas t^b — la forma del cometa es la firma de la familia R = a·t^b a
+través de todo el corpus. Sus sectores son los regímenes de la SNT:
+caen (b<0, convergencia) · cabeza (b≈0, equilibrio dinámico) · estela
+suave (0<b<1, satelización gradual) · estela extrema (b≥1 — sostenido =
+superlineal, transitorio = ACO).
+
+**Lectura operacional:** la tela clasifica por posición en el cometa —
+sector + dirección de movimiento — no por etiqueta de dominio. La
+exactitud medida coincide con esa declaración: dominio 21% (la etiqueta
+no), tono φ 54% (el régimen, parcial), extremos 72% (donde la teoría
+afirma algo, sí).
+
+## Lectura cimática honesta
+
+1. La placa funciona: la arena se organiza en bandas por φ, y las líneas
+   nodales (vacías entre m≈2 y m≈30) separan los regímenes.
+2. La figura identifica **frecuencias, no instrumentos** — igual que en
+   Chladni: el patrón dice el tono que vibra, no qué violín lo tocó.
+3. Para el objetivo operacional ("al ver la figura, identificar rápido"):
+   un caso nuevo que caiga en la placa se puede asignar a su **régimen de
+   fricción** con ~54% (72% en los extremos), y como "colapso real
+   (ACO-like)" con 72% — pero NO a su dominio nominal.
+4. El φ postulado es categórico por dominio; la medición muestra que la
+   figura depende de (b, n), y donde los (b, n) se solapan entre tonos,
+   el tono no es recuperable de la forma sola. Calibrar φ por caso
+   (no por dominio) es el paso siguiente natural.
+
+## Limitaciones
+
+- 721 de 739 casos son sombras: su forma está determinada por (b, n) del
+  ajuste; m(τ=0)=1 por construcción (a=1, t=1).
+- Solo 18 casos tienen trayectoria real (ACO).
+- La clasificación es centroide-cercano sin calibrar; no es una frontera
+  definitiva, es la medición de base de la capa.
+- u sigue NULL (sin definición operativa en ningún dominio).
+
+## Reproducir
+
+```bash
+python reconstruction_real/code/tela_cimatica.py   # ~4 s, sin descargas
+```
+
+Lee `data/tela_de_incertidumbre.csv` (generado por
+`code/tela_de_incertidumbre.py`). Log en
+`logs/tela_cimatica_log.txt`.
+
+---
+
+*Fractal Core Research · Tlaxcala, México · 2026-10-21*
