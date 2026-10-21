@@ -1,0 +1,23 @@
+punto,cifra,valor,estado
+P1_conteos,usuarios,4774,INFO
+P1_conteos,cohortes (Basic/Inter/Elite),4444/306/24,INFO
+P1_conteos,tiers (High/Likely/AtRisk/Confident),4444/299/21/10,INFO
+P1_tautologia,High Risk == Basic (usuarios identicos),4774/4774,CIRCULAR
+P1_retencion,"AUC label=cohort!=Basic, features incl. CSI_V3",1.0000,CIRCULAR
+P1_retencion,reporte PDF,"1.0000 (precision 1.0, recall 1.0)",INFO
+P1_churn,AUC de SOLO CSI_V3 (invertido) vs label High Risk,1.0000,CIRCULAR
+P1_churn,reporte PDF (284 features),0.9994 (CV 0.9945),INFO
+P1_retencion,top-3 importancia del modelo reproducido,CSI_V3 43%; VDR 30%; herramientas_unicas 23%,INFO
+P2_datos,SHA-256 raw,OK,OK
+P2_datos,eventos / usuarios,"409,287 / 4,774",INFO
+P2_datos,rango,2025-09-01 -> 2025-12-08,INFO
+P2_temporal,principal (todos): n / tasa churn 30d,"2,058 / 92.7%",INFO
+P2_temporal,principal (todos): GBM AUC CV 5-fold,0.8359 +/- 0.0383,INFO
+P2_temporal,principal (todos): AUC de SOLO recencia (dias sin actividad),0.7913,INFO
+P2_temporal,principal (todos): top-3 importancia,recencia_dias 22%; antiguedad_dias 22%; dias_activos 18%,INFO
+P2_temporal,sensibilidad (antiguedad >= 7d): n / tasa churn 30d,137 / 62.0%,INFO
+P2_temporal,sensibilidad (antiguedad >= 7d): GBM AUC CV 5-fold,0.8933 +/- 0.0412,INFO
+P2_temporal,sensibilidad (antiguedad >= 7d): AUC de SOLO recencia (dias sin actividad),0.9068,INFO
+P2_temporal,sensibilidad (antiguedad >= 7d): top-3 importancia,antiguedad_dias 33%; dias_activos 20%; n_eventos 14%,INFO
+P2_caveats,censura derecha,el dato termina 2025-12-08; 'churned' pudo volver despues,INFO
+P2_caveats,una sola ventana de 30d y un solo corte,no es validacion temporal multiple,INFO

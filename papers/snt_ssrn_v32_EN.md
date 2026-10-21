@@ -205,10 +205,10 @@ exponent b is the velocity parameter: b > 0.45 indicates accelerated satellizati
 0.1 < b < 0.45 indicates gradual satellization; −0.1 < b < 0.1 indicates
 approximate steady state; b < −0.1 indicates convergence or leapfrog. (v30 tied
 the accelerated band to an "abrupt-trigger class"; that link is withdrawn in r31.
-b ≥ 1 only has meaning if maintained over long periods (sustained superlinear
-cavity → impending change). If transient/punctual, NOT superlinear: system
-enters ACO (Orbital Collapse Architecture), i.e., collapse. — see Finding 5
-in §12.)
+b ≥ 1 is meaningful only if sustained over very long periods (a sustained
+superlinear cavity → impending change). If it is transient or punctual, it is not
+considered a superlinear regime: within the framework, it is interpreted as entry
+into ACO (collapse) — see Finding 5 in §12.)
 
 ### 2.2 Central Hypothesis
 
@@ -633,15 +633,37 @@ in some pair (85%) are satellite in another, so the role is a property of the
 pair, not a network position; rebuilt with trade-emergent hubs, only 9 of 102 hub–node trade
 pairs are in Domain B, and the main export destination changes by 2005–2014 for
 77 of 102 countries, so a single fixed hub over 50–119 years is itself a strong
-approximation. (iv) *Superlinear regime:* in the 18 raw collapse-layer series, AIC
-prefers the power law in 13, an exponential in 4 (mean b = +1.54) and a linear
-model in 1; the higher b, the worse the power law fits, so part of the b ≥ 1 band
-(102 of 721 cases) may be misspecification. **However, b ≥ 1 is only meaningful if
-sustained over long periods (sustained superlinear cavity → impending change). If
-transient/punctual, it is NOT superlinear: the system enters ACO (Orbital Collapse
-Architecture), i.e., collapse.** (v) *Reporting:* per-case p-values
-were rounded to six decimals (557 of 721 read 0.0), and two R² definitions (log
-and raw scale) were averaged together. (vi) *Composition:* the friction-free
+approximation. (iv) *Superlinear regime:* in the 18 raw collapse-layer series (ACO), AIC prefers
+the power law in 13, an exponential in 4 (mean b = +1.54) and a linear model in 1.
+The apparent worsening of fit with b is reproduced in RC1 simulations even when
+the data follow a known power law, so it is not interpreted as a property of the
+systems. RC1 extended to the remaining domains (r32):
+Domain C (23 US state population series, 1900–2025) reproduces 23/23 from the
+committed Census/FRED file but is not AIC-interpretable at b ≥ 1 (counterfactual
+error 22.6%, threshold 20%); Domain A (4 city pairs) is not reproducible (1/4,
+the single match is spurious: n = 69 vs n = 7 published); Domain E2 (lynx–hare,
+n = 21) reproduces exactly for one case (b, R² and Durbin-Watson match published)
+and fails for the other. Across calibrated domains (E3 80.3%, B 96.8%, ACO 48.9%,
+C 22.6%, E2 94%) the AIC counterfactual error at b ≥ 1 always exceeds 20%, so
+the superlinear band is not decidable by AIC in any domain. Crucially, the
+tautology that "a true exponential fitted as a power law yields b ≥ 1" — measured
+at 70–100% in E3/B/ACO — **does not replicate in Domain C** (0.7% of replicas);
+it is a property of each domain's noise structure, not of the estimator. By itself,
+b ≥ 1 does not demonstrate a physical superlinear regime; within the framework, it
+would be meaningful only if sustained over very long periods (a sustained
+superlinear cavity → impending change). A transient or punctual value is
+interpreted as entry into ACO (collapse), not as a sustained superlinear regime.
+Domain C series also show median AR(1) ρ = 0.970 (DW = 0.032, worse than B's 0.944), so
+12 of 23 C cases are not estimable (effective n < 3) under the audit v32
+(v) *Reporting:* per-case p-values were rounded to six decimals in the committed
+corpus v5 (557 of 721 read 0.0), and two R² definitions (log and raw scale) were
+averaged together. Corpus v6 (r32) recomputes exact p-values (no truncation) for
+680 of 721 cases using each case's own SE and n (Domain B: 446; Domain E3: 234;
+the remaining 41 lack raw series) — zero cases read p_exacto = 0.0 — and splits
+R² into r2_log (680 cases) and r2_raw (720 of 721 cases — E3's raw series
+re-verified byte-identical to the pinned OWID snapshot; one non-reproducing
+case stays NA) instead of averaging them.
+(vi) *Composition:* the friction-free
 pole (E1 + E3) is COVID-19 data; E1 models territorial spread, not species
 invasion. (vii) *Reproducibility:* Domain B reproduces exactly from the committed
 Maddison 2020 file; E3 reproduces from the raw series (233 of 234; r32), E1 is
@@ -663,7 +685,14 @@ absorption. RC6 — Irreversibility: falsified if a Shadow Node reverses
 satellization endogenously without an exogenous trigger. RC7 — ASI
 Operationalization: falsified if users with ASI > 1 show performance comparable to
 users with ASI < 0.5 in tasks requiring cognitive sovereignty (untested: the v30
-"precision = 1.0" was tautological, §6.6). RC8 — Mutual-interdependence brake:
+"precision = 1.0" was tautological, §6.6. Post-print verification, 2026-10-18,
+with the platform dataset in hand: the v30 leaked figures are label-defined-by-
+feature circularity — the churn label equals the Basic cohort user-by-user
+(4,774/4,774) and the label-defining composite sits in the feature matrix; an
+honest temporal churn label — 30-day inactivity after a fixed cutoff, features
+strictly prior — yields CV AUC 0.836 ± 0.038, in the neighborhood of the audit's
+corrected 0.715 ± 0.019, not of the leaked 0.9994. The honest signal is
+dominated by recency and tenure, not by the claimed "anchor events".). RC8 — Mutual-interdependence brake:
 falsified if predator-prey or sovereign-state systems produce sustained b > 0.5
 without exogenous perturbation.
 
@@ -676,8 +705,12 @@ is significantly different from zero across paired cases (first test: crypto n=1
 ρ = +0.009; pre-registered test in r32: 242 pairs, ρ = −0.119, 95% CI
 [−0.241, +0.007] inside the ±0.3 equivalence band — not refuted). RC-Δ2 —
 Friction governs collapse shape: falsified if resolution friction does not
-predict Δ (first test: 2008 cohort n=6, ρ = −1.000; not enlarged in r32 for lack
-of comparable public data). RC-Δ3 — Hazard positivity: falsified if a system
+predict Δ (first test: 2008 cohort n=6, ρ = −1.000; post-hoc enlargements:
+ACO n=18 with documented channel ordinals gives ρ = −0.377, p = 0.12 — the
+perfect n=6 correlation does not generalize; the npm cohort n=450 with the
+pre-registered institutional friction coding gives ρ = +0.163, p = 0.0005, in
+the anticipated direction — institutional backing goes with a gentler fall.
+Weak support; a pre-registered replication in another ecosystem remains open). RC-Δ3 — Hazard positivity: falsified if a system
 with hazard = 0 is found (r32: every age band with ≥ 30 at risk has endings in
 663 crypto pairs and 27,771 banks — not refuted).
 
@@ -817,10 +850,7 @@ than toward an equally distant country they barely trade with. The hub changes
 sovereignty-as-brake statement is kept as a hypothesis. v30 closed this finding
 with the contrast that, when resource transfer is direct and unmediated (a
 herring shoal cannot negotiate with a school of mackerel; a Hot Jupiter does not
-apply for regulatory approval), b exceeds 1 regardless of substrate. **However,
-b ≥ 1 only has meaning if sustained over long periods (sustained superlinear
-cavity → impending change). If transient/punctual, NOT superlinear: the system
-enters ACO (Orbital Collapse Architecture), i.e., collapse.** In the
+apply for regulatory approval), b exceeds 1 regardless of substrate. In the
 corpus 94 of the 102 cases with b ≥ 1 are COVID-19 spread series (E1 + E3), and
 the band may partly reflect misspecification (Finding 5), so r31 states it as a
 conjecture.
@@ -829,10 +859,23 @@ conjecture.
 friction is low (epidemic spread, E1 and E3); under high friction (countries)
 exponential and linear models compete. In the 18 raw collapse-layer series, AIC
 prefers the power law in 13, the exponential in 4 (mean b = +1.54) and the
-linear model in 1: the higher b, the worse the power law fits. The exponent b is
-a descriptive, cross-domain comparable metric — not a claim that the power law
-is the only generative model in all domains — and the superlinear band b ≥ 1
-should be re-tested against alternative models.
+linear model in 1. The apparent worsening of fit with b is reproduced in RC1
+simulations even when the data follow a known power law, so it is not interpreted
+as a property of the systems. RC1 extended to the remaining domains (r32): Domain C reproduces 23/23 from Census/FRED but is
+not AIC-interpretable at b ≥ 1 (counterfactual error 22.6%, threshold 20%);
+Domain A is not reproducible (1/4); Domain E2 reproduces exactly for one case
+and fails for the other. Across calibrated domains (E3 80.3%, B 96.8%, ACO
+48.9%, C 22.6%, E2 94%) the AIC counterfactual error at b ≥ 1 always exceeds 20%,
+so the superlinear band is not decidable by AIC in any domain. The tautology
+that "a true exponential fitted as a power law yields b ≥ 1" — measured at
+70–100% in E3/B/ACO — **does not replicate in Domain C** (0.7% of replicas); it
+is a property of each domain's noise structure, not of the estimator. The
+exponent b is a descriptive, cross-domain comparable metric — not a claim that
+the power law is the only generative model in all domains. By itself, b ≥ 1 does
+not demonstrate a physical superlinear regime; within the framework, it would be
+meaningful only if sustained over very long periods (a sustained superlinear
+cavity → impending change). A transient or punctual value is interpreted as
+entry into ACO (collapse), not as a sustained superlinear regime.
 
 ---
 
@@ -981,8 +1024,8 @@ series (E3 reproduced; E1 not reproducible), a satellization corpus with
 independently coded triggers (supported, n = 8) and a time-varying hub
 definition (not supported). Still open: GLS or block-bootstrap estimation to pin
 the autocorrelation-corrected significance of Domain B (standard Newey-West
-under-corrects); re-testing the superlinear band against exponential and
-lognormal models; a larger trigger corpus without the survivorship filter; an
+under-corrects); testing whether b ≥ 1 persists for very long periods before an
+ACO transition; a larger trigger corpus without the survivorship filter; an
 age-period-cohort model for the crypto hazard; friction → Δ beyond the 2008
 cohort; and a second, independent coding of triggers and friction.
 

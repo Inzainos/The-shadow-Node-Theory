@@ -334,6 +334,189 @@ Si `b ≥ 1` es transitorio/puntual, **NO es superlineal**: el sistema entra en 
 
 ---
 
+### RC1 dominios restantes (A, E2, C) 2026-10-17
+
+Pre-registro: `reconstruction_real/preregistro/PREREGISTRO_RC1_DOMINIOS_RESTANTES_2026-10-17.md`
+(commit `4e9cb9e`, fechado 2026-10-17 21:58:52Z, antes de la primera descarga
+— 22:16Z; el push a GitHub fue posterior al análisis, verificado 2026-10-18). Informe:
+`reconstruction_real/audits/RESULTADOS_RC1_DOMINIOS_RESTANTES_2026-10-17.md`.
+
+Fuentes nuevas (descargadas el 2026-10-17, después del pre-registro):
+
+| Fuente | URL | Crudo (no versionado) | Subconjunto/derivado versionado |
+|---|---|---|---|
+| US Census Bureau, Population Estimates Program — población estatal anual 1900-2025, 32 estados ({XX}POP), vía FRED (espejo Census, sin API key) | `https://fred.stlouisfed.org/graph/fredgraph.csv?id={XX}POP` | un CSV por estado; SHA-256 de cada uno en `reconstruction_real/logs/rc1_dominios_restantes_log.txt` | `data/us_census_poblacion_estatal_1900_2025.csv` (estado, anio, poblacion_miles — unidades FRED: miles de personas; el cociente R es invariante a la escala) |
+| R `lynx` (Elton & Nicholson 1942; dataset `datasets/lynx`), vía Rdatasets | `https://vincentarelbundock.github.io/Rdatasets/csv/datasets/lynx.csv` | SHA-256 `0766d4043eb8a20ac83afefff1c78063beff3891571c59e8e38d72503ca86cf1` | `data/lynx_1821_1934.csv` |
+| `hare_lynx` del paquete CRAN `dsem` — pieles lince/liebre Hudson Bay 1900-1920 (Gotelli 2008 Fig. 6.16 ← Elton & Nicholson 1942, MacLulich 1937) | `https://raw.githubusercontent.com/James-Thorson-NOAA/dsem/main/data/hare_lynx.rda` | SHA-256 `3a0d8b7cbcef88d57a7a9cb580bb03de9ba25b7d281532d238ceb2167085be69` (extraído a CSV con `pyreadr`, una vez) | `data/hare_lynx_1900_1920.csv` |
+
+Verificación de receta (Fase 0): **C 23/23 reproducen la `b` publicada dentro de
+±0.01** con R = pob_hub/pob_node anual 1900-2025; **E2_01 reproduce exacto**
+(b, R² y DW: 0.5371 vs 0.537 publicado; receta R = lince/liebre); E2_02 y el
+dominio A **no reproducen** con las recetas pre-registradas (detalles en el
+informe) y no se calibran.
+
+| Archivo de salida | SHA-256 |
+|---|---|
+| `data/us_census_poblacion_estatal_1900_2025.csv` | `6c6600d8e0cbe2e8d8ac7b9733646b487d43987db6a9ea4d22673a5e0cf27c8d` |
+| `data/lynx_1821_1934.csv` | `9433fc763d102a9587649be5ee2546dcb4a5e08d49f045370bdfa08393a87c6d` |
+| `data/hare_lynx_1900_1920.csv` | `8dae8e3993e52e12a1d72bd7987223f4b33cc3114cfbe09431e1934b4b717213` |
+| `reconstruction_real/data/rc1_resto_recetas.csv` | `2df959bcd655a1cfb74a5bcb19f2e62f4adc6e8ff4dc789d54c2b9d50bb3127c` |
+| `reconstruction_real/data/rc1_resto_por_caso.csv` | `194e29f7444cc67c18d58a17e9e62f8f045999e158dcb62906884add25b3ce13` |
+| `reconstruction_real/data/rc1_resto_calibracion.csv` | `7daaca1a4a6e37ed0dd8a1eb6befb6e09865ad756c63c37e28b2c128707d09b8` |
+| `reconstruction_real/data/rc1_resto_resumen.csv` | `394a8fa07ec10b64e864a3c99816f2da332caab18c2d5f7e3f433bd23caf4fca` |
+
+**Nota de calidad — Dominio C.** Las series estatales 1900-2025 recién
+versionadas tienen **ρ AR(1) mediana 0.970** (DW mediana 0.032), peor que el
+Dominio B (0.944). Bajo el marco de la auditoría v32, **12 de los 23 casos de C
+no son estimables** (`n_eff < 3`) pese a figurar en el corpus como 23/23
+significativos. La significancia por caso de C hereda la salvedad de B. La
+**nota de calidad del AIC** (arriba) sigue vigente y no cambia: en C, banda
+contrafactual `b ≥ 1`, el error de selección es 22.6% (aún por encima del
+umbral del 20%); en cambio una exponencial verdadera produce `b ≥ 1` sólo en el
+0.7% de réplicas — la tautología medida en E3/B/ACO **no** se replica con
+series de n=126.
+
+---
+
+### Corpus v6: p_exacto + r2_log/r2_raw (2026-10-17)
+
+Script: `reconstruction_real/code/corpus_p_exacto_r2_split.py` (determinista,
+sin descargas, lee solo CSV del repo).
+
+Enriquece `snt_corpus_REAL_v5.csv` (721 casos) con columnas de p-valor exacto
+(sin truncado a 0.0 por `round(p,6)`) y split `r2_log` / `r2_raw`, donde las
+series raw lo permiten:
+
+| Origen | Casos | Cómo se obtiene p_exacto | Cómo se obtiene r2_split |
+|---|---:|---|---|
+| Dominio B (`by_domain/dominio_B_real.csv`) | 446 | Desde `se_b` + `n` (t-Student, sin redondeo) | `r2_log` = r_pearson²; `r2_raw` existente |
+| Dominio E3 (`dominio_E3_series_crudas.csv`) | 234 | Copiado de `p_ols` (ya exacto) | `r2_log` existente; `r2_raw` = NA (raw OWID no en repo) |
+| Dominio ACO (`snt_corpus_aco_timeseries_v29.csv`) | 0 | — | — (IDs no coinciden con corpus v5) |
+| Otros dominios (A, C, D, E1, E2, F1-F3) | 41 | NA (sin serie raw) | NA |
+
+| Archivo de salida | SHA-256 |
+|---|---|
+| `reconstruction_real/data/snt_corpus_REAL_v6.csv` | `9f380d1cd1c70685136192fd13f632da6f2dae55949e14a1c7913a263c3d38f1` |
+| `reconstruction_real/code/corpus_p_exacto_r2_split.py` | `7c0d84267049fb0d424c7eec705212700788159d9917e36522eeaf1bdf128cdd` |
+
+Resultados del split: **680/721 casos con `p_exacto`** (de los cuales 0 == 0.0;
+en v5 eran 557 truncados a 0.0), **680 con `r2_log`**, **720 con `r2_raw`**
+(actualizado 2026-10-18 con E3: 233/234 desde las series crudas OWID con SHA
+verificado; solo E3_060 queda NA porque su b no reproduce la publicada).
+Audit v32 bloque 5 actualizado para reportar conteos exactos vs truncados.
+
+---
+
+### Separación APC del hazard cripto (2026-10-17)
+
+Script: `reconstruction_real/code/apc_separacion_crypto.py` (determinista,
+lee `data/aco_hazard_bandas.csv`).
+
+**Resultado:** la separación APC completa (edad + cohorte + periodo) no es
+identificable porque `periodo = cohorte + edad` es una dependencia lineal exacta.
+Se reportan pendientes de edad condicionales por cohorte (log-hazard vs edad):
+
+| Cohorte | Pendiente edad (/año) |
+|---|---:|
+| bancos cualquier fin, entrada corregida 1970 | +0.001386 |
+| bancos cualquier fin, entrada pre-registro 1934 (sesgada) | +0.006223 |
+| bancos solo quiebras, entrada corregida 1970 | −0.002898 |
+| bancos solo quiebras, entrada pre-registro 1934 (sesgada) | +0.002498 |
+| cripto ACO | +0.474177 |
+| cripto ACO+retiro | +0.238378 |
+
+| Archivo de salida | SHA-256 |
+|---|---|
+| `reconstruction_real/code/apc_separacion_crypto.py` | `70640794caaaf8b29fefa26bfa3b9af736fe1c95105a7f4f877d0b7cf4af9191` |
+
+---
+
+### Desbloqueos 2026-10-18 (r2_raw E3, WUP, fricción, npm)
+
+Informe: `reconstruction_real/audits/RESULTADOS_DESBLOQUEOS_2026-10-18.md`.
+
+**E3 r2_raw.** Re-descarga del archivo completo OWID
+(`raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv`,
+98 MB, no versionado): el SHA-256 del archivo ACTUAL resultó **idéntico al
+snapshot del 2026-09-27** (`8473d0f0fdf962e1ffbd5b85b18726fc96a49bab109e271186c339725a12b10c`)
+— la edición es exactamente la que produjo E3. `e3_r2_raw.py` reconstruye cada
+serie con la receta verificada (acumulados, ≥100, 60 días) y computa `r2_raw`;
+compuerta b (±0.01): 233/234 (E3_060 East Timor, igual que el run original);
+r2_log recomputado idéntico al resumen. **El corpus v6 se regeneró** y ahora
+lleva `r2_raw` en 720/721 (solo E3_060 queda NA, conservador).
+
+**WUP2018 completo.** `WUP2018-Excel-files.zip` de population.un.org,
+SHA-256 **verificado idéntico al anclado** (`80eb71bbabb46cb2…`). Enumeración
+de las 27 tablas: ninguna contiene series por ciudad < 300k (F17a-d son
+agregados por clase de tamaño, sin identidades). El filtro de supervivencia
+del test de disparadores **no es removible con la fuente pública** — evidencia
+en el informe.
+
+| Archivo de salida | SHA-256 |
+|---|---|
+| `reconstruction_real/data/snt_corpus_REAL_v6.csv` (regenerado) | `9f380d1cd1c70685136192fd13f632da6f2dae55949e14a1c7913a263c3d38f1` |
+| `reconstruction_real/data/dominio_E3_r2_raw.csv` | `0f7d5dfb333e3e7ababc62ab85865c427072971d208f5d9f149b09443dee47fb` |
+| `reconstruction_real/code/e3_r2_raw.py` | `10b9095bbcecda77c008424a82418adbb46f3a8911163fb9afc5c16caa6ee504` |
+| `reconstruction_real/code/friction_aco_18.py` | `19162d45f2e19b375ad36f4e0523c122e62108c52cb889cede33f028e67d67dc` |
+| `reconstruction_real/code/npm_followup_cohorte_friccion.py` | `5fd0d89fcfbdc52ec75fdd4e60e106b665f8f70c851df1f407016d0fbf17c21e` |
+
+**Fricción → Δ (post-hoc, declarado).** ACO n=18: ρ=−0.377 (p=0.121) — la
+correlación perfecta de la cohorte 2008 no generaliza. npm n=450 con la
+codificación pre-registrada: Spearman(fricción, Δ_caida) = +0.163,
+p=0.0005, dirección anticipada ("fricción alta → caída suave"). Ver informe §4.
+
+**npm hazard decreciente.** Estratificado por cohorte de nacimiento: la
+dirección se mantiene dentro de cada cohorte (−0.47/−0.34/−0.77) — no es puro
+artefacto de mezcla. Ver informe §5.
+
+---
+
+### Proyecto HackerEarth/Zerve — dataset y verificación (2026-10-18)
+
+**Contexto:** el reporte `HackerEarth User Retention Analysis: Fractal V3
+Insights & Intervention Strategy.pdf` (18-oct-2026, Downloads de Windows,
+SHA-256 `92fa43f7b67c6236bcfaab00003ec9ba5c8a68c9fe65dd9e85426fd0d4196d52`)
+y su proyecto (rama `zerve`, commit `a4fef75`, directorio
+`79d2da5a-bd19-47f0-8eab-3f9d426e1f46/` — código sin datos). Revisión:
+`reconstruction_real/audits/REVISION_REPORTE_HACKEREARTH_2026-10-18.md`.
+
+Datos descargados el mismo día (fuente: export interno de la plataforma —
+no público):
+
+| Archivo | SHA-256 | Versionado |
+|---|---|---|
+| `zerve_hackathon_dataset.csv` (crudo, 299 MB, 409,287 eventos PostHog, 2025-09-01→2025-12-08, 4,774 usuarios) | `73c44fc9d47abd67ef0e9280f71bc2fec9b8483d3fc304a1f747593f9aa27390` | **No** (tamaño; el script lo lee de Downloads o `--raw`) |
+| `metricas_fractal_v3.csv` (= `docu_metricas_fractal_v3.csv`) | `4f34b79bea9f2e967a4f907573846cc264221623fd7dbc219d241b3e548d1f1e` | Sí: `data/hackerearth_zerve/` |
+| `docu_retention_scores.csv` | `99a5f5f2ba53132a0f1d5e2015a56393d815eb9488ac55ea0526867c4613970b` | Sí |
+| `docu_churn_early_warning.csv` | `77bfba10ff686abc38ce91c32ad474e4d9d85011491d31688f8ed1f45e7cb67b` | Sí |
+| `docu_elite_users.csv` | `566f8267096306bc3ce662f9943053b6377e2e01d243646e0c484c8bab0d5765` | Sí |
+| `docu_intermediate_users.csv` | `472a69cc2a054eb8be59a95fb32af7a8e5f34b78e77e4218393b71c6889fe095` | Sí |
+
+**Verificación** (`code/hackerearth_verificacion.py`): los conteos del PDF
+reproducen exacto; High Risk == Basic usuario por usuario (4,774/4,774); el
+modelo de retención reproduce AUC 1.0000 con CSI_V3 como feature top (43%);
+CSI_V3 sola contra la etiqueta de churn da AUC 1.0000 (el modelo de 284
+features del PDF, 0.9994, es peor que la variable que define la etiqueta).
+Prueba honesta temporal (corte 2025-11-08, outcome = 30 días de inactividad):
+**AUC 0.836 ± 0.038** (todos, n=2,058) / **0.893 ± 0.041** (antigüedad ≥ 7d,
+n=137) — el gap 1.0000→0.836 es la circularidad removida y cae en la vecindad
+de la corrección de la auditoría v32 (0.715 ± 0.019), no del leak. Salida:
+`reconstruction_real/data/hackerearth_verificacion_resultados.csv`.
+
+**Nota de seguridad:** los `person_id` son hashes de PostHog, no PII directa;
+el dataset crudo no se versiona y vive fuera del repo.
+
+**Entrega de números reales** (2026-10-18, `code/hackerearth_entrega_honesta.py`):
+modelo temporal (corte 2025-11-08, outcome 30 días de inactividad, AUC CV
+0.836 ± 0.038, calibración 0.920 vs 0.927) puntuado sobre los 4,774 usuarios
+al fin de los datos. Salidas en `data/hackerearth_zerve/`:
+`entrega_scores_honestos.csv` (prob_churn_30d por usuario + cuadrante),
+`entrega_matriz_accion.csv` (Reactivar 2,334 / Intervenir ya 2,259 / Cuidar
+179 / Vigilar 2), `entrega_resumen.csv`, y el documento
+`NUMEROS_REALES_2026-10-18.md` que sustituye las cifras del PDF.
+
+---
+
 ## 2. Archivos derivados que SÍ están en el repo (checksums)
 
 Checksums SHA-256 al 2026-07-25, **re-verificados el 2026-09-26: los 6 coinciden**.
@@ -344,6 +527,7 @@ Sirven para detectar si un archivo cambió sin que se documente. Recalcular con 
 | `reconstruction_real/data/by_domain/dominio_B_real.csv` | `e0c7738a31b45b913c73d851ac1b81a9d2ea56aef7e9168ae991eda2687ce583` |
 | `reconstruction_real/data/by_domain/dominio_E3_real.csv` | `11a99cc42a62a73dbe4b282acd66d48c8e86839e6a0fc8cdddc187f9c70c0e82` |
 | `reconstruction_real/data/snt_corpus_REAL_v5.csv` | `6a4a89ed780552facfc0cd77a1abf7ce49b02d73211205d04f51f5eb5d38e9b1` |
+| `reconstruction_real/data/snt_corpus_REAL_v6.csv` | `9f380d1cd1c70685136192fd13f632da6f2dae55949e14a1c7913a263c3d38f1` |
 | `reconstruction_real/data/snt_corpus_aco_timeseries_v29.csv` | `68c11e95e3b609008820111e303141b2d9391923960a5f7855c074e44512d31c` |
 | `data/snt_asi_scores.csv` | `57e38ee9f779efc117b747247cb72ce6f869ae433f885aa116a653b766531fb6` |
 | `data/owid-maddison.csv` | `6e905c41324d50f2e4e468bad9d204a1efd44f6f34368c98425e8e0b33d6a4ec` |
@@ -357,6 +541,7 @@ Sirven para detectar si un archivo cambió sin que se documente. Recalcular con 
 > for f in reconstruction_real/data/by_domain/dominio_B_real.csv \
 >          reconstruction_real/data/by_domain/dominio_E3_real.csv \
 >          reconstruction_real/data/snt_corpus_REAL_v5.csv \
+>          reconstruction_real/data/snt_corpus_REAL_v6.csv \
 >          reconstruction_real/data/snt_corpus_aco_timeseries_v29.csv \
 >          data/snt_asi_scores.csv \
          data/owid-maddison.csv \
