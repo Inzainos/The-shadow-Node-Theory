@@ -15,6 +15,15 @@ All data used in the active SNT v2.6.1 repository release (721 real cases) are e
 > sources; it is kept as reference, not as the source of the active cases.
 > Editions, download dates and SHA-256 checksums of external files:
 > `data/FUENTES.md`. Last verified against the corpus: 2026-09-26.
+>
+> **Canonical reproducibility status for the active release:**
+> - **Reproducible:** Domain B from MPD2020, Domain E3 from raw OWID data.
+> - **Partial:** the later OWID-Maddison edition approximates B but is not the
+>   active source, and the B point estimate remains open after AR(1) correction.
+> - **Not reproducible:** Domain E1 and the historical 5.9× abrupt-vs-gradual
+>   claim are not active evidence for the 721-case corpus.
+> - **Blocked by missing data:** HackerEarth and any source not redistributed in
+>   the repo remain record-only and cannot be cited as active evidence.
 
 ---
 

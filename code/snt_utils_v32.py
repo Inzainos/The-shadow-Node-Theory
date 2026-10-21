@@ -66,9 +66,9 @@ def _clasificar(b):
     there, so the finding does not speak to them.
     """
     if b > 2.0:
-        return "Exponente b>2 - sin clasificar (ver RC1 2026-10-02)"
+        return "Exponente b>2 - verificar persistencia: si se mantiene mucho = cavidad superlineal (cambio inminente), si es transitorio = ACO (colapso)"
     if b > 1.0:
-        return "Exponente b>1 - sin clasificar (ver RC1 2026-10-02)"
+        return "Exponente b>1 - verificar persistencia: si se mantiene mucho = cavidad superlineal (cambio inminente), si es transitorio = ACO (colapso)"
     if b > 0.3:
         return "Satelizacion activa"
     if b > 0.05:

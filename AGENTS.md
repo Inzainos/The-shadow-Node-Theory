@@ -36,6 +36,18 @@ preserved via `git subtree split`; Docker services run from there).
    the per-row p-value without the audit v32 caveats (README → "Audit v32").
 7. **Tests/CI must pass before merge.**
 
+## Environment
+
+For local work, use the virtual environment at
+`/home/deamon/The-shadow-Node-Theory/.venv/` (Python 3.14.7):
+
+```bash
+source /home/deamon/The-shadow-Node-Theory/.venv/bin/activate
+```
+
+Do not use the older `snt-env` Conda environment locally. CI still uses the
+Conda environment defined in `environment.yml`.
+
 ## Commands
 
 ```bash

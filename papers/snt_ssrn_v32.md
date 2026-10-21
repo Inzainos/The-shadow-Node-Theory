@@ -225,9 +225,11 @@ la satelización está activa. Cuando b < 0, ocurre convergencia o leapfrog. El
 exponente b es el parámetro de velocidad: b > 0.45 indica satelización acelerada;
 0.1 < b < 0.45, satelización gradual; −0.1 < b < 0.1, estado aproximadamente
 estacionario; b < −0.1, convergencia o leapfrog. (La v30 vinculaba la banda
-acelerada a una "clase de disparador abrupto"; ese vínculo se retira en la r31. La
-banda superlineal b ≥ 1 puede reflejar en parte una mala especificación del
-modelo — ver el Hallazgo 5 en §12.)
+acelerada a una "clase de disparador abrupto"; ese vínculo se retira en la r31.
+b ≥ 1 solo tiene significado si se mantiene por periodos muy largos (cavidad
+superlineal sostenida → cambio inminente). Si es transitorio o puntual, no se
+considera un régimen superlineal: en el marco, se interpreta como entrada en ACO
+(colapso) — ver el Hallazgo 5 en §12.)
 
 ### 2.2 Hipótesis central
 
@@ -675,9 +677,10 @@ comerciales están en el dominio B, y el principal destino de exportación cambi
 para 2005–2014 en 77 de 102 países, así que un solo hub fijo durante 50–119 años es
 en sí una aproximación fuerte. (iv) *Régimen superlineal:* en las 18 series crudas
 de la capa de colapso (ACO), el AIC prefiere la ley de potencia en 13, una exponencial en
-4 (b media = +1.54) y un modelo lineal en 1; cuanto mayor es b, peor ajusta la ley
-de potencia, así que parte de la banda b ≥ 1 (102 de 721 casos) puede ser mala
-especificación. RC1 extendido a los dominios restantes (r32): el Dominio C (23 series
+4 (b media = +1.54) y un modelo lineal en 1. El aparente empeoramiento del ajuste
+con b se reproduce en simulaciones RC1 aun cuando los datos siguen una ley de
+potencia conocida, por lo que no se interpreta como una propiedad de los sistemas.
+RC1 extendido a los dominios restantes (r32): el Dominio C (23 series
 de población estatal de EE. UU., 1900–2025) reproduce 23/23 desde el archivo Census/FRED
 versionado pero no es interpretable por AIC en b ≥ 1 (error contrafactual 22.6%, umbral
 20%); el Dominio A (4 pares de ciudades) no es reproducible (1/4, la única coincidencia
@@ -688,7 +691,11 @@ contrafactual del AIC en b ≥ 1 siempre supera el 20%, así que la banda superl
 decidible por AIC en ningún dominio. Crucialmente, la tautología de que "una exponencial
 verdadera ajustada como ley de potencia produce b ≥ 1" — medida en 70–100% en E3/B/ACO —
 **no se replica en el Dominio C** (0.7% de réplicas); es una propiedad de la estructura de
-ruido de cada dominio, no del estimador. Las series del Dominio C muestran ρ AR(1) mediano
+ruido de cada dominio, no del estimador. Por sí solo, b ≥ 1 no demuestra un
+régimen físico superlineal; en el marco, solo tendría significado si se mantiene
+durante periodos muy largos (cavidad superlineal sostenida → cambio inminente).
+Un valor transitorio o puntual se interpreta como entrada en ACO (colapso), no
+como un régimen superlineal sostenido. Las series del Dominio C muestran ρ AR(1) mediano
 0.970 (DW = 0.032, peor que el 0.944 de B), así que 12 de 23 casos de C no son estimables
 (efectiva n < 3) bajo el marco de la auditoría v32 — la misma salvedad que el Dominio B.
 (v) *Reporte:* los p-values por caso se redondearon a seis decimales en el corpus v5
@@ -905,8 +912,10 @@ COVID-19 (E1 + E3), y la banda puede reflejar en parte una mala especificación
 descripción donde la fricción es baja (propagación epidémica, E1 y E3); con
 fricción alta (países) compiten los modelos exponencial y lineal. En las 18 series
 crudas de la capa de colapso, el AIC prefiere la ley de potencia en 13, la
-exponencial en 4 (b media = +1.54) y el modelo lineal en 1: cuanto mayor es b, peor
-ajusta la ley de potencia. RC1 extendido a los dominios restantes (r32): el
+exponencial en 4 (b media = +1.54) y el modelo lineal en 1. El aparente
+empeoramiento del ajuste con b se reproduce en simulaciones RC1 aun cuando los
+datos siguen una ley de potencia conocida, por lo que no se interpreta como una
+propiedad de los sistemas. RC1 extendido a los dominios restantes (r32): el
 Dominio C reproduce 23/23 desde Census/FRED pero no es interpretable por AIC en
 b ≥ 1 (error contrafactual 22.6%, umbral 20%); el Dominio A no es reproducible
 (1/4); el Dominio E2 reproduce exactamente un caso y falla en el otro. Entre los
@@ -917,9 +926,11 @@ verdadera ajustada como ley de potencia produce b ≥ 1" — medida en 70–100%
 E3/B/ACO — **no se replica en el Dominio C** (0.7% de réplicas); es una propiedad
 de la estructura de ruido de cada dominio, no del estimador. El exponente b es
 una métrica descriptiva y comparable entre dominios — no la afirmación de que
-la ley de potencia sea el único modelo generador en todos los dominios —, y
-la banda superlineal b ≥ 1 debe volver a probarse contra modelos alternativos por
-dominio.
+la ley de potencia sea el único modelo generador en todos los dominios —. Por sí
+solo, b ≥ 1 no demuestra un régimen físico superlineal; en el marco, solo tendría
+significado si se mantiene durante periodos muy largos (cavidad superlineal
+sostenida → cambio inminente). Un valor transitorio o puntual se interpreta como
+entrada en ACO (colapso), no como un régimen superlineal sostenido.
 
 ---
 

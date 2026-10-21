@@ -95,11 +95,9 @@ where **b** is the satellization exponent.
 - b < 0 → convergence (the node gains relative ground)
 - b ≈ 0 → dynamic equilibrium
 - 0 < b < 1 → sublinear satellization (gradual)
-- b ≥ 1 → superlinear satellization (accelerated)
+- b ≥ 1 → only meaningful if sustained over long periods (sustained superlinear cavity → impending change). If transient/punctual, NOT superlinear: the system enters ACO (Orbital Collapse Architecture), i.e., collapse.
 
-**Roche Radius (b = 1.0):** critical threshold. A node with b ≥ 1 is in
-accelerated absorption — analogous to the astronomical Roche radius (the distance
-within which tidal forces overcome the satellite's cohesion).
+**Roche Radius (b = 1.0):** threshold candidate that only has meaning if **maintained over long periods** (sustained superlinear cavity → impending change). If b ≥ 1 is transient/punctual, it is NOT superlinear: the system enters ACO (Orbital Collapse Architecture), i.e., collapse — analogous to the astronomical Roche radius (the distance within which tidal forces overcome a satellite's cohesion).
 
 **Note (v29):** the exponent b is a **descriptive metric** of the speed and
 direction of satellization, not a claim that the power law is the only generative

@@ -126,7 +126,11 @@ significativo tras corregir la autocorrelacion, y mpox tambien da b alto
   supera el umbral del 20% en todos los dominios calibrados (E3 80.3%, B 96.8%,
   ACO 48.9%, C 22.6%, E2 94%) -> la banda NO es decidible por AIC en ningun
   dominio. La tautologia exponencial->b>=1 (70-100% en E3/B/ACO) no se replica
-  en C (0.7%): es propiedad de la estructura por dominio. Ver
+  en C (0.7%): es propiedad de la estructura por dominio. **Por si solo, b >= 1
+  no demuestra un regimen fisico superlineal; solo tendria significado si se
+  mantiene durante periodos muy largos. En esta interpretacion, un valor
+  transitorio o puntual marca la entrada en ACO (colapso), no un regimen
+  superlineal sostenido.** Ver
   `audits/RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md` y
   `audits/RESULTADOS_RC1_DOMINIOS_RESTANTES_2026-10-17.md`.
 - **Dominios fisicos (F)**: siguen ley de potencia pero su "friccion" es

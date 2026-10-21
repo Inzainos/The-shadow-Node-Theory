@@ -4,6 +4,23 @@ Registro de auditorías estadísticas del corpus reconstruido. Cada auditoría
 recorre las cifras publicadas y las vuelve a calcular desde los datos
 committeados.
 
+## Estado canónico de reproducibilidad
+
+- **Reproducible:** el dominio B se reconstruye byte a byte desde MPD2020
+  (`data/mpd2020.xlsx` y `expand_B_massive.py`); E3 se reproduce desde la serie
+  cruda de OWID en 233/234 casos y la corrección AR(1) conserva el hallazgo con
+  la cota conservadora 176/198 estimable.
+- **Parcial:** la edición posterior `data/owid-maddison.csv` solo aproxima B y
+  no reemplaza la fuente activa; el valor puntual de B sigue abierto porque el
+  tamaño efectivo es pequeño y requiere GLS/bootstrap por bloques.
+- **No reproducible:** el dominio E1 (4 casos) no se reproduce con ninguna
+  construcción natural y debe declararse no reproducible; las afirmaciones
+  históricas del 5.9× abrupto-vs-gradual tampoco son evidencia activa del corpus
+  actual.
+- **Bloqueado:** los datos de HackerEarth no se redistribuyen y los hallazgos que
+  dependan de fuentes ausentes quedan marcados como `BLOQUEADO` o
+  `NO_REPRODUCIBLE`, no como evidencia vigente.
+
 ## v32 — auditoría integral (2026-07)
 
 - **Informe:** [`AUDITORIA_INTEGRAL_v32.md`](AUDITORIA_INTEGRAL_v32.md) — 33
@@ -85,7 +102,10 @@ python reconstruction_real/code/snt_auditoria_integral_v32.py
    `by_domain/dominio_B_real.csv`.
 2. **Régimen superlineal b≥1 puede ser artefacto de modelo.** Por AIC sobre las
    18 series ACO: potencia gana 13/18, exponencial 4/18 (b̄ +1.54), lineal 1/18.
-   A mayor b, peor ajusta la ley de potencia.
+   A mayor b, peor ajusta la ley de potencia. **Nota: b ≥ 1 solo tiene significado
+   si se mantiene por periodos muy largos (cavidad superlineal sostenida → cambio
+   inminente). Si es transitorio/puntual, NO es superlineal: el sistema entra en
+   ACO (Colapso Orbital Acoplado), es decir, colapso del sistema.**
 3. **Dirección aguanta, p no.** El p por caso está doblemente inflado
    (autocorrelación + pseudo-replicación de 714 casos no independientes).
 4. **Defectos de reporte.** 557/721 p-values truncados a `0.0` por

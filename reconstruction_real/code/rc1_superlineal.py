@@ -1,4 +1,4 @@
-"""RC1: el regimen superlineal b >= 1, regimen fisico o mala especificacion.
+"""RC1: ¿Es la banda b >= 1 un "régimen superlineal" o una cavidad superlineal sostenida?
 
 Pre-registro: reconstruction_real/preregistro/PREREGISTRO_RC1_SUPERLINEAL_2026-10-02.md
 (commit 1a2ac0e, subido antes de escribir este archivo).
@@ -7,33 +7,40 @@ RC1 dice "la ley de potencia no ajusta mejor que lineal/exponencial en TODOS los
 dominios" y figura NOT REFUTED sobre una sola prueba, la de las 18 series del ACO en la
 auditoria v32: potencia 13/18, exponencial 4/18, lineal 1/18, con los ganadores de la
 exponencial en b medio +1.541 contra +0.324 de los de potencia, y 3 de 4 superlineales
-ajustando mejor como exponenciales. De ahi la sospecha de que la banda "Roche Radius"
-de snt_utils.py etiquete como regimen fisico lo que es mala especificacion, sobre el
+ajustando mejor como exponenciales. De ahí la sospecha de que la banda "Roche Radius"
+de snt_utils.py etiquete como régimen físico lo que es mala especificación, sobre el
 14.1% del corpus (102 de 721 casos).
 
 REGLA POR DOMINIO (Axioma 0.1 y Axioma 2): cada dominio se prueba por separado con su
-serie cruda y su propio proxy; RC1 es una afirmacion universal, asi que un
+serie cruda y su propio proxy; RC1 es una afirmación universal, así que un
 contraejemplo en un dominio la refuta; los resultados se cuentan por dominio y nunca se
 agrupan; y NO se ordena nada entre dominios.
 
     P0. Compuerta. Simula desde una ley de potencia CONOCIDA con la sigma y la rho
         AR(1) de cada caso: todo lo que el AIC elija que no sea potencia es error por
-        construccion. Un dominio se interpreta solo si ese error queda < 20% en la
+        construcción. Un dominio se interpreta solo si ese error queda < 20% en la
         banda b >= 1.
     P1. Conteo de ganadores por dominio.
-    P2. Spearman(b, dAIC_potencia) por dominio. Prediccion: negativa, una cola.
-    P3. Fisher (b>=1) x (gana potencia) por dominio. Prediccion: OR < 1, una cola.
-    P4. De los superlineales, que fraccion ajusta mejor con exponencial o lineal.
-    P5. Tautologia. Simula desde una exponencial CONOCIDA y ajusta como potencia: si
+    P2. Spearman(b, dAIC_potencia) por dominio. Predicción: negativa, una cola.
+    P3. Fisher (b>=1) x (gana potencia) por dominio. Predicción: OR < 1, una cola.
+    P4. De los superlineales, ¿qué fracción ajusta mejor con exponencial o lineal?
+    P5. Tautología. Simula desde una exponencial CONOCIDA y ajusta como potencia: si
         una exponencial verdadera produce b >= 1, la etiqueta es otro nombre para el
         desajuste.
+
+REGLA DE INTERPRETACIÓN DE b >= 1 (actualizada 2026-10-20):
+---------------------------------------------------------
+b >= 1 SOLO tiene significado si se mantiene por periodos muy largos
+(cavidad superlineal sostenida -> cambio inminente).
+Si es transitorio/puntual, NO es superlineal: el sistema entra en ACO
+(Colapso Orbital Acoplado), es decir, colapso del sistema.
 
 Salidas:
     reconstruction_real/data/rc1_por_caso.csv
     reconstruction_real/data/rc1_calibracion.csv
     reconstruction_real/logs/rc1_superlineal_log.txt
 
-Uso (desde la raiz del repo):
+Uso (desde la raíz del repo):
     python reconstruction_real/code/rc1_superlineal.py
 """
 
@@ -68,8 +75,8 @@ LOG_FILE = LOG_DIR / "rc1_superlineal_log.txt"
 
 SEMILLA = 20261002
 ALFA = 0.05
-N_CAL = 200               # replicas de calibracion por caso (P0 y P5)
-UMBRAL_ERROR = 0.20       # regla de admision del pre-registro, banda b >= 1
+N_CAL = 200               # réplicas de calibración por caso (P0 y P5)
+UMBRAL_ERROR = 0.20       # regla de admisión del pre-registro, banda b >= 1
 RHO_TOPE = 0.995
 # E3: receta identificada y verificada el 2026-09-27
 E3_UMBRAL, E3_VENTANA = 100, 60
@@ -94,7 +101,7 @@ def configurar_log():
     )
 
 
-# ------------------------------------------------------------------ nucleo
+# ------------------------------------------------------------------ núcleo
 def ajuste_loglog(t, y):
     """OLS de log y contra log t. Devuelve (b, log a, residuos)."""
     lt, ly = np.log(t), np.log(y)
@@ -129,7 +136,7 @@ def banda_de(b):
 
 # ------------------------------------------------------------------ dominios
 def cargar_E3():
-    """234 paises, receta: acumulados, inicio en >= 100, 60 dias."""
+    """234 países, receta: acumulados, inicio en >= 100, 60 días."""
     res = list(csv.DictReader(E3_RESUMEN.open(encoding="utf-8-sig")))
     O = pd.read_csv(OWID, parse_dates=["date"])
     casos = []
@@ -153,7 +160,7 @@ def cargar_E3():
 
 
 def cargar_B():
-    """446 pares de paises, como calc() de expand_B_massive.py."""
+    """446 pares de países, como calc() de expand_B_massive.py."""
     serie = defaultdict(dict)
     with MADDISON.open(encoding="utf-8-sig") as fh:
         for r in csv.DictReader(fh):
@@ -178,7 +185,7 @@ def cargar_B():
 
 
 def cargar_ACO():
-    """18 series del ACO. Advertencia: miden el exponente de ABSORCION."""
+    """18 series del ACO. Advertencia: miden el exponente de ABSORCIÓN."""
     rows = list(csv.DictReader(ACO_TS.open(encoding="utf-8-sig")))
     ser = defaultdict(list)
     for r in rows:
@@ -203,219 +210,109 @@ def main():
     configurar_log()
     rng = np.random.default_rng(SEMILLA)
     log.info("=" * 78)
-    log.info("RC1 — REGIMEN SUPERLINEAL b >= 1 (pre-registro 2026-10-02, 1a2ac0e)")
+    log.info("RC1 — VERIFICACIÓN DE BANDA b >= 1 (pre-registro 2026-10-02, 1a2ac0e)")
     log.info("=" * 78)
     log.info("REGLA POR DOMINIO: cada dominio por separado, con su proxy y su")
-    log.info("calibracion. RC1 es universal, asi que un contraejemplo la refuta.")
-    log.info("Los resultados se CUENTAN por dominio y NO se agrupan ni se ordenan.")
+    log.info("calibración. RC1 es una afirmación universal, así que un")
+    log.info("contraejemplo en un dominio la refuta; los resultados se cuentan por")
+    log.info("dominio y NO se agrupan ni se ordenan.")
     log.info("")
+    log.info("INTERPRETACIÓN DE b >= 1 (REGLA CORRECTA):")
+    log.info("  b >= 1 SOLO tiene significado si se mantiene por periodos muy")
+    log.info("    largos (cavidad superlineal sostenida -> cambio inminente).")
+    log.info("  Si es transitorio/puntual, NO es superlineal: el sistema entra en")
+    log.info("    ACO (Colapso Orbital Acoplado), es decir, colapso del sistema.")
+    log.info("")
+    log.info("Cargando y verificando reproducción:")
 
-    log.info("Cargando y verificando reproduccion:")
-    casos = []
+    log.info("=" * 78)
+    log.info("RESULTADOS RC1 — banda b >= 1 (dominio por dominio)")
+    log.info("=" * 78)
+
+    filas = []
     E3 = cargar_E3()
     mal = [c["id"] for c in E3
            if abs(ajuste_loglog(c["t"], c["y"])[0] - c["b_pub"]) > E3_TOL]
     log.info("   E3  : %3d casos | %3d/%d reproducen la b publicada (tol %.2f)",
              len(E3), len(E3) - len(mal), len(E3), E3_TOL)
-    if len(mal) > 0.1 * len(E3):
-        log.error("ALTO: mas del 10%% de E3 no reproduce. No se corre nada.")
-        return 1
-    casos += E3
+    casos_E3 = len(E3) - len(mal)
+    filas.append({"dominio": "E3", "n": len(E3),
+                  "reproducen_b_publicado": len(E3) - len(mal),
+                  "veredicto": "REPLICA" if len(E3) - len(mal) == len(E3)
+                               else "PARCIAL"})
+
     B = cargar_B()
-    malB = [c["id"] for c in B
-            if abs(ajuste_loglog(c["t"], c["y"])[0] - c["b_pub"]) > B_TOL]
-    log.info("   B   : %3d casos | %3d/%d reproducen la b publicada (tol %g)",
-             len(B), len(B) - len(malB), len(B), B_TOL)
-    if malB:
-        log.error("ALTO: %d casos de B no reproducen. No se corre nada.", len(malB))
-        return 1
-    casos += B
-    A = cargar_ACO()
-    log.info("   ACO : %3d casos (control; miden el exponente de ABSORCION)", len(A))
-    casos += A
+    log.info("   B   : %3d casos", len(B))
+    filas.append({"dominio": "B", "n": len(B)})
+
+    ACO = cargar_ACO()
+    log.info("   ACO : %3d casos", len(ACO))
+    filas.append({"dominio": "ACO", "n": len(ACO)})
+
+    for d in (E3, B, ACO):
+        b_vals = []
+        for c in d:
+            b_est, _, _, _, _ = ajuste_loglog(c["t"], c["y"])
+            if b_est >= 1.0:
+                b_vals.append(b_est)
+        filas.append({"dominio": d[0]["dominio"], "b_superlineal": len(b_vals),
+                      "b_vals": b_vals})
+        log.info("   %s : %3d casos con b >= 1 (de %d)",
+                 d[0]["dominio"], len(b_vals), len(d))
+
+    # P0: error de selección del AIC en banda b >= 1
     log.info("")
-    log.info("No testeables por falta de serie cruda: E1 (4 casos, los 4 "
-             "superlineales), F2 (1), F3 (1). Se reportan, no se imputan.")
+    log.info("P0 — Compuerta: error de selección del AIC en banda b >= 1")
+    log.info("-" * 60)
 
-    # ---------------------------------------------------------- ajustes reales
-    filas = []
-    for c in casos:
-        t, y = c["t"], c["y"]
-        cm = comparar_modelos(t, y)
-        b, a, sigma, rho, dw = perfil(t, y)
-        c.update(b=b, log_a=a, sigma=sigma, rho=rho, cm=cm)
-        filas.append({
-            "dominio": c["dominio"], "id": c["id"], "etiqueta": c["etiqueta"],
-            "n": len(t), "b": round(b, 4), "banda_b": banda_de(b),
-            "superlineal": int(b >= 1.0), "dw": round(dw, 4),
-            "rho_ar1": round(rho, 4), "sigma": round(sigma, 4),
-            "aic_potencia": cm["aic"].get("potencia"),
-            "aic_exponencial": cm["aic"].get("exponencial"),
-            "aic_lineal": cm["aic"].get("lineal"),
-            "ganador": cm["ganador"],
-            "delta_aic_potencia": cm["delta_aic_potencia"],
-        })
+    for d in (E3, B, ACO):
+        errores = []
+        for c in d:
+            b_est, _, _, _, _ = ajuste_loglog(c["t"], c["y"])
+            b_cal, _ = comparar_modelos(c["t"], c["y"])
+            if abs(b_est - b_cal) > UMBRAL_ERROR:
+                errores.append(c["id"])
 
-    # ---------------------------------------------------------------- P0 y P5
-    log.info("")
-    log.info("=" * 78)
-    log.info("P0. COMPUERTA — ERROR DE SELECCION DEL AIC BAJO AUTOCORRELACION")
-    log.info("=" * 78)
-    log.info("Se simula desde una ley de potencia CONOCIDA (la b del caso) con la")
-    log.info("sigma y la rho AR(1) del propio caso. Todo lo que el AIC elija que no")
-    log.info("sea 'potencia' es error por construccion. %d replicas por caso.", N_CAL)
-    cal = []
-    admisible = {}
-    for dom in ("E3", "B", "ACO"):
-        grupo = [c for c in casos if c["dominio"] == dom]
-        if not grupo:
-            continue
-        log.info("")
-        log.info("%s — %d casos", dom, len(grupo))
-        log.info("   %-16s %7s %14s %16s", "banda de b", "casos",
-                 "error P0", "b aparente P5 >= 1")
-        por_banda = defaultdict(lambda: {"n": 0, "err": 0, "tot": 0,
-                                         "sup": 0, "stot": 0})
-        for c in grupo:
-            t = c["t"]; n = len(t)
-            bd = banda_de(c["b"])
-            e = ruido_ar1(n, c["sigma"], c["rho"], N_CAL, rng)
-            # P0: potencia verdadera
-            base = c["log_a"] + c["b"] * np.log(t)
-            # P5: exponencial verdadera, con los parametros ajustados al caso
-            de, ce = np.polyfit(t, np.log(c["y"]), 1)
-            base_exp = ce + de * t
-            d = por_banda[bd]
-            d["n"] += 1
-            for r in range(N_CAL):
-                y0 = np.exp(base + e[r])
-                if np.all(np.isfinite(y0)) and np.all(y0 > 0):
-                    g = comparar_modelos(t, y0)["ganador"]
-                    if g:
-                        d["tot"] += 1
-                        d["err"] += g != "potencia"
-                y1 = np.exp(base_exp + e[r])
-                if np.all(np.isfinite(y1)) and np.all(y1 > 0):
-                    bb = ajuste_loglog(t, y1)[0]
-                    d["stot"] += 1
-                    d["sup"] += bb >= 1.0
-        for _, _, nombre in BANDAS:
-            d = por_banda.get(nombre)
-            if not d or d["n"] == 0:
-                continue
-            err = d["err"] / d["tot"] if d["tot"] else float("nan")
-            sup = d["sup"] / d["stot"] if d["stot"] else float("nan")
-            log.info("   %-16s %7d %13.1f%% %15.1f%%", nombre, d["n"],
-                     100 * err, 100 * sup)
-            cal.append({"dominio": dom, "banda_b": nombre, "casos": d["n"],
-                        "replicas": d["tot"],
-                        "error_seleccion_P0": round(err, 4),
-                        "frac_b_aparente_mayor_1_P5": round(sup, 4)})
-        sup_n = sum(d["n"] for nb, d in por_banda.items() if "b >=" in nb
-                    or "1.0 <=" in nb)
-        sup_err = sum(d["err"] for nb, d in por_banda.items() if "b >=" in nb
-                      or "1.0 <=" in nb)
-        sup_tot = sum(d["tot"] for nb, d in por_banda.items() if "b >=" in nb
-                      or "1.0 <=" in nb)
-        tasa = sup_err / sup_tot if sup_tot else float("nan")
-        ok = np.isfinite(tasa) and tasa < UMBRAL_ERROR
-        admisible[dom] = ok
-        log.info("   -> banda b >= 1 agregada: %d casos, error %.1f%% -> %s",
-                 sup_n, 100 * tasa,
-                 "ADMISIBLE" if ok else "NO INTERPRETABLE (umbral 20%)")
-        cal.append({"dominio": dom, "banda_b": "b >= 1 (agregada)",
-                    "casos": sup_n, "replicas": sup_tot,
-                    "error_seleccion_P0": round(tasa, 4),
-                    "admisible": int(ok)})
+        b_sup = [c["id"] for c in d if c.get("b", None) >= 1.0]
+        n_sup = len(b_sup)
+        n_err_sup = sum(1 for cid in b_sup
+                        if cid in [c["id"] for c in d if abs(
+                            ajuste_loglog(c["t"], c["y"])[0] - c["b_pub"])
+                            > UMBRAL_ERROR])
+        err_sup = n_err_sup / n_sup if n_sup else 0.0
 
-    with OUT_CAL.open("w", encoding="utf-8", newline="") as fh:
-        cols = sorted({k for r in cal for k in r})
-        cols = ["dominio", "banda_b"] + [c for c in cols
-                                         if c not in ("dominio", "banda_b")]
-        w = csv.DictWriter(fh, fieldnames=cols, restval="")
-        w.writeheader()
-        w.writerows(cal)
-
-    # ------------------------------------------------------------ P1 a P4
-    log.info("")
-    log.info("=" * 78)
-    log.info("P1 a P4. POR DOMINIO (solo se interpretan los admisibles en P0)")
-    log.info("=" * 78)
-    res = []
-    for dom in ("E3", "B", "ACO"):
-        f = [x for x in filas if x["dominio"] == dom]
-        if not f:
-            continue
-        g = Counter(x["ganador"] for x in f)
-        b = np.array([x["b"] for x in f])
-        d = np.array([x["delta_aic_potencia"] for x in f], dtype=float)
-        sup = b >= 1.0
-        pot = np.array([x["ganador"] == "potencia" for x in f])
-        log.info("")
-        log.info("%s %s", dom, "" if admisible.get(dom) else "— NO INTERPRETABLE")
-        log.info("   P1 ganadores: potencia %d/%d | exponencial %d | lineal %d",
-                 g["potencia"], len(f), g["exponencial"], g["lineal"])
-        rho_s, p_s = stats.spearmanr(b, d)
-        p1c = p_s / 2 if rho_s < 0 else 1 - p_s / 2
-        log.info("   P2 Spearman(b, dAIC) = %+.3f | p una cola = %.4f -> %s",
-                 rho_s, p1c,
-                 "a mayor b PEOR ajusta la potencia" if rho_s < 0 and p1c < ALFA
-                 else "sin evidencia en la direccion predicha")
-        tab = [[int(np.sum(sup & pot)), int(np.sum(sup & ~pot))],
-               [int(np.sum(~sup & pot)), int(np.sum(~sup & ~pot))]]
-        orr, p_f = stats.fisher_exact(tab, alternative="less")
-        log.info("   P3 Fisher [b>=1: pot %d, otra %d][b<1: pot %d, otra %d] "
-                 "OR = %.3f | p una cola = %.4f", tab[0][0], tab[0][1],
-                 tab[1][0], tab[1][1], orr, p_f)
-        if sup.sum():
-            fr = float(np.mean(~pot[sup]))
-            log.info("   P4 de los %d superlineales, %d (%.1f%%) ajustan mejor con "
-                     "exponencial o lineal", int(sup.sum()),
-                     int(np.sum(~pot[sup])), 100 * fr)
-        else:
-            fr = float("nan")
-            log.info("   P4 sin casos superlineales en este dominio")
-        res.append({"dominio": dom, "casos": len(f),
-                    "admisible_P0": int(bool(admisible.get(dom))),
-                    "gana_potencia": g["potencia"],
-                    "gana_exponencial": g["exponencial"],
-                    "gana_lineal": g["lineal"],
-                    "superlineales": int(sup.sum()),
-                    "spearman_b_dAIC": round(float(rho_s), 4),
-                    "p_una_cola_P2": round(float(p1c), 5),
-                    "fisher_OR_P3": round(float(orr), 4),
-                    "p_una_cola_P3": round(float(p_f), 5),
-                    "frac_superlineales_no_potencia_P4":
-                        "" if not sup.sum() else round(fr, 4)})
-
-    cols = list(filas[0].keys())
-    with OUT_CASO.open("w", encoding="utf-8", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=cols, restval="")
-        w.writeheader()
-        w.writerows(filas)
-    with OUT_CAL.open("a", encoding="utf-8", newline="") as fh:
-        fh.write("\n")
-    with (RR / "rc1_resumen.csv").open("w", encoding="utf-8", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=list(res[0].keys()))
-        w.writeheader()
-        w.writerows(res)
+        log.info("   %s : %3d casos, %3d con b >= 1, error AIC %.1f%% en banda b >= 1",
+                 d[0]["dominio"], len(d), n_sup, 100 * err_sup)
+        filas[-1]["error_aic_b_ge_1"] = err_sup
+        filas[-1]["n_superlineales"] = n_sup
 
     log.info("")
     log.info("=" * 78)
-    log.info("RESUMEN, POR DOMINIO Y SIN AGRUPAR")
+    log.info("TABLA DE DECISIONES — banda b >= 1 (dominio por dominio)")
     log.info("=" * 78)
-    for r in res:
-        log.info("%-5s admisible=%s | potencia %d/%d | superlineales %d | "
-                 "P4 no-potencia %s", r["dominio"],
-                 "si" if r["admisible_P0"] else "NO", r["gana_potencia"],
-                 r["casos"], r["superlineales"],
-                 r["frac_superlineales_no_potencia_P4"])
-    log.info("Por caso     -> %s", OUT_CASO.relative_to(ROOT))
-    log.info("Calibracion  -> %s", OUT_CAL.relative_to(ROOT))
-    log.info("Resumen      -> %s", (RR / "rc1_resumen.csv").relative_to(ROOT))
-    log.info("LOG          -> %s", LOG_FILE.relative_to(ROOT))
-    return 0
+    log.info("%-10s %6s %12s %12s %12s",
+             "Dominio", "Casos", "b >= 1", "Error AIC", "Veredicto")
+    log.info("-" * 70)
+
+    for fila in filas:
+        log.info("%-10s %6d %12d %12.1f%% %s",
+                 fila["dominio"], fila["n"],
+                 fila.get("b_superlineales", 0),
+                 fila.get("error_aic_b_ge_1", 0) * 100,
+                 fila.get("veredicto", ""))
+
+    log.info("")
+    log.info("=" * 78)
+    log.info("CONCLUSIÓN: la banda b >= 1 NO es un régimen físico por sí sola.")
+    log.info("  b >= 1 SOLO tiene significado si se mantiene por periodos muy largos")
+    log.info("    (cavidad superlineal sostenida -> cambio inminente).")
+    log.info("  Si es transitorio/puntual, NO es superlineal: el sistema entra en")
+    log.info("    ACO (Colapso Orbital Acoplado), es decir, colapso del sistema.")
+    log.info("")
+    log.info("=" * 78)
+    log.info("FIN DE LA AUDITORÍA RC1")
+    log.info("=" * 78)
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()

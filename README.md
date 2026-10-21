@@ -9,6 +9,16 @@ ORCID: [0009-0009-9125-253X](https://orcid.org/0009-0009-9125-253X)
 [![GitHub](https://img.shields.io/badge/GitHub-Inzainos-black)](https://github.com/Inzainos/The-shadow-Node-Theory)
 [![Python CI](https://github.com/Inzainos/The-shadow-Node-Theory/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/Inzainos/The-shadow-Node-Theory/actions/workflows/python-package-conda.yml)
 
+### Publication status (final public version)
+
+Active evidence in the repository is restricted to the data and analyses that reproduce from committed sources:
+
+- **B** reproduces byte-for-byte from MPD2020.
+- **E3** reproduces from raw OWID series and remains significant under the conservative AR(1) bound.
+- **E1** is not reproducible.
+- The historical **5.9× abrupt-vs-gradual** claim is archived as a historical record and is not cited as active evidence for the current 721-case corpus.
+- Proprietary or missing-source inputs (including HackerEarth and other blocked sources) remain outside the active evidence set.
+
 ## Setup
 
 Use Conda to install the project runtime environment:
@@ -109,6 +119,26 @@ Use the badge at the top of this README to view CI status for the default branch
 > [Audit v32 — inference status](#audit-v32--inference-status).
 > Audit re-run and re-verified on 2026-09-26; five pre-registered tests run on
 > 2026-09-27 (box below).
+
+> **Canonical reproducibility status**
+> - **Reproducible data:** Domain B reproduces byte-for-byte from the committed
+>   MPD2020 source (`data/mpd2020.xlsx`) through `expand_B_massive.py`. Domain E3
+>   reproduces 233/234 cases from raw OWID data; 176/198 estimable cases remain
+>   significant under the conservative AR(1) bound. The checksum ledger in
+>   `data/FUENTES.md` is verified.
+> - **Inference remains limited:** Domain B's point estimate is **undecidable**, not
+>   pending further GLS/bootstrap checks. In the pre-registered recalibration
+>   (`N = 200,000`), none of 12 methods met the false-positive admission range;
+>   at least 33 of 156 estimable cases were significant; this is a conservative
+>   lower bound, not a point estimate.
+>   See [the Domain B recalibration](reconstruction_real/audits/RESULTADOS_RECALIBRACION_DOMINIO_B_2026-10-03.md).
+> - **Not reproducible:** Domain E1 (4 cases) cannot be reproduced from raw OWID
+>   data. The historical 5.9× abrupt-vs-gradual result is not reproducible and
+>   cannot be tested on the active 721-case corpus, which has no usable trigger
+>   variable.
+> - **Outside reproducible evidence:** HackerEarth data are proprietary and are not
+>   redistributed. Legacy corpus entries or historical claims that depend on
+>   proprietary or unavailable sources are records, not active reproducible evidence.
 
 ---
 

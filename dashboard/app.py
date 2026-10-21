@@ -479,8 +479,14 @@ b >= 1    → exponent reported, regime NOT classified (see below)
 exponential* curve fitted as a power law yields `b >= 1` in **99.9%** of
 replicates in E3's high band and **100%** in the ACO set, against **0.0%**
 where the real `b` is below 0.5. The threshold does not separate fast
-satellization from a shape misfit, so the label was withdrawn. The exponent is
-still reported; no regime is asserted above 1. Bands below 1 are unaffected.
+satellization from a shape misfit, so the label was withdrawn.
+
+**RC1 CORRECTED INTERPRETATION (2026-10-20):** `b >= 1` only has meaning if it
+is **sustained over long periods** (sustained superlinear cavity → impending
+change). If it is transient/pointwise, it is **NOT superlinear**: the system
+enters **ACO** (Orbital Collapse Architecture), i.e. collapse of the system.
+The exponent `b >= 1` is still reported; no regime is asserted above 1 based on
+b alone. Bands below 1 are unaffected.
 
 ### Falsifiability Criteria (RC1-RC8)
 

@@ -205,8 +205,10 @@ exponent b is the velocity parameter: b > 0.45 indicates accelerated satellizati
 0.1 < b < 0.45 indicates gradual satellization; −0.1 < b < 0.1 indicates
 approximate steady state; b < −0.1 indicates convergence or leapfrog. (v30 tied
 the accelerated band to an "abrupt-trigger class"; that link is withdrawn in r31.
-The superlinear band b ≥ 1 may partly reflect model misspecification — see
-Finding 5 in §12.)
+b ≥ 1 is meaningful only if sustained over very long periods (a sustained
+superlinear cavity → impending change). If it is transient or punctual, it is not
+considered a superlinear regime: within the framework, it is interpreted as entry
+into ACO (collapse) — see Finding 5 in §12.)
 
 ### 2.2 Central Hypothesis
 
@@ -632,9 +634,10 @@ pair, not a network position; rebuilt with trade-emergent hubs, only 9 of 102 hu
 pairs are in Domain B, and the main export destination changes by 2005–2014 for
 77 of 102 countries, so a single fixed hub over 50–119 years is itself a strong
 approximation. (iv) *Superlinear regime:* in the 18 raw collapse-layer series (ACO), AIC prefers
-the power law in 13, an exponential in 4 (mean b = +1.54) and a linear model in 1;
-the higher b, the worse the power law fits, so part of the b ≥ 1 band (102 of 721
-cases) may be misspecification. RC1 extended to the remaining domains (r32):
+the power law in 13, an exponential in 4 (mean b = +1.54) and a linear model in 1.
+The apparent worsening of fit with b is reproduced in RC1 simulations even when
+the data follow a known power law, so it is not interpreted as a property of the
+systems. RC1 extended to the remaining domains (r32):
 Domain C (23 US state population series, 1900–2025) reproduces 23/23 from the
 committed Census/FRED file but is not AIC-interpretable at b ≥ 1 (counterfactual
 error 22.6%, threshold 20%); Domain A (4 city pairs) is not reproducible (1/4,
@@ -645,8 +648,12 @@ C 22.6%, E2 94%) the AIC counterfactual error at b ≥ 1 always exceeds 20%, so
 the superlinear band is not decidable by AIC in any domain. Crucially, the
 tautology that "a true exponential fitted as a power law yields b ≥ 1" — measured
 at 70–100% in E3/B/ACO — **does not replicate in Domain C** (0.7% of replicas);
-it is a property of each domain's noise structure, not of the estimator. Domain C
-series also show median AR(1) ρ = 0.970 (DW = 0.032, worse than B's 0.944), so
+it is a property of each domain's noise structure, not of the estimator. By itself,
+b ≥ 1 does not demonstrate a physical superlinear regime; within the framework, it
+would be meaningful only if sustained over very long periods (a sustained
+superlinear cavity → impending change). A transient or punctual value is
+interpreted as entry into ACO (collapse), not as a sustained superlinear regime.
+Domain C series also show median AR(1) ρ = 0.970 (DW = 0.032, worse than B's 0.944), so
 12 of 23 C cases are not estimable (effective n < 3) under the audit v32
 (v) *Reporting:* per-case p-values were rounded to six decimals in the committed
 corpus v5 (557 of 721 read 0.0), and two R² definitions (log and raw scale) were
@@ -852,8 +859,9 @@ conjecture.
 friction is low (epidemic spread, E1 and E3); under high friction (countries)
 exponential and linear models compete. In the 18 raw collapse-layer series, AIC
 prefers the power law in 13, the exponential in 4 (mean b = +1.54) and the
-linear model in 1: the higher b, the worse the power law fits. RC1 extended to
-the remaining domains (r32): Domain C reproduces 23/23 from Census/FRED but is
+linear model in 1. The apparent worsening of fit with b is reproduced in RC1
+simulations even when the data follow a known power law, so it is not interpreted
+as a property of the systems. RC1 extended to the remaining domains (r32): Domain C reproduces 23/23 from Census/FRED but is
 not AIC-interpretable at b ≥ 1 (counterfactual error 22.6%, threshold 20%);
 Domain A is not reproducible (1/4); Domain E2 reproduces exactly for one case
 and fails for the other. Across calibrated domains (E3 80.3%, B 96.8%, ACO
@@ -863,8 +871,11 @@ that "a true exponential fitted as a power law yields b ≥ 1" — measured at
 70–100% in E3/B/ACO — **does not replicate in Domain C** (0.7% of replicas); it
 is a property of each domain's noise structure, not of the estimator. The
 exponent b is a descriptive, cross-domain comparable metric — not a claim that
-the power law is the only generative model in all domains — and the superlinear
-band b ≥ 1 should be re-tested against alternative models per domain.
+the power law is the only generative model in all domains. By itself, b ≥ 1 does
+not demonstrate a physical superlinear regime; within the framework, it would be
+meaningful only if sustained over very long periods (a sustained superlinear
+cavity → impending change). A transient or punctual value is interpreted as
+entry into ACO (collapse), not as a sustained superlinear regime.
 
 ---
 
@@ -1013,8 +1024,8 @@ series (E3 reproduced; E1 not reproducible), a satellization corpus with
 independently coded triggers (supported, n = 8) and a time-varying hub
 definition (not supported). Still open: GLS or block-bootstrap estimation to pin
 the autocorrelation-corrected significance of Domain B (standard Newey-West
-under-corrects); re-testing the superlinear band against exponential and
-lognormal models; a larger trigger corpus without the survivorship filter; an
+under-corrects); testing whether b ≥ 1 persists for very long periods before an
+ACO transition; a larger trigger corpus without the survivorship filter; an
 age-period-cohort model for the crypto hazard; friction → Δ beyond the 2008
 cohort; and a second, independent coding of triggers and friction.
 

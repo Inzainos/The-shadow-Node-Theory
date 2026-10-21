@@ -206,7 +206,10 @@ la sección mismo-edad. Todo determinista; descargas verificadas por SHA.
   - **La etiqueta sí se cae, por una prueba que no usa el AIC.** Una exponencial
     verdadera ajustada como ley de potencia produce `b ≥ 1` en el **99.9%** de las
     réplicas en la banda alta de E3 y en el **100%** del ACO, contra **0.0%** donde la
-    `b` real es menor que 0.5. La banda `b > 1` de `snt_utils.py` —*"Satelización
+    `b` real es menor que 0.5. **`b ≥ 1` solo tiene significado si se mantiene por
+    periodos muy largos (cavidad superlineal sostenida → cambio inminente). Si es
+    transitorio/puntual, NO es superlineal: el sistema entra en ACO (Colapso Orbital
+    Acoplado), es decir, colapso del sistema.** La banda `b > 1` de `snt_utils.py` —*"Satelización
     rápida sin fricción / Roche Radius"*— **no separa un régimen de un desajuste**, y
     el 14.1% (102 de 721) no es un conteo de régimen.
   - **El ρ no replica entre dominios:** −0.796 en el ACO, −0.250 en E3 y **+0.039 sin
@@ -611,6 +614,32 @@ los resultados del pre-registro. El corpus de 721 casos no cambia. PR
   nunca subido); la v30 queda intacta.
 
 ### Corregido
+- **Preprints alineados con RC1 ampliado y persistencia de `b ≥ 1`**
+  (2026-10-20). Se conservan los resultados recientes del corpus v6 y de RC1
+  por dominio; se aclara que el aparente empeoramiento del ajuste con `b` se
+  reproduce bajo simulaciones de leyes de potencia conocidas y no se atribuye a
+  los sistemas. `b ≥ 1` se trata como régimen solo si persiste durante periodos
+  muy largos; un valor transitorio o puntual se interpreta en el marco como
+  entrada en ACO. Las figuras ACO regeneradas en `main` se mantienen vigentes.
+- **Actualización de GitHub Actions para Node.js 24** (2026-10-20).
+  `actions/checkout` y `conda-incubator/setup-miniconda` pasan a sus versiones
+  compatibles con Node.js 24 para evitar la advertencia de deprecación de Node.js 20.
+  La advertencia de alias de Conda no proviene de un archivo de configuración
+  versionado; no se añadió configuración local para ocultarla. Se conserva
+  `ubuntu-latest`: el aviso sobre la migración a Ubuntu 26 es informativo y no
+  evidencia una incompatibilidad del flujo.
+- **Resumen canónico de reproducibilidad del README** (2026-10-20). Se corrige
+  el estado obsoleto del valor puntual del Dominio B: la recalibración
+  pre-registrada de `N = 200,000` lo cerró como indecidible; 33/156 queda como
+  cota inferior conservadora, no como estimación. También se distingue la
+  reproducción de datos de la evidencia inferencial y se aclara el estado de
+  E1, del resultado histórico 5.9× y de los datos propietarios.
+- **Estado canónico de reproducibilidad y cierre de referencias no reproducibles**
+  (2026-10-02). Se unifica el estatus en `README.md`, `reconstruction_real/audits/README.md`
+  y `sources.md`: B reproducible desde MPD2020, E3 reproducible desde la serie cruda
+  con la cota AR(1) conservadora, E1 y el 5.9× histórico declarados no reproducibles,
+  y los datos faltantes marcados como bloqueados. La documentación no vuelve a citar
+  esos puntos como evidencia activa del corpus vigente.
 - **Cifra corregida de E3 y valor puntual de B** (2026-09-27, revisión posterior a
   2.6.0). El runner de la auditoría (`snt_auditoria_integral_v32.py`) ya no marca como
   BLOQUEADAS dos filas que ahora tienen datos: reconstruye las 446 series de B desde

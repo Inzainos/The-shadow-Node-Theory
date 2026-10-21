@@ -89,11 +89,22 @@ trae DW pero es igual o más autocorrelacionado.
 > `test_correccion_ar1.py` fija 156/290/33/112 (cifras invariantes a la
 > convención de gl — por eso **no** se fija 145).
 
-### 2. El régimen superlineal b≥1 puede ser artefacto de modelo — hallazgo nuevo
+**> El régimen superlineal b≥1 puede ser artefacto de modelo — hallazgo nuevo**
 
 RC1 ("la ley de potencia no ajusta mejor que lineal/exponencial") figura como NOT REFUTED en el
 README, pero **no hay ningún script en el repo que la pruebe**. La probé por AIC sobre las 18
 series crudas del ACO (las únicas disponibles):
+
+```
+potencia gana: 13/18    exponencial: 4/18    lineal: 1/18
+```
+
+**Nueva regla de interpretación para `b ≥ 1`:** `b ≥ 1` **solo tiene significado si se mantiene
+por periodos muy largos** (cavidad superlineal sostenida → cambio inminente). Si `b ≥ 1` es
+transitorio/puntual, **NO es superlineal**: el sistema entra en **ACO** (Colapso Orbital
+Acoplado), es decir, colapso del sistema. Por eso el AIC no puede interpretarlo como "régimen
+superlineal": la etiqueta no distingue entre una cavidad sostenida (cambio inminente) y un
+paseo transitorio (acaso).
 
 ```
 potencia gana: 13/18    exponencial: 4/18    lineal: 1/18

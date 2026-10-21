@@ -13,9 +13,9 @@ jobs:
         shell: bash -l {0}
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - name: Set up Conda environment
-      uses: conda-incubator/setup-miniconda@v2
+      uses: conda-incubator/setup-miniconda@v4
       with:
         python-version: 3.11
         activate-environment: snt-env
