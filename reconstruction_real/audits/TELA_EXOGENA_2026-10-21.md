@@ -65,6 +65,22 @@ umbrales inventados). Régimen = bandas declaradas de la SNT. n = 698.
   vs 3.9%); superlineal es **infinitamente más probable** con rápida
   (40.3% vs 0%).
 
+### Conexión con el postulado previo (no retrospectiva)
+
+Esta matriz es la **versión operativa del Principio de Mínima Fricción**
+declarado con anticipación en `sudo_universe/SUDO_UNIVERSE.md` §19.5
+(línea 997): *"Unifica los tres modos — misma ley sobre campos de
+fricción distintos"* — y su versión falsable: *"el colapso realizado
+tiene menor fricción integrada que las trayectorias contrafactuales"*.
+La comparabilidad trans-dominio de b estaba igualmente declarada en
+`papers/snt_ssrn_v32.md:928` (*"métrica descriptiva y comparable entre
+dominios"*). La medición de hoy no inventa el enunciado: lo numera.
+Si la fricción no gobernara el camino, las celdas de la matriz serían
+uniformes — no lo son (42.5% vs 3.9%). La invariancia medida es de
+**forma** (la familia R = a·t^b), no de parámetro (las medianas de b
+difieren por dominio: 0.058 B, 0.342 ACO, 0.846 E3) — exactamente como
+el marco lo postulaba.
+
 **Advertencia de composición:** la matriz agrupa dominios — el tercil
 alto lo dominan los E3 (fase de crecimiento, selección con sesgo
 positivo por diseño del dominio) y el bajo los B. Si se conoce el
