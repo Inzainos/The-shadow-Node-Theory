@@ -48,6 +48,27 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 
 ## [No publicado]
 
+### 2026-10-21 — Capa cimática de la tela: placa, figura, tonos, huellas y prueba de identificación
+
+Informe: `reconstruction_real/audits/TELA_CIMATICA_2026-10-21.md`.
+
+- **Nueva capa** (`code/tela_cimatica.py`): la lectura cimática del cubo
+  𝒞(u, m, τ) — la tela como placa de Chladni. La placa (mapa de densidad
+  τ × log₁₀ m de los 7,306 puntos con líneas nodales), la figura
+  (trayectoria mediana por dominio), los tonos (espectro FFT mediano por
+  dominio), las huellas (CSV de identificación por dominio) y la prueba
+  LOO de identificación.
+- **Objetivo medido — identificar el dominio viendo la figura: NO**
+  (21.2% con todos los rasgos, 19.8% solo-forma). B y C (mismo φ alta,
+  b solapados) dibujan la misma figura.
+- **Predicción cimática medida — identificar el TONO (φ): PARCIAL**
+  (53.7% / 43.7%, 2.5× mejor que por dominio). El tono `nula` y los
+  colapsos reales ACO sí se identifican (72% ambos): la figura revela
+  el régimen de fricción, no el instrumento — como en Chladni.
+- **Corrección del informe de la tela**: las sombras son 721 (todo el
+  corpus v5, sin ACO), no 703; casos totales en la tela = 739
+  (18 reales + 721 sombras).
+
 ### 2026-10-21 — Tela de Incertidumbre (Axioma 0.1 v34) implementada correctamente
 
 Informe: `reconstruction_real/audits/TELA_DE_INCERTIDUMBRE_2026-10-21.md`.

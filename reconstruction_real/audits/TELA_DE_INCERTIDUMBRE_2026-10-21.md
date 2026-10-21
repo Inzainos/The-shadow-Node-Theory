@@ -41,12 +41,13 @@ marco, corregidos en el commit `cbdeec6`:
 | Fuente | Casos | Puntos | Descripción |
 |--------|-------|--------|-------------|
 | **Serie cruda ACO** | 18 | 109 | (t, R) reales de `snt_corpus_aco_timeseries_v29.csv` |
-| **Sombra modelo ajustado** | 703 | 7,197 | R=a·t^b con a=1 relativa, t=1..n, 10 puntos por caso |
-| **Total** | 721 | **7,306** | |
+| **Sombra modelo ajustado** | 721 | 7,197 | R=a·t^b con a=1 relativa, t=1..n, 10 puntos por caso (F1: 17 puntos en 2 casos) |
+| **Total** | **739** | **7,306** | |
 
-Los puntos de dominios sin serie cruda son **sombras** del modelo ajustado,
-no datos crudos — el Axioma 0.2 permite sombras: "una sombra es válida y
-parcial a la vez". Solo ACO tiene serie (t,R) real versionada.
+El corpus v5 aporta 721 casos (10 dominios, sin ACO); los 18 ACO llegan solo
+por la serie cruda. Los puntos de dominios sin serie cruda son **sombras**
+del modelo ajustado, no datos crudos — el Axioma 0.2 permite sombras: "una
+sombra es válida y parcial a la vez". Solo ACO tiene serie (t,R) real versionada.
 
 ## Marco de medición θ
 
