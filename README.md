@@ -1,84 +1,125 @@
 # Shadow Node Theory · v2.7.1
 
-### Satelización de escala · colapso orbital acoplado · tela de incertidumbre
-
 [![Release](https://img.shields.io/badge/release-v2.7.1-6f42c1)](CHANGELOG.md)
 [![Marco teórico](https://img.shields.io/badge/marco-v34-0e8a8a)](papers/marco_teorico.md)
-[![Series reales en la tela](https://img.shields.io/badge/tela-699%20series%20reales-2ea44f)](reconstruction_real/audits/TELA_EXOGENA_2026-10-21.md)
 [![Python CI](https://github.com/Inzainos/The-shadow-Node-Theory/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/Inzainos/The-shadow-Node-Theory/actions/workflows/python-package-conda.yml)
 
-**Shadow Node Theory (SNT)** estudia la evolución de relaciones entre nodos y
-hubs mediante `R(t) = a·t^b`; **ACO-A** añade un eje ortogonal para el colapso,
-`A(τ) = c·τ^Δ`. La **tela de incertidumbre** incorpora esas trayectorias como
-proyecciones observables en `𝒞(u, m, τ)`: series reales donde están versionadas,
-y sombras del modelo solo donde todavía faltan.
+## 1. ¿Qué es la Shadow Node Theory?
+
+La **Shadow Node Theory (SNT)** describe cómo cambia, a lo largo del tiempo,
+la relación entre un **hub** (el centro dominante de una red) y un **nodo**
+(un componente periférico relacionado con él). La medida básica es la razón
+`R(t) = métrica_del_hub / métrica_del_nodo`; se estudia cómo evoluciona y se
+resume con una ley de potencia `R(t) = a·t^b`.
+
+El exponente `b` describe la dirección y la forma de esa relación dentro de la
+ventana observada:
+
+| `b` | Lectura descriptiva |
+|---|---|
+| `b < 0` | El nodo converge: gana terreno relativo frente al hub. |
+| `b ≈ 0` | La razón permanece aproximadamente equilibrada. |
+| `0 < b < 1` | La razón crece de forma sublineal en el ajuste de potencia. |
+| `b ≥ 1` | Pendiente estimada alta; **no basta para declarar un régimen superlineal**. |
+
+SNT es un marco para comparar trayectorias con definiciones, fuentes y límites
+de inferencia explícitos; no afirma que todos los sistemas obedezcan una ley
+universal ni que el ajuste por sí solo demuestre un mecanismo causal.
+
+## 2. ACO-A: describir lo que ocurre después del colapso
+
+La **Arquitectura de Colapso Orbital Acoplada (ACO-A)** complementa la
+satelización con una pregunta distinta: tras la extinción funcional de un hub,
+¿un sucesor identificable absorbe su masa o actividad y cómo evoluciona esa
+absorción? Se representa como
+`A(τ) = c·τ^Δ`, donde `A = masa_del_absorbente / pico_del_hub` y `τ` es el
+tiempo desde la extinción funcional. `Δ` resume la forma de la absorción; no es
+el mismo reloj ni la misma razón que `b`.
+
+No toda desaparición cuenta como ACO: el caso requiere extinción funcional y
+un sucesor identificable que capture la masa o actividad. La relación entre
+`b` y `Δ` se evalúa empíricamente; la evidencia de ortogonalidad está
+respaldada bajo un criterio de equivalencia en una cohorte de 242 pares cripto,
+no establecida como ley universal para todos los dominios.
+
+## 3. Qué significa —y qué no— “superlineal”
+
+En versiones anteriores, `b ≥ 1` se describía como “superlineal”. La
+calibración RC1 mostró que esa etiqueta no identifica por sí sola un mecanismo
+o régimen: una exponencial verdadera, al ajustarse como potencia, también
+produce `b ≥ 1` con frecuencia. Además, la compuerta pre-registrada de error
+AIC (máximo 20%) no se superó en ninguno de los dominios calibrados: E3 80,3%,
+B 96,8%, ACO 48,9%, C 22,6% y E2_01 94,0%.
+
+Por eso, en este README `b ≥ 1` se informa como **banda descriptiva no
+clasificada**, no como prueba de aceleración ni como régimen físico confirmado.
+La explicación completa y la calibración están en
+[Resultados RC1](reconstruction_real/audits/RESULTADOS_RC1_SUPERLINEAL_2026-10-02.md)
+y [RC1 en dominios restantes](reconstruction_real/audits/RESULTADOS_RC1_DOMINIOS_RESTANTES_2026-10-17.md).
+
+## 4. La tela de incertidumbre: poner las trayectorias en contexto
+
+Después de definir las trayectorias SNT y ACO-A, la **tela de incertidumbre**
+las organiza como proyecciones en `𝒞(u, m, τ)`. En la implementación, `m=R`,
+`τ` es la fase temporal normalizada entre 0 y 1, y cada observación declara su
+marco de medición `θ = (B, V, ρ, W, λ)`. El eje `u` aún no tiene una definición
+operativa admitida y se conserva como `NULL`; la fricción `φ` es postulada por
+dominio, no medida como campo continuo.
+
+> **Alcance de v2.7.1:** el corpus consolidado SNT conserva **721 casos**. La
+> tela es una capa analítica separada de **740 trayectorias y 51.210 puntos**:
+> 699 series reales reconstruidas desde fuentes versionadas y 41 sombras del
+> modelo explícitamente identificadas. No son 740 casos nuevos del corpus ni
+> 740 réplicas independientes.
 
 <p align="center">
   <img src="figures/fig_tela_cimatica_chladni.png" alt="Placa cimática continua de la tela de incertidumbre" width="48%">
   <img src="figures/fig_tela_cimatica_tonos.png" alt="Firmas de tono y espectro por dominio" width="48%">
 </p>
 
-> **Qué contiene esta versión:** el corpus SNT de **721 casos** permanece
-> separado de la tela integrada, que reúne **740 trayectorias y 51.210 puntos**:
-> 699 series reales reconstruidas desde fuentes versionadas y 41 sombras
-> explícitamente identificadas. No son 740 nuevas réplicas independientes ni
-> una afirmación de ley universal.
-
-## La tela de incertidumbre, integrada
-
-La capa conecta SNT + ACO-A con mediciones temporales trazables: magnitud
-`m = R`, fase normalizada `τ` y marco de observación declarado
-`θ = (B, V, ρ, W, λ)`. El eje `u` sigue **sin definición operativa** y se
-conserva como `NULL`; la fricción `φ` es postulada por dominio, no una medición
-continua.
+### Qué integra y qué se midió
 
 | Capa | Qué integra | Resultado auditado |
 |---|---|---|
-| **Series exógenas** | E3 (234), B (446), ACO (18) y G (1); 50.813 puntos reconstruidos desde datos versionados | B reproduce 446/446; E3 reproduce 233/234 dentro de ±0,01 en `b`; ACO 18/18. |
+| **Series reales** | E3 (234), B (446), ACO (18) y G (1); 50.813 puntos desde datos versionados | B reproduce 446/446; E3, 233/234 pendientes dentro de ±0,01 en `b`; ACO, 18/18. |
 | **Cubo v2** | Series reales donde existen y 41 sombras donde faltan | 740 trayectorias / 51.210 puntos; las sombras no se presentan como observaciones reales. |
-| **Capa cimática** | Placa continua, figura por dominio, espectros, huellas y prueba leave-one-out | Identificación LOO: 50,7% por dominio y 66,2% por tono `φ`; resultado exploratorio, no clasificador calibrado. |
-| **Dirección → destino** | Relación entre dirección en el primer 25% y régimen final | Spearman: E3 `+0,823`, B `+0,224`, ACO `+0,413` (`n=18`, `p=0,089`, no concluyente). Asociación descriptiva, no causalidad. |
+| **Lectura cimática** | Placa continua, figuras por dominio, espectros, huellas y prueba leave-one-out | LOO: 50,7% por dominio y 66,2% por tono `φ`; resultado exploratorio, no clasificador calibrado. |
+| **Dirección → destino** | Asociación de la pendiente en el primer 25% con el régimen al cierre | Spearman: E3 `+0,823`, B `+0,224`, ACO `+0,413` (`n=18`, `p=0,089`, no concluyente). Es descriptiva, no causal. |
 
-La matriz agrupada sugiere que la dirección temprana contiene información
-sobre el régimen final, pero su composición está dominada por E3 en el tercil
-rápido y B en el lento; debe leerse conociendo ese sesgo. La capa cimática
-identifica mejor tonos que etiquetas de dominio; **no** identifica de forma
-fiable el dominio por la figura. ACO converge hacia `m≈1` en la muestra
-disponible (`n=18`), sin inferencia concluyente.
+La matriz agrupada está condicionada por la composición: E3 domina el tercil
+rápido y B el lento. La figura **no** identifica de forma fiable la etiqueta
+del dominio. En los 18 casos ACO, la mediana de `|log₁₀ m|` pasa de 0,292 a
+0,071 —las trayectorias terminan más cerca de `m=1` en esta muestra—, pero el
+tamaño muestral no permite concluir que exista un atractor universal.
 
 ### Casos de uso: qué pregunta responde la tela
 
-La tela no es solo una imagen: es una forma común de **seguir una razón a lo
-largo de una trayectoria**, distinguir observaciones de sombras y preguntar
-qué rasgos aparecen al principio, al final o en distintos regímenes. Estos
-ejemplos vienen de las series que ya están integradas:
+La tela no es solo una imagen: permite **seguir una razón en una trayectoria**,
+separar series observadas de sombras y comparar el inicio con el final de una
+ventana. Ejemplos de los datos ya integrados:
 
 | Caso | Pregunta práctica | Qué muestra la tela | Qué no permite concluir |
 |---|---|---|---|
-| **Países (B): PIB per cápita hub/nodo** | ¿Se reconstruyó fielmente la trayectoria relativa a través del tiempo? | Las 446 series reales reproducen `b` publicado (446/446) usando MPD2020. La curva permite inspeccionar la razón `R` y su evolución normalizada. | La reproducción no prueba por sí sola acoplamiento hub-nodo ni significancia: la autocorrelación es severa y la inferencia puntual de B sigue indecidible. |
-| **Epidemias (E3): crecimiento de casos COVID-19** | ¿La forma temprana de la curva está asociada con su estado al cierre de la ventana? | 233/234 pendientes reproducen dentro de ±0,01; en esta selección de trayectorias de crecimiento, la asociación entre pendiente temprana y destino es `ρ=+0,823`. | No es una alerta anticipada validada ni una regla general para epidemias: la cohorte se seleccionó por fase de crecimiento y eso condiciona el resultado. |
-| **Colapsos ACO-A** | ¿La trayectoria real se acerca o se aleja de la banda `m≈1`? | En los 18 casos, la mediana de `|log₁₀ m|` baja de 0,292 a 0,071: descriptivamente, las trayectorias terminan más cerca de `m=1`. | Con `n=18`, no demuestra un atractor universal ni permite predecir cuándo ocurrirá un colapso (`ρ=+0,413`, `p=0,089`). |
-| **Bennu (G): proxy geoquímico** | ¿Puede visualizarse una trayectoria real de un dominio distinto? | La fuente versionada aporta un caso y tres puntos, mostrado como serie real; sirve para inspección y para definir qué datos faltarían para una prueba. | Un caso no permite estimar distribución, clasificación ni generalizar a cuerpos celestes. |
+| **Países (B): PIB per cápita hub/nodo** | ¿Se reconstruyó la trayectoria relativa a través del tiempo? | Las 446 series reales reproducen `b` publicado usando MPD2020; se puede inspeccionar `R` a lo largo de la ventana. | La reproducción no prueba acoplamiento hub-nodo ni significancia: la autocorrelación es severa y la inferencia puntual de B sigue indecidible. |
+| **Epidemias (E3): crecimiento de casos COVID-19** | ¿La dirección temprana está asociada con el estado al cierre de la ventana? | 233/234 pendientes reproducen dentro de ±0,01; en esta selección de trayectorias de crecimiento, la asociación es `ρ=+0,823`. | No es una alerta anticipada validada ni una regla general para epidemias; la cohorte se seleccionó por fase de crecimiento. |
+| **Colapsos ACO-A** | ¿La trayectoria se acerca o se aleja de `m≈1`? | En 18 casos, `|log₁₀ m|` mediano baja de 0,292 a 0,071. | No demuestra un atractor universal ni predice cuándo ocurrirá un colapso (`ρ=+0,413`, `p=0,089`). |
+| **Bennu (G): proxy geoquímico** | ¿Puede inspeccionarse una trayectoria real de otro dominio? | Hay un caso y tres puntos versionados: una visualización y un punto de partida para identificar datos faltantes. | Un caso no estima distribuciones ni permite generalizar a cuerpos celestes. |
 
-**Cómo leer la placa:** el eje horizontal `τ` lleva cada ventana desde el inicio
-(0) hasta el final (1); el vertical `log₁₀ m` muestra la razón `m=R` en escala
-logarítmica. La densidad indica dónde pasan más trayectorias; la figura resume
-la mediana por dominio y su banda IQR. Una curva que termina más cerca de cero
-termina más cerca de `m=1`. Las trayectorias de datos reales y las sombras se
-identifican por separado en los datos; una forma visual parecida no las vuelve
-la misma clase de evidencia.
+**Cómo leer la placa:** el eje horizontal `τ` recorre cada ventana desde el
+inicio (0) hasta el final (1); el vertical `log₁₀ m` representa `m=R` en escala
+logarítmica. La densidad muestra dónde pasan las trayectorias; la figura
+resume la mediana por dominio y su banda IQR. Una curva que termina más cerca
+de cero acaba más cerca de `m=1`. Una forma parecida no convierte una sombra
+en dato observado.
 
-**¿Cómo se aplicaría a otro caso?** El apartado
-[Casos de uso de SNT](CASOS_DE_USO.md) documenta pruebas externas como la
-cohorte de 450 paquetes npm: allí se evaluó ACO-A y se encontró
-`ρ(b, Δ)=+0,114` (IC95 `[+0,016, +0,209]`). Es un ejemplo de cómo una aplicación
-puede respaldar una parte de la teoría y contradecir otra; **npm todavía no
-forma parte de la tela integrada**. Para añadirlo haría falta construir y
-auditar su serie `R(t)`, declarar el marco `θ` y repetir el análisis sin
-confundirlo con validación ya hecha.
+**Aplicación externa:** [Casos de uso de SNT](CASOS_DE_USO.md) documenta,
+entre otras pruebas independientes, ACO-A en 450 paquetes npm
+(`ρ(b, Δ)=+0,114`, IC95 `[+0,016, +0,209]`). npm aún **no forma parte de la
+tela integrada**: incorporarlo requeriría construir y auditar su serie `R(t)`,
+declarar `θ` y repetir el análisis.
 
-**Explora la capa:** [auditoría de la tela integrada](reconstruction_real/audits/TELA_V2_INTEGRADA_2026-10-21.md) ·
-[serie real y capa exógena](reconstruction_real/audits/TELA_EXOGENA_2026-10-21.md) ·
+**Informes:** [tela integrada](reconstruction_real/audits/TELA_V2_INTEGRADA_2026-10-21.md) ·
+[capa exógena](reconstruction_real/audits/TELA_EXOGENA_2026-10-21.md) ·
 [resultados cimáticos](reconstruction_real/audits/TELA_CIMATICA_2026-10-21.md) ·
 [implementación del cubo](reconstruction_real/audits/TELA_DE_INCERTIDUMBRE_2026-10-21.md).
 
@@ -87,10 +128,10 @@ confundirlo con validación ya hecha.
 [tonos (PNG)](figures/fig_tela_cimatica_tonos.png) ·
 [tonos vectoriales (SVG)](figures/fig_tela_cimatica_tonos.svg).
 
-> **Versionado independiente:** v2.7.1 es la versión del paquete del
-> repositorio; el marco teórico activo sigue en v34 y el corpus SNT en 721
-> casos. La tela añade una capa de trayectorias y análisis, no cambia el tamaño
-> del corpus consolidado.
+La numeración de versiones es independiente: v2.7.1 es el paquete del
+repositorio; el marco teórico activo sigue en v34 y el corpus SNT en 721 casos.
+La tela añade una capa de trayectorias y análisis, no cambia el tamaño del
+corpus consolidado.
 
 El estado que sigue prioriza resultados empíricos auditados. El corpus de
 721 casos **no equivale a 721 réplicas independientes**, y la reproducibilidad
