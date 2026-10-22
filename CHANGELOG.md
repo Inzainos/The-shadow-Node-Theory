@@ -28,6 +28,8 @@ teórico v34.*
 - **Casos explicados para lectores:** ejemplos concretos de uso de la tela en
   B, E3, ACO y G; guía de lectura de los ejes y una conexión con la prueba
   externa de npm, aclarando que npm aún no está integrado en la tela.
+- **Orden pedagógico del README:** primero presenta SNT y la lectura de `b`,
+  después ACO-A y la cautela de la banda `b ≥ 1`, y al final la tela integrada.
 
 ### Límites explícitos
 
