@@ -40,6 +40,13 @@ teórico v34.*
 - La dirección temprana→destino es descriptiva; ACO (`n=18`) no ofrece
   evidencia concluyente. La selección de E3 condiciona la matriz agrupada.
 
+### Documentación — 2026-10-25
+
+- El README se reorganiza para presentar la evolución de SNT desde `R(t)` y
+  ACO-A hasta el marco de incertidumbre v34. Resume solo reconstrucciones y
+  resultados auditados, separa series reales de sombras y explicita qué
+  conclusiones siguen indecidibles o exploratorias.
+
 ## [Marco teórico v34] — 2026-09-14 — Capa de proyección
 *Cruzado contra el corpus Shadow Node Theory v2.5.2. Las dos numeraciones son independientes: esta entrada versiona el marco teórico, no el corpus.*
 
