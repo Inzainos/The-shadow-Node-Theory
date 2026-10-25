@@ -51,6 +51,11 @@ teórico v34.*
   separación de ACO-A y desarrollo de proyección/incertidumbre. Las propuestas
   conceptuales y los resultados locales quedan diferenciados de la evidencia
   reproducida; no se presentan como confirmaciones universales.
+- Se incorpora una síntesis del desarrollo empírico por dominios A–G y ACO-A,
+  con resultados y límites enlazados a sus informes y preregistros. Se
+  regeneran las figuras de la tela cimática desde los 51.210 puntos integrados
+  (699 series reales y 41 sombras); sus títulos y leyendas reflejan ahora la
+  composición v2 en vez de la versión anterior.
 
 ## [Marco teórico v34] — 2026-09-14 — Capa de proyección
 *Cruzado contra el corpus Shadow Node Theory v2.5.2. Las dos numeraciones son independientes: esta entrada versiona el marco teórico, no el corpus.*
