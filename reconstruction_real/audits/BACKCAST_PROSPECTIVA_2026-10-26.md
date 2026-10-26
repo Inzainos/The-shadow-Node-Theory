@@ -52,6 +52,17 @@ prospectiva — **committeada antes de que exista un solo dato de la ventana
    2027 habría corrido con la receta literal y quizá reportado una
    "falsación" que era un bug de ventana.
 
+## Versiones de los números (transparencia)
+
+Primera corrida (archivo con corte 2026-08-31, el vigente al escribir el
+informe): mediana Δ = −0,944 · ρ = −0,191 · IC95 [−0,489, +0,146] ·
+ρ npm abajo. Tras la re-descarga de datos hasta 2026-09-30 (ADENDA 3,
+mismo día), el script regenerado sobre el archivo nuevo da:
+**mediana Δ = −0,947 · ρ = −0,195 · IC95 [−0,492, +0,143] — VIGENTE**,
+anclado en `data/backcast_prospectiva_resumen.csv` y en los claims
+`backcast_*`. Ningún veredicto cambia. El informe conserva ambas
+cifras para trazabilidad.
+
 ## Re-clasificación bajo ADENDA 2 (observaciones del operador)
 
 Los criterios recalibrados (`ADENDA2_PROSPECTIVA_VENTANA_CRITERIOS_2026-10-26.md`)

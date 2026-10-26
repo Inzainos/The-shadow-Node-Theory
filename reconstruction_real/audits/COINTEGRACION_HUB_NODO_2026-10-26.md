@@ -79,27 +79,40 @@ operador):** el cálculo original trató el 12.3% como piso aplicando la
 potencia sin descontar el TAMAÑO del test — pero EG sobre-rechaza bajo
 la nula (tamaño medido M=3000: 10.2% a n=34, 8.6% a n=69, 6.9% a
 n=119 con trend='c'; el nominal es 5%). El 12.3% observado está apenas
-~2.5–4 puntos POR ENCIMA del piso de falsos positivos. Corregida por
-tamaño, π = (R − tamaño)/(potencia − tamaño):
+2–4 puntos POR ENCIMA del piso de falsos positivos. Corregida por
+tamaño — con el TAMAÑO DE CADA n, no un tamaño único (corrección del
+operador, segunda ronda) — π = (R − tamaño_n)/(potencia_n,ρ − tamaño_n),
+todo desde el CSV M=3000 versionado (reproducible):
 
-| Potencia (n, ρ_err) | Tasa verdadera π |
-|---|---|
-| 0.974 (n=119, ρ=0.5) | 4.2% |
-| 0.922 (n=69, ρ=0.5) | 4.5% |
-| 0.800 (n=119, ρ=0.8) | 5.2% |
-| 0.482 (n=69, ρ=0.8) — mediana de B | **9.4%** |
-| 0.238 (n=34, ρ=0.8) | 24.5% |
+| (n, ρ_err) | tamaño | potencia | π |
+|---|---|---|---|
+| (119, 0.5) | 8.0% | 97.6% | 4.8% |
+| (69, 0.5) | 9.0% | 92.6% | 3.9% |
+| (119, 0.8) | 8.0% | 82.7% | 5.8% |
+| (69, 0.8) — mediana de B | 9.0% | 45.9% | **8.9%** |
+| (34, 0.8) | 10.3% | 23.3% | 15.4% |
 
-**La tasa verdadera de cointegración en B está entre ~4% y ~25%
-según la potencia, con estimación puntual ~9% a la potencia mediana** —
-y el intervalo es sensible al tamaño estimado (con el 9.8% de la
-primera corrida M=500 salía ~3–18% / ~6.5%; el tamaño estable M=3000
-da ~4–25% / ~9.4%). Lectura robusta: el 12.3% NO es piso — apenas
-supera el ruido del test. La frase "para ~82% de B, log R es diferencia
-de paseos independientes" del informe original queda retirada (ya lo
-estaba); lo que el dato permite afirmar es que el equilibrio está
-**sin confirmar** en B con este test a este n, y que b queda como
-descriptor de deriva mientras no haya confirmación.
+**Ponderada por la distribución real de n en B** (segunda corrección
+del operador: el 12.3% es una tasa agregada; restar un tamaño único a
+cada fila es aproximación): tamaño ponderado 8.7% · potencia ponderada
+92.6% (ρ=0.5) / 56.7% (ρ=0.8) → **π ponderada = 4.2% (ρ=0.5) /
+7.4% (ρ=0.8)**.
+
+**La tasa verdadera de cointegración en B está entre ~4% y ~15%, con
+estimación puntual ~9% a la mediana de B y 4–7% ponderada.** El techo
+anterior (~25%) era un artefacto de aplicar el tamaño de n=69 a la fila
+de n=34. Lectura robusta: el 12.3% apenas supera el ruido del test. La
+frase "para ~82% de B, log R es diferencia de paseos independientes"
+del informe original queda retirada (ya lo estaba); lo que el dato
+permite afirmar es que el equilibrio está **sin confirmar** en B con
+este test a este n, y que b queda como descriptor de deriva mientras no
+haya confirmación.
+
+**Nota de reproducibilidad (corrección del operador):** los tamaños
+citados antes como "estables M=3000" venían de una corrida inline no
+versionada; el script tenía M=500. Corregido: `potencia_cointegracion.py`
+ahora corre M=3000 (potencias y tamaños) y el CSV versionado es la
+fuente única de la tabla de arriba.
 
 **Diagnóstico del sobre-rechazo (a pedido del operador):** EG
 sobre-rechaza en series cortas con ambos trends (10.2%/11.1% a n=34;

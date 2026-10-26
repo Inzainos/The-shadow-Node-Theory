@@ -22,7 +22,7 @@ from statsmodels.tsa.stattools import coint
 warnings.simplefilter("ignore")
 
 SEMILLA = 20261026
-M = 500          # simulaciones por configuración
+M = 3000         # simulaciones por configuración (M=500 daba SE~1.3pp; subido a 3000 tras observación del operador 2026-10-26)
 NIVELES = [34, 69, 119]   # n mínimo, mediano y máximo de B
 
 # Persistencia del término de error comparable a B (rho AR(1) del
