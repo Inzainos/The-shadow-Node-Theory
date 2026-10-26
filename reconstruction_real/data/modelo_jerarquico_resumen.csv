@@ -1,0 +1,2 @@
+n_casos,rho_caso_nivel,p_caso_nivel,nulo_mediana,nulo_p5,nulo_p95,p_perm,mlm_pendiente,mlm_se,mlm_p,por_dominio_rho,por_dominio_p,n_perm,semilla
+721,-0.6503,6.603541113303336e-88,0.0156,-0.651,0.6489,0.053,-0.2081,0.3683,0.572132,-0.0063,0.9862,5000,20261026
