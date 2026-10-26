@@ -1,0 +1,25 @@
+dominio_retenido,n_casos,tono_real,n_eval,aciertos,exactitud,exactitud_base_mayoritaria,azar_uniforme,nota,rasgos
+A,4,media,0,0,,,,tono ausente en entrenamiento: no evaluable,todos
+ACO,18,variable,0,0,,,,tono ausente en entrenamiento: no evaluable,todos
+B,446,alta,446,253,0.567265,0.000000,0.200000,,todos
+C,24,alta,24,6,0.250000,1.000000,0.200000,,todos
+D,3,nula,3,0,0.000000,0.000000,0.200000,,todos
+E1,4,nula,4,3,0.750000,0.000000,0.200000,,todos
+E2,2,alta,2,2,1.000000,1.000000,0.200000,,todos
+E3,234,nula,234,79,0.337607,0.000000,0.200000,,todos
+F1,2,fisica,2,1,0.500000,0.000000,0.200000,,todos
+F2,1,fisica,1,0,0.000000,0.000000,0.200000,,todos
+F3,1,fisica,1,0,0.000000,0.000000,0.200000,,todos
+G,1,fisica,1,0,0.000000,0.000000,0.200000,,todos
+A,4,media,0,0,,,,tono ausente en entrenamiento: no evaluable,solo_forma
+ACO,18,variable,0,0,,,,tono ausente en entrenamiento: no evaluable,solo_forma
+B,446,alta,446,190,0.426009,0.000000,0.200000,,solo_forma
+C,24,alta,24,5,0.208333,1.000000,0.200000,,solo_forma
+D,3,nula,3,0,0.000000,0.000000,0.200000,,solo_forma
+E1,4,nula,4,4,1.000000,0.000000,0.200000,,solo_forma
+E2,2,alta,2,1,0.500000,1.000000,0.200000,,solo_forma
+E3,234,nula,234,78,0.333333,0.000000,0.200000,,solo_forma
+F1,2,fisica,2,1,0.500000,0.000000,0.200000,,solo_forma
+F2,1,fisica,1,0,0.000000,0.000000,0.200000,,solo_forma
+F3,1,fisica,1,0,0.000000,0.000000,0.200000,,solo_forma
+G,1,fisica,1,0,0.000000,0.000000,0.200000,,solo_forma
