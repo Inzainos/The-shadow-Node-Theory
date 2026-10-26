@@ -60,6 +60,28 @@ de la **deriva del ratio**, no de una relación de largo plazo hacia un hub.
 - No evalúa cointegración en E3/ACO (sin componentes); su ADF de ratio es
   descriptivo.
 
+## Potencia del test (observación 6 del operador, 2026-10-26)
+
+"93% I(1)" y "12.3% cointegrado" son fallas en rechazar. Calibración por
+simulación bajo cointegración CONOCIDA (`code/potencia_cointegracion.py`,
+500 sims/config, semilla 20261026):
+
+| n | ρ_err = 0.5 | ρ_err = 0.8 |
+|---|---|---|
+| 34 (mín B) | 64.8% | 23.8% |
+| 69 (mediana B) | 92.2% | **48.2%** |
+| 119 (máx B) | 97.4% | 80.0% |
+
+Tamaño bajo no-cointegración (n=69): 9.8% (algo inflado vs nominal 5%).
+
+**Consecuencia honesta:** con la potencia medida, el 12.3% detectado es
+PISO, no estimación puntual — la tasa verdadera de cointegración en B
+puede estar entre ~13% y ~26%. La frase "para ~82% de B, log R es
+diferencia de paseos independientes" del informe original SOBREPASA lo
+que el test permite y queda retirada: lo que el dato permite afirmar es
+que **el equilibrio no está confirmado** para los pares sin rechazo, y
+que b queda como descriptor de deriva mientras no haya confirmación.
+
 ## Cómo regenerar
 
 ```sh

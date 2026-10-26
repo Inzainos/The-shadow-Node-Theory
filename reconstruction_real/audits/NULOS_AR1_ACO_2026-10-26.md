@@ -61,6 +61,23 @@ se interpreta como "firma del colapso" por sí sola.
 - No se ordena nada entre dominios (regla del repo): B se reporta como
   contraste descriptivo, no como test ACO-vs-B.
 
+## Sensibilidad a φ (observación 5 del operador, 2026-10-26)
+
+16/18 series tienen n < 8 puntos: φ estimado es ruidoso. Re-corrido el
+nulo perturbando φ por caso en ±0.05 y ±0.15 (`code/sensibilidad_nulos_ar1.py`,
+semilla 20261026):
+
+| Perturbación | p_N1 |
+|---|---|
+| φ − 0.15 | 0.0055 |
+| φ − 0.05 | 0.0120 |
+| φ (original) | 0.0130 |
+| φ + 0.05 | 0.0130 |
+| φ + 0.15 | 0.0040 |
+
+**Robusto en todo el rango** (0.004–0.013, todos < 0.05): la conclusión
+"más cerrada que la dinámica propia" NO depende de la precisión de φ.
+
 ## Cómo regenerar
 
 ```sh

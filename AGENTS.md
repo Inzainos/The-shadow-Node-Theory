@@ -18,7 +18,7 @@ must stay traceable and reproducible.
 Projects housed here: the SNT theory + corpus (`reconstruction_real/`,
 `papers/`) and **Delta** (`delta/`, independent crypto & bolsa signal engine).
 The **Genomic Topologic Analyzer** migrated to its own standalone project on
-2026-10-20: `/home/deamon/genomic_agent` (own git repo, full 45-commit history
+2026-10-20: `/home/deamon/genomic_agent` (independent local git repo, GitHub remote pending; full 45-commit history
 preserved via `git subtree split`; Docker services run from there).
 
 ## Working method (good practices)
