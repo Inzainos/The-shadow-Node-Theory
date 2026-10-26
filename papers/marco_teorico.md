@@ -71,7 +71,7 @@ Cada axioma se marca con una de tres etiquetas. La etiqueta describe qué lo sos
 | 2 | CONCEPTUAL | Cavidad y modos propios; Schumann 7.8 Hz; Dominio F n = 1–2; relación GX01 registrada sin ajustar. |
 | 3 | CONCEPTUAL | Environmental filtering, niche construction. |
 | 4 | ANCLADO | Principio de Mínima Fricción de ACO-A. |
-| 5 | ANCLADO | Fricción → b: ρ = −0.68, p = 2.5×10⁻⁹⁷, n = 714 (ver la nota de auditoría 2026-09-27 en el Axioma 5: por dominio p = 0.25; prueba pre-registrada con dominios nuevos, no respaldada; **control de estructura 2026-10-26: nulo de permutación por dominios p = 0.053, MixedLM p = 0.57 — el ρ caso-nivel queda como descriptivo del agrupamiento, no como medición de fricción**). Fricción → Δ: ρ = −1.000, n = 6. Fricción física literal en astro. |
+| 5 | ANCLADO PARCIAL | Fricción → b: NO MEDIDA — el ρ caso-nivel (−0.68) es descriptivo del agrupamiento de dominios (nulo por dominios p = 0.053; MixedLM p = 0.57; por caso en npm ρ = +0.09, dirección contraria; ver la nota de auditoría del Axioma 5). Fricción → Δ: ρ = −1.000, n = 6 (cohorte 2008) + tiempo de absorción ρ = −0.829 (p = 0.042). Fricción física literal en astro (Chandrasekhar, viscosidad de disco, modo «regulado» medido). |
 | 6 | CONCEPTUAL | Morphodynamics, single-cell trajectories. |
 | 7 | CONCEPTUAL | Desempaquetado gradual. |
 | 8 | INFRAESTRUCTURA | Dominio G; Ryugu A0106 vs C0107 como señal de exposición medida (n = 2). |
@@ -183,7 +183,10 @@ Este principio atraviesa todas las escalas. Aplica a la célula, a un organismo,
 **Anclaje v33.** Este axioma es, en registro cosmológico, el Principio de Mínima Fricción de ACO-A: todo colapso sigue la trayectoria que minimiza la fricción integrada, un principio variacional de la familia de Fermat y mínima acción. "Banda de realidad soportable" y "trayectoria de mínima fricción integrada" nombran lo mismo. No hace falta axioma nuevo ni traducción: es la misma ley, y se puede citar como derivada del corpus sin forzar nada.
 
 ## Axioma 5: La fricción protege tanto como limita
-**Estatus: ANCLADO.**
+**Estatus: ANCLADO PARCIAL** (decisión del autor, 2026-10-26: la vía
+fricción → b quedó NO MEDIDA tras el control de estructura — punto 6
+abajo; el anclaje vigente es fricción → Δ y la fricción física
+astronómica).
 
 La fricción deja de ser interpretada solo como resistencia negativa. En esta versión queda definida como el conjunto de costos, filtros, retardos y restricciones que evitan que un sistema se desborde antes de encontrar una forma estable.[cite:273][cite:275]
 
@@ -202,6 +205,10 @@ Demasiada poca fricción favorece colapsos abruptos o pérdida de coherencia; de
 6. **Control de estructura (2026-10-26, pre-registrado — `MODEL_JERARQUICO_B_2026-10-26.md`).** Con la fricción constante por dominio, el caso-nivel hereda la identidad del dominio: réplica del ancla ρ = −0.6503 (n = 721, aritmética confirmada), pero el **nulo de permutación de la asignación tier→dominio** da p = 0.053 (N = 5 000, semilla 20261026) — al borde del umbral y sin pasarlo — y el **modelo mixto** b ~ fric + (1|dominio) da pendiente −0.208 con SE 0.368 (p = 0.57): la información real del contraste entre tiers son ~10 dominios, no 721 casos, y el SE honesto se traga la pendiente. Con la codificación ordinal pre-especificada, la correlación por dominio (n = 10) es ρ = −0.006 (p = 0.99). Patrón consistente con el tono φ de la tela (p = 0.39): una etiqueta constante por dominio no mide un campo, mide el agrupamiento. Para reclamar fricción como campo medido se requiere fricción **continua por caso** (la vía limpia existente es la ordinal de la cohorte 2008, n = 6) o pre-asignada en dominios no vistos.
 
 5. **Lectura bajo la cláusula 9 (actualizada 2026-10-26).** Hoy, el anclaje fricción → b es una **dirección consistente sin respaldo inferencial fuera del contraste epidemias vs. el resto**, y el número caso-nivel está ahora medido como descriptivo del agrupamiento (punto 6): el p = 2.5×10⁻⁹⁷ es un artefacto de independencia asumida entre casos que comparten dominio. El estatus ANCLADO del axioma descansa, en rigor, en fricción → Δ (n = 6) y en la fricción literal del dominio astronómico. Si la etiqueta cambia, lo decide el autor en la siguiente versión del marco; esta nota solo registra el estado de la evidencia.
+
+**Decisión del autor (2026-10-26).** Etiqueta: **ANCLADO PARCIAL**. El
+anclaje vigente es fricción → Δ (n = 6, dentro de un dominio) y la
+fricción física astronómica; fricción → b queda cerrado como no medido.
 
 ## Axioma 6: La célula es el primer mapa operativo
 **Estatus: CONCEPTUAL.**

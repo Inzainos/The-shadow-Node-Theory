@@ -1,8 +1,9 @@
 # Análisis: LFS vs DVC para los binarios pesados (pendiente 2.1)
 
-**Fecha:** 2026-10-26 · **Decisión final: DEL OPERADOR** — este documento
-es el análisis pedido; la implementación queda en espera porque una de
-las opciones compromete el sellado externo.
+**Fecha:** 2026-10-26 · **DECISIÓN DEL OPERADOR: NO MIGRAR** (2026-10-26)
+— el repo se queda como está. Este documento queda como el registro del
+análisis y del porqué: LFS arriesga el sellado Zenodo, DVC necesita un
+remote inexistente, y los 49 MB no rompen nada.
 
 ## El problema
 
