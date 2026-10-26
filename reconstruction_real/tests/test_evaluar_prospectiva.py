@@ -16,8 +16,6 @@ import os
 import sys
 import tempfile
 
-import numpy as np
-
 _HERE = os.path.dirname(os.path.abspath(__file__))
 _ROOT = os.path.dirname(os.path.dirname(_HERE))
 sys.path.insert(0, os.path.join(_ROOT, "reconstruction_real", "code"))
