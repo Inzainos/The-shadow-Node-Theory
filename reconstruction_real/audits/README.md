@@ -4,6 +4,16 @@ Registro de auditorías estadísticas del corpus reconstruido. Cada auditoría
 recorre las cifras publicadas y las vuelve a calcular desde los datos
 committeados.
 
+## Sellado externo de los pre-registros
+
+Los 10 pre-registros (`../preregistro/`) están committeados ANTES de sus
+resultados, pero la fecha de git la controla el autor. El sellado externo
+verificable por terceros es el archivo versionado de Zenodo:
+
+- **DOI:** <https://doi.org/10.5281/zenodo.23653089> (v2.7.1, sellado
+  2026-10-26 — incluye los 10 pre-registros dentro del snapshot completo
+  del repositorio).
+
 ## Estado canónico de reproducibilidad
 
 - **Reproducible:** el dominio B se reconstruye byte a byte desde MPD2020
