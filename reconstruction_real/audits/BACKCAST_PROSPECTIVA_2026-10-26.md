@@ -52,16 +52,20 @@ prospectiva — **committeada antes de que exista un solo dato de la ventana
    2027 habría corrido con la receta literal y quizá reportado una
    "falsación" que era un bug de ventana.
 
-## Versiones de los números (transparencia)
+## Versiones de los números (transparencia, CORREGIDO tras validación del operador)
 
-Primera corrida (archivo con corte 2026-08-31, el vigente al escribir el
-informe): mediana Δ = −0,944 · ρ = −0,191 · IC95 [−0,489, +0,146] ·
-ρ npm abajo. Tras la re-descarga de datos hasta 2026-09-30 (ADENDA 3,
-mismo día), el script regenerado sobre el archivo nuevo da:
-**mediana Δ = −0,947 · ρ = −0,195 · IC95 [−0,492, +0,143] — VIGENTE**,
-anclado en `data/backcast_prospectiva_resumen.csv` y en los claims
-`backcast_*`. Ningún veredicto cambia. El informe conserva ambas
-cifras para trazabilidad.
+- **VIGENTE: mediana Δ = −0,944 · ρ = −0,191 · IC95 [−0,489, +0,146]**
+  (ancha en `data/backcast_prospectiva_resumen.csv`, claims `backcast_*`).
+- Los números intermedios (−0,947 / −0,195 / [−0,492, +0,143]) que
+  aparecieron tras la re-descarga NO eran un efecto de los datos:
+  eran **fuga del valle** — el script buscaba el ATH y el mínimo de Δ
+  en la serie completa, incluyendo datos posteriores al fin de la
+  ventana (diagnóstico del operador, confirmado al truncar). Bug
+  corregido en `backcast_prospectiva.py` y `evaluar_prospectiva.py`
+  (truncado en `fin`); el test
+  `tests/test_evaluar_prospectiva.py` fija esta validación en CI.
+- Ningún veredicto cambia; se conservan las tres cifras para
+  trazabilidad.
 
 ## Re-clasificación bajo ADENDA 2 (observaciones del operador)
 

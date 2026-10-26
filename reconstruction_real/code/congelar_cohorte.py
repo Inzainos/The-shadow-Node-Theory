@@ -39,13 +39,21 @@ def congelar(ruta_fuente, corte, ruta_salida):
             series[row["par"]].append((row["fecha"],
                                        float(row["close"])))
 
+    # "vivo al corte" = tiene una observación EN la fecha del corte
+    # (para pares de trading diario es equivalente a que la última
+    # observación sea el corte, pero funciona también con archivos que
+    # extienden más allá del corte — validación del operador 2026-10-26:
+    # la regla anterior solo servía con el archivo truncado exacto).
     congelados = []
     for par, puntos in series.items():
         puntos.sort()
-        if not puntos or puntos[-1][0] != corte:
-            continue
-        ath_fecha, ath_val = max(puntos, key=lambda p: p[1])
-        precio_corte = puntos[-1][1]
+        if not puntos or puntos[-1][0] < corte:
+            continue          # murió antes del corte
+        hasta = [p for p in puntos if p[0] <= corte]
+        if not hasta or hasta[-1][0] != corte:
+            continue          # sin cotización en la fecha del corte
+        ath_fecha, ath_val = max(hasta, key=lambda p: p[1])
+        precio_corte = hasta[-1][1]
         congelados.append({
             "par": par, "n_obs": len(puntos),
             "fecha_nacimiento": puntos[0][0],

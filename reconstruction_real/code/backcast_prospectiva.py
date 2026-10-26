@@ -91,11 +91,15 @@ def backcast(series, corte, fin):
         precios = np.array([p[1] for p in puntos if p[0] <= corte])
         b = fit_loglog(np.arange(1, c["pk"] + 2, dtype=float),
                        precios[:c["pk"] + 1])
-        precios_todo = np.array([p[1] for p in puntos])
-        pk_todo = int(np.argmax(precios_todo))
-        fin_valle = pk_todo + max(int(np.argmin(precios_todo[pk_todo:])), 1)
+        # FIX (validación del operador, 2026-10-26): truncar en fin —
+        # el ATH y el valle de Δ deben buscarse DENTRO de la ventana;
+        # con la serie completa el valle se filtra en datos posteriores
+        # al fin y el resultado depende de cuándo se descargó el archivo.
+        precios_vent = np.array([p[1] for p in puntos if p[0] <= fin])
+        pk_todo = int(np.argmax(precios_vent))
+        fin_valle = pk_todo + max(int(np.argmin(precios_vent[pk_todo:])), 1)
         d = fit_loglog(np.arange(1, fin_valle - pk_todo + 1, dtype=float),
-                       precios_todo[pk_todo:fin_valle + 1])
+                       precios_vent[pk_todo:fin_valle + 1])
         if b is None or d is None:
             continue
         colapsos.append((c["par"], b, d))

@@ -75,14 +75,17 @@ demostrar equivalencia). El informe original reportó P3 ✓ bajo el umbral
 puntual; esa lectura queda corregida aquí.
 
 
-## Nota de versión (2026-10-26, cierre)
+## Nota de versión (CORREGIDA 2026-10-26, validación del operador)
 
-Esta adenda cita los números del backcast medidos sobre el archivo de
-cierres con corte 2026-08-31 (mediana Δ = −0,944; ρ = −0,191;
-IC95 [−0,489, +0,146]). Tras la re-descarga de datos hasta 2026-09-30
-(ADENDA 3), el backcast regenerado da **mediana Δ = −0,947; ρ = −0,195;
-IC95 [−0,492, +0,143]** — versión VIGENTE, anclada en
-`data/backcast_prospectiva_resumen.csv` y cubierta por los claims
-`backcast_*`. El re-clasificado de esta adenda (P1a ✓ P1b ✓ P2 ✓ P3
-inconcluso) no cambia: las diferencias son de tercera cifra y el IC
-sigue cruzando −0,3.
+Versión original de esta adenda: Δ = −0,944; ρ = −0,191; IC95
+[−0,489, +0,146] (archivo con corte en el fin de la ventana). Tras la
+re-descarga el número se movió a −0,947/−0,195 y lo atribuí a los
+datos nuevos. **Era un error de diagnóstico del operador confirmado:
+la causa era una fuga del valle** — el script buscaba el mínimo de Δ y
+el ATH en la serie COMPLETA (incluidos los datos posteriores al fin de
+la ventana), así que el resultado dependía de cuándo se descargara el
+archivo. Corregido el truncado (fit dentro de la ventana): sobre el
+archivo completo el backcast da **otra vez −0,944 / −0,191 /
+IC [−0,489, +0,146] — versión VIGENTE**, idéntica a la original. Los
+números intermedios (−0,947/−0,195) quedan como artefacto documentado
+del bug, no como versión.
