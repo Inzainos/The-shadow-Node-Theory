@@ -43,14 +43,14 @@ authors:
     email: "elan.zainos.corona@gmail.com"
     city: "Tlaxcala"
     country: MX
-version: "2.7.2"
+version: "2.7.3"
 date-released: "2026-10-26"
 url: "https://github.com/Inzainos/The-shadow-Node-Theory"
 repository-code: "https://github.com/Inzainos/The-shadow-Node-Theory"
 license: "MIT"
 license-url: "https://github.com/Inzainos/The-shadow-Node-Theory/blob/main/LICENSE"
 # Multi-license: MIT (code) + CC BY 4.0 (data) + CC BY-NC 4.0 (papers). See LICENSE file.
-doi: "10.5281/zenodo.23675319"
+doi: "10.5281/zenodo.23678033"
 keywords:
   - complex systems
   - power law
@@ -78,8 +78,8 @@ identifiers:
     value: "10.5281/zenodo.19446521"
     description: "Zenodo DOI for the 721-case corpus release line (v2.5.0 line); not the versioned archive of v2.7.1"
   - type: doi
-    value: "10.5281/zenodo.23675319"
-    description: "Zenodo DOI for v2.7.2 (release 2.7.2 archive) — contains the prospective preregistro + ADENDA 1-3; the external seal"
+    value: "10.5281/zenodo.23678033"
+    description: "Zenodo DOI for v2.7.3 — the seal of ADENDA 1-4 and the evaluation scripts BEFORE the window runs"
   - type: doi
     value: "10.5281/zenodo.23661819"
     description: "Zenodo DOI for v2.7.1 (release 2.7.1 archive); contains the preregistros but not the late ADENDA 2-3"
