@@ -1,17 +1,21 @@
 #!/usr/bin/env python3
 """Regresión: evaluar_prospectiva reproduce el backcast de la ventana 2025-26.
 
-Congela al 2025-08-31 con congelar_cohorte.congelar() y evalúa la ventana
-hasta 2026-08-31 con evaluar_prospectiva.evaluar(); compara contra los
-números del backcast con tolerancia. Protege el script de evaluación con
-el mismo CI (validación del operador, 2026-10-26: el defecto era que el
-ATH y el valle de Δ se buscaban en la serie COMPLETA, filtrando datos
-posteriores al fin de la ventana).
+DOS protecciones (revisión del operador, 2026-10-26 segunda ronda):
+
+1. Congelar al 2025-08-31 y evaluar hasta 2026-08-31 reproduce los
+   números del backcast (89 crudos, 36 maduros, Δ = −0.944, ρ = −0.191).
+2. INVARIANTE DE TRUNCADO: la evaluación sobre el archivo COMPLETO
+   (que extiende hasta 2026-09-30) da EXACTAMENTE lo mismo que sobre
+   el archivo truncado al fin de la ventana — igualdad estricta, no
+   tolerancia. Si la fuga del valle reaparece, este test la caza.
 
 Corre con pytest o directo:
     python reconstruction_real/tests/test_evaluar_prospectiva.py
 """
 
+import csv
+import gzip
 import os
 import sys
 import tempfile
@@ -24,46 +28,63 @@ import congelar_cohorte  # noqa: E402
 import evaluar_prospectiva as ep  # noqa: E402
 
 FUENTE = os.path.join(_ROOT, "data", "binance_cierres_diarios.csv.gz")
-
-# Congelar 2025-08-31 → evaluar hasta 2026-08-31 (la ventana del backcast)
 CORTE = "2025-08-31"
 FIN = "2026-08-31"
 
-# Lo que el backcast (script corregido, truncado en fin) mide en esa ventana
 ESPERADO = {
     "candidatos": 389,
     "colapsos_crudos": 89,
     "colapsos_maduros": 36,
-    "mediana_delta": -0.944,
-    "rho_b_delta": -0.191,
+    "mediana_delta": -0.9443,
+    "rho_b_delta": -0.1912,
 }
-TOL = {"mediana_delta": 0.005, "rho_b_delta": 0.005}
 
 
-def test_el_evaluador_reproduce_el_backcast():
+def _congelar_y_evaluar(ruta_datos):
+    """Congela al CORTE y evalúa hasta FIN con la cohorte temporal."""
     with tempfile.TemporaryDirectory() as tmp:
         cohorte_ruta = os.path.join(tmp, "cohorte.csv")
         congelar_cohorte.congelar(FUENTE, CORTE, cohorte_ruta)
-        ep.COHORTE = __import__("pathlib").Path(cohorte_ruta)
-        ep.CORTE_COHORTE = CORTE
-        res = ep.evaluar(FUENTE, FIN)
+        return ep.evaluar(ruta_datos, fin=FIN,
+                          ruta_cohorte=cohorte_ruta,
+                          corte_cohorte=CORTE)
 
-    assert res["candidatos"] == ESPERADO["candidatos"], (
-        f"candidatos {res['candidatos']} ≠ {ESPERADO['candidatos']}")
-    assert res["colapsos_crudos"] == ESPERADO["colapsos_crudos"], (
-        f"crudos {res['colapsos_crudos']} ≠ {ESPERADO['colapsos_crudos']}")
-    assert res["colapsos_maduros"] == ESPERADO["colapsos_maduros"], (
-        f"maduros {res['colapsos_maduros']} ≠ {ESPERADO['colapsos_maduros']}")
-    assert abs(res["mediana_delta"] - ESPERADO["mediana_delta"]) \
-        <= TOL["mediana_delta"], (
-        f"mediana Δ {res['mediana_delta']:.4f} ≠ "
-        f"{ESPERADO['mediana_delta']}±{TOL['mediana_delta']}")
-    assert abs(res["rho_b_delta"] - ESPERADO["rho_b_delta"]) \
-        <= TOL["rho_b_delta"], (
-        f"ρ(b,Δ) {res['rho_b_delta']:.4f} ≠ "
-        f"{ESPERADO['rho_b_delta']}±{TOL['rho_b_delta']}")
+
+def _truncar_en(ruta_origen, fecha_fin, ruta_destino):
+    """Escribe un CSV.gz con solo las filas con fecha <= fecha_fin."""
+    with gzip.open(ruta_origen, "rt") as f_in, \
+            gzip.open(ruta_destino, "wt", newline="") as f_out:
+        lector = csv.DictReader(f_in)
+        escritor = csv.DictWriter(f_out, fieldnames=lector.fieldnames)
+        escritor.writeheader()
+        for fila in lector:
+            if fila["fecha"] <= fecha_fin:
+                escritor.writerow(fila)
+
+
+def test_el_evaluador_reproduce_el_backcast():
+    res = _congelar_y_evaluar(FUENTE)
+    for clave, esperado in ESPERADO.items():
+        assert res[clave] == esperado, (
+            f"{clave}: {res[clave]} ≠ {esperado}")
+
+
+def test_truncado_en_fin_da_resultado_identico():
+    """El invariante: los datos posteriores al fin NO cambian NADA."""
+    with tempfile.TemporaryDirectory() as tmp:
+        truncado = os.path.join(tmp, "truncado.csv.gz")
+        _truncar_en(FUENTE, FIN, truncado)
+        res_completo = _congelar_y_evaluar(FUENTE)
+        res_truncado = _congelar_y_evaluar(truncado)
+    for clave in ESPERADO:
+        assert res_completo[clave] == res_truncado[clave], (
+            f"INVARIANTE ROTO en {clave}: completo {res_completo[clave]} "
+            f"≠ truncado {res_truncado[clave]} — la fuga del valle "
+            f"reapareció")
 
 
 if __name__ == "__main__":
     test_el_evaluador_reproduce_el_backcast()
     print("evaluador == backcast en la ventana 2025-26 ✓")
+    test_truncado_en_fin_da_resultado_identico()
+    print("invariante de truncado: completo == truncado ✓")
