@@ -3,10 +3,10 @@
 CAPA CIMÁTICA DE LA TELA DE INCERTIDUMBRE — SNT v34 (Axioma 0.1 + 0.2)
 =======================================================================
 
-Lee la tela (data/tela_de_incertidumbre.csv, 7306 puntos) y produce la
+Lee la tela integrada (data/tela_de_incertidumbre.csv) y produce la
 lectura cimática del cubo C(u, m, tau):
 
-  * La placa   : mapa de densidad (tau x log10 m) de los 7306 puntos —
+  * La placa   : mapa de densidad (tau x log10 m) de los puntos —
                  dónde se acumula la arena.
   * La figura  : trayectoria mediana de log10 m(tau) por dominio, con banda
                  IQR — la figura que dibuja cada "tono" (phi fricción).
@@ -19,11 +19,10 @@ lectura cimática del cubo C(u, m, tau):
                  identifica el dominio?
 
 Honestidad declarada:
-  - Las sombras (dominios sin serie cruda) son curvas del modelo R=t^b
-    (a=1): su forma está determinada por (b, n). m(tau=0)=1 por
-    construcción — por eso la prueba se corre DOS veces: con todos los
-    rasgos y SOLO-FORMA (sin tau=0).
-  - Solo ACO (18 casos, 109 puntos) tiene serie (t, R) real.
+  - Las series crudas versionadas se distinguen de las sombras del modelo
+    R=t^b (a=1), cuya forma está determinada por (b, n). Las sombras tienen
+    m(tau=0)=1 por construcción — por eso la prueba se corre DOS veces: con
+    todos los rasgos y SOLO-FORMA (sin tau=0).
 
 Salidas:
   figures/fig_tela_cimatica_chladni.{png,svg}
@@ -255,7 +254,8 @@ def figura_chladni(df, trajs):
     axa.clabel(cs, fmt="línea nodal", fontsize=6)
     aco = df[df["dominio"] == "ACO"]
     axa.scatter(aco["tau"], np.log10(aco["m"]), s=2, c="white",
-                edgecolors="none", alpha=0.7, label="ACO real (109 pts)")
+                edgecolors="none", alpha=0.7,
+                label=f"ACO real ({len(aco)} pts)")
     axa.set_xlabel("τ fase temporal normalizada")
     axa.set_ylabel("log₁₀ m  (m = R)")
     axa.set_title("A · La placa continua: densidad de casos "
@@ -277,8 +277,15 @@ def figura_chladni(df, trajs):
     axb.set_title("B · La figura: trayectoria por dominio")
     axb.legend(loc="upper left", framealpha=0.85, fontsize=6,
                handlelength=1.2)
-    fig.suptitle("Tela de incertidumbre C(u, m, tau) — lectura cimática "
-                 "(7306 puntos, 739 casos)", fontsize=11)
+    n_casos = df["id"].nunique()
+    reales = df[df["fuente"] == "serie_cruda"]["id"].nunique()
+    sombras = df[df["fuente"] != "serie_cruda"]["id"].nunique()
+    fig.suptitle(
+        "Tela de incertidumbre C(u, m, tau) — lectura cimática "
+        f"({reales} series reales, {sombras} sombras; "
+        f"{n_casos} trayectorias, {len(df):,} puntos)",
+        fontsize=11,
+    )
     fig.tight_layout(rect=[0, 0, 1, 0.94])
     for ext in ("png", "svg"):
         fig.savefig(os.path.join(FIG_DIR, f"fig_tela_cimatica_chladni.{ext}"),
@@ -330,7 +337,7 @@ def main():
 
     reales = sum(1 for r in casos.values() if r["fuente"] == "serie_cruda")
     sombras = len(casos) - reales
-    log.info("Casos: %d reales (serie cruda ACO) + %d sombras (modelo t^b)",
+    log.info("Casos: %d series reales versionadas + %d sombras (modelo t^b)",
              reales, sombras)
 
     filas_h = []

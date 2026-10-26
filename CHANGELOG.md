@@ -46,6 +46,20 @@ teórico v34.*
   ACO-A hasta el marco de incertidumbre v34. Resume solo reconstrucciones y
   resultados auditados, separa series reales de sombras y explicita qué
   conclusiones siguen indecidibles o exploratorias.
+- Se amplía la historia metodológica: sustitución del corpus antiguo no válido,
+  auditoría de autocorrelación y pseudorreplicación, revisión de `b ≥ 1`,
+  separación de ACO-A y desarrollo de proyección/incertidumbre. Las propuestas
+  conceptuales y los resultados locales quedan diferenciados de la evidencia
+  reproducida; no se presentan como confirmaciones universales.
+- Se incorpora una síntesis del desarrollo empírico por dominios A–G y ACO-A,
+  con resultados y límites enlazados a sus informes y preregistros. Se
+  regeneran las figuras de la tela cimática desde los 51.210 puntos integrados
+  (699 series reales y 41 sombras); sus títulos y leyendas reflejan ahora la
+  composición v2 en vez de la versión anterior.
+- Se documentan Zenodo DOI `10.5281/zenodo.19446521` y SSRN abstract `6418778`,
+  aclarando qué release cubre el paquete de replicación, la revisión r32
+  preparada y la diferencia entre las versiones archivadas/publicadas y el
+  estado actual del repositorio.
 
 ## [Marco teórico v34] — 2026-09-14 — Capa de proyección
 *Cruzado contra el corpus Shadow Node Theory v2.5.2. Las dos numeraciones son independientes: esta entrada versiona el marco teórico, no el corpus.*
