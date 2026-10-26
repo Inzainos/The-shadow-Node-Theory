@@ -88,3 +88,14 @@ números de arriba exactamente).
 ---
 
 *Fractal Core Research · Tlaxcala, México · 2026-10-26*
+
+## Nota sobre el sello y las mejoras posteriores (cierre 2026-10-26)
+
+El sello vigente de la prospectiva es el DOI 10.5281/zenodo.23678033
+(release 2.7.3), que contiene el evaluador corregido (truncado en fin +
+b con ATH congelado) y las ADENDA 1-4. Dos mejoras posteriores al sello
+NO modifican el evaluador: el test de regresión pasó de tolerancia
+0,005 a igualdad exacta completo-vs-truncado (arnés de protección) y
+el criterio de madurez de ESTE backcast pasó de serie completa a serie
+truncada en fin — con números invariantes (36 maduros antes y después).
+El que corre el 2027-09-30 es exactamente el evaluador sellado.

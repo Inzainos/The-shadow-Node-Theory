@@ -20,6 +20,21 @@ verificable por terceros es el archivo versionado de Zenodo:
 - El operador decidió (2026-10-26): canónico = 10.5281/zenodo.23661819;
   tras el release 2.7.2, el vigente es 10.5281/zenodo.23675319 (CITATION
   actualizado).
+- **Nota sobre diferencias post-sello (2026-10-26, cierre):** el zip
+  del sello (DOI 23678033, release 2.7.3) contiene las versiones
+  anteriores a DOS mejoras posteriores, ninguna de las cuales modifica
+  el evaluador sellado: (1) el test de regresión iba con tolerancia
+  0,005 y fue endurecido a **igualdad exacta** completo-vs-truncado
+  (`test_evaluar_prospectiva.py`) — es el arnés de protección, no la
+  lógica de evaluación; (2) el criterio de madurez de
+  `backcast_prospectiva.py` usaba la serie completa y fue corregido a
+  la truncada en fin — es la herramienta de validación, no el
+  evaluador, y los números del backcast son INVARIANTES tras la
+  corrección (36 maduros antes y después, medido). El
+  `evaluar_prospectiva.py` que correrá el 2027-09-30 es EXACTAMENTE el
+  sellado: ninguna de sus funciones cambió tras el release 2.7.3. La
+  diferencia entre el zip y el repo actual está documentada aquí para
+  que nadie la lea como alteración de los criterios.
 - **Verificación por CONTENIDO del DOI 23675319 (2026-10-26):** el zip
   (43.436.346 B) fue descargado de Zenodo y listado: contiene el
   snapshot del commit `80026ce` con
