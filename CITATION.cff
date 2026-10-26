@@ -50,7 +50,7 @@ repository-code: "https://github.com/Inzainos/The-shadow-Node-Theory"
 license: "MIT"
 license-url: "https://github.com/Inzainos/The-shadow-Node-Theory/blob/main/LICENSE"
 # Multi-license: MIT (code) + CC BY 4.0 (data) + CC BY-NC 4.0 (papers). See LICENSE file.
-doi: "10.5281/zenodo.23653089"
+doi: "10.5281/zenodo.23661819"
 keywords:
   - complex systems
   - power law
@@ -78,8 +78,11 @@ identifiers:
     value: "10.5281/zenodo.19446521"
     description: "Zenodo DOI for the 721-case corpus release line (v2.5.0 line); not the versioned archive of v2.7.1"
   - type: doi
+    value: "10.5281/zenodo.23661819"
+    description: "Zenodo DOI for v2.7.1 (release 2.7.1 archive) — canonical per operator decision 2026-10-26; contains the pre-registrations"
+  - type: doi
     value: "10.5281/zenodo.23653089"
-    description: "Zenodo DOI for v2.7.1 — versioned archive sealed 2026-10-26; includes the 10 pre-registrations with third-party-verifiable date"
+    description: "First Zenodo archive of v2.7.1 (2026-10-26 early); does NOT contain the late preregistrations"
   - type: doi
     value: "10.5281/zenodo.19131327"
     description: "Zenodo DOI v2.0"

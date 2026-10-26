@@ -265,24 +265,25 @@ las 41 sombras mantienen su etiqueta de modelo.
 
 ## Zenodo y SSRN
 
-- **Paquete de replicación en Zenodo:** [DOI 10.5281/zenodo.19446521](https://doi.org/10.5281/zenodo.19446521).
-  El registro corresponde a la línea del corpus real de 721 casos (paquete
-  v2.5.0); **no es un archivo versionado de la release v2.7.1** ni incluye
-  automáticamente las actualizaciones posteriores de la tela. Para el código,
-  datos y figuras vigentes, consulta este repositorio.
+- **Archivo versionado de v2.7.1 (canónico):**
+  [DOI 10.5281/zenodo.23661819](https://doi.org/10.5281/zenodo.23661819) —
+  snapshot del release 2.7.1 (2026-10-26), contiene los preregistros de la
+  ronda 2026-10-26. El primer archivo del mismo día
+  ([10.5281/zenodo.23653089](https://doi.org/10.5281/zenodo.23653089)) quedó
+  antes de los preregistros y no los incluye. La línea del corpus de 721
+  casos sigue en
+  [10.5281/zenodo.19446521](https://doi.org/10.5281/zenodo.19446521).
 - **Preprint en SSRN:** [abstract 6418778](https://ssrn.com/abstract=6418778).
-  El manuscrito r32 se preparó para reemplazar la revisión v30 alojada allí.
-  El estado registrado en este repositorio indica que la carga de r32 estaba
-  pendiente de la acción del autor; consulta la página SSRN para confirmar qué
-  versión está actualmente disponible. No se presenta el manuscrito como
-  arbitrado.
-- **Archivos del manuscrito r32:** [inglés (PDF)](papers/snt_ssrn_v32_EN.pdf) ·
-  [español (PDF)](papers/snt_ssrn_v32.pdf) ·
-  [metadatos y revisión preparada para SSRN](papers/SSRN_revision_v32.md).
-  El manuscrito identifica la release v2.6.1 como su base; no incorpora
-  automáticamente los cambios v2.7.1.
-- **Cita del software:** [`CITATION.cff`](CITATION.cff), que registra ambos
-  identificadores y aclara el alcance del DOI de Zenodo.
+  El manuscrito vigente es la **r33** (2026-10-26, base v2.7.1, subida por el
+  autor): añade la tela de incertidumbre integrada y los dos controles
+  nuevos (nulos AR(1), cointegración) en el Abstract y el §16; el resto es
+  r32 sin cambios. No se presenta como arbitrado.
+- **Archivos del manuscrito:** r33 [inglés](papers/snt_ssrn_v33_EN.md) ·
+  [español](papers/snt_ssrn_v33.md); r32 (histórico):
+  [inglés (PDF)](papers/snt_ssrn_v32_EN.pdf) ·
+  [español (PDF)](papers/snt_ssrn_v32.pdf).
+- **Cita del software:** [`CITATION.cff`](CITATION.cff), con el DOI canónico
+  y la historia de identificadores.
 
 ### Lo que no se presenta como hallazgo establecido
 
