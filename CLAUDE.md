@@ -14,4 +14,4 @@ The operating rules live in **[`AGENTS.md`](AGENTS.md)** — read it first. In s
 Fuller detail: `AGENTS.md`, `CONTRIBUTING.md`, `dev-guide.md`.
 
 Projects: SNT theory + corpus (`reconstruction_real/`, `papers/`), the Genomic
-Topologic Analyzer (moved 2026-10-20 to `/home/deamon/genomic_agent`), and Delta (`delta/`).
+Topologic Analyzer (moved 2026-10-20 to `/home/deamon/genomic_agent`, independent local repo with GitHub remote pending), and Delta (`delta/`).

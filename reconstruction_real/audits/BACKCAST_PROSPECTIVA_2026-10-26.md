@@ -52,11 +52,23 @@ prospectiva — **committeada antes de que exista un solo dato de la ventana
    2027 habría corrido con la receta literal y quizá reportado una
    "falsación" que era un bug de ventana.
 
+## Re-clasificación bajo ADENDA 2 (observaciones del operador)
+
+Los criterios recalibrados (`ADENDA2_PROSPECTIVA_VENTANA_CRITERIOS_2026-10-26.md`)
+re-clasifican este backcast: **P1a ✓ · P1b ✓ (22.9% en banda [10%, 60%])
+· P2 ✓ · P3 INCONCLUSO** — el IC95 de ρ ([−0.489, +0.146], n = 36) cruza
+−0.3, así que a este n no se DEMUESTRA la ortogonalidad, solo no se
+detecta desviación. La lectura original (P3 ✓ bajo umbral puntual) queda
+corregida; el umbral puntual confundía "no detecté" con "demostré".
+
 ## Cómo regenerar
 
-El backcast corre sobre los datos versionados con la receta de la adenda;
-los números de arriba son reproducibles con `data/binance_cierres_diarios.csv.gz`
-y el corte 2025-08-31 (congelamiento sin lookahead).
+```sh
+python reconstruction_real/code/backcast_prospectiva.py   # ~30 s
+```
+
+(script versionado tras la observación 1 del operador; reproduce los
+números de arriba exactamente).
 
 ---
 

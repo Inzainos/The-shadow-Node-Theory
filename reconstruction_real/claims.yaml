@@ -233,3 +233,45 @@ claims:
     expr: "df[df.rasgos == 'todos'].p_perm_dominios_bal.iloc[0]"
     esperado: 0.13
     decimales: 2
+
+  # --- Ronda 2026-10-26: controles de estructura -----------------------------
+  - id: cointegracion_b_pct
+    readme: "12,3%"
+    archivo: reconstruction_real/data/cointegracion_resumen.csv
+    expr: "df.B_I1_cointegrados.iloc[0] / df.B_ambos_I1.iloc[0]"
+    esperado: 12.3
+    escala: 100
+    decimales: 1
+
+  - id: cointegracion_b_i1_pct
+    readme: "93,3%"
+    archivo: reconstruction_real/data/cointegracion_resumen.csv
+    expr: "df.B_ambos_I1.iloc[0] / df.B_casos.iloc[0]"
+    esperado: 93.3
+    escala: 100
+    decimales: 1
+
+  - id: nulos_ar1_p_n1
+    readme: "p = 0,013"
+    archivo: reconstruction_real/data/nulos_ar1_resumen.csv
+    expr: "df.p_N1.iloc[0]"
+    esperado: 0.013
+    escala: 1
+    decimales: 3
+
+  - id: modelo_jerarquico_p_perm
+    readme: "p_perm = 0,053"
+    archivo: reconstruction_real/data/modelo_jerarquico_resumen.csv
+    expr: "df.p_perm.iloc[0]"
+    esperado: 0.053
+    escala: 1
+    decimales: 3
+
+
+  - id: friccion_npm_rho
+    readme: "ρ = +0,09"
+    archivo: reconstruction_real/data/friccion_por_caso_resumen.csv
+    expr: "df.rho.iloc[0]"
+    esperado: 0.09
+    escala: 1
+    decimales: 2
