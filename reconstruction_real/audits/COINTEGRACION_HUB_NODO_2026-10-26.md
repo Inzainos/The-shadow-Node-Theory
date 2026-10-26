@@ -84,13 +84,19 @@ tamaño — con el TAMAÑO DE CADA n, no un tamaño único (corrección del
 operador, segunda ronda) — π = (R − tamaño_n)/(potencia_n,ρ − tamaño_n),
 todo desde el CSV M=3000 versionado (reproducible):
 
-| (n, ρ_err) | tamaño | potencia | π |
-|---|---|---|---|
-| (119, 0.5) | 8.0% | 97.6% | 4.8% |
-| (69, 0.5) | 9.0% | 92.6% | 3.9% |
-| (119, 0.8) | 8.0% | 82.7% | 5.8% |
-| (69, 0.8) — mediana de B | 9.0% | 45.9% | **8.9%** |
-| (34, 0.8) | 10.3% | 23.3% | 15.4% |
+| (n, ρ_err) | tamaño | potencia | π | π con tamaño ±2EE (Monte Carlo)* |
+|---|---|---|---|---|
+| (119, 0.5) | 8.0% | 97.6% | 4.8% | — |
+| (69, 0.5) | 9.0% | 92.6% | 3.9% | [2.7, 5.1]% |
+| (119, 0.8) | 8.0% | 82.7% | 5.8% | [4.5, 7.0]% |
+| (69, 0.8) — mediana de B | 9.0% | 45.9% | **8.9%** | [6.3, 11.5]% |
+| (34, 0.8) | 10.3% | 23.3% | 15.4% | **[7.5, 22.0]%** |
+
+*Con M=3000 el EE del tamaño es ≈0,5 pp; π es sensible a él cuando la
+potencia es baja (reserva señalada por el operador: la fila de n=34
+arrastra un rango de Monte Carlo de 7,5–22,0%, así que "~4–15%"
+subestimaba su incertidumbre). La conclusión cualitativa se sostiene:
+el 12,3% apenas supera el ruido del test.
 
 **Ponderada por la distribución real de n en B** (segunda corrección
 del operador: el 12.3% es una tasa agregada; restar un tamaño único a
