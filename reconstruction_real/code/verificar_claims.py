@@ -106,13 +106,21 @@ def verificar(ruta_claims=CLAIMS_DEFECTO, ruta_readme=README_DEFECTO,
     claims = cargar_claims(ruta_claims)
     with open(ruta_readme, encoding="utf-8") as fh:
         readme = fh.read()
+    # La sección Evolución del README vive en docs/HISTORIA.md desde
+    # 2026-10-26 (pendiente 4): los fragmentos citados pueden estar en
+    # cualquiera de los dos; la cifra sigue ligada al CSV versionado.
+    for extra in (os.path.join(RAIZ, "docs", "HISTORIA.md"),):
+        if os.path.exists(extra):
+            with open(extra, encoding="utf-8") as fh:
+                readme += "\n" + fh.read()
     cache, resultados = {}, []
     for c in claims:
         r = {"id": c["id"], "esperado": c["esperado"], "calculado": None,
              "estado": "OK", "detalle": ""}
         if c["readme"] not in readme:
             r["estado"] = "README_SIN_FRAGMENTO"
-            r["detalle"] = f"no aparece en el README: {c['readme']!r}"
+            r["detalle"] = (f"no aparece en el README ni en "
+                            f"docs/HISTORIA.md: {c['readme']!r}")
             resultados.append(r)
             continue
         try:

@@ -91,7 +91,7 @@ print(f"R² < 0: {(dfB['r2']<0).sum()} (debe ser 0) ✓")
 print(f"R² medio significativos: {dfB[dfB['significativo']]['r2'].mean():.4f}")
 print(f"b < 0 (convergencia): {(dfB['b']<0).sum()} ({100*(dfB['b']<0).mean():.0f}%)")
 print(f"b > 0 (satelización): {(dfB['b']>0).sum()} ({100*(dfB['b']>0).mean():.0f}%)")
-print(f"\nPor región:")
+print("\nPor región:")
 for reg in dfB['region'].unique():
     sub = dfB[dfB['region']==reg]
     print(f"  {reg:20} n={len(sub):3} b_medio={sub['b'].mean():+.3f}")

@@ -136,11 +136,11 @@ print(f"b < 0 (convergencia): {(dfB['b']<0).sum()} ({100*(dfB['b']<0).mean():.0f
 print(f"b > 0 (satelización): {(dfB['b']>0).sum()} ({100*(dfB['b']>0).mean():.0f}%)")
 
 # Por trigger
-print(f"\nPor tipo de trigger:")
+print("\nPor tipo de trigger:")
 for trig in ['abrupto','gradual']:
     sub = dfB[dfB['trigger']==trig]
     print(f"  {trig}: n={len(sub)}, b_medio={sub['b'].mean():+.3f}")
 
-print(f"\nEjemplos significativos:")
+print("\nEjemplos significativos:")
 for _, r in dfB[dfB['significativo']].head(12).iterrows():
     print(f"  {r['id']}: {r['descripcion']:38} b={r['b']:+.3f} R²={r['r2']:.3f} p={r['p']:.4f}")

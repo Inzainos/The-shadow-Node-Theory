@@ -275,3 +275,28 @@ claims:
     esperado: 0.09
     escala: 1
     decimales: 2
+
+  # --- Ronda 2026-10-26 (2ª parte): cifras históricas del README -------------
+  - id: npm_ortogonalidad_rho
+    readme: "ρ = +0,114"
+    archivo: reconstruction_real/data/npm_cohorte_aco.csv.gz
+    expr: "df[['b_subida','delta_caida']].dropna().corr(method='spearman').iloc[0,1]"
+    esperado: 0.114
+    escala: 1
+    decimales: 3
+
+  - id: aco_trigger_p
+    readme: "p = 0,101"
+    archivo: reconstruction_real/data/trigger_abrupto_gradual_recalculo.csv
+    expr: "df[df.dataset == 'ACO v29 (18 casos)'].p_dos_colas.iloc[0]"
+    esperado: 0.101
+    escala: 1
+    decimales: 3
+
+  - id: dominio_b_casos
+    readme: "446/446"
+    archivo: reconstruction_real/data/by_domain/dominio_B_real.csv
+    expr: "float(df.shape[0])"
+    esperado: 446
+    escala: 1
+    decimales: 0

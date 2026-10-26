@@ -56,6 +56,13 @@ import logging
 
 import numpy as np
 import pandas as pd
+# Política de redondeo (pendiente 2.3, opción b): los CSV se escriben con
+# 12 decimales fijos para que los diffs de git sean estables entre entornos
+# numéricos (numpy/BLAS mueven la última cifra ~1e-16; medido en el
+# pendiente). 12 decimales es 3 órdenes de magnitud más fino que la
+# tolerancia 1e-9 de los tests, así que no puede ocultar cambios reales.
+DECIMALES_TELA = 12
+
 from scipy.stats import spearmanr
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -309,7 +316,7 @@ def capa_estadistica(casos):
                  rho, p)
     est = pd.DataFrame(filas)
     ruta = os.path.join(DATA_RR, "tela_exogena_estadisticas.csv")
-    est.to_csv(ruta, index=False)
+    est.round(DECIMALES_TELA).to_csv(ruta, index=False)
     log.info("Estadística por dominio → %s", ruta)
 
     casos_validos = casos.dropna(subset=["b_verificado"]).copy()
@@ -331,10 +338,10 @@ def capa_estadistica(casos):
         log.info("  %-14s | %s", dir_,
                  " | ".join(f"{c}: {v:.3f}" for c, v in fila.items()))
     ruta_p = os.path.join(DATA_RR, "tela_exogena_probabilidad.csv")
-    prob.to_csv(ruta_p)
+    prob.round(DECIMALES_TELA).to_csv(ruta_p)
     log.info("Matriz de probabilidad → %s", ruta_p)
     ruta_c = os.path.join(DATA_RR, "tela_exogena_casos.csv")
-    casos_validos.to_csv(ruta_c, index=False)
+    casos_validos.round(DECIMALES_TELA).to_csv(ruta_c, index=False)
     log.info("Rasgos por caso → %s", ruta_c)
     return est, prob
 
@@ -368,7 +375,7 @@ def main():
                      len(g))
 
     ruta_s = os.path.join(DATA_RR, "tela_exogena_series.csv")
-    series.to_csv(ruta_s, index=False)
+    series.round(DECIMALES_TELA).to_csv(ruta_s, index=False)
     log.info("Series exógenas → %s (%d puntos, %d casos)", ruta_s,
              len(series), series["id"].nunique())
 

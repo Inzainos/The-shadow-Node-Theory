@@ -227,14 +227,14 @@ for nombre, datos in DATOS_ENTIDADES.items():
 
     tiempos, ratios = calcular_ratio_vs_cdmx(años, indice)
 
-    print(f"\nSerie R(t) = CDMX/Entidad:")
+    print("\nSerie R(t) = CDMX/Entidad:")
     for i, año in enumerate(años):
         pib_ent = CDMX_PIB_PC.get(año, 0) * indice[i] / 100
         print(f"  {año}: indice={indice[i]:>5.1f} | R={ratios[i]:.3f}")
 
     ajuste = ajustar_ley_potencia(tiempos, ratios, nombre)
 
-    print(f"\nAjuste f(t) = a * t^b:")
+    print("\nAjuste f(t) = a * t^b:")
     print(f"  b = {ajuste['b']}  ← velocidad de divergencia")
     print(f"  R² = {ajuste['r2']}")
     print(f"  r Pearson = {ajuste['r_pearson']}, p = {ajuste['p_value']}")

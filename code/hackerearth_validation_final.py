@@ -146,15 +146,15 @@ print(f"\nROC-AUC CV 5-fold: {scores.mean():.4f} ± {scores.std():.4f}")
 print(f"Scores por fold:   {[round(s,4) for s in scores]}")
 print()
 print("COMPARACIÓN:")
-print(f"  Modelo original (data leakage):  ROC-AUC = 0.9994")
+print("  Modelo original (data leakage):  ROC-AUC = 0.9994")
 print(f"  Modelo corregido (1ª sesión):    ROC-AUC = {scores.mean():.4f}")
-print(f"\n  La diferencia refleja información acumulada vs señal genuina.")
-print(f"  0.71 con features de primera sesión es un resultado honesto.")
+print("\n  La diferencia refleja información acumulada vs señal genuina.")
+print("  0.71 con features de primera sesión es un resultado honesto.")
 
 clf.fit(X, y)
 imp = pd.Series(clf.feature_importances_, index=X.columns).sort_values(ascending=False)
 
-print(f"\nFEATURE IMPORTANCES (SHAP proxy):")
+print("\nFEATURE IMPORTANCES (SHAP proxy):")
 for feat, v in imp.items():
     bar = "█" * int(v * 50)
     print(f"  {feat:<25}: {v:.4f} ({v*100:.1f}%) {bar}")
@@ -204,7 +204,7 @@ for comp in ['delta_h','alpha','t2ft']:
 # =============================================================================
 
 features.to_csv('hackerearth_first_session_features.csv', index=False)
-print(f"\nCSV guardado: hackerearth_first_session_features.csv")
+print("\nCSV guardado: hackerearth_first_session_features.csv")
 
 print(f"\n{'=' * 65}")
 print("CONCLUSIÓN PARA EL PAPER")

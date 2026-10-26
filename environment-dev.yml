@@ -14,12 +14,12 @@ dependencies:
   - seaborn>=0.12.0
   - flake8
   - pytest
-  - pre-commit
-  - black
-  - isort
-  - mypy
   - ruff
-  - tox
   - pip
   - pip:
     - -r requirements.txt
+# Limpieza 2026-10-26 (pendiente 2.5): pre-commit, black, isort, mypy y tox
+# se retiraron porque no tienen configuración y nada los usa (CI = flake8 +
+# pytest). Si el operador quiere formateo automático, la propuesta original
+# era ruff + pytest — decisión pendiente de activar ruff format (fallaría
+# en ~1600 avisos E/W acumulados; requiere una sesión de limpieza previa).
