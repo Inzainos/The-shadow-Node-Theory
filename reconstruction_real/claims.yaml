@@ -1,0 +1,235 @@
+# Claims verificables del README  <->  datos versionados.
+#
+# Cada entrada liga una cifra citada en README.md con el CSV del que sale.
+# Se verifica con:   python reconstruction_real/code/verificar_claims.py
+# y en CI (pytest reconstruction_real/tests/test_claims.py).
+#
+# Campos: id, readme (fragmento literal en README.md), archivo (desde la raíz),
+#         expr (pandas/numpy sobre `df`), esperado (como lo escribe el README),
+#         escala (100 si el README da %), decimales (redondeo del README).
+#
+# Regla de mantenimiento: si cambias una cifra en el README, cambia aquí el
+# `readme` y el `esperado` EN EL MISMO PR; si el dato cambia, el verificador
+# falla y obliga a revisar el README. No se agregan claims sin su CSV.
+
+claims:
+
+  # --- Corpus y tela --------------------------------------------------------
+  - id: corpus_total
+    readme: "721 casos"
+    archivo: reconstruction_real/data/snt_corpus_REAL_v6.csv
+    expr: "len(df)"
+    esperado: 721
+
+  - id: tela_trayectorias
+    readme: "740 trayectorias"
+    archivo: reconstruction_real/data/tela_de_incertidumbre.csv
+    expr: "df.id.nunique()"
+    esperado: 740
+
+  - id: tela_puntos
+    readme: "51.210 puntos"
+    archivo: reconstruction_real/data/tela_de_incertidumbre.csv
+    expr: "len(df)"
+    esperado: 51210
+
+  - id: tela_series_reales
+    readme: "699 series reales versionadas"
+    archivo: reconstruction_real/data/tela_de_incertidumbre.csv
+    expr: "df[df.fuente == 'serie_cruda'].id.nunique()"
+    esperado: 699
+
+  - id: tela_sombras
+    readme: "41 sombras"
+    archivo: reconstruction_real/data/tela_de_incertidumbre.csv
+    expr: "df[df.fuente != 'serie_cruda'].id.nunique()"
+    esperado: 41
+
+  # --- Dominio E3 (OWID) ----------------------------------------------------
+  - id: e3_reproducen
+    readme: "233/234"
+    archivo: reconstruction_real/data/dominio_E3_series_crudas.csv
+    expr: "df.coincide.sum()"
+    esperado: 233
+
+  - id: e3_estimables
+    readme: "198 son estimables"
+    archivo: reconstruction_real/data/dominio_E3_series_crudas.csv
+    expr: "df.estimable.sum()"
+    esperado: 198
+
+  - id: e3_significativos_cota_inf
+    readme: "176 casos significativos"
+    archivo: reconstruction_real/data/dominio_E3_series_crudas.csv
+    expr: "df.sig_ar1_cota_inf.sum()"
+    esperado: 176
+
+  - id: e3_significativos_cota_sup
+    readme: "196 bajo"
+    archivo: reconstruction_real/data/dominio_E3_series_crudas.csv
+    expr: "df.sig_ar1_cota_sup.sum()"
+    esperado: 196
+
+  # --- Dominio B (Maddison) -------------------------------------------------
+  - id: b_autocorrelacion_severa
+    readme: "445/446 series presentan"
+    archivo: reconstruction_real/data/dominio_B_corregido_ar1_v32.csv
+    expr: "(df.dw < 1).sum()"
+    esperado: 445
+
+  - id: b_n_eff_mediano
+    readme: "es 2,2 y 290/446"
+    archivo: reconstruction_real/data/dominio_B_corregido_ar1_v32.csv
+    expr: "df.n_eff.median()"
+    esperado: 2.2
+    decimales: 1
+
+  - id: b_no_estimables
+    readme: "290/446"
+    archivo: reconstruction_real/data/dominio_B_corregido_ar1_v32.csv
+    expr: "(~df.estimable).sum()"
+    esperado: 290
+
+  - id: b_falsos_positivos_ar1_inf
+    readme: "7,962%"
+    archivo: reconstruction_real/data/dominio_B_recalibracion.csv
+    expr: "df[(df.escenario == 'tamano (b = 0)') & (df.metodo == 'ar1_inf')].tasa_estimables.iloc[0]"
+    esperado: 7.962
+    escala: 100
+    decimales: 3
+
+  # --- RC1: error de selección AIC en la banda b >= 1 ------------------------
+  - id: rc1_error_e3
+    readme: "80,3%"
+    archivo: reconstruction_real/data/rc1_calibracion.csv
+    expr: "df[(df.dominio == 'E3') & (df.banda_b == 'b >= 1 (agregada)')].error_seleccion_P0.iloc[0]"
+    esperado: 80.3
+    escala: 100
+    decimales: 1
+
+  - id: rc1_error_b
+    readme: "96,8%"
+    archivo: reconstruction_real/data/rc1_calibracion.csv
+    expr: "df[(df.dominio == 'B') & (df.banda_b == 'b >= 1 (agregada)')].error_seleccion_P0.iloc[0]"
+    esperado: 96.8
+    escala: 100
+    decimales: 1
+
+  - id: rc1_error_aco
+    readme: "48,9%"
+    archivo: reconstruction_real/data/rc1_calibracion.csv
+    expr: "df[(df.dominio == 'ACO') & (df.banda_b == 'b >= 1 (agregada)')].error_seleccion_P0.iloc[0]"
+    esperado: 48.9
+    escala: 100
+    decimales: 1
+
+  - id: rc1_error_c
+    readme: "22,6%"
+    archivo: reconstruction_real/data/rc1_resto_resumen.csv
+    expr: "df[df.dominio == 'C'].error_P0_cf.iloc[0]"
+    esperado: 22.6
+    escala: 100
+    decimales: 1
+
+  - id: rc1_error_e2_01
+    readme: "94,0%"
+    archivo: reconstruction_real/data/rc1_resto_resumen.csv
+    expr: "df[df.dominio == 'E2'].error_P0_cf.iloc[0]"
+    esperado: 94.0
+    escala: 100
+    decimales: 1
+
+  # --- ACO: convergencia descriptiva de |log10 m| ----------------------------
+  - id: aco_log_m_inicial
+    readme: "0,292 a 0,071"
+    archivo: reconstruction_real/data/tela_de_incertidumbre.csv
+    expr: "np.abs(np.log10(df[df.dominio == 'ACO'].sort_values(['id', 'tau']).groupby('id').m.first())).median()"
+    esperado: 0.292
+    decimales: 3
+
+  - id: aco_log_m_final
+    readme: "0,292 a 0,071"
+    archivo: reconstruction_real/data/tela_de_incertidumbre.csv
+    expr: "np.abs(np.log10(df[df.dominio == 'ACO'].sort_values(['id', 'tau']).groupby('id').m.last())).median()"
+    esperado: 0.071
+    decimales: 3
+
+  # --- Clasificación exploratoria de la tela (LOO por centroide) -------------
+  - id: tela_loo_dominio
+    readme: "50,7%"
+    archivo: reconstruction_real/data/tela_cimatica_clasificacion.csv
+    expr: "df.correcto.dropna().mean()"
+    esperado: 50.7
+    escala: 100
+    decimales: 1
+
+  - id: tela_loo_tono
+    readme: "66,2%"
+    archivo: reconstruction_real/data/tela_cimatica_clasificacion_phi.csv
+    expr: "df.correcto.dropna().mean()"
+    esperado: 66.2
+    escala: 100
+    decimales: 1
+
+  # --- Tela: línea base, balanceada, permutación y LODO (TELA_CLASIFICACION_BASELINE) ---
+  - id: tela_base_mayoritaria_dominio
+    readme: "60,5%"
+    archivo: reconstruction_real/data/tela_clasificacion_baseline.csv
+    expr: "df[(df.conjunto == 'todos_los_casos') & (df.tarea == 'dominio') & (df.rasgos == 'todos')].base_mayoritaria.iloc[0]"
+    esperado: 60.5
+    escala: 100
+    decimales: 1
+
+  - id: tela_base_mayoritaria_tono
+    readme: "63,8%"
+    archivo: reconstruction_real/data/tela_clasificacion_baseline.csv
+    expr: "df[(df.conjunto == 'todos_los_casos') & (df.tarea == 'tono') & (df.rasgos == 'todos')].base_mayoritaria.iloc[0]"
+    esperado: 63.8
+    escala: 100
+    decimales: 1
+
+  - id: tela_balanceada_dominio
+    readme: "55,6%"
+    archivo: reconstruction_real/data/tela_clasificacion_baseline.csv
+    expr: "df[(df.conjunto == 'todos_los_casos') & (df.tarea == 'dominio') & (df.rasgos == 'todos')].exactitud_balanceada.iloc[0]"
+    esperado: 55.6
+    escala: 100
+    decimales: 1
+
+  - id: tela_azar_balanceada_dominio
+    readme: "11,1%"
+    archivo: reconstruction_real/data/tela_clasificacion_baseline.csv
+    expr: "df[(df.conjunto == 'todos_los_casos') & (df.tarea == 'dominio') & (df.rasgos == 'todos')].azar_balanceada.iloc[0]"
+    esperado: 11.1
+    escala: 100
+    decimales: 1
+
+  - id: tela_p_perm_dominios_tono
+    readme: "p = 0,39"
+    archivo: reconstruction_real/data/tela_clasificacion_baseline.csv
+    expr: "df[(df.conjunto == 'todos_los_casos') & (df.tarea == 'tono') & (df.rasgos == 'todos')].p_perm_dominios_bal.iloc[0]"
+    esperado: 0.39
+    decimales: 2
+
+  - id: tela_lodo_balanceada
+    readme: "36,4%"
+    archivo: reconstruction_real/data/tela_clasificacion_lodo_resumen.csv
+    expr: "df[df.rasgos == 'todos'].exactitud_balanceada.iloc[0]"
+    esperado: 36.4
+    escala: 100
+    decimales: 1
+
+  - id: tela_lodo_azar_balanceada
+    readme: "33,3%"
+    archivo: reconstruction_real/data/tela_clasificacion_lodo_resumen.csv
+    expr: "df[df.rasgos == 'todos'].azar_balanceada.iloc[0]"
+    esperado: 33.3
+    escala: 100
+    decimales: 1
+
+  - id: tela_lodo_p_perm
+    readme: "p = 0,13"
+    archivo: reconstruction_real/data/tela_clasificacion_lodo_resumen.csv
+    expr: "df[df.rasgos == 'todos'].p_perm_dominios_bal.iloc[0]"
+    esperado: 0.13
+    decimales: 2
