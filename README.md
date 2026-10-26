@@ -405,6 +405,27 @@ las 41 sombras mantienen su etiqueta de modelo.
 [capa cimática](reconstruction_real/audits/TELA_CIMATICA_2026-10-21.md) ·
 [proyección y datos](reconstruction_real/audits/TELA_DE_INCERTIDUMBRE_2026-10-21.md).
 
+## Zenodo y SSRN
+
+- **Paquete de replicación en Zenodo:** [DOI 10.5281/zenodo.19446521](https://doi.org/10.5281/zenodo.19446521).
+  El registro corresponde a la línea del corpus real de 721 casos (paquete
+  v2.5.0); **no es un archivo versionado de la release v2.7.1** ni incluye
+  automáticamente las actualizaciones posteriores de la tela. Para el código,
+  datos y figuras vigentes, consulta este repositorio.
+- **Preprint en SSRN:** [abstract 6418778](https://ssrn.com/abstract=6418778).
+  El manuscrito r32 se preparó para reemplazar la revisión v30 alojada allí.
+  El estado registrado en este repositorio indica que la carga de r32 estaba
+  pendiente de la acción del autor; consulta la página SSRN para confirmar qué
+  versión está actualmente disponible. No se presenta el manuscrito como
+  arbitrado.
+- **Archivos del manuscrito r32:** [inglés (PDF)](papers/snt_ssrn_v32_EN.pdf) ·
+  [español (PDF)](papers/snt_ssrn_v32.pdf) ·
+  [metadatos y revisión preparada para SSRN](papers/SSRN_revision_v32.md).
+  El manuscrito identifica la release v2.6.1 como su base; no incorpora
+  automáticamente los cambios v2.7.1.
+- **Cita del software:** [`CITATION.cff`](CITATION.cff), que registra ambos
+  identificadores y aclara el alcance del DOI de Zenodo.
+
 ### Lo que no se presenta como hallazgo establecido
 
 - Los valores p por caso no son pruebas independientes: existe dependencia
