@@ -66,17 +66,23 @@ def main():
             pot = 100 * aciertos / M
             print(f"  n={n:3d} rho_err={rho:.1f}: POTENCIA = {pot:5.1f}%")
             filas.append({"n": n, "rho_err": rho, "potencia_pct": round(pot, 1)})
-    falsos = 0
-    for _ in range(M):
-        x, y = simular_no_cointegrado(69, rng)
-        try:
-            p = coint(y, x, trend="c", autolag="AIC")[1]
-            falsos += int(p < 0.05)
-        except Exception:
-            pass
-    tam = 100 * falsos / M
-    print(f"  n=69 NO cointegrado (tamaño, esperado ~5%): {tam:.1f}%")
-    filas.append({"n": 69, "rho_err": None, "tamaño_pct": round(tam, 1)})
+    # Tamaño por n y por trend (diagnóstico del sobre-rechazo, observación
+    # del operador: ¿por qué EG sobre-rechaza? mide si es trend='c' a n corto)
+    for n in NIVELES:
+        for trend in ("c", "n"):
+            falsos = 0
+            for _ in range(M):
+                x, y = simular_no_cointegrado(n, rng)
+                try:
+                    p = coint(y, x, trend=trend, autolag="AIC")[1]
+                    falsos += int(p < 0.05)
+                except Exception:
+                    pass
+            tam = 100 * falsos / M
+            print(f"  n={n:3d} NO cointegrado trend={trend!r} "
+                  f"(tamaño, nominal 5%): {tam:.1f}%")
+            filas.append({"n": n, "rho_err": None, "trend": trend,
+                          "tamaño_pct": round(tam, 1)})
 
     pd.DataFrame(filas).to_csv(
         Path(__file__).resolve().parent.parent / "data"

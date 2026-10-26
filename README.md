@@ -24,13 +24,13 @@ los CSV versionados con [`reconstruction_real/claims.yaml`](reconstruction_real/
 |---|---|
 | Las pendientes de B y E3 se reconstruyen desde fuentes versionadas | Reproducible (E3: 233/234) |
 | Inferencia sobre `b` en B | Indecidible: 290/446 series no estimables |
-| `b` de B como estimación de equilibrio de largo plazo | No confirmado en general: 93,3% componentes I(1), solo 12,3% cointegrado detectado — y la calibración de potencia (48–92% según n y persistencia) pone la tasa verdadera hasta en ~26%. `b` queda como descriptor de deriva donde no hay confirmación ([cointegración](reconstruction_real/audits/COINTEGRACION_HUB_NODO_2026-10-26.md)) |
+| `b` de B como estimación de equilibrio de largo plazo | No confirmado: 93,3% componentes I(1), 12,3% cointegrado detectado — apenas ~3–4 pp sobre el tamaño del test (EG sobre-rechaza 7–10% bajo la nula en series cortas). Corregida por tamaño y potencia, la tasa verdadera es ~4–25% (≈9% a la potencia mediana: 48,2% de potencia y 8,6% de tamaño estable a n=69). `b` queda como descriptor de deriva ([cointegración](reconstruction_real/audits/COINTEGRACION_HUB_NODO_2026-10-26.md)) |
 | `b ≥ 1` como régimen superlineal | No respaldada (error de selección AIC de 22,6% a 96,8%) |
 | Relación general fricción `φ` → `b` | No respaldada en tres vías: agrupamiento de dominios (p_perm = 0,053; MixedLM p = 0,57), dominios nuevos pre-registrados (p = 0,39), y por caso dentro de npm (ρ = +0,09, dirección contraria) |
 | La forma de la trayectoria identifica el dominio | Sí, en exactitud balanceada; no frente a la línea base cruda |
 | La forma de la trayectoria identifica el tono `φ` | No distinguible de asignar tonos al azar entre dominios |
 | ACO-A: convergencia descriptiva de `\|log₁₀ m\|` hacia 0 | Más cerrada que la dinámica AR(1) propia (p = 0,013) pero ligada a ventanas acabadas en evento (las de B no convergen) — no interpretada como firma del colapso ([nulos AR(1)](reconstruction_real/audits/NULOS_AR1_ACO_2026-10-26.md)) |
-| Prueba prospectiva ACO-A (cripto congelada 2026-10-26) | Sellada por git (sellado externo pendiente); ventana re-anclada 2026-10-26 → 2027-10-26; criterios recalibrados (P1a/P1b falsable, P3 por TOST). Backcast 2025-26: P1a/P1b/P2 respaldadas, P3 inconcluso por diseño a n=36 ([backcast](reconstruction_real/audits/BACKCAST_PROSPECTIVA_2026-10-26.md)) |
+| Prueba prospectiva ACO-A (cripto congelada 2026-10-26) | Sellada por git (sellado externo pendiente); ventana re-anclada 2026-10-26 → 2027-10-26; criterios recalibrados (P1a/P1b falsable, P3 por TOST). Backcast 2025-26 (corte 2026-09-30): P1a/P1b/P2 respaldadas (mediana Δ = −0,947), P3 inconcluso por diseño a n=36 (ρ = −0,195, IC95 [−0,492, +0,143] cruza −0,3) ([backcast](reconstruction_real/audits/BACKCAST_PROSPECTIVA_2026-10-26.md)) |
 
 ## La idea y sus límites
 
