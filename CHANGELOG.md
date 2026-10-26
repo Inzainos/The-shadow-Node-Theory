@@ -6,6 +6,59 @@ y el proyecto sigue [Versionado Semántico](https://semver.org/lang/es/).
 
 Las fechas corresponden a la integración de cada versión en la rama `main`.
 
+## [Sin publicar] — Auditoría de claims, línea base de la tela y CI
+
+### Agregado
+
+- **Verificador de claims** (`reconstruction_real/claims.yaml`,
+  `code/verificar_claims.py`): 30 cifras del README ligadas a su CSV; el
+  verificador falla si una cifra cambia en el README o en el dato sin
+  actualizar la otra. Tests en `tests/test_claims.py`, incluida la detección de
+  los tres modos de falla.
+- **Línea base de la clasificación de la tela**
+  (`code/tela_clasificacion_baseline.py`, informe
+  `audits/TELA_CLASIFICACION_BASELINE_2026-10-25.md`): línea base mayoritaria,
+  exactitud balanceada, nulo de permutación (por filas y por dominios) y
+  leave-one-domain-out, con semilla fija. Reproduce al decimal las cuatro
+  exactitudes publicadas. Resultado: por dominio, 50,7% queda por debajo de la
+  línea base (60,5%) pero la exactitud balanceada (55,6%) supera el azar
+  (11,1%); para el tono `φ`, ni el nulo por dominios (p = 0,39) ni LODO
+  (p = 0,13) lo distinguen del azar.
+- **Test de regresión de la auditoría integral v32**
+  (`tests/test_auditoria_integral.py`): re-ejecuta la auditoría y exige los
+  mismos estados y valores (rtol 1e-9) que el CSV versionado.
+- **CI:** el workflow ejecuta `pytest reconstruction_real/tests` (28 pruebas).
+  `pyyaml` entra a `requirements.txt`.
+
+### Cambiado
+
+- **README:** tabla «Estado de la evidencia» al inicio; el párrafo de
+  clasificación de la tela incluye la línea base y las pruebas nuevas; aclarado
+  qué versión archivan Zenodo (v2.5.0) y el manuscrito r32 (v2.6.1).
+- **Lint:** `.flake8` ahora también falla en `F401` (imports sin usar), `F841`
+  (variables asignadas y no usadas) y `F811` (redefiniciones). Se limpiaron 29
+  casos en código activo sin cambiar resultados.
+
+### Corregido
+
+- **Rutas personales:** `hackerearth_verificacion.py` y
+  `hackerearth_entrega_honesta.py` ya no apuntan a
+  `/mnt/c/Users/.../Downloads`; usan `--raw` o la variable `SNT_ZERVE_RAW`.
+  `make_collapse_landscapes.py` resuelve `figures/` relativo al repo.
+- **Reproducibilidad:** el jitter del grafo en `matriz_mexico_ncuerpos.py` usa
+  una semilla fija.
+
+### Hallazgos abiertos (no corregidos; requieren decisión del autor)
+
+- `reconstruction_real/code/rc1_superlineal.py` **no se ejecuta en `main`**:
+  desempaqueta 5 valores de `ajuste_loglog` (devuelve 3) en las líneas 252 y
+  268, y 2 valores de `comparar_modelos` (devuelve un dict) en la 269. El
+  script quedó desfasado respecto de `snt_utils_v32.py`. Los CSV `rc1_*.csv`
+  versionados no se pueden regenerar desde ese script tal como está.
+- `tela_exogena.py` regenera los CSV con diferencias de última cifra
+  (~1e-16) respecto a los versionados al cambiar de entorno numérico; no se
+  puede exigir igualdad byte a byte para esos archivos.
+
 ## [2.7.1] — 2026-10-21 — Tela de incertidumbre integrada
 
 *El corpus SNT de 721 casos no cambia de tamaño. Esta versión incorpora una

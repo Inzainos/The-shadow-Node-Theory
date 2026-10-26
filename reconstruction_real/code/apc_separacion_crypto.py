@@ -114,7 +114,6 @@ def main():
     print("\n--- Pendiente de edad por cohorte (hazard relativo por año) ---")
     for c, ds in sorted(cohortes.items()):
         edades = [d["edad"] for d in ds]
-        hazards = [d["hazard"] for d in ds if d["hazard"] > 0]
         edades_h = [e for e, h in zip(edades, [d["hazard"] for d in ds]) if h > 0]
         if len(edades_h) >= 3:
             log_h = np.log([d["hazard"] for d in ds if d["hazard"] > 0])

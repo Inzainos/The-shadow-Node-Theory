@@ -26,6 +26,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         python -m pip install -r requirements.txt
+        python -m pip install pytest
     - name: Lint for syntax errors and undefined names (flake8)
       run: |
         # Config (select/exclude/etc.) lives in .flake8 — the single source.
@@ -36,3 +37,8 @@ jobs:
     - name: Smoke test — ACO module (v2.4.0)
       run: |
         python reconstruction_real/code/build_aco_v29.py
+    - name: Regression tests, README claims and integral audit
+      run: |
+        # Incluye test_claims (cifras del README vs CSV) y la re-ejecución de
+        # la auditoría integral v32 contra su CSV versionado (~15 s).
+        pytest reconstruction_real/tests -q

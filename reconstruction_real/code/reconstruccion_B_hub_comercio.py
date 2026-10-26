@@ -75,8 +75,7 @@ import pandas as pd
 from scipy import stats
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from comercio_maddison import (APROX, CMEA, IN_MADDISON,  # noqa: E402
-                               IN_MPD_XLSX, IN_ZIP, RENOMBRE_SOCIO, cargar_pib,
+from comercio_maddison import (CMEA, cargar_pib,  # noqa: E402
                                cargar_poblacion, leer_cow, partial_spearman,
                                sha256, socio_maddison)
 

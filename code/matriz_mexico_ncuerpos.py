@@ -26,13 +26,15 @@ Salida:
 
 import numpy as np
 import pandas as pd
-from scipy.stats import pearsonr, spearmanr
+from scipy.stats import pearsonr
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
-import argparse
-import os
 import warnings
 warnings.filterwarnings('ignore')
+
+# Semilla fija: el jitter del grafo es solo cosmético, pero la figura debe
+# ser reproducible byte a byte entre corridas.
+_RNG_JITTER = np.random.default_rng(20261025)
 
 try:
     import networkx as nx
@@ -433,7 +435,7 @@ if HAS_NETWORKX:
             n = len(entidades_n)
             for i, ent in enumerate(entidades_n):
                 angle = 2 * np.pi * i / max(n, 1)
-                offset = 0.08 * (np.random.rand() - 0.5) if str(nivel) != '0' else 0
+                offset = 0.08 * (_RNG_JITTER.random() - 0.5) if str(nivel) != '0' else 0
                 pos[ent] = (
                     (radio + offset) * np.cos(angle),
                     (radio + offset) * np.sin(angle)

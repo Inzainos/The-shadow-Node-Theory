@@ -16,6 +16,20 @@ Los resultados dependen del dominio, la ventana, las variables y la calidad de
 reconstrucción. La autocorrelación y la selección de casos limitan la
 inferencia; 721 registros no equivalen a 721 réplicas independientes.
 
+**Estado de la evidencia.** Cada cifra citada en este README se verifica contra
+los CSV versionados con [`reconstruction_real/claims.yaml`](reconstruction_real/claims.yaml)
+(`python reconstruction_real/code/verificar_claims.py`; también corre en CI).
+
+| Afirmación | Estado |
+|---|---|
+| Las pendientes de B y E3 se reconstruyen desde fuentes versionadas | Reproducible (E3: 233/234) |
+| Inferencia sobre `b` en B | Indecidible: 290/446 series no estimables |
+| `b ≥ 1` como régimen superlineal | No respaldada (error de selección AIC de 22,6% a 96,8%) |
+| Relación general fricción `φ` → `b` | No respaldada (ver «Evolución», punto 2) |
+| La forma de la trayectoria identifica el dominio | Sí, en exactitud balanceada; no frente a la línea base cruda |
+| La forma de la trayectoria identifica el tono `φ` | No distinguible de asignar tonos al azar entre dominios |
+| ACO-A: convergencia descriptiva de `\|log₁₀ m\|` hacia 0 | Descriptiva (n = 18), sin prueba de atractor universal |
+
 ## La idea y sus límites
 
 `R(t)` compara la escala del hub con la del nodo. El exponente `b` describe la
@@ -184,12 +198,23 @@ ampliación del abanico entre trayectorias y, en ACO, la convergencia
 descriptiva de la cohorte cruda; las sombras siguen marcadas como modelos.
 
 La clasificación exploratoria leave-one-out de la tela integrada alcanza
-50,7% por dominio y 66,2% por tono nominal `φ`. Esas cifras no prueban que la
-forma recupere el dominio o mida fricción: el procedimiento es de centroide,
-no está calibrado como clasificador y `φ` no es una variable continua
-observada. El resultado que sí sobrevive es más acotado: la visualización
-permite comparar trayectorias bajo una receta declarada, siempre que se
-preserve la distinción entre series observadas, modelos y proyecciones.
+50,7% por dominio y 66,2% por tono nominal `φ`. Frente a la línea base
+mayoritaria (siempre predecir la clase más frecuente), la exactitud por
+dominio queda por debajo (60,5%) y la de tono la supera por solo 2,4 puntos
+(63,8%). La exactitud balanceada por dominio (55,6%) sí supera ampliamente el
+azar (11,1%): la forma contiene información de dominio. Para el tono no hay
+evidencia adicional: con un nulo que permuta los tonos entre dominios, el
+resultado no se distingue del azar (p = 0,39), y al dejar un dominio fuera
+(leave-one-domain-out) la exactitud balanceada es 36,4% contra 33,3% de azar
+(p = 0,13). Como `φ` es constante por dominio, identificar el tono equivale a
+identificar el dominio. Detalle en
+[`TELA_CLASIFICACION_BASELINE_2026-10-25.md`](reconstruction_real/audits/TELA_CLASIFICACION_BASELINE_2026-10-25.md).
+Esas cifras no prueban que la forma recupere el dominio por dinámica o mida
+fricción: el procedimiento es de centroide, no está calibrado como clasificador
+y `φ` no es una variable continua observada. El resultado que sí sobrevive es
+más acotado: la visualización permite comparar trayectorias bajo una receta
+declarada, siempre que se preserve la distinción entre series observadas,
+modelos y proyecciones.
 
 ### Estado actual en una frase
 
@@ -201,7 +226,9 @@ ley universal de satelización, un clasificador cimático validado ni una
 predicción general de colapso.
 
 Las numeraciones son independientes: **v2.7.1** es la versión del repositorio,
-**v6** identifica el corpus consolidado y **v34** el marco teórico.
+**v6** identifica el corpus consolidado y **v34** el marco teórico. El DOI de
+Zenodo archiva v2.5.0 y el manuscrito r32 se basa en v2.6.1 (ver «Zenodo y
+SSRN»).
 
 ## Desarrollo empírico por dominio
 
@@ -461,8 +488,13 @@ Usa el entorno local descrito en [AGENTS.md](AGENTS.md). Desde la raíz:
 flake8 .
 python -m compileall -q code reconstruction_real dashboard delta
 python reconstruction_real/code/build_aco_v29.py
-pytest reconstruction_real/tests
+pytest reconstruction_real/tests          # incluye claims y auditoría integral
+python reconstruction_real/code/verificar_claims.py
 ```
+
+La prueba de línea base y permutación de la tela se regenera con
+`python reconstruction_real/code/tela_clasificacion_baseline.py` (≈2,5 min,
+semilla fija).
 
 La prueba del corpus B y las auditorías completas pueden requerir más tiempo.
 Consulta las instrucciones de cada informe antes de descargar datos o

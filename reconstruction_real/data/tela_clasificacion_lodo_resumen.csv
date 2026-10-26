@@ -1,0 +1,3 @@
+n_eval,exactitud,base_mayoritaria_entrenamiento,azar_uniforme_esperado,exactitud_balanceada,balanceada_base_mayoritaria,azar_balanceada,rasgos,nulo_dominios_bal_media,nulo_dominios_bal_p95,p_perm_dominios_bal,p_perm_dominios_acc,semilla,n_perm
+718,0.479109,0.036212,0.200000,0.364405,0.018362,0.333333,todos,0.188881,0.469604,0.130374,0.165767,20261025,5000
+718,0.388579,0.036212,0.200000,0.318501,0.018362,0.333333,solo_forma,0.189279,0.486729,0.212358,0.210958,20261025,5000

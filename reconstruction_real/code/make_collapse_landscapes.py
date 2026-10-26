@@ -10,7 +10,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from pathlib import Path
 
-FIG = Path("/home/user/The-shadow-Node-Theory/figures")
+# Raíz del repo = dos niveles sobre reconstruction_real/code/
+FIG = Path(__file__).resolve().parents[2] / "figures"
 FIG.mkdir(parents=True, exist_ok=True)
 
 OK = {"orange": "#E69F00", "sky": "#56B4E9", "green": "#009E73",

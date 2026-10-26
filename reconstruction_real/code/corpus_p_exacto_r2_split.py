@@ -24,7 +24,6 @@ Uso:
 """
 
 import csv
-import math
 import os
 import sys
 
@@ -95,12 +94,8 @@ def main():
 
     for row in corpus:
         cid = row["id"]
-        dom = row["dominio"]
         out = dict(row)
 
-        b = _f(row["b"])
-        se_b = _f(row["se_b"]) if "se_b" in row and row["se_b"] not in (None, "") else None
-        n = _f(row["n"])
 
         p_exacto = None
         r2_raw = None

@@ -8,9 +8,7 @@ Deploy: Hugging Face Spaces (Streamlit) or local.
 
 import streamlit as st
 import pandas as pd
-import numpy as np
 import plotly.express as px
-import plotly.graph_objects as go
 from pathlib import Path
 
 st.set_page_config(

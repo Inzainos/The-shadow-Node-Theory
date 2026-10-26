@@ -44,7 +44,6 @@ from collections import defaultdict
 from pathlib import Path
 
 import numpy as np
-from scipy import stats
 from scipy.signal import lfilter
 
 ROOT = Path(__file__).resolve().parent.parent.parent

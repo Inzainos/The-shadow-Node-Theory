@@ -58,7 +58,10 @@ LOG_FILE = LOG_DIR / "hackerearth_verificacion_log.txt"
 OUT = DATA_RR / "hackerearth_verificacion_resultados.csv"
 
 SHA_RAW = "73c44fc9d47abd67ef0e9280f71bc2fec9b8483d3fc304a1f747593f9aa27390"
-DEFAULT_RAW = Path("/mnt/c/Users/elanz/Downloads/zerve_hackathon_dataset.csv")
+# Dataset propietario, no redistribuible (ver sources.md). Ruta por variable de
+# entorno SNT_ZERVE_RAW o por --raw; por defecto, el directorio de trabajo.
+DEFAULT_RAW = Path(os.environ.get("SNT_ZERVE_RAW",
+                                  "zerve_hackathon_dataset.csv"))
 
 # Corte temporal: 30 dias antes del fin de los datos (2025-12-08).
 T1 = pd.Timestamp("2025-11-08", tz="UTC")
@@ -117,7 +120,6 @@ def parte1():
                   "Confident Retained")))
 
     # 1b-0: ¿High Risk es exactamente Basic?
-    cross = pd.crosstab(sc.cohort, sc.risk_tier)
     identicos = int((sc.cohort == "Basic").sum() ==
                     (sc.risk_tier == "High Risk").sum()) and \
         int(((sc.cohort == "Basic") == (sc.risk_tier == "High Risk")).sum())

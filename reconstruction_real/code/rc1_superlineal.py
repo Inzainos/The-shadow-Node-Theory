@@ -48,12 +48,11 @@ import csv
 import logging
 import math
 import sys
-from collections import Counter, defaultdict
+from collections import defaultdict
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from scipy import stats
 from scipy.signal import lfilter
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -208,7 +207,6 @@ def cargar_ACO():
 # ------------------------------------------------------------------ main
 def main():
     configurar_log()
-    rng = np.random.default_rng(SEMILLA)
     log.info("=" * 78)
     log.info("RC1 — VERIFICACIÓN DE BANDA b >= 1 (pre-registro 2026-10-02, 1a2ac0e)")
     log.info("=" * 78)
@@ -235,7 +233,6 @@ def main():
            if abs(ajuste_loglog(c["t"], c["y"])[0] - c["b_pub"]) > E3_TOL]
     log.info("   E3  : %3d casos | %3d/%d reproducen la b publicada (tol %.2f)",
              len(E3), len(E3) - len(mal), len(E3), E3_TOL)
-    casos_E3 = len(E3) - len(mal)
     filas.append({"dominio": "E3", "n": len(E3),
                   "reproducen_b_publicado": len(E3) - len(mal),
                   "veredicto": "REPLICA" if len(E3) - len(mal) == len(E3)

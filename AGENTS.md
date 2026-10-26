@@ -61,13 +61,24 @@ python -m compileall -q code reconstruction_real dashboard delta
 # Smoke test (CI runs this)
 python reconstruction_real/code/build_aco_v29.py
 
-# Regression test + full audit re-run (not in CI; run when touching the corpus)
+# Regression tests (CI runs these): README claims, v32 audit re-run, AR(1) fix,
+# tela baseline. ~15 s.
 pytest reconstruction_real/tests
+
+# README figures vs versioned CSVs (also covered by pytest)
+python reconstruction_real/code/verificar_claims.py
+
+# Full audit re-run (regenerates data/auditoria_integral_v32_resultados.csv)
 python reconstruction_real/code/snt_auditoria_integral_v32.py
 ```
 
 CI lives in `.github/workflows/python-package-conda.yml` (Conda env `snt-env`
-from `environment.yml`): checkout → env → deps → flake8 → compileall → smoke test.
+from `environment.yml`): checkout → env → deps → flake8 → compileall → smoke test
+→ `pytest reconstruction_real/tests`.
+
+When you change a number in `README.md`, update `reconstruction_real/claims.yaml`
+in the same PR (`readme` fragment + `esperado`); CI fails if the README and the
+data disagree.
 
 ## Commit convention — Conventional Commits
 
