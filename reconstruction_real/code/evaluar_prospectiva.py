@@ -55,15 +55,15 @@ def fit_loglog(x, y):
     return float(np.polyfit(np.log(x), np.log(y), 1)[0])
 
 
-def main():
-    if len(sys.argv) < 2:
-        print("Uso: evaluar_prospectiva.py <cierres.csv.gz> [fin_ventana]")
-        print("  <cierres.csv.gz>: datos de la ventana (par, fecha, close)")
-        return 1
-    ruta_datos = Path(sys.argv[1])
-    fin = sys.argv[2] if len(sys.argv) > 2 else FIN_DEFECTO
-
-    cohorte = list(csv.DictReader(COHORTE.open()))
+def evaluar(ruta_datos, fin=FIN_DEFECTO,
+            ruta_cohorte=None, corte_cohorte=None):
+    """Evalúa la ventana sellada contra la cohorte congelada.
+    Devuelve dict con: candidatos, colapsos_crudos, colapsos_maduros,
+    fraccion_pct, mediana_delta, rho_b_delta, ic95_inf, ic95_sup.
+    (None en los que no apliquen)."""
+    ruta_cohorte = Path(ruta_cohorte) if ruta_cohorte else COHORTE
+    corte_cohorte = corte_cohorte or CORTE_COHORTE
+    cohorte = list(csv.DictReader(ruta_cohorte.open()))
     for c in cohorte:
         c["ath_corte"] = float(c["ath_corte"])
         c["precio_corte"] = float(c["precio_corte"])
@@ -83,22 +83,14 @@ def main():
         puntos = series.get(par, [])
         if not puntos:
             continue
-        nacimiento_idx = None
-        for i, (f, _) in enumerate(puntos):
-            if f >= c["fecha_nacimiento"]:
-                nacimiento_idx = i
-                break
-        if nacimiento_idx is None:
-            continue
-        # solo candidatos vivos al corte (dd < 99% contra ATH congelado)
-        hasta = [p for p in puntos if p[0] <= CORTE_COHORTE]
+        hasta = [p for p in puntos if p[0] <= corte_cohorte]
         if not hasta:
             continue
         precio_corte = hasta[-1][1]
         if 100 * (1 - precio_corte / c["ath_corte"]) >= 99:
             continue
         candidatos += 1
-        despues = [p for p in puntos if CORTE_COHORTE < p[0] <= fin]
+        despues = [p for p in puntos if corte_cohorte < p[0] <= fin]
         if not despues:
             continue
         fin_precio = despues[-1][1]
@@ -107,43 +99,85 @@ def main():
                 and fin_precio < 0.01 * c["ath_corte"]):
             continue
         colapsos_crudos += 1
-        # receta ADENDA 1: madurez >= 120 por lado sobre toda la serie
-        precios_todo = np.array([p[1] for p in puntos])
-        pk = int(np.argmax(precios_todo))
-        if pk < 120 or len(precios_todo) - pk < 120:
+        # FIX (validación del operador, 2026-10-26): b con el ATH
+        # CONGELADO de la cohorte; ATH y valle de Δ DENTRO de la ventana.
+        puntos_hasta_ath = [p for p in puntos if p[0] <= c["fecha_ath"]]
+        if len(puntos_hasta_ath) < 121:
             continue
-        b = fit_loglog(np.arange(1, pk + 2, dtype=float),
-                       precios_todo[:pk + 1])
-        fin_valle = pk + max(int(np.argmin(precios_todo[pk:])), 1)
-        d = fit_loglog(np.arange(1, fin_valle - pk + 1, dtype=float),
-                       precios_todo[pk:fin_valle + 1])
+        precios_vent = np.array([p[1] for p in puntos if p[0] <= fin])
+        idx_ath = None
+        for i, p2 in enumerate(puntos):
+            if p2[0] > c["fecha_ath"]:
+                idx_ath = i - 1
+                break
+        if idx_ath is None or len(precios_vent) - idx_ath < 121:
+            continue
+        b = fit_loglog(np.arange(1, idx_ath + 2, dtype=float),
+                       precios_vent[:idx_ath + 1])
+        ventana_baja = precios_vent[idx_ath:]
+        if len(ventana_baja) < 20:
+            continue
+        fin_valle = idx_ath + max(int(np.argmin(ventana_baja)), 1)
+        d = fit_loglog(np.arange(1, fin_valle - idx_ath + 1, dtype=float),
+                       precios_vent[idx_ath:fin_valle + 1])
         if b is None or d is None:
             continue
         maduros.append((par, b, d))
 
-    frac = 100 * colapsos_crudos / candidatos if candidatos else float("nan")
+    res = {
+        "candidatos": candidatos,
+        "colapsos_crudos": colapsos_crudos,
+        "colapsos_maduros": len(maduros),
+        "fraccion_pct": round(100 * colapsos_crudos / candidatos,
+                              2) if candidatos else None,
+        "mediana_delta": None, "rho_b_delta": None,
+        "ic95_inf": None, "ic95_sup": None,
+    }
+    if maduros:
+        ds = [m[2] for m in maduros]
+        res["mediana_delta"] = round(float(np.median(ds)), 4)
+        if len(maduros) >= 5:
+            rho, _ = spearmanr([m[1] for m in maduros], ds)
+            ic = np.tanh(np.arctanh(rho) + np.array([-1, 1]) * 1.96
+                         / np.sqrt(len(maduros) - 3))
+            res["rho_b_delta"] = round(float(rho), 4)
+            res["ic95_inf"] = round(float(ic[0]), 4)
+            res["ic95_sup"] = round(float(ic[1]), 4)
+    return res
+
+
+def main():
+    if len(sys.argv) < 2:
+        print("Uso: evaluar_prospectiva.py <cierres.csv.gz> [fin_ventana]")
+        print("  <cierres.csv.gz>: datos de la ventana (par, fecha, close)")
+        return 1
+    ruta_datos = Path(sys.argv[1])
+    fin = sys.argv[2] if len(sys.argv) > 2 else FIN_DEFECTO
+    res = evaluar(ruta_datos, fin)
+
     print(f"VENTANA {CORTE_COHORTE} → {fin}")
-    print(f"Candidatos (vivos dd<99% al corte): {candidatos}")
-    print(f"P1a — colapsos crudos: {colapsos_crudos} → "
-          f"{'✓ RESPALDADA' if colapsos_crudos >= 1 else '✗ FALSADA'} "
+    print(f"Candidatos (vivos dd<99% al corte): {res['candidatos']}")
+    print(f"P1a — colapsos crudos: {res['colapsos_crudos']} → "
+          f"{'✓ RESPALDADA' if res['colapsos_crudos'] >= 1 else '✗ FALSADA'} "
           f"(peso bajo, ADENDA 2)")
+    frac = res['fraccion_pct']
     print(f"FRACCIÓN — {frac:.1f}% (DESCRIPTIVA del régimen; sin "
           f"compuerta, ADENDA 4)")
 
-    if maduros:
-        ds = [m[2] for m in maduros]
-        med = float(np.median(ds))
-        print(f"P2 — mediana Δ = {med:+.3f} (n maduros = {len(maduros)}) | "
+    if res["mediana_delta"] is not None:
+        med = res["mediana_delta"]
+        n_mad = res["colapsos_maduros"]
+        print(f"P2 — mediana Δ = {med:+.3f} (n maduros = {n_mad}) | "
               f"banda [{P2_LO}, {P2_HI}] → "
               f"{'✓ RESPALDADA' if P2_LO <= med <= P2_HI else '✗ FUERA'}")
-        if len(maduros) >= 5:
-            rho, p = spearmanr([m[1] for m in maduros], ds)
-            ic = np.tanh(np.arctanh(rho) + np.array([-1, 1]) * 1.96
-                         / np.sqrt(len(maduros) - 3))
+        if res["rho_b_delta"] is not None:
+            ic = (res["ic95_inf"], res["ic95_sup"])
             dentro = abs(ic[0]) < P3_UMBRAL and abs(ic[1]) < P3_UMBRAL
-            print(f"P3 (TOST) — ρ(b,Δ) = {rho:+.3f}, IC95 "
-                  f"[{ic[0]:+.3f}, {ic[1]:+.3f}] (n={len(maduros)}) → "
-                  f"{'✓ DEMOSTRADA' if dentro else 'INCONCLUSO a este n'}")
+            estado = ('✓ DEMOSTRADA' if dentro
+                      else 'INCONCLUSO a este n — esperado por diseño '
+                           'con n≈36 (ADENDA 2)')
+            print(f"P3 (TOST) — ρ(b,Δ) = {res['rho_b_delta']:+.3f}, IC95 "
+                  f"[{ic[0]:+.3f}, {ic[1]:+.3f}] (n={n_mad}) → {estado}")
         else:
             print("P3 — n<5 maduros: no evaluable (criterio preregistrado)")
     else:

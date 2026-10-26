@@ -30,7 +30,7 @@ los CSV versionados con [`reconstruction_real/claims.yaml`](reconstruction_real/
 | La forma de la trayectoria identifica el dominio | Sí, en exactitud balanceada; no frente a la línea base cruda |
 | La forma de la trayectoria identifica el tono `φ` | No distinguible de asignar tonos al azar entre dominios |
 | ACO-A: convergencia descriptiva de `\|log₁₀ m\|` hacia 0 | Más cerrada que la dinámica AR(1) propia (p = 0,013) pero ligada a ventanas acabadas en evento (las de B no convergen) — no interpretada como firma del colapso ([nulos AR(1)](reconstruction_real/audits/NULOS_AR1_ACO_2026-10-26.md)) |
-| Prueba prospectiva ACO-A (cripto congelada 2026-10-26) | Sellada por git (sellado externo pendiente); ventana re-anclada 2026-10-26 → 2027-10-26; criterios recalibrados (P1a/P1b falsable, P3 por TOST). Backcast 2025-26 (corte 2026-09-30): P1a/P1b/P2 respaldadas (mediana Δ = −0,947), P3 inconcluso por diseño a n=36 (ρ = −0,195, IC95 [−0,492, +0,143] cruza −0,3) ([backcast](reconstruction_real/audits/BACKCAST_PROSPECTIVA_2026-10-26.md)) |
+| Prueba prospectiva ACO-A (cripto congelada 2026-10-26) | Sellada por git (sellado externo pendiente); ventana re-anclada 2026-10-26 → 2027-10-26; criterios recalibrados (P1a/P1b falsable, P3 por TOST). Backcast 2025-26 (corte 2026-09-30): P1a/P1b/P2 respaldadas (mediana Δ = −0,944), P3 inconcluso por diseño a n=36 (ρ = −0,191, IC95 [−0,489, +0,146] cruza −0,3) ([backcast](reconstruction_real/audits/BACKCAST_PROSPECTIVA_2026-10-26.md)) |
 
 ## La idea y sus límites
 
