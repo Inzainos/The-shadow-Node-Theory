@@ -402,10 +402,10 @@ if __name__ == "__main__":
         label = "*** SIG" if p < 0.05 else "n.s."
         print(f"\n  Mann-Whitney two-sided: U={U:.0f}, p={p:.4f} {label}")
         if graduales.mean() > abruptos.mean():
-            print(f"  ACO graduales muestran b mayor — colapsos "
-                  f"prolongados aceleran absorcion acumulativa")
+            print("  ACO graduales muestran b mayor — colapsos "
+                  "prolongados aceleran absorcion acumulativa")
 
-    print(f"\n  Por dominio:")
+    print("\n  Por dominio:")
     dom_names = {"F": "Financiero", "T": "Tecnologico",
                  "H": "Historico", "I": "Industrial"}
     for dom in ["F", "T", "H", "I"]:
@@ -425,7 +425,7 @@ if __name__ == "__main__":
     if len(bad_r2) > 0:
         print(f"\n  WARNING: {len(bad_r2)} cases with R2 outside [0,1]")
     else:
-        print(f"\n  Integrity: R2 in [0,1] for all cases.")
+        print("\n  Integrity: R2 in [0,1] for all cases.")
 
     # ── Export CSVs ──────────────────────────────────────────────────────────
     csv_path = DATA_DIR / "snt_corpus_aco_v29.csv"

@@ -424,11 +424,11 @@ bars2 = ax.bar(categories, vals_cdmx, bottom=vals_direct,
 ax.set_ylabel("Extraction gradient (k MXN)")
 ax.set_title("Tlaxcala composite gradient:\nbinary model error = 9.3×")
 
-ax.text(0, 26200/1000/2, f"26.2k\n(100%)", ha='center', va='center',
+ax.text(0, 26200/1000/2, "26.2k\n(100%)", ha='center', va='center',
         fontsize=8, color='white', fontweight='bold')
-ax.text(1, 26200/1000/2, f"26.2k\n(10.8%)", ha='center', va='center',
+ax.text(1, 26200/1000/2, "26.2k\n(10.8%)", ha='center', va='center',
         fontsize=8, color='white', fontweight='bold')
-ax.text(1, 26200/1000 + 216800/1000/2, f"216.8k\n(89.2%)",
+ax.text(1, 26200/1000 + 216800/1000/2, "216.8k\n(89.2%)",
         ha='center', va='center', fontsize=8, color='white', fontweight='bold')
 
 total_nbody = (26200 + 216800)/1000

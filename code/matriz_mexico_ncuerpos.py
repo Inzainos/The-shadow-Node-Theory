@@ -149,7 +149,7 @@ r2 = 1 - ss_res / ss_tot
 
 r_val, p_val = pearsonr(log_rank, log_pib)
 
-print(f"\nAJUSTE LEY DE POTENCIA: f(rank) = a * rank^b")
+print("\nAJUSTE LEY DE POTENCIA: f(rank) = a * rank^b")
 print(f"  a = {a_fit:.1f}")
 print(f"  b = {b_fit:.3f}")
 print(f"  R² = {r2:.3f}")
@@ -157,9 +157,9 @@ print(f"  r Pearson (log-log) = {r_val:.4f}")
 print(f"  p-valor = {p_val:.6f}")
 
 if p_val < 0.001:
-    print(f"\n  *** RESULTADO: El sistema nacional mexicano sigue una")
-    print(f"  distribucion de ley de potencia con alta significancia.")
-    print(f"  Confirma preferential attachment (Barabasi-Albert 1999).")
+    print("\n  *** RESULTADO: El sistema nacional mexicano sigue una")
+    print("  distribucion de ley de potencia con alta significancia.")
+    print("  Confirma preferential attachment (Barabasi-Albert 1999).")
 
 # =============================================================================
 # TABLA DE CLASIFICACION POR NIVEL
@@ -203,7 +203,7 @@ print(f"\n{'=' * 70}")
 print("GRADIENTES DE EXTRACCION — MODELO N-CUERPOS")
 print("=" * 70)
 
-print(f"\nGradiente bilateral de cada Nodo Sombra (vs atractor inmediato y CDMX):")
+print("\nGradiente bilateral de cada Nodo Sombra (vs atractor inmediato y CDMX):")
 print(f"\n{'Entidad':<18} {'PIB pc':>8} {'vs CDMX':>10} {'Ratio':>7}")
 print("-" * 50)
 
@@ -217,22 +217,22 @@ print(f"\n{'─' * 55}")
 print("CASO TLAXCALA — CORRECCION DEL MODELO BINARIO")
 print("─" * 55)
 t = GRADIENTES_CONOCIDOS["Tlaxcala"]
-print(f"\n  PIB pc Tlaxcala:  68,400 MXN")
-print(f"  PIB pc Puebla:    94,600 MXN")
-print(f"  PIB pc CDMX:     285,200 MXN")
-print(f"\n  Modelo binario (solo Tlaxcala-Puebla):")
+print("\n  PIB pc Tlaxcala:  68,400 MXN")
+print("  PIB pc Puebla:    94,600 MXN")
+print("  PIB pc CDMX:     285,200 MXN")
+print("\n  Modelo binario (solo Tlaxcala-Puebla):")
 print(f"    w_ij = 94,600 - 68,400 = {t['Puebla']:,} MXN")
-print(f"\n  Modelo N-cuerpos (gradiente compuesto):")
+print("\n  Modelo N-cuerpos (gradiente compuesto):")
 print(f"    w_ij(→Puebla) = {t['Puebla']:,} MXN  ({100-t['pct_cdmx']:.1f}%)")
 print(f"    w_ij(→CDMX)   = {t['CDMX']:,} MXN  ({t['pct_cdmx']:.1f}%)")
 print(f"    TOTAL          = {t['compuesto']:,} MXN")
 print(f"\n  Factor de error del modelo binario: {t['factor_error_binario']}x")
 print(f"  El modelo binario capturaba solo el {100/t['factor_error_binario']:.1f}% del problema.")
-print(f"\n  IMPLICACION POLITICA:")
-print(f"  Cualquier estrategia que solo ataque la relacion Tlaxcala-Puebla")
+print("\n  IMPLICACION POLITICA:")
+print("  Cualquier estrategia que solo ataque la relacion Tlaxcala-Puebla")
 print(f"  resuelve el {100-t['pct_cdmx']:.1f}% del problema.")
 print(f"  El {t['pct_cdmx']:.1f}% restante requiere politicas que rompan la")
-print(f"  extraccion directa hacia CDMX (leapfrog dimensional).")
+print("  extraccion directa hacia CDMX (leapfrog dimensional).")
 
 # Verificacion distribucion Pareto
 print(f"\n{'─' * 55}")
@@ -243,18 +243,18 @@ n_top10 = len(top10)
 # Aproximacion basada en los datos
 pct_entidades = n_top10 / 32 * 100
 print(f"\n  Nivel 0 + Nivel 1: {n_top10} entidades ({pct_entidades:.0f}% del total)")
-print(f"  Concentran aproximadamente el 55.8% del PIB nacional")
+print("  Concentran aproximadamente el 55.8% del PIB nacional")
 print(f"  Nivel 3 ({len(nodos_sombra)} entidades, {len(nodos_sombra)/32*100:.0f}% del total):")
-print(f"  Generan solo ~16.8% del PIB nacional")
-print(f"\n  La distribucion confirma la prediccion de Pareto:")
-print(f"  30.6% de entidades concentran 55.8% del PIB")
+print("  Generan solo ~16.8% del PIB nacional")
+print("\n  La distribucion confirma la prediccion de Pareto:")
+print("  30.6% de entidades concentran 55.8% del PIB")
 
 # =============================================================================
 # EXPORTAR CSV
 # =============================================================================
 
 df.to_csv("matriz_mexico_32.csv", index=False, encoding="utf-8-sig")
-print(f"\nCSV guardado: matriz_mexico_32.csv")
+print("\nCSV guardado: matriz_mexico_32.csv")
 
 # =============================================================================
 # VISUALIZACIONES
