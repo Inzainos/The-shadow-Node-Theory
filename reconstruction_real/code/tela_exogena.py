@@ -228,7 +228,6 @@ def reconstruir_series_directas():
         ("snt_corpus_dominio_G_timeseries.csv", "G"),
     ]:
         df = pd.read_csv(os.path.join(DATA_RR, nombre))
-        b_pub = pub.get
         for cid, g in df.groupby("id", sort=False):
             g = g.sort_values("t")
             R = g["R"].to_numpy(dtype=float)

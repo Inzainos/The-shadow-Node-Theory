@@ -35,10 +35,8 @@ import os
 import sys
 from pathlib import Path
 
-import numpy as np
 import pandas as pd
 from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedKFold, cross_val_score
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -48,7 +46,10 @@ LOG_DIR.mkdir(parents=True, exist_ok=True)
 LOG_FILE = LOG_DIR / "hackerearth_entrega_honesta_log.txt"
 
 SHA_RAW = "73c44fc9d47abd67ef0e9280f71bc2fec9b8483d3fc304a1f747593f9aa27390"
-DEFAULT_RAW = Path("/mnt/c/Users/elanz/Downloads/zerve_hackathon_dataset.csv")
+# Dataset propietario, no redistribuible (ver sources.md). Ruta por variable de
+# entorno SNT_ZERVE_RAW o por --raw; por defecto, el directorio de trabajo.
+DEFAULT_RAW = Path(os.environ.get("SNT_ZERVE_RAW",
+                                  "zerve_hackathon_dataset.csv"))
 
 T1 = pd.Timestamp("2025-11-08", tz="UTC")     # corte de entrenamiento
 T_FIN = pd.Timestamp("2025-12-09", tz="UTC")  # fin de los datos (score)

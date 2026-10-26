@@ -1,8 +1,9 @@
 [flake8]
 # Single source of truth for linting. CI runs `flake8 .` and picks this up.
-# We fail the build only on real errors (syntax, undefined names); archive/
+# We fail the build on real errors: syntax, undefined names, unused imports and
+# variables (F401/F841) and redefinitions (F811); archive/
 # and Legacy/ hold historical/superseded code that is intentionally not linted.
-select = E9,F63,F7,F82
+select = E9,F63,F7,F82,F401,F811,F841
 exclude =
     .git,
     __pycache__,

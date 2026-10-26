@@ -64,7 +64,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "code"))
 sys.path.insert(0, str(ROOT / "reconstruction_real" / "code"))
 
-from snt_utils_v32 import comparar_modelos, durbin_watson  # noqa: E402
+from snt_utils_v32 import comparar_modelos  # noqa: E402
 from rc1_superlineal import (  # noqa: E402
     ajuste_loglog, banda_de, perfil, ruido_ar1,
 )

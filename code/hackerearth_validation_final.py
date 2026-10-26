@@ -32,8 +32,6 @@ import pandas as pd
 import numpy as np
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.model_selection import StratifiedKFold, cross_val_score
-from sklearn.metrics import roc_auc_score, classification_report
-import matplotlib.pyplot as plt
 import warnings
 warnings.filterwarnings('ignore', category=RuntimeWarning)
 
