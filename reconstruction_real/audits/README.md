@@ -17,7 +17,19 @@ verificable por terceros es el archivo versionado de Zenodo:
   release 2.7.1 creado por la integración GitHub–Zenodo — SÍ contiene los
   10 pre-registros + ADENDA 1 de la ronda tarde; la ADENDA 2 quedó después
   y su sellado externo es pendiente del próximo archivo).
-- El operador decide cuál DOI queda como canónico en CITATION.cff.
+- El operador decidió (2026-10-26): canónico = 10.5281/zenodo.23661819;
+  tras el release 2.7.2, el vigente es 10.5281/zenodo.23675319 (CITATION
+  actualizado).
+- **Verificación por CONTENIDO del DOI 23675319 (2026-10-26):** el zip
+  (43.436.346 B) fue descargado de Zenodo y listado: contiene el
+  snapshot del commit `80026ce` con
+  `reconstruction_real/preregistro/ADENDA_PROSPECTIVA_RECETA_2026-10-26.md`,
+  `ADENDA2_PROSPECTIVA_VENTANA_CRITERIOS_2026-10-26.md`,
+  `ADENDA3_PROSPECTIVA_RECONGELAMIENTO_2026-10-26.md` y
+  `PREREGISTRO_PROSPECTIVA_CRIPTO_2026-10-26.md` — verificado con
+  `zipfile` sobre el archivo descargado. Las ADENDA 4 y este punto
+  quedan fuera de ese DOI (le preceden) y se sellan en el próximo
+  release procesado por la integración.
 
 ## Estado canónico de reproducibilidad
 
