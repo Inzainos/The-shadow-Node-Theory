@@ -303,10 +303,10 @@ claims:
 
   # --- Menores del operador (2026-10-26): potencia EG y TOST del backcast ---
   - id: potencia_eg_mediana
-    readme: "48,2%"
+    readme: "45,9%"
     archivo: reconstruction_real/data/potencia_cointegracion.csv
     expr: "df[(df.n == 69) & (df.rho_err == 0.8)].potencia_pct.iloc[0]"
-    esperado: 48.2
+    esperado: 45.9
     escala: 1
     decimales: 1
 

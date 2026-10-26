@@ -24,7 +24,7 @@ los CSV versionados con [`reconstruction_real/claims.yaml`](reconstruction_real/
 |---|---|
 | Las pendientes de B y E3 se reconstruyen desde fuentes versionadas | Reproducible (E3: 233/234) |
 | Inferencia sobre `b` en B | Indecidible: 290/446 series no estimables |
-| `b` de B como estimación de equilibrio de largo plazo | No confirmado: 93,3% componentes I(1), 12,3% cointegrado detectado — apenas ~3–4 pp sobre el tamaño del test (EG sobre-rechaza 7–10% bajo la nula en series cortas). Corregida por tamaño y potencia, la tasa verdadera es ~4–25% (≈9% a la potencia mediana: 48,2% de potencia y 8,6% de tamaño estable a n=69). `b` queda como descriptor de deriva ([cointegración](reconstruction_real/audits/COINTEGRACION_HUB_NODO_2026-10-26.md)) |
+| `b` de B como estimación de equilibrio de largo plazo | No confirmado: 93,3% componentes I(1), 12,3% cointegrado detectado — apenas 2–4 pp sobre el tamaño del test (EG sobre-rechaza 8–10% bajo la nula en series cortas, M=3000 versionado). Corregida por tamaño por-n y potencia, la tasa verdadera es ~4–15% (≈9% a la mediana de B con 45,9% de potencia y 9,0% de tamaño a n=69; ponderada por n: 4,2–7,4%). `b` queda como descriptor de deriva ([cointegración](reconstruction_real/audits/COINTEGRACION_HUB_NODO_2026-10-26.md)) |
 | `b ≥ 1` como régimen superlineal | No respaldada (error de selección AIC de 22,6% a 96,8%) |
 | Relación general fricción `φ` → `b` | No respaldada en tres vías: agrupamiento de dominios (p_perm = 0,053; MixedLM p = 0,57), dominios nuevos pre-registrados (p = 0,39), y por caso dentro de npm (ρ = +0,09, dirección contraria) |
 | La forma de la trayectoria identifica el dominio | Sí, en exactitud balanceada; no frente a la línea base cruda |
