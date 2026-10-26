@@ -8,6 +8,70 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 
 ## [Sin publicar] — Auditoría de claims, línea base de la tela y CI
 
+### 2026-10-26 — Ronda de controles de estructura, prospectiva y restauraciones (PENDIENTES_SNT.md)
+
+Sobre la base del operador (`PENDIENTES_SNT.md`, respuestas del 2026-10-26):
+
+- **1.1 + 1.2 — RC1 restaurado** (`code/rc1_superlineal.py`): arqueología
+  documentada — el commit `1ac2c02` (fix Roche) reescribió el script
+  preregistrado y lo dejó roto y amputado (421→317 líneas, sin P0-P5 ni
+  escritores). Restaurado el cuerpo de `a43b52b` + docstring corregido;
+  reproduce `rc1_por_caso.csv` y `rc1_calibracion.csv` EXACTAMENTE
+  (dif 0.00e+00). Test de regresión `tests/test_rc1_regresion.py` fija la
+  compuerta P0 (E3 80.3% · B 96.8% · ACO 48.9%) contra el SCRIPT generador,
+  no solo el CSV (35 s).
+- **1.3 + 1.4 — Sellado externo + DOI**: CITATION.cff con el DOI
+  `10.5281/zenodo.23653089` (archivo versionado v2.7.1 sellado 2026-10-26,
+  verificado por API; incluye los 10 preregistros) como DOI preferido;
+  sección de sellado en `audits/README.md`.
+- **5.1 — Nulos AR(1) para ACO** (`audits/NULOS_AR1_ACO_2026-10-26.md`,
+  preregistro `a253b15`): la convergencia |log₁₀m| → 0 (mediana cruda
+  0.0712, coincide con la publicada) es MÁS cerrada que la dinámica AR(1)
+  propia de cada serie (nulo 0.102 [0.080, 0.135], p = 0.013) — no es pura
+  regresión a la media — pero el contraste B (ventanas sin evento: 0.207,
+  no convergen) la liga a la regla de selección. VEREDICTO 2
+  pre-especificado: reportada, NO interpretada como firma del colapso.
+- **5.2 — Cointegración hub-nodo** (`audits/COINTEGRACION_HUB_NODO_2026-10-26.md`,
+  preregistro `e76545b`): B era-estable, 93.3% con ambos componentes I(1)
+  pero solo **12.3% cointegrado** (Engle-Granger). Para ~82% de B el ajuste
+  de potencia sobre R(t) es espurio como equilibrio; b queda como
+  **descriptor de deriva**; los 51 pares cointegrados identificados por
+  caso son los únicos legibles como relación. E3 descriptivo (3/234
+  estacionario); ACO con n<8 no exigible.
+- **5.3 — Modelo jerárquico de b** (`audits/MODELO_JERARQUICO_B_2026-10-26.md`,
+  preregistro `4107679`): réplica del ancla fricción→b (ρ = −0.6503, n=721,
+  aritmética confirmada) PERO el nulo de permutación por dominios da
+  p = 0.053 (al borde, no pasa) y el MixedLM b ~ fric + (1|dominio) da
+  pendiente −0.208 (SE 0.368, **p = 0.57**); por dominio ρ = −0.006. El
+  p = 2.5×10⁻⁹⁷ queda medido como artefacto de independencia asumida.
+- **5.4 — Prueba prospectiva ACO-A** (preregistro `df888d0`): cohorte
+  cripto CONGELADA y versionada (472 pares vivos al corte 2026-08-31, 409
+  candidatos), predicciones P1 (≥1 colapso, h(τ)>0), P2 (mediana Δ en
+  [−3.270, −0.115]) y P3 (|ρ(b,Δ)| < 0.3) escritas con banda numérica;
+  evaluación 2027-08-31 con criterios sellados. Convergencia a m≈1
+  explícitamente NO predicha (5.1 la dejó ligada a selección).
+- **5.5 — Fricción por caso** (`audits/FRICCION_POR_CASO_NPM_2026-10-26.md`):
+  npm n=450, fricción 0..3 por paquete, UN dominio (la estructura que el
+  ancla cross-dominio no tenía): ρ(fricción, b_subida) = **+0.0932**,
+  p direccional (ρ<0 pre-registrado) = 0.976 → VEREDICTO 2: dirección del
+  Axioma 5 NO respaldada por la vía limpia; el signo es contrario. El ancla
+  fricción→b queda triplemente negativo.
+- **Backcast de la prospectiva** (`audits/BACKCAST_PROSPECTIVA_2026-10-26.md`,
+  a pedido del operador): la receta aplicada a la ventana pasada
+  2025-08-31 → 2026-08-31 da **P1 ✓ (89 colapsos de 389) · P2 ✓ (mediana
+  Δ = −0.944, en banda) · P3 ✓ (ρ = −0.191, n = 36, la ortogonalidad cripto
+  mejor medida)**. La primera pasada con la literal del preregistro daba
+  P3 falsa (|ρ| = 0.435) por artefacto de ventana — la ADENDA
+  (`ADENDA_PROSPECTIVA_RECETA_2026-10-26.md`) fija la receta histórica
+  exacta ANTES de que exista un solo dato de la ventana prospectiva.
+- **Manuscrito r33** (`papers/snt_ssrn_v33{,_EN}.md`): adendo §16 con la
+  tela integrada, la auditoría de clasificación y los dos controles (5.1,
+  5.2); header a v2.7.1 con el DOI nuevo; listo para SSRN (requiere cuenta
+  del autor).
+- **Axioma 5 actualizado** (`papers/marco_teorico.md`): punto 6 nuevo con
+  el control de estructura medido; punto 5 con el p=2.5e-97 como artefacto
+  documentado. Etiqueta ANCLADO intacta (decisión del autor).
+
 ### Agregado
 
 - **Verificador de claims** (`reconstruction_real/claims.yaml`,

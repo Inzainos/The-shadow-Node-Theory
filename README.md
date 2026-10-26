@@ -24,11 +24,13 @@ los CSV versionados con [`reconstruction_real/claims.yaml`](reconstruction_real/
 |---|---|
 | Las pendientes de B y E3 se reconstruyen desde fuentes versionadas | Reproducible (E3: 233/234) |
 | Inferencia sobre `b` en B | Indecidible: 290/446 series no estimables |
+| `b` de B como estimación de equilibrio de largo plazo | No en general: 93,3% componentes I(1), solo 12,3% cointegrado — `b` queda como descriptor de deriva ([cointegración](reconstruction_real/audits/COINTEGRACION_HUB_NODO_2026-10-26.md); los 51 pares cointegrados, identificados por caso, son los únicos legibles como relación) |
 | `b ≥ 1` como régimen superlineal | No respaldada (error de selección AIC de 22,6% a 96,8%) |
-| Relación general fricción `φ` → `b` | No respaldada (ver «Evolución», punto 2) |
+| Relación general fricción `φ` → `b` | No respaldada en tres vías: agrupamiento de dominios (p_perm = 0,053; MixedLM p = 0,57), dominios nuevos pre-registrados (p = 0,39), y por caso dentro de npm (ρ = +0,09, dirección contraria) |
 | La forma de la trayectoria identifica el dominio | Sí, en exactitud balanceada; no frente a la línea base cruda |
 | La forma de la trayectoria identifica el tono `φ` | No distinguible de asignar tonos al azar entre dominios |
-| ACO-A: convergencia descriptiva de `\|log₁₀ m\|` hacia 0 | Descriptiva (n = 18), sin prueba de atractor universal |
+| ACO-A: convergencia descriptiva de `\|log₁₀ m\|` hacia 0 | Más cerrada que la dinámica AR(1) propia (p = 0,013) pero ligada a ventanas acabadas en evento (las de B no convergen) — no interpretada como firma del colapso ([nulos AR(1)](reconstruction_real/audits/NULOS_AR1_ACO_2026-10-26.md)) |
+| Prueba prospectiva ACO-A (cripto congelada 2026-08-31) | Sellada: P1/P2/P3 con banda numérica, evaluación 2027-08-31. Backcast de validación 2025-26: las tres respaldadas ([backcast](reconstruction_real/audits/BACKCAST_PROSPECTIVA_2026-10-26.md)) |
 
 ## La idea y sus límites
 
