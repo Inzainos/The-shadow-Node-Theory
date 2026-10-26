@@ -26,6 +26,7 @@ import sys
 from collections import defaultdict
 
 import numpy as np
+import pandas as pd
 from scipy.stats import spearmanr
 
 ROOT = __import__("pathlib").Path(__file__).resolve().parent.parent.parent
@@ -111,6 +112,22 @@ def main():
     print(f"Cohorte congelada (vivos, dd<99%): {len(congelados)} pares")
     print(f"P1 — colapsos crudos: {crudos} (con madurez y medibles: "
           f"{len(colapsos)}) → {'✓' if crudos >= 1 else '✗'}")
+    resumen = {"corte": corte, "fin": fin, "candidatos": len(congelados),
+               "colapsos_crudos": crudos, "colapsos_maduros": len(colapsos)}
+    if colapsos:
+        ds = [c[2] for c in colapsos]
+        resumen["mediana_delta"] = round(float(np.median(ds)), 4)
+        if len(colapsos) >= 5:
+            rho, p = spearmanr([c[1] for c in colapsos], ds)
+            ic = np.tanh(np.arctanh(rho) + np.array([-1, 1]) * 1.96
+                         / np.sqrt(len(colapsos) - 3))
+            resumen["rho_b_delta"] = round(float(rho), 4)
+            resumen["ic95_inf"] = round(float(ic[0]), 4)
+            resumen["ic95_sup"] = round(float(ic[1]), 4)
+    out = ROOT / "reconstruction_real" / "data" \
+        / "backcast_prospectiva_resumen.csv"
+    pd.DataFrame([resumen]).to_csv(out, index=False)
+    print(f"Resumen → {out}")
     if colapsos:
         ds = [c[2] for c in colapsos]
         med = float(np.median(ds))
