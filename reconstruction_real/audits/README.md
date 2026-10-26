@@ -11,8 +11,13 @@ resultados, pero la fecha de git la controla el autor. El sellado externo
 verificable por terceros es el archivo versionado de Zenodo:
 
 - **DOI:** <https://doi.org/10.5281/zenodo.23653089> (v2.7.1, sellado
-  2026-10-26 — incluye los 10 pre-registros dentro del snapshot completo
-  del repositorio).
+  2026-10-26 — snapshot del release original, NO contiene los
+  pre-registros de la ronda tarde).
+- **DOI:** <https://doi.org/10.5281/zenodo.23661819> (v2.7.1, archivo del
+  release 2.7.1 creado por la integración GitHub–Zenodo — SÍ contiene los
+  10 pre-registros + ADENDA 1 de la ronda tarde; la ADENDA 2 quedó después
+  y su sellado externo es pendiente del próximo archivo).
+- El operador decide cuál DOI queda como canónico en CITATION.cff.
 
 ## Estado canónico de reproducibilidad
 
