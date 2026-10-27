@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "snt"
+version = "2.7.3"
+description = "Shadow Node Theory — hub-satellite satellization and orbital collapse layer"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Elán Zainos Corona", email = "elan.zainos.corona@gmail.com"}]
+dependencies = [
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "pandas>=2.0.0",
+    "statsmodels>=0.14.0",
+]
+
+[project.optional-dependencies]
+dev = ["flake8>=7.0", "pytest>=8.0", "pyyaml>=6.0"]
+viz = ["matplotlib>=3.7.0", "seaborn>=0.12.0"]
+
+[tool.setuptools.packages.find]
+include = ["snt*"]
