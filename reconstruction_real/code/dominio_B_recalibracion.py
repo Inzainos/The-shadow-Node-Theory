@@ -42,6 +42,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import dominio_B_valor_puntual as D          # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+from snt import configurar_logging as configurar_log  # noqa: E402
 OUT = ROOT / "reconstruction_real" / "data" / "dominio_B_recalibracion.csv"
 CAL_2K = ROOT / "reconstruction_real" / "data" / "dominio_B_calibracion.csv"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
@@ -58,18 +60,6 @@ SIZE_MIN, SIZE_MAX = D.SIZE_MIN, D.SIZE_MAX     # [0.025, 0.075], sin cambio
 PASO_LOG = 20_000
 
 log = logging.getLogger("RECAL")
-
-
-def configurar_log():
-    """Solo al ejecutarse como programa, nunca al importarse."""
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s | %(levelname)-7s | %(message)s",
-        handlers=[
-            logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-            logging.StreamHandler(sys.stdout),
-        ],
-    )
 
 
 def wilson(exitos, n, z=1.959964):
@@ -145,7 +135,7 @@ def tasas_de_2k():
 
 
 def main():
-    configurar_log()
+    configurar_log(LOG_FILE)
     rng = np.random.default_rng(SEMILLA)
     log.info("=" * 78)
     log.info("DOMINIO B — RECALIBRACION DE ALTA PRECISION")

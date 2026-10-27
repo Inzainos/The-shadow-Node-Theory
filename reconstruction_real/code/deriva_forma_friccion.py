@@ -47,6 +47,8 @@ import numpy as np
 from scipy.signal import lfilter
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+from snt import configurar_logging as configurar_log  # noqa: E402
 MADDISON = ROOT / "data" / "maddison_mpd2020.csv"
 B_PUB = ROOT / "reconstruction_real" / "data" / "by_domain" / "dominio_B_real.csv"
 CRIPTO = ROOT / "data" / "binance_cierres_diarios.csv.gz"
@@ -79,18 +81,6 @@ TOL_B = 1e-4
 ANIO_MIN, ANIO_MAX = 1900, 2018
 
 log = logging.getLogger("DERIVA")
-
-
-def configurar_log():
-    """Solo al ejecutarse como programa, nunca al importarse."""
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s | %(levelname)-7s | %(message)s",
-        handlers=[
-            logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-            logging.StreamHandler(sys.stdout),
-        ],
-    )
 
 
 # ------------------------------------------------------------------ nucleo
@@ -354,7 +344,7 @@ def cargar_npm():
 
 # ------------------------------------------------------------------ main
 def main():
-    configurar_log()
+    configurar_log(LOG_FILE)
     rng = np.random.default_rng(SEMILLA)
     log.info("=" * 78)
     log.info("DERIVA DEL EXPONENTE CONTRA FRICCION — pre-registro 2026-10-02 (e9a152c)")

@@ -40,7 +40,9 @@ import numpy as np
 from scipy import stats
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "code"))
+from snt import configurar_logging as configurar_log  # noqa: E402
 from snt_utils_v32 import newey_west_slope  # noqa: E402
 
 MADDISON = ROOT / "data" / "maddison_mpd2020.csv"
@@ -63,18 +65,6 @@ RHO_TOPE = 0.995
 ANIO_MIN, ANIO_MAX = 1900, 2018
 
 log = logging.getLogger("B-PUNTUAL")
-
-
-def configurar_log():
-    """Solo al ejecutarse como programa, nunca al importarse."""
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s | %(levelname)-7s | %(message)s",
-        handlers=[
-            logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-            logging.StreamHandler(sys.stdout),
-        ],
-    )
 
 
 # --------------------------------------------------------------- utilidades
@@ -271,7 +261,7 @@ def cargar_series():
 
 
 def main():
-    configurar_log()
+    configurar_log(LOG_FILE)
     rng = np.random.default_rng(SEMILLA)
     log.info("=" * 78)
     log.info("DOMINIO B — VALOR PUNTUAL (pre-registro 2026-10-02, 05bc9ee)")

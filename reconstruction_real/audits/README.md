@@ -20,21 +20,20 @@ verificable por terceros es el archivo versionado de Zenodo:
 - El operador decidió (2026-10-26): canónico = 10.5281/zenodo.23661819;
   tras el release 2.7.2, el vigente es 10.5281/zenodo.23675319 (CITATION
   actualizado).
-- **Nota sobre diferencias post-sello (2026-10-26, cierre):** el zip
-  del sello (DOI 23678033, release 2.7.3) contiene las versiones
-  anteriores a DOS mejoras posteriores, ninguna de las cuales modifica
-  el evaluador sellado: (1) el test de regresión iba con tolerancia
-  0,005 y fue endurecido a **igualdad exacta** completo-vs-truncado
-  (`test_evaluar_prospectiva.py`) — es el arnés de protección, no la
-  lógica de evaluación; (2) el criterio de madurez de
-  `backcast_prospectiva.py` usaba la serie completa y fue corregido a
-  la truncada en fin — es la herramienta de validación, no el
-  evaluador, y los números del backcast son INVARIANTES tras la
-  corrección (36 maduros antes y después, medido). El
-  `evaluar_prospectiva.py` que correrá el 2027-09-30 es EXACTAMENTE el
-  sellado: ninguna de sus funciones cambió tras el release 2.7.3. La
-  diferencia entre el zip y el repo actual está documentada aquí para
-  que nadie la lea como alteración de los criterios.
+- **Nota post-sello (2026-10-27):** el DOI 23678033 (release 2.7.3)
+  precede la ADENDA 5 y la nueva regla de censura de pares sin seguimiento
+  completo. Son criterios posteriores al sello, fechados y explícitos;
+  deben quedar en un release/DOI nuevo antes de la evaluación final. La
+  nueva regla también modifica el backcast histórico: 55 seguimientos
+  incompletos se censuran, y los resultados P2/P3 se recalculan sobre los
+  casos observados y maduros. El archivo 2.7.3 se conserva como el estado
+  sellado anterior; la cronología no se presenta como si esta regla
+  estuviera incluida en ese DOI.
+- **ADENDA 5 —** [`../preregistro/ADENDA5_PROSPECTIVA_DELISTADOS_Y_HASH_2026-10-27.md`](../preregistro/ADENDA5_PROSPECTIVA_DELISTADOS_Y_HASH_2026-10-27.md):
+  congela el tratamiento de pares delistados, los casos censurados y el
+  manifiesto con SHA-256 de los datos de ventana, antes del cálculo de
+  resultados. El manifiesto de datos futuros se incorporará cuando la
+  ventana exista y se sellará antes de evaluar.
 - **Verificación por CONTENIDO del DOI 23675319 (2026-10-26):** el zip
   (43.436.346 B) fue descargado de Zenodo y listado: contiene el
   snapshot del commit `80026ce` con

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""EVALUAR PROSPECTIVA ACO-A — congelar → evaluar al cierre de la ventana.
+"""EVALUAR PROSPECTIVA ACO-A — cohorte congelada y seguimiento censurado.
 
 El script que se corre en (o después de) el 2027-09-30 para evaluar la
 prueba prospectiva sellada (preregistro df888d0 + ADENDA 1-4). Aplica
@@ -14,6 +14,9 @@ Criterios vigentes (consolidados tras las ADENDA 2 y 4):
   P2   mediana de Δ de los colapsos maduros dentro de [−3.270, −0.115]
   P3   ortogonalidad DEMOSTRADA solo si el IC95 de ρ(b, Δ) cabe entero
        en (−0.3, +0.3) — TOST (ADENDA 2); si cruza: INCONCLUSO a ese n
+
+Pares delistados o sin seguimiento completo al fin de ventana se censuran,
+no se cuentan como colapsos. Véase ADENDA 5.
 
 Receta de las magnitudes (ADENDA 1): madurez ≥ 120 días por lado;
 b = nacimiento → ATH; Δ = ATH → siguiente valle.
@@ -59,7 +62,8 @@ def evaluar(ruta_datos, fin=FIN_DEFECTO,
             ruta_cohorte=None, corte_cohorte=None):
     """Evalúa la ventana sellada contra la cohorte congelada.
     Devuelve dict con: candidatos, colapsos_crudos, colapsos_maduros,
-    fraccion_pct, mediana_delta, rho_b_delta, ic95_inf, ic95_sup.
+    censurados, fraccion_pct, mediana_delta, rho_b_delta, ic95_inf,
+    ic95_sup.
     (None en los que no apliquen)."""
     ruta_cohorte = Path(ruta_cohorte) if ruta_cohorte else COHORTE
     corte_cohorte = corte_cohorte or CORTE_COHORTE
@@ -73,25 +77,28 @@ def evaluar(ruta_datos, fin=FIN_DEFECTO,
         for row in csv.DictReader(f):
             series[row["par"]].append((row["fecha"], float(row["close"])))
     for par in series:
-        series[par].sort()
+        series[par] = sorted(p for p in series[par] if p[0] <= fin)
+
+    fecha_max = max((p[0] for puntos in series.values() for p in puntos),
+                    default="")
+    if fecha_max < fin:
+        raise ValueError(
+            f"descarga incompleta: última fecha {fecha_max or 'ausente'} "
+            f"< fin de ventana {fin}")
 
     colapsos_crudos = 0
     maduros = []
-    candidatos = 0
-    for c in cohorte:
+    censurados = 0
+    candidatas = [
+        c for c in cohorte
+        if c["precio_corte"] > 0.01 * c["ath_corte"]
+    ]
+    for c in candidatas:
         par = c["par"]
         puntos = series.get(par, [])
-        if not puntos:
-            continue
-        hasta = [p for p in puntos if p[0] <= corte_cohorte]
-        if not hasta:
-            continue
-        precio_corte = hasta[-1][1]
-        if 100 * (1 - precio_corte / c["ath_corte"]) >= 99:
-            continue
-        candidatos += 1
         despues = [p for p in puntos if corte_cohorte < p[0] <= fin]
-        if not despues:
+        if not despues or despues[-1][0] != fin:
+            censurados += 1
             continue
         fin_precio = despues[-1][1]
         min_ventana = min(p[1] for p in despues)
@@ -125,11 +132,12 @@ def evaluar(ruta_datos, fin=FIN_DEFECTO,
         maduros.append((par, b, d))
 
     res = {
-        "candidatos": candidatos,
+        "candidatos": len(candidatas),
+        "censurados": censurados,
         "colapsos_crudos": colapsos_crudos,
         "colapsos_maduros": len(maduros),
-        "fraccion_pct": round(100 * colapsos_crudos / candidatos,
-                              2) if candidatos else None,
+        "fraccion_pct": round(100 * colapsos_crudos / len(candidatas),
+                              2) if candidatas else None,
         "mediana_delta": None, "rho_b_delta": None,
         "ic95_inf": None, "ic95_sup": None,
     }
@@ -157,6 +165,8 @@ def main():
 
     print(f"VENTANA {CORTE_COHORTE} → {fin}")
     print(f"Candidatos (vivos dd<99% al corte): {res['candidatos']}")
+    print(f"Censurados (sin cierre hasta el fin; no cuentan como colapso): "
+          f"{res['censurados']}")
     print(f"P1a — colapsos crudos: {res['colapsos_crudos']} → "
           f"{'✓ RESPALDADA' if res['colapsos_crudos'] >= 1 else '✗ FALSADA'} "
           f"(peso bajo, ADENDA 2)")

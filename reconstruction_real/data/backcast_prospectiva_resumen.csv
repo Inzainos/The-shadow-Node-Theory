@@ -1,2 +1,2 @@
-corte,fin,candidatos,colapsos_crudos,colapsos_maduros,mediana_delta,rho_b_delta,ic95_inf,ic95_sup
-2025-08-31,2026-08-31,389,89,36,-0.9443,-0.1912,-0.4891,0.1465
+corte,fin,candidatos,censurados,colapsos_crudos,colapsos_maduros,mediana_delta,rho_b_delta,ic95_inf,ic95_sup
+2025-08-31,2026-08-31,389,55,53,22,-0.9612,0.1892,-0.2526,0.5657

@@ -1,6 +1,7 @@
 """Shared utility API for SNT; repository-wide consolidation is still in progress."""
 import hashlib
 import logging
+import sys
 from pathlib import Path
 
 
@@ -31,6 +32,19 @@ def configurar_log(nombre="snt", log_dir=None, log_file=None,
         fh.setFormatter(fmt)
         logger.addHandler(fh)
     return logger
+
+
+def configurar_logging(ruta, level=logging.INFO):
+    """Configure the root logger with the repository's file-and-console format."""
+    logging.basicConfig(
+        level=level,
+        format="%(asctime)s | %(levelname)-7s | %(message)s",
+        handlers=[
+            logging.FileHandler(ruta, mode="w", encoding="utf-8"),
+            logging.StreamHandler(sys.stdout),
+        ],
+    )
+    return logging.getLogger()
 
 
 def _ajuste_loglog(t, y):

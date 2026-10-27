@@ -45,25 +45,13 @@ import yaml
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 RAIZ = os.path.abspath(os.path.join(SCRIPT_DIR, "..", ".."))
+sys.path.insert(0, RAIZ)
+from snt import configurar_log as _configurar_log  # noqa: E402
 CLAIMS_DEFECTO = os.path.join(RAIZ, "reconstruction_real", "claims.yaml")
 README_DEFECTO = os.path.join(RAIZ, "README.md")
 LOG_DIR = os.path.join(SCRIPT_DIR, "..", "logs")
 
 log = logging.getLogger("verificar_claims")
-
-
-def _configurar_log():
-    os.makedirs(LOG_DIR, exist_ok=True)
-    if log.handlers:
-        return
-    log.setLevel(logging.INFO)
-    fmt = logging.Formatter("%(asctime)s | %(levelname)-7s | %(message)s")
-    for h in (logging.StreamHandler(),
-              logging.FileHandler(
-                  os.path.join(LOG_DIR, "verificar_claims_log.txt"),
-                  mode="w")):
-        h.setFormatter(fmt)
-        log.addHandler(h)
 
 
 def redondear(valor, decimales):
@@ -147,7 +135,9 @@ def main(argv=None):
     ap.add_argument("--listar", action="store_true",
                     help="solo lista los claims, sin evaluarlos")
     args = ap.parse_args(argv)
-    _configurar_log()
+    _configurar_log(
+        nombre="verificar_claims", log_dir=LOG_DIR,
+        log_file="verificar_claims_log.txt")
 
     try:
         if args.listar:

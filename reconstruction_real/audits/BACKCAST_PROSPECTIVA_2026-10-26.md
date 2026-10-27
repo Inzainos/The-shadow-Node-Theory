@@ -1,61 +1,61 @@
-# Backcast de la prueba prospectiva — Validación del diseño
+# Backcast de la prueba prospectiva — actualización con censura por seguimiento
 
-**Fecha:** 2026-10-26
+**Actualizado:** 2026-10-27
 **Preregistro validado:** `../preregistro/PREREGISTRO_PROSPECTIVA_CRIPTO_2026-10-26.md`
 (df888d0) + **adenda de receta** (`ADENDA_PROSPECTIVA_RECETA_2026-10-26.md`,
 mismo día — la ventana prospectiva aún no existe).
+La clasificación de seguimiento incompleto se incorpora con
+`../preregistro/ADENDA5_PROSPECTIVA_DELISTADOS_Y_HASH_2026-10-27.md`.
 **Datos:** `data/binance_cierres_diarios.csv.gz` (versionados, corte 2026-08-31).
 **Receta:** la misma del preregistro, aplicada a la ventana PASADA
 **2025-08-31 → 2026-08-31** — congelamiento al 2025-08-31 sin lookahead.
+La clasificación de pares sin cierre al fin de ventana se actualiza según
+la **ADENDA 5**: se censuran, no se cuentan como colapsos ni supervivientes.
 
-## Resultado (con la receta histórica exacta — la definitiva tras la adenda)
+## Resultado vigente (ADENDA 5)
 
 | Predicción | Resultado | Veredicto |
 |---|---|---|
-| **P1** — h(τ) > 0: ≥ 1 colapso en la ventana | **89 colapsos** de 389 candidatos (dd < 99% al congelar) | ✓ RESPALDADA |
-| **P2** — mediana Δ en banda [−3.270, −0.115] | **mediana Δ = −0.944** (n = 36 medibles con madurez) | ✓ RESPALDADA |
-| **P3** — ortogonalidad \|ρ(b, Δ)\| < 0.3 | **ρ = −0.191** (p = 0.26, n = 36) | ✓ RESPALDADA |
+| **P1a** — al menos un colapso observado | **53** de 389 candidatos; 55 censurados por falta de seguimiento hasta el fin | ✓ RESPALDADA (peso bajo) |
+| **P2** — mediana Δ en banda [−3.270, −0.115] | **mediana Δ = −0.961** (n = 22 maduros) | ✓ RESPALDADA |
+| **P3** — equivalencia \|ρ(b, Δ)\| < 0.3 | **ρ = +0.189**, IC95 [−0.253, +0.566] (n = 22) | INCONCLUSO: el IC rebasa +0.3 |
 
-**Las tres predicciones de la perspectiva ACO-A pasan el backcast.**
+La tasa descriptiva es 53/389 (13,62%). Los 55 censurados permanecen en el
+denominador fijado, pero no se clasifican como eventos ni como no-eventos.
 
-## El hallazgo metodológico (por qué hubo dos corridas)
+## Cambio metodológico
 
-La primera corrida usó la literal del preregistro ("Δ desde fecha_ath hasta
-el fin de la ventana", sin madurez) y P3 FALLÓ: |ρ| = 0.435 (n = 89). La
-autopsia mostró que era **artefacto de receta**, no señal real:
+En la versión anterior del backcast, 89 pares se contaron como colapsos
+usando el último cierre disponible como si fuera el cierre de fin de
+ventana, aunque 55 no tenían seguimiento hasta esa fecha. La ADENDA 5 fija
+que ese seguimiento incompleto es censura a la derecha:
 
-1. Sin filtro de madurez entran subidas degeneradas (pares cuyo "ATH" es
-   casi su primer precio; b < 0 por construcción).
-2. El Δ hasta fin de ventana arrastra el tramo post-valle, contaminando el
-   exponente de caída.
-
-Con la receta del test histórico (`orthogonality_test.py`: madurez ≥ 120
-días por lado, Δ = ATH → siguiente valle), la ortogonalidad vuelve a \|ρ\| <
-0.3. La adenda fija esa receta como la definitiva para la evaluación
-prospectiva — **committeada antes de que exista un solo dato de la ventana
-2026-08-31 → 2027-08-31**, así que la prospectiva no queda contaminada.
+- El par conserva sus cierres reales hasta la última fecha observada; no se
+  imputan precios después de salir de cotización.
+- El delisting por sí solo no cuenta como colapso. Sin observación al fin de
+  ventana, el par no puede satisfacer ni refutar el criterio de persistencia.
+- La receta de madurez, `b` y `Δ` no cambia. Al aplicarla a los 53 colapsos
+  observados, quedan 22 maduros y medibles.
 
 ## Lectura honesta
 
-1. **El backcast valida el diseño, no sustituye la prospectiva.** El
-   conocimiento de la ventana 2025-2026 existía al diseñar; el veredicto que
-   cuenta es el de 2027-08-31 con criterios sellados desde hoy.
-2. **La ventana fue dura y las predicciones aguantaron:** 89 colapsos
-   (23 % de la cohorte) en un año de mercado bajista — h(τ) > 0 no
-   sobrevivió "por poco": sobrevivió masivamente. El Δ mediano (−0.944) es
-   más pronunciado que el histórico (−0.330) pero dentro de la banda
-   pre-registrada.
-3. **P3 con n = 36 es la ortogonalidad mejor medida del corpus cripto**
-   (histórica: n = 11). ρ = −0.191 es compatible con cero a este n.
-4. **La lección de proceso:** la ambigüedad de receta la cazó el backcast,
-   no la prospectiva — para eso se hizo. Sin el backcast, la evaluación de
-   2027 habría corrido con la receta literal y quizá reportado una
-   "falsación" que era un bug de ventana.
+1. **El backcast valida el proceso, no sustituye la prospectiva.** La
+   ventana 2025–2026 es histórica; el veredicto que cuenta es el de la
+   ventana congelada 2026-09-30 → 2027-09-30.
+2. P1a sigue respaldada con peso evidencial bajo. La fracción descriptiva
+   no se interpreta como prueba de hazard.
+3. P2 permanece dentro de la banda. P3 es inconcluso: el intervalo de
+   equivalencia no cabe entero en (−0.3, +0.3).
 
-## Versiones de los números (transparencia, CORREGIDO tras validación del operador)
+## Trazabilidad de las versiones
 
-- **VIGENTE: mediana Δ = −0,944 · ρ = −0,191 · IC95 [−0,489, +0,146]**
-  (ancha en `data/backcast_prospectiva_resumen.csv`, claims `backcast_*`).
+- **Vigente bajo ADENDA 5:** 53 colapsos observados, 55 censurados,
+  mediana Δ = −0.9612, ρ = +0.1892, IC95 [−0.2526, +0.5657].
+- **Versión previa, supersedida para la clasificación de eventos:** 89
+  colapsos, 36 maduros, Δ = −0.9443, ρ = −0.1912, IC95 [−0.4891, +0.1465].
+  Usó cierres terminales anteriores al fin como si fueran observaciones al
+  cierre. Se conserva aquí para explicar la diferencia, no como resultado
+  vigente.
 - Los números intermedios (−0,947 / −0,195 / [−0,492, +0,143]) que
   aparecieron tras la re-descarga NO eran un efecto de los datos:
   eran **fuga del valle** — el script buscaba el ATH y el mínimo de Δ
@@ -64,17 +64,14 @@ prospectiva — **committeada antes de que exista un solo dato de la ventana
   corregido en `backcast_prospectiva.py` y `evaluar_prospectiva.py`
   (truncado en `fin`); el test
   `tests/test_evaluar_prospectiva.py` fija esta validación en CI.
-- Ningún veredicto cambia; se conservan las tres cifras para
-  trazabilidad.
+- La mediana Δ y la correlación también cambian porque la muestra de
+  colapsos maduros se reduce al censurar seguimientos incompletos.
 
 ## Re-clasificación bajo ADENDA 2 (observaciones del operador)
 
-Los criterios recalibrados (`ADENDA2_PROSPECTIVA_VENTANA_CRITERIOS_2026-10-26.md`)
-re-clasifican este backcast: **P1a ✓ · P1b ✓ (22.9% en banda [10%, 60%])
-· P2 ✓ · P3 INCONCLUSO** — el IC95 de ρ ([−0.489, +0.146], n = 36) cruza
-−0.3, así que a este n no se DEMUESTRA la ortogonalidad, solo no se
-detecta desviación. La lectura original (P3 ✓ bajo umbral puntual) queda
-corregida; el umbral puntual confundía "no detecté" con "demostré".
+La ADENDA 4 retiró P1b y la fracción permanece descriptiva. Bajo la ADENDA
+5, P1a ✓ · P2 ✓ · P3 INCONCLUSO; la conclusión de P3 sigue sin demostrar
+equivalencia, ahora con el conjunto de casos que tienen seguimiento completo.
 
 ## Cómo regenerar
 
@@ -89,13 +86,12 @@ números de arriba exactamente).
 
 *Fractal Core Research · Tlaxcala, México · 2026-10-26*
 
-## Nota sobre el sello y las mejoras posteriores (cierre 2026-10-26)
+## Nota sobre el sello y las mejoras posteriores (actualizada 2026-10-27)
 
-El sello vigente de la prospectiva es el DOI 10.5281/zenodo.23678033
-(release 2.7.3), que contiene el evaluador corregido (truncado en fin +
-b con ATH congelado) y las ADENDA 1-4. Dos mejoras posteriores al sello
-NO modifican el evaluador: el test de regresión pasó de tolerancia
-0,005 a igualdad exacta completo-vs-truncado (arnés de protección) y
-el criterio de madurez de ESTE backcast pasó de serie completa a serie
-truncada en fin — con números invariantes (36 maduros antes y después).
-El que corre el 2027-09-30 es exactamente el evaluador sellado.
+El DOI 10.5281/zenodo.23678033 (release 2.7.3) contiene el estado sellado
+antes de esta actualización y las ADENDA 1–4. La ADENDA 5 y la censura de
+casos sin seguimiento completo son criterios **posteriores** a ese sello.
+Se publicarán en un release/DOI nuevo antes de evaluar la ventana
+2026-09-30 → 2027-09-30; por tanto, el evaluador futuro no será idéntico
+al archivo 2.7.3, sino a la versión posterior sellada con la descarga y su
+manifiesto de hashes antes de calcular resultados.

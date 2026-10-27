@@ -41,6 +41,8 @@ from nbody_lognormal_clauset import (ajustar_potencia, bondad_ajuste,  # noqa: E
                                      vuong)
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+from snt import configurar_logging as configurar_log  # noqa: E402
 RAW = ROOT / "data" / "raw_rango_tamano"
 RAW.mkdir(parents=True, exist_ok=True)
 MEXICO = ROOT / "data" / "matriz_mexico_32.csv"
@@ -66,24 +68,6 @@ UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36",
       "Accept-Encoding": "gzip"}
 
 log = logging.getLogger("RANGO-TAMANO")
-
-
-def configurar_log(ruta=LOG_FILE):
-    """Solo al ejecutarse como programa, nunca al importarse.
-
-    Este modulo se importa desde rango_tamano_percapita.py. Si configurara el
-    registro al importarse, abriria LOG_FILE en modo "w" y borraria el log de
-    la corrida principal: es exactamente la falla que ya ocurrio el 2026-10-02
-    con nbody_lognormal_clauset.py.
-    """
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s | %(levelname)-7s | %(message)s",
-        handlers=[
-            logging.FileHandler(ruta, mode="w", encoding="utf-8"),
-            logging.StreamHandler(sys.stdout),
-        ],
-    )
 
 
 def bajar(url, nombre):
@@ -207,7 +191,7 @@ def poder(v, rng):
 
 # ------------------------------------------------------------------ main
 def main():
-    configurar_log()
+    configurar_log(LOG_FILE)
     rng = np.random.default_rng(SEMILLA)
     log.info("=" * 78)
     log.info("RANGO-TAMANO INTERNACIONAL — pre-registro 2026-10-02 (5b97328)")

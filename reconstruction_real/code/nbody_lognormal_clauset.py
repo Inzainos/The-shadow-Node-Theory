@@ -34,6 +34,8 @@ import numpy as np
 from scipy import stats
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+from snt import configurar_logging as _configurar_log  # noqa: E402
 DATOS = ROOT / "data" / "matriz_mexico_32.csv"
 OUT = ROOT / "reconstruction_real" / "data" / "nbody_lognormal_resultados.csv"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
@@ -48,23 +50,6 @@ P_DESCARTE = 0.1          # regla de Clauset: p < 0.1 descarta la ley de potenci
 MAX_CANDIDATOS = 200      # tope de candidatos a x_min (ver ajustar_potencia)
 
 log = logging.getLogger("LOGNORMAL")
-
-
-def _configurar_log():
-    """Solo al ejecutarse como programa.
-
-    Si se hiciera al importar, el modulo se aduenaria del logger raiz y
-    cualquier script que reutilice estas funciones escribiria su registro en
-    el archivo de este (basicConfig no hace nada si ya hay manejadores).
-    """
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s | %(levelname)-7s | %(message)s",
-        handlers=[
-            logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-            logging.StreamHandler(sys.stdout),
-        ],
-    )
 
 
 # ------------------------------------------------------- metodo de Clauset
@@ -336,7 +321,7 @@ def punto3(x, rng, filas):
 
 # ------------------------------------------------------------------ main
 def main():
-    _configurar_log()
+    _configurar_log(LOG_FILE)
     rng = np.random.default_rng(SEMILLA)
     log.info("=" * 78)
     log.info("COMPARACION LOGNORMAL — pre-registro 2026-10-02 (commit 9718808)")

@@ -60,6 +60,12 @@ def fit_loglog(x, y):
 
 
 def backcast(series, corte, fin):
+    fecha_max = max((p[0] for puntos in series.values() for p in puntos),
+                    default="")
+    if fecha_max < fin:
+        raise ValueError(
+            f"descarga incompleta: última fecha {fecha_max or 'ausente'} "
+            f"< fin de ventana {fin}")
     congelados = []
     for par, puntos in series.items():
         hasta = [p for p in puntos if p[0] <= corte]
@@ -74,11 +80,13 @@ def backcast(series, corte, fin):
                            "n_serie": len(puntos)})
 
     colapsos_crudos = 0
+    censurados = 0
     colapsos = []
     for c in congelados:
         puntos = series[c["par"]]
         despues = [p for p in puntos if corte < p[0] <= fin]
-        if not despues:
+        if not despues or despues[-1][0] != fin:
+            censurados += 1
             continue
         fin_precio = despues[-1][1]
         min_ventana = min(p[1] for p in despues)
@@ -106,7 +114,7 @@ def backcast(series, corte, fin):
         if b is None or d is None:
             continue
         colapsos.append((c["par"], b, d))
-    return congelados, colapsos_crudos, colapsos
+    return congelados, colapsos_crudos, colapsos, censurados
 
 
 def main():
@@ -115,11 +123,14 @@ def main():
     print(f"BACKCAST {corte} → {fin} (receta de la ADENDA, congelamiento "
           f"sin lookahead)")
     series = cargar_series()
-    congelados, crudos, colapsos = backcast(series, corte, fin)
+    congelados, crudos, colapsos, censurados = backcast(series, corte, fin)
     print(f"Cohorte congelada (vivos, dd<99%): {len(congelados)} pares")
-    print(f"P1 — colapsos crudos: {crudos} (con madurez y medibles: "
+    print(f"Censurados (sin cierre hasta el fin; no cuentan como colapso): "
+          f"{censurados}")
+    print(f"P1a — colapsos observados: {crudos} (con madurez y medibles: "
           f"{len(colapsos)}) → {'✓' if crudos >= 1 else '✗'}")
     resumen = {"corte": corte, "fin": fin, "candidatos": len(congelados),
+               "censurados": censurados,
                "colapsos_crudos": crudos, "colapsos_maduros": len(colapsos)}
     if colapsos:
         ds = [c[2] for c in colapsos]
@@ -145,11 +156,11 @@ def main():
             rho, p = spearmanr([c[1] for c in colapsos], ds)
             ic = np.tanh(np.arctanh(rho) + np.array([-1, 1]) * 1.96
                          / np.sqrt(len(colapsos) - 3))
+            equivalencia = ic[0] > -P3_UMBRAL and ic[1] < P3_UMBRAL
+            veredicto = ("equivalencia demostrada" if equivalencia else
+                         "INCONCLUSO: el IC rebasa ±0.3")
             print(f"P3 — ρ(b,Δ) = {rho:+.3f} (p={p:.3f}, n={len(colapsos)}) "
-                  f"IC95 [{ic[0]:+.3f}, {ic[1]:+.3f}] → "
-                  f"{'|ρ|<0.3' if abs(rho) < P3_UMBRAL else '≥0.3'} "
-                  f"(criterio original; ver ADENDA 2 para el criterio de "
-                  f"equivalencia)")
+                  f"IC95 [{ic[0]:+.3f}, {ic[1]:+.3f}] → {veredicto}")
     return 0
 
 

@@ -44,7 +44,6 @@ Uso (desde la raíz del repo):
     python reconstruction_real/code/covid_E3_series_crudas.py
 """
 
-import hashlib
 import logging
 import sys
 from pathlib import Path
@@ -53,6 +52,8 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+from snt import sha256  # noqa: E402
 sys.path.insert(0, str(ROOT / "code"))
 from snt_utils_v32 import corregir_corpus, fit_powerlaw  # noqa: E402
 
@@ -85,14 +86,6 @@ logging.basicConfig(
     ],
 )
 log = logging.getLogger("COVID-E3")
-
-
-def sha256(path):
-    h = hashlib.sha256()
-    with open(path, "rb") as fh:
-        for bloque in iter(lambda: fh.read(1 << 20), b""):
-            h.update(bloque)
-    return h.hexdigest()
 
 
 def cargar():
