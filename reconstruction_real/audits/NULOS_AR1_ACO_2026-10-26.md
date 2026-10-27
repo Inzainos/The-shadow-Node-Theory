@@ -78,6 +78,22 @@ semilla 20261026):
 **Robusto en todo el rango** (0.004–0.013, todos < 0.05): la conclusión
 "más cerrada que la dinámica propia" NO depende de la precisión de φ.
 
+### Bootstrap por serie (versión por caso, `sensibilidad_phi_por_serie.py`)
+
+La sensibilidad común perturba todos los φ con el mismo delta; la
+versión por serie perturba el φ de CADA caso con su PROPIO error de
+estimación (bootstrap paramétrico del ajuste AR(1); SE de φ por caso:
+mediana 0.265 [0.232, 0.315] — grande, como corresponde a n < 8):
+
+| Método | p_N1 |
+|---|---|
+| δ común ±0.05/±0.15 | 0.004–0.013 |
+| **Bootstrap por serie (M=2000)** | **0.0030** |
+
+El resultado por serie es aún más extremo que el común: la conclusión
+del 5.1 es robusta con la incertidumbre REAL de φ propagada
+individualmente.
+
 ## Cómo regenerar
 
 ```sh
