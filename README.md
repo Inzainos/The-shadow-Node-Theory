@@ -1,4 +1,4 @@
-# Shadow Node Theory (SNT) · v2.7.1
+# Shadow Node Theory (SNT) · v2.7.3
 
 [![Release](https://img.shields.io/badge/release-v2.7.1-6f42c1)](CHANGELOG.md)
 [![Marco teórico](https://img.shields.io/badge/marco-v34-0e8a8a)](papers/marco_teorico.md)
