@@ -88,11 +88,20 @@ mediana 0.265 [0.232, 0.315] — grande, como corresponde a n < 8):
 | Método | p_N1 |
 |---|---|
 | δ común ±0.05/±0.15 | 0.004–0.013 |
-| **Bootstrap por serie (M=2000)** | **0.0030** |
+| **Bootstrap por serie (M=2000)** | **≈0.003** |
 
-El resultado por serie es aún más extremo que el común: la conclusión
-del 5.1 es robusta con la incertidumbre REAL de φ propagada
-individualmente.
+La lectura adecuada es **robusta**, no "más extrema": con φ perturbado por
+serie, la estimación sigue por debajo de 0.05. El valor ≈0.003 no debe
+compararse como una mejora de evidencia frente al 0.013 del nulo base.
+
+Esta sensibilidad solo propaga la incertidumbre de φ. μ y σ permanecen fijos,
+y la perturbación simétrica alrededor de φ̂ no corrige el sesgo de muestra
+pequeña de φ; además, truncar en [0, tope] es asimétrico. Como 16/18
+series tienen n < 8, esas limitaciones importan. Con M=2000, el resultado
+corresponde a unas cinco réplicas en la cola más la corrección de una unidad;
+la resolución Monte Carlo no respalda interpretar diferencias entre 0.003 y
+0.013. Solo se conserva la conclusión cualitativa de robustez bajo esta
+perturbación de φ; CI recalcula el resultado y vigila únicamente que p < 0.05.
 
 ## Cómo regenerar
 
