@@ -27,13 +27,22 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install -r requirements.txt
         python -m pip install pytest
+        python -m pip install .
+    - name: Smoke test — installed SNT package
+      run: |
+        cd "$RUNNER_TEMP"
+        python -c "import snt; assert callable(snt.ajuste_loglog)"
+    - name: Check per-series phi sensitivity conclusion
+      run: |
+        python reconstruction_real/code/sensibilidad_phi_por_serie.py
+        python -c "import csv; from pathlib import Path; p=Path('reconstruction_real/data/sensibilidad_phi_por_serie.csv'); row=next(csv.DictReader(p.open(encoding='utf-8'))); assert float(row['p_N1_bootstrap_por_serie']) < 0.05, row"
     - name: Lint for syntax errors and undefined names (flake8)
       run: |
         # Config (select/exclude/etc.) lives in .flake8 — the single source.
         flake8 .
     - name: Compile all active modules
       run: |
-        python -m compileall -q code reconstruction_real dashboard delta
+        python -m compileall -q code reconstruction_real dashboard delta snt
     - name: Smoke test — ACO module (v2.4.0)
       run: |
         python reconstruction_real/code/build_aco_v29.py

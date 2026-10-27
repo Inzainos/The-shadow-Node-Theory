@@ -1,11 +1,4 @@
-"""Utilities consolidadas del ecosistema SNT (pendiente 3.1).
-
-Fuente de consolidación:
-  - sha256: duplicada ×11 en scripts
-  - configurar_log: duplicada ×6
-  - fit_power_law / ajustar_ley_potencia: ×3 (snt_utils, snt_utils_v32, scripts)
-  - ajuste_loglog: ×2 (rc1_superlineal, nulos_ar1_aco)
-"""
+"""Shared utility API for SNT; repository-wide consolidation is still in progress."""
 import hashlib
 import logging
 from pathlib import Path
@@ -40,28 +33,30 @@ def configurar_log(nombre="snt", log_dir=None, log_file=None,
     return logger
 
 
-def fit_power_law(t, r):
-    """OLS log-log: b, log_a, residuos. (Versión unificada de las ×3.)"""
+def _ajuste_loglog(t, y):
+    """Canonical OLS log-log fit: slope, log-intercept, and residuals."""
     import numpy as np
+
     t = np.asarray(t, dtype=float)
-    r = np.asarray(r, dtype=float)
-    mask = (t > 0) & (r > 0) & np.isfinite(t) & np.isfinite(r)
-    t, r = t[mask], r[mask]
-    if len(t) < 4:
+    y = np.asarray(y, dtype=float)
+    mask = (t > 0) & (y > 0) & np.isfinite(t) & np.isfinite(y)
+    t, y = t[mask], y[mask]
+    if len(t) < 3:
         return float("nan"), float("nan"), None
-    lt, lr = np.log(t), np.log(r)
-    b, a = np.polyfit(lt, lr, 1)
-    return float(b), float(a), lr - (a + b * lt)
+    lt, ly = np.log(t), np.log(y)
+    b, log_a = np.polyfit(lt, ly, 1)
+    return float(b), float(log_a), ly - (log_a + b * lt)
+
+
+def fit_power_law(t, r):
+    """Fit ``r = a*t**b``; return ``(b, log(a), residuals)``.
+
+    At least three finite, positive observations are required. Residuals are
+    in log space and correspond to the retained observations.
+    """
+    return _ajuste_loglog(t, r)
 
 
 def ajuste_loglog(t, y):
-    """b y log_a por OLS log-log. (Versión unificada de las ×2.)"""
-    import numpy as np
-    t = np.asarray(t, dtype=float)
-    y = np.asarray(y, dtype=float)
-    ok = (t > 0) & (y > 0)
-    t, y = t[ok], y[ok]
-    if len(t) < 3:
-        return float("nan"), float("nan")
-    b, a = np.polyfit(np.log(t), np.log(y), 1)
-    return float(b), float(a)
+    """Spanish alias for the canonical ``(b, log(a), residuals)`` fit."""
+    return _ajuste_loglog(t, y)

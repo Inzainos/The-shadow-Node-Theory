@@ -57,7 +57,9 @@ from scipy import stats
 from scipy.signal import lfilter
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "code"))
+from snt import ajuste_loglog  # noqa: E402
 from snt_utils_v32 import comparar_modelos, durbin_watson  # noqa: E402
 
 DATA = ROOT / "data"
@@ -103,13 +105,6 @@ def configurar_log():
 
 
 # ------------------------------------------------------------------ nucleo
-def ajuste_loglog(t, y):
-    """OLS de log y contra log t. Devuelve (b, log a, residuos)."""
-    lt, ly = np.log(t), np.log(y)
-    b, a = np.polyfit(lt, ly, 1)
-    return float(b), float(a), ly - (a + b * lt)
-
-
 def perfil(t, y):
     """(b, log a, sigma, rho AR(1)) del ajuste de potencia de un caso."""
     b, a, e = ajuste_loglog(t, y)

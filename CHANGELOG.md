@@ -8,6 +8,21 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 
 ## [Sin publicar] — Auditoría de claims, línea base de la tela y CI
 
+### 2026-10-26 — API SNT adoptada por RC1 y bootstrap reportado con cautela
+
+- Se fija una firma canónica para `snt.fit_power_law` y
+  `snt.ajuste_loglog`: `(b, log(a), residuos)` con mínimo de tres
+  observaciones válidas. RC1 consume ahora `snt.ajuste_loglog`; la
+  consolidación general de utilidades **sigue pendiente**.
+- CI instala el paquete y comprueba su importación fuera del checkout; tests
+  fijan la firma, el mínimo de muestra y el ajuste común. CI también
+  recalcula la sensibilidad por serie y vigila solo la conclusión `p < 0.05`,
+  no el valor puntual `≈0.003`.
+- El informe del bootstrap por serie deja de calificar `p ≈ 0.003` como más
+  extremo que el nulo base. Explicita que solo se perturba φ, con μ/σ fijos,
+  sesgo de muestra pequeña y resolución Monte Carlo limitada; la lectura es
+  únicamente robustez cualitativa.
+
 ### 2026-10-26 — Ronda de controles de estructura, prospectiva y restauraciones (PENDIENTES_SNT.md)
 
 Sobre la base del operador (`PENDIENTES_SNT.md`, respuestas del 2026-10-26):
