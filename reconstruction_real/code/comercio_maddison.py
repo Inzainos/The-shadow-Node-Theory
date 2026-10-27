@@ -14,7 +14,6 @@ Reglas de entidad (mismo territorio o nada):
       Czechoslovakia, RFA -> Germany como única aproximación).
 """
 
-import hashlib
 import sys
 import zipfile
 from pathlib import Path
@@ -24,6 +23,8 @@ import pandas as pd
 from scipy import stats
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+from snt import sha256  # noqa: E402
 DATA_TOP = ROOT / "data"
 IN_ZIP = DATA_TOP / "COW_Trade_4.0.zip"
 MIEMBRO = "COW_Trade_4.0/Dyadic_COW_4.0.csv"
@@ -48,14 +49,6 @@ SIN_ENTIDAD = {"Korea", "German Democratic Republic", "Republic of Vietnam",
                "Austria-Hungary", "Baden", "Bavaria", "Wuerttemburg",
                "Zanzibar"}
 APROX = {"German Federal Republic": "Germany"}
-
-
-def sha256(path):
-    h = hashlib.sha256()
-    with open(path, "rb") as fh:
-        for bloque in iter(lambda: fh.read(1 << 20), b""):
-            h.update(bloque)
-    return h.hexdigest()
 
 
 def entidad_nodo(nombre, anio):

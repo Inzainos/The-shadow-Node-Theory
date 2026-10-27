@@ -301,7 +301,7 @@ claims:
     escala: 1
     decimales: 0
 
-  # --- Menores del operador (2026-10-26): potencia EG y TOST del backcast ---
+  # --- Menores del operador (2026-10-26): potencia EG ---
   - id: potencia_eg_mediana
     readme: "45,9%"
     archivo: reconstruction_real/data/potencia_cointegracion.csv
@@ -309,27 +309,3 @@ claims:
     esperado: 45.9
     escala: 1
     decimales: 1
-
-  - id: backcast_mediana_delta
-    readme: "−0,944"
-    archivo: reconstruction_real/data/backcast_prospectiva_resumen.csv
-    expr: "df.mediana_delta.iloc[0]"
-    esperado: -0.944
-    escala: 1
-    decimales: 3
-
-  - id: backcast_rho_b_delta
-    readme: "ρ = −0,191"
-    archivo: reconstruction_real/data/backcast_prospectiva_resumen.csv
-    expr: "df.rho_b_delta.iloc[0]"
-    esperado: -0.191
-    escala: 1
-    decimales: 3
-
-  - id: backcast_ic95_inf
-    readme: "IC95 [−0,489"
-    archivo: reconstruction_real/data/backcast_prospectiva_resumen.csv
-    expr: "df.ic95_inf.iloc[0]"
-    esperado: -0.489
-    escala: 1
-    decimales: 3

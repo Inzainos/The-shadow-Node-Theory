@@ -41,7 +41,6 @@ Uso (desde la raíz del repo):
     python reconstruction_real/code/build_comercio_bilateral_cow.py
 """
 
-import hashlib
 import logging
 import sys
 import zipfile
@@ -50,6 +49,8 @@ from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+from snt import sha256  # noqa: E402
 DATA_TOP = ROOT / "data"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
@@ -73,14 +74,6 @@ logging.basicConfig(
     ],
 )
 log = logging.getLogger("COMERCIO-COW")
-
-
-def sha256(path):
-    h = hashlib.sha256()
-    with open(path, "rb") as fh:
-        for bloque in iter(lambda: fh.read(1 << 20), b""):
-            h.update(bloque)
-    return h.hexdigest()
 
 
 def entidad(nombre, anio):

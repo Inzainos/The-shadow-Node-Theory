@@ -61,9 +61,11 @@ import pandas as pd
 from scipy import stats
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "code"))
 sys.path.insert(0, str(ROOT / "reconstruction_real" / "code"))
-
+from snt import configurar_logging as configurar_log  # noqa: E402
+from snt import sha256  # noqa: E402
 from snt_utils_v32 import comparar_modelos  # noqa: E402
 from rc1_superlineal import (  # noqa: E402
     ajuste_loglog, banda_de, perfil, ruido_ar1,
@@ -116,25 +118,6 @@ CENSO_ANIOS = {"Japan": [2000, 2005, 2010, 2015, 2020],
                "Spain": [2001, 2011, 2021]}
 
 log = logging.getLogger("RC1-RESTO")
-
-
-def configurar_log():
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s | %(levelname)-7s | %(message)s",
-        handlers=[
-            logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-            logging.StreamHandler(sys.stdout),
-        ],
-    )
-
-
-def sha256(ruta):
-    h = hashlib.sha256()
-    with open(ruta, "rb") as fh:
-        for bloque in iter(lambda: fh.read(1 << 16), b""):
-            h.update(bloque)
-    return h.hexdigest()
 
 
 # ------------------------------------------------------------------ Fase 0: A
@@ -444,7 +427,7 @@ def fase1(dominio, casos, filas_caso, cal, resumen):
 
 # ---------------------------------------------------------------------- main
 def main():
-    configurar_log()
+    configurar_log(LOG_FILE)
     log.info("=" * 78)
     log.info("RC1 RESTO — dominios A, E2, C (pre-registro 2026-10-17, commit 4e9cb9e)")
     log.info("=" * 78)

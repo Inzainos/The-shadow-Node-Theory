@@ -8,6 +8,27 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 
 ## [Sin publicar] — Auditoría de claims, línea base de la tela y CI
 
+### 2026-10-27 — ADENDA 5, censura de delistados y utilidades compartidas
+
+- **ADENDA 5** fija el universo v2, trata los pares sin seguimiento completo
+  como censurados y exige un manifiesto con URL, fecha UTC, tamaño y SHA-256
+  antes de analizar la ventana. Declara explícitamente que es posterior al
+  DOI 23678033; el protocolo se sellará en el release 2.7.4 y la descarga
+  futura se hasheará y sellará antes de ejecutar el evaluador.
+- El evaluador y el backcast ya no toman un último cierre anterior al fin
+  como si fuera el cierre de ventana. La re-clasificación histórica da 53
+  colapsos observados, 55 censurados, 22 maduros; P2 sigue en banda y P3
+  queda inconcluso. El informe y el CSV se regeneraron; los valores previos
+  se conservan señalados como supersedidos.
+- Se retiraron las definiciones duplicadas de `sha256` y `configurar_log`
+  de los scripts activos, migrándolas a `snt`; `nulos_ar1_aco.py` también
+  usa el configurador compartido. La consolidación de ajustes de potencia y
+  `snt_utils_v32.py` sigue pendiente; quedan bloques puntuales de
+  `logging.basicConfig` fuera de esta migración.
+- El ajuste importado por RC1 mantiene la firma acordada; la nota de que su
+  filtro de valores inválidos cambia el comportamiento de borde, pero no los
+  resultados reproducidos, está en el changelog.
+
 ### 2026-10-26 — API SNT adoptada por RC1 y bootstrap reportado con cautela
 
 - Se fija una firma canónica para `snt.fit_power_law` y

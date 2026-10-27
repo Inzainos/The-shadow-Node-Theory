@@ -19,7 +19,6 @@ Run from the repository root:
 
 import csv
 import gzip
-import hashlib
 import logging
 import subprocess
 import sys
@@ -31,6 +30,8 @@ import numpy as np
 from scipy import stats
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+from snt import sha256 as sha256_file  # noqa: E402
 MADDISON = ROOT / "data" / "maddison_mpd2020.csv"
 B_PUBLISHED = (
     ROOT / "reconstruction_real" / "data" / "by_domain" / "dominio_B_real.csv"
@@ -150,15 +151,6 @@ def configure_log() -> None:
             logging.StreamHandler(sys.stdout),
         ],
     )
-
-
-def sha256_file(path: Path) -> str:
-    """Return the SHA-256 of a file without loading it all into memory."""
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for block in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(block)
-    return digest.hexdigest()
 
 
 def repository_revision() -> str:

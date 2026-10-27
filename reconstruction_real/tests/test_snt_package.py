@@ -28,3 +28,33 @@ def test_loglog_fit_requires_three_valid_observations():
         assert np.isnan(slope)
         assert np.isnan(log_a)
         assert residuals is None
+
+
+def test_sha256_reads_pathlike_files(tmp_path):
+    path = tmp_path / "source.bin"
+    path.write_bytes(b"SNT utility test")
+
+    assert snt.sha256(path) == (
+        "a86f9dae328df3d7315f244d655a683d6f8c985a3330b4ba1c4d1f11d43fe192")
+
+
+def test_configurar_logging_uses_shared_file_and_console_format(
+        tmp_path, monkeypatch):
+    import logging
+
+    captured = {}
+
+    def fake_basic_config(**kwargs):
+        captured.update(kwargs)
+
+    monkeypatch.setattr(logging, "basicConfig", fake_basic_config)
+    log_path = tmp_path / "run.log"
+    logger = snt.configurar_logging(log_path)
+
+    assert logger is logging.getLogger()
+    assert captured["level"] == logging.INFO
+    assert len(captured["handlers"]) == 2
+    assert isinstance(captured["handlers"][0], logging.FileHandler)
+    assert captured["handlers"][0].baseFilename == str(log_path)
+    assert isinstance(captured["handlers"][1], logging.StreamHandler)
+    captured["handlers"][0].close()

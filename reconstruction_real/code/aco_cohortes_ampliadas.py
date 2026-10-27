@@ -40,7 +40,6 @@ Uso (desde la raíz del repo, tras `descargar_binance_klines.py`):
     python reconstruction_real/code/aco_cohortes_ampliadas.py
 """
 
-import hashlib
 import logging
 import sys
 from datetime import date
@@ -51,6 +50,8 @@ import pandas as pd
 from scipy import stats
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+from snt import sha256  # noqa: E402
 DATA_TOP = ROOT / "data"
 DATA_RR = ROOT / "reconstruction_real" / "data"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
@@ -79,14 +80,6 @@ logging.basicConfig(
     ],
 )
 log = logging.getLogger("ACO-COHORTES")
-
-
-def sha256(path):
-    h = hashlib.sha256()
-    with open(path, "rb") as fh:
-        for bloque in iter(lambda: fh.read(1 << 20), b""):
-            h.update(bloque)
-    return h.hexdigest()
 
 
 def fit(x, y):

@@ -1,6 +1,6 @@
-# Shadow Node Theory (SNT) · v2.7.3
+# Shadow Node Theory (SNT) · v2.7.4
 
-[![Release](https://img.shields.io/badge/release-v2.7.1-6f42c1)](CHANGELOG.md)
+[![Release](https://img.shields.io/badge/release-v2.7.4-6f42c1)](CHANGELOG.md)
 [![Marco teórico](https://img.shields.io/badge/marco-v34-0e8a8a)](papers/marco_teorico.md)
 [![Python CI](https://github.com/Inzainos/The-shadow-Node-Theory/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/Inzainos/The-shadow-Node-Theory/actions/workflows/python-package-conda.yml)
 
@@ -30,7 +30,7 @@ los CSV versionados con [`reconstruction_real/claims.yaml`](reconstruction_real/
 | La forma de la trayectoria identifica el dominio | Sí, en exactitud balanceada; no frente a la línea base cruda |
 | La forma de la trayectoria identifica el tono `φ` | No distinguible de asignar tonos al azar entre dominios |
 | ACO-A: convergencia descriptiva de `\|log₁₀ m\|` hacia 0 | Más cerrada que la dinámica AR(1) propia (p = 0,013) pero ligada a ventanas acabadas en evento (las de B no convergen) — no interpretada como firma del colapso ([nulos AR(1)](reconstruction_real/audits/NULOS_AR1_ACO_2026-10-26.md)) |
-| Prueba prospectiva ACO-A (cripto congelada 2026-10-26) | Sellada por git (sellado externo pendiente); ventana re-anclada 2026-10-26 → 2027-10-26; criterios recalibrados (P1a/P1b falsable, P3 por TOST). Backcast 2025-26 (corte 2026-09-30): P1a/P1b/P2 respaldadas (mediana Δ = −0,944), P3 inconcluso por diseño a n=36 (ρ = −0,191, IC95 [−0,489, +0,146] cruza −0,3) ([backcast](reconstruction_real/audits/BACKCAST_PROSPECTIVA_2026-10-26.md)) |
+| Prueba prospectiva ACO-A | Cohorte v2 y ventana 2026-09-30 → 2027-09-30. La ADENDA 5 fija la censura de pares sin seguimiento completo y el manifiesto/hash previo al análisis; es posterior al DOI 23678033 y se sellará en un release nuevo antes de evaluar. El backcast histórico fue actualizado bajo esta regla: P1a/P2 respaldadas, P3 inconcluso ([ADENDA 5](reconstruction_real/preregistro/ADENDA5_PROSPECTIVA_DELISTADOS_Y_HASH_2026-10-27.md); [backcast](reconstruction_real/audits/BACKCAST_PROSPECTIVA_2026-10-26.md)) |
 
 ## La idea y sus límites
 
@@ -92,6 +92,9 @@ auditorías correspondientes — vive en
   antes de los preregistros y no los incluye. La línea del corpus de 721
   casos sigue en
   [10.5281/zenodo.19446521](https://doi.org/10.5281/zenodo.19446521).
+- El DOI [10.5281/zenodo.23678033](https://doi.org/10.5281/zenodo.23678033)
+  corresponde a v2.7.3, anterior a la ADENDA 5. El nuevo archivo que sellará
+  v2.7.4 y esta adenda aún no está publicado; su DOI se añadirá al publicarse.
 - **Preprint en SSRN:** [abstract 6418778](https://ssrn.com/abstract=6418778).
   El manuscrito vigente es la **r33** (2026-10-26, base v2.7.1, subida por el
   autor): añade la tela de incertidumbre integrada y los dos controles
@@ -102,7 +105,8 @@ auditorías correspondientes — vive en
   [inglés (PDF)](papers/snt_ssrn_v32_EN.pdf) ·
   [español (PDF)](papers/snt_ssrn_v32.pdf).
 - **Cita del software:** [`CITATION.cff`](CITATION.cff), con el DOI canónico
-  y la historia de identificadores.
+  del corpus y el historial de identificadores publicados; el DOI de v2.7.4
+  se añadirá cuando se publique el nuevo archivo.
 
 ### Lo que no se presenta como hallazgo establecido
 

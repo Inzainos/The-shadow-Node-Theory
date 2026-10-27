@@ -26,6 +26,7 @@ sys.path.insert(0, os.path.join(_ROOT, "reconstruction_real", "code"))
 
 import congelar_cohorte  # noqa: E402
 import evaluar_prospectiva as ep  # noqa: E402
+import backcast_prospectiva as bp  # noqa: E402
 
 FUENTE = os.path.join(_ROOT, "data", "binance_cierres_diarios.csv.gz")
 CORTE = "2025-08-31"
@@ -33,10 +34,13 @@ FIN = "2026-08-31"
 
 ESPERADO = {
     "candidatos": 389,
-    "colapsos_crudos": 89,
-    "colapsos_maduros": 36,
-    "mediana_delta": -0.9443,
-    "rho_b_delta": -0.1912,
+    "censurados": 55,
+    "colapsos_crudos": 53,
+    "colapsos_maduros": 22,
+    "mediana_delta": -0.9612,
+    "rho_b_delta": 0.1892,
+    "ic95_inf": -0.2526,
+    "ic95_sup": 0.5657,
 }
 
 
@@ -69,6 +73,15 @@ def test_el_evaluador_reproduce_el_backcast():
             f"{clave}: {res[clave]} ≠ {esperado}")
 
 
+def test_backcast_y_evaluador_aplican_el_mismo_truncado():
+    series = bp.cargar_series()
+    _, colapsos, maduros, censurados = bp.backcast(
+        series, CORTE, FIN)
+    assert colapsos == ESPERADO["colapsos_crudos"]
+    assert len(maduros) == ESPERADO["colapsos_maduros"]
+    assert censurados == ESPERADO["censurados"]
+
+
 def test_truncado_en_fin_da_resultado_identico():
     """El invariante: los datos posteriores al fin NO cambian NADA."""
     with tempfile.TemporaryDirectory() as tmp:
@@ -81,6 +94,69 @@ def test_truncado_en_fin_da_resultado_identico():
             f"INVARIANTE ROTO en {clave}: completo {res_completo[clave]} "
             f"≠ truncado {res_truncado[clave]} — la fuga del valle "
             f"reapareció")
+
+
+def test_pares_sin_seguimiento_completo_se_censuran():
+    with tempfile.TemporaryDirectory() as tmp:
+        cohorte = os.path.join(tmp, "cohorte.csv")
+        datos = os.path.join(tmp, "cierres.csv.gz")
+        with open(cohorte, "w", newline="", encoding="utf-8") as fh:
+            writer = csv.DictWriter(
+                fh, fieldnames=["par", "ath_corte", "precio_corte",
+                                "fecha_ath"])
+            writer.writeheader()
+            writer.writerows([
+                {"par": "OBSERVADO", "ath_corte": 100, "precio_corte": 50,
+                 "fecha_ath": "2025-01-01"},
+                {"par": "DELISTADO", "ath_corte": 100, "precio_corte": 50,
+                 "fecha_ath": "2025-01-01"},
+                {"par": "SIN_DATOS", "ath_corte": 100, "precio_corte": 50,
+                 "fecha_ath": "2025-01-01"},
+            ])
+        with gzip.open(datos, "wt", newline="") as fh:
+            writer = csv.DictWriter(fh, fieldnames=["par", "fecha", "close"])
+            writer.writeheader()
+            writer.writerows([
+                {"par": "OBSERVADO", "fecha": "2026-09-30", "close": 50},
+                {"par": "OBSERVADO", "fecha": "2027-09-30", "close": 50},
+                {"par": "DELISTADO", "fecha": "2026-09-30", "close": 50},
+                {"par": "DELISTADO", "fecha": "2027-01-01", "close": 0.5},
+                {"par": "SIN_DATOS", "fecha": "2026-09-30", "close": 50},
+            ])
+
+        res = ep.evaluar(
+            datos, ruta_cohorte=cohorte, corte_cohorte="2026-09-30",
+            fin="2027-09-30")
+
+    assert res["candidatos"] == 3
+    assert res["censurados"] == 2
+    assert res["colapsos_crudos"] == 0
+
+
+def test_descarga_que_no_llega_al_fin_no_se_evalua():
+    with tempfile.TemporaryDirectory() as tmp:
+        cohorte = os.path.join(tmp, "cohorte.csv")
+        datos = os.path.join(tmp, "cierres.csv.gz")
+        with open(cohorte, "w", newline="", encoding="utf-8") as fh:
+            writer = csv.DictWriter(
+                fh, fieldnames=["par", "ath_corte", "precio_corte",
+                                "fecha_ath"])
+            writer.writeheader()
+            writer.writerow({"par": "PAR", "ath_corte": 100,
+                             "precio_corte": 50, "fecha_ath": "2025-01-01"})
+        with gzip.open(datos, "wt", newline="") as fh:
+            writer = csv.DictWriter(fh, fieldnames=["par", "fecha", "close"])
+            writer.writeheader()
+            writer.writerow({"par": "PAR", "fecha": "2027-09-29", "close": 50})
+
+        try:
+            ep.evaluar(
+                datos, ruta_cohorte=cohorte, corte_cohorte="2026-09-30",
+                fin="2027-09-30")
+        except ValueError as exc:
+            assert "descarga incompleta" in str(exc)
+        else:
+            raise AssertionError("se permitió evaluar una descarga incompleta")
 
 
 if __name__ == "__main__":

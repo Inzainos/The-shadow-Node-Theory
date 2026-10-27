@@ -44,7 +44,7 @@ Uso (desde la raíz del repo):
     python reconstruction_real/code/prueba_friccion_dominios_nuevos.py
 """
 
-import hashlib
+
 import itertools
 import logging
 import sys
@@ -55,6 +55,8 @@ import pandas as pd
 from scipy import stats
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+from snt import sha256  # noqa: E402
 DATA_TOP = ROOT / "data"
 DATA_RR = ROOT / "reconstruction_real" / "data"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
@@ -98,14 +100,6 @@ logging.basicConfig(
     ],
 )
 log = logging.getLogger("FRICCION-NUEVOS")
-
-
-def sha256(path):
-    h = hashlib.sha256()
-    with open(path, "rb") as fh:
-        for bloque in iter(lambda: fh.read(1 << 20), b""):
-            h.update(bloque)
-    return h.hexdigest()
 
 
 def verificar(path):

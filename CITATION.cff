@@ -1,9 +1,9 @@
 cff-version: 1.2.0
 message: "If you use this software or data, please cite it as below."
 type: software
-title: "Shadow Node Theory v2.7.1: Scale-Invariant Satellization, Coupled Orbital Collapse, and the Integrated Uncertainty Fabric"
+title: "Shadow Node Theory v2.7.4: Scale-Invariant Satellization, Coupled Orbital Collapse, and the Integrated Uncertainty Fabric"
 abstract: >
-  Replication package for Shadow Node Theory v2.7.1 (SNT v2.7.1), a formal
+  Replication package for Shadow Node Theory v2.7.4 (SNT v2.7.4), a formal
   model of node satellization with a corpus of 721 empirical cases
   reconstructed from verifiable primary sources and a coupled Orbital
   Collapse layer (ACO-A). This release adds an integrated uncertainty-fabric
@@ -43,14 +43,12 @@ authors:
     email: "elan.zainos.corona@gmail.com"
     city: "Tlaxcala"
     country: MX
-version: "2.7.3"
-date-released: "2026-10-26"
+version: "2.7.4"
 url: "https://github.com/Inzainos/The-shadow-Node-Theory"
 repository-code: "https://github.com/Inzainos/The-shadow-Node-Theory"
 license: "MIT"
 license-url: "https://github.com/Inzainos/The-shadow-Node-Theory/blob/main/LICENSE"
 # Multi-license: MIT (code) + CC BY 4.0 (data) + CC BY-NC 4.0 (papers). See LICENSE file.
-doi: "10.5281/zenodo.23678033"
 keywords:
   - complex systems
   - power law
@@ -79,7 +77,7 @@ identifiers:
     description: "Zenodo DOI for the 721-case corpus release line (v2.5.0 line); not the versioned archive of v2.7.1"
   - type: doi
     value: "10.5281/zenodo.23678033"
-    description: "Zenodo DOI for v2.7.3 — the seal of ADENDA 1-4 and the evaluation scripts BEFORE the window runs"
+    description: "Zenodo DOI for v2.7.3 — the pre-ADENDA-5 seal; it does not contain the delisting/censoring rule or the window-download manifest protocol"
   - type: doi
     value: "10.5281/zenodo.23661819"
     description: "Zenodo DOI for v2.7.1 (release 2.7.1 archive); contains the preregistros but not the late ADENDA 2-3"

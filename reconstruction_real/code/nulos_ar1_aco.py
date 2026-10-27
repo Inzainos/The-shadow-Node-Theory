@@ -29,18 +29,13 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+from snt import configurar_logging  # noqa: E402
 RR = ROOT / "reconstruction_real" / "data"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.StreamHandler(),
-        logging.FileHandler(LOG_DIR / "nulos_ar1_log.txt", mode="w"),
-    ],
-)
+configurar_logging(LOG_DIR / "nulos_ar1_log.txt")
 log = logging.getLogger("nulos_ar1")
 
 SEMILLA = 20261026          # preregistro

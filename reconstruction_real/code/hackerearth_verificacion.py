@@ -36,7 +36,6 @@ data/hackerearth_zerve/ (versionados).
 
 import argparse
 import csv
-import hashlib
 import logging
 import os
 import sys
@@ -50,6 +49,8 @@ from sklearn.model_selection import StratifiedKFold, cross_val_score, train_test
 from sklearn.preprocessing import StandardScaler
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+from snt import sha256  # noqa: E402
 ZV = ROOT / "data" / "hackerearth_zerve"
 DATA_RR = ROOT / "reconstruction_real" / "data"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
@@ -84,14 +85,6 @@ def reg(punto, cifra, valor, estado="INFO"):
     RESULTADOS.append({"punto": punto, "cifra": cifra, "valor": valor,
                        "estado": estado})
     log.info("%-28s %-46s %s", punto, cifra, valor)
-
-
-def sha256(path):
-    h = hashlib.sha256()
-    with open(path, "rb") as fh:
-        for bloque in iter(lambda: fh.read(1 << 20), b""):
-            h.update(bloque)
-    return h.hexdigest()
 
 
 def gbm():
