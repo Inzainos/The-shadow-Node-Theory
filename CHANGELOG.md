@@ -14,10 +14,18 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   `snt.ajuste_loglog`: `(b, log(a), residuos)` con mínimo de tres
   observaciones válidas. RC1 consume ahora `snt.ajuste_loglog`; la
   consolidación general de utilidades **sigue pendiente**.
+- En RC1, el ajuste ahora filtra entradas no positivas/no finitas y devuelve
+  `(nan, nan, None)` con menos de tres observaciones válidas, en vez de fallar
+  al tomar logaritmos. Los resultados reproducidos con los datos actuales no
+  cambian; si apareciera una serie inválida, `perfil()` podría recibir residuos
+  `None`, por lo que este cambio de comportamiento queda anotado.
 - CI instala el paquete y comprueba su importación fuera del checkout; tests
   fijan la firma, el mínimo de muestra y el ajuste común. CI también
   recalcula la sensibilidad por serie y vigila solo la conclusión `p < 0.05`,
-  no el valor puntual `≈0.003`.
+  no el valor puntual `≈0.003`. Ese paso reescribe el CSV versionado en el
+  checkout efímero del runner y no compara el resultado regenerado con el
+  archivo del repositorio; por diseño, la guarda vigila la conclusión, no la
+  identidad de la salida.
 - El informe del bootstrap por serie deja de calificar `p ≈ 0.003` como más
   extremo que el nulo base. Explicita que solo se perturba φ, con μ/σ fijos,
   sesgo de muestra pequeña y resolución Monte Carlo limitada; la lectura es
