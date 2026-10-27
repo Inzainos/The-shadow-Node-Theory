@@ -6,14 +6,14 @@ y el proyecto sigue [Versionado Semántico](https://semver.org/lang/es/).
 
 Las fechas corresponden a la integración de cada versión en la rama `main`.
 
-## [Sin publicar] — Auditoría de claims, línea base de la tela y CI
+## [2.7.4] — 2026-10-27
 
 ### 2026-10-27 — ADENDA 5, censura de delistados y utilidades compartidas
 
 - **ADENDA 5** fija el universo v2, trata los pares sin seguimiento completo
   como censurados y exige un manifiesto con URL, fecha UTC, tamaño y SHA-256
   antes de analizar la ventana. Declara explícitamente que es posterior al
-  DOI 23678033; el protocolo se sellará en el release 2.7.4 y la descarga
+  DOI 23678033; quedó sellada en el release 2.7.4 (DOI 23684731) y la descarga
   futura se hasheará y sellará antes de ejecutar el evaluador.
 - El evaluador y el backcast ya no toman un último cierre anterior al fin
   como si fuera el cierre de ventana. La re-clasificación histórica da 53
@@ -28,6 +28,9 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 - El ajuste importado por RC1 mantiene la firma acordada; la nota de que su
   filtro de valores inválidos cambia el comportamiento de borde, pero no los
   resultados reproducidos, está en el changelog.
+- Zenodo asignó el DOI 10.5281/zenodo.23684731 al publicarse el tag 2.7.4.
+  El snapshot del release se generó antes de que existiera el DOI; este dato
+  se registra en la rama principal sin alterar el archivo ya sellado.
 
 ### 2026-10-26 — API SNT adoptada por RC1 y bootstrap reportado con cautela
 

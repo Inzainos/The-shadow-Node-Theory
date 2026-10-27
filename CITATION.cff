@@ -44,6 +44,8 @@ authors:
     city: "Tlaxcala"
     country: MX
 version: "2.7.4"
+date-released: "2026-10-27"
+doi: "10.5281/zenodo.23684731"
 url: "https://github.com/Inzainos/The-shadow-Node-Theory"
 repository-code: "https://github.com/Inzainos/The-shadow-Node-Theory"
 license: "MIT"
@@ -72,6 +74,9 @@ keywords:
   - epidemic growth
   - digital ecosystems
 identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23684731"
+    description: "Zenodo DOI for v2.7.4, the ADENDA 5 protocol seal; the future window-download manifest is not included"
   - type: doi
     value: "10.5281/zenodo.19446521"
     description: "Zenodo DOI for the 721-case corpus release line (v2.5.0 line); not the versioned archive of v2.7.1"

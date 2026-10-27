@@ -84,7 +84,7 @@ auditorías correspondientes — vive en
 
 ## Zenodo y SSRN
 
-- **Archivo versionado de v2.7.1 (canónico):**
+- **Archivo versionado de v2.7.1 (histórico):**
   [DOI 10.5281/zenodo.23661819](https://doi.org/10.5281/zenodo.23661819) —
   snapshot del release 2.7.1 (2026-10-26), contiene los preregistros de la
   ronda 2026-10-26. El primer archivo del mismo día
@@ -92,9 +92,11 @@ auditorías correspondientes — vive en
   antes de los preregistros y no los incluye. La línea del corpus de 721
   casos sigue en
   [10.5281/zenodo.19446521](https://doi.org/10.5281/zenodo.19446521).
-- El DOI [10.5281/zenodo.23678033](https://doi.org/10.5281/zenodo.23678033)
-  corresponde a v2.7.3, anterior a la ADENDA 5. El nuevo archivo que sellará
-  v2.7.4 y esta adenda aún no está publicado; su DOI se añadirá al publicarse.
+- **Sello del protocolo v2.7.4:** [DOI
+  10.5281/zenodo.23684731](https://doi.org/10.5281/zenodo.23684731). Es
+  posterior al DOI [10.5281/zenodo.23678033](https://doi.org/10.5281/zenodo.23678033)
+  de v2.7.3 e incorpora la ADENDA 5. El hash de los datos de la ventana futura
+  aún no existe y deberá sellarse antes de ejecutar la evaluación.
 - **Preprint en SSRN:** [abstract 6418778](https://ssrn.com/abstract=6418778).
   El manuscrito vigente es la **r33** (2026-10-26, base v2.7.1, subida por el
   autor): añade la tela de incertidumbre integrada y los dos controles
@@ -104,9 +106,8 @@ auditorías correspondientes — vive en
   [español](papers/snt_ssrn_v33.md); r32 (histórico):
   [inglés (PDF)](papers/snt_ssrn_v32_EN.pdf) ·
   [español (PDF)](papers/snt_ssrn_v32.pdf).
-- **Cita del software:** [`CITATION.cff`](CITATION.cff), con el DOI canónico
-  del corpus y el historial de identificadores publicados; el DOI de v2.7.4
-  se añadirá cuando se publique el nuevo archivo.
+- **Cita del software:** [`CITATION.cff`](CITATION.cff), con el DOI de v2.7.4
+  y el historial de identificadores publicados.
 
 ### Lo que no se presenta como hallazgo establecido
 
