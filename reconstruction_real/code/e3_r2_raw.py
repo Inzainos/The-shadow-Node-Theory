@@ -25,15 +25,14 @@ Uso (desde la raíz del repo):
 """
 
 import logging
-import sys
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from snt import configurar_log, sha256  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT))
-from snt import sha256  # noqa: E402
 sys.path.insert(0, str(ROOT / "code"))
 from snt_utils_v32 import fit_powerlaw  # noqa: E402
 
@@ -45,22 +44,13 @@ LOG_DIR.mkdir(parents=True, exist_ok=True)
 FULL = DATA_TOP / "raw_covid" / "owid-covid-data.csv"
 IN_E3 = DATA_RR / "dominio_E3_series_crudas.csv"
 OUT = DATA_RR / "dominio_E3_r2_raw.csv"
-LOG_FILE = LOG_DIR / "e3_r2_raw_log.txt"
 
 SHA_FULL = "8473d0f0fdf962e1ffbd5b85b18726fc96a49bab109e271186c339725a12b10c"
 VENTANA = 60
 UMBRAL = 100
 TOL = 0.01
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
-log = logging.getLogger("E3-R2RAW")
+log = configurar_log("E3-R2RAW", log_dir=LOG_DIR, log_file="e3_r2_raw_log.txt")
 
 
 def serie_pais_acum(O, pais):

@@ -49,18 +49,18 @@ import argparse
 import itertools
 import logging
 import os
-import sys
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
 from scipy import stats
+from snt import configurar_log
 
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[logging.FileHandler("prueba_discriminante_log.txt", mode="w",
-                                  encoding="utf-8"),
-              logging.StreamHandler(sys.stdout)])
-log = logging.getLogger("DISCRIM")
+ROOT = Path(__file__).resolve().parent.parent.parent
+LOG_DIR = ROOT / "reconstruction_real" / "logs"
+LOG_DIR.mkdir(parents=True, exist_ok=True)
+
+log = configurar_log("DISCRIM", log_dir=LOG_DIR, log_file="prueba_discriminante_log.txt")
 
 
 def head(t):

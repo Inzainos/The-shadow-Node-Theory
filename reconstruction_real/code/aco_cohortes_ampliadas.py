@@ -41,7 +41,6 @@ Uso (desde la raíz del repo, tras `descargar_binance_klines.py`):
 """
 
 import logging
-import sys
 from datetime import date
 from pathlib import Path
 
@@ -51,7 +50,7 @@ from scipy import stats
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT))
-from snt import sha256  # noqa: E402
+from snt import configurar_log, sha256  # noqa: E402
 DATA_TOP = ROOT / "data"
 DATA_RR = ROOT / "reconstruction_real" / "data"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
@@ -71,15 +70,7 @@ RETIRO_DIAS = 31
 MIN_EN_RIESGO = 30
 EQUIV = 0.3
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
-log = logging.getLogger("ACO-COHORTES")
+log = configurar_log("ACO-COHORTES", log_dir=LOG_DIR, log_file="aco_cohortes_ampliadas_log.txt")
 
 
 def fit(x, y):

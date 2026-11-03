@@ -48,7 +48,6 @@ Uso (desde la raíz del repo):
 """
 
 import logging
-import sys
 import unicodedata
 import zipfile
 from pathlib import Path
@@ -56,10 +55,10 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 from scipy import stats
+from snt import configurar_log, sha256  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT))
-from snt import sha256  # noqa: E402
 DATA_TOP = ROOT / "data"
 DATA_RR = ROOT / "reconstruction_real" / "data"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
@@ -97,15 +96,7 @@ CASOS = [
     ("China", "Xiamen", "Fuzhou, Fujian", 1980, 1979, "zee"),
 ]
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
-log = logging.getLogger("DISPARADORES")
+log = configurar_log("DISPARADORES", log_dir=LOG_DIR, log_file="prueba_disparadores_ciudades_log.txt")
 
 
 def norm(s):

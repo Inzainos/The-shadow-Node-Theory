@@ -10,27 +10,19 @@ Predicción direccional pre-registrada: ρ < 0. Determinista (sin RNG).
 """
 
 import logging
-import sys
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 from scipy import stats
+from snt import configurar_log
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 RR = ROOT / "reconstruction_real" / "data"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.StreamHandler(),
-        logging.FileHandler(LOG_DIR / "friccion_por_caso_log.txt", mode="w"),
-    ],
-)
-log = logging.getLogger("friccion_por_caso")
+log = configurar_log("friccion_por_caso", log_dir=LOG_DIR, log_file="friccion_por_caso_log.txt")
 
 
 def main():

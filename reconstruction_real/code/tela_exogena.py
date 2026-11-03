@@ -64,6 +64,7 @@ import pandas as pd
 DECIMALES_TELA = 12
 
 from scipy.stats import spearmanr
+from snt import configurar_log
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_RR = os.path.join(SCRIPT_DIR, "..", "data")
@@ -72,17 +73,7 @@ DATA_TOP = os.path.join(SCRIPT_DIR, "..", "..", "data")
 LOG_DIR = os.path.join(SCRIPT_DIR, "..", "logs")
 os.makedirs(LOG_DIR, exist_ok=True)
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.StreamHandler(),
-        logging.FileHandler(
-            os.path.join(LOG_DIR, "tela_exogena_log.txt"), mode="w"
-        ),
-    ],
-)
-log = logging.getLogger("tela_exogena")
+log = configurar_log("tela_exogena", log_dir=LOG_DIR, log_file="tela_exogena_log.txt")
 
 N_GRID = 32
 TAU_GRID = np.linspace(0.0, 1.0, N_GRID)
@@ -316,7 +307,7 @@ def capa_estadistica(casos):
                  rho, p)
     est = pd.DataFrame(filas)
     ruta = os.path.join(DATA_RR, "tela_exogena_estadisticas.csv")
-    est.round(DECIMALES_TELA).to_csv(ruta, index=False)
+    est.round(DECIMALES_TELA).to_csv(ruta, index=False, float_format="%.12f")
     log.info("Estadística por dominio → %s", ruta)
 
     casos_validos = casos.dropna(subset=["b_verificado"]).copy()
@@ -338,10 +329,10 @@ def capa_estadistica(casos):
         log.info("  %-14s | %s", dir_,
                  " | ".join(f"{c}: {v:.3f}" for c, v in fila.items()))
     ruta_p = os.path.join(DATA_RR, "tela_exogena_probabilidad.csv")
-    prob.round(DECIMALES_TELA).to_csv(ruta_p)
+    prob.round(DECIMALES_TELA).to_csv(ruta_p, float_format="%.12f")
     log.info("Matriz de probabilidad → %s", ruta_p)
     ruta_c = os.path.join(DATA_RR, "tela_exogena_casos.csv")
-    casos_validos.round(DECIMALES_TELA).to_csv(ruta_c, index=False)
+    casos_validos.round(DECIMALES_TELA).to_csv(ruta_c, index=False, float_format="%.12f")
     log.info("Rasgos por caso → %s", ruta_c)
     return est, prob
 
@@ -375,7 +366,7 @@ def main():
                      len(g))
 
     ruta_s = os.path.join(DATA_RR, "tela_exogena_series.csv")
-    series.round(DECIMALES_TELA).to_csv(ruta_s, index=False)
+    series.round(DECIMALES_TELA).to_csv(ruta_s, index=False, float_format="%.12f")
     log.info("Series exógenas → %s (%d puntos, %d casos)", ruta_s,
              len(series), series["id"].nunique())
 
