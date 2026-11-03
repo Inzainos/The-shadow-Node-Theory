@@ -31,7 +31,7 @@ from scipy import stats
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT))
-from snt import sha256 as sha256_file  # noqa: E402
+from snt import configurar_log, sha256 as sha256_file  # noqa: E402
 MADDISON = ROOT / "data" / "maddison_mpd2020.csv"
 B_PUBLISHED = (
     ROOT / "reconstruction_real" / "data" / "by_domain" / "dominio_B_real.csv"
@@ -143,14 +143,7 @@ THETA2 = ProjectionSpec(
 def configure_log() -> None:
     """Configure run logging only when the analysis is executed."""
     LOG_DIR.mkdir(parents=True, exist_ok=True)
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s | %(levelname)-7s | %(message)s",
-        handlers=[
-            logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-            logging.StreamHandler(sys.stdout),
-        ],
-    )
+    configurar_log("EJE-U", log_dir=LOG_DIR, log_file=LOG_FILE.name)
 
 
 def repository_revision() -> str:

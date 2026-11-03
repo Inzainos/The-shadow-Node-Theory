@@ -38,12 +38,12 @@ Uso:
 
 import itertools
 import logging
-import sys
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 from scipy.stats import mannwhitneyu
+from snt import configurar_log
 
 # =============================================================================
 # RUTAS
@@ -69,15 +69,7 @@ PUBLICADO = "razón 5.9x; Mann-Whitney U=24,802, p=1.91e-5, n=486"
 # LOGGING (misma convención que build_dominio_G.py)
 # =============================================================================
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
-log = logging.getLogger("TRIGGER-RECALC")
+log = configurar_log("TRIGGER-RECALC", log_dir=LOG_DIR, log_file="recalculo_trigger_abrupto_gradual_log.txt")
 
 
 # =============================================================================

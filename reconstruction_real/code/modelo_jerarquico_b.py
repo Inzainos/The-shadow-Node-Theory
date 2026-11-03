@@ -12,13 +12,13 @@ D: réplica por dominios (n=10, descriptiva).
 """
 
 import logging
-import sys
 import warnings
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 from scipy.stats import spearmanr
+from snt import configurar_log
 
 warnings.simplefilter("ignore")
 
@@ -27,15 +27,7 @@ RR = ROOT / "reconstruction_real" / "data"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.StreamHandler(),
-        logging.FileHandler(LOG_DIR / "modelo_jerarquico_log.txt", mode="w"),
-    ],
-)
-log = logging.getLogger("modelo_jerarquico")
+log = configurar_log("modelo_jerarquico", log_dir=LOG_DIR, log_file="modelo_jerarquico_log.txt")
 
 SEMILLA = 20261026
 N_PERM = 5000
