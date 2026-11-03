@@ -59,10 +59,7 @@ from scipy.signal import lfilter
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "code"))
-from snt import (
-    ajuste_loglog,
-    configurar_logging as configurar_log,
-)  # noqa: E402
+from snt import ajuste_loglog, configurar_log  # noqa: E402
 from snt_utils_v32 import comparar_modelos, durbin_watson  # noqa: E402
 
 DATA = ROOT / "data"
@@ -194,7 +191,7 @@ def cargar_ACO():
 
 # ------------------------------------------------------------------ main
 def main():
-    configurar_log(LOG_FILE)
+    configurar_log("RC1", log_dir=LOG_DIR, log_file=LOG_FILE.name)
     rng = np.random.default_rng(SEMILLA)
     log.info("=" * 78)
     log.info("RC1 — REGIMEN SUPERLINEAL b >= 1 (pre-registro 2026-10-02, 1a2ac0e)")

@@ -32,6 +32,33 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   El snapshot del release se generó antes de que existiera el DOI; este dato
   se registra en la rama principal sin alterar el archivo ya sellado.
 
+### 2026-11-03 — Consolidación de logging y estabilización numérica tela exógena
+
+- Migración de `logging.basicConfig` a `snt.configurar_log` en
+  `reconstruction_real/code/tela_exogena.py`,
+  `recalculo_trigger_abrupto_gradual.py`,
+  `build_comercio_bilateral_cow.py`,
+  `aco_cohortes_ampliadas.py`,
+  `npm_pruebas_aco.py`,
+  `eje_u_transiciones.py`,
+  `prueba_disparadores_ciudades.py`,
+  `modelo_jerarquico_b.py`,
+  `friccion_por_caso_npm.py`,
+  `prueba_discriminante_dominio_B.py`,
+  `e3_r2_raw.py`.
+- Homologación de firma en `rc1_superlineal.py`: se usa
+  `snt.configurar_log` con API canónica `nombre, log_dir, log_file` en lugar de
+  `configurar_logging` heredada.
+- Estabilización numérica de la capa exógena de la tela:
+  `tela_exogena.py` ahora escribe CSV con `float_format="%.12f"` en
+  `tela_exogena_estadisticas.csv`,
+  `tela_exogena_probabilidad.csv`,
+  `tela_exogena_casos.csv`,
+  `tela_exogena_series.csv`, eliminando diferencias de última cifra ~1e-16 entre
+  regeneraciones. Claims verificados 39/39 OK tras regeneración.
+- Documentación de pendientes y plan por partes añadida en
+  `docs/pendientes-2.7.4.md` y `docs/plan_por_partes_2.7.4.md`.
+
 ### 2026-10-26 — API SNT adoptada por RC1 y bootstrap reportado con cautela
 
 - Se fija una firma canónica para `snt.fit_power_law` y

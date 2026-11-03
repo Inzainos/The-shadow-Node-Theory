@@ -42,7 +42,6 @@ Uso (desde la raíz del repo):
 """
 
 import logging
-import sys
 import zipfile
 from pathlib import Path
 
@@ -50,7 +49,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT))
-from snt import sha256  # noqa: E402
+from snt import configurar_log, sha256  # noqa: E402
 DATA_TOP = ROOT / "data"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
@@ -65,15 +64,7 @@ SHA256_ZIP = "c44c4b5ce62e68865368482c428306df4624d3a39edec29adc1aa2c0928f7cc7"
 ANIO_MIN = 1900  # ninguna serie del dominio B empieza antes
 RESTO = "RESTO_DEL_MUNDO"
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
-log = logging.getLogger("COMERCIO-COW")
+log = configurar_log("COMERCIO-COW", log_dir=LOG_DIR, log_file="build_comercio_bilateral_cow_log.txt")
 
 
 def entidad(nombre, anio):

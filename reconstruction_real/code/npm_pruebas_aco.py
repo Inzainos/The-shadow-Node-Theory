@@ -21,12 +21,12 @@ import csv
 import gzip
 import logging
 import math
-import sys
 from collections import Counter
 from pathlib import Path
 
 import numpy as np
 from scipy import stats
+from snt import configurar_log
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 COHORTE = ROOT / "reconstruction_real" / "data" / "npm_cohorte_aco.csv.gz"
@@ -40,15 +40,7 @@ BANDA_MESES = 12
 EQUIV = 0.3                 # banda de equivalencia de la ortogonalidad
 ALFA = 0.05
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
-log = logging.getLogger("NPM-PRUEBAS")
+log = configurar_log("NPM-PRUEBAS", log_dir=LOG_DIR, log_file="npm_pruebas_aco_log.txt")
 
 
 def cargar():
