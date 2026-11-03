@@ -56,7 +56,7 @@ from scipy import stats
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT))
-from snt import sha256  # noqa: E402
+from snt import sha256, configurar_log  # noqa: E402
 DATA_TOP = ROOT / "data"
 DATA_RR = ROOT / "reconstruction_real" / "data"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
@@ -91,15 +91,7 @@ FRICCION = {"A": 2, "A2": 2, "B": 3, "B-comercio": 3, "C": 3, "D": 1, "D2": 1,
 VENTANA_E = 60
 UMBRAL_E = 100
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
-log = logging.getLogger("FRICCION-NUEVOS")
+log = configurar_log("FRICCION-NUEVOS", log_dir=LOG_DIR, log_file=LOG_FILE.name)
 
 
 def verificar(path):

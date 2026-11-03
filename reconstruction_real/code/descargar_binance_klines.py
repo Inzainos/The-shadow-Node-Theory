@@ -33,6 +33,8 @@ from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+from snt import configurar_log  # noqa: E402
 RAW = ROOT / "data" / "raw_binance"
 KL = RAW / "klines_1d"
 KL.mkdir(parents=True, exist_ok=True)
@@ -52,15 +54,7 @@ ESTABLES_FIAT = {
 }
 APALANCADOS = ("UP", "DOWN", "BULL", "BEAR")
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
-log = logging.getLogger("BINANCE")
+log = configurar_log("BINANCE", log_dir=LOG_DIR, log_file=LOG_FILE.name)
 
 
 def abrir(url):

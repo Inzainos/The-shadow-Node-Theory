@@ -42,6 +42,8 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+from snt import configurar_log  # noqa: E402
 RAW = ROOT / "data" / "raw_npm"
 RAW.mkdir(parents=True, exist_ok=True)
 OUT = ROOT / "reconstruction_real" / "data" / "npm_cohorte_aco.csv.gz"
@@ -76,15 +78,7 @@ FUNDACIONES = {"apache", "eclipse", "openjs-foundation", "cncf", "nodejs",
 CORPORATIVAS = {"microsoft", "google", "facebook", "aws", "vercel", "shopify",
                 "ibm", "oracle", "netflix"}
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
-log = logging.getLogger("NPM")
+log = configurar_log("NPM", log_dir=LOG_DIR, log_file=LOG_FILE.name)
 
 
 def abrir(url, datos=None, cabeceras=None, timeout=120):

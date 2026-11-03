@@ -80,6 +80,8 @@ from comercio_maddison import (CMEA, cargar_pib,  # noqa: E402
                                sha256, socio_maddison)
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+from snt import configurar_log  # noqa: E402
 DATA_TOP = ROOT / "data"
 DATA_RR = ROOT / "reconstruction_real" / "data"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
@@ -102,15 +104,7 @@ COBERTURA_CONTROL = 0.9
 MIN_SOCIOS_INTRA = 8
 SEED = 20260927
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
-log = logging.getLogger("B-HUB-COMERCIO")
+log = configurar_log("B-HUB-COMERCIO", log_dir=LOG_DIR, log_file=LOG_FILE.name)
 
 
 def ajuste(pib, hub, nodo, y0, y1=ANIO_MAX_PIB, pobl=None):
