@@ -16,21 +16,47 @@ def sha256(path):
 
 def configurar_log(nombre="snt", log_dir=None, log_file=None,
                    level=logging.INFO):
-    """Logger configurado con archivo + consola (versión de las 6 copias)."""
+    """Logger configurado con archivo + consola (versión reutilizable y sin duplicados)."""
     logger = logging.getLogger(nombre)
     logger.setLevel(level)
-    if logger.handlers:
-        return logger
+    logger.propagate = False
+
     fmt = logging.Formatter("%(asctime)s | %(levelname)-7s | %(message)s")
-    sh = logging.StreamHandler()
-    sh.setFormatter(fmt)
-    logger.addHandler(sh)
-    if log_dir:
+
+    # El logger se puede reusar con distinta ruta de salida o con varios scripts en
+    # el mismo proceso. En ese caso hay que reconfigurarlo de forma idempotente.
+    for handler in list(logger.handlers):
+        if isinstance(handler, logging.StreamHandler) and not isinstance(handler, logging.FileHandler):
+            logger.removeHandler(handler)
+        elif isinstance(handler, logging.FileHandler):
+            if log_dir is None:
+                logger.removeHandler(handler)
+                continue
+            target = (Path(log_dir) / (log_file or f"{nombre}.log")).resolve()
+            if Path(handler.baseFilename).resolve() != target:
+                logger.removeHandler(handler)
+
+    if not any(
+        isinstance(handler, logging.StreamHandler)
+        and not isinstance(handler, logging.FileHandler)
+        for handler in logger.handlers
+    ):
+        stream = logging.StreamHandler()
+        stream.setFormatter(fmt)
+        logger.addHandler(stream)
+
+    if log_dir is not None:
         Path(log_dir).mkdir(parents=True, exist_ok=True)
-        ruta = Path(log_dir) / (log_file or f"{nombre}.log")
-        fh = logging.FileHandler(ruta, mode="w", encoding="utf-8")
-        fh.setFormatter(fmt)
-        logger.addHandler(fh)
+        target = (Path(log_dir) / (log_file or f"{nombre}.log")).resolve()
+        if not any(
+            isinstance(handler, logging.FileHandler)
+            and Path(handler.baseFilename).resolve() == target
+            for handler in logger.handlers
+        ):
+            file_handler = logging.FileHandler(target, mode="w", encoding="utf-8")
+            file_handler.setFormatter(fmt)
+            logger.addHandler(file_handler)
+
     return logger
 
 
