@@ -92,7 +92,7 @@ Cymatic representation of resonance patterns
 | E3 Epidémico | 234 | 233/234 | — | — |
 | Cripto | 60 | — | — | mediana D2 1.65 |
 | Digital HackerEarth | 4,774 usuarios | — | — | 5-Event Wall |
-| Genómico TCGA | 2,746 | — | — | 5-Event Wall 2-5% |
+| Genómico TCGA | 2,746 | — | — | 5-Event Wall 2-5% | Repo independiente `/home/deamon/genomic_agent`
 
 ![Distribución D2 Cripto](figures/crypto_d2_hist.png)
 
