@@ -29,7 +29,6 @@ Uso:
 
 import argparse
 import csv
-import logging
 import os
 import sys
 from pathlib import Path

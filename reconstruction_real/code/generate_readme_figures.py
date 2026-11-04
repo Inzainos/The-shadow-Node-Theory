@@ -30,7 +30,6 @@ Uso (desde la raíz del repo):
 """
 
 import hashlib
-import logging
 import sys
 import textwrap
 from pathlib import Path

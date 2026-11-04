@@ -46,7 +46,6 @@ Uso (desde la raíz del repo):
 
 
 import itertools
-import logging
 import sys
 from pathlib import Path
 

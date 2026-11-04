@@ -27,7 +27,6 @@ Uso (desde la raiz del repo):
 import gzip
 import hashlib
 import json
-import logging
 import math
 import re
 import sys

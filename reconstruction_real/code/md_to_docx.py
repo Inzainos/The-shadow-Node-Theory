@@ -16,7 +16,6 @@ Markdown semantics that matter for the manuscripts:
 Usage: python md_to_docx.py input.md output.docx
 Log:   reconstruction_real/logs/md_to_docx_log.txt
 """
-import logging
 import re
 import sys
 from pathlib import Path
