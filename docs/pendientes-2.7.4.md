@@ -14,8 +14,8 @@ Pendientes declarados v2.7.4 y ahora v2.7.5:
 - Consolidación de ajustes de potencia y `snt_utils_v32.py`; bloques puntuales de `logging.basicConfig` fuera de migración (cerrado en v2.7.4).
 - `rc1_superlineal.py` homologado con `snt.configurar_log` (cerrado en v2.7.4).
 - `tela_exogena.py` estabilizada numéricamente (cerrado en v2.7.4).
-- **Eje `u` sin definición operativa** → nuevo pre-registro con Entropía de Permutación (series cortas) y Dimensión de Correlación (series largas).
-- **Campo fricción `φ` postulado, no medido** → definición formal en Axioma 0.1 v2.7.5.
+- **Eje `u` sin definición operativa** → pre-registro con Entropía de Permutación (series cortas) y Dimensión de Correlación (series largas) implementado; infraestructura operativa lista.
+- **Campo fricción `φ` postulado, no medido** → definición formal en Axioma 0.1 v2.7.5 publicada.
 
 Estado actualizado 2026-11-04:
 - Migración de logging a `snt.configurar_log` completada en v2.7.4.
