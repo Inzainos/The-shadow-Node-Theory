@@ -8,6 +8,11 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 
 ## [2.7.5] — 2026-11-04 (en desarrollo)
 
+### 2026-11-04 — Integración macro como variable exógena en eje u
+
+- `eje_u_permutacion_dimcor.py` genera ahora `eje_u_dimcor_crypto_macro_merged.csv`, uniendo por caso D2 con correlación del índice macro global anual.
+- La integración macro se ejecuta automáticamente tras la estimación D2, manteniendo la separación analítica pero proporcionando adjunto exógeno por caso.
+
 ### 2026-11-04 — Extensión exploratoria de casos cripto
 
 - Catálogo Binance ampliado de 30 a 60 pares USDT/BTCUSDT con al menos 200
