@@ -84,6 +84,16 @@ Cymatic representation of resonance patterns
 
 *Ver `reconstruction_real/claims.yaml` para verificación completa.*
 
+### Comparación por dominio
+
+| Dominio | Casos | Reproducibles | b estimable | Cointegración |
+|---|---|---|---|---|
+| B Países | 446 | — | 156/446 | 12.3% |
+| E3 Epidémico | 234 | 233/234 | — | — |
+| Cripto | 60 | — | — | — |
+
+EN: Domain comparison table above.
+
 | Afirmación | Estado |
 |---|---|
 | Las pendientes de B y E3 se reconstruyen desde fuentes versionadas | Reproducible (E3: 233/234) |
