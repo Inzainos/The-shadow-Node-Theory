@@ -14,6 +14,12 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 - Pre-registro para nuevo candidato eje `u`: Entropía de Permutación (series cortas, Dominio B) y Dimensión de Correlación (series largas, Cripto) con compuertas A–D pre-especificadas. Script `reconstruction_real/code/eje_u_permutacion_dimcor.py` en desarrollo.
 - Actualización de `docs/pendientes-2.7.4.md` a estado v2.7.5.
 
+### 2026-11-04 — Cierre crypto y limpieza de datos zips
+
+- Limpieza de `data/cripto`: se retiran `SPX.csv`, `casos_cripto.csv`, `coin_*.csv` y archivos `Zone.Identifier`. Se mantiene únicamente `casos_binance.csv` como catálogo oficial para el eje u Cripto.
+- Revisión de `data/zips`: se conservan únicamente los ZIPs con utilidad para casos de uso: `archive (9).zip` IMF/World Bank, `archive (10).zip` Strait of Hormuz, `archive (11).zip` Petrodólar, `archive (20).zip` BTCUSD 1-min, `archive (25).zip` trayectoria satelital, `archive (24).zip` battles y `archive (23).zip` SPX. Se eliminan el resto y los `Zone.Identifier`.
+- Re-ejecución de `reconstruction_real/code/eje_u_permutacion_dimcor.py` con fuentes versionadas: Dominio B PE ventana 20 → mediana Spearman 0.929; Crypto D2 ventana 200 → 30/30 elegibles, mediana D2 0.803, mediana Spearman emb2/emb3 0.985.
+
 ## [2.7.4] — 2026-10-27
 
 ### 2026-10-27 — ADENDA 5, censura de delistados y utilidades compartidas
