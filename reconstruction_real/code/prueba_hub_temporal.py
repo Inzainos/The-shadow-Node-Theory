@@ -40,7 +40,6 @@ Uso (desde la raíz del repo):
     python reconstruction_real/code/prueba_hub_temporal.py
 """
 
-import logging
 import math
 import sys
 from pathlib import Path
@@ -52,6 +51,8 @@ from scipy import stats
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from comercio_maddison import (CMEA, ROOT, cargar_pib,  # noqa: E402
                                leer_cow, sha256)
+sys.path.insert(0, str(ROOT))
+from snt import configurar_log  # noqa: E402
 
 DATA_RR = ROOT / "reconstruction_real" / "data"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
@@ -71,15 +72,7 @@ COBERTURA_CONTROL = 0.9
 ANIO_COW = 1870
 SEED = 20260927
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
-log = logging.getLogger("HUB-TEMPORAL")
+log = configurar_log("HUB-TEMPORAL", log_dir=LOG_DIR, log_file=LOG_FILE.name)
 
 
 def ajuste_np(yh, yn, n_min):

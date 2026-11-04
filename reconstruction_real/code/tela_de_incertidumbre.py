@@ -55,7 +55,6 @@ Uso (desde la raíz del repo):
 """
 
 import csv
-import logging
 import sys
 from pathlib import Path
 
@@ -63,6 +62,8 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "code"))
+sys.path.insert(0, str(ROOT))
+from snt import configurar_log  # noqa: E402
 
 DATA = ROOT / "reconstruction_real" / "data"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
@@ -70,15 +71,7 @@ LOG_DIR.mkdir(parents=True, exist_ok=True)
 
 LOG_FILE = LOG_DIR / "tela_de_incertidumbre.log"
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler(),
-    ],
-)
-log = logging.getLogger("tela_de_incertidumbre")
+log = configurar_log("tela_de_incertidumbre", log_dir=LOG_DIR, log_file=LOG_FILE.name)
 
 # Fricción categórica por dominio (11 dominios del README SNT).
 # POSTULADO NO MEDIDO — ver Axioma 0.1 §fricción del marco v34.

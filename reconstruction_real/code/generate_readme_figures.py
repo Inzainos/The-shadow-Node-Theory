@@ -30,7 +30,6 @@ Uso (desde la raíz del repo):
 """
 
 import hashlib
-import logging
 import sys
 import textwrap
 from pathlib import Path
@@ -44,21 +43,15 @@ from matplotlib.lines import Line2D  # noqa: E402
 from matplotlib.patches import Patch  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+from snt import configurar_log  # noqa: E402
 DATA = ROOT / "reconstruction_real" / "data"
 FIG = ROOT / "figures"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 LOG_FILE = LOG_DIR / "generate_readme_figures_log.txt"
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
-log = logging.getLogger("FIGURAS-README")
+log = configurar_log("FIGURAS-README", log_dir=LOG_DIR, log_file=LOG_FILE.name)
 
 TEMAS = {
     "light": dict(surface="#fcfcfb", text="#0b0b0b", text2="#52514e",

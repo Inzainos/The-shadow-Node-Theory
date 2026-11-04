@@ -30,7 +30,6 @@ Uso:
 
 import csv
 import gzip
-import logging
 import sys
 from pathlib import Path
 
@@ -38,6 +37,8 @@ import numpy as np
 from scipy import stats
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+from snt import configurar_log  # noqa: E402
 COHORTE = ROOT / "reconstruction_real" / "data" / "npm_cohorte_aco.csv.gz"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
@@ -46,15 +47,7 @@ LOG_FILE = LOG_DIR / "npm_followup_cohorte_friccion_log.txt"
 BANDA_MESES = 12
 MIN_EN_RIESGO = 30
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
-log = logging.getLogger("NPM-FOLLOWUP")
+log = configurar_log("NPM-FOLLOWUP", log_dir=LOG_DIR, log_file=LOG_FILE.name)
 
 COHORTES_NAC = [("<=2017", lambda a: a <= 2017),
                 ("2018-2020", lambda a: 2018 <= a <= 2020),

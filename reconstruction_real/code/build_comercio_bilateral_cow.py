@@ -1,4 +1,5 @@
 """
+import sys
 Construye la matriz de comercio bilateral que necesita el Bloque 2 de la
 prueba discriminante del dominio B (H-ACOPLAMIENTO: b vs participación del
 comercio nodo -> hub).

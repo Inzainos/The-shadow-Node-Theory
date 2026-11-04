@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import sys
 """
 E3 r2_raw — completa el split R² del corpus para el Dominio E3.
 
@@ -24,7 +25,6 @@ Uso (desde la raíz del repo):
     python reconstruction_real/code/e3_r2_raw.py
 """
 
-import sys
 from pathlib import Path
 
 import numpy as np

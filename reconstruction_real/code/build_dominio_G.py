@@ -65,7 +65,6 @@ Salida:
 Fractal Core Research | Tlaxcala, Mexico | 2026
 """
 
-import logging
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -82,6 +81,8 @@ warnings.filterwarnings("ignore")
 # =============================================================================
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+from snt import configurar_log  # noqa: E402
 DATA_DIR = ROOT / "reconstruction_real" / "data"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -98,15 +99,7 @@ LOG_FILE = LOG_DIR / "build_dominio_G_log.txt"
 # LOGGING (misma convención que prueba_discriminante_dominio_B.py)
 # =============================================================================
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
-log = logging.getLogger("DOMINIO-G")
+log = configurar_log("DOMINIO-G", log_dir=LOG_DIR, log_file=LOG_FILE.name)
 
 DOMINIO = "G"
 DOMINIO_NOMBRE = "Paquetes cósmicos / desempaquetado de vida"

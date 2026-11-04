@@ -36,7 +36,6 @@ data/hackerearth_zerve/ (versionados).
 
 import argparse
 import csv
-import logging
 import os
 import sys
 from pathlib import Path
@@ -50,7 +49,7 @@ from sklearn.preprocessing import StandardScaler
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT))
-from snt import sha256  # noqa: E402
+from snt import sha256, configurar_log  # noqa: E402
 ZV = ROOT / "data" / "hackerearth_zerve"
 DATA_RR = ROOT / "reconstruction_real" / "data"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
@@ -68,15 +67,7 @@ DEFAULT_RAW = Path(os.environ.get("SNT_ZERVE_RAW",
 T1 = pd.Timestamp("2025-11-08", tz="UTC")
 T_FIN = pd.Timestamp("2025-12-09", tz="UTC")
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
-log = logging.getLogger("HE-VERIF")
+log = configurar_log("HE-VERIF", log_dir=LOG_DIR, log_file=LOG_FILE.name)
 
 RESULTADOS = []
 

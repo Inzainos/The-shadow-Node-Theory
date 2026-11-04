@@ -29,7 +29,6 @@ Uso:
 
 import argparse
 import csv
-import logging
 import os
 import sys
 from pathlib import Path
@@ -40,7 +39,7 @@ from sklearn.model_selection import StratifiedKFold, cross_val_score
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT))
-from snt import sha256  # noqa: E402
+from snt import sha256, configurar_log  # noqa: E402
 ZV = ROOT / "data" / "hackerearth_zerve"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
@@ -57,15 +56,7 @@ T_FIN = pd.Timestamp("2025-12-09", tz="UTC")  # fin de los datos (score)
 UMBRAL_PROB = 0.5
 UMBRAL_ENG = 3                                # >= 3 eventos totales
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
-log = logging.getLogger("HE-ENTREGA")
+log = configurar_log("HE-ENTREGA", log_dir=LOG_DIR, log_file=LOG_FILE.name)
 
 
 FEATURES = ["n_eventos", "tipos_evento", "dias_activos", "eventos_creditos",

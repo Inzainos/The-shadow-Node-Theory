@@ -19,7 +19,6 @@ Markdown semantics that matter for the manuscripts:
 Usage: python md_to_pdf.py input.md output.pdf "Title"
 Log:   reconstruction_real/logs/md_to_pdf_log.txt
 """
-import logging
 import re
 import sys
 from pathlib import Path
@@ -35,19 +34,13 @@ from reportlab.platypus import (HRFlowable, Paragraph, SimpleDocTemplate,
                                 Spacer, Table, TableStyle)
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+from snt import configurar_log  # noqa: E402
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 LOG_FILE = LOG_DIR / "md_to_pdf_log.txt"
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="a", encoding="utf-8"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
-log = logging.getLogger("MD2PDF")
+log = configurar_log("MD2PDF", log_dir=LOG_DIR, log_file=LOG_FILE.name)
 
 
 def _font_dirs():

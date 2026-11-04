@@ -1,4 +1,5 @@
 """
+import sys
 Punto 4 del pre-registro 2026-09-27 — corpus de disparadores codificados a ciegas.
 
 Pre-registro: `reconstruction_real/preregistro/PREREGISTRO_2026-09-27.md`.

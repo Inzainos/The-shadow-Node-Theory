@@ -1,20 +1,28 @@
-# Pendientes 2.7.4 – Estado y acciones
+# Pendientes 2.7.5 – Estado y acciones
 
-Fecha: 2026-11-03
-Rama: `fix/pendientes-2.7.4`
-Base: `local/doi-v2.7.4` → `main`
+Fecha: 2026-11-04
+Rama: `fix/pendientes-2.7.5`
+Base: `fix/pendientes-2.7.4` → `main`
 
 ## Resumen ejecutivo
 
-Repositorio Shadow Node Theory v2.7.4 con ADENDA 5 sellada DOI 10.5281/zenodo.23684731.
+Repositorio Shadow Node Theory v2.7.5 en desarrollo sobre base v2.7.4 con ADENDA 5 sellada DOI 10.5281/zenodo.23684731.
 Tests CI pasan: `pytest reconstruction_real/tests` 38 passed.
+Claims verificados: 39/39 OK.
 
-Pendientes declarados en CHANGELOG/README:
-- Consolidación de ajustes de potencia y `snt_utils_v32.py`; bloques puntuales de `logging.basicConfig` fuera de migración.
-- `rc1_superlineal.py` desempaquetado de firmas en `main` (corregido en `local/doi-v2.7.4` con importación de `snt`).
-- `tela_exogena.py` regenera CSV con diferencias última cifra ~1e-16 por entorno numérico.
-- Eje `u` sin definición operativa.
-- Campo fricción `φ` postulado, no medido.
+Pendientes declarados v2.7.4 y ahora v2.7.5:
+- Consolidación de ajustes de potencia y `snt_utils_v32.py`; bloques puntuales de `logging.basicConfig` fuera de migración (cerrado en v2.7.4).
+- `rc1_superlineal.py` homologado con `snt.configurar_log` (cerrado en v2.7.4).
+- `tela_exogena.py` estabilizada numéricamente (cerrado en v2.7.4).
+- **Eje `u` sin definición operativa** → nuevo pre-registro con Entropía de Permutación (series cortas) y Dimensión de Correlación (series largas).
+- **Campo fricción `φ` postulado, no medido** → definición formal en Axioma 0.1 v2.7.5.
+
+Estado actualizado 2026-11-04:
+- Migración de logging a `snt.configurar_log` completada en v2.7.4.
+- Estabilización numérica `tela_exogena.py` con `float_format="%.12f"` aplicada en v2.7.4.
+- Rama `fix/pendientes-2.7.5` creada desde `fix/pendientes-2.7.4`.
+- Definición formal campo `φ` añadida en `papers/marco_teorico.md` Axioma 0.1.
+- Pre-registro eje `u` en desarrollo con Entropía de Permutación (series cortas) y Dimensión de Correlación (series largas).
 
 ## Trabajo realizado
 
@@ -95,35 +103,60 @@ pytest reconstruction_real/tests -k tela   # 9 passed
 ## Pendientes técnicos abiertos
 
 ### A. Logging / sha256 disperso
-Scripts con `logging.basicConfig` puntual:
-`reconstruction_real/code/recalculo_trigger_abrupto_gradual.py`,
-`build_comercio_bilateral_cow.py`, `aco_cohortes_ampliadas.py`, `npm_pruebas_aco.py`,
-`eje_u_transiciones.py`, `prueba_disparadores_ciudades.py`, `modelo_jerarquico_b.py`,
-`friccion_por_caso_npm.py`, ... 28+ casos detectados.
+Migrados a `snt.configurar_log` en 2026-11-03:
+- `reconstruction_real/code/tela_exogena.py`
+- `reconstruction_real/code/recalculo_trigger_abrupto_gradual.py`
+- `reconstruction_real/code/build_comercio_bilateral_cow.py`
+- `reconstruction_real/code/aco_cohortes_ampliadas.py`
+- `reconstruction_real/code/npm_pruebas_aco.py`
+- `reconstruction_real/code/eje_u_transiciones.py`
+- `reconstruction_real/code/prueba_disparadores_ciudades.py`
+- `reconstruction_real/code/modelo_jerarquico_b.py`
+- `reconstruction_real/code/friccion_por_caso_npm.py`
+- `reconstruction_real/code/prueba_discriminante_dominio_B.py`
+- `reconstruction_real/code/e3_r2_raw.py`
+- `reconstruction_real/code/rc1_superlineal.py` homologado a API canónica.
 
-Acción propuesta: migrar a `snt.configurar_log` / `snt.configurar_logging`.
+Migración adicional completada 2026-11-03, los 17 remanentes previos quedan migrados:
+- `hackerearth_verificacion.py`
+- `covid_E3_series_crudas.py`
+- `cointegracion_hub_nodo.py`
+- `tela_cimatica.py`
+- `reconstruccion_B_hub_comercio.py`
+- `md_to_pdf.py`
+- `tela_de_incertidumbre.py`
+- `build_dominio_G.py`
+- `npm_followup_cohorte_friccion.py`
+- `build_maddison_mpd2020_csv.py`
+- `descargar_binance_klines.py`
+- `prueba_hub_temporal.py`
+- `md_to_docx.py`
+- `generate_readme_figures.py`
+- `npm_cohorte_aco.py`
+- `hackerearth_entrega_honesta.py`
+- `prueba_friccion_dominios_nuevos.py`
+
+Estado: sin archivos `logging.basicConfig` pendientes en `reconstruction_real/code` según lista de remanentes.
 
 ### B. Estabilidad numérica tela_exogena
 - `DECIMALES_TELA = 12` ya aplicado.
-- Salidas usan `.round(DECIMALES_TELA).to_csv(...)` sin `float_format`.
-- Diferencias ~1e-16 persisten por BLAS/numpy.
+- `float_format="%.12f"` añadido en los cuatro `to_csv` de `tela_exogena.py` el 2026-11-03.
+- CSV regenerados; claims 39/39 OK.
 
-Acción propuesta: añadir `float_format="%.12f"` en escrituras CSV críticas y documentar tolerancia.
+Pendiente: documentar tolerancia de última cifra y validar reproducibilidad en CI.
 
 ### C. rc1_superlineal firma
-- En `main` existía definición local de `ajuste_loglog` y `configurar_log`.
-- En `local/doi-v2.7.4` ya migrado a `from snt import ajuste_loglog, configurar_logging`.
-- Pendiente traer cambio a `main` vía PR.
+- Migrado a `from snt import ajuste_loglog, configurar_log` y llamada canónica `configurar_log("RC1", log_dir=LOG_DIR, log_file=LOG_FILE.name)`.
+- Cambio presente en rama `fix/pendientes-2.7.4`, listo para PR a `main`.
 
 ### D. Conceptuales
 - Eje `u` sin definición operativa.
 - Campo fricción `φ` postulado, no medido.
 
 ## Próximos pasos sugeridos
-1. Continuar migración masiva de logging a `snt`.
-2. Estabilizar salidas CSV de tela_exogena con formato fijo.
-3. Preparar PR `fix/pendientes-2.7.4` → `main`.
-4. Documentar decisiones de estabilidad numérica en CHANGELOG.
+1. Documentar tolerancia de última cifra y reproducibilidad de tela_exogena en CHANGELOG.
+2. Preparar PR `fix/pendientes-2.7.4` → `main` con claims 39/39 OK y tests 38 passed.
+3. Revisar definiciones operativas de eje `u` y campo fricción `φ`.
 
 ## Archivos relevantes
 - `/home/deamon/The-shadow-Node-Theory/README.md`

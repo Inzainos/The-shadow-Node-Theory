@@ -33,7 +33,7 @@ Salidas:
 """
 
 import os
-import logging
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -47,20 +47,16 @@ from scipy.ndimage import gaussian_filter  # noqa: E402
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(SCRIPT_DIR, "..", "data")
 FIG_DIR = os.path.join(SCRIPT_DIR, "..", "..", "figures")
-LOG_DIR = os.path.join(SCRIPT_DIR, "..", "logs")
-os.makedirs(LOG_DIR, exist_ok=True)
+LOG_DIR = Path(os.path.join(SCRIPT_DIR, "..", "logs"))
+LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.StreamHandler(),
-        logging.FileHandler(
-            os.path.join(LOG_DIR, "tela_cimatica_log.txt"), mode="w"
-        ),
-    ],
-)
-log = logging.getLogger("tela_cimatica")
+ROOT = Path(SCRIPT_DIR).resolve().parent.parent
+sys_path = str(ROOT)
+import sys
+sys.path.insert(0, sys_path)
+from snt import configurar_log
+
+log = configurar_log("tela_cimatica", log_dir=str(LOG_DIR), log_file="tela_cimatica_log.txt")
 
 rcParams.update({
     "font.family": "Liberation Sans",

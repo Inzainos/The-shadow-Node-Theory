@@ -44,7 +44,6 @@ Uso (desde la raíz del repo):
     python reconstruction_real/code/covid_E3_series_crudas.py
 """
 
-import logging
 import sys
 from pathlib import Path
 
@@ -53,7 +52,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT))
-from snt import sha256  # noqa: E402
+from snt import sha256, configurar_log  # noqa: E402
 sys.path.insert(0, str(ROOT / "code"))
 from snt_utils_v32 import corregir_corpus, fit_powerlaw  # noqa: E402
 
@@ -77,15 +76,7 @@ UMBRAL_ACEPTA = 0.90
 RECETAS = [("acumulados", 1), ("acumulados", 10), ("acumulados", 100),
            ("nuevos_suav7", 1), ("nuevos_suav7", 10), ("nuevos_suav7", 100)]
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
-log = logging.getLogger("COVID-E3")
+log = configurar_log("COVID-E3", log_dir=LOG_DIR, log_file=LOG_FILE.name)
 
 
 def cargar():

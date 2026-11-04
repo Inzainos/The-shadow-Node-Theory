@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import sys
 """MODELO JERÁRQUICO DE b — preregistro 2026-10-26 (pendiente 5.3).
 
 Preregistro: reconstruction_real/preregistro/PREREGISTRO_MODELO_JERARQUICO_2026-10-26.md
@@ -11,7 +12,6 @@ C: MixedLM b ~ fric + (1|dominio).
 D: réplica por dominios (n=10, descriptiva).
 """
 
-import sys
 import warnings
 from pathlib import Path
 

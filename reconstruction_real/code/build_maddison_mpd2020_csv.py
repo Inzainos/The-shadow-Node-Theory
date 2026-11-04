@@ -27,7 +27,6 @@ Uso (desde la raíz del repo):
     python reconstruction_real/code/build_maddison_mpd2020_csv.py
 """
 
-import logging
 import sys
 from pathlib import Path
 
@@ -35,7 +34,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT))
-from snt import sha256  # noqa: E402
+from snt import sha256, configurar_log  # noqa: E402
 DATA_TOP = ROOT / "data"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
@@ -50,15 +49,7 @@ SHA256_XLSX = "d20853c2e0930d6855fb6d8138da11f24fcf313d234e2db9773ea1f551adfec3"
 # Nombres de MPD sin equivalente por ISO3 en la tabla de OWID
 RENOMBRES = {"Sudan (Former)": "Sudan"}
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
-log = logging.getLogger("MADDISON-2020")
+log = configurar_log("MADDISON-2020", log_dir=LOG_DIR, log_file=LOG_FILE.name)
 
 
 def main():

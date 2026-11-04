@@ -1,4 +1,5 @@
 """
+import sys
 Punto 5 del pre-registro 2026-09-27 — cohortes ampliadas de ACO-A.
 
 Pre-registro: `reconstruction_real/preregistro/PREREGISTRO_2026-09-27.md`.

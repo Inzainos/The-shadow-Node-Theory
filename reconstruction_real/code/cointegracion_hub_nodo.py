@@ -11,7 +11,6 @@ E3/ACO: componentes no versionados — solo ADF sobre log R (descriptivo).
 Determinista: ADF/EG no usan RNG.
 """
 
-import logging
 import sys
 import warnings
 from pathlib import Path
@@ -23,19 +22,13 @@ from statsmodels.tsa.stattools import adfuller, coint
 warnings.simplefilter("ignore")  # ConvergenceWarning/LinAlgError de casos cortos
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+from snt import configurar_log  # noqa: E402
 RR = ROOT / "reconstruction_real" / "data"
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)-7s | %(message)s",
-    handlers=[
-        logging.StreamHandler(),
-        logging.FileHandler(LOG_DIR / "cointegracion_log.txt", mode="w"),
-    ],
-)
-log = logging.getLogger("cointegracion")
+log = configurar_log("cointegracion", log_dir=LOG_DIR, log_file="cointegracion_log.txt")
 
 UMBRAL = 0.05      # preregistro
 
