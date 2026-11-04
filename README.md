@@ -38,8 +38,12 @@ los CSV versionados con [`reconstruction_real/claims.yaml`](reconstruction_real/
 **Capa 4 — Tela de incertidumbre**
 Tela integrada de 740 trayectorias con 699 series reales versionadas y 41 sombras. Métricas LOO dominio 50.7%, tono 66.2%.
 
+![Tela incertidumbre](figures/tela_incertidumbre.png)
+
 **Capa 5 — Tela simática**
 Representación cimática de patrones de resonancia entre dominios, basada en correlaciones de forma y tono.
+
+![Tela simática](figures/tela_simática.png)
 
 **Utilidad:** diagnóstico descriptivo de deriva relativa, detección de cambios de régimen, y cuantificación de incertidumbre por dominio.
 
