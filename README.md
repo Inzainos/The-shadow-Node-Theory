@@ -1,6 +1,6 @@
-# Shadow Node Theory (SNT) · v2.7.4
+# Shadow Node Theory (SNT) · v2.7.5.1
 
-[![Release](https://img.shields.io/badge/release-v2.7.4-6f42c1)](CHANGELOG.md)
+[![Release](https://img.shields.io/badge/release-v2.7.5.1-6f42c1)](CHANGELOG.md)
 [![Marco teórico](https://img.shields.io/badge/marco-v34-0e8a8a)](papers/marco_teorico.md)
 [![Python CI](https://github.com/Inzainos/The-shadow-Node-Theory/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/Inzainos/The-shadow-Node-Theory/actions/workflows/python-package-conda.yml)
 
