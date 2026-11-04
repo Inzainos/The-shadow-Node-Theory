@@ -7,15 +7,15 @@ Base: `fix/pendientes-2.7.4` → `main`
 ## Resumen ejecutivo
 
 Repositorio Shadow Node Theory v2.7.5 en desarrollo sobre base v2.7.4 con ADENDA 5 sellada DOI 10.5281/zenodo.23684731.
-Tests CI pasan: `pytest reconstruction_real/tests` 38 passed.
+Tests CI pasan: `pytest reconstruction_real/tests` 42 passed.
 Claims verificados: 39/39 OK.
 
 Pendientes declarados v2.7.4 y ahora v2.7.5:
 - Consolidación de ajustes de potencia y `snt_utils_v32.py`; bloques puntuales de `logging.basicConfig` fuera de migración (cerrado en v2.7.4).
 - `rc1_superlineal.py` homologado con `snt.configurar_log` (cerrado en v2.7.4).
 - `tela_exogena.py` estabilizada numéricamente (cerrado en v2.7.4).
-- **Eje `u` sin definición operativa** → pre-registro con Entropía de Permutación (series cortas) y Dimensión de Correlación (series largas) implementado; infraestructura operativa lista.
-- **Campo fricción `φ` postulado, no medido** → definición formal en Axioma 0.1 v2.7.5 publicada.
+- **Eje `u` sin definición operativa** → nuevo pre-registro con Entropía de Permutación (series cortas) y Dimensión de Correlación (series largas).
+- **Campo fricción `φ` postulado, no medido** → definición formal en Axioma 0.1 v2.7.5.
 
 Estado actualizado 2026-11-04:
 - Migración de logging a `snt.configurar_log` completada en v2.7.4.
@@ -23,6 +23,16 @@ Estado actualizado 2026-11-04:
 - Rama `fix/pendientes-2.7.5` creada desde `fix/pendientes-2.7.4`.
 - Definición formal campo `φ` añadida en `papers/marco_teorico.md` Axioma 0.1.
 - Pre-registro eje `u` en desarrollo con Entropía de Permutación (series cortas) y Dimensión de Correlación (series largas).
+- Catálogo cripto ampliado de 30 a 60 pares; los 30 adicionales se tratan como
+  extensión exploratoria posterior al pre-registro original. Resultados
+  recalculados con los estimadores corregidos del PR #105: 60/60 elegibles,
+  mediana D2 emb2 1.653; la cohorte original (30) tiene mediana 1.652 y la
+  extensión (30) 1.653.
+
+Estado actualizado 2026-11-03:
+- Migración de logging a `snt.configurar_log` completada para 11 scripts principales + `rc1_superlineal.py` homologado, y los 17 remanentes adicionales migrados.
+- Estabilización numérica `tela_exogena.py` con `float_format="%.12f"` aplicada y CSV regenerados.
+- Rama `fix/pendientes-2.7.4` rebased sobre `origin/main` y sincronizada con fix de logger en `snt/utils.py`.
 
 ## Trabajo realizado
 

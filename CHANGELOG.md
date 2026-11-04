@@ -8,13 +8,18 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 
 ## [2.7.5] — 2026-11-04 (en desarrollo)
 
-### 2026-11-04 — Refinamiento casos crypto, macro y alta frecuencia
+### 2026-11-04 — Extensión exploratoria de casos cripto
 
-- Revisión calidad `data/binance_cierres_diarios.csv.gz`: sin missing ni duplicados; overlap real validado para casos base.
-- Integración indicadores macro en `data/cripto/macro/`: `imf_indicators.csv`, `worldbank_indicators.csv`, `un_sdg_indicators.csv`, `rpw_corridor_costs.csv` extraídos de `archive (9).zip`.
-- Alta frecuencia BTCUSD 1-min revisada en `data/zips/archive (20).zip`; archivo omitido del repo por tamaño >100 MB y referencia documentada.
-- Ampliación catálogo Cripto de 30 a 60 pares USDT vs BTCUSDT con overlap ≥200 días: `ALGOUSDT`, `DOGEUSDT`, `DUSKUSDT`, `ANKRUSDT`, `WINUSDT`, `MTLUSDT`, `CHZUSDT`, `BANDUSDT`, `XTZUSDT`, `RVNUSDT`, `HBARUSDT`, `EOSUSDT`, `KAVAUSDT`, `STXUSDT`, `ARPAUSDT`, `COSUSDT`, `IOTXUSDT`, `RLCUSDT`, `BCHUSDT`, `NULSUSDT`, `OGNUSDT`, `CVCUSDT`, `DENTUSDT`, `FUNUSDT`, `WANUSDT`, `BNTUSDT`, `LSKUSDT`, `MBLUSDT`, `COTIUSDT`, `CTSIUSDT`.
-- Re-ejecución eje u D2 con 60 casos: 60/60 elegibles, mediana D2 0.800, mediana IQR 0.407, mediana Spearman emb2/emb3 0.983.
+- Catálogo Binance ampliado de 30 a 60 pares USDT/BTCUSDT con al menos 200
+  observaciones de solapamiento. La cohorte adicional se reporta como extensión
+  exploratoria, no como parte del pre-registro original.
+- Se incorporan indicadores macro de IMF, World Bank y UN SDG, además de costos
+  de corredores RPW, en `data/cripto/macro/`.
+- Los resultados se regeneran con el estimador corregido por el PR #105. Las
+  cifras previas de la implementación inicial de D2 quedan supersedidas.
+- Los 60 casos son elegibles con el estimador corregido: mediana D2 emb2
+  1.653, IQR `u^D2` 1.367 y Spearman emb2/emb3 0.939. La cohorte original de
+  30 da mediana D2 1.652; la extensión de 30, 1.653.
 
 ### 2026-11-04 — Definición formal campo φ y pre-registro eje u
 
@@ -26,7 +31,9 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 
 - Limpieza de `data/cripto`: se retiran `SPX.csv`, `casos_cripto.csv`, `coin_*.csv` y archivos `Zone.Identifier`. Se mantiene únicamente `casos_binance.csv` como catálogo oficial para el eje u Cripto.
 - Revisión de `data/zips`: se conservan únicamente los ZIPs con utilidad para casos de uso: `archive (9).zip` IMF/World Bank, `archive (10).zip` Strait of Hormuz, `archive (11).zip` Petrodólar, `archive (20).zip` BTCUSD 1-min, `archive (25).zip` trayectoria satelital, `archive (24).zip` battles y `archive (23).zip` SPX. Se eliminan el resto y los `Zone.Identifier`.
-- Re-ejecución de `reconstruction_real/code/eje_u_permutacion_dimcor.py` con fuentes versionadas: Dominio B PE ventana 20 → mediana Spearman 0.929; Crypto D2 ventana 200 → 30/30 elegibles, mediana D2 0.803, mediana Spearman emb2/emb3 0.985.
+- Resultados iniciales con 30 casos cripto fueron supersedidos tras corregir el
+  estimador D2 para seguir el pre-registro; ver la extensión exploratoria de 60
+  casos y los resultados regenerados arriba.
 
 ## [2.7.4] — 2026-10-27
 

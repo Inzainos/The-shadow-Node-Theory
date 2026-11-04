@@ -1,2 +1,4 @@
-dominio,n_casos,n_elegibles,mediana_d2,mediana_iqr,mediana_spearman_emb
-Crypto,60,60,0.7995641434623779,0.4072308902445674,0.9828393785665295
+dominio,cohorte,n_casos,n_elegibles,mediana_d2,mediana_iqr,mediana_spearman_emb
+Crypto,combinada_exploratoria,60,60,1.6533420452258314,1.366728648903408,0.9389898227102931
+Crypto,preregistrada,30,30,1.651615233172854,1.366728648903408,0.9393920434663301
+Crypto,extension_exploratoria,30,30,1.6533420452258314,1.3704531059034255,0.9379604390482095
