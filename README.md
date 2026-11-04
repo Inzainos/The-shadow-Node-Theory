@@ -86,11 +86,13 @@ Cymatic representation of resonance patterns
 
 ### Comparación por dominio
 
-| Dominio | Casos | Reproducibles | b estimable | Cointegración |
+| Dominio | Casos | Reproducibles | b estimable | Cointegración / D2 |
 |---|---|---|---|---|
 | B Países | 446 | — | 156/446 | 12.3% |
 | E3 Epidémico | 234 | 233/234 | — | — |
-| Cripto | 60 | — | — | — |
+| Cripto | 60 | — | — | mediana D2 1.65 |
+| Digital HackerEarth | 4,774 usuarios | — | — | 5-Event Wall |
+| Genómico TCGA | 2,746 | — | — | 5-Event Wall 2-5% |
 
 ![Distribución D2 Cripto](figures/crypto_d2_hist.png)
 
