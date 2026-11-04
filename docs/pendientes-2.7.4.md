@@ -24,6 +24,11 @@ Estado actualizado 2026-11-04:
 - Definición formal campo `φ` añadida en `papers/marco_teorico.md` Axioma 0.1.
 - Pre-registro eje `u` en desarrollo con Entropía de Permutación (series cortas) y Dimensión de Correlación (series largas).
 
+Estado actualizado 2026-11-03:
+- Migración de logging a `snt.configurar_log` completada para 11 scripts principales + `rc1_superlineal.py` homologado, y los 17 remanentes adicionales migrados.
+- Estabilización numérica `tela_exogena.py` con `float_format="%.12f"` aplicada y CSV regenerados.
+- Rama `fix/pendientes-2.7.4` rebased sobre `origin/main` y sincronizada con fix de logger en `snt/utils.py`.
+
 ## Trabajo realizado
 
 ### 1. Revisión de estado
