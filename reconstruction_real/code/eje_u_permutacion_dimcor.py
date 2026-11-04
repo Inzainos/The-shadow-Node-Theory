@@ -6,7 +6,6 @@ Pre-registro:
 Script determinista, sin red, con log y SHA-256.
 """
 
-import hashlib
 import logging
 import math
 import sys
@@ -14,7 +13,6 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from scipy.stats import spearmanr
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT))
