@@ -1,2 +1,2 @@
 dominio,n_casos,mediana_spearman,mediana_iqr,invarianza_pasa,variacion_pasa
-B,446,1.0,0.08,True,True
+B,446,,0.3984444473437496,False,True
