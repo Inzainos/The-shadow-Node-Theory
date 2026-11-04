@@ -281,6 +281,24 @@ summary = {
 pd.DataFrame([summary]).to_csv(OUT_SUMMARY, index=False)
 log.info(f"Resumen escrito a {OUT_SUMMARY}")
 
+# Integración macro opcional
+try:
+    casos_df = pd.read_csv(CRYPTO_META)
+    macro_corr_path = ROOT / "reconstruction_real" / "data" / "eje_u_crypto_macro_corr.csv"
+    out_merged_path = ROOT / "reconstruction_real" / "data" / "eje_u_dimcor_crypto_macro_merged.csv"
+    if macro_corr_path.exists():
+        # Cargar resultados cripto por caso
+        crypto_cases_path = ROOT / "reconstruction_real" / "data" / "eje_u_dimcor_crypto_por_caso.csv"
+        crypto_df = pd.read_csv(crypto_cases_path)
+        macro_df = pd.read_csv(macro_corr_path)
+        id_to_pair = casos_df.set_index('id')['coin_pair'].to_dict()
+        crypto_df['coin_pair'] = crypto_df['id'].map(id_to_pair)
+        merged = pd.merge(crypto_df, macro_df, on='coin_pair', how='left')
+        merged.to_csv(out_merged_path, index=False)
+        log.info(f"Integración macro escrita a {out_merged_path}")
+except Exception as e:
+    log.warning(f"Integración macro omitida: {e}")
+
 # Auditoría
 audit_md = f"""# Resultados — eje u Permutación/DimCor v2.7.5
 
