@@ -45,6 +45,9 @@ Representación cimática de patrones de resonancia entre dominios, basada en co
 
 ![Tela simática](figures/tela_simática.png)
 
+**Índice de Soberanía Atómica ASI**
+`ASI = δH · α / F`. Computable desde datos de comportamiento. Umbral ASI >1 define soberanía; separación perfecta en datos HackerEarth. Operacionalización pendiente de validación independiente.
+
 **Utilidad:** diagnóstico descriptivo de deriva relativa, detección de cambios de régimen, y cuantificación de incertidumbre por dominio.
 
 ---
