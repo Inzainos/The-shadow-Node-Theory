@@ -30,13 +30,14 @@ OUT_AUDIT = ROOT / "reconstruction_real" / "audits" / "RESULTADOS_EJE_U_PERMUTAC
 
 B_META = ROOT / "reconstruction_real" / "data" / "by_domain" / "dominio_B_real.csv"
 MADDISON = ROOT / "data" / "maddison_mpd2020.csv"
-CRYPTO = ROOT / "data" / "binance_cierres_diarios.csv.gz"
+CRYPTO_DIR = ROOT / "data" / "cripto"
+CRYPTO_META = CRYPTO_DIR / "casos_cripto.csv"
 
 def sha256_path(p: Path) -> str:
     return sha256_file(str(p))
 
 log.info("SHA-256 inputs")
-for p in [B_META, MADDISON, CRYPTO]:
+for p in [B_META, MADDISON, CRYPTO_META]:
     if p.exists():
         log.info(f"{p}: {sha256_path(p)}")
     else:
@@ -72,6 +73,56 @@ def permutation_entropy_series(series, m=3, window=20):
     for i in range(window-1, n):
         win = series[i-window+1:i+1]
         out[i] = permutation_entropy_window(win, m=m)
+    return out
+
+def correlation_sum(distances, r):
+    if len(distances) == 0:
+        return np.nan
+    return np.mean(distances < r)
+
+def correlation_dimension_series(series, window=200, m_emb=2, tau=1, r_frac=0.1):
+    n = len(series)
+    if n < window:
+        return np.full(n, np.nan)
+    out = np.full(n, np.nan)
+    # normalizar serie a media 0 y std 1 para estabilidad
+    s = series - np.mean(series)
+    s = s / (np.std(s) + 1e-12)
+    for i in range(window-1, n):
+        win = s[i-window+1:i+1]
+        L = len(win)
+        if L < m_emb * tau + 1:
+            out[i] = np.nan
+            continue
+        # reconstrucción
+        N = L - (m_emb-1)*tau
+        if N < 10:
+            out[i] = np.nan
+            continue
+        # matriz de embedding
+        X = np.array([win[j:j+m_emb*tau:tau] for j in range(N)])
+        # distancias pareadas aproximadas con muestreo
+        # para velocidad, muestrear 400 puntos
+        sample_n = min(400, N)
+        idx = np.linspace(0, N-1, sample_n, dtype=int)
+        Xs = X[idx]
+        # distancias euclidianas
+        from scipy.spatial.distance import pdist
+        dists = pdist(Xs, metric='euclidean')
+        # rango de r
+        r_max = np.max(dists) * r_frac
+        if r_max <= 0:
+            out[i] = np.nan
+            continue
+        r1 = r_max * 0.5
+        r2 = r_max * 1.5
+        c1 = correlation_sum(dists, r1)
+        c2 = correlation_sum(dists, r2)
+        if c1 <= 0 or c2 <= 0 or c1 == c2:
+            out[i] = np.nan
+            continue
+        d2 = np.log(c2 / c1) / np.log(r2 / r1)
+        out[i] = float(d2)
     return out
 
 # Carga real de Maddison
@@ -159,6 +210,81 @@ df_out = pd.DataFrame(rows)
 df_out.to_csv(OUT_CASES, index=False)
 log.info(f"Casos escritos a {OUT_CASES}")
 
+# Crypto DimCor
+OUT_CRYPTO_CASES = ROOT / "reconstruction_real" / "data" / "eje_u_dimcor_crypto_por_caso.csv"
+OUT_CRYPTO_SUMMARY = ROOT / "reconstruction_real" / "data" / "eje_u_dimcor_crypto_resumen.csv"
+
+log.info("Cargando casos cripto")
+dfc_meta = pd.read_csv(CRYPTO_META)
+crypto_rows = []
+for _, r in dfc_meta.iterrows():
+    case_id = r['id']
+    coin_file = CRYPTO_DIR / r['coin_file']
+    try:
+        dfc = pd.read_csv(coin_file, usecols=["Date","Close"])
+    except Exception as e:
+        log.warning(f"{case_id} carga fallida: {e}")
+        crypto_rows.append({
+            "dominio": "Crypto",
+            "id": case_id,
+            "n_observaciones": 0,
+            "elegible": False,
+            "motivo": "carga_fallida",
+            "d2_mean": np.nan,
+            "iqr_u": np.nan,
+            "n_posiciones_validas": 0
+        })
+        continue
+    # limpiar
+    dfc["Date"] = pd.to_datetime(dfc["Date"], errors="coerce")
+    dfc = dfc.dropna(subset=["Close","Date"])
+    dfc = dfc.sort_values("Date")
+    prices = dfc["Close"].values.astype(float)
+    # eliminar ceros
+    prices = prices[prices>0]
+    logp = np.log(prices)
+    if len(logp) < 250:
+        crypto_rows.append({
+            "dominio": "Crypto",
+            "id": case_id,
+            "n_observaciones": len(logp),
+            "elegible": False,
+            "motivo": "serie_corta",
+            "d2_mean": np.nan,
+            "iqr_u": np.nan,
+            "n_posiciones_validas": 0
+        })
+        continue
+    d2_series = correlation_dimension_series(logp, window=200, m_emb=2, tau=1, r_frac=0.2)
+    valid = ~np.isnan(d2_series)
+    n_valid = int(valid.sum())
+    d2_mean = float(np.nanmean(d2_series)) if n_valid>0 else np.nan
+    iqr_u = float(np.nanpercentile(d2_series[valid],75)-np.nanpercentile(d2_series[valid],25)) if n_valid>0 else np.nan
+    crypto_rows.append({
+        "dominio": "Crypto",
+        "id": case_id,
+        "n_observaciones": len(logp),
+        "elegible": True,
+        "motivo": "",
+        "d2_mean": d2_mean,
+        "iqr_u": iqr_u,
+        "n_posiciones_validas": n_valid
+    })
+
+df_crypto = pd.DataFrame(crypto_rows)
+df_crypto.to_csv(OUT_CRYPTO_CASES, index=False)
+log.info(f"Cripto casos escritos a {OUT_CRYPTO_CASES}")
+
+crypto_summary = {
+    "dominio": "Crypto",
+    "n_casos": len(df_crypto),
+    "n_elegibles": int(df_crypto["elegible"].sum()),
+    "mediana_d2": df_crypto["d2_mean"].median(),
+    "mediana_iqr": df_crypto["iqr_u"].median()
+}
+pd.DataFrame([crypto_summary]).to_csv(OUT_CRYPTO_SUMMARY, index=False)
+log.info(f"Cripto resumen escrito a {OUT_CRYPTO_SUMMARY}")
+
 # Resumen
 summary = {
     "dominio": "B",
@@ -183,8 +309,7 @@ audit_md = f"""# Resultados — eje u Permutación/DimCor v2.7.5
 SHA-256 inputs registrados en log.
 
 ## Nota de implementación
-Esta corrida reconstruye `R(t) = PIBpc_hub / PIBpc_nodo` desde Maddison MPD2020 para Dominio B.
-Dimensión de Correlación para Cripto pendiente de implementación completa.
+Esta corrida reconstruye `R(t) = PIBpc_hub / PIBpc_nodo` desde Maddison MPD2020 para Dominio B y estima Dimensión de Correlación para Cripto con ventana 200.
 
 ## Resumen Dominio B (real)
 - Casos: {summary['n_casos']}
@@ -193,10 +318,15 @@ Dimensión de Correlación para Cripto pendiente de implementación completa.
 - Invarianza pasa: {summary['invarianza_pasa']}
 - Variación pasa: {summary['variacion_pasa']}
 
+## Resumen Cripto D2
+- Casos: {crypto_summary['n_casos']}
+- Elegibles: {crypto_summary['n_elegibles']}
+- Mediana D2: {crypto_summary['mediana_d2']:.3f}
+- Mediana IQR D2: {crypto_summary['mediana_iqr']:.3f}
+
 ## Próximos pasos
-- Implementar Dimensión de Correlación para Dominio Cripto con ventana 200.
-- Calcular métricas por ventana deslizante para compuertas de invarianza A–D completas.
-- Ejecutar decisión pre-especificada.
+- Calcular métricas por ventana deslizante para compuertas de invarianza A–D completas y decisión pre-especificada.
+- Refinar estimador D2 con muestreo adaptativo y rango r optimizado.
 """
 
 OUT_AUDIT.write_text(audit_md, encoding="utf-8")

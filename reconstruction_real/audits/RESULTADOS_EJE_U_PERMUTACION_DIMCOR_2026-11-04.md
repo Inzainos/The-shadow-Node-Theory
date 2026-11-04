@@ -8,8 +8,7 @@
 SHA-256 inputs registrados en log.
 
 ## Nota de implementación
-Esta corrida reconstruye `R(t) = PIBpc_hub / PIBpc_nodo` desde Maddison MPD2020 para Dominio B.
-Dimensión de Correlación para Cripto pendiente de implementación completa.
+Esta corrida reconstruye `R(t) = PIBpc_hub / PIBpc_nodo` desde Maddison MPD2020 para Dominio B y estima Dimensión de Correlación para Cripto con ventana 200.
 
 ## Resumen Dominio B (real)
 - Casos: 446
@@ -18,7 +17,12 @@ Dimensión de Correlación para Cripto pendiente de implementación completa.
 - Invarianza pasa: True
 - Variación pasa: True
 
+## Resumen Cripto D2
+- Casos: 19
+- Elegibles: 19
+- Mediana D2: 0.730
+- Mediana IQR D2: 0.227
+
 ## Próximos pasos
-- Implementar Dimensión de Correlación para Dominio Cripto con ventana 200.
-- Calcular métricas por ventana deslizante para compuertas de invarianza A–D completas.
-- Ejecutar decisión pre-especificada.
+- Calcular métricas por ventana deslizante para compuertas de invarianza A–D completas y decisión pre-especificada.
+- Refinar estimador D2 con muestreo adaptativo y rango r optimizado.
