@@ -48,6 +48,11 @@ Representación cimática de patrones de resonancia entre dominios, basada en co
 **Índice de Soberanía Atómica ASI**
 `ASI = δH · α / F`. Computable desde datos de comportamiento. Umbral ASI >1 define soberanía; separación perfecta en datos HackerEarth. Operacionalización pendiente de validación independiente.
 
+**Formas de colapso y superlinealidad**
+- Entrada al radio de Roche → colapso abrupto, Δ negativo, A(τ) decreciente
+- Tiempos largos sin fricción → tendencia a superlinealidad b ≥1, régimen de absorción
+- La transición depende de φ y de la ventana temporal observada
+
 **Utilidad:** diagnóstico descriptivo de deriva relativa, detección de cambios de régimen, y cuantificación de incertidumbre por dominio.
 
 ---
