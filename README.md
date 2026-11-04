@@ -47,6 +47,27 @@ Representación cimática de patrones de resonancia entre dominios, basada en co
 
 **Utilidad:** diagnóstico descriptivo de deriva relativa, detección de cambios de régimen, y cuantificación de incertidumbre por dominio.
 
+---
+
+## What is SNT? Layers and formulas
+
+**Layer 1 — Relative trajectory**
+`R(t) = a·t^b`
+
+**Layer 2 — Coupled Orbital Collapse ACO-A**
+`A(τ) = c·τ^Δ`
+
+**Layer 3 — Friction field φ**
+`φ: 𝒞 × T → ℝ⁺`
+
+**Layer 4 — Uncertainty cloth**
+Integrated cloth of 740 trajectories
+
+**Layer 5 — Simatic cloth**
+Cymatic representation of resonance patterns
+
+**Utility:** descriptive diagnosis of relative drift, regime change detection, and uncertainty quantification.
+
 ## Números clave v2.7.5.1
 
 | Métrica | Valor |
