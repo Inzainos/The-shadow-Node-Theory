@@ -24,7 +24,7 @@ Uso (desde la raíz del repo):
     python reconstruction_real/code/e3_r2_raw.py
 """
 
-import logging
+import sys
 from pathlib import Path
 
 import numpy as np

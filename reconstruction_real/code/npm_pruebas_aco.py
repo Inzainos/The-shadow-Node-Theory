@@ -19,7 +19,6 @@ Uso (desde la raiz del repo):
 
 import csv
 import gzip
-import logging
 import math
 from collections import Counter
 from pathlib import Path

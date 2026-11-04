@@ -11,7 +11,7 @@ C: MixedLM b ~ fric + (1|dominio).
 D: réplica por dominios (n=10, descriptiva).
 """
 
-import logging
+import sys
 import warnings
 from pathlib import Path
 
