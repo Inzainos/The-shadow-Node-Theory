@@ -58,6 +58,8 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
   regeneraciones. Claims verificados 39/39 OK tras regeneración.
 - Documentación de pendientes y plan por partes añadida en
   `docs/pendientes-2.7.4.md` y `docs/plan_por_partes_2.7.4.md`.
+- Corrección de imports omitidos y no usados en los scripts migrados para
+  recuperar el paso de `flake8` en CI tras integrar el PR #101.
 
 ### 2026-10-26 — API SNT adoptada por RC1 y bootstrap reportado con cautela
 

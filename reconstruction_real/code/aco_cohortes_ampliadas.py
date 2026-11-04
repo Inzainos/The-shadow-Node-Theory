@@ -40,7 +40,7 @@ Uso (desde la raíz del repo, tras `descargar_binance_klines.py`):
     python reconstruction_real/code/aco_cohortes_ampliadas.py
 """
 
-import logging
+import sys
 from datetime import date
 from pathlib import Path
 

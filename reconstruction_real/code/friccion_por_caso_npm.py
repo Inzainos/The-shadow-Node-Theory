@@ -9,7 +9,7 @@ dominio. Test principal: Spearman(friccion_a_priori, b_subida), n=450.
 Predicción direccional pre-registrada: ρ < 0. Determinista (sin RNG).
 """
 
-import logging
+import sys
 from pathlib import Path
 
 import numpy as np

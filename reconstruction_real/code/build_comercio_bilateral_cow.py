@@ -41,7 +41,7 @@ Uso (desde la raíz del repo):
     python reconstruction_real/code/build_comercio_bilateral_cow.py
 """
 
-import logging
+import sys
 import zipfile
 from pathlib import Path
 

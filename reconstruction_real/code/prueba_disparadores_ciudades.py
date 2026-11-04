@@ -47,7 +47,7 @@ Uso (desde la raíz del repo):
     python reconstruction_real/code/prueba_disparadores_ciudades.py
 """
 
-import logging
+import sys
 import unicodedata
 import zipfile
 from pathlib import Path
