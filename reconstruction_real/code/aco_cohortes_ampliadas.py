@@ -1,4 +1,5 @@
 """
+import sys
 Punto 5 del pre-registro 2026-09-27 — cohortes ampliadas de ACO-A.
 
 Pre-registro: `reconstruction_real/preregistro/PREREGISTRO_2026-09-27.md`.
@@ -40,7 +41,7 @@ Uso (desde la raíz del repo, tras `descargar_binance_klines.py`):
     python reconstruction_real/code/aco_cohortes_ampliadas.py
 """
 
-import logging
+import sys
 from datetime import date
 from pathlib import Path
 

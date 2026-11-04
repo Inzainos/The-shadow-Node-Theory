@@ -44,7 +44,6 @@ Uso (desde la raíz del repo):
     python reconstruction_real/code/covid_E3_series_crudas.py
 """
 
-import logging
 import sys
 from pathlib import Path
 

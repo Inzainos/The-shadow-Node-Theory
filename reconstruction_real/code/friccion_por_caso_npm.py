@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import sys
 """FRICCIÓN POR CASO vs b — preregistro 2026-10-26 (pendiente 5.5).
 
 Preregistro: reconstruction_real/preregistro/PREREGISTRO_FRICCION_POR_CASO_NPM_2026-10-26.md
@@ -9,7 +10,6 @@ dominio. Test principal: Spearman(friccion_a_priori, b_subida), n=450.
 Predicción direccional pre-registrada: ρ < 0. Determinista (sin RNG).
 """
 
-import logging
 from pathlib import Path
 
 import numpy as np

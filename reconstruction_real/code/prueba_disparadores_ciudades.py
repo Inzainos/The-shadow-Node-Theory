@@ -1,4 +1,5 @@
 """
+import sys
 Punto 4 del pre-registro 2026-09-27 — corpus de disparadores codificados a ciegas.
 
 Pre-registro: `reconstruction_real/preregistro/PREREGISTRO_2026-09-27.md`.
@@ -47,7 +48,7 @@ Uso (desde la raíz del repo):
     python reconstruction_real/code/prueba_disparadores_ciudades.py
 """
 
-import logging
+import sys
 import unicodedata
 import zipfile
 from pathlib import Path

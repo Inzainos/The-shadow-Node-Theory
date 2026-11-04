@@ -66,7 +66,6 @@ Uso (desde la raíz del repo):
     python reconstruction_real/code/reconstruccion_B_hub_comercio.py
 """
 
-import logging
 import sys
 from pathlib import Path
 

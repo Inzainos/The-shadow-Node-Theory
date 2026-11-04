@@ -36,7 +36,6 @@ data/hackerearth_zerve/ (versionados).
 
 import argparse
 import csv
-import logging
 import os
 import sys
 from pathlib import Path

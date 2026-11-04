@@ -30,7 +30,6 @@ Uso:
 
 import csv
 import gzip
-import logging
 import sys
 from pathlib import Path
 

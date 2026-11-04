@@ -11,7 +11,6 @@ E3/ACO: componentes no versionados — solo ADF sobre log R (descriptivo).
 Determinista: ADF/EG no usan RNG.
 """
 
-import logging
 import sys
 import warnings
 from pathlib import Path

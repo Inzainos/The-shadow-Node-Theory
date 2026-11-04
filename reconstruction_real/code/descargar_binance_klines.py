@@ -20,7 +20,6 @@ Uso (desde la raíz del repo):
 
 import hashlib
 import io
-import logging
 import re
 import sys
 import time

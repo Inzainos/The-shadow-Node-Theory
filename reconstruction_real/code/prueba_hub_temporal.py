@@ -40,7 +40,6 @@ Uso (desde la raíz del repo):
     python reconstruction_real/code/prueba_hub_temporal.py
 """
 
-import logging
 import math
 import sys
 from pathlib import Path

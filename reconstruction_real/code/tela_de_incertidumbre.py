@@ -55,7 +55,6 @@ Uso (desde la raíz del repo):
 """
 
 import csv
-import logging
 import sys
 from pathlib import Path
 

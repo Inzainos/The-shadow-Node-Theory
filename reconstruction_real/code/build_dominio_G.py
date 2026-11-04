@@ -65,7 +65,6 @@ Salida:
 Fractal Core Research | Tlaxcala, Mexico | 2026
 """
 
-import logging
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
