@@ -118,6 +118,9 @@ EN: Domain comparison table above.
 - 60 pares, mediana D2 1.65, Spearman emb 0.939
 - Distribución D2 mostrada arriba, integración macro completada
 
+**Muro de los 5 eventos**
+Umbral crítico en dominios digital y genómico: usuarios con <5 tipos de evento distintos tienen >90% probabilidad de churn; en TCGA, 2-5% de pacientes presentan ≥5 eventos hub simultáneos definiendo el 5-Event Wall. Es el equivalente de diversidad funcional mínima para escapar de la satelización.
+
 **Conclusiones**
 SNT funciona como marco descriptivo con incertidumbre cuantificada. No hay evidencia de régimen superlineal general. ACO-A muestra convergencia descriptiva condicionada a ventana de evento. |
 | `b ≥ 1` como régimen superlineal | No respaldada (error de selección AIC de 22,6% a 96,8%) |
