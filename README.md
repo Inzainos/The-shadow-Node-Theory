@@ -25,11 +25,15 @@ los CSV versionados con [`reconstruction_real/claims.yaml`](reconstruction_real/
 **Capa 1 — Trayectoria relativa**
 `R(t) = a·t^b` con `R(t)=métrica_hub / métrica_nodo`
 
+![Trayectorias](figures/trayectorias_Rt.png)
+
 **Capa 2 — Colapso orbital acoplado ACO-A**
 `A(τ) = c·τ^Δ`
 
 **Capa 3 — Campo de fricción φ**
 `φ: 𝒞 × T → ℝ⁺` , flujo `-∇_γ φ`
+
+![Campo φ](figures/campo_phi.png)
 
 **Utilidad:** diagnóstico descriptivo de deriva relativa, detección de cambios de régimen, y cuantificación de incertidumbre por dominio.
 
