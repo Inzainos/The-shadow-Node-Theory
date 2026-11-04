@@ -6,6 +6,14 @@ y el proyecto sigue [Versionado Semántico](https://semver.org/lang/es/).
 
 Las fechas corresponden a la integración de cada versión en la rama `main`.
 
+## [2.7.5] — 2026-11-04 (en desarrollo)
+
+### 2026-11-04 — Definición formal campo φ y pre-registro eje u
+
+- Definición matemática del campo de fricción φ en Axioma 0.1 de `papers/marco_teorico.md` (v2.7.5): `φ: 𝒞 × T → ℝ⁺`, flujo gradiente descendente `-∇_γ φ`, condiciones de borde `φ→∞`/`φ→0`, proxies candidatas (hazard rate, tiempo a absorción, fricción física, gradiente de potencial) y regla de admisión (continuo en tiempo, pre-colapso, invarianza en ≥2 dominios).
+- Pre-registro para nuevo candidato eje `u`: Entropía de Permutación (series cortas, Dominio B) y Dimensión de Correlación (series largas, Cripto) con compuertas A–D pre-especificadas. Script `reconstruction_real/code/eje_u_permutacion_dimcor.py` en desarrollo.
+- Actualización de `docs/pendientes-2.7.4.md` a estado v2.7.5.
+
 ## [2.7.4] — 2026-10-27
 
 ### 2026-10-27 — ADENDA 5, censura de delistados y utilidades compartidas

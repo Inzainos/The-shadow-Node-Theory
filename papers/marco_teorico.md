@@ -117,6 +117,30 @@ Instanciación de trabajo:
 
 Dos precisiones que viajan con esto. Primera: `φ` está **postulado, no medido**. Lo que existe hoy es fricción por dominio (categórica, los once dominios del README) y fricción por caso (ordinal 1–6, cohorte financiera 2008, n = 6). El propio ACO-A lo declara como pendiente prioritario: operacionalizar la fricción a lo largo de un camino. Segunda: la fricción es insumo definicional del modo de colapso (fricción × trigger × piso/techo), así que no puede formar parte del espacio donde se busque estructura de forma sin producir circularidad — ver cláusula 7.
 
+### Definición formal del campo de fricción φ (v2.7.5)
+
+El campo `φ: 𝒞 × T → ℝ⁺` asigna a cada estado `(u, m, τ)` del cubo y a cada instante `t` un valor de fricción instantánea.
+
+- **Interpretación física**: `φ(u, m, τ, t)` = resistencia local al cambio de estado; integra costos transaccionales, disipación, retardo de información, rigidez estructural.
+- **Principio de Mínima Fricción (ACO-A §5)**: La trayectoria del sistema `γ(t) = (u(t), m(t), τ(t))` sigue el flujo gradiente descendente de `φ`:
+  ```
+  dγ/dt = -∇_γ φ(γ(t), t)   +   ruido
+  ```
+  donde el ruido captura fluctuaciones del Axioma 0.
+- **Condiciones de borde**:
+  - `φ → ∞` en regiones inaccesibles (piso/techo del ACO-A).
+  - `φ → 0` en regiones de flujo libre (p.ej., epidemia sin contención).
+- **Medición candidata** (declarativa, no operativa aún):
+  1. **Hazard rate** `h(τ)` → `φ ∝ h(τ)` en dominios con absorción.
+  2. **Tiempo a absorción 90%** → `φ ∝ 1 / T_abs`.
+  3. **Fricción física** (Chandrasekhar, viscosidad de disco) en dominio astronómico.
+  4. **Gradiente de potencial** `∇V` donde `V` = energía libre / costo de transición (dominios socioeconómicos).
+
+**Regla de admisión (v2.7.5)**: Un proxy de `φ` entra al corpus cuando:
+  - Tiene definición operativa **continua en el tiempo** (no constante por dominio/caso).
+  - Se mide **antes** del colapso (no post-hoc).
+  - Pasa test de invarianza de proyección (Axioma 0.2) en ≥2 dominios.
+
 ## Axioma 0.2: La sombra — corolario observable del Axioma 0
 **Estatus: OBSERVABLE.** *(agregado v34)*
 
