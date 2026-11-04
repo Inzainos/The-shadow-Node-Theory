@@ -18,10 +18,11 @@ Esta corrida reconstruye `R(t) = PIBpc_hub / PIBpc_nodo` desde Maddison MPD2020 
 - Variación pasa: True
 
 ## Resumen Cripto D2
-- Casos: 19
-- Elegibles: 19
-- Mediana D2: 0.730
-- Mediana IQR D2: 0.227
+- Casos: 30
+- Elegibles: 30
+- Mediana D2 emb2: 0.803
+- Mediana IQR u^D2: 0.406
+- Mediana Spearman emb2/emb3: 0.985
 
 ## Próximos pasos
 - Calcular métricas por ventana deslizante para compuertas de invarianza A–D completas y decisión pre-especificada.

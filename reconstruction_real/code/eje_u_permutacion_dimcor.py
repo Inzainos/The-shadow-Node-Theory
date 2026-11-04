@@ -31,7 +31,8 @@ OUT_AUDIT = ROOT / "reconstruction_real" / "audits" / "RESULTADOS_EJE_U_PERMUTAC
 B_META = ROOT / "reconstruction_real" / "data" / "by_domain" / "dominio_B_real.csv"
 MADDISON = ROOT / "data" / "maddison_mpd2020.csv"
 CRYPTO_DIR = ROOT / "data" / "cripto"
-CRYPTO_META = CRYPTO_DIR / "casos_cripto.csv"
+CRYPTO_META = CRYPTO_DIR / "casos_binance.csv"
+BINANCE = ROOT / "data" / "binance_cierres_diarios.csv.gz"
 
 def sha256_path(p: Path) -> str:
     return sha256_file(str(p))
@@ -214,14 +215,26 @@ log.info(f"Casos escritos a {OUT_CASES}")
 OUT_CRYPTO_CASES = ROOT / "reconstruction_real" / "data" / "eje_u_dimcor_crypto_por_caso.csv"
 OUT_CRYPTO_SUMMARY = ROOT / "reconstruction_real" / "data" / "eje_u_dimcor_crypto_resumen.csv"
 
-log.info("Cargando casos cripto")
+log.info("Cargando casos cripto Binance")
 dfc_meta = pd.read_csv(CRYPTO_META)
+# cargar binance completo una vez
+log.info("Cargando datos Binance")
+binance = pd.read_csv(BINANCE, usecols=['par','fecha','close'])
+binance['fecha'] = pd.to_datetime(binance['fecha'], errors='coerce')
+binance = binance.dropna(subset=['fecha'])
+# índice por par
+binance_dict = {par: grp.sort_values('fecha')[['fecha','close']].reset_index(drop=True) for par, grp in binance.groupby('par')}
+
 crypto_rows = []
 for _, r in dfc_meta.iterrows():
     case_id = r['id']
-    coin_file = CRYPTO_DIR / r['coin_file']
+    coin_pair = r['coin_pair']
+    # R(t) = close_coin / close_BTCUSDT
     try:
-        dfc = pd.read_csv(coin_file, usecols=["Date","Close"])
+        df_coin = binance_dict.get(coin_pair)
+        df_btc = binance_dict.get('BTCUSDT')
+        if df_coin is None or df_btc is None:
+            raise ValueError("par no encontrado")
     except Exception as e:
         log.warning(f"{case_id} carga fallida: {e}")
         crypto_rows.append({
@@ -231,42 +244,56 @@ for _, r in dfc_meta.iterrows():
             "elegible": False,
             "motivo": "carga_fallida",
             "d2_mean": np.nan,
+            "d2_mean_emb3": np.nan,
+            "spearman_emb2_emb3": np.nan,
             "iqr_u": np.nan,
             "n_posiciones_validas": 0
         })
         continue
-    # limpiar
-    dfc["Date"] = pd.to_datetime(dfc["Date"], errors="coerce")
-    dfc = dfc.dropna(subset=["Close","Date"])
-    dfc = dfc.sort_values("Date")
-    prices = dfc["Close"].values.astype(float)
-    # eliminar ceros
-    prices = prices[prices>0]
-    logp = np.log(prices)
-    if len(logp) < 250:
+    # merge por fecha
+    merged = pd.merge(df_coin, df_btc, on='fecha', suffixes=('_coin','_btc'))
+    merged = merged.dropna(subset=['close_coin','close_btc'])
+    if len(merged) < 250:
         crypto_rows.append({
             "dominio": "Crypto",
             "id": case_id,
-            "n_observaciones": len(logp),
+            "n_observaciones": len(merged),
             "elegible": False,
             "motivo": "serie_corta",
             "d2_mean": np.nan,
+            "d2_mean_emb3": np.nan,
+            "spearman_emb2_emb3": np.nan,
             "iqr_u": np.nan,
             "n_posiciones_validas": 0
         })
         continue
-    d2_series = correlation_dimension_series(logp, window=200, m_emb=2, tau=1, r_frac=0.2)
-    valid = ~np.isnan(d2_series)
+    R = merged['close_coin'].values / merged['close_btc'].values
+    R = R[R>0]
+    logR = np.log(R)
+    # D2 con embedding 2 y 3 para invarianza
+    d2_series_2 = correlation_dimension_series(logR, window=200, m_emb=2, tau=1, r_frac=0.2)
+    d2_series_3 = correlation_dimension_series(logR, window=200, m_emb=3, tau=1, r_frac=0.2)
+    valid = ~np.isnan(d2_series_2) & ~np.isnan(d2_series_3)
     n_valid = int(valid.sum())
-    d2_mean = float(np.nanmean(d2_series)) if n_valid>0 else np.nan
-    iqr_u = float(np.nanpercentile(d2_series[valid],75)-np.nanpercentile(d2_series[valid],25)) if n_valid>0 else np.nan
+    if n_valid >= 12:
+        spearman, _ = spearmanr(d2_series_2[valid], d2_series_3[valid])
+    else:
+        spearman = np.nan
+    d2_mean_2 = float(np.nanmean(d2_series_2[valid])) if n_valid>0 else np.nan
+    d2_mean_3 = float(np.nanmean(d2_series_3[valid])) if n_valid>0 else np.nan
+    # u^D2_t = exp(D2_t)
+    u2 = np.exp(d2_series_2)
+    u3 = np.exp(d2_series_3)
+    iqr_u = float(np.nanpercentile(u2[valid],75)-np.nanpercentile(u2[valid],25)) if n_valid>0 else np.nan
     crypto_rows.append({
         "dominio": "Crypto",
         "id": case_id,
-        "n_observaciones": len(logp),
+        "n_observaciones": len(logR),
         "elegible": True,
         "motivo": "",
-        "d2_mean": d2_mean,
+        "d2_mean": d2_mean_2,
+        "d2_mean_emb3": d2_mean_3,
+        "spearman_emb2_emb3": float(spearman) if np.isfinite(spearman) else np.nan,
         "iqr_u": iqr_u,
         "n_posiciones_validas": n_valid
     })
@@ -280,7 +307,8 @@ crypto_summary = {
     "n_casos": len(df_crypto),
     "n_elegibles": int(df_crypto["elegible"].sum()),
     "mediana_d2": df_crypto["d2_mean"].median(),
-    "mediana_iqr": df_crypto["iqr_u"].median()
+    "mediana_iqr": df_crypto["iqr_u"].median(),
+    "mediana_spearman_emb": df_crypto["spearman_emb2_emb3"].median()
 }
 pd.DataFrame([crypto_summary]).to_csv(OUT_CRYPTO_SUMMARY, index=False)
 log.info(f"Cripto resumen escrito a {OUT_CRYPTO_SUMMARY}")
@@ -321,8 +349,9 @@ Esta corrida reconstruye `R(t) = PIBpc_hub / PIBpc_nodo` desde Maddison MPD2020 
 ## Resumen Cripto D2
 - Casos: {crypto_summary['n_casos']}
 - Elegibles: {crypto_summary['n_elegibles']}
-- Mediana D2: {crypto_summary['mediana_d2']:.3f}
-- Mediana IQR D2: {crypto_summary['mediana_iqr']:.3f}
+- Mediana D2 emb2: {crypto_summary['mediana_d2']:.3f}
+- Mediana IQR u^D2: {crypto_summary['mediana_iqr']:.3f}
+- Mediana Spearman emb2/emb3: {crypto_summary['mediana_spearman_emb']:.3f}
 
 ## Próximos pasos
 - Calcular métricas por ventana deslizante para compuertas de invarianza A–D completas y decisión pre-especificada.
