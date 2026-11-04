@@ -92,6 +92,8 @@ Cymatic representation of resonance patterns
 | E3 Epidémico | 234 | 233/234 | — | — |
 | Cripto | 60 | — | — | — |
 
+![Distribución D2 Cripto](figures/crypto_d2_hist.png)
+
 EN: Domain comparison table above.
 
 | Afirmación | Estado |
