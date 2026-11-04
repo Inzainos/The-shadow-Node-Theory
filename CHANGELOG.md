@@ -8,6 +8,14 @@ Las fechas corresponden a la integración de cada versión en la rama `main`.
 
 ## [2.7.5] — 2026-11-04 (en desarrollo)
 
+### 2026-11-04 — Refinamiento casos crypto, macro y alta frecuencia
+
+- Revisión calidad `data/binance_cierres_diarios.csv.gz`: sin missing ni duplicados; overlap real validado para casos base.
+- Integración indicadores macro en `data/cripto/macro/`: `imf_indicators.csv`, `worldbank_indicators.csv`, `un_sdg_indicators.csv`, `rpw_corridor_costs.csv` extraídos de `archive (9).zip`.
+- Alta frecuencia BTCUSD 1-min revisada en `data/zips/archive (20).zip`; archivo omitido del repo por tamaño >100 MB y referencia documentada.
+- Ampliación catálogo Cripto de 30 a 60 pares USDT vs BTCUSDT con overlap ≥200 días: `ALGOUSDT`, `DOGEUSDT`, `DUSKUSDT`, `ANKRUSDT`, `WINUSDT`, `MTLUSDT`, `CHZUSDT`, `BANDUSDT`, `XTZUSDT`, `RVNUSDT`, `HBARUSDT`, `EOSUSDT`, `KAVAUSDT`, `STXUSDT`, `ARPAUSDT`, `COSUSDT`, `IOTXUSDT`, `RLCUSDT`, `BCHUSDT`, `NULSUSDT`, `OGNUSDT`, `CVCUSDT`, `DENTUSDT`, `FUNUSDT`, `WANUSDT`, `BNTUSDT`, `LSKUSDT`, `MBLUSDT`, `COTIUSDT`, `CTSIUSDT`.
+- Re-ejecución eje u D2 con 60 casos: 60/60 elegibles, mediana D2 0.800, mediana IQR 0.407, mediana Spearman emb2/emb3 0.983.
+
 ### 2026-11-04 — Definición formal campo φ y pre-registro eje u
 
 - Definición matemática del campo de fricción φ en Axioma 0.1 de `papers/marco_teorico.md` (v2.7.5): `φ: 𝒞 × T → ℝ⁺`, flujo gradiente descendente `-∇_γ φ`, condiciones de borde `φ→∞`/`φ→0`, proxies candidatas (hazard rate, tiempo a absorción, fricción física, gradiente de potencial) y regla de admisión (continuo en tiempo, pre-colapso, invarianza en ≥2 dominios).
