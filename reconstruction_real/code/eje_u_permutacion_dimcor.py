@@ -7,7 +7,6 @@ Script determinista, sin red, con log y SHA-256.
 """
 
 import logging
-import math
 import sys
 from pathlib import Path
 
@@ -18,6 +17,11 @@ from scipy.stats import spearmanr
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT))
 from snt import configurar_log, sha256 as sha256_file
+from eje_u_metrics import (
+    correlation_dimension_pair_series,
+    effective_pattern_count,
+    permutation_entropy_series,
+)
 
 LOG_DIR = ROOT / "reconstruction_real" / "logs"
 LOG_FILE = LOG_DIR / "eje_u_permutacion_dimcor_2026-11-04.log"
@@ -43,88 +47,6 @@ for p in [B_META, MADDISON, CRYPTO_META]:
         log.info(f"{p}: {sha256_path(p)}")
     else:
         log.warning(f"{p} no existe")
-
-# Permutación helpers
-def permutation_entropy_window(series, m=3):
-    n = len(series)
-    if n < m:
-        return np.nan
-    patterns = []
-    for i in range(n - m + 1):
-        win = series[i:i+m]
-        pat = tuple(np.argsort(win))
-        patterns.append(pat)
-    from collections import Counter
-    cnt = Counter(patterns)
-    if not cnt:
-        return np.nan
-    probs = np.array(list(cnt.values()), dtype=float)
-    probs = probs / probs.sum()
-    # evitar log(0)
-    probs = probs[probs>0]
-    H = -np.sum(probs * np.log(probs))
-    H_norm = H / np.log(math.factorial(m)) if H>0 else 0.0
-    return float(H_norm)
-
-def permutation_entropy_series(series, m=3, window=20):
-    n = len(series)
-    if n < window:
-        return np.full(n, np.nan)
-    out = np.full(n, np.nan)
-    for i in range(window-1, n):
-        win = series[i-window+1:i+1]
-        out[i] = permutation_entropy_window(win, m=m)
-    return out
-
-def correlation_sum(distances, r):
-    if len(distances) == 0:
-        return np.nan
-    return np.mean(distances < r)
-
-def correlation_dimension_series(series, window=200, m_emb=2, tau=1, r_frac=0.1):
-    n = len(series)
-    if n < window:
-        return np.full(n, np.nan)
-    out = np.full(n, np.nan)
-    # normalizar serie a media 0 y std 1 para estabilidad
-    s = series - np.mean(series)
-    s = s / (np.std(s) + 1e-12)
-    for i in range(window-1, n):
-        win = s[i-window+1:i+1]
-        L = len(win)
-        if L < m_emb * tau + 1:
-            out[i] = np.nan
-            continue
-        # reconstrucción
-        N = L - (m_emb-1)*tau
-        if N < 10:
-            out[i] = np.nan
-            continue
-        # matriz de embedding
-        X = np.array([win[j:j+m_emb*tau:tau] for j in range(N)])
-        # distancias pareadas aproximadas con muestreo
-        # para velocidad, muestrear 400 puntos
-        sample_n = min(400, N)
-        idx = np.linspace(0, N-1, sample_n, dtype=int)
-        Xs = X[idx]
-        # distancias euclidianas
-        from scipy.spatial.distance import pdist
-        dists = pdist(Xs, metric='euclidean')
-        # rango de r
-        r_max = np.max(dists) * r_frac
-        if r_max <= 0:
-            out[i] = np.nan
-            continue
-        r1 = r_max * 0.5
-        r2 = r_max * 1.5
-        c1 = correlation_sum(dists, r1)
-        c2 = correlation_sum(dists, r2)
-        if c1 <= 0 or c2 <= 0 or c1 == c2:
-            out[i] = np.nan
-            continue
-        d2 = np.log(c2 / c1) / np.log(r2 / r1)
-        out[i] = float(d2)
-    return out
 
 # Carga real de Maddison
 log.info("Cargando Maddison")
@@ -184,8 +106,10 @@ for _, r in dfb.iterrows():
         continue
     # Series de entropía por ventana deslizante
     window = 20
-    u_m3 = permutation_entropy_series(logR, m=3, window=window)
-    u_m4 = permutation_entropy_series(logR, m=4, window=window)
+    pe_m3 = permutation_entropy_series(logR, m=3, window=window)
+    pe_m4 = permutation_entropy_series(logR, m=4, window=window)
+    u_m3 = effective_pattern_count(pe_m3, m=3)
+    u_m4 = effective_pattern_count(pe_m4, m=4)
     # Alinear posiciones válidas
     valid = ~np.isnan(u_m3) & ~np.isnan(u_m4)
     n_valid = int(valid.sum())
@@ -200,8 +124,10 @@ for _, r in dfb.iterrows():
         "n_observaciones": len(logR),
         "elegible": True,
         "motivo": "",
-        "pe_m3_series_mean": float(np.nanmean(u_m3)),
-        "pe_m4_series_mean": float(np.nanmean(u_m4)),
+        "pe_m3_series_mean": float(np.nanmean(pe_m3)),
+        "pe_m4_series_mean": float(np.nanmean(pe_m4)),
+        "u_pe_m3_series_mean": float(np.nanmean(u_m3)),
+        "u_pe_m4_series_mean": float(np.nanmean(u_m4)),
         "spearman_theta1_theta2": float(spearman) if np.isfinite(spearman) else np.nan,
         "iqr_u": iqr_u,
         "n_posiciones_validas": n_valid
@@ -271,8 +197,11 @@ for _, r in dfc_meta.iterrows():
     R = R[R>0]
     logR = np.log(R)
     # D2 con embedding 2 y 3 para invarianza
-    d2_series_2 = correlation_dimension_series(logR, window=200, m_emb=2, tau=1, r_frac=0.2)
-    d2_series_3 = correlation_dimension_series(logR, window=200, m_emb=3, tau=1, r_frac=0.2)
+    d2_series = correlation_dimension_pair_series(
+        logR, window=200, embeddings=(2, 3), tau=1
+    )
+    d2_series_2 = d2_series[2]
+    d2_series_3 = d2_series[3]
     valid = ~np.isnan(d2_series_2) & ~np.isnan(d2_series_3)
     n_valid = int(valid.sum())
     if n_valid >= 12:
@@ -353,9 +282,15 @@ Esta corrida reconstruye `R(t) = PIBpc_hub / PIBpc_nodo` desde Maddison MPD2020 
 - Mediana IQR u^D2: {crypto_summary['mediana_iqr']:.3f}
 - Mediana Spearman emb2/emb3: {crypto_summary['mediana_spearman_emb']:.3f}
 
+## Implementación conforme al pre-registro
+- `u^PE` se calcula como número efectivo de patrones (`exp(PE × log(m!))`):
+  m=3 para la métrica primaria y m=4 para la comparación de invarianza.
+- D2 se estima por regresión lineal de `log C(r)` sobre `log r` en 11 radios
+  equiespaciados entre `0.05σ` y `0.3σ`; ambos embeddings usan los mismos
+  radios por ventana, con `σ` de la serie en esa ventana.
+
 ## Próximos pasos
 - Calcular métricas por ventana deslizante para compuertas de invarianza A–D completas y decisión pre-especificada.
-- Refinar estimador D2 con muestreo adaptativo y rango r optimizado.
 """
 
 OUT_AUDIT.write_text(audit_md, encoding="utf-8")
