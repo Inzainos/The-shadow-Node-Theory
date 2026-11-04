@@ -1,4 +1,4 @@
-# Shadow Node Theory (SNT) · v2.7.5.1
+# Shadow Node Theory (SNT) · v2.7.5.1 https://doi.org/10.5281/zenodo.23958082
 
 [![Release](https://img.shields.io/badge/release-v2.7.5.1-6f42c1)](CHANGELOG.md)
 [![Marco teórico](https://img.shields.io/badge/marco-v34-0e8a8a)](papers/marco_teorico.md)
@@ -84,6 +84,7 @@ auditorías correspondientes — vive en
 
 ## Zenodo y SSRN
 
+- **Release v2.7.5.1:** [DOI 10.5281/zenodo.23958082](https://doi.org/10.5281/zenodo.23958082) — manifiesto `zenodo_manifest_v2.7.5.1.md`, eje u con integración macro, catálogo crypto 60 pares.
 - **Archivo versionado de v2.7.1 (histórico):**
   [DOI 10.5281/zenodo.23661819](https://doi.org/10.5281/zenodo.23661819) —
   snapshot del release 2.7.1 (2026-10-26), contiene los preregistros de la
