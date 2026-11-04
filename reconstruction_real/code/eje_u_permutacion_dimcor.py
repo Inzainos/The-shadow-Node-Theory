@@ -13,6 +13,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from scipy.stats import spearmanr
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT))
@@ -42,14 +43,7 @@ for p in [B_META, MADDISON, CRYPTO]:
         log.warning(f"{p} no existe")
 
 # Permutación helpers
-def permutation_pattern(x):
-    idx = np.argsort(x)
-    rank = np.empty_like(idx)
-    rank[idx] = np.arange(len(x))
-    # pattern como tupla
-    return tuple(rank.argsort().tolist())
-
-def permutation_entropy(series, m=3):
+def permutation_entropy_window(series, m=3):
     n = len(series)
     if n < m:
         return np.nan
@@ -58,13 +52,27 @@ def permutation_entropy(series, m=3):
         win = series[i:i+m]
         pat = tuple(np.argsort(win))
         patterns.append(pat)
-    # contar
     from collections import Counter
     cnt = Counter(patterns)
-    probs = np.array(list(cnt.values())) / len(patterns)
+    if not cnt:
+        return np.nan
+    probs = np.array(list(cnt.values()), dtype=float)
+    probs = probs / probs.sum()
+    # evitar log(0)
+    probs = probs[probs>0]
     H = -np.sum(probs * np.log(probs))
-    H_norm = H / np.log(math.factorial(m))
+    H_norm = H / np.log(math.factorial(m)) if H>0 else 0.0
     return float(H_norm)
+
+def permutation_entropy_series(series, m=3, window=20):
+    n = len(series)
+    if n < window:
+        return np.full(n, np.nan)
+    out = np.full(n, np.nan)
+    for i in range(window-1, n):
+        win = series[i-window+1:i+1]
+        out[i] = permutation_entropy_window(win, m=m)
+    return out
 
 # Carga real de Maddison
 log.info("Cargando Maddison")
@@ -115,29 +123,36 @@ for _, r in dfb.iterrows():
             "n_observaciones": 0,
             "elegible": False,
             "motivo": "serie_insuficiente",
-            "pe_m3": np.nan,
-            "pe_m4": np.nan,
+            "pe_m3_series_mean": np.nan,
+            "pe_m4_series_mean": np.nan,
             "spearman_theta1_theta2": np.nan,
-            "iqr_u": np.nan
+            "iqr_u": np.nan,
+            "n_posiciones_validas": 0
         })
         continue
-    # Permutación m=3 y m=4 sobre toda la serie
-    pe3 = permutation_entropy(logR, m=3)
-    pe4 = permutation_entropy(logR, m=4)
-    # Para demo, Spearman entre ventanas no implementada; usar correlación entre métricas
-    spearman = np.nan
-    # IQR simple de la serie logR como proxy de variación
-    iqr = float(np.percentile(logR, 75) - np.percentile(logR, 25))
+    # Series de entropía por ventana deslizante
+    window = 20
+    u_m3 = permutation_entropy_series(logR, m=3, window=window)
+    u_m4 = permutation_entropy_series(logR, m=4, window=window)
+    # Alinear posiciones válidas
+    valid = ~np.isnan(u_m3) & ~np.isnan(u_m4)
+    n_valid = int(valid.sum())
+    if n_valid >= 12:
+        spearman, _ = spearmanr(u_m3[valid], u_m4[valid])
+    else:
+        spearman = np.nan
+    iqr_u = float(np.nanpercentile(u_m3[valid], 75) - np.nanpercentile(u_m3[valid], 25)) if n_valid>0 else np.nan
     rows.append({
         "dominio": "B",
         "id": case_id,
         "n_observaciones": len(logR),
         "elegible": True,
         "motivo": "",
-        "pe_m3": pe3,
-        "pe_m4": pe4,
-        "spearman_theta1_theta2": spearman,
-        "iqr_u": iqr
+        "pe_m3_series_mean": float(np.nanmean(u_m3)),
+        "pe_m4_series_mean": float(np.nanmean(u_m4)),
+        "spearman_theta1_theta2": float(spearman) if np.isfinite(spearman) else np.nan,
+        "iqr_u": iqr_u,
+        "n_posiciones_validas": n_valid
     })
 
 df_out = pd.DataFrame(rows)

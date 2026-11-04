@@ -13,9 +13,9 @@ Dimensión de Correlación para Cripto pendiente de implementación completa.
 
 ## Resumen Dominio B (real)
 - Casos: 446
-- Mediana Spearman θ1/θ2: nan
-- Mediana IQR: 0.398
-- Invarianza pasa: False
+- Mediana Spearman θ1/θ2: 0.929
+- Mediana IQR: 0.169
+- Invarianza pasa: True
 - Variación pasa: True
 
 ## Próximos pasos
