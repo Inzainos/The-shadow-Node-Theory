@@ -289,3 +289,106 @@ El marco activo es **v34**; la información de cita está en
 no hagas commits directamente a `main`. Cada resultado nuevo debe incluir
 fuente, receta reproducible y límites de inferencia; registra los cambios en
 [`CHANGELOG.md`](CHANGELOG.md).
+
+## Evolución modular
+
+### Módulo 0 – Base SNT
+
+**Primera capa – Trayectoria relativa**
+`R(t)=a·t^b` con `R(t)=métrica_hub / métrica_nodo`. Ajuste log-log `log R = log a + b log t`.
+
+| b | Lectura descriptiva |
+|---|---|
+| b < 0 | Convergencia / leapfrog |
+| -0.1 < b ≤ 0.05 | Estado estacionario |
+| 0.05 < b ≤ 0.3 | Satelización gradual |
+| 0.3 < b < 1 | Satelización activa |
+| b ≥ 1 | Banda descriptiva no clasificada como superlineal |
+
+Figura: `figures/trayectorias_Rt.png`
+
+Umbral de activación 10-15%. Trigger abrupto vs gradual.
+
+**Definiciones nodales**
+Nodo Hub: absorbe energía productiva residual y aumenta masa gravitacional.
+Nodo Sombra: producción extraída sistemáticamente, divergencia progresiva.
+Proximidad Crítica: umbral de extracción > regeneración.
+
+**Taxonomía cinco niveles**
+
+| Nivel | Función |
+|---|---|
+| 0 Macro-Hub Central | Absorción unidireccional, limitante K_max, respuesta inmunológica |
+| 1 Atractores Secundarios | Preferential attachment propio, drenado por Nivel 0 |
+| 2 Bypass Logístico | Intercepta desbordamiento del Nivel 0, crecimiento parasitario |
+| 3 Nodos Sombra Profundo | Extracción unidireccional, flujo compuesto w(N3→N1)+w(N3→N0) |
+| E Exógeno | Inyecciones externas, exogeneidad dimensional |
+
+Figura: distribución de ley de potencia `figures/trayectorias_Rt.png`
+
+**Nodo Atómico**
+RQ recursos cuantitativos extractables, RL cualitativos inherentes.
+
+`ASI = δH·α / F`
+
+| Componente | Fórmula | Lectura |
+|---|---|---|
+| δH | -sum(p_i log2 p_i) normalizado [0,1] | Diversidad de problemas |
+| α | eventos_autónomos / total | Autonomía de decisión |
+| F | tanh(std/mean/2) | Caos interno |
+
+Umbral ASI>1 define soberanía.
+Figura: `figures/campo_phi.png`
+
+**Muro de 5 eventos**
+5-Event Wall: pico de churn en ~5 eventos. Survival-Style Chart define umbral de activación en primera sesión.
+
+**Dataset EFIPEM 1989-2025**
+Ratio Nacional/Estado para Ingresos y Egresos.
+62 ajustes, media b = -0.049, mediana -0.074.
+b>0: 19 casos, b<0: 43 casos, b≥1: 0.
+Ingresos media -0.054, Egresos media -0.045.
+Resultado: convergencia fiscal relativa dominante, sin superlinealidad ni ACO calificable.
+
+### Módulo 1 – ACO-A
+
+**Criterio ACO**
+1. Extinción funcional del hub o nodo
+2. Absorción de recursos por nodo específico identificable
+`A(τ)=c·τ^Δ`
+
+**Formas de colapso**
+
+| Modo | Característica |
+|---|---|
+| Regulado | Suave, no acelerante |
+| Craquelado | Quiebres por fricción |
+| Caída a piso | Asintota operacional |
+| Acantilado catastrófico | Super-exponencial |
+| Barrido logístico | Captura de nicho |
+
+Ratio de Roche, ventanas cortas de colapso vs ventanas largas régimen superlineal.
+Colapso lento que tiende a colapso.
+
+Figura: `figures/fig_aco_v29_absorption.svg`
+
+Hallazgo RC1: b≥1 no identifica régimen superlineal por sí solo; requiere persistencia. Error de selección AIC supera umbral 20%.
+
+Corpus ACO 18 casos verificados, figuras `figures/fig_aco_v29_absorption.svg`.
+
+### Módulo 2 – Tela de incertidumbre
+
+Capa de proyección θ=(B,V,ρ,W,λ). Tono φ.
+
+| Métrica | Valor |
+|---|---|
+| Trayectorias tela | 740 |
+| Series reales | 699 |
+| Sombras | 41 |
+| LOO dominio | 50.7% |
+| LOO tono φ | 66.2% |
+
+Figuras: `figures/tela_incertidumbre.png`, `figures/tela_simática.png`
+
+Cimática del colapso: familias morfológicas de colapso sin atribuir causalidad vibratoria.
+Cubo ontológico especulativo fuera del cuerpo axiomático.
