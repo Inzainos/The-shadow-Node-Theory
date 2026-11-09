@@ -1,0 +1,70 @@
+seccion,banco,usd_sep2026,gs_sep2026,total_usd_equiv_sep2026,share_sep2026,R_X_sep2026,nota1,nota2
+base_sep2026,BNF,198114826,5829356879704,1169674306,0.2707,0.3712,,
+base_sep2026,UENO,233400495,3608550782201,834825625,0.1932,0.2395,,
+base_sep2026,CONTINENTAL,291360220,2541046715747,714868006,0.1655,0.1983,,
+base_sep2026,ITAU,87092466,1690942621832,368916236,0.0854,0.0934,,
+base_sep2026,SUDAMERIS,1554767,1660616856221,278324243,0.0644,0.0689,,
+base_sep2026,BASA,98878656,1001224420888,265749393,0.0615,0.0655,,
+base_sep2026,ZETA,25706001,868713035537,170491507,0.0395,0.0411,,
+base_sep2026,BANCOP,7230824,714261897557,126274474,0.0292,0.0301,,
+base_sep2026,CITIBANK,18077610,532489226170,106825814,0.0247,0.0254,,
+base_sep2026,GNB,32753267,329566544211,87681024,0.0203,0.0207,,
+base_sep2026,INTERFISA,4992671,422237975256,75365667,0.0174,0.0178,,
+base_sep2026,FAMILIAR,10029837,332843340373,65503727,0.0152,0.0154,,
+base_sep2026,ATLAS,10274886,220053270274,46950431,0.0109,0.0110,,
+base_sep2026,SOLAR,442933,35462497406,6353349,0.0015,0.0015,,
+base_sep2026,NACION ARG,1086269,7971539548,2414859,0.0006,0.0006,,
+base_sep2026,DO BRASIL,91775,255468097,134353,0.0000,0.0000,,
+A_igual_7,BNF,,,1288935110,0.2983,0.4252,R_antes=0.3712,"recibe=119,260,804 USD equiv"
+A_igual_7,CONTINENTAL,,,834128810,0.1931,0.2393,R_antes=0.1983,"recibe=119,260,804 USD equiv"
+A_igual_7,ITAU,,,488177040,0.1130,0.1274,R_antes=0.0934,"recibe=119,260,804 USD equiv"
+A_igual_7,SUDAMERIS,,,397585047,0.0920,0.1014,R_antes=0.0689,"recibe=119,260,804 USD equiv"
+A_igual_7,GNB,,,206941828,0.0479,0.0503,R_antes=0.0207,"recibe=119,260,804 USD equiv"
+A5_igual_5,BNF,,,1336639431,0.3094,0.4480,R_antes=0.3712,"recibe=166,965,125 USD equiv"
+A5_igual_5,CONTINENTAL,,,881833131,0.2041,0.2565,R_antes=0.1983,"recibe=166,965,125 USD equiv"
+A5_igual_5,ITAU,,,535881361,0.1240,0.1416,R_antes=0.0934,"recibe=166,965,125 USD equiv"
+A5_igual_5,SUDAMERIS,,,445289368,0.1031,0.1149,R_antes=0.0689,"recibe=166,965,125 USD equiv"
+A5_igual_5,GNB,,,254646149,0.0589,0.0626,R_antes=0.0207,"recibe=166,965,125 USD equiv"
+B_proporcional_5,BNF,,,1542450627,0.3570,0.5553,R_antes=0.3712,"recibe=372,776,321 USD equiv"
+B_proporcional_5,CONTINENTAL,,,942697124,0.2182,0.2791,R_antes=0.1983,"recibe=227,829,118 USD equiv"
+B_proporcional_5,ITAU,,,486490194,0.1126,0.1269,R_antes=0.0934,"recibe=117,573,958 USD equiv"
+B_proporcional_5,SUDAMERIS,,,367026446,0.0850,0.0928,R_antes=0.0689,"recibe=88,702,203 USD equiv"
+B_proporcional_5,GNB,,,115625051,0.0268,0.0275,R_antes=0.0207,"recibe=27,944,026 USD equiv"
+C_un_solo_receptor,BNF,,,2004499931,0.4640,0.8656,R_antes=0.3712,"recibe=834,825,625 USD equiv"
+C_un_solo_receptor,CONTINENTAL,,,1549693631,0.3587,0.5593,R_antes=0.1983,"recibe=834,825,625 USD equiv"
+
+fgd_concepto,monto_Gs,monto_USD_equiv,referencia,estado,,,,
+tope_por_depositante,228300000,38050,"75 SM; SM implicito Gs 3,044,000; Ley 2334/03",documentado
+anticipo_maximo,10000000,1667,Ley 7745/2026; 4.38% del tope; max 72h,documentado
+tope_vs_exposicion_IPS_pct,0.011246,,228.3M / Gs 2.03 billones,documentado
+tope_vs_fondos_Ueno_CSV_pct,0.004558,,228.3M / Gs 5.009 billones (CSV sep 2026),documentado
+tope_vs_fondos_Ueno_ABC_pct,0.00445,,228.3M / Gs 5.13 billones (ABC 855M USD),documentado
+
+ips_concepto,monto_Gs,monto_USD,referencia,estado,,,,
+exposicion_total_sep2026,2030000000000,348500000,v2 §8; 41.7% de fondos Ueno (CSV),documentado
+cartera_total_implicita_ESTIMADO,20927835051546,,2.03 billones / 9.70% (30 oct 2026),ESTIMADO
+tope_10pct_cartera_ESTIMADO,2092783505155,,10% de la cartera implicita,ESTIMADO
+inventario_CDA_Gs_implicito,8131979695431,,1.602 billones / 19.7%,derivado
+inventario_CDA_USD_implicito,,137478697,27.427M / 19.95%,derivado
+
+embargo_concepto,monto_Gs,monto_USD_equiv,referencia,estado,,,,
+embargo_USD,420000000000,70000000,"Juzgado Civil y Comercial 8vo Turno, 3 nov 2026",documentado
+embargo_Gs_1,1621853458972,270308910,mismo embargo,documentado
+embargo_Gs_costas,58639000000,9773167,mismo embargo,documentado
+embargo_total_Gs_equiv,2100492458972,350082076,"a FX 6,000",documentado
+embargo_vs_Derechos_Fiduciarios_pct,-0.2493,,2.1005 / 2.1057 billones; coincidencia numerica,documentado
+embargo_USD_equiv_vs_exposicion_IPS_USD,1.0045,,350.08M / 348.5M; coincidencia numerica,documentado
+
+fecha_hito,fecha,descripcion,estado,,,,,
+resolucion_BCP,2026-11-02,Solvencia 5.56%; Roche-S 0.463; trigger/reconocimiento,documentado
+detencion_8_directivos,2026-11-03,documentado (parteaguas v2 §9.1),documentado
+embargo_preventivo,2026-11-03,"USD 70M + Gs 1,621,853,458,972 + Gs 58,639,000,000",documentado
+imputacion_27_personas,2026-11-04,"lesion de confianza, tentativa de estafa, libros, conducta indebida en crisis",documentado
+anticipo_FGD_limite_72h,2026-11-05,2 nov + 72h; hasta Gs 10M,documentado
+denuncia_penal_MEF,2026-11-05,"Gs 250,000M Caja Fiscal + Gs 123,838M intereses; presunta malversacion",documentado
+balance_exclusion_limite_15d,2026-11-17,2 nov + 15 dias; plazo maximo,documentado
+primer_pago_jubilados,2026-11-17,"32,000 jubilados a reasignar; sin eleccion en primera instancia",documentado
+Nota_BCP_P_019_fecha,,denuncia a Fiscalia + informe ~200 fojas; fecha no documentada en las fuentes,HUECO
+informe_Senado_31_fojas_fecha,,respuesta a cinco pedidos de informes; fecha no documentada; NO precisa fecha ni monto del exceso,HUECO
+vencimientos_CDA_IPS,,cronograma de vencimientos de los CDA del IPS en Ueno; no documentado,HUECO
+monto_total_pago_FGD,,numero de depositantes de Ueno no documentado; fondo total del FGD no documentado,HUECO

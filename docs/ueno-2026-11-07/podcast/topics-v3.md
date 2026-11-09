@@ -1,0 +1,23 @@
+# Temas del episodio — GUION CORREGIDO v3 (podcast backcast Ueno Bank)
+
+Fecha: 2026-11-09. Staging: `~/workspace/ueno-correccion-2026-11-09/podcast/topics-v3.md`
+Base: `topics-v2.md` (13 viñetas). Fuente: `modelo-ueno-resultados-v2.md` (Apéndice C.2) +
+tabla maestra vigente (31 meses con R) + `REVISION_DOCUMENTOS_UENO.md` (2026-11-09).
+AUDIO NO REGRABADO: `episodio-v2.mp3` sigue con los números v1 retirados; regrabación
+pendiente de decisión de Elán. Los 10 cambios del Apéndice C.2 de v2, que `topics-v2.md`
+no tenía aplicados, están aplicados aquí, más las actualizaciones v3 (meseta −0,010,
+serie completa 0,823, 31 meses con R).
+
+- Versión corregida v3 del backcast con los resultados del modelo: la tabla maestra aprobada tal como está (45 filas, 31 meses con R en v3 — 30 en v2 — todos con PDF) y todos los números pasados por las fórmulas. GAP H-5: el conteo de PDFs en NOTAS es inconsistente (38 archivos en disco, 39 filas marcadas MEF PDF; dic 2023 sin archivo local); pendiente de la v3 del modelo, no se resuelve aquí.
+- Números finales: R(t) noviembre de 2024 en 0.0963 (no 0.110, ancla retirada con FX mezclado; Ueno 298,7M / sistema 3.398,8M); R(t) noviembre de 2025 en 0.2643 (CSV; 0.264 en el texto v2) frente a 0.274 (ancla retirada); cruce Roche-R en diciembre de 2024, R = 0.1021. b ventana dic 2024–nov 2025: extremo a extremo 0.383 / OLS 0.436 (R² = 0,873, n=12).
+- Los tres regímenes de b: gradual 0.288 pre-Roche, activa 0.383/0.436 en la ventana, empinada 0.802 en la segunda mitad (0.906 era artefacto del origen del reloj, RETIRADO como valor de ventana), meseta −0.010 en v3 (+0.031 en v2, n=10 vs n=9, R² ≈ 0,001, sin tendencia medible en ambos casos); serie completa 0.823 en v3 (0.819 en v2, n=31 vs n=30); b depende del reloj (0.802 con origen dic 2024, 0.344 con origen local abr 2025, 0.906 solo con el reloj viejo nov 2024); b IPS 2.93 sobre r_ips (sin cambio).
+- Malversación: la versión dos sí usa la palabra; denuncia penal del MEF del 5 de noviembre de 2026 por presunta malversación; imputación a 27 personas el 4 de noviembre; distinción entre plano analítico y plano jurídico. Inicio sin fecha: existe la Nota BCP/P N.° 019 y un informe de 31 fojas al Senado, pero ese informe no precisa ni la fecha ni el monto del exceso, así que ni siquiera es seguro que el Informe BCP/P N.° 016 lo feche. GAP C-37: la procedencia de la Nota 019 / informe de 31 fojas no está en las 7 fuentes verificadas.
+- Ratio de Roche: no se define ni se fecha en el informe; el backcast es la aproximación; fragilidad, trigger y cadena.
+- Bandas de Roche con números del modelo: Roche-C (base IPS) cruzada en noviembre de 2024 (1.06) y Roche-R en diciembre de 2024 (0.1021) — YA NO el mismo mes; Roche-C base fondos totales: 1.08 dic 2024, 1.89 dic 2025, ≈2.08 mar 2026 (PE abr 2026 como proxy, aproximado); Roche-S reconocida el 2 de noviembre de 2026 en 0.463; las tres cruzadas, colapso completo con trigger legal.
+- Phi en cinco pasos fechados (paso 1: puntaje 65→60, 9 nov 2023; paso 2: 12 nov 2024); circuito de las salvadoras del 29 de abril de 2026 y las tres pruebas de identificación; salvadoras Gs 905,825M ≈ USD 153M según cifra citada sin FX (151,0M a FX 6.000), 35% del PE, PE implícito Gs 2,59 billones (+4,9% sobre el ancla abr 2026); USD 146M a vinculadas: 39,8% del PE dic 2025 y 35,5% del PE abr 2026.
+- ASI, Índice de Soberanía Atómica: evaluación documental 0/5 jubilados, 0/4 ahorristas, 0/5 organismos; la fórmula δH·α/F no se calculó; ACO-A por oferta competitiva y adjudicación; delta no estimable.
+- Five-event-wall-by-phi: cinco eventos negativos (los pasos de phi), cero positivos, nadie con la diversidad para saltar; el leapfrog vigente es b menor que cero y salto al Nivel Exógeno (NO se redefine como "5 eventos positivos"); la reconciliación queda como pregunta abierta.
+- Absorción: tope FGD igual a 0.011 por ciento de la exposición del IPS; embargo total casi igual a los Derechos Fiduciarios; meseta detenida por saturación (IPS en 9.70 por ciento el 30 oct 2026, tope 10 por ciento), no por intervención.
+- Preguntas abiertas: inicio de la malversación solo con el Informe BCP/P 016 (con la salvedad de la Nota 019 arriba), Roche-C mensual, delta, reconciliación del leapfrog, caída de diciembre de 2025 sin explicación.
+- Cadena posterior: embargo del 3 de noviembre, detenciones, imputaciones, denuncia del MEF, crisis política, 32,000 jubilados por trasladar.
+- Comparador: CAME, México 2025, concurso mercantil en febrero de 2026 — NO VERIFICABLE en el modelo v2; fuente parteaguas v2 / comparativo global. Las fechas 5 jun, 15 jun y 24 jul 2026 del guion tampoco son verificables en v2 (fuente parteaguas v2); se conservan marcadas, no como verificadas.
