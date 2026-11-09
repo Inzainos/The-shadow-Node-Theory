@@ -1,0 +1,50 @@
+fecha,R_csv,R_recalculada,diferencia,fuente,R_mayor_0_10,R_mayor_0_20
+2024-02,0.0284,0.0284,-0.0000,MEF PDF,0,0
+2024-03,0.0319,0.0319,+0.0000,MEF PDF,0,0
+2024-04,0.0332,0.0332,-0.0000,MEF PDF,0,0
+2024-05,0.0346,0.0346,-0.0000,MEF PDF,0,0
+2024-06,0.0338,0.0338,+0.0000,MEF PDF,0,0
+2024-07,0.0610,0.0610,-0.0000,MEF PDF,0,0
+2024-09,0.0777,0.0777,-0.0000,MEF PDF,0,0
+2024-11,0.1100,0.1098,-0.0002,ancla-documento,1,0
+2025-04,0.1396,0.1396,-0.0000,MEF PDF,1,0
+2025-05,0.1628,0.1628,-0.0000,MEF PDF,1,0
+2025-06,0.1706,0.1706,-0.0000,MEF PDF,1,0
+2025-07,0.2079,0.2079,-0.0000,MEF PDF,1,1
+2025-08,0.2457,0.2457,-0.0000,MEF PDF,1,1
+2025-09,0.2467,0.2467,+0.0000,MEF PDF,1,1
+2025-10,0.2670,0.2670,+0.0000,MEF PDF,1,1
+2025-11,0.2643,0.2643,-0.0000,MEF PDF,1,1
+2025-12,0.2280,0.2280,-0.0000,MEF PDF,1,1
+2026-02,0.2357,0.2357,-0.0000,MEF PDF,1,1
+2026-04,0.2543,0.2543,-0.0000,MEF PDF,1,1
+2026-05,0.2254,0.2254,-0.0000,MEF PDF,1,1
+2026-06,0.2246,0.2246,-0.0000,MEF PDF,1,1
+2026-07,0.2306,0.2306,+0.0000,MEF PDF,1,1
+2026-08,0.2161,0.2161,-0.0000,MEF PDF,1,1
+2026-09,0.2395,0.2395,+0.0000,MEF PDF,1,1
+
+ajuste,ventana,metodo,origen_t,n,b,a,R2,lectura_modulo0
+a,nov 2024 -> nov 2025,"extremo a extremo, anclajes doc (0.110->0.274)",t=1 nov 2024,2,0.3558,,,satelizacion activa
+a',nov 2024 -> nov 2025,"extremo a extremo, valores CSV (0.110->0.2643)",t=1 nov 2024,2,0.3418,,,satelizacion activa
+b,abr - nov 2025,OLS log-log,t=1 nov 2024 (t=6..13),8,0.9058,0.0278,0.9553,satelizacion activa (pendiente local)
+b',abr - nov 2025,OLS log-log (sensibilidad origen local),t=1 abr 2025,8,0.3438,0.1316,0.9415,satelizacion activa
+c,dic 2025 - sep 2026 (meseta),OLS log-log,t=1 nov 2024 (t=14..23),8,-0.0462,0.2652,0.0247,estado estacionario
+c',dic 2025 - sep 2026 (meseta),OLS log-log (sensibilidad origen local),t=1 dic 2025,8,-0.012,0.2352,0.0296,estado estacionario
+d,feb - jul 2024 (pre-Roche),OLS log-log,t=1 feb 2024,6,0.2876,0.0262,0.503,satelizacion gradual (ajuste debil)
+e,feb 2024 - sep 2026 (completa),OLS log-log,t=1 feb 2024,24,0.8133,0.0165,0.911,satelizacion activa (resumen grueso)
+e',feb 2024 - sep 2026 (solo PDF),OLS log-log,t=1 feb 2024,23,0.8136,0.0165,0.9109,satelizacion activa
+IPS,2023 - 2025 (anual),"OLS log-log sobre r_ips (0.0101, 0.0917, 0.2453)",t=1 2023,3,2.9337,0.0106,0.9954,b>=1 banda descriptiva no clasificada
+
+roche,fecha,valor,umbral,estado
+Roche-R,2024-11,0.11,>0.10,primer cruce
+Roche-R,2025-06/07,0.2,>0.20,"cruce ~24 jun 2025 (interp. lineal, conv. inicio de mes)"
+Roche-C,2024-11,1.06,>1.0,entrada
+Roche-C,2024-12,1.12,>1.0,sector publico
+Roche-C,2024-12 (cierre),1.13,>1.0,
+Roche-C,2025-10-31,1.17,>1.0,maximo fechado
+Roche-C,2025-12 (cierre),1.02,>1.0,minimo fechado
+Roche-S,2026-03,1.2508,<0.50,15.01%/12%
+Roche-S,2026-06,1.2083,<0.50,14.5%/12%
+Roche-S,2026-09,1.1542,<0.50,13.85%/12%
+Roche-S,2026-11-02,0.4633,<0.50,5.56%/12% - reconocimiento legal

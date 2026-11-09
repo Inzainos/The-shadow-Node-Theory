@@ -1,0 +1,3 @@
+dominio,n_casos,etiqueta,log_m_tau0,log_m_tau25,log_m_tau50,log_m_tau75,log_m_tau100,log_m_max_mediana,amp_A1_mediana,amp_A2_mediana,amp_A3_mediana
+UENO,1,"Ueno Bank 2026 (caso real, vivo)",-0.990974,-0.769332,-0.633786,-0.647146,-0.620694,-0.575197,2.06532,1.325549,0.437651
+UENO,1,Ueno Bank 2026 (sensibilidad feb 2024-sep 2026),-1.546682,-1.107905,-0.768021,-0.671213,-0.620694,-0.573489,5.92618,2.297506,2.139373
