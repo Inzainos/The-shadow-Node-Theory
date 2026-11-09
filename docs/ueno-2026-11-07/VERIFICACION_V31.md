@@ -88,8 +88,7 @@ max_diff_R=0.000050
 
 ## (b) grep de la frase retirada en el staging
 
-Ocurrencias en los documentos: **1** (no 0), y es la esperada. (Los dos archivos de registro del cambio, `CAMBIOS_V31.md` y este `VERIFICACION_V31.md`, citan la frase entre comillas como constancia de lo retirado; no son documentos del caso.)
-- `REVISION_DOCUMENTOS_UENO.md:41` (§1.3, tabla de inventario): cita histórica de lo que decía el archivo original de rastro al auditarse. El cuerpo de la auditoría no se reescribió, por orden expresa de la tarea. En todos los documentos v3.1 la frase está retirada (rastro: línea eliminada + nota v3.1; README: sin ocurrencias).
+Ocurrencias en los documentos: **0** tras el scrub del padre antes del push (la cita histórica que quedaba en `REVISION_DOCUMENTOS_UENO.md:41` fue sustituida por "[anotación personal retirada en v3.1]"). Los archivos de registro del cambio citan el retiro sin reproducir la frase. En todos los documentos v3.1 la frase está retirada (rastro: línea eliminada + nota v3.1; README: sin ocurrencias).
 
 ## (c) Nombres de personas físicas restantes, con su atribución
 
