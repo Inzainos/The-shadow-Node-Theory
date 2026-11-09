@@ -1,6 +1,6 @@
 # Temas del episodio — GUION CORREGIDO v3 (podcast backcast Ueno Bank)
 
-Fecha: 2026-11-09. Staging: `~/workspace/ueno-correccion-2026-11-09/podcast/topics-v3.md`
+Fecha: 2026-11-09. Staging: `docs/ueno-2026-11-07/podcast/topics-v3.md`
 Base: `topics-v2.md` (13 viñetas). Fuente: `modelo-ueno-resultados-v2.md` (Apéndice C.2) +
 tabla maestra vigente (31 meses con R) + `REVISION_DOCUMENTOS_UENO.md` (2026-11-09).
 AUDIO NO REGRABADO: `episodio-v2.mp3` sigue con los números v1 retirados; regrabación

@@ -1,6 +1,6 @@
 # NOTA — ueno-huella-cimatica.csv (copia de registro Ueno v3, 2026-11-09)
 
-- Archivo original: snt-taxonomia/ueno-huella-cimatica.csv
+- Archivo original: docs/ueno-2026-11-07/ueno-huella-cimatica.csv
 - Versión: sin fecha interna ni número de versión declarado
 - Estado: copia byte a byte, SIN CAMBIOS respecto al original. Sin cabecera dentro del CSV (rompería el formato); esta nota es el archivo acompañante.
 - Fecha de la copia: 2026-11-09

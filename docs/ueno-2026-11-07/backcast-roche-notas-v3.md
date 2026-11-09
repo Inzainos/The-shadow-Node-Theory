@@ -1,6 +1,6 @@
 # Backcast Roche — notas sobre el cuarto documento (v3 CORREGIDA)
 
-**Fecha: 2026-11-09. Staging: `~/workspace/ueno-correccion-2026-11-09/backcast-roche-notas-v3.md`**
+**Fecha: 2026-11-09. Staging: `docs/ueno-2026-11-07/backcast-roche-notas-v3.md`**
 **Base:** `backcast-roche-notas.md` (84 líneas, 2026-11-06/07) — estructura conservada; solo se
 sustituyen los números v1 retirados y las listas pre-v2 por los valores vigentes.
 **Fuentes:** `modelo-ueno-resultados-v2.md` + tabla maestra vigente
@@ -21,7 +21,7 @@ sustituyen los números v1 retirados y las listas pre-v2 por los valores vigente
 - La verificación de Mole de 2026-11-06 queda actualizada: su ✓ a "nov 2024 R 0,110 (ancla)"
   era pre-corrección v2; el valor vigente es 0,0963.
 
-Fuente: `~/workspace/user/files/backcast-roche-ueno_4_54ov.md`
+Fuente: `fuentes del autor (no incluidas en el repo)backcast-roche-ueno_4_54ov.md`
 Título: "BACKCAST — ¿Cuándo inició el fallo y cuándo entró Ueno al ratio de Roche?"
 Fecha base: 2026-11-06/07; corrección v3: 2026-11-09. Base: tabla maestra (45 filas) + notas. Es la "aproximación aparte" que la v2 del parteaguas decía que era el paso siguiente.
 

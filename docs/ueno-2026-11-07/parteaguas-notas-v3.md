@@ -1,6 +1,6 @@
 # El parteaguas — notas sobre el tercer documento de Ueno (v3 CORREGIDA)
 
-**Fecha: 2026-11-09. Staging: `~/workspace/ueno-correccion-2026-11-09/parteaguas-notas-v3.md`**
+**Fecha: 2026-11-09. Staging: `docs/ueno-2026-11-07/parteaguas-notas-v3.md`**
 **Base:** `parteaguas-notas.md` (82 líneas) — estructura conservada; solo se corrigen el bloque
 "Lo que confirma" (C-24), φ paso 1 (C-28), "triplica" (C-29) y precisiones marcadas [v3].
 La sección VERSIÓN 2 del original, que ya estaba actualizada, se conserva verbatim.
@@ -19,7 +19,7 @@ La sección VERSIÓN 2 del original, que ya estaba actualizada, se conserva verb
 
 # El parteaguas — notas sobre el tercer documento de Ueno
 
-Fuente: `~/workspace/user/files/analisis-completo-parteaguas-ueno_2_s54f.md`
+Fuente: `fuentes del autor (no incluidas en el repo)analisis-completo-parteaguas-ueno_2_s54f.md`
 Título: "El parteaguas: análisis completo de la concentración, los nodos sombra y el colapso del hub en el caso Ueno Bank". Subido por Elán 2026-11-06 noche, con "Mira".
 
 ## Tesis

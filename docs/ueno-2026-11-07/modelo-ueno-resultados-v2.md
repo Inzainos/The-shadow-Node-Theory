@@ -1,5 +1,5 @@
 # COPIA DE REGISTRO — Ueno v3 (corrección 2026-11-09)
-# Archivo original: snt-taxonomia/modelo-ueno-resultados-v2.md
+# Archivo original: docs/ueno-2026-11-07/modelo-ueno-resultados-v2.md
 # Versión: v2
 # Estado: archivo de registro — SIN CAMBIOS respecto al original. Cuerpo intacto; solo se añadió esta cabecera.
 # Fecha de la copia: 2026-11-09

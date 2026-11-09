@@ -1,9 +1,10 @@
 # Rastro del dinero — caso Ueno Bank (Paraguay) (v3 CORREGIDA)
 
-**Fecha: 2026-11-09. Staging: `~/workspace/ueno-correccion-2026-11-09/rastro-del-dinero-ueno-v3.md`**
+**Fecha: 2026-11-09. Staging: `docs/ueno-2026-11-07/rastro-del-dinero-ueno-v3.md`**
 **Base:** `rastro-del-dinero-ueno.md` (65 líneas, 2026-11-07) — estructura conservada; solo se
 corrigen la etiqueta C-27 y las dos imprecisiones heredadas de v2 (FX de USD 153M y
 "excedente USD 146M"). Lo verificado se conserva verbatim.
+**Nota v3.1:** se retiró una anotación personal del autor por recomendación de auditoría (Claude, 2026-11-09); el contenido analítico no cambia.
 **Fuentes:** `modelo-ueno-resultados-v2.md` + `tabla-maestra-ueno-mef.csv` (recomputación propia
 2026-11-09) + `REVISION_DOCUMENTOS_UENO.md` (2026-11-09, §2.7, §3.3, C-27). No se tocó el
 original, no se subió nada a GitHub.
@@ -20,7 +21,6 @@ original, no se subió nada a GitHub.
 
 # Rastro del dinero — caso Ueno Bank (Paraguay)
 
-**Fractal Core Research — PARAGUAY SÍ SE PUEDE COMPARTIR Y EXPONER (decisión de Elán, 2026-11-07 ~03:17: "a los de Paraguay sí quémalos").** Lo interno y sin publicar es el mapeo MUNDIAL del dinero, no el de Paraguay.
 **Fecha:** 2026-11-07
 **Fuentes (verificadas):** tabla maestra MEF v2 (`tabla-maestra-ueno-mef.csv`, 38 PDFs), backcast v2 (`modelo-ueno-resultados-v2.md`), forecast 2026-11-06 (`forecast-ueno-2026-11-06.md`), "El parteaguas" v2. Todas las cifras salen de esos documentos; nada nuevo, nada inventado.
 
@@ -58,7 +58,7 @@ original, no se subió nada a GitHub.
 
 ## 4. Lo que se congeló (embargo — 3 nov 2026)
 
-**Gs 2.1005 billones** en total (a FX 6,000): USD 70M + Gs 1,621,853,458,972 + Gs 58,639,000,000 de costas. Contra U Paraguay S.A., U Holdings S.A.R.L., Grupo Vázquez S.A.E., Federico Miguel Vázquez Villasanti, Juan Manuel Gustale, Diana Leticia Mongelós González + cuatro directores.
+**Gs 2.1005 billones** en total (a FX 6,000): USD 70M + Gs 1,621,853,458,972 + Gs 58,639,000,000 de costas. Según la orden de embargo del 3 nov 2026, contra U Paraguay S.A., U Holdings S.A.R.L., Grupo Vázquez S.A.E., Federico Miguel Vázquez Villasanti, Juan Manuel Gustale, Diana Leticia Mongelós González + cuatro directores.
 
 El embargo ≈ Derechos Fiduciarios −0.25% (coincidencia numérica, registrada como tal). El embargo congela, no cobra.
 

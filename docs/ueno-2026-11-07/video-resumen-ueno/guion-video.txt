@@ -1,7 +1,7 @@
-# COPIA DE REGISTRO — Ueno v3 (corrección 2026-11-09)
-# Archivo original: snt-taxonomia/video-resumen-ueno/guion-video.txt
+# COPIA v3.1 — Ueno (corrección 2026-11-09; v3.1: salvaguarda hablable y guarda descriptiva por recomendación de auditoría, Claude 2026-11-09)
+# Archivo original: docs/ueno-2026-11-07/video-resumen-ueno/guion-video.txt
 # Versión: sin número de versión declarado; guion resumen
-# Estado: archivo de registro — SIN CAMBIOS respecto al original. Cuerpo intacto; solo se añadió esta cabecera.
+# Estado: cuerpo original v2 conservado salvo los cambios v3.1 listados en CAMBIOS_V31.md. Los números siguen siendo los v2 del guion original; su actualización a v3 queda pendiente fuera de esta v3.1.
 # Fecha de la copia: 2026-11-09
 # md5 original: 7beef5344cbb7e3e9fec44defde53acd
 # sha256 original: 8a4a65fcaab18571b6753ad95142fc838879726778d005b10b2e45a0c703a00d
@@ -17,13 +17,13 @@
 # Estructura: (0) intro · (1-2) backcast · (3-5) forma en la tela · (6) forecast · (7) EFIPEM · (8) cierre
 
 [MOLE — 0 · INTRO · plano: tarjeta de título]
-Ueno Bank, Paraguay. En noviembre de dos mil veintiséis, el Banco Central resolvió el banco por insolvencia. Pero el colapso no empezó ese día. Este video resume, con los datos, cuándo se rompió, qué forma tuvo y qué va a pasar. Todo sale de la tabla maestra del Ministerio de Economía y Finanzas: treinta meses con dato, verificada fila por fila.
+Ueno Bank, Paraguay. En noviembre de dos mil veintiséis, el Banco Central resolvió el banco por insolvencia. Antes de empezar: la malversación es presunta, denunciada e investigada; no hay sentencia. El motivo oficial fue la insolvencia. Pero el colapso no empezó ese día. Este video resume, con los datos, cuándo se rompió, qué forma tuvo y qué va a pasar. Todo sale de la tabla maestra del Ministerio de Economía y Finanzas: treinta meses con dato, verificada fila por fila.
 
 [MOLE — 1 · BACKCAST A · plano: gráfica R(t)]
 La razón que lo mide todo es erre de te: los fondos públicos en Ueno divididos entre los del resto del sistema. En febrero de dos mil veinticuatro era cero punto cero dos ocho. En julio saltó a cero punto cero seis uno, un ochenta punto cinco por ciento en un mes, con la fusión con Visión. En noviembre estaba en cero punto cero nueve seis tres, y en diciembre cruzó cero punto diez, en cero punto uno cero dos uno. Esa es la entrada a la banda de Roche relativa, y coincide con el mes en que empezó la captura masiva de certificados: entre diciembre de dos mil veinticuatro y marzo de dos mil veinticinco entraron mil setecientos cincuenta y cinco mil trescientos cuatro millones de guaraníes de fondeo, y el noventa y uno punto setenta y cinco por ciento no fue a préstamos.
 
 [MOLE — 2 · BACKCAST B · plano: tarjeta de las tres bandas]
-La deriva, la be, entre diciembre de dos mil veinticuatro y noviembre de dos mil veinticinco da cero punto tres ocho tres de extremo a extremo y cero punto cuatro tres seis por mínimos cuadrados. Es un descriptor de la ventana, no una prueba de mecanismo. Después la deriva se detuvo: de diciembre de dos mil veinticinco a septiembre de dos mil veintiséis la be es cero punto cero tres uno, sin tendencia medible. El freno fue la saturación: el I P S llegó al nueve punto setenta por ciento de su cartera y dejó de colocar. Las tres bandas se cruzaron: concentración en noviembre de dos mil veinticuatro, ruptura relativa en diciembre, y solvencia el dos de noviembre de dos mil veintiséis, cuando cayó de trece punto ochenta y cinco a cinco punto cincuenta y seis por ciento en un mes. Esa fecha es el reconocimiento, no el inicio. Y la malversación sigue siendo presunta, denunciada e investigada, no sentenciada.
+La deriva, la be, entre diciembre de dos mil veinticuatro y noviembre de dos mil veinticinco da cero punto tres ocho tres de extremo a extremo y cero punto cuatro tres seis por mínimos cuadrados. Es un descriptor de la ventana, no una prueba de mecanismo. Después la deriva se detuvo: de diciembre de dos mil veinticinco a septiembre de dos mil veintiséis la be es cero punto cero tres uno, sin tendencia medible. Esa meseta, con pocos puntos y un ajuste casi nulo, solo respalda que no hay tendencia, no una estructura. Y todo esto es un solo caso, leído a posteriori, sin grupo de comparación, sin nulo y sin preregistro: las bandas describen, no validan. El freno fue la saturación: el I P S llegó al nueve punto setenta por ciento de su cartera y dejó de colocar. Las tres bandas se cruzaron: concentración en noviembre de dos mil veinticuatro, ruptura relativa en diciembre, y solvencia el dos de noviembre de dos mil veintiséis, cuando cayó de trece punto ochenta y cinco a cinco punto cincuenta y seis por ciento en un mes. Esa fecha es el reconocimiento, no el inicio. Y la malversación sigue siendo presunta, denunciada e investigada, no sentenciada.
 
 [MOLE — 3 · TELAS A · plano: trayectoria ACO-A]
 La forma del caso se lee en la tela. En el plano de fase y masa, la trayectoria de Ueno sube y se estaciona, sin converger al uno como los colapsos del corpus. Pero eso es el proxy, no la forma: normalizada por su propio máximo, Ueno converge igual que ellos, de cero punto cuatro uno seis a cero punto cero cuatro cinco, y su distancia al centroide cae a cero punto cuatro nueve, el mínimo del rango.

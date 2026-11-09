@@ -1,5 +1,5 @@
 # COPIA DE REGISTRO — Ueno v3 (corrección 2026-11-09)
-# Archivo original: snt-taxonomia/ueno-acoa-tela-cimatica-incertidumbre.md
+# Archivo original: docs/ueno-2026-11-07/ueno-acoa-tela-cimatica-incertidumbre.md
 # Versión: sin número de versión v1/v2; marco SNT v2.7.5.1 / marco v34
 # Estado: archivo de registro — SIN CAMBIOS respecto al original. Cuerpo intacto; solo se añadió esta cabecera.
 # Fecha de la copia: 2026-11-09
@@ -15,7 +15,7 @@
 `tela_de_incertidumbre.py` (m = R, τ = (t−t_min)/(t_max−t_min), u = NULL).
 Script: `/tmp/ueno_tela.py` (numpy/pandas/matplotlib/scipy; dos corridas
 idénticas). **Nada de esto toca el repo**: los archivos del repo se leen,
-no se modifican; todas las salidas están en `~/workspace/snt-taxonomia/`.
+no se modifican; todas las salidas están en `docs/ueno-2026-11-07/`.
 
 ## 0. Lo que se verificó en el repo ANTES de calcular
 

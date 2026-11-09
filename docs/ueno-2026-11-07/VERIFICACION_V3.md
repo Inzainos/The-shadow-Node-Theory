@@ -1,6 +1,6 @@
 # Verificación v3 del modelo Ueno — salida de `verificar_v3.py`
 
-**Fecha:** 2026-11-09. **Script:** `verificar_v3.py` (Python stdlib, sin dependencias externas), en este mismo directorio de staging. **Fuente:** `~/workspace/snt-taxonomia/tabla-maestra-ueno-mef.csv` (tabla vigente, 45 filas, 07 nov 10:48). **Método:** R(t) = `ueno_total_usd_equiv / (total_sistema_usd_equiv − ueno_total_usd_equiv)`, con verificación cruzada desde los componentes crudos (USD×6,000 + Gs); OLS log-log (log R = log a + b log t) por ventana, con origen de t declarado; (c′) en calendario y en secuencial.
+**Fecha:** 2026-11-09. **Script:** `verificar_v3.py` (Python stdlib, sin dependencias externas), en este mismo directorio de staging. **Fuente:** `docs/ueno-2026-11-07/tabla-maestra-ueno-mef.csv` (tabla vigente, 45 filas, 07 nov 10:48). **Método:** R(t) = `ueno_total_usd_equiv / (total_sistema_usd_equiv − ueno_total_usd_equiv)`, con verificación cruzada desde los componentes crudos (USD×6,000 + Gs); OLS log-log (log R = log a + b log t) por ventana, con origen de t declarado; (c′) en calendario y en secuencial.
 
 ## Comparación: lo publicado en v3 vs lo recomputado
 

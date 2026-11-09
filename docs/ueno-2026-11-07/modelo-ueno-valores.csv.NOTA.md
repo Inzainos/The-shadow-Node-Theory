@@ -1,6 +1,6 @@
 # NOTA — modelo-ueno-valores.csv (copia de registro Ueno v3, 2026-11-09)
 
-- Archivo original: snt-taxonomia/modelo-ueno-valores.csv
+- Archivo original: docs/ueno-2026-11-07/modelo-ueno-valores.csv
 - Versión: v1
 - Estado: copia byte a byte, SIN CAMBIOS respecto al original. Sin cabecera dentro del CSV (rompería el formato); esta nota es el archivo acompañante.
 - Fecha de la copia: 2026-11-09

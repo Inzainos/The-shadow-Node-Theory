@@ -1,9 +1,9 @@
 # Verificación — Forecast CSV v3 y copias de registro Ueno v3
 
-Fecha: 2026-11-09. Staging: `~/workspace/ueno-correccion-2026-11-09/`.
-Fuentes leídas completas (Regla 0): `snt-taxonomia/auditoria-terminos/REVISION_DOCUMENTOS_UENO.md`
-(564 líneas), `snt-taxonomia/forecast-ueno-valores.csv`, `snt-taxonomia/forecast-ueno-2026-11-06.md`.
-No se modificó nada en `~/workspace/snt-taxonomia/` ni en el espacio SNT. No se subió nada a GitHub. No se crearon chats.
+Fecha: 2026-11-09. Staging: `docs/ueno-2026-11-07/`.
+Fuentes leídas completas (Regla 0): `auditoria-terminos/ (no incluido en el repo)REVISION_DOCUMENTOS_UENO.md`
+(564 líneas), `docs/ueno-2026-11-07/forecast-ueno-valores.csv`, `docs/ueno-2026-11-07/forecast-ueno-2026-11-06.md`.
+No se modificó nada en `docs/ueno-2026-11-07/` ni en el espacio SNT. No se subió nada a GitHub. No se crearon chats.
 
 ## Tarea 1 — forecast-ueno-valores-v3.csv
 

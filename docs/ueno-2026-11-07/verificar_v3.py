@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Verificacion v3 del modelo Ueno (stdlib, sin dependencias externas).
 
-Lee ~/workspace/snt-taxonomia/tabla-maestra-ueno-mef.csv y recomputa:
+Lee tabla-maestra-ueno-mef.csv, en la misma carpeta que este script, y recomputa:
   - R(t) = ueno_total_usd_equiv / (total_sistema_usd_equiv - ueno_total_usd_equiv)
     para las 31 filas con R, comparada con la columna R_t del CSV, y tambien
     desde los componentes crudos (USD*6000 + Gs).
@@ -20,9 +20,9 @@ PDF). La numeracion secuencial 1..n es la que v1/v2 aplicaron de hecho en
 """
 import csv
 import math
-import os
+from pathlib import Path
 
-CSV = os.path.expanduser("~/workspace/snt-taxonomia/tabla-maestra-ueno-mef.csv")
+CSV = Path(__file__).parent / "tabla-maestra-ueno-mef.csv"
 FX = 6000
 
 

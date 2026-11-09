@@ -1,5 +1,5 @@
 # COPIA DE REGISTRO — Ueno v3 (corrección 2026-11-09)
-# Archivo original: snt-taxonomia/tabla-maestra-NOTAS-v1.md
+# Archivo original: docs/ueno-2026-11-07/tabla-maestra-NOTAS-v1.md
 # Versión: v1
 # Estado: archivo de registro — SIN CAMBIOS respecto al original. Cuerpo intacto; solo se añadió esta cabecera.
 # Fecha de la copia: 2026-11-09
@@ -10,8 +10,8 @@
 
 Fecha: 2026-11-06/07. Fuente primaria: MEF Paraguay, Informe de Bancos (Dirección General del Tesoro Público).
 Documento base: `fondos-publicos-ueno-bank-adquisicion-datos-SNT-v2751__1__1_1e9t.md` (Paso 1 + Paso 6 del plan de adquisición).
-Tabla: `~/workspace/snt-taxonomia/tabla-maestra-ueno-mef.csv` (45 filas, ene 2023 – sep 2026).
-PDF: `~/workspace/snt-taxonomia/mef-informe-bancos/` (30 archivos `MEF_Informe_Bancos_AAAA-MM.pdf` + `download_log.csv` + `txt/` con el texto extraído).
+Tabla: `docs/ueno-2026-11-07/tabla-maestra-ueno-mef.csv` (45 filas, ene 2023 – sep 2026).
+PDF: `mef-informe-bancos/ (no incluido en el repo)` (30 archivos `MEF_Informe_Bancos_AAAA-MM.pdf` + `download_log.csv` + `txt/` con el texto extraído).
 
 Reglas aplicadas (del documento): R(t) = fondos públicos en Ueno / fondos públicos en el resto del sistema
 (total menos Ueno). Series MEF / ABC / IPS en columnas separadas, sin mezclar definiciones. Tipo de cambio
@@ -161,16 +161,16 @@ presentar ese panorama backcast (encargo aparte, no hecho aquí).
 
 ## 10. Archivos
 
-- Tabla: `~/workspace/snt-taxonomia/tabla-maestra-ueno-mef.csv`
-- Notas: `~/workspace/snt-taxonomia/tabla-maestra-NOTAS.md` (este archivo)
-- PDFs: `~/workspace/snt-taxonomia/mef-informe-bancos/` (30 PDF + `download_log.csv` + `txt/`)
+- Tabla: `docs/ueno-2026-11-07/tabla-maestra-ueno-mef.csv`
+- Notas: `docs/ueno-2026-11-07/tabla-maestra-NOTAS.md` (este archivo)
+- PDFs: `mef-informe-bancos/ (no incluido en el repo)` (30 PDF + `download_log.csv` + `txt/`)
 - Scripts (reproducibilidad, en /tmp, no entregables): `/tmp/parse_mef.py`, `/tmp/parse_archivo.py`,
   `/tmp/build_master.py`, `/tmp/download_mef.py`, `/tmp/dl_archivo.py`, `/tmp/probe_folders.py`,
   `/tmp/probe_archivo.py`. El CSV se regenera con `python3 /tmp/build_master.py` (lee `txt/`).
 
 ## 11. Añadido: cifras IPS del tercer documento ("El parteaguas")
 
-Documento: `~/workspace/user/files/analisis-completo-parteaguas-ueno_2_s54f.md` ("El parteaguas",
+Documento: `fuentes del autor (no incluidas en el repo)analisis-completo-parteaguas-ueno_2_s54f.md` ("El parteaguas",
 análisis completo de concentración, nodos sombra y colapso del hub en Ueno Bank). El CSV ya estaba cerrado
 cuando llegó; por instrucción expresa estas cifras van en NOTAS, no en la tabla. Fuente de todas ellas:
 auditoría de la Contraloría General de la República (CGR) vía ABC Color, 2026-09-15,

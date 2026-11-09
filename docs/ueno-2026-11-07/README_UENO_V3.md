@@ -1,13 +1,15 @@
 # Ueno Bank — Corrección v3 (7 de noviembre de 2026)
 
+**Corrección v3.1 (2026-11-09, por orden de Elán; auditoría de Claude a la rama v3):** ver `CAMBIOS_V31.md`. Cambia solo lo necesario para los 3 problemas de Claude: (1) `verificar_v3.py` lee el CSV junto al script y se retiran las rutas locales; (2) se retiró una anotación personal del autor del rastro y se añadió atribución explícita y salvaguarda hablable en los tres guiones; (3) las conclusiones del backcast/bandas se reformulan como descriptivas. El resto es byte a byte la v3.
+
 **Fecha de la corrección:** 2026-11-09
 **Orden del autor (Elán, WhatsApp 2026-11-09 ~12:37):** corregir y subir todo lo que se usó en Ueno el 7 de nov; después él lo pasará por otros 2 filtros antes de integrar.
-**Alcance de este staging:** `~/workspace/ueno-correccion-2026-11-09/` — solo texto UTF-8, sin binarios.
-**NO se tocó:** `~/workspace/snt-taxonomia/` (originales intactos), el espacio SNT, ni `main` de ningún repo.
+**Alcance de este staging:** `docs/ueno-2026-11-07/` — solo texto UTF-8, sin binarios.
+**NO se tocó:** `docs/ueno-2026-11-07/` (originales intactos), el espacio SNT, ni `main` de ningún repo.
 **NO se subió nada a GitHub desde aquí:** el push lo hace el agente padre. No se crearon chats.
 **Regla aplicada:** NUNCA ASUMAS, SIEMPRE VERIFICA contra documentación, no contra memoria. Lo NO VERIFICABLE se marca GAP, nunca se inventa.
 
-Base: auditoría completa `REVISION_DOCUMENTOS_UENO.md` (564 líneas, 113.134 B, incluida en este staging, md5 `36b8cac1ed2916d7a6ad7561fa1f18fe`, idéntica al original en `~/workspace/snt-taxonomia/auditoria-terminos/`).
+Base: auditoría completa `REVISION_DOCUMENTOS_UENO.md` (564 líneas, 113.134 B, incluida en este staging, md5 `36b8cac1ed2916d7a6ad7561fa1f18fe`, idéntica al original en `auditoria-terminos/ (no incluido en el repo)`).
 
 ## Números vigentes v3 (recomputados, ver `VERIFICACION_V3.md`)
 

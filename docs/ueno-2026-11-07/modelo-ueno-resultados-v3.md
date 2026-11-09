@@ -149,7 +149,7 @@ Tabla de lectura del Módulo 0 (README): b < 0 convergencia / leapfrog; −0.1 <
 
 **Verificación del b IPS del documento (2.93):** sin cambio respecto a v1 y v2. OLS log-log sobre **r_ips** (0.0101, 0.0917, 0.2453; t=1,2,3) da **b = 2.934, R² = 0.995** — reproduce el 2.93. Sobre participaciones (1.0%, 8.4%, 19.7%) da 2.752 (R² = 0.992) y sobre montos en Gs da 2.762 (R² = 0.994). **Conclusión: el 2.93 es el ajuste sobre r_ips (la forma de razón, coherente con R(t)), no sobre participaciones.** En cualquier caso b ≥ 1 es banda descriptiva no clasificada (n=3 puntos anuales); NO es prueba de superlinealidad.
 
-**Lectura conjunta de b (corregida en v3 solo en la meseta y en la serie completa):** la deriva no fue uniforme. Antes de Roche (feb–jul 2024) era gradual (b ≈ 0.29, R² = 0.50 — ajuste débil, dominado por el salto de jul 2024). En la ventana dic 2024–nov 2025 fue activa (b ≈ 0.44 por OLS, 0.38 de extremo a extremo), y dentro de ella la segunda mitad se empinó (b local ≈ 0.80 con el origen consistente, R² = 0.96). Después de nov 2025 la deriva se detuvo: la meseta tiene b ≈ −0.01 con R² = 0.001, es decir, **sin tendencia medible**. El ajuste de toda la serie (b ≈ 0.82, R² = 0.91) resume tres regímenes distintos en un solo número y no debe usarse solo: esconde el salto, la aceleración y la meseta. **La corrección de v3 no invierte la historia de v2, la precisa:** la ventana completa pasa de 0.819 (n=30) a 0.823 (n=31); la meseta pasa de +0.031 (n=9) a −0.010 (n=10); la deriva sigue siendo satelización activa hasta nov 2025 y meseta después.
+**Lectura conjunta de b (corregida en v3 solo en la meseta y en la serie completa):** la deriva no fue uniforme. Antes de Roche (feb–jul 2024) era gradual (b ≈ 0.29, R² = 0.50 — ajuste débil, dominado por el salto de jul 2024). En la ventana dic 2024–nov 2025 fue activa (b ≈ 0.44 por OLS, 0.38 de extremo a extremo), y dentro de ella la segunda mitad se empinó (b local ≈ 0.80 con el origen consistente, R² = 0.96). Después de nov 2025 la deriva se detuvo: la meseta tiene b ≈ −0.01 con R² = 0.001, es decir, **sin tendencia medible**. El ajuste de toda la serie (b ≈ 0.82, R² = 0.91) resume tres regímenes distintos en un solo número y no debe usarse solo: esconde el salto, la aceleración y la meseta. Además es un descriptor de una serie acumulativa con autocorrelación fuerte: sin n_eff ni comparación contra un nulo, es un descriptor, no una prueba. **La corrección de v3 no invierte la historia de v2, la precisa:** la ventana completa pasa de 0.819 (n=30) a 0.823 (n=31); la meseta pasa de +0.031 (n=9) a −0.010 (n=10); la deriva sigue siendo satelización activa hasta nov 2025 y meseta después.
 
 ## 3. Roche-R (relativa): R(t) > 0.10
 
@@ -273,6 +273,8 @@ Sin cambio de fondo respecto a v2; solo se actualiza la referencia a la meseta.
 
 ## 10. Las bandas determinan el colapso
 
+**Guarda v3.1 (lectura descriptiva, Claude 2026-11-09):** todo lo que sigue en esta sección es una lectura descriptiva de un solo caso, leída a posteriori sobre un caso ya ocurrido. No hay grupo de comparación, ni nulo, ni preregistro: las bandas y el backcast describen, no validan. La meseta (n=10, R² = 0.0007) solo respalda "sin tendencia", no una estructura. El b = 0.8234 de la serie completa es un descriptor de una serie acumulativa con autocorrelación fuerte, no una prueba.
+
 **Hipótesis de trabajo (Elán):** cuando se cruza el ratio de Roche, las bandas cruzadas — una, dos, tres — determinan cómo se despliega el colapso. En Ueno se cruzaron las tres; el resultado fue colapso total con trigger legal. Las lecturas de una o dos bandas son **hipótesis de trabajo, no mediciones**.
 
 | Banda | Definición | Cruce | Valor |
@@ -288,6 +290,8 @@ Sin cambio de fondo respecto a v2; solo se actualiza la referencia a la meseta.
 **Contrafactuales (hipótesis, no mediciones):** con solo Roche-C (concentración sin deriva relativa) el sistema podría haber estabilizado en una captura lenta; con Roche-C + Roche-R (sin Roche-S) la absorción habría sido ordenada pero sin trigger legal; con las tres, el colapso fue total con trigger legal y embargo. Ninguno de estos escenarios es medible con los datos disponibles.
 
 ## 11. Qué muestran los modelos (lectura corregida en v3)
+
+**Guarda v3.1 (lectura descriptiva, Claude 2026-11-09):** todo lo que sigue en esta sección es una lectura descriptiva de un solo caso, leída a posteriori sobre un caso ya ocurrido. No hay grupo de comparación, ni nulo, ni preregistro: las bandas y el backcast describen, no validan. La meseta (n=10, R² = 0.0007) solo respalda "sin tendencia", no una estructura. El b = 0.8234 de la serie completa es un descriptor de una serie acumulativa con autocorrelación fuerte, no una prueba.
 
 1. **La captura ocurrió en un año y luego se detuvo sola por saturación.** R pasó de 0.1021 (dic 2024) a 0.2643 (nov 2025), ×2.6 en 11 meses (b ≈ 0.44 por OLS). Después, b ≈ −0.01 (n=10, R² = 0.001): la meseta dic 2025–sep 2026 no tiene tendencia medible. El freno fue el tope del 10% del IPS (9.70% al **30 oct 2026** — año corregido en v3, v2 decía 2025; sin nuevas colocaciones en 2026), no una intervención. **Corrección: la ventana es dic 2024–nov 2025 (b 0.383/0.436), no nov 2024–nov 2025 (0.356 retirado).**
 2. **La deriva tuvo tres regímenes y el número único los esconde.** Gradual (feb–jul 2024, b ≈ 0.29, ajuste débil) → activa (dic 2024–nov 2025, b ≈ 0.44; segunda mitad b ≈ 0.80) → meseta (dic 2025–sep 2026, b ≈ −0.01, n=10). El ajuste de toda la serie (b ≈ 0.82, n=31, R² = 0.91) es un resumen grueso: no debe citarse solo.
@@ -317,6 +321,8 @@ Sin cambio de fondo respecto a v2; solo se actualiza la referencia a la meseta.
 | Cruce económico de Roche-S | **No fechable** con datos públicos (solvencia reportada > 12% hasta sep 2026; salto a 5.56% en nov 2026 tras previsiones). |
 
 ## 13. El backcast v3 — la escalera desde el 2 nov 2026
+
+**Guarda v3.1 (lectura descriptiva, Claude 2026-11-09):** todo lo que sigue en esta sección es una lectura descriptiva de un solo caso, leída a posteriori sobre un caso ya ocurrido. No hay grupo de comparación, ni nulo, ni preregistro: las bandas y el backcast describen, no validan. La meseta (n=10, R² = 0.0007) solo respalda "sin tendencia", no una estructura. El b = 0.8234 de la serie completa es un descriptor de una serie acumulativa con autocorrelación fuerte, no una prueba.
 
 El backcast es el recorrido inverso: desde el cruce del 2 nov 2026 hacia atrás, peldaño por peldaño, por las anomalías fechadas, hasta la ventana de inicio. Cada peldaño es un hecho documentado con fecha; la escalera no interpola entre peldaños. **Sin cambio de peldaños respecto a v2.** Mar 2026 (R = 0.2662) no añade peldaño: cae dentro de la meseta, no cruza ninguna banda y no es un hecho fechado nuevo de la escalera; la secuencia de bandas no cambia con él (ver §10).
 
